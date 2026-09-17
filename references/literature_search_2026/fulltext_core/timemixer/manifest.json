@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "generated_at": "2026-09-13T06:09:56.699Z",
+  "request": {
+    "topic": "",
+    "title": "TimeMixer Decomposable Multiscale Mixing for Time Series Forecasting",
+    "dois": [],
+    "pdf_url": "https://openreview.net/pdf?id=7oLshfEIC2",
+    "si_requested": false,
+    "language_override": "",
+    "route_override": "",
+    "source_url": "",
+    "api_fallback_web": null,
+    "api_fallback_web_for": [],
+    "no_api_fallback_web_for": []
+  },
+  "summary": {
+    "total": 1,
+    "downloaded": 0,
+    "seconds": 2.6
+  },
+  "results": [
+    {
+      "title": "TimeMixer Decomposable Multiscale Mixing for Time Series Forecasting",
+      "status": "pdf_fetch_failed",
+      "url": "https://openreview.net/pdf?id=7oLshfEIC2",
+      "err": "login_or_error_page",
+      "si_requested": false
+    }
+  ]
+}

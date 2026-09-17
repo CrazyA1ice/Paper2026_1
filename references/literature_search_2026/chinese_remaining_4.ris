@@ -1,0 +1,71 @@
+TY  - JOUR
+AU  - 任烈弘
+AU  - 黄铝文
+AU  - 田旭
+AU  - 段飞
+TI  - 基于DFT的频率敏感双分支Transformer多变量长时间序列预测方法
+JO  - 计算机应用
+PY  - 2024
+DO  - 10.11772/j.issn.1001-9081.2023091320
+UR  - https://www.joca.cn/CN/10.11772/j.issn.1001-9081.2023091320
+KW  - 多变量时间序列预测
+KW  - 频域
+KW  - DFT
+KW  - Transformer
+DB  - 维普/期刊官网
+ER  -
+
+TY  - JOUR
+AU  - 范艺扬
+AU  - 张洋
+AU  - 曾尚
+AU  - 曾渝
+AU  - 付茂栗
+TI  - 基于分解和频域特征提取的多变量长时间序列预测模型
+JO  - 计算机应用
+PY  - 2024
+UR  - https://www.joca.cn/CN/abstract/abstract26582.shtml
+KW  - 多变量长时间序列预测
+KW  - 频域特征提取
+KW  - Gabor变换
+KW  - 分解
+DB  - CNKI/期刊官网
+ER  -
+
+TY  - JOUR
+AU  - 潘金伟
+AU  - 王乙乔
+AU  - 钟博
+AU  - 王晓玲
+TI  - 基于统计特征搜索的多元时间序列预测方法
+JO  - 电子与信息学报
+PY  - 2024
+VL  - 46
+IS  - 8
+SP  - 3276
+EP  - 3284
+DO  - 10.11999/JEIT231264
+UR  - https://jeit.ac.cn/cn/article/doi/10.11999/JEIT231264
+KW  - 多元时间序列
+KW  - 统计特征
+KW  - 长期依赖
+KW  - 注意力机制
+DB  - 万方/期刊官网
+ER  -
+
+TY  - JOUR
+AU  - 张晗
+TI  - 用于多元时间序列预测的图神经网络模型
+JO  - 浙江大学学报（工学版）
+PY  - 2024
+VL  - 58
+IS  - 12
+SP  - 2500
+EP  - 2509
+DO  - 10.3785/j.issn.1008-973X.2024.12.009
+UR  - https://www.zjujournals.com/eng/article/2024/1008-973X/20241209.shtml
+KW  - 多元时间序列预测
+KW  - 图神经网络
+KW  - 动态依赖
+DB  - 维普/期刊官网
+ER  -

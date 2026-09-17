@@ -1,0 +1,2 @@
+comparison,n_paired_seeds,better_mse_mean,reference_mse_mean,relative_mse_reduction_percent,mean_paired_difference,ci95_low,ci95_high,paired_t,p_value_uncorrected,cohen_dz
+proposed_adaptive vs proposed_static,3,0.18944748242696127,0.19680900871753693,3.7404417300536434,0.0073615262905756635,-0.0017699571148238188,0.016493009695975145,3.468668756550419,0.07400582111561356,2.002636840324029

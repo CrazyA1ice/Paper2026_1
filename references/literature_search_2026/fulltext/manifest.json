@@ -1,0 +1,169 @@
+{
+  "version": 2,
+  "generated_at": "2026-09-13T06:07:55.723Z",
+  "request": {
+    "topic": "",
+    "title": "",
+    "dois": [
+      "10.1609/aaai.v37i9.26317",
+      "10.1109/JIOT.2022.3181807",
+      "10.1038/s44172-023-00081-4",
+      "10.1002/itl2.314",
+      "10.1002/ett.4394",
+      "10.1109/MNET.2023.3335952",
+      "10.1109/ICCIA55271.2022.9828411",
+      "10.1109/TITS.2022.3232518",
+      "10.1016/j.patcog.2024.111037",
+      "10.1016/j.ins.2023.119557"
+    ],
+    "pdf_url": "",
+    "si_requested": false,
+    "language_override": "",
+    "route_override": "",
+    "source_url": "",
+    "api_fallback_web": null,
+    "api_fallback_web_for": [],
+    "no_api_fallback_web_for": []
+  },
+  "summary": {
+    "total": 10,
+    "downloaded": 0,
+    "seconds": 27.2
+  },
+  "results": [
+    {
+      "doi": "10.1609/aaai.v37i9.26317",
+      "status": "do_not_auto_retry",
+      "err": "Error: CDP proxy not reachable at http://127.0.0.1:3456 (TypeError).\n  Start: node <web-access>/scripts/check-deps.mjs\n "
+    },
+    {
+      "doi": "10.1109/jiot.2022.3181807",
+      "title": "Multiscale Network Traffic Prediction Method Based on Deep Echo-State Network for Internet of Things",
+      "language": "",
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "route": "ieee",
+      "route_reason": "supported_publisher",
+      "si_requested": false,
+      "provider": "ieee",
+      "status": "credentials_missing",
+      "fallbackConfirmationRequired": false,
+      "configureUrl": "https://developer.ieee.org/member/register",
+      "oa_attempt": {
+        "status": "oa_not_found",
+        "assessment": "confirmed_oa"
+      }
+    },
+    {
+      "doi": "10.1038/s44172-023-00081-4",
+      "title": "Long term 5G network traffic forecasting via modeling non-stationarity with deep learning",
+      "language": "en",
+      "publisher": "Springer Science and Business Media LLC",
+      "route": "springer_nature",
+      "route_reason": "supported_publisher",
+      "si_requested": false,
+      "provider": "springer_nature",
+      "status": "credentials_missing",
+      "fallbackConfirmationRequired": false,
+      "configureUrl": "https://dev.springernature.com/docs/quick-start/api-access/",
+      "oa_attempt": {
+        "status": "oa_not_found",
+        "assessment": "confirmed_oa"
+      }
+    },
+    {
+      "doi": "10.1002/itl2.314",
+      "status": "do_not_auto_retry",
+      "err": "Error: CDP proxy not reachable at http://127.0.0.1:3456 (TypeError).\n  Start: node <web-access>/scripts/check-deps.mjs\n "
+    },
+    {
+      "doi": "10.1002/ett.4394",
+      "status": "do_not_auto_retry",
+      "err": "Error: CDP proxy not reachable at http://127.0.0.1:3456 (TypeError).\n  Start: node <web-access>/scripts/check-deps.mjs\n "
+    },
+    {
+      "doi": "10.1109/mnet.2023.3335952",
+      "title": "An Efficient Data-Driven Traffic Prediction Framework for Network Digital Twin",
+      "language": "",
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "route": "ieee",
+      "route_reason": "supported_publisher",
+      "si_requested": false,
+      "provider": "ieee",
+      "status": "credentials_missing",
+      "fallbackConfirmationRequired": false,
+      "configureUrl": "https://developer.ieee.org/member/register",
+      "oa_attempt": {
+        "status": "oa_not_found",
+        "assessment": "confirmed_oa"
+      }
+    },
+    {
+      "doi": "10.1109/iccia55271.2022.9828411",
+      "title": "Network Traffic Prediction Based on a CNN-LSTM with Attention Mechanism",
+      "language": "",
+      "publisher": "IEEE",
+      "route": "ieee",
+      "route_reason": "supported_publisher",
+      "si_requested": false,
+      "provider": "ieee",
+      "status": "credentials_missing",
+      "fallbackConfirmationRequired": false,
+      "configureUrl": "https://developer.ieee.org/member/register",
+      "oa_attempt": {
+        "status": "oa_not_found",
+        "assessment": "confirmed_oa"
+      }
+    },
+    {
+      "doi": "10.1109/tits.2022.3232518",
+      "title": "Digital Twin for Transportation Big Data: A Reinforcement Learning-Based Network Traffic Prediction Approach",
+      "language": "",
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "route": "ieee",
+      "route_reason": "supported_publisher",
+      "si_requested": false,
+      "provider": "ieee",
+      "status": "credentials_missing",
+      "fallbackConfirmationRequired": false,
+      "configureUrl": "https://developer.ieee.org/member/register",
+      "oa_attempt": {
+        "status": "oa_not_found",
+        "assessment": "confirmed_oa"
+      }
+    },
+    {
+      "doi": "10.1016/j.patcog.2024.111037",
+      "title": "Parallel multi-scale dynamic graph neural network for multivariate time series forecasting",
+      "language": "en",
+      "publisher": "Elsevier BV",
+      "route": "elsevier",
+      "route_reason": "supported_publisher",
+      "si_requested": false,
+      "provider": "elsevier",
+      "status": "credentials_missing",
+      "fallbackConfirmationRequired": false,
+      "configureUrl": "https://dev.elsevier.com/",
+      "oa_attempt": {
+        "status": "oa_not_found",
+        "assessment": "confirmed_oa"
+      }
+    },
+    {
+      "doi": "10.1016/j.ins.2023.119557",
+      "title": "Multi-scale spatial-temporal aware transformer for traffic prediction",
+      "language": "en",
+      "publisher": "Elsevier BV",
+      "route": "elsevier",
+      "route_reason": "supported_publisher",
+      "si_requested": false,
+      "provider": "elsevier",
+      "status": "credentials_missing",
+      "fallbackConfirmationRequired": false,
+      "configureUrl": "https://dev.elsevier.com/",
+      "oa_attempt": {
+        "status": "oa_not_found",
+        "assessment": "confirmed_oa"
+      }
+    }
+  ]
+}

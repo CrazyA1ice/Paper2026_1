@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "generated_at": "2026-09-13T06:09:43.817Z",
+  "request": {
+    "topic": "",
+    "title": "FITS Modeling Time Series with 10k Parameters",
+    "dois": [],
+    "pdf_url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/701251e1db4a2e4dd2ef23f5265d5936-Paper-Conference.pdf",
+    "si_requested": false,
+    "language_override": "",
+    "route_override": "",
+    "source_url": "",
+    "api_fallback_web": null,
+    "api_fallback_web_for": [],
+    "no_api_fallback_web_for": []
+  },
+  "summary": {
+    "total": 1,
+    "downloaded": 1,
+    "seconds": 29.1
+  },
+  "results": [
+    {
+      "title": "FITS Modeling Time Series with 10k Parameters",
+      "status": "open_access_downloaded",
+      "provider": "direct_url",
+      "accessMode": "open_access",
+      "ok": true,
+      "file": "references\\literature_search_2026\\fulltext_core\\fits\\PDFs\\FITS_Modeling_Time_Series_with_10k_Parameters.pdf",
+      "bytes": 1993443,
+      "sha256": "8f48dfdbb2bc4462a9c178f0eab16ed33fd1ccc51a8d3dd16232e1167588bee0",
+      "contentType": "application/pdf",
+      "format": "pdf",
+      "source": "https://proceedings.iclr.cc/paper_files/paper/2024/file/701251e1db4a2e4dd2ef23f5265d5936-Paper-Conference.pdf",
+      "si_requested": false
+    }
+  ]
+}

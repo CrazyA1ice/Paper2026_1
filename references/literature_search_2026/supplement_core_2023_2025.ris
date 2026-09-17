@@ -1,0 +1,141 @@
+TY  - CONF
+AU  - Zhou, Tian
+AU  - Ma, Ziqing
+AU  - Wen, Qingsong
+AU  - Wang, Xue
+AU  - Sun, Liang
+AU  - Jin, Rong
+TI  - FEDformer: Frequency Enhanced Decomposed Transformer for Long-term Series Forecasting
+T2  - Proceedings of the 39th International Conference on Machine Learning
+PY  - 2022
+VL  - 162
+SP  - 27268
+EP  - 27286
+UR  - https://proceedings.mlr.press/v162/zhou22g.html
+KW  - frequency domain
+KW  - time series forecasting
+KW  - decomposition
+N1  - 补充文献：频域选择并非只能保留低频；用于论证低通截断可能损失重要事件信息。
+ER  -
+
+TY  - CONF
+AU  - Wu, Haixu
+AU  - Hu, Tengge
+AU  - Liu, Yong
+AU  - Zhou, Hang
+AU  - Wang, Jianmin
+AU  - Long, Mingsheng
+TI  - TimesNet: Temporal 2D-Variation Modeling for General Time Series Analysis
+T2  - International Conference on Learning Representations
+PY  - 2023
+UR  - https://openreview.net/forum?id=ju_Uqw384Oq
+KW  - time series forecasting
+KW  - multi-periodicity
+KW  - frequency analysis
+N1  - 补充文献：利用频谱发现多周期并进行自适应聚合，为多尺度/多周期建模提供方法背景。
+ER  -
+
+TY  - CONF
+AU  - Zhang, Yifan
+AU  - Wen, Qingsong
+AU  - Wang, Xue
+AU  - Chen, Weiqi
+AU  - Sun, Liang
+AU  - Zhang, Zhang
+AU  - Wang, Liang
+AU  - Jin, Rong
+AU  - Tan, Tieniu
+TI  - OneNet: Enhancing Time Series Forecasting Models under Concept Drift by Online Ensembling
+T2  - Advances in Neural Information Processing Systems 36
+PY  - 2023
+SP  - 69949
+EP  - 69980
+DO  - 10.52202/075280-3066
+UR  - https://proceedings.neurips.cc/paper_files/paper/2023/hash/dd6a47bc0aad6f34aa5e77706d90cdc4-Abstract-Conference.html
+KW  - adaptive weighting
+KW  - online ensemble
+KW  - concept drift
+N1  - 补充文献：动态组合专家的旁证；其在线更新场景与本文离线样本级路由不同。
+ER  -
+
+TY  - JOUR
+AU  - Lu, Yufei
+AU  - Ning, Qian
+AU  - Huang, Linyu
+AU  - Chen, Bingcai
+TI  - A network traffic prediction model based on reinforced staged feature interaction and fusion
+JO  - Computer Networks
+PY  - 2023
+VL  - 227
+SP  - 109719
+DO  - 10.1016/j.comnet.2023.109719
+UR  - https://doi.org/10.1016/j.comnet.2023.109719
+KW  - network traffic prediction
+KW  - Abilene
+KW  - spatio-temporal fusion
+N1  - 补充文献：在GEANT、Abilene和CERNET上研究时空交互融合，是与本文数据及任务直接相关的强证据。
+ER  -
+
+TY  - JOUR
+AU  - Qin, Liang
+AU  - Gu, Huaxi
+AU  - Wei, Wenting
+AU  - Xiao, Zhe
+AU  - Lin, Zexu
+AU  - Liu, Lu
+AU  - Wang, Ning
+TI  - Spatio-temporal communication network traffic prediction method based on graph neural network
+JO  - Information Sciences
+PY  - 2024
+VL  - 679
+SP  - 121003
+DO  - 10.1016/j.ins.2024.121003
+UR  - https://doi.org/10.1016/j.ins.2024.121003
+KW  - communication network traffic prediction
+KW  - graph neural network
+KW  - spatio-temporal dependency
+N1  - 补充文献：代表显式拓扑图与注意力的网络流量预测路线，用于说明本文轻量时序路线未建模拓扑的边界。
+ER  -
+
+TY  - JOUR
+AU  - Wang, Xing
+AU  - Wang, Zhendong
+AU  - Yang, Kexin
+AU  - Song, Zhiyan
+AU  - Bian, Chong
+AU  - Feng, Junlan
+AU  - Deng, Chao
+TI  - A Survey on Deep Learning for Cellular Traffic Prediction
+JO  - Intelligent Computing
+PY  - 2024
+VL  - 3
+SP  - 0054
+DO  - 10.34133/icomputing.0054
+UR  - https://doi.org/10.34133/icomputing.0054
+KW  - cellular traffic prediction
+KW  - deep learning
+KW  - survey
+N1  - 补充综述：覆盖数据集、时序与时空模型、应用和挑战；蜂窝流量与骨干网OD流量不可混同。
+ER  -
+
+TY  - JOUR
+AU  - Tang, Chenxi
+AU  - Lu, Jingwen
+AU  - Yang, Wen
+AU  - Xing, Wenjuan
+AU  - Tang, Chaowei
+AU  - Zou, Aobo
+AU  - Guo, Jiayuan
+TI  - A frequency-domain multilayer perceptron with multiscale attention network for cellular traffic prediction
+JO  - Computer Networks
+PY  - 2025
+VL  - 271
+SP  - 111593
+DO  - 10.1016/j.comnet.2025.111593
+UR  - https://doi.org/10.1016/j.comnet.2025.111593
+KW  - cellular traffic prediction
+KW  - frequency domain
+KW  - multiscale attention
+KW  - multilayer perceptron
+N1  - 最高相关补充文献：频域MLP与多尺度注意力用于蜂窝流量；需在综述中明确与本文OD矩阵、DLinear专家和统计路由的差异。
+ER  -

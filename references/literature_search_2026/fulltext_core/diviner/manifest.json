@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "generated_at": "2026-09-13T07:08:42.723Z",
+  "request": {
+    "topic": "",
+    "title": "Long term 5G network traffic forecasting via modeling non-stationarity with deep learning",
+    "dois": [],
+    "pdf_url": "https://www.nature.com/articles/s44172-023-00081-4.pdf",
+    "si_requested": false,
+    "language_override": "",
+    "route_override": "",
+    "source_url": "",
+    "api_fallback_web": null,
+    "api_fallback_web_for": [],
+    "no_api_fallback_web_for": []
+  },
+  "summary": {
+    "total": 1,
+    "downloaded": 0,
+    "seconds": 0.2
+  },
+  "results": [
+    {
+      "title": "Long term 5G network traffic forecasting via modeling non-stationarity with deep learning",
+      "status": "failed_after_retry",
+      "url": "https://www.nature.com/articles/s44172-023-00081-4.pdf",
+      "err": "TypeError: fetch failed",
+      "si_requested": false
+    }
+  ]
+}

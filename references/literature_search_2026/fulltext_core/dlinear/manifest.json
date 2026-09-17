@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "generated_at": "2026-09-13T06:09:14.426Z",
+  "request": {
+    "topic": "",
+    "title": "Are Transformers Effective for Time Series Forecasting",
+    "dois": [],
+    "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/26317/26089",
+    "si_requested": false,
+    "language_override": "",
+    "route_override": "",
+    "source_url": "",
+    "api_fallback_web": null,
+    "api_fallback_web_for": [],
+    "no_api_fallback_web_for": []
+  },
+  "summary": {
+    "total": 1,
+    "downloaded": 1,
+    "seconds": 17.8
+  },
+  "results": [
+    {
+      "title": "Are Transformers Effective for Time Series Forecasting",
+      "status": "open_access_downloaded",
+      "provider": "direct_url",
+      "accessMode": "open_access",
+      "ok": true,
+      "file": "references\\literature_search_2026\\fulltext_core\\dlinear\\PDFs\\Are_Transformers_Effective_for_Time_Series_Forecasting.pdf",
+      "bytes": 495992,
+      "sha256": "365a43dc42b12b28ab9f30d16a5e6900f3970bd3640fab8cc1a2df96d6e6f2dc",
+      "contentType": "application/pdf",
+      "format": "pdf",
+      "source": "https://ojs.aaai.org/index.php/AAAI/article/download/26317/26089",
+      "si_requested": false
+    }
+  ]
+}

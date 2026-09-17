@@ -1,0 +1,20 @@
+TY  - JOUR
+AU  - Yang, Yuguang
+AU  - Geng, Shupeng
+AU  - Zhang, Baochang
+AU  - Zhang, Juan
+AU  - Wang, Zheng
+AU  - Zhang, Yong
+AU  - Doermann, David
+TI  - Long term 5G network traffic forecasting via modeling non-stationarity with deep learning
+JO  - Communications Engineering
+T2  - Communications Engineering
+JA  - Commun Eng
+PY  - 2023
+VL  - 2
+IS  - 1
+DO  - 10.1038/s44172-023-00081-4
+UR  - https://doi.org/10.1038/s44172-023-00081-4
+N2  - Abstract 5G cellular networks have recently fostered a wide range of emerging applications, but their popularity has led to traffic growth that far outpaces network expansion. This mismatch may decrease network quality and cause severe performance problems. To reduce the risk, operators need long term traffic prediction to perform network expansion schemes months ahead. However, long term prediction horizon exposes the non-stationarity of series data, which deteriorates the performance of existi
+DB  - CrossRef
+ER  - 

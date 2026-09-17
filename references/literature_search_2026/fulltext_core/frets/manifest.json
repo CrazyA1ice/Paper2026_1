@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "generated_at": "2026-09-13T06:10:03.695Z",
+  "request": {
+    "topic": "",
+    "title": "Frequency-domain MLPs are More Effective Learners in Time Series Forecasting",
+    "dois": [],
+    "pdf_url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/f1d16af76939f476b5f040fd1398c0a3-Paper-Conference.pdf",
+    "si_requested": false,
+    "language_override": "",
+    "route_override": "",
+    "source_url": "",
+    "api_fallback_web": null,
+    "api_fallback_web_for": [],
+    "no_api_fallback_web_for": []
+  },
+  "summary": {
+    "total": 1,
+    "downloaded": 1,
+    "seconds": 4.9
+  },
+  "results": [
+    {
+      "title": "Frequency-domain MLPs are More Effective Learners in Time Series Forecasting",
+      "status": "open_access_downloaded",
+      "provider": "direct_url",
+      "accessMode": "open_access",
+      "ok": true,
+      "file": "references\\literature_search_2026\\fulltext_core\\frets\\PDFs\\Frequency-domain_MLPs_are_More_Effective_Learners_in_Time_Series_Forecasting.pdf",
+      "bytes": 3047910,
+      "sha256": "6990bb49204bd95144ca3b9b9070accdaad1bf4187728158aa49ecd862414b33",
+      "contentType": "application/pdf",
+      "format": "pdf",
+      "source": "https://proceedings.neurips.cc/paper_files/paper/2023/file/f1d16af76939f476b5f040fd1398c0a3-Paper-Conference.pdf",
+      "si_requested": false
+    }
+  ]
+}

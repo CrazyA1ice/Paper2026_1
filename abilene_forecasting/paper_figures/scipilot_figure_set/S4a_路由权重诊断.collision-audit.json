@@ -1,0 +1,48 @@
+{
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\paper_figures\\scipilot_figure_set\\S4a_路由权重诊断.pdf",
+  "auditable": true,
+  "verdict": "FIX BEFORE DELIVERY",
+  "page_count": 1,
+  "visible_text_box_count": 36,
+  "text_trace_count": 44,
+  "stroke_path_count": 56,
+  "filled_region_count": 32,
+  "image_region_count": 0,
+  "summary": {
+    "fail": 1,
+    "warn": 0,
+    "contained_fill_overlays": 0,
+    "contained_image_overlays": 0
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": [
+    {
+      "severity": "FAIL",
+      "kind": "text-stroke",
+      "page": 1,
+      "message": "Text is crossed by 1 stroked path(s)",
+      "text": "尺度1",
+      "text_bbox": [
+        116.39942932128906,
+        27.236013412475586,
+        133.89942932128906,
+        34.23601531982422
+      ],
+      "other_text": null,
+      "other_bbox": [
+        43.71929931640625,
+        27.716232299804688,
+        232.9384765625,
+        157.96046447753906
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        21
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "model": "dlinear_freq",
+  "seed": 44,
+  "device": "cuda",
+  "input_len": 96,
+  "pred_len": 24,
+  "cut_ratio": 0.75,
+  "parameters": 4692,
+  "best_val_mse_normalized": 0.031845046143079626,
+  "test_normalized": {
+    "mse": 0.19661541283130646,
+    "mae": 0.19905948638916016,
+    "rmse": 0.4434133768081665
+  },
+  "test_original_units": {
+    "mse": 1.68468473429606e+20,
+    "mae": 42084064.0,
+    "rmse": 12979540992.0
+  },
+  "elapsed_seconds": 18.359725000000253
+}

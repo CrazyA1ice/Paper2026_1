@@ -1,0 +1,48 @@
+{
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\paper_figures\\scipilot_figure_set\\S4b_代表性预测诊断.pdf",
+  "auditable": true,
+  "verdict": "FIX BEFORE DELIVERY",
+  "page_count": 1,
+  "visible_text_box_count": 36,
+  "text_trace_count": 36,
+  "stroke_path_count": 151,
+  "filled_region_count": 129,
+  "image_region_count": 0,
+  "summary": {
+    "fail": 1,
+    "warn": 0,
+    "contained_fill_overlays": 0,
+    "contained_image_overlays": 0
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": [
+    {
+      "severity": "FAIL",
+      "kind": "text-stroke",
+      "page": 1,
+      "message": "Text is crossed by 1 stroked path(s)",
+      "text": "自适应多尺度",
+      "text_bbox": [
+        433.0158996582031,
+        37.146766662597656,
+        475.0158996582031,
+        44.146766662597656
+      ],
+      "other_text": null,
+      "other_bbox": [
+        276.1499938964844,
+        38.17228698730469,
+        481.3158874511719,
+        38.17228698730469
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        97
+      ]
+    }
+  ]
+}

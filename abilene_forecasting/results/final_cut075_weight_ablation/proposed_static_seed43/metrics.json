@@ -1,0 +1,21 @@
+{
+  "model": "proposed_static",
+  "seed": 43,
+  "device": "cuda",
+  "input_len": 96,
+  "pred_len": 24,
+  "cut_ratio": 0.75,
+  "parameters": 8271,
+  "best_val_mse_normalized": 0.031184155897700728,
+  "test_normalized": {
+    "mse": 0.1959282010793686,
+    "mae": 0.19886647164821625,
+    "rmse": 0.44263777136802673
+  },
+  "test_original_units": {
+    "mse": 1.68468473429606e+20,
+    "mae": 42019060.0,
+    "rmse": 12979540992.0
+  },
+  "elapsed_seconds": 27.96530949999942
+}

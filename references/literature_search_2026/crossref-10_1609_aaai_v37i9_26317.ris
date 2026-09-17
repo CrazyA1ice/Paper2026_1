@@ -1,0 +1,19 @@
+TY  - JOUR
+AU  - Zeng, Ailing
+AU  - Chen, Muxi
+AU  - Zhang, Lei
+AU  - Xu, Qiang
+TI  - Are Transformers Effective for Time Series Forecasting?
+JO  - Proceedings of the AAAI Conference on Artificial Intelligence
+T2  - Proceedings of the AAAI Conference on Artificial Intelligence
+JA  - AAAI
+PY  - 2023
+VL  - 37
+IS  - 9
+SP  - 11121
+EP  - 11128
+DO  - 10.1609/aaai.v37i9.26317
+UR  - https://doi.org/10.1609/aaai.v37i9.26317
+N2  - Recently, there has been a surge of Transformer-based solutions for the long-term time series forecasting (LTSF) task. Despite the growing performance over the past few years, we question the validity of this line of research in this work. Specifically, Transformers is arguably the most successful solution to extract the semantic correlations among the elements in a long sequence. However, in time series modeling, we are to extract the temporal relations in an ordered set of continuous points. W
+DB  - CrossRef
+ER  - 

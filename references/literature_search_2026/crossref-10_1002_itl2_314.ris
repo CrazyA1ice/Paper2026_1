@@ -1,0 +1,14 @@
+TY  - JOUR
+AU  - Jiang, Weiwei
+TI  - Internet traffic prediction with deep neural networks
+JO  - Internet Technology Letters
+T2  - Internet Technology Letters
+JA  - Internet Technology Letters
+PY  - 2021
+VL  - 5
+IS  - 2
+DO  - 10.1002/itl2.314
+UR  - https://doi.org/10.1002/itl2.314
+N2  - With the evolution of Internet, traffic prediction has been more important than ever, because better resource allocation and network management schemes are based on the precise prediction of future demands. Formulated as a time series prediction problem, different solutions have been proposed, including linear statistical models and non‐linear machine learning models. However, there lacks of a comprehensive evaluation of the recently developed deep neural networks for this important problem, whi
+DB  - CrossRef
+ER  - 

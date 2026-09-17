@@ -1,0 +1,52 @@
+script:
+  file: generate_paper_figures.py
+  sha256: B3A27A96C95469C301D5BBB975239BC048980B748E75D213BDAB858B79D7B452
+
+figure_table_trace:
+  - artifact_id: fig-1
+    source_data: {dataset_id: method-specification, file: model-and-method-description}
+    transformation: {script: generate_paper_figures.py, function: figure_1_method_schematic}
+    caption_claim: 自适应多尺度网络流量预测方法由三个尺度专家、样本级统计路由和可选频域门控组成。
+    supported_manuscript_claims:
+      - {claim: 本文模型使用尺度1、2和4的DLinear专家，并以Softmax权重加权输出。, locator: 方法章节}
+    limitations: [该图说明计算流程，不提供性能证据。]
+
+  - artifact_id: fig-2
+    source_data: {dataset_id: abilene-ablation, file: source_data/fig2_main_ablation.csv}
+    transformation: {script: generate_paper_figures.py, function: figure_2_main_ablation}
+    caption_claim: 无频域自适应多尺度模型在五种配置中取得最低MSE和MAE。
+    supported_manuscript_claims:
+      - {claim: 当前Abilene实验的主要误差改善来自自适应多尺度模块。, locator: 实验结果章节}
+    limitations: [仅包含单一数据集和三个随机种子。]
+
+  - artifact_id: fig-3
+    source_data: {dataset_id: abilene-weight-ablation, file: source_data/fig3_weight_ablation.csv}
+    transformation: {script: generate_paper_figures.py, function: figure_3_weight_ablation}
+    caption_claim: 在相同尺度和专家结构下，自适应权重的误差低于固定等权。
+    supported_manuscript_claims:
+      - {claim: 自适应权重生成方式对模型性能改善有独立贡献。, locator: 自适应权重消融章节}
+    limitations: [频域条件下的置信区间跨越0；统计重复数为三个随机种子。]
+
+  - artifact_id: fig-4
+    source_data: {dataset_id: abilene-frequency-sensitivity, file: source_data/fig4_frequency_sensitivity.csv}
+    transformation: {script: generate_paper_figures.py, function: figure_4_frequency_sensitivity}
+    caption_claim: 频域门控对保留比例敏感，0.75是三个测试值中的探索性较优值。
+    supported_manuscript_claims:
+      - {claim: 低频截断存在平滑与信息损失的权衡，不能预设频域处理必然提升精度。, locator: 频域敏感性章节}
+    limitations: [比例选择来自测试结果探索；完整模型未超过无频域主模型。]
+
+  - artifact_id: fig-5
+    source_data: {dataset_id: abilene-predictions-seed42, file: source_data/fig5_representative_forecast.csv}
+    transformation: {script: generate_paper_figures.py, function: figure_5_representative_forecast}
+    caption_claim: 代表性窗口展示真实值、DLinear和自适应多尺度模型的24小时预测形态。
+    supported_manuscript_claims:
+      - {claim: 本文方法能够输出未来24小时的多变量流量预测。, locator: 实验示例}
+    limitations: [单窗口只用于直观展示；不能代替总体误差统计。]
+
+  - artifact_id: fig-6
+    source_data: {dataset_id: abilene-router-weights, file: source_data/fig6_router_weight_distribution.csv}
+    transformation: {script: generate_paper_figures.py, function: figure_6_router_weight_distribution}
+    caption_claim: 三个随机种子的路由权重均随测试窗口变化，但平均尺度偏好不稳定。
+    supported_manuscript_claims:
+      - {claim: 路由器没有退化为固定等权，并为不同输入生成样本级权重。, locator: 自适应权重消融章节}
+    limitations: [测试窗口具有时间相关性；不同随机种子不支持稳定尺度语义。]
