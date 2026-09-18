@@ -50,6 +50,15 @@ jobs:
                       sz=re.search(r'<w:sz\b[^>]*/>',r)
                       va=re.search(r'<w:vertAlign\b[^>]*/>',r)
                       print(f"  RUN[{j}] text={rt} fonts={fm.group(0) if fm else None} size={sz.group(0) if sz else None} vert={va.group(0) if va else None}")
+                  pstyle=re.search(r'<w:pStyle\\b[^>]*/>',p)
+                  if pstyle:
+                      print(f"  PSTYLE={pstyle.group(0)}")
+                      sidm=re.search(r'w:val="([^"]+)"',pstyle.group(0))
+                      if sidm:
+                          sid=sidm.group(1)
+                          sm=re.search(r'<w:style\\b[^>]*w:styleId="'+re.escape(sid)+r'"[^>]*>[\\s\\S]*?</w:style>', z.read("word/styles.xml").decode("utf-8"))
+                          if sm:
+                              print("  STYLEDEF="+sm.group(0))
                   printed+=1
-                  if printed>=5: break
+                  if printed>=2: break
           PY
