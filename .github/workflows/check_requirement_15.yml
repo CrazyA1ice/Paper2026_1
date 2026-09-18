@@ -1,0 +1,70 @@
+name: Temporary check journal requirement 15
+
+on:
+  push:
+    paths:
+      - ".github/workflows/check_requirement_15.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.event.head_commit.message == 'temporary journal requirement 15 workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect quantity and unit typography
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import re, html
+
+          path=Path("word_output/2026.09.18v.docx")
+          with ZipFile(path,"r") as z:
+              xml=z.read("word/document.xml").decode("utf-8")
+
+          def text_of(x):
+              vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',x)
+              vals += re.findall(r'<m:t>([\s\S]*?)</m:t>',x)
+              return ''.join(html.unescape(v) for v in vals).strip()
+
+          paras=[m.group(0) for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>',xml)]
+          texts=[text_of(p) for p in paras]
+
+          # Inspect OMML runs and styles.
+          eqno=0
+          for i,p in enumerate(paras):
+              if "<m:oMath" not in p: continue
+              eqno+=1
+              print(f"EQ[{eqno}] P[{i}]={texts[i]}")
+              runs=re.findall(r'<m:r\b[\s\S]*?</m:r>',p)
+              for j,r in enumerate(runs):
+                  t=''.join(html.unescape(x) for x in re.findall(r'<m:t>([\s\S]*?)</m:t>',r))
+                  if not t: continue
+                  sty=re.search(r'<m:sty\b[^>]*m:val="([^"]+)"[^>]*/>',r)
+                  nor=re.search(r'<m:nor\b[^>]*/>',r)
+                  wrpr=re.search(r'<w:rPr\b[\s\S]*?</w:rPr>',r)
+                  wb=bool(wrpr and re.search(r'<w:b(?:\s[^>]*)?/>',wrpr.group(0)))
+                  wi=bool(wrpr and re.search(r'<w:i(?:\s[^>]*)?/>',wrpr.group(0)))
+                  print(f"  MRUN[{j}] text={t!r} msty={sty.group(1) if sty else None} nor={bool(nor)} wb={wb} wi={wi}")
+
+          # Inline prose contexts with variables/units.
+          pats=[
+              r'\bL\s*=\s*\d+', r'\bH\s*=\s*\d+', r'\bC\s*=\s*\d+',
+              r'\br\s*=\s*0\.\d+', r'\b\d+\s*h\b', r'\b\d+\s*GB\b',
+              r'\b\d+\s*pt\b'
+          ]
+          for i,(p,t) in enumerate(zip(paras,texts)):
+              if any(re.search(pat,t) for pat in pats):
+                  print(f"PROSE[{i}]={t}")
+                  for j,r in enumerate(re.findall(r'<w:r\b[\s\S]*?</w:r>',p)):
+                      rt=''.join(html.unescape(x) for x in re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',r))
+                      if rt:
+                          rp=re.search(r'<w:rPr\b[\s\S]*?</w:rPr>',r)
+                          italic=bool(rp and re.search(r'<w:i(?:\s[^>]*)?/>',rp.group(0)))
+                          bold=bool(rp and re.search(r'<w:b(?:\s[^>]*)?/>',rp.group(0)))
+                          print(f"  WRUN[{j}] text={rt!r} italic={italic} bold={bold}")
+          PY
