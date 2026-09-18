@@ -37,6 +37,8 @@ jobs:
                   if n.startswith("word/footer") and n.endswith(".xml"):
                       xml=z.read(n).decode("utf-8")
                       print(f"{n} TEXT={text_of(xml)}")
+                      for ti,tm in enumerate(re.finditer(r'<w:t(?:\\s[^>]*)?>([\\s\\S]*?)</w:t>',xml)):
+                          print(f"{n} T[{ti}]={html.unescape(tm.group(1))}")
                       for pi,pm in enumerate(re.finditer(r'<w:p\\b[\\s\\S]*?</w:p>',xml)):
                           pt=text_of(pm.group(0))
                           if pt:
