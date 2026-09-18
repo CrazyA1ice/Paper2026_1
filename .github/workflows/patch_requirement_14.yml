@@ -53,18 +53,17 @@ jobs:
               for old,new in replacements.items():
                   # Replace across one text node only; these target sentences are each stored contiguously.
                   pattern=re.compile(r'(<w:t(?:\s[^>]*)?>)([\s\S]*?)(</w:t>)')
-                  hit=0
+                  hit=[0]
                   def repl(m):
-                      nonlocal hit
                       raw=unesc(m.group(2))
                       if old in raw:
                           raw=raw.replace(old,new,1)
-                          hit+=1
+                          hit[0]+=1
                       return m.group(1)+esc(raw)+m.group(3)
                   xml=pattern.sub(repl,xml)
-                  counts[old]=hit
-                  if hit!=1:
-                      raise RuntimeError(f"expected one replacement for {old[:30]}, got {hit}")
+                  counts[old]=hit[0]
+                  if hit[0]!=1:
+                      raise RuntimeError(f"expected one replacement for {old[:30]}, got {hit[0]}")
 
               # Verify all semantic definitions are present and formula objects untouched.
               all_text=''.join(unesc(x) for x in re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',xml))
