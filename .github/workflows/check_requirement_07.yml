@@ -1,0 +1,38 @@
+name: Temporary check journal requirement 7
+
+on:
+  push:
+    paths:
+      - ".github/workflows/check_requirement_07.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.event.head_commit.message == 'temporary journal requirement 7 workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect classification line
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import re, html
+
+          path=Path("word_output/2026.09.18v.docx")
+          with ZipFile(path,"r") as z:
+              xml=z.read("word/document.xml").decode("utf-8")
+
+          def text_of(x):
+              vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',x)
+              return ''.join(html.unescape(v) for v in vals).strip()
+
+          paras=[text_of(m.group(0)) for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>',xml)]
+          line=next(t for t in paras if t.startswith("中图分类号："))
+          ok=("中图分类号：TP393" in line and "文献标志码：A" in line)
+          print("LINE="+line)
+          print("STATUS="+("COMPLIANT" if ok else "NOT_COMPLIANT"))
+          PY
