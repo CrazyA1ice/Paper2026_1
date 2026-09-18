@@ -27,6 +27,14 @@ jobs:
               xml=z.read("word/document.xml").decode("utf-8")
               media=[n for n in z.namelist() if n.startswith("word/media/")]
               print("MEDIA="+repr(media))
+              import struct
+              for n in media:
+                  data=z.read(n)
+                  if data.startswith(b"\\x89PNG\\r\\n\\x1a\\n") and len(data)>=24:
+                      w,h=struct.unpack(">II",data[16:24])
+                      print(f"IMAGE_DIM {n}={w}x{h} bytes={len(data)}")
+                  else:
+                      print(f"IMAGE_DIM {n}=NON_PNG bytes={len(data)}")
 
           def text_of(x):
               vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',x)
