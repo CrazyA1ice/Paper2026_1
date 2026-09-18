@@ -97,7 +97,8 @@ jobs:
                       ("DLinear","分解线性（Decomposition Linear，DLinear）模型")
                   ],
                   55:[("RFFT","实值快速傅里叶变换（real fast Fourier transform，RFFT）")],
-                  63:[("MSE","均方误差")]
+                  63:[("MSE","均方误差")],
+                  67:[("MSE","均方误差")]
               }
 
               out=[]
