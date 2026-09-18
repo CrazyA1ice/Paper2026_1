@@ -1,0 +1,109 @@
+name: Temporary patch manuscript section 2.3
+
+on:
+  push:
+    paths:
+      - ".github/workflows/patch_manuscript_2_3.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message == 'temporary manuscript patch 2.3 workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch current DOCX in place
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          import re, shutil, html
+
+          path = Path("word_output/2026.09.18v.docx")
+          tmp = path.with_suffix(".tmp.docx")
+
+          def para_text(pxml: str) -> str:
+              vals = re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>', pxml)
+              return re.sub(r'\s+', ' ', ''.join(html.unescape(v) for v in vals)).strip()
+
+          def xml_escape(s: str) -> str:
+              return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+          def replace_para_text(pxml: str, new_text: str) -> str:
+              first = True
+              def repl(m):
+                  nonlocal first
+                  attrs = m.group(1) or ""
+                  if first:
+                      first = False
+                      return f'<w:t{attrs}>{xml_escape(new_text)}</w:t>'
+                  return f'<w:t{attrs}></w:t>'
+              return re.sub(r'<w:t(\s[^>]*)?>([\s\S]*?)</w:t>', repl, pxml)
+
+          replacements = {
+              "2.4 自适应权重消融与路由行为":
+              "2.3 自适应尺度权重消融与路由分析",
+
+              "为分离多尺度结构和权重生成方式的影响，表2在尺度集合与专家结构完全相同的条件下比较固定等权和自适应权重。无频域时，自适应模型相对固定等权模型的MSE降低3.95%，MAE降低11.38%。按种子计算的MSE平均配对差为0.007651，95% CI为[0.005238, 0.010064]，t(2)=13.642，Holm校正后p=0.01066，Cohen's d_z=7.876。该结果在三个种子上方向一致，但效应量和置信区间建立在很少的算法重复上，应谨慎解释。同种子配对变化见图3。":
+              "为判断预测性能提升是来自多尺度结构本身还是样本级动态加权，表2在尺度集合、专家结构和训练设置保持一致的条件下，仅改变尺度权重的生成方式。无频域条件下，自适应权重模型的MSE由0.193750降至0.186099，下降3.95%；MAE由0.189802降至0.168203，下降11.38%。相同随机种子的MSE平均配对差为0.007651，95% CI为[0.005238, 0.010064]，t(2)=13.642，Holm校正后p=0.01066，Cohen's d_z=7.876。三个随机种子的误差变化方向一致，说明在当前主模型设置下，自适应尺度权重比固定等权融合更有利于降低预测误差；受独立重复数限制，效应量和置信区间仍需谨慎解释。同种子配对变化见图3。",
+
+              "在r=0.50时，自适应权重相对固定等权降低MSE 3.97%，但配对差95% CI为[-0.001193, 0.017096]，Holm校正后p=0.06460；在探索性r=0.75设置下，MSE和MAE分别降低3.74%和11.51%，配对差95% CI为[-0.001770, 0.016493]，t(2)=3.469，p=0.07401，Cohen's d_z=2.003。后两项区间跨越0，只能称为改善趋势。图3把同一种子的结果连接，可避免把总体均值差异误读为大量独立样本带来的显著性。路由权重的样本变化与总体分布见图4。":
+              "加入频域门控后，自适应权重仍表现出较低的平均误差。r=0.50时，自适应权重相对固定等权的MSE降低3.97%，但配对差95% CI为[-0.001193, 0.017096]，Holm校正后p=0.06460；在探索性r=0.75设置下，MSE和MAE分别降低3.74%和11.51%，配对差95% CI为[-0.001770, 0.016493]，t(2)=3.469，p=0.07401，Cohen's d_z=2.003。由于两组频域设置下的置信区间均跨越0，因此只能将其视为与无频域结果方向一致的改善趋势，而不能作为显著性结论。路由权重在不同测试窗口中的变化及总体分布见图4。",
+
+              "图4显示路由权重并非恒定1/3，且在测试窗口之间存在分布差异，说明路由器没有退化为固定平均。三个随机种子的平均尺度偏好并不完全一致，因此结果只支持“权重会随样本变化”，不能把某一个尺度固定解释为所有场景中最重要的业务尺度。更稳妥的机制解释是：路由器根据窗口统计状态改变专家组合，从而降低固定融合的约束。":
+              "图4显示三个尺度的路由权重并未固定在1/3附近，而是随测试窗口发生变化，说明路由器没有退化为固定平均融合。与此同时，不同随机种子的平均尺度偏好并不完全一致，因此现有结果只能说明路由器能够依据输入状态动态调整尺度组合，不能进一步将某一尺度解释为所有场景下持续占优的固定业务尺度。结合固定等权消融可以看出，本文路由机制的主要作用是根据窗口统计状态改变不同尺度专家的组合比例，从而减弱固定融合对不同流量状态适应性的限制。"
+          }
+
+          with ZipFile(path, "r") as zin:
+              xml = zin.read("word/document.xml").decode("utf-8")
+              seen = {k: 0 for k in replacements}
+              parts, pos = [], 0
+              for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>', xml):
+                  parts.append(xml[pos:m.start()])
+                  p = m.group(0)
+                  t = para_text(p)
+                  if t in replacements:
+                      seen[t] += 1
+                      p = replace_para_text(p, replacements[t])
+                  parts.append(p)
+                  pos = m.end()
+              parts.append(xml[pos:])
+              new_xml = ''.join(parts)
+
+              bad = {k:v for k,v in seen.items() if v != 1}
+              if bad:
+                  raise RuntimeError(f"target paragraph match failure: {bad}")
+
+              text_after = "\n".join(para_text(p) for p in re.findall(r'<w:p\b[\s\S]*?</w:p>', new_xml))
+              for required in [
+                  "表2 权重方式消融结果",
+                  "图3 自适应权重消融结果",
+                  "图4 路由权重分布",
+                  "2.5 频率保留比例敏感性"
+              ]:
+                  if required not in text_after:
+                      raise RuntimeError(f"required neighboring content missing: {required}")
+
+              with ZipFile(tmp, "w", ZIP_DEFLATED) as zout:
+                  for item in zin.infolist():
+                      data = new_xml.encode("utf-8") if item.filename == "word/document.xml" else zin.read(item.filename)
+                      zout.writestr(item, data)
+
+          shutil.move(tmp, path)
+          print("patched", path)
+          PY
+
+      - name: Commit patched manuscript
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.18v.docx
+          git diff --cached --quiet && exit 1
+          git commit -m "revise section 2.3 adaptive weight ablation"
+          git push
