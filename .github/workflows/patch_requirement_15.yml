@@ -107,7 +107,7 @@ jobs:
                           continue
 
                       marks=[]
-                      for m in re.finditer(r"(?<![A-Za-z'])\\b?([LHCqsrptNnckmidxvu])\\b?(?![A-Za-z])",txt):
+                      for m in re.finditer(r"(?<![A-Za-z'])([LHCqsrptNnckmidxvu])(?![A-Za-z])",txt):
                           ch=m.group(1)
                           # Keep hour unit upright: examples such as "1 h" and "24 h".
                           before=txt[:m.start(1)]
