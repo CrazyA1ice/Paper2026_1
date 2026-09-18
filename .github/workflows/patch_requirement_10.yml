@@ -90,14 +90,14 @@ jobs:
               ref_idx=next(i for i,t in enumerate(texts) if t=="参考文献")
 
               target_repls={
-                  12:[("大型IP网络流量矩阵","大型互联网协议（Internet Protocol，IP）网络流量矩阵")],
+                  12:[("IP","互联网协议（Internet Protocol，IP）")],
                   13:[
                       ("FEDformer","频率增强分解Transformer（Frequency Enhanced Decomposed Transformer，FEDformer）"),
                       ("FITS","频率插值时间序列分析（Frequency Interpolation Time Series Analysis，FITS）"),
                       ("DLinear","分解线性（Decomposition Linear，DLinear）模型")
                   ],
-                  55:[("RFFT共有","实值快速傅里叶变换（real fast Fourier transform，RFFT）共有")],
-                  63:[("验证集MSE","验证集均方误差")]
+                  55:[("RFFT","实值快速傅里叶变换（real fast Fourier transform，RFFT）")],
+                  63:[("MSE","均方误差")]
               }
 
               out=[]
