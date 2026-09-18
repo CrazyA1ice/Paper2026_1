@@ -85,24 +85,50 @@ jobs:
                   else:
                       styles = styles.replace('<w:rPrDefault><w:rPr>', '<w:rPrDefault><w:rPr><w:rFonts w:eastAsia="宋体"/>', 1)
 
-              # 3) Normal style single line spacing, preserving other paragraph properties.
-              normal_match = re.search(r'<w:style\b[^>]*w:styleId="Normal"[^>]*>[\s\S]*?</w:style>', styles)
-              if not normal_match:
-                  raise RuntimeError("Normal style not found")
-              normal = normal_match.group(0)
-              if '<w:pPr>' in normal:
-                  if re.search(r'<w:spacing\b[^>]*/>', normal):
-                      normal = re.sub(
-                          r'<w:spacing\b[^>]*/>',
-                          '<w:spacing w:before="0" w:after="0" w:line="240" w:lineRule="auto"/>',
-                          normal,
-                          count=1
-                      )
+              # 3) Single line spacing. Set document defaults and normalize
+              # explicit paragraph/style line spacing while preserving before/after spacing.
+              if '<w:pPrDefault><w:pPr>' in styles:
+                  block_match = re.search(r'<w:pPrDefault><w:pPr>[\\s\\S]*?</w:pPr></w:pPrDefault>', styles)
+                  block = block_match.group(0)
+                  if re.search(r'<w:spacing\\b[^>]*/>', block):
+                      def default_spacing_repl(m):
+                          tag = m.group(0)
+                          if 'w:line=' in tag:
+                              tag = re.sub(r'w:line="[^"]*"', 'w:line="240"', tag)
+                          else:
+                              tag = tag[:-2] + ' w:line="240"/>'
+                          if 'w:lineRule=' in tag:
+                              tag = re.sub(r'w:lineRule="[^"]*"', 'w:lineRule="auto"', tag)
+                          else:
+                              tag = tag[:-2] + ' w:lineRule="auto"/>'
+                          return tag
+                      block = re.sub(r'<w:spacing\\b[^>]*/>', default_spacing_repl, block, count=1)
                   else:
-                      normal = normal.replace('<w:pPr>', '<w:pPr><w:spacing w:before="0" w:after="0" w:line="240" w:lineRule="auto"/>', 1)
+                      block = block.replace('<w:pPr>', '<w:pPr><w:spacing w:line="240" w:lineRule="auto"/>', 1)
+                  styles = styles[:block_match.start()] + block + styles[block_match.end():]
               else:
-                  normal = normal.replace('<w:style', '<w:style', 1).replace('>', '><w:pPr><w:spacing w:before="0" w:after="0" w:line="240" w:lineRule="auto"/></w:pPr>', 1)
-              styles = styles[:normal_match.start()] + normal + styles[normal_match.end():]
+                  styles = styles.replace(
+                      '<w:docDefaults>',
+                      '<w:docDefaults><w:pPrDefault><w:pPr><w:spacing w:line="240" w:lineRule="auto"/></w:pPr></w:pPrDefault>',
+                      1
+                  )
+
+              def force_single_spacing(xml):
+                  def repl(m):
+                      tag = m.group(0)
+                      if 'w:line=' in tag:
+                          tag = re.sub(r'w:line="[^"]*"', 'w:line="240"', tag)
+                      else:
+                          tag = tag[:-2] + ' w:line="240"/>'
+                      if 'w:lineRule=' in tag:
+                          tag = re.sub(r'w:lineRule="[^"]*"', 'w:lineRule="auto"', tag)
+                      else:
+                          tag = tag[:-2] + ' w:lineRule="auto"/>'
+                      return tag
+                  return re.sub(r'<w:spacing\\b[^>]*/>', repl, xml)
+
+              doc = force_single_spacing(doc)
+              styles = force_single_spacing(styles)
 
               # Structural checks.
               if f'w:top="{TOP}"' not in doc or f'w:bottom="{BOTTOM}"' not in doc or f'w:left="{LEFT}"' not in doc or f'w:right="{RIGHT}"' not in doc:
