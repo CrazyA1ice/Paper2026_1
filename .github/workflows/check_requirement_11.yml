@@ -1,0 +1,52 @@
+name: Temporary check journal requirement 11
+
+on:
+  push:
+    paths:
+      - ".github/workflows/check_requirement_11.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.event.head_commit.message == 'temporary journal requirement 11 workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect first-page footer metadata
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import re, html
+
+          path=Path("word_output/2026.09.18v.docx")
+          with ZipFile(path,"r") as z:
+              names=z.namelist()
+              doc=z.read("word/document.xml").decode("utf-8")
+              rels=z.read("word/_rels/document.xml.rels").decode("utf-8")
+
+              def text_of(xml):
+                  vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',xml)
+                  return ''.join(html.unescape(v) for v in vals).strip()
+
+              print("FOOTER_FILES="+repr([n for n in names if n.startswith("word/footer") and n.endswith(".xml")]))
+              for n in names:
+                  if n.startswith("word/footer") and n.endswith(".xml"):
+                      xml=z.read(n).decode("utf-8")
+                      print(f"{n} TEXT={text_of(xml)}")
+
+              sects=re.findall(r'<w:sectPr\b[\s\S]*?</w:sectPr>',doc)
+              for i,s in enumerate(sects):
+                  print(f"SECT[{i}]={s}")
+
+              print("RELS="+rels)
+
+              # Also search body for metadata in case it is incorrectly placed in main text.
+              paras=[text_of(m.group(0)) for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>',doc)]
+              for i,t in enumerate(paras):
+                  if any(k in t for k in ["收稿日期","基金项目","第一作者简介","通信作者简介"]):
+                      print(f"BODY_META[{i}]={t}")
+          PY
