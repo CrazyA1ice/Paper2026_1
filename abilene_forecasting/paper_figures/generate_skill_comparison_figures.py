@@ -21,17 +21,16 @@ for directory in (OUT_NATURE, OUT_SCIPILOT):
 
 mpl.rcParams.update(
     {
-        "font.family": "sans-serif",
-        "font.sans-serif": ["SimSun", "Times New Roman"],
+        "font.family": ["Times New Roman", "SimSun", "Liberation Serif", "Noto Serif CJK SC"],
         "axes.unicode_minus": False,
         "svg.fonttype": "none",
         "pdf.fonttype": 42,
         "font.size": 8,
         "axes.labelsize": 8,
         "axes.titlesize": 9,
-        "xtick.labelsize": 7,
-        "ytick.labelsize": 7,
-        "legend.fontsize": 7,
+        "xtick.labelsize": 7.5,
+        "ytick.labelsize": 7.5,
+        "legend.fontsize": 7.5,
         "axes.linewidth": 0.7,
         "lines.linewidth": 1.1,
         "savefig.facecolor": "white",
@@ -81,9 +80,7 @@ def panel_label(ax: plt.Axes, label: str) -> None:
 
 def save_bundle(fig: plt.Figure, out_dir: Path, stem: str) -> None:
     for text_artist in fig.findobj(match=mpl.text.Text):
-        label = text_artist.get_text()
-        family = "SimSun" if any("\u4e00" <= char <= "\u9fff" for char in label) else "Times New Roman"
-        text_artist.set_fontfamily(family)
+        text_artist.set_fontfamily(["Times New Roman", "SimSun", "Liberation Serif", "Noto Serif CJK SC"])
     fig.canvas.draw()
     if require_matplotlib_panel_alignment is not None and len(fig.axes) > 1:
         require_matplotlib_panel_alignment(
@@ -123,7 +120,7 @@ def draw_method_flow(out_dir: Path) -> None:
     ax.set_ylim(0, 1)
     ax.axis("off")
 
-    def box(x, y, w, h, text, fill="white", lw=0.85, fs=7.0):
+    def box(x, y, w, h, text, fill="white", lw=0.85, fs=7.5):
         p = FancyBboxPatch(
             (x, y), w, h, boxstyle="round,pad=0.006,rounding_size=0.012",
             edgecolor=BLACK, facecolor=fill, linewidth=lw, zorder=2,
@@ -161,9 +158,9 @@ def draw_method_flow(out_dir: Path) -> None:
     lane_names = [("尺度1", "L=96"), ("尺度2", "L=48"), ("尺度4", "L=24")]
     for y, (name, length) in zip(lane_y, lane_names):
         box(0.34, y, 0.105, 0.13, f"{name}\n{length}", PALE)
-        box(0.485, y, 0.14, 0.13, "频域筛选\nRFFT→门控→IRFFT", "white", fs=6.4)
-        box(0.665, y, 0.12, 0.13, "DLinear\n趋势+余项", "white", fs=6.6)
-        box(0.825, y, 0.075, 0.13, "预测\nŶ(s)", PALE, fs=6.8)
+        box(0.485, y, 0.14, 0.13, "频域筛选\nRFFT→门控→IRFFT", "white", fs=7.5)
+        box(0.665, y, 0.12, 0.13, "DLinear\n趋势+余项", "white", fs=7.5)
+        box(0.825, y, 0.075, 0.13, "预测\nŶ(s)", PALE, fs=7.5)
         arrow(0.445, y + 0.065, 0.485, y + 0.065)
         arrow(0.625, y + 0.065, 0.665, y + 0.065)
         arrow(0.785, y + 0.065, 0.825, y + 0.065)
@@ -172,9 +169,9 @@ def draw_method_flow(out_dir: Path) -> None:
 
     box(0.37, 0.015, 0.31, 0.095,
         "样本级路由器：α=softmax(g(X))\n权重随样本变化，Σαs=1",
-        "#e4e4e4", lw=1.1, fs=6.3)
+        "#e4e4e4", lw=1.1, fs=7.5)
     routed_arrow([(0.235, 0.40), (0.235, 0.063), (0.37, 0.063)], dashed=True)
-    box(0.925, 0.40, 0.06, 0.18, "融合\nΣαsŶ(s)", "#dddddd", lw=1.1, fs=6.6)
+    box(0.925, 0.40, 0.06, 0.18, "融合\nΣαsŶ(s)", "#dddddd", lw=1.1, fs=7.5)
     for y in lane_y:
         arrow(0.90, y + 0.065, 0.925, 0.49)
     routed_arrow([(0.68, 0.063), (0.955, 0.063), (0.955, 0.40)], dashed=True)
@@ -266,7 +263,7 @@ def nature_router_forecast(router: pd.DataFrame, forecast: pd.DataFrame) -> None
     axes[1].plot(forecast.forecast_hour, forecast.adaptive_multiscale_seed42, color=DARK, linestyle="-.", marker="s", markersize=2.5, label="自适应多尺度")
     axes[1].set_xlabel("预测步（小时）"); axes[1].set_ylabel("标准化流量")
     axes[1].set_title("代表性24小时预测\n实线：真实值　虚线○：DLinear　点划□：自适应多尺度",
-                      fontsize=7.2, linespacing=1.35)
+                      fontsize=7.5, linespacing=1.35)
     style_axis(axes[1])
     panel_label(axes[0], "a"); panel_label(axes[1], "b")
     save_bundle(fig, OUT_NATURE, "N5_路由机制与预测实例")
@@ -305,7 +302,7 @@ def scipilot_paired(weight: pd.DataFrame) -> None:
     axes[0].set_xticks([0.375, 2.375, 4.375], ["无频域", "r=0.50", "r=0.75"])
     axes[0].set_ylabel("MSE"); axes[0].set_title("同一种子的固定—自适应配对")
     axes[0].text(0.02, 0.96, "左点：固定等权\n右点：自适应权重",
-                 transform=axes[0].transAxes, fontsize=6.3, va="top", ha="left", color=DARK)
+                 transform=axes[0].transAxes, fontsize=7.5, va="top", ha="left", color=DARK)
     axes[1].axhline(0, color=MID, linewidth=0.7)
     axes[1].set_xticks(positions, ["无频域", "r=0.50", "r=0.75"])
     axes[1].set_ylabel("相对MSE降低（%）"); axes[1].set_title("每个种子的改进幅度")
