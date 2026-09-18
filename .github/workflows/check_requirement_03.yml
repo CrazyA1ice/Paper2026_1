@@ -47,6 +47,9 @@ jobs:
                   centered=bool(re.search(r'<w:jc\b[^>]*w:val="center"[^>]*/>',p))
                   print(f"PARA[{i}] text={texts[i]}")
                   print(f"  centered={centered}")
+                  ppr=re.search(r'<w:pPr\\b[^>]*>[\\s\\S]*?</w:pPr>',p)
+                  if ppr:
+                      print("  PPR="+ppr.group(0))
                   for j,r in enumerate(re.findall(r'<w:r\b[\s\S]*?</w:r>',p)):
                       rt=text_of(r)
                       if not rt: continue
