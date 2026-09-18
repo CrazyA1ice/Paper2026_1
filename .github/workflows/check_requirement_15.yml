@@ -76,4 +76,7 @@ jobs:
                           rp=re.search(r'<w:rPr\\b[\\s\\S]*?</w:rPr>',r)
                           italic=bool(rp and re.search(r'<w:i(?:\\s[^>]*)?/>',rp.group(0)))
                           print(f"  TRUN[{j}] text={rt!r} italic={italic}")
+          for i,t in enumerate(texts):
+              if any(ch in t for ch in ["_","^","{","}"]):
+                  print(f"LATEXLIKE[{i}]={t}")
           PY
