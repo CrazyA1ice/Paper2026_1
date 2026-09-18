@@ -1,0 +1,155 @@
+name: Temporary check journal requirement 2
+
+on:
+  push:
+    paths:
+      - ".github/workflows/check_requirement_02.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    if: github.event.head_commit.message == 'temporary journal requirement 2 workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check and conditionally fix title formatting
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          import re, html, shutil
+
+          path = Path("word_output/2026.09.18v.docx")
+          tmp = path.with_suffix(".tmp.docx")
+          title_text = "基于自适应多尺度加权的多变量网络流量预测方法"
+
+          def text_of(p):
+              vals = re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>', p)
+              return ''.join(html.unescape(x) for x in vals).strip()
+
+          def ensure_p_center(p):
+              m = re.search(r'<w:pPr\b[^>]*>[\s\S]*?</w:pPr>', p)
+              if m:
+                  ppr = m.group(0)
+                  if re.search(r'<w:jc\b[^>]*/>', ppr):
+                      ppr = re.sub(r'<w:jc\b[^>]*/>', '<w:jc w:val="center"/>', ppr, count=1)
+                  else:
+                      ppr = ppr.replace('</w:pPr>', '<w:jc w:val="center"/></w:pPr>')
+                  return p[:m.start()] + ppr + p[m.end():]
+              return p.replace('>', '><w:pPr><w:jc w:val="center"/></w:pPr>', 1)
+
+          def patch_rpr(r):
+              m = re.search(r'<w:rPr\b[^>]*>[\s\S]*?</w:rPr>', r)
+              if m:
+                  rp = m.group(0)
+              else:
+                  rp = '<w:rPr></w:rPr>'
+
+              if re.search(r'<w:rFonts\b[^>]*/>', rp):
+                  def font_repl(fm):
+                      tag=fm.group(0)
+                      attrs={"w:ascii":"SimHei","w:hAnsi":"SimHei","w:eastAsia":"黑体","w:cs":"SimHei"}
+                      for k,v in attrs.items():
+                          if re.search(fr'{re.escape(k)}="[^"]*"', tag):
+                              tag=re.sub(fr'{re.escape(k)}="[^"]*"', f'{k}="{v}"', tag)
+                          else:
+                              tag=tag[:-2]+f' {k}="{v}"/>'
+                      return tag
+                  rp=re.sub(r'<w:rFonts\b[^>]*/>', font_repl, rp, count=1)
+              else:
+                  rp=rp.replace('<w:rPr>', '<w:rPr><w:rFonts w:ascii="SimHei" w:hAnsi="SimHei" w:eastAsia="黑体" w:cs="SimHei"/>',1)
+
+              if re.search(r'<w:sz\b[^>]*/>', rp):
+                  rp=re.sub(r'<w:sz\b[^>]*/>', '<w:sz w:val="36"/>', rp, count=1)
+              else:
+                  rp=rp.replace('</w:rPr>', '<w:sz w:val="36"/></w:rPr>')
+              if re.search(r'<w:szCs\b[^>]*/>', rp):
+                  rp=re.sub(r'<w:szCs\b[^>]*/>', '<w:szCs w:val="36"/>', rp, count=1)
+              else:
+                  rp=rp.replace('</w:rPr>', '<w:szCs w:val="36"/></w:rPr>')
+
+              if m:
+                  return r[:m.start()] + rp + r[m.end():]
+              return r.replace('>', '>'+rp, 1)
+
+          with ZipFile(path, "r") as zin:
+              xml=zin.read("word/document.xml").decode("utf-8")
+              paras=list(re.finditer(r'<w:p\b[\s\S]*?</w:p>', xml))
+              target=None
+              for m in paras:
+                  if text_of(m.group(0)) == title_text:
+                      target=m
+                      break
+              if target is None:
+                  raise RuntimeError("title paragraph not found")
+
+              p=target.group(0)
+              centered = bool(re.search(r'<w:jc\b[^>]*w:val="center"[^>]*/>', p))
+              runs=re.findall(r'<w:r\b[\s\S]*?</w:r>', p)
+              text_runs=[r for r in runs if text_of(r)]
+              font_ok=all(
+                  re.search(r'<w:rFonts\b[^>]*w:eastAsia="黑体"[^>]*/>', r)
+                  or re.search(r'<w:rFonts\b[^>]*w:eastAsia="SimHei"[^>]*/>', r)
+                  for r in text_runs
+              )
+              size_ok=all(bool(re.search(r'<w:sz\b[^>]*w:val="36"[^>]*/>', r)) for r in text_runs)
+
+              print(f"CHECK centered={centered} font_ok={font_ok} size_ok={size_ok} runs={len(text_runs)}")
+
+              if centered and font_ok and size_ok:
+                  print("STATUS=COMPLIANT")
+              else:
+                  newp=ensure_p_center(p)
+                  newp=re.sub(r'<w:r\b[\s\S]*?</w:r>', lambda m: patch_rpr(m.group(0)) if text_of(m.group(0)) else m.group(0), newp)
+                  xml=xml[:target.start()] + newp + xml[target.end():]
+
+                  # Verify patched title.
+                  patched = re.search(re.escape(newp), xml) is not None
+                  if not patched:
+                      raise RuntimeError("title patch write failed")
+
+                  with ZipFile(tmp, "w", ZIP_DEFLATED) as zout:
+                      for item in zin.infolist():
+                          data=xml.encode("utf-8") if item.filename=="word/document.xml" else zin.read(item.filename)
+                          zout.writestr(item,data)
+                  shutil.move(tmp,path)
+                  print("STATUS=FIXED")
+
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice poppler-utils fonts-noto-cjk
+          fc-cache -fv >/dev/null
+
+      - name: Render for QA
+        shell: bash
+        run: |
+          mkdir -p qa_render
+          libreoffice --headless --convert-to pdf --outdir qa_render word_output/2026.09.18v.docx
+          pdftoppm -png -r 120 qa_render/2026.09.18v.pdf qa_render/page
+          pdfinfo qa_render/2026.09.18v.pdf | grep -E 'Pages|Page size'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: journal-requirement-02-qa
+          path: qa_render/
+          if-no-files-found: error
+
+      - name: Commit only if title was changed
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.18v.docx
+          if git diff --cached --quiet; then
+            echo "NO_CHANGE"
+            exit 0
+          fi
+          git commit -m "apply journal requirement 2 title format"
+          git push
