@@ -1,0 +1,39 @@
+name: Temporary inspect manuscript section 2.3
+
+on:
+  push:
+    paths:
+      - ".github/workflows/inspect_manuscript_2_3.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    if: github.event.head_commit.message == 'temporary inspect manuscript section 2.3'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print target section paragraphs
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import re, html
+
+          path = Path("word_output/2026.09.18v.docx")
+          with ZipFile(path, "r") as z:
+              xml = z.read("word/document.xml").decode("utf-8")
+
+          def para_text(pxml):
+              vals = re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>', pxml)
+              return re.sub(r'\s+', ' ', ''.join(html.unescape(v) for v in vals)).strip()
+
+          paras = [para_text(m.group(0)) for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>', xml)]
+          start = next(i for i,t in enumerate(paras) if t == "2.4 自适应权重消融与路由行为")
+          end = next(i for i,t in enumerate(paras[start+1:], start+1) if t.startswith("2.5 "))
+          for i,t in enumerate(paras[start:end], start):
+              if t:
+                  print(f"PARA[{i}]={t}")
+          PY
