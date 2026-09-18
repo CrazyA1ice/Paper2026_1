@@ -1,0 +1,45 @@
+name: Temporary check journal requirement 6
+
+on:
+  push:
+    paths:
+      - ".github/workflows/check_requirement_06.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.event.head_commit.message == 'temporary journal requirement 6 workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect Chinese keywords
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import re, html
+
+          path=Path("word_output/2026.09.18v.docx")
+          with ZipFile(path,"r") as z:
+              xml=z.read("word/document.xml").decode("utf-8")
+
+          def text_of(x):
+              vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',x)
+              return ''.join(html.unescape(v) for v in vals).strip()
+
+          paras=[text_of(m.group(0)) for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>',xml)]
+          kw=next(t for t in paras if t.startswith("关键词："))
+          body=kw[len("关键词："):]
+          items=[x.strip() for x in body.split("；") if x.strip()]
+          chinese_ok=all(re.search(r'[\u4e00-\u9fff]',x) for x in items)
+          count_ok=3 <= len(items) <= 8
+          separators_ok=(";" not in body and "；" in body and body.count("；")==len(items)-1)
+          print("KEYWORDS="+kw)
+          print("COUNT="+str(len(items)))
+          print("ITEMS="+repr(items))
+          print(f"CHECK count_ok={count_ok} chinese_ok={chinese_ok} separators_ok={separators_ok}")
+          print("STATUS="+("COMPLIANT" if count_ok and chinese_ok and separators_ok else "NOT_COMPLIANT"))
+          PY
