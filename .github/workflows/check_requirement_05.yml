@@ -33,23 +33,20 @@ jobs:
           paras=[text_of(m.group(0)) for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>',xml)]
 
           abstract=next(t for t in paras if t.startswith("摘要："))
-          intro_idx=next(i for i,t in enumerate(paras) if t=="引言")
-          sec1_idx=next(i for i,t in enumerate(paras[intro_idx+1:],intro_idx+1) if re.match(r'^1\s',t))
-          intro=''.join(t for t in paras[intro_idx+1:sec1_idx] if t)
-
-          concl_idx=next(i for i,t in enumerate(paras) if t=="3 结论")
-          ref_idx=next(i for i,t in enumerate(paras[concl_idx+1:],concl_idx+1) if "参考文献" in t)
-          conclusion=''.join(t for t in paras[concl_idx+1:ref_idx] if t)
-
           body=abstract[len("摘要："):]
-          cnchars=''.join(re.findall(r'[\u4e00-\u9fff]',body))
-          no_space_len=len(re.sub(r'\s+','',body))
+          cnchars=''.join(re.findall(r'[\\u4e00-\\u9fff]',body))
+          no_space_len=len(re.sub(r'\\s+','',body))
           forbidden=[w for w in ["本文","我们","作者","笔者"] if w in body]
 
           print("ABSTRACT="+abstract)
           print("ABSTRACT_CN_CHARS="+str(len(cnchars)))
           print("ABSTRACT_NO_SPACE_CHARS="+str(no_space_len))
           print("FORBIDDEN="+(",".join(forbidden) if forbidden else "NONE"))
-          print("INTRO="+intro)
-          print("CONCLUSION="+conclusion)
+
+          for i,t in enumerate(paras[:35]):
+              if t:
+                  print(f"FIRST[{i}]={t}")
+          for i,t in enumerate(paras[-35:],len(paras)-35):
+              if t:
+                  print(f"LAST[{i}]={t}")
           PY
