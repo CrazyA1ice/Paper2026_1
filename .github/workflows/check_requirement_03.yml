@@ -25,6 +25,10 @@ jobs:
           path=Path("word_output/2026.09.18v.docx")
           with ZipFile(path,"r") as z:
               xml=z.read("word/document.xml").decode("utf-8")
+              styles=z.read("word/styles.xml").decode("utf-8")
+              d=re.search(r'<w:docDefaults>[\\s\\S]*?</w:docDefaults>', styles)
+              if d:
+                  print("DOCDEFAULTS="+d.group(0))
 
           def text_of(p):
               vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',p)
