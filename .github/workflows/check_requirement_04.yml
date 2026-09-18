@@ -1,0 +1,149 @@
+name: Temporary check journal requirement 4
+
+on:
+  push:
+    paths:
+      - ".github/workflows/check_requirement_04.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    if: github.event.head_commit.message == 'temporary journal requirement 4 workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check and conditionally fix affiliation line
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          import re, html, shutil
+
+          path=Path("word_output/2026.09.18v.docx")
+          tmp=path.with_suffix(".tmp.docx")
+          old="（[请填写单位全称]，[省 市 邮编]）"
+          new="（[请填写工作单位] [请填写部门]，[省 市 邮编]）"
+
+          def text_of(x):
+              vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',x)
+              return ''.join(html.unescape(v) for v in vals).strip()
+
+          def set_text(p,s):
+              first=True
+              def repl(m):
+                  nonlocal first
+                  attrs=m.group(1) or ""
+                  if first:
+                      first=False
+                      esc=s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+                      return f'<w:t{attrs}>{esc}</w:t>'
+                  return f'<w:t{attrs}></w:t>'
+              return re.sub(r'<w:t(\s[^>]*)?>([\s\S]*?)</w:t>', repl, p)
+
+          with ZipFile(path,"r") as zin:
+              xml=zin.read("word/document.xml").decode("utf-8")
+              target=None
+              for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>',xml):
+                  if text_of(m.group(0))==old:
+                      target=m
+                      break
+              if target is None:
+                  raise RuntimeError("affiliation placeholder paragraph not found")
+
+              p=target.group(0)
+              centered=bool(re.search(r'<w:jc\b[^>]*w:val="center"[^>]*/>',p))
+              runs=[r for r in re.findall(r'<w:r\b[\s\S]*?</w:r>',p) if text_of(r)]
+              font_ok=all(bool(re.search(r'<w:rFonts\b[^>]*w:eastAsia="楷体"[^>]*/>',r)) for r in runs)
+              size_ok=all(bool(re.search(r'<w:sz\b[^>]*w:val="18"[^>]*/>',r)) for r in runs)
+              structure_ok=("请填写部门" in old)
+
+              print(f"CHECK centered={centered} font_ok={font_ok} size_ok={size_ok} structure_ok={structure_ok}")
+              print(f"CURRENT={old}")
+
+              changed=False
+              if not structure_ok:
+                  p=set_text(p,new)
+                  changed=True
+
+              # Preserve/fix KaiTi + small-5 explicitly if needed.
+              def patch_rpr(run):
+                  m=re.search(r'<w:rPr\b[^>]*>[\s\S]*?</w:rPr>',run)
+                  rp=m.group(0) if m else '<w:rPr></w:rPr>'
+                  if re.search(r'<w:rFonts\b[^>]*/>',rp):
+                      def fr(fm):
+                          tag=fm.group(0)
+                          for k,v in [("w:ascii","KaiTi"),("w:hAnsi","KaiTi"),("w:eastAsia","楷体"),("w:cs","KaiTi")]:
+                              if re.search(fr'{re.escape(k)}="[^"]*"',tag):
+                                  tag=re.sub(fr'{re.escape(k)}="[^"]*"',f'{k}="{v}"',tag)
+                              else:
+                                  tag=tag[:-2]+f' {k}="{v}"/>'
+                          return tag
+                      rp=re.sub(r'<w:rFonts\b[^>]*/>',fr,rp,count=1)
+                  else:
+                      rp=rp.replace('<w:rPr>','<w:rPr><w:rFonts w:ascii="KaiTi" w:hAnsi="KaiTi" w:eastAsia="楷体" w:cs="KaiTi"/>',1)
+                  if re.search(r'<w:sz\b[^>]*/>',rp):
+                      rp=re.sub(r'<w:sz\b[^>]*/>','<w:sz w:val="18"/>',rp,count=1)
+                  else:
+                      rp=rp.replace('</w:rPr>','<w:sz w:val="18"/></w:rPr>')
+                  if re.search(r'<w:szCs\b[^>]*/>',rp):
+                      rp=re.sub(r'<w:szCs\b[^>]*/>','<w:szCs w:val="18"/>',rp,count=1)
+                  else:
+                      rp=rp.replace('</w:rPr>','<w:szCs w:val="18"/></w:rPr>')
+                  if m:
+                      return run[:m.start()]+rp+run[m.end():]
+                  return run.replace('>', '>'+rp,1)
+
+              if not (font_ok and size_ok):
+                  p=re.sub(r'<w:r\b[\s\S]*?</w:r>',lambda m: patch_rpr(m.group(0)) if text_of(m.group(0)) else m.group(0),p)
+                  changed=True
+
+              if changed:
+                  xml=xml[:target.start()]+p+xml[target.end():]
+                  with ZipFile(tmp,"w",ZIP_DEFLATED) as zout:
+                      for item in zin.infolist():
+                          data=xml.encode("utf-8") if item.filename=="word/document.xml" else zin.read(item.filename)
+                          zout.writestr(item,data)
+                  shutil.move(tmp,path)
+                  print("STATUS=FIXED")
+              else:
+                  print("STATUS=COMPLIANT")
+          PY
+
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice poppler-utils fonts-noto-cjk
+          fc-cache -fv >/dev/null
+
+      - name: Render for QA
+        shell: bash
+        run: |
+          mkdir -p qa_render
+          libreoffice --headless --convert-to pdf --outdir qa_render word_output/2026.09.18v.docx
+          pdftoppm -png -r 120 qa_render/2026.09.18v.pdf qa_render/page
+          pdfinfo qa_render/2026.09.18v.pdf | grep -E 'Pages|Page size'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: journal-requirement-04-qa
+          path: qa_render/
+          if-no-files-found: error
+
+      - name: Commit only if changed
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.18v.docx
+          if git diff --cached --quiet; then
+            echo "NO_CHANGE"
+            exit 0
+          fi
+          git commit -m "apply journal requirement 4 affiliation format"
+          git push
