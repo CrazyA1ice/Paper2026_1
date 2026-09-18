@@ -1,0 +1,143 @@
+name: Temporary patch journal requirement 14b
+
+on:
+  push:
+    paths:
+      - ".github/workflows/patch_requirement_14b.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message == 'temporary journal requirement 14b patch workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add equation symbol explanations safely
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          import re, html, shutil
+
+          path=Path("word_output/2026.09.18v.docx")
+          tmp=path.with_suffix(".tmp.docx")
+
+          targets={
+              "同一尺度内的144个变量共享时间映射权重":
+                  "式中，趋势项线性层和余项线性层分别具有独立的时间映射权重与偏置参数。",
+              "Softmax将分数转换为非负、和为1的权重":
+                  "式中，两层感知器各自包含权重矩阵和偏置，输出为三个尺度的得分向量。",
+              "实值快速傅里叶变换（real fast Fourier transform，RFFT）共有":
+                  "式中，频域系数表示第n个样本在尺度s、频率索引k和变量c处的复数谱值，k为频率索引，j为虚数单位。",
+              "门控参数在同一尺度内按频率共享给所有OD变量":
+                  "式中，可学习门控参数按尺度s和频率索引k定义，用于调节对应保留频率的幅值。",
+              "使用Adam优化器更新参数，模型选择只依据验证集均方误差":
+                  "式中，N为训练样本数，损失函数表示训练样本、预测时刻和OD变量上的平均平方误差。"
+          }
+
+          def text_of(x):
+              vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',x)
+              vals += re.findall(r'<m:t>([\s\S]*?)</m:t>',x)
+              return ''.join(html.unescape(v) for v in vals).strip()
+
+          def esc(s):
+              return s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+
+          def prepend_run(p, sentence):
+              run=(
+                '<w:r><w:rPr>'
+                '<w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:eastAsia="宋体" w:cs="Times New Roman"/>'
+                '<w:sz w:val="21"/><w:szCs w:val="21"/>'
+                '</w:rPr><w:t>'+esc(sentence)+'</w:t></w:r>'
+              )
+              ppr=re.search(r'</w:pPr>',p)
+              if ppr:
+                  return p[:ppr.end()]+run+p[ppr.end():]
+              pos=p.find(">")
+              return p[:pos+1]+run+p[pos+1:]
+
+          with ZipFile(path,"r") as zin:
+              xml=zin.read("word/document.xml").decode("utf-8")
+              matches=list(re.finditer(r'<w:p\b[\s\S]*?</w:p>',xml))
+              texts=[text_of(m.group(0)) for m in matches]
+
+              mapping={}
+              for prefix,sentence in targets.items():
+                  hits=[i for i,t in enumerate(texts) if t.startswith(prefix)]
+                  if len(hits)!=1:
+                      raise RuntimeError(f"expected one target paragraph for {prefix}, got {hits}")
+                  mapping[hits[0]]=sentence
+
+              out=[]; pos=0
+              for i,m in enumerate(matches):
+                  out.append(xml[pos:m.start()])
+                  p=m.group(0)
+                  if i in mapping:
+                      p=prepend_run(p,mapping[i])
+                  out.append(p)
+                  pos=m.end()
+              out.append(xml[pos:])
+              new_xml=''.join(out)
+
+              # Keep all 20 numbered OMML formulas intact.
+              new_paras=[m.group(0) for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>',new_xml)]
+              formula_texts=[text_of(p) for p in new_paras if "<m:oMath" in p]
+              if len(formula_texts)!=20:
+                  raise RuntimeError(f"expected 20 formula paragraphs, got {len(formula_texts)}")
+              nums=[]
+              for t in formula_texts:
+                  m=re.match(r'\((\d+)\)',t)
+                  if not m: raise RuntimeError(f"formula number missing: {t[:40]}")
+                  nums.append(int(m.group(1)))
+              if nums!=list(range(1,21)):
+                  raise RuntimeError(f"formula numbering changed: {nums}")
+
+              fulltext=''.join(text_of(p) for p in new_paras)
+              for sentence in targets.values():
+                  if sentence not in fulltext:
+                      raise RuntimeError(f"definition missing: {sentence}")
+
+              with ZipFile(tmp,"w",ZIP_DEFLATED) as zout:
+                  for item in zin.infolist():
+                      data=new_xml.encode("utf-8") if item.filename=="word/document.xml" else zin.read(item.filename)
+                      zout.writestr(item,data)
+
+          shutil.move(tmp,path)
+          print("STATUS=FIXED")
+          PY
+
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice poppler-utils fonts-noto-cjk
+          fc-cache -fv >/dev/null
+
+      - name: Render full manuscript
+        shell: bash
+        run: |
+          mkdir -p qa_render
+          libreoffice --headless --convert-to pdf --outdir qa_render word_output/2026.09.18v.docx
+          pdftoppm -png -r 120 qa_render/2026.09.18v.pdf qa_render/page
+          pdfinfo qa_render/2026.09.18v.pdf | grep -E 'Pages|Page size'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: journal-requirement-14-qa
+          path: qa_render/
+          if-no-files-found: error
+
+      - name: Commit manuscript
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.18v.docx
+          git diff --cached --quiet && exit 1
+          git commit -m "apply journal requirement 14 equation explanations"
+          git push
