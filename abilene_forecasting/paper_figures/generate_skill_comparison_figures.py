@@ -238,7 +238,7 @@ def nature_frequency(freq: pd.DataFrame) -> None:
             ax.errorbar(xs, means, yerr=sds, color=color, linestyle=ls, marker=marker,
                         markersize=4.2, capsize=2.5, label=labels[model], zorder=4)
         ax.set_xticks([0.25, 0.50, 0.75])
-        ax.set_xlabel("频域保留比例 r")
+        ax.set_xlabel("频域保留比例 $r$")
         ax.set_ylabel(f"{title}（越低越好）")
         style_axis(ax)
     axes[0].legend(frameon=False)
@@ -255,7 +255,7 @@ def nature_router_forecast(router: pd.DataFrame, forecast: pd.DataFrame) -> None
     vp["cmedians"].set_color(BLACK)
     axes[0].set_xticks([1, 2, 3], ["尺度1", "尺度2", "尺度4"])
     axes[0].set_ylabel("路由权重")
-    axes[0].set_title("样本级权重分布（n=2439/尺度）")
+    axes[0].set_title("样本级权重分布（$n$=2439/尺度）")
     style_axis(axes[0])
 
     axes[1].plot(forecast.forecast_hour, forecast.truth, color=BLACK, linewidth=1.6, label="真实值")
@@ -299,12 +299,12 @@ def scipilot_paired(weight: pd.DataFrame) -> None:
         delta = (part.fixed_mse.to_numpy() - part.adaptive_mse.to_numpy()) / part.fixed_mse.to_numpy() * 100
         axes[1].scatter(np.full(3, i) + np.array([-0.10, 0, 0.10]), delta, s=27, facecolors="white", edgecolors=BLACK)
         axes[1].scatter(i, delta.mean(), marker="_", s=130, color=BLACK)
-    axes[0].set_xticks([0.375, 2.375, 4.375], ["无频域", "r=0.50", "r=0.75"])
+    axes[0].set_xticks([0.375, 2.375, 4.375], ["无频域", "$r$=0.50", "$r$=0.75"])
     axes[0].set_ylabel("MSE"); axes[0].set_title("同一种子的固定—自适应配对")
     axes[0].text(0.02, 0.96, "左点：固定等权\n右点：自适应权重",
                  transform=axes[0].transAxes, fontsize=7.5, va="top", ha="left", color=DARK)
     axes[1].axhline(0, color=MID, linewidth=0.7)
-    axes[1].set_xticks(positions, ["无频域", "r=0.50", "r=0.75"])
+    axes[1].set_xticks(positions, ["无频域", "$r$=0.50", "$r$=0.75"])
     axes[1].set_ylabel("相对MSE降低（%）"); axes[1].set_title("每个种子的改进幅度")
     for ax in axes: style_axis(ax)
     panel_label(axes[0], "a"); panel_label(axes[1], "b")
@@ -323,7 +323,7 @@ def scipilot_frequency(freq: pd.DataFrame) -> None:
             xs = np.array(sorted(sub.cut_ratio.unique()))
             ax.plot(xs, g.mean().reindex(xs), color=DARK if model == "dlinear_freq" else BLACK,
                     linestyle=ls, marker=marker, markersize=5, linewidth=1.6, label=name)
-        ax.set_xticks([0.25, 0.50, 0.75]); ax.set_xlabel("频域保留比例 r"); ax.set_ylabel(label)
+        ax.set_xticks([0.25, 0.50, 0.75]); ax.set_xlabel("频域保留比例 $r$"); ax.set_ylabel(label)
         ax.set_title(f"{label}：细线为种子，粗线为均值")
         style_axis(ax)
     axes[0].legend(frameon=False)
@@ -347,7 +347,7 @@ def scipilot_router_forecast(router: pd.DataFrame, forecast: pd.DataFrame) -> No
         body.set_facecolor(shade); body.set_edgecolor(BLACK); body.set_alpha(1)
     violins["cmedians"].set_color(BLACK)
     axes[0, 1].set_xticks(range(3), [f"尺度{s}" for s in scales]); axes[0, 1].set_ylabel("路由权重")
-    axes[0, 1].set_title("权重分布（n=2439/尺度）")
+    axes[0, 1].set_title("权重分布（$n$=2439/尺度）")
 
     axes[1, 0].plot(forecast.forecast_hour, forecast.truth, color=BLACK, linewidth=1.6, label="真实值")
     axes[1, 0].plot(forecast.forecast_hour, forecast.dlinear_seed42, color=MID, linestyle="--", marker="o", markersize=2.5, label="DLinear")
@@ -383,7 +383,7 @@ def scipilot_router_only(router: pd.DataFrame) -> None:
         body.set_facecolor(shade); body.set_edgecolor(BLACK); body.set_alpha(1)
     violins["cmedians"].set_color(BLACK)
     axes[1].set_xticks(range(3), [f"尺度{s}" for s in scales]); axes[1].set_ylabel("路由权重")
-    axes[1].set_title("权重分布（n=2439/尺度）")
+    axes[1].set_title("权重分布（$n$=2439/尺度）")
     for ax, label in zip(axes, "ab"):
         style_axis(ax); panel_label(ax, label)
     save_bundle(fig, OUT_SCIPILOT, "S4a_路由权重诊断")
