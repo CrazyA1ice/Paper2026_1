@@ -1,0 +1,121 @@
+name: Temporary patch journal requirement 14
+
+on:
+  push:
+    paths:
+      - ".github/workflows/patch_requirement_14.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message == 'temporary journal requirement 14 patch workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add explicit equation-symbol explanations
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          import re, html, shutil
+
+          path=Path("word_output/2026.09.18v.docx")
+          tmp=path.with_suffix(".tmp.docx")
+
+          replacements={
+            "同一尺度内的144个变量共享时间映射权重，三个尺度使用不同参数。":
+              "其中，W_T^{(s)}和W_R^{(s)}分别表示趋势项与余项的时间映射权重，b_T^{(s)}和b_R^{(s)}为对应偏置。同一尺度内的144个变量共享时间映射权重，三个尺度使用不同参数。",
+            "Softmax将分数转换为非负、和为1的权重：":
+              "其中，W_1和W_2为两层感知器的权重矩阵，b_1和b_2为对应偏置，a_n为三个尺度的得分向量。Softmax将分数转换为非负、和为1的权重：",
+            "实值快速傅里叶变换（real fast Fourier transform，RFFT）共有L_s/2+1个非负频率。":
+              "其中，F_{n,k,c}^{(s)}为第n个样本在尺度s、频率索引k和变量c处的复频域系数，j为虚数单位。实值快速傅里叶变换（real fast Fourier transform，RFFT）共有L_s/2+1个非负频率。",
+            "门控参数在同一尺度内按频率共享给所有OD变量。":
+              "其中，g_k^{(s)}为尺度s在第k个保留频率上的可学习门控参数。门控参数在同一尺度内按频率共享给所有OD变量。",
+            "使用Adam优化器更新参数，模型选择只依据验证集均方误差。":
+              "其中，N为训练样本数，L_MSE表示训练均方误差损失。使用Adam优化器更新参数，模型选择只依据验证集均方误差。"
+          }
+
+          def unesc(s):
+              return html.unescape(s)
+
+          def esc(s):
+              return s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+
+          with ZipFile(path,"r") as zin:
+              xml=zin.read("word/document.xml").decode("utf-8")
+              counts={}
+              for old,new in replacements.items():
+                  # Replace across one text node only; these target sentences are each stored contiguously.
+                  pattern=re.compile(r'(<w:t(?:\s[^>]*)?>)([\s\S]*?)(</w:t>)')
+                  hit=0
+                  def repl(m):
+                      nonlocal hit
+                      raw=unesc(m.group(2))
+                      if old in raw:
+                          raw=raw.replace(old,new,1)
+                          hit+=1
+                      return m.group(1)+esc(raw)+m.group(3)
+                  xml=pattern.sub(repl,xml)
+                  counts[old]=hit
+                  if hit!=1:
+                      raise RuntimeError(f"expected one replacement for {old[:30]}, got {hit}")
+
+              # Verify all semantic definitions are present and formula objects untouched.
+              all_text=''.join(unesc(x) for x in re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',xml))
+              required=[
+                "W_T^{(s)}和W_R^{(s)}分别表示趋势项与余项的时间映射权重",
+                "W_1和W_2为两层感知器的权重矩阵",
+                "F_{n,k,c}^{(s)}为第n个样本",
+                "g_k^{(s)}为尺度s在第k个保留频率上的可学习门控参数",
+                "N为训练样本数，L_MSE表示训练均方误差损失"
+              ]
+              for s in required:
+                  if s not in all_text:
+                      raise RuntimeError(f"missing definition: {s}")
+              if xml.count("<m:oMath") < 20:
+                  raise RuntimeError("equation objects unexpectedly changed")
+
+              with ZipFile(tmp,"w",ZIP_DEFLATED) as zout:
+                  for item in zin.infolist():
+                      data=xml.encode("utf-8") if item.filename=="word/document.xml" else zin.read(item.filename)
+                      zout.writestr(item,data)
+
+          shutil.move(tmp,path)
+          print("STATUS=FIXED")
+          PY
+
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice poppler-utils fonts-noto-cjk
+          fc-cache -fv >/dev/null
+
+      - name: Render full manuscript
+        shell: bash
+        run: |
+          mkdir -p qa_render
+          libreoffice --headless --convert-to pdf --outdir qa_render word_output/2026.09.18v.docx
+          pdftoppm -png -r 120 qa_render/2026.09.18v.pdf qa_render/page
+          pdfinfo qa_render/2026.09.18v.pdf | grep -E 'Pages|Page size'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: journal-requirement-14-qa
+          path: qa_render/
+          if-no-files-found: error
+
+      - name: Commit manuscript
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.18v.docx
+          git diff --cached --quiet && exit 1
+          git commit -m "apply journal requirement 14 equation explanations"
+          git push
