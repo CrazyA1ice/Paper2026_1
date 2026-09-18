@@ -60,6 +60,26 @@ jobs:
 
           print("EQUATION_COUNT="+str(len(eqs)))
 
+          # Inspect direct child order for representative equation paragraphs.
+          import xml.etree.ElementTree as ET
+          NS_W="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+          NS_M="http://schemas.openxmlformats.org/officeDocument/2006/math"
+          for idx in [21,37,54,62,69]:
+              root=ET.fromstring(paras[idx])
+              seq=[]
+              for child in list(root):
+                  tag=child.tag.split("}")[-1]
+                  if tag=="r":
+                      if child.find(f".//{{{NS_W}}}tab") is not None:
+                          seq.append("TAB")
+                      txt="".join((t.text or "") for t in child.findall(f".//{{{NS_W}}}t"))
+                      if txt:
+                          seq.append("TEXT:"+txt)
+                  elif tag in ("oMath","oMathPara"):
+                      mt="".join((t.text or "") for t in child.findall(f".//{{{NS_M}}}t"))
+                      seq.append("MATH:"+mt)
+              print(f"DIRECT_SEQ[{idx}]={seq}")
+
           # Paragraphs that look like standalone equation numbers.
           for i,t in enumerate(texts):
               if re.fullmatch(r'\(\d+\)',t):
