@@ -1,0 +1,113 @@
+name: Temporary patch manuscript conclusion
+
+on:
+  push:
+    paths:
+      - ".github/workflows/patch_manuscript_conclusion.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message == 'temporary manuscript patch conclusion workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch current DOCX conclusion
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          import re, shutil, html
+
+          path = Path("word_output/2026.09.18v.docx")
+          tmp = path.with_suffix(".tmp.docx")
+
+          def para_text(pxml: str) -> str:
+              vals = re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>', pxml)
+              return re.sub(r'\s+', ' ', ''.join(html.unescape(v) for v in vals)).strip()
+
+          def xml_escape(s: str) -> str:
+              return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+          def replace_para_text(pxml: str, new_text: str) -> str:
+              first = True
+              def repl(m):
+                  nonlocal first
+                  attrs = m.group(1) or ""
+                  if first:
+                      first = False
+                      return f'<w:t{attrs}>{xml_escape(new_text)}</w:t>'
+                  return f'<w:t{attrs}></w:t>'
+              return re.sub(r'<w:t(\s[^>]*)?>([\s\S]*?)</w:t>', repl, pxml)
+
+          old = "本文提出一种基于自适应多尺度加权的多变量网络流量预测方法，主要创新为轻量多尺度专家与统计路由组合，相对DLinear和固定等权模型有效降低了MSE和MAE，为容量规划、拥塞预警和资源调度提供短期OD需求估计。方法的跨网络场景泛化能力仍需验证，后续将结合其他公开网络流量数据集及不同预测长度，对模型适用范围进行进一步研究。"
+          new = "本文提出一种基于自适应多尺度加权的多变量网络流量预测方法，通过不同时间分辨率的DLinear尺度专家与轻量统计路由网络实现样本级动态融合。Abilene数据集上的实验结果表明，无频域自适应多尺度模型相较单尺度DLinear的MSE和MAE分别降低4.06%和10.52%，说明多尺度信息与自适应融合能够有效改善当前任务下的预测精度。固定等权消融进一步表明，自适应尺度权重使MSE降低3.95%；同时，加入频域门控后的模型未超过无频域主模型，说明当前主要性能增益来自动态多尺度融合，而频域门控更适合作为频率截断边界的辅助分析。本文实验仅在Abilene数据集、固定输入输出长度和有限随机重复下开展，且未显式建模OD拓扑关系，后续将结合其他公开网络流量数据集、不同预测长度及网络拓扑条件进一步验证模型的泛化能力与适用范围。"
+
+          with ZipFile(path, "r") as zin:
+              xml = zin.read("word/document.xml").decode("utf-8")
+              count = 0
+              parts, pos = [], 0
+              for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>', xml):
+                  parts.append(xml[pos:m.start()])
+                  p = m.group(0)
+                  if para_text(p) == old:
+                      count += 1
+                      p = replace_para_text(p, new)
+                  parts.append(p)
+                  pos = m.end()
+              parts.append(xml[pos:])
+              new_xml = ''.join(parts)
+
+              if count != 1:
+                  raise RuntimeError(f"conclusion paragraph match failure: {count}")
+
+              text_after = "\n".join(para_text(p) for p in re.findall(r'<w:p\b[\s\S]*?</w:p>', new_xml))
+              if "3 结论" not in text_after:
+                  raise RuntimeError("conclusion heading missing")
+              if "参考文献" not in text_after:
+                  raise RuntimeError("references heading missing")
+
+              with ZipFile(tmp, "w", ZIP_DEFLATED) as zout:
+                  for item in zin.infolist():
+                      data = new_xml.encode("utf-8") if item.filename == "word/document.xml" else zin.read(item.filename)
+                      zout.writestr(item, data)
+
+          shutil.move(tmp, path)
+          print("patched", path)
+          PY
+
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice poppler-utils fonts-noto-cjk
+          fc-cache -fv >/dev/null
+
+      - name: Render modified DOCX for QA
+        shell: bash
+        run: |
+          mkdir -p qa_render
+          libreoffice --headless --convert-to pdf --outdir qa_render word_output/2026.09.18v.docx
+          pdftoppm -png -r 120 qa_render/2026.09.18v.pdf qa_render/page
+          ls -lh qa_render
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manuscript-conclusion-qa
+          path: qa_render/
+          if-no-files-found: error
+
+      - name: Commit patched manuscript
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.18v.docx
+          git diff --cached --quiet && exit 1
+          git commit -m "revise manuscript conclusion"
+          git push
