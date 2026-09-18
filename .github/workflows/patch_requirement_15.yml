@@ -1,0 +1,230 @@
+name: Temporary patch journal requirement 15
+
+on:
+  push:
+    paths:
+      - ".github/workflows/patch_requirement_15.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message == 'temporary journal requirement 15 patch workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply quantity and unit typography
+        shell: bash
+        run: |
+          python -m pip install --quiet lxml
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          from copy import deepcopy
+          from lxml import etree
+          import re, shutil
+
+          path=Path("word_output/2026.09.18v.docx")
+          tmp=path.with_suffix(".tmp.docx")
+
+          W="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+          M="http://schemas.openxmlformats.org/officeDocument/2006/math"
+          ns={"w":W,"m":M}
+          q=lambda u,t:f"{{{u}}}{t}"
+
+          def set_math_style(r,val):
+              rpr=r.find(q(M,"rPr"))
+              if rpr is None:
+                  rpr=etree.Element(q(M,"rPr"))
+                  r.insert(0,rpr)
+              sty=rpr.find(q(M,"sty"))
+              if sty is None:
+                  sty=etree.SubElement(rpr,q(M,"sty"))
+              sty.set(q(M,"val"),val)
+
+          def in_math(el):
+              return any(a.tag in {q(M,"oMath"),q(M,"oMathPara")} for a in el.iterancestors())
+
+          def in_subscript(el):
+              return any(a.tag==q(M,"sub") for a in el.iterancestors())
+
+          with ZipFile(path,"r") as zin:
+              root=etree.fromstring(zin.read("word/document.xml"))
+
+              # 1) OMML: bold-italic for tensor/vector/matrix symbols.
+              #    T/R used as descriptive subscripts under W/b stay upright.
+              bold_italic={"X","Y","Ŷ","W","z","F"}
+              count_bi=0
+              count_plain=0
+              for r in root.xpath(".//m:r",namespaces=ns):
+                  txt=''.join((t.text or '') for t in r.xpath("./m:t",namespaces=ns))
+                  if not txt:
+                      continue
+
+                  if txt in bold_italic:
+                      set_math_style(r,"bi")
+                      count_bi+=1
+                  elif txt in {"T","R"}:
+                      if in_subscript(r):
+                          set_math_style(r,"p")
+                          count_plain+=1
+                      else:
+                          set_math_style(r,"bi")
+                          count_bi+=1
+
+                  # Standard/special functions and descriptive labels are upright.
+                  if txt in {"log","exp","max","tr","te","MSE"} or "ReLU" in txt or "sigmoid" in txt or txt.startswith("MAE=") or txt.startswith("RMSE="):
+                      set_math_style(r,"p")
+                      count_plain+=1
+
+              # 2) Prose: quantity symbols should be italic. Exclude units such as h and
+              #    letters embedded in English words/model names.
+              variable_chars=set("LHCqsrptNnckmidxvu")
+              # Restrict to Chinese main body (after English key words, before references).
+              paras=root.xpath("/w:document/w:body/w:p",namespaces=ns)
+              def ptext(p):
+                  return ''.join(p.xpath(".//w:t/text()",namespaces=ns))
+              texts=[ptext(p) for p in paras]
+              kw_idx=next(i for i,t in enumerate(texts) if t.startswith("Key words:"))
+              ref_idx=next(i for i,t in enumerate(texts) if t=="参考文献")
+
+              split_count=0
+              for pi,p in enumerate(paras):
+                  if not (kw_idx < pi < ref_idx):
+                      continue
+                  for r in list(p.xpath(".//w:r",namespaces=ns)):
+                      if in_math(r):
+                          continue
+                      ts=r.xpath("./w:t",namespaces=ns)
+                      if len(ts)!=1:
+                          continue
+                      txt=ts[0].text or ""
+                      if not txt:
+                          continue
+
+                      marks=[]
+                      for m in re.finditer(r"(?<![A-Za-z'])\\b?([LHCqsrptNnckmidxvu])\\b?(?![A-Za-z])",txt):
+                          ch=m.group(1)
+                          # Keep hour unit upright: examples such as "1 h" and "24 h".
+                          before=txt[:m.start(1)]
+                          after=txt[m.end(1):]
+                          if ch=="h":
+                              continue
+                          # Avoid isolated letters that are clearly part of numeric units/English possessives.
+                          if before.endswith("'"):
+                              continue
+                          # Only style plausible math contexts to avoid overmatching prose.
+                          left=before[-2:]
+                          right=after[:4]
+                          plausible=(
+                              ch in {"L","H","C","q","r","p","t","N","n","c","k","m","i","d","x","v","u"}
+                              and (
+                                  (after.startswith("=") or after.startswith("_") or after.startswith("(") or after.startswith("∈"))
+                                  or (before.endswith("_"))
+                                  or (ch in {"r","p"} and re.match(r"=0\\.",after))
+                                  or (ch=="t" and after.startswith("("))
+                                  or (ch in {"L","H","C","q"} and after.startswith("="))
+                              )
+                          )
+                          if plausible:
+                              marks.append((m.start(1),m.end(1)))
+
+                      if not marks:
+                          continue
+
+                      # Merge marks and split run into styled pieces while preserving all other run formatting.
+                      parent=r.getparent()
+                      pos=parent.index(r)
+                      parts=[]
+                      cursor=0
+                      for a,b in marks:
+                          if a>cursor: parts.append((txt[cursor:a],False))
+                          parts.append((txt[a:b],True))
+                          cursor=b
+                      if cursor<len(txt): parts.append((txt[cursor:],False))
+
+                      for piece,is_var in parts:
+                          if not piece: continue
+                          nr=deepcopy(r)
+                          nt=nr.find(q(W,"t"))
+                          nt.text=piece
+                          if piece[:1].isspace() or piece[-1:].isspace():
+                              nt.set("{http://www.w3.org/XML/1998/namespace}space","preserve")
+                          rpr=nr.find(q(W,"rPr"))
+                          if rpr is None:
+                              rpr=etree.Element(q(W,"rPr"))
+                              nr.insert(0,rpr)
+                          if is_var:
+                              it=rpr.find(q(W,"i"))
+                              if it is None: etree.SubElement(rpr,q(W,"i"))
+                              itcs=rpr.find(q(W,"iCs"))
+                              if itcs is None: etree.SubElement(rpr,q(W,"iCs"))
+                          parent.insert(pos,nr); pos+=1
+                      parent.remove(r)
+                      split_count+=1
+
+              # 3) Verification.
+              # Required functions/labels should now be plain.
+              bad_funcs=[]
+              for r in root.xpath(".//m:r",namespaces=ns):
+                  txt=''.join((t.text or '') for t in r.xpath("./m:t",namespaces=ns))
+                  if txt in {"log","exp","max","tr","te","MSE"} or "ReLU" in txt or "sigmoid" in txt or txt.startswith("MAE=") or txt.startswith("RMSE="):
+                      sty=r.find("./m:rPr/m:sty",namespaces=ns)
+                      if sty is None or sty.get(q(M,"val"))!="p":
+                          bad_funcs.append(txt)
+              if bad_funcs:
+                  raise RuntimeError(f"upright verification failed: {bad_funcs}")
+
+              # Core tensor/matrix symbols must have bold-italic style at least once.
+              for sym in ["X","Y","Ŷ","W","z","F","T","R"]:
+                  styled=False
+                  for r in root.xpath(".//m:r",namespaces=ns):
+                      txt=''.join((t.text or '') for t in r.xpath("./m:t",namespaces=ns))
+                      sty=r.find("./m:rPr/m:sty",namespaces=ns)
+                      if txt==sym and sty is not None and sty.get(q(M,"val"))=="bi":
+                          styled=True; break
+                  if not styled:
+                      raise RuntimeError(f"bold-italic symbol missing: {sym}")
+
+              data=etree.tostring(root,xml_declaration=True,encoding="UTF-8",standalone=True)
+              with ZipFile(tmp,"w",ZIP_DEFLATED) as zout:
+                  for item in zin.infolist():
+                      zout.writestr(item,data if item.filename=="word/document.xml" else zin.read(item.filename))
+
+          shutil.move(tmp,path)
+          print(f"STATUS=FIXED bold_italic={count_bi} upright={count_plain} prose_runs={split_count}")
+          PY
+
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice poppler-utils fonts-noto-cjk
+          fc-cache -fv >/dev/null
+
+      - name: Render full manuscript
+        shell: bash
+        run: |
+          mkdir -p qa_render
+          libreoffice --headless --convert-to pdf --outdir qa_render word_output/2026.09.18v.docx
+          pdftoppm -png -r 120 qa_render/2026.09.18v.pdf qa_render/page
+          pdfinfo qa_render/2026.09.18v.pdf | grep -E 'Pages|Page size'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: journal-requirement-15-qa
+          path: qa_render/
+          if-no-files-found: error
+
+      - name: Commit manuscript
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.18v.docx
+          git diff --cached --quiet && exit 1
+          git commit -m "apply journal requirement 15 quantity typography"
+          git push
