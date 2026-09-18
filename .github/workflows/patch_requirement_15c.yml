@@ -1,0 +1,106 @@
+name: Temporary patch journal requirement 15c
+
+on:
+  push:
+    paths:
+      - ".github/workflows/patch_requirement_15c.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message == 'temporary journal requirement 15c patch workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install CJK fonts and Python dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk fonts-liberation libreoffice poppler-utils
+          fc-cache -fv >/dev/null
+          python -m pip install --quiet matplotlib pandas numpy pillow lxml
+
+      - name: Regenerate figures with CJK fonts available
+        run: |
+          python abilene_forecasting/paper_figures/generate_skill_comparison_figures.py
+
+      - name: Replace figures 2-6 in manuscript
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          from PIL import Image
+          from lxml import etree
+          import shutil
+
+          docx=Path("word_output/2026.09.18v.docx")
+          tmp=docx.with_suffix(".tmp.docx")
+          figdir=Path("abilene_forecasting/paper_figures/scipilot_figure_set")
+          repl={
+              "word/media/image2.png":figdir/"S1_小样本透明化消融.png",
+              "word/media/image3.png":figdir/"S2_配对权重消融.png",
+              "word/media/image4.png":figdir/"S4a_路由权重诊断.png",
+              "word/media/image5.png":figdir/"S3_频域敏感性原始轨迹.png",
+              "word/media/image6.png":figdir/"S4b_代表性预测诊断.png",
+          }
+          W="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+          A="http://schemas.openxmlformats.org/drawingml/2006/main"
+          R="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+          WP="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+          PR="http://schemas.openxmlformats.org/package/2006/relationships"
+          ns={"w":W,"a":A,"r":R,"wp":WP,"pr":PR}
+
+          with ZipFile(docx,"r") as zin:
+              document=etree.fromstring(zin.read("word/document.xml"))
+              rels=etree.fromstring(zin.read("word/_rels/document.xml.rels"))
+              relmap={rel.get("Id"):rel.get("Target") for rel in rels.xpath("/pr:Relationships/pr:Relationship",namespaces=ns)}
+              for p in document.xpath("/w:document/w:body/w:p",namespaces=ns):
+                  blips=p.xpath(".//a:blip",namespaces=ns)
+                  if len(blips)!=1: continue
+                  rid=blips[0].get(f"{{{R}}}embed")
+                  target="word/"+relmap[rid]
+                  if target not in repl: continue
+                  with Image.open(repl[target]) as im: pw,ph=im.size
+                  ext=p.xpath(".//wp:extent",namespaces=ns)
+                  if len(ext)!=1: continue
+                  width=int(ext[0].get("cx")); height=round(width*ph/pw)
+                  ext[0].set("cy",str(height))
+                  for e in p.xpath(".//a:xfrm/a:ext",namespaces=ns):
+                      e.set("cx",str(width)); e.set("cy",str(height))
+              newdoc=etree.tostring(document,xml_declaration=True,encoding="UTF-8",standalone=True)
+              with ZipFile(tmp,"w",ZIP_DEFLATED) as zout:
+                  for item in zin.infolist():
+                      if item.filename=="word/document.xml": data=newdoc
+                      elif item.filename in repl: data=repl[item.filename].read_bytes()
+                      else: data=zin.read(item.filename)
+                      zout.writestr(item,data)
+          shutil.move(tmp,docx)
+          print("FIGURES_REPLACED_WITH_CJK")
+          PY
+
+      - name: Render full manuscript
+        run: |
+          mkdir -p qa_render
+          libreoffice --headless --convert-to pdf --outdir qa_render word_output/2026.09.18v.docx
+          pdftoppm -png -r 120 qa_render/2026.09.18v.pdf qa_render/page
+          pdfinfo qa_render/2026.09.18v.pdf | grep -E 'Pages|Page size'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: journal-requirement-15c-qa
+          path: qa_render/
+          if-no-files-found: error
+
+      - name: Commit corrected figures
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.18v.docx abilene_forecasting/paper_figures/scipilot_figure_set
+          git diff --cached --quiet && exit 1
+          git commit -m "fix CJK rendering for journal requirement 15 figures"
+          git push
