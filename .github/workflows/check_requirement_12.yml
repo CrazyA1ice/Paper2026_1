@@ -25,6 +25,8 @@ jobs:
           path=Path("word_output/2026.09.18v.docx")
           with ZipFile(path,"r") as z:
               xml=z.read("word/document.xml").decode("utf-8")
+              rels=z.read("word/_rels/document.xml.rels").decode("utf-8")
+              relmap={m.group(1):m.group(2) for m in re.finditer(r'<Relationship[^>]*Id="([^"]+)"[^>]*Target="([^"]+)"', rels)}
               media=[n for n in z.namelist() if n.startswith("word/media/")]
               print("MEDIA="+repr(media))
               import struct
@@ -68,7 +70,9 @@ jobs:
           # Paragraphs containing drawings and local context.
           for i,p in enumerate(paras):
               if "<w:drawing" in p or "<w:pict" in p:
-                  print(f"DRAWING[{i}] text={texts[i]}")
+                  ridm=re.search(r'<a:blip[^>]*r:embed="([^"]+)"',p)
+                  target=relmap.get(ridm.group(1),"UNKNOWN") if ridm else "NO_RID"
+                  print(f"DRAWING[{i}] target={target} text={texts[i]}")
                   for j in range(max(0,i-2),min(len(paras),i+3)):
                       if texts[j]:
                           print(f"  NEAR[{j}]={texts[j]}")
