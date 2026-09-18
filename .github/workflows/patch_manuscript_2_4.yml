@@ -1,0 +1,126 @@
+name: Temporary patch manuscript section 2.4
+
+on:
+  push:
+    paths:
+      - ".github/workflows/patch_manuscript_2_4.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message == 'temporary manuscript patch 2.4 workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch current DOCX in place
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          import re, shutil, html
+
+          path = Path("word_output/2026.09.18v.docx")
+          tmp = path.with_suffix(".tmp.docx")
+
+          def para_text(pxml: str) -> str:
+              vals = re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>', pxml)
+              return re.sub(r'\s+', ' ', ''.join(html.unescape(v) for v in vals)).strip()
+
+          def xml_escape(s: str) -> str:
+              return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+          def replace_para_text(pxml: str, new_text: str) -> str:
+              first = True
+              def repl(m):
+                  nonlocal first
+                  attrs = m.group(1) or ""
+                  if first:
+                      first = False
+                      return f'<w:t{attrs}>{xml_escape(new_text)}</w:t>'
+                  return f'<w:t{attrs}></w:t>'
+              return re.sub(r'<w:t(\s[^>]*)?>([\s\S]*?)</w:t>', repl, pxml)
+
+          replacements = {
+              "2.5 频率保留比例敏感性":
+              "2.4 频率保留比例敏感性",
+
+              "表3给出r∈{0.25,0.50,0.75}的频率敏感性结果。对DLinear+频域门控和频域门控+自适应多尺度两类模型，保留比例从0.25增加到0.75时平均MSE均逐步下降。该趋势与“过强低通可能删除重要变化”的认识一致[5]，但实验没有直接定位误差对应的具体频带，因此只能作为与结果相符的解释。各随机种子的敏感性轨迹见图5。":
+              "表3给出r∈{0.25,0.50,0.75}时的频率保留比例敏感性结果。对DLinear+频域门控和频域门控+自适应多尺度两类模型，随着r由0.25增至0.75，平均MSE均持续下降，表明过强的低频截断会削弱预测性能。该现象与高频部分可能包含有效变化信息的认识一致[5]，但当前实验未直接定位具体有效频带，因此这一解释仅用于说明结果趋势。不同随机种子下的变化轨迹见图5。",
+
+              "完整模型在三个候选比例中的最低MSE为0.189447。与DLinear相比，r=0.75的完整模型将MSE和MAE分别降低2.34%和9.28%；但与无频域自适应多尺度模型相比，其MSE和MAE仍分别高1.80%和1.39%。因此，0.75只能称为已测试候选值中的探索性较优比例，不能称为在独立验证上确定的最优超参数。频域门控的价值主要体现在揭示截断边界：低频保留过少会损失信息，而保留更多频率虽能缓解损失，仍未超过不截断的主模型。":
+              "在三个候选比例中，r=0.75时完整模型取得最低MSE 0.189447。相较DLinear，其MSE和MAE分别降低2.34%和9.28%；但相较无频域自适应多尺度主模型，MSE和MAE仍分别高1.80%和1.39%。因此，r=0.75只能视为当前三个测试比例中的探索性较优设置，不能据此认定为最优频率保留比例。结合表3和图5可见，增加频率保留比例能够缓解低频截断造成的信息损失，但频域门控仍未带来超过无频域主模型的额外收益，其作用更适合作为频率截断边界的辅助分析。"
+          }
+
+          with ZipFile(path, "r") as zin:
+              xml = zin.read("word/document.xml").decode("utf-8")
+              seen = {k: 0 for k in replacements}
+              parts, pos = [], 0
+              for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>', xml):
+                  parts.append(xml[pos:m.start()])
+                  p = m.group(0)
+                  t = para_text(p)
+                  if t in replacements:
+                      seen[t] += 1
+                      p = replace_para_text(p, replacements[t])
+                  parts.append(p)
+                  pos = m.end()
+              parts.append(xml[pos:])
+              new_xml = ''.join(parts)
+
+              bad = {k:v for k,v in seen.items() if v != 1}
+              if bad:
+                  raise RuntimeError(f"target paragraph match failure: {bad}")
+
+              text_after = "\n".join(para_text(p) for p in re.findall(r'<w:p\b[\s\S]*?</w:p>', new_xml))
+              for required in [
+                  "表3 频率保留比例敏感性",
+                  "图5 频率保留比例敏感性",
+                  "2.6 代表性预测"
+              ]:
+                  if required not in text_after:
+                      raise RuntimeError(f"required neighboring content missing: {required}")
+
+              with ZipFile(tmp, "w", ZIP_DEFLATED) as zout:
+                  for item in zin.infolist():
+                      data = new_xml.encode("utf-8") if item.filename == "word/document.xml" else zin.read(item.filename)
+                      zout.writestr(item, data)
+
+          shutil.move(tmp, path)
+          print("patched", path)
+          PY
+
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice poppler-utils fonts-noto-cjk
+          fc-cache -fv >/dev/null
+
+      - name: Render modified DOCX for QA
+        shell: bash
+        run: |
+          mkdir -p qa_render
+          libreoffice --headless --convert-to pdf --outdir qa_render word_output/2026.09.18v.docx
+          pdftoppm -png -r 120 qa_render/2026.09.18v.pdf qa_render/page
+          ls -lh qa_render
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manuscript-section-2-4-qa
+          path: qa_render/
+          if-no-files-found: error
+
+      - name: Commit patched manuscript
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.18v.docx
+          git diff --cached --quiet && exit 1
+          git commit -m "revise section 2.4 frequency sensitivity"
+          git push
