@@ -1,0 +1,55 @@
+name: Temporary check journal requirement 3
+
+on:
+  push:
+    paths:
+      - ".github/workflows/check_requirement_03.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.event.head_commit.message == 'temporary journal requirement 3 workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect author and affiliation formatting
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import re, html
+
+          path=Path("word_output/2026.09.18v.docx")
+          with ZipFile(path,"r") as z:
+              xml=z.read("word/document.xml").decode("utf-8")
+
+          def text_of(p):
+              vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',p)
+              return ''.join(html.unescape(x) for x in vals).strip()
+
+          paras=[m.group(0) for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>',xml)]
+          texts=[text_of(p) for p in paras]
+
+          title="基于自适应多尺度加权的多变量网络流量预测方法"
+          ti=next(i for i,t in enumerate(texts) if t==title)
+          # print the next several non-empty paragraphs for exact identification
+          printed=0
+          for i in range(ti+1,min(len(paras),ti+10)):
+              if texts[i]:
+                  p=paras[i]
+                  centered=bool(re.search(r'<w:jc\b[^>]*w:val="center"[^>]*/>',p))
+                  print(f"PARA[{i}] text={texts[i]}")
+                  print(f"  centered={centered}")
+                  for j,r in enumerate(re.findall(r'<w:r\b[\s\S]*?</w:r>',p)):
+                      rt=text_of(r)
+                      if not rt: continue
+                      fm=re.search(r'<w:rFonts\b[^>]*/>',r)
+                      sz=re.search(r'<w:sz\b[^>]*/>',r)
+                      va=re.search(r'<w:vertAlign\b[^>]*/>',r)
+                      print(f"  RUN[{j}] text={rt} fonts={fm.group(0) if fm else None} size={sz.group(0) if sz else None} vert={va.group(0) if va else None}")
+                  printed+=1
+                  if printed>=5: break
+          PY
