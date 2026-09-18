@@ -33,8 +33,25 @@ jobs:
                   if data.startswith(b"\\x89PNG\\r\\n\\x1a\\n") and len(data)>=24:
                       w,h=struct.unpack(">II",data[16:24])
                       print(f"IMAGE_DIM {n}={w}x{h} bytes={len(data)}")
+                  elif data.startswith(b"\\xff\\xd8"):
+                      # Parse JPEG SOF marker for dimensions.
+                      j=2; dims=None
+                      while j+9 < len(data):
+                          if data[j] != 0xFF:
+                              j+=1; continue
+                          marker=data[j+1]; j+=2
+                          if marker in [0xD8,0xD9]:
+                              continue
+                          if j+2>len(data): break
+                          seglen=int.from_bytes(data[j:j+2],"big")
+                          if marker in list(range(0xC0,0xC4))+list(range(0xC5,0xC8))+list(range(0xC9,0xCC))+list(range(0xCD,0xD0)):
+                              if j+7<=len(data):
+                                  h=int.from_bytes(data[j+3:j+5],"big"); w=int.from_bytes(data[j+5:j+7],"big"); dims=(w,h)
+                              break
+                          j+=seglen
+                      print(f"IMAGE_DIM {n}=JPEG {dims[0]}x{dims[1]} bytes={len(data)}" if dims else f"IMAGE_DIM {n}=JPEG unknown bytes={len(data)}")
                   else:
-                      print(f"IMAGE_DIM {n}=NON_PNG bytes={len(data)}")
+                      print(f"IMAGE_DIM {n}=OTHER magic={data[:12].hex()} bytes={len(data)}")
 
           def text_of(x):
               vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',x)
