@@ -17,7 +17,7 @@ jobs:
       - name: Install render dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq libreoffice poppler-utils
+          sudo apt-get install -y -qq libreoffice poppler-utils fonts-noto-cjk && fc-cache -fv >/dev/null
       - name: Render DOCX
         run: |
           mkdir -p qa_render
