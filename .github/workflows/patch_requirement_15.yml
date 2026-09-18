@@ -178,6 +178,8 @@ jobs:
                           bad_funcs.append(txt)
               if bad_funcs:
                   raise RuntimeError(f"upright verification failed: {bad_funcs}")
+              if split_count < 5:
+                  raise RuntimeError(f"expected prose quantity styling changes, got {split_count}")
 
               # Core tensor/matrix symbols must have bold-italic style at least once.
               for sym in ["X","Y","Ŷ","W","z","F","T","R"]:
