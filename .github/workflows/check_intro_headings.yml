@@ -1,0 +1,58 @@
+name: Temporary check journal intro headings
+
+on:
+  push:
+    paths:
+      - ".github/workflows/check_intro_headings.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.event.head_commit.message == 'temporary journal intro headings workflow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect introduction and heading formatting
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import re, html
+
+          path=Path("word_output/2026.09.18v.docx")
+          with ZipFile(path,"r") as z:
+              xml=z.read("word/document.xml").decode("utf-8")
+
+          def text_of(x):
+              vals=re.findall(r'<w:t(?:\s[^>]*)?>([\s\S]*?)</w:t>',x)
+              return ''.join(html.unescape(v) for v in vals).strip()
+
+          paras=[m.group(0) for m in re.finditer(r'<w:p\b[\s\S]*?</w:p>',xml)]
+          texts=[text_of(p) for p in paras]
+
+          print("INTRO_START")
+          for i,t in enumerate(texts):
+              if t=="引言":
+                  print(f"INTRO_HEADING[{i}]={t}")
+                  for j in range(i+1, min(i+5,len(texts))):
+                      if texts[j]:
+                          print(f"INTRO_P[{j}]={texts[j]}")
+                  break
+          print("INTRO_END")
+
+          for i,(p,t) in enumerate(zip(paras,texts)):
+              if t=="引言" or re.match(r'^\d+\s+\S',t) or re.match(r'^\d+\.\d+\s+\S',t):
+                  level="intro" if t=="引言" else ("L1" if re.match(r'^\d+\s+\S',t) else "L2")
+                  ppr=re.search(r'<w:pPr\b[^>]*>[\s\S]*?</w:pPr>',p)
+                  print(f"HEAD[{i}] level={level} text={t}")
+                  print("  PPR="+(ppr.group(0) if ppr else "NONE"))
+                  runs=[r for r in re.findall(r'<w:r\b[\s\S]*?</w:r>',p) if text_of(r)]
+                  for k,r in enumerate(runs):
+                      fm=re.search(r'<w:rFonts\b[^>]*/>',r)
+                      sz=re.search(r'<w:sz\b[^>]*/>',r)
+                      bold=bool(re.search(r'<w:b(?:\s[^>]*)?/>',r))
+                      print(f"  RUN[{k}] text={text_of(r)} fonts={fm.group(0) if fm else None} size={sz.group(0) if sz else None} bold={bold}")
+          PY
