@@ -67,4 +67,13 @@ jobs:
                           italic=bool(rp and re.search(r'<w:i(?:\s[^>]*)?/>',rp.group(0)))
                           bold=bool(rp and re.search(r'<w:b(?:\s[^>]*)?/>',rp.group(0)))
                           print(f"  WRUN[{j}] text={rt!r} italic={italic} bold={bold}")
+          for i,(p,t) in enumerate(zip(paras,texts)):
+              if any(s in t for s in ["L=96","H=24","C=144","q=25","N_te","d_z","p=0.","t(2)="]):
+                  print(f"TARGET_PROSE[{i}]={t}")
+                  for j,r in enumerate(re.findall(r'<w:r\\b[\\s\\S]*?</w:r>',p)):
+                      rt=''.join(html.unescape(x) for x in re.findall(r'<w:t(?:\\s[^>]*)?>([\\s\\S]*?)</w:t>',r))
+                      if rt:
+                          rp=re.search(r'<w:rPr\\b[\\s\\S]*?</w:rPr>',r)
+                          italic=bool(rp and re.search(r'<w:i(?:\\s[^>]*)?/>',rp.group(0)))
+                          print(f"  TRUN[{j}] text={rt!r} italic={italic}")
           PY
