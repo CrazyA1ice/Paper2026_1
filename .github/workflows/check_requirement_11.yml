@@ -37,6 +37,10 @@ jobs:
                   if n.startswith("word/footer") and n.endswith(".xml"):
                       xml=z.read(n).decode("utf-8")
                       print(f"{n} TEXT={text_of(xml)}")
+                      for pi,pm in enumerate(re.finditer(r'<w:p\\b[\\s\\S]*?</w:p>',xml)):
+                          pt=text_of(pm.group(0))
+                          if pt:
+                              print(f"{n} PARA[{pi}]={pt}")
 
               sects=re.findall(r'<w:sectPr\b[\s\S]*?</w:sectPr>',doc)
               for i,s in enumerate(sects):
