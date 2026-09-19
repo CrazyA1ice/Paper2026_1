@@ -14,7 +14,14 @@ def main() -> None:
     args = parser.parse_args()
 
     rows = []
-    for path in Path(args.results).rglob("metrics.json"):
+    results_root = Path(args.results)
+    dataset_paths = [
+        path
+        for dataset in ("abilene", "geant")
+        for path in (results_root / dataset).glob("*/metrics.json")
+    ]
+    metric_paths = dataset_paths or list(results_root.glob("*/metrics.json"))
+    for path in metric_paths:
         record = json.loads(path.read_text(encoding="utf-8"))
         rows.append(
             {
