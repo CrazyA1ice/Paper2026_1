@@ -2,3 +2,16 @@
 **/__pycache__/
 **/.ipynb_checkpoints/
 *.pyc
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# Large experiment prediction outputs
+abilene_forecasting/results/**/predictions.npz
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
