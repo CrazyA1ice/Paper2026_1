@@ -14,16 +14,14 @@ def test_all_native_model_output_shapes():
         assert prediction.shape == (2, 24, 12)
 
 
-def test_pathformer_is_available_through_model_factory():
-    model = build_model(
-        "pathformer",
-        96,
-        24,
-        n_channels=12,
-        device=torch.device("cpu"),
-    )
-    assert model.experiment_config["source"] == "decisionintelligence/pathformer"
+def test_lightts_is_available_through_model_factory():
+    x = torch.randn(2, 96, 12)
+    model = build_model("lightts", 96, 24, n_channels=12)
+    output = model(x)
+    assert output.shape == (2, 24, 12)
+    assert model.experiment_config["source"] == "thuml/Time-Series-Library"
     assert model.experiment_config["source_commit"]
+    assert model.experiment_config["chunk_size"] == 24
 
 
 def test_router_weights_sum_to_one():
