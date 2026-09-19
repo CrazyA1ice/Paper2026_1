@@ -1,15 +1,16 @@
 script:
   file: generate_paper_figures.py
-  sha256: B3A27A96C95469C301D5BBB975239BC048980B748E75D213BDAB858B79D7B452
+  sha256: PENDING_V2_REBUILD
 
 figure_table_trace:
   - artifact_id: fig-1
-    source_data: {dataset_id: method-specification, file: model-and-method-description}
+    source_data: {dataset_id: method-specification-v2, file: PAPER_WRITING_INPUT_CN.md}
     transformation: {script: generate_paper_figures.py, function: figure_1_method_schematic}
-    caption_claim: 自适应多尺度网络流量预测方法由三个尺度专家、样本级统计路由和可选频域门控组成。
+    caption_claim: 自适应多尺度网络流量预测方法由输入预处理、三个尺度DLinear专家、样本级统计路由和动态加权融合组成。
     supported_manuscript_claims:
-      - {claim: 本文模型使用尺度1、2和4的DLinear专家，并以Softmax权重加权输出。, locator: 方法章节}
-    limitations: [该图说明计算流程，不提供性能证据。]
+      - {claim: 本文使用尺度1、2和4的DLinear专家，并根据输入窗口统计状态生成Softmax尺度权重。, locator: 方法章节}
+      - {claim: 方法中的变量维度使用一般符号C，可适配Abilene和GÉANT的不同有效OD维度。, locator: 问题定义与数据预处理}
+    limitations: [该图仅说明计算流程，不提供性能证据；权重为样本级而非变量级。]
 
   - artifact_id: fig-2
     source_data: {dataset_id: abilene-ablation, file: source_data/fig2_main_ablation.csv}

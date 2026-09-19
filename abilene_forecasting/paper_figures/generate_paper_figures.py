@@ -163,9 +163,9 @@ def figure_1_method_schematic() -> None:
     ax.set_ylim(0, 1)
     ax.axis("off")
 
-    # Schematic-led architecture: input rail, parallel expert bank, adaptive
-    # router and weighted fusion. Repetition is confined to the three necessary
-    # scale lanes; optional frequency processing is one shared visual column.
+    # Second-stage manuscript architecture: preprocessing, three temporal
+    # resolutions, independent DLinear experts, sample-level routing and
+    # adaptive weighted fusion. The former frequency-domain branch is removed.
     outer = FancyBboxPatch(
         (0.012, 0.028), 0.976, 0.944,
         boxstyle="round,pad=0.002,rounding_size=0.012",
@@ -180,11 +180,11 @@ def figure_1_method_schematic() -> None:
     )
     ax.add_patch(title_bar)
     ax.text(0.048, 0.914, "自适应多尺度网络流量预测框架",
-            ha="left", va="center", fontsize=6.6)
-    ax.plot([0.625, 0.655], [0.914, 0.914], color=DARK, lw=0.9)
-    ax.text(0.665, 0.914, "特征流", ha="left", va="center", fontsize=5.0)
-    ax.plot([0.760, 0.790], [0.914, 0.914], color=DARK, lw=0.9, ls="--")
-    ax.text(0.800, 0.914, "权重控制", ha="left", va="center", fontsize=5.0)
+            ha="left", va="center", fontsize=6.8)
+    ax.plot([0.660, 0.690], [0.914, 0.914], color=DARK, lw=0.9)
+    ax.text(0.700, 0.914, "特征流", ha="left", va="center", fontsize=5.0)
+    ax.plot([0.790, 0.820], [0.914, 0.914], color=DARK, lw=0.9, ls="--")
+    ax.text(0.830, 0.914, "权重控制", ha="left", va="center", fontsize=5.0)
 
     input_group = FancyBboxPatch(
         (0.032, 0.295), 0.145, 0.535,
@@ -211,35 +211,31 @@ def figure_1_method_schematic() -> None:
     ax.add_patch(fusion_group)
     ax.add_patch(router_group)
 
-    # Section headers live inside their containers.
     ax.text(0.047, 0.795, "输入与预处理", ha="left", va="center",
             fontsize=5.6, fontweight="bold")
-    ax.text(0.220, 0.795, "并行多尺度专家库", ha="left", va="center",
+    ax.text(0.220, 0.795, "多尺度专家", ha="left", va="center",
             fontsize=5.6, fontweight="bold")
     ax.text(0.760, 0.795, "自适应融合", ha="left", va="center",
             fontsize=5.6, fontweight="bold")
     ax.text(0.220, 0.210, "样本级路由器", ha="left", va="center",
             fontsize=5.4, fontweight="bold")
 
-    # Input rail: three vertically aligned operations with generous spacing.
-    box(ax, 0.052, 0.655, 0.105, 0.090, "OD窗口\n96 × 144",
-        face="white", fontsize=5.6)
+    box(ax, 0.052, 0.655, 0.105, 0.090, "OD流量窗口\n96 × C",
+        face="white", fontsize=5.5)
     box(ax, 0.052, 0.525, 0.105, 0.080, "对数变换\nlog(1+x)",
-        face="white", fontsize=5.3)
-    box(ax, 0.052, 0.395, 0.105, 0.080, "训练统计量\n标准化",
-        face="#e2e2e2", fontsize=5.2)
+        face="white", fontsize=5.2)
+    box(ax, 0.052, 0.395, 0.105, 0.080, "训练集统计量\n标准化",
+        face="#e2e2e2", fontsize=5.0)
     arrow(ax, (0.1045, 0.655), (0.1045, 0.605))
     arrow(ax, (0.1045, 0.525), (0.1045, 0.475))
 
-    # Three necessary scale lanes. Internal columns are separated by whitespace
-    # and fine rules instead of nested repeated rectangles.
     lane_specs = [
-        (0.655, "尺度 1", "L=96", "原始分辨率", "K1", "E1", "Ŷ(1)"),
-        (0.535, "尺度 2", "L=48", "2点平均池化", "K2", "E2", "Ŷ(2)"),
-        (0.415, "尺度 4", "L=24", "4点平均池化", "K4", "E4", "Ŷ(4)"),
+        (0.655, "尺度 1", "L=96", "原始分辨率", "DLinear E1", "Y(1)"),
+        (0.535, "尺度 2", "L=48", "2点平均池化", "DLinear E2", "Y(2)"),
+        (0.415, "尺度 4", "L=24", "4点平均池化", "DLinear E4", "Y(4)"),
     ]
     lane_left, lane_width, lane_height = 0.225, 0.475, 0.090
-    for y, scale, length, pooling, freq_k, expert, pred in lane_specs:
+    for y, scale, length, pooling, expert, pred in lane_specs:
         lane = FancyBboxPatch(
             (lane_left, y), lane_width, lane_height,
             boxstyle="round,pad=0.0015,rounding_size=0.009",
@@ -248,25 +244,17 @@ def figure_1_method_schematic() -> None:
         )
         ax.add_patch(lane)
         cy = y + lane_height / 2
-        ax.text(0.258, cy, f"{scale}\n{length}", ha="center", va="center",
+        ax.text(0.265, cy, f"{scale}\n{length}", ha="center", va="center",
                 fontsize=5.0, fontweight="bold")
-        ax.text(0.345, cy, pooling, ha="center", va="center", fontsize=5.0)
-        ax.text(0.470, cy, f"RFFT → {freq_k} → IRFFT",
+        ax.text(0.380, cy, pooling, ha="center", va="center", fontsize=5.0)
+        ax.text(0.545, cy, f"{expert}\n趋势/余项",
                 ha="center", va="center", fontsize=5.0)
-        ax.text(0.595, cy, f"DLinear {expert}\n趋势/余项",
-                ha="center", va="center", fontsize=5.0)
-        ax.text(0.674, cy, pred, ha="center", va="center",
+        ax.text(0.670, cy, pred, ha="center", va="center",
                 fontsize=5.2, fontweight="bold")
-        for x in (0.292, 0.398, 0.540, 0.648):
+        for x in (0.305, 0.455, 0.625):
             ax.plot([x, x], [y + 0.012, y + lane_height - 0.012],
                     color=LIGHT, lw=0.55)
 
-    ax.text(0.470, 0.760, "可选频域门控", ha="center", va="center",
-            fontsize=5.0)
-    ax.plot([0.405, 0.405], [0.397, 0.748], color=DARK, lw=0.75, ls="--")
-    ax.plot([0.535, 0.535], [0.397, 0.748], color=DARK, lw=0.75, ls="--")
-
-    # One distribution bus fans the normalized window into the three scales.
     lane_centers = [y + lane_height / 2 for y, *_ in lane_specs]
     ax.plot([0.190, 0.190], [lane_centers[-1], lane_centers[0]],
             color=DARK, lw=0.8)
@@ -274,21 +262,20 @@ def figure_1_method_schematic() -> None:
     for cy in lane_centers:
         arrow(ax, (0.190, cy), (lane_left, cy))
 
-    # Fusion head: three predictions converge visibly before the final output.
     fusion_center = (0.815, 0.560)
     sigma = Ellipse(fusion_center, 0.052, 0.114, linewidth=0.9,
                     edgecolor=BLACK, facecolor="#d0d0d0")
     ax.add_patch(sigma)
     ax.text(*fusion_center, "Σ", ha="center", va="center",
             fontsize=7.0, fontweight="bold")
-    ax.text(0.815, 0.645, "加权求和", ha="center", va="center", fontsize=5.0)
+    ax.text(0.815, 0.645, "动态加权求和", ha="center", va="center",
+            fontsize=5.0)
     for cy, end_y in zip(lane_centers, (0.590, 0.560, 0.530)):
         routed_arrow(ax, [(0.700, cy), (0.760, cy), (0.790, end_y)])
-    box(ax, 0.870, 0.505, 0.082, 0.110, "预测输出\n24 × 144",
+    box(ax, 0.870, 0.505, 0.082, 0.110, "预测输出\n24 × C",
         face="#c7c7c7", fontsize=5.4)
     arrow(ax, (0.841, 0.560), (0.870, 0.560))
 
-    # Router compactly maps four statistics to sample-specific scale weights.
     router_y, router_h = 0.105, 0.070
     box(ax, 0.315, router_y, 0.135, router_h,
         "μ | σ | last | diff", face="white", fontsize=5.0)
