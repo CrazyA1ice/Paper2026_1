@@ -9,16 +9,20 @@ CESNET TS-Zoo 的 **Abilene** 与 **GÉANT** 两个骨干网 OD 流量矩阵数�
 |---|---|
 | `dlinear` | 最小基线 |
 | `fits` | FITS 频率插值基线 |
+| `lightts` | 外部轻量基线：THUML LightTS 固定版本适配 |
 | `dlinear_freq` | DLinear + FITS 风格频域滤波 |
 | `dlinear_scale` | DLinear + 自适应多尺度融合 |
 | `dlinear_scale_static` | DLinear + 固定等权多尺度融合 |
 | `proposed` | 频域滤波 + 自适应多尺度融合 + DLinear |
 | `proposed_static` | 频域滤波 + 固定等权多尺度融合 + DLinear |
-| `pathformer` | 外部强基线：官方 Pathformer 固定版本适配 |
 
-Pathformer 源码固定到
-`decisionintelligence/pathformer@ea85d82932215e171357da47b3bc82d502344758`，
-本仓库只调整包导入路径，并通过 `src/pathformer_adapter.py` 接入统一训练协议。
+LightTS 源码固定到
+`thuml/Time-Series-Library@4e938a1767106324dd753b2a44832bf870a0252e`。
+上游 `models/LightTS.py` 原样放在 `external/lightts/models/LightTS.py`，
+本仓库只通过 `src/lightts_adapter.py` 接入统一训练协议。上游许可证为 MIT。
+
+当前 LightTS 适配配置使用官方默认 `d_model=512`、`dropout=0.1`，
+以及模型默认 `chunk_size=24`。当 `input_len=96` 时无需额外补齐。
 
 ## 数据准备
 
@@ -61,14 +65,15 @@ GÉANT：
 python train.py --dataset geant --model dlinear_scale --seed 42 --input-len 96 --pred-len 24
 ```
 
-Pathformer 外部基线：
+LightTS 轻量外部基线冒烟测试：
 
 ```powershell
-python train.py --dataset geant --model pathformer --seed 42 --input-len 96 --pred-len 24
+python train.py --dataset geant --model lightts --seed 42 --input-len 96 --pred-len 24 --epochs 2 --batch-size 16 --learning-rate 0.0001
 ```
 
-Pathformer 的训练目标会在 MSE 上加入官方实现返回的路由 balance loss；
-验证集选模与最终测试指标仍统一使用 MSE/MAE/RMSE。
+Time-Series-Library 当前训练入口的默认优化设置为 Adam、MSE、
+`learning_rate=0.0001`。正式实验应在冒烟测试后固定超参数，并对
+Abilene/GÉANT 使用同一套 LightTS 设置。
 
 ## 结果目录
 
@@ -83,13 +88,13 @@ results/
       predictions.npz
       router_weights.csv
   geant/
-    pathformer_seed42/
+    lightts_seed42/
       best_model.pt
       metrics.json
       predictions.npz
 ```
 
-`metrics.json` 现在同时记录 `dataset`、`data_path`、`n_channels`、
+`metrics.json` 同时记录 `dataset`、`data_path`、`n_channels`、
 训练/验证/测试行数与窗口数、训练超参数以及外部模型配置，避免双数据集实验相互覆盖。
 
 汇总指定实验根目录：

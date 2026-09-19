@@ -221,14 +221,13 @@ def build_model(
             input_len, pred_len, use_frequency=True, adaptive=False,
             cut_ratio=cut_ratio,
         )
-    if name == "pathformer":
+    if name == "lightts":
         if n_channels is None:
-            raise ValueError("n_channels is required for Pathformer")
-        from .pathformer_adapter import PathformerAdapter
-        return PathformerAdapter(
+            raise ValueError("n_channels is required for LightTS")
+        from .lightts_adapter import LightTSAdapter
+        return LightTSAdapter(
             input_len=input_len,
             pred_len=pred_len,
             n_channels=n_channels,
-            device=device,
         )
     raise ValueError(f"Unknown model: {name}")

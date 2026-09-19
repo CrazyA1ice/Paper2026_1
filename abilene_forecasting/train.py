@@ -32,17 +32,15 @@ def set_seed(seed: int) -> None:
 
 
 def split_model_output(output):
-    """Return prediction, scalar auxiliary loss, and optional router weights."""
+    """Return prediction and optional router weights from model outputs."""
     if not isinstance(output, tuple):
-        return output, None, None
+        return output, None
 
     prediction = output[0]
     extra = output[1] if len(output) > 1 else None
-    if torch.is_tensor(extra) and extra.ndim == 0:
-        return prediction, extra, None
-    if torch.is_tensor(extra):
-        return prediction, None, extra
-    return prediction, None, None
+    if torch.is_tensor(extra) and extra.ndim > 0:
+        return prediction, extra
+    return prediction, None
 
 
 @torch.no_grad()
@@ -53,7 +51,7 @@ def evaluate(model, loader, criterion, device):
     for history, future in loader:
         history, future = history.to(device), future.to(device)
         output = model(history)
-        prediction, _, weights = split_model_output(output)
+        prediction, weights = split_model_output(output)
         total_loss += criterion(prediction, future).item() * len(history)
         predictions.append(prediction.cpu().numpy())
         truths.append(future.cpu().numpy())
@@ -94,7 +92,7 @@ def main() -> None:
         choices=[
             "dlinear", "fits", "dlinear_freq", "dlinear_scale",
             "dlinear_scale_static", "proposed", "proposed_static",
-            "pathformer",
+            "lightts",
         ],
         default="dlinear",
     )
@@ -186,10 +184,8 @@ def main() -> None:
             history, future = history.to(device), future.to(device)
             optimizer.zero_grad(set_to_none=True)
             output = model(history)
-            prediction, auxiliary_loss, _ = split_model_output(output)
+            prediction, _ = split_model_output(output)
             loss = criterion(prediction, future)
-            if auxiliary_loss is not None:
-                loss = loss + auxiliary_loss
             loss.backward()
             optimizer.step()
             train_loss += loss.item() * len(history)
