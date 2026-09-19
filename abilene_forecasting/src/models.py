@@ -6,6 +6,8 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
+from .pathformer_adapter import PathformerAdapter
+
 
 class MovingAverage(nn.Module):
     """Centered moving average with endpoint replication."""
@@ -193,7 +195,12 @@ class MultiScaleDLinear(nn.Module):
 
 
 def build_model(
-    name: str, input_len: int, pred_len: int, cut_ratio: float = 0.5
+    name: str,
+    input_len: int,
+    pred_len: int,
+    cut_ratio: float = 0.5,
+    n_channels: int | None = None,
+    device: torch.device | None = None,
 ) -> nn.Module:
     if name == "dlinear":
         return DLinear(input_len, pred_len)
@@ -215,5 +222,14 @@ def build_model(
         return MultiScaleDLinear(
             input_len, pred_len, use_frequency=True, adaptive=False,
             cut_ratio=cut_ratio,
+        )
+    if name == "pathformer":
+        if n_channels is None:
+            raise ValueError("n_channels is required for Pathformer")
+        return PathformerAdapter(
+            input_len=input_len,
+            pred_len=pred_len,
+            n_channels=n_channels,
+            device=device,
         )
     raise ValueError(f"Unknown model: {name}")
