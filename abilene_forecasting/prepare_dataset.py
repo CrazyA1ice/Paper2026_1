@@ -17,7 +17,7 @@ DATASET_SPECS = {
     },
     "geant": {
         "factory": GEANT,
-        "feature": "avg_matrix_bandwidth_kbs",
+        "feature": "matrix_avg_bandwidth_kbps",
         "default_output": "data/processed/geant_1hour.npz",
     },
 }
