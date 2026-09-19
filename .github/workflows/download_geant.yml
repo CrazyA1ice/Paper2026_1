@@ -1,11 +1,6 @@
 name: Download GEANT dataset
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/download_geant.yml"
   workflow_dispatch:
 
 permissions:
@@ -55,26 +50,26 @@ jobs:
           fi
           PROCESSED_BYTES=$(stat -c%s "$PROCESSED")
 
-          cat > "$META" <<EOF
-          # GÉANT dataset source
-
-          - Dataset: GÉANT backbone OD traffic matrix
-          - Aggregation used by this project: 1 hour
-          - TS-Zoo subset: matrix
-          - Feature: `matrix_avg_bandwidth_kbps`
-          - Source bucket: `https://liberouter.org/datazoo/download?bucket=geant`
-          - Source file: `GEANT-matrix-backbone_network-1_hour.h5`
-          - Raw H5 bytes downloaded by GitHub Actions: $RAW_BYTES
-          - Processed NPZ bytes: $PROCESSED_BYTES
-          - Preparation entry point: `abilene_forecasting/prepare_geant.py`
-          - Processing: chronological 60/20/20 split, `log1p`, train-only per-channel standardization
-
-          The processed file used by training is committed at
-          `abilene_forecasting/data/processed/geant_1hour.npz`.
-
-          GitHub rejects individual regular Git objects above 100 MiB. The raw H5 is
-          committed only when it is below a conservative 95 MiB threshold.
-          EOF
+          {
+            echo '# GÉANT dataset source'
+            echo
+            echo '- Dataset: GÉANT backbone OD traffic matrix'
+            echo '- Aggregation used by this project: 1 hour'
+            echo '- TS-Zoo subset: matrix'
+            echo '- Feature: `matrix_avg_bandwidth_kbps`'
+            echo '- Source bucket: `https://liberouter.org/datazoo/download?bucket=geant`'
+            echo '- Source file: `GEANT-matrix-backbone_network-1_hour.h5`'
+            echo "- Raw H5 bytes downloaded by GitHub Actions: $RAW_BYTES"
+            echo "- Processed NPZ bytes: $PROCESSED_BYTES"
+            echo '- Preparation entry point: `abilene_forecasting/prepare_geant.py`'
+            echo '- Processing: chronological 60/20/20 split, `log1p`, train-only per-channel standardization'
+            echo
+            echo 'The processed file used by training is committed at'
+            echo '`abilene_forecasting/data/processed/geant_1hour.npz`.'
+            echo
+            echo 'GitHub rejects individual regular Git objects above 100 MiB. The raw H5 is'
+            echo 'committed only when it is below a conservative 95 MiB threshold.'
+          } > "$META"
 
           git add -f "$PROCESSED" "$META"
 
