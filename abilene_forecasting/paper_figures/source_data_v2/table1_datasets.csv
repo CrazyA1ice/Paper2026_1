@@ -1,0 +1,3 @@
+dataset,source,aggregation,feature,timepoints,raw_channels,active_channels,train_rows,val_rows,test_rows,train_windows,val_windows,test_windows,input_len,pred_len
+abilene,CESNET TS-Zoo,1_hour,matrix_avg_realOD,4656,144,144,2793,931,932,2674,812,813,96,24
+geant,CESNET TS-Zoo,1_hour,matrix_avg_bandwidth_kbps,2849,529,524,1709,570,570,1590,451,451,96,24
