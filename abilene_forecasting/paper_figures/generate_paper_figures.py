@@ -19,6 +19,8 @@ mpl.rcParams["font.family"] = "sans-serif"
 mpl.rcParams["font.sans-serif"] = [
     "Microsoft YaHei",
     "SimHei",
+    "Noto Sans CJK SC",
+    "Noto Sans CJK JP",
     "Arial",
     "DejaVu Sans",
 ]
