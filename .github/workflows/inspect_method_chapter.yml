@@ -1,4 +1,4 @@
-name: Inspect current method chapter
+name: Inspect equation numbering after method
 on:
   push:
     branches: [main]
@@ -11,42 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Extract method paragraphs
+      - name: Extract later equation paragraphs
         run: |
           python - <<'PY'
           from zipfile import ZipFile
           import xml.etree.ElementTree as ET
-          from pathlib import Path
-
-          docx = Path("word_output/2026.09.19v1.docx")
-          with ZipFile(docx) as z:
-              xml = z.read("word/document.xml")
-          root = ET.fromstring(xml)
-          ns = {"w":"http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
-          body = root.find("w:body", ns)
-          paras = []
-          for i, child in enumerate(list(body)):
-              if child.tag.endswith("}p"):
-                  parts=[]
-                  for e in child.iter():
-                      if e.tag.endswith("}t") and e.text:
-                          parts.append(e.text)
-                  txt="".join(parts)
-                  paras.append((i, txt, ET.tostring(child, encoding="unicode")))
-          starts=[]
-          for k,(i,t,raw) in enumerate(paras):
-              if "自适应多尺度" in t and ("方法" in t or t.strip().startswith("1")):
-                  starts.append(k)
-          if not starts:
-              for k,(i,t,raw) in enumerate(paras):
-                  if t.strip().startswith("1") and ("预测方法" in t or "网络流量" in t):
-                      starts.append(k)
-          start=starts[0] if starts else 0
-          end=min(len(paras), start+90)
-          for k in range(start,end):
-              i,t,raw=paras[k]
-              if k>start and (t.strip().startswith("2 ") or t.strip().startswith("2　") or t.strip().startswith("2.") or t.strip().startswith("2 实验")):
+          import re
+          with ZipFile("word_output/2026.09.19v1.docx") as z:
+              root=ET.fromstring(z.read("word/document.xml"))
+          ns={"w":"http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+          body=root.find("w:body",ns)
+          for i,p in enumerate(list(body)):
+              if not p.tag.endswith("}p"):
+                  continue
+              t="".join(e.text or "" for e in p.iter() if e.tag.endswith("}t"))
+              if i>=62 and (re.search(r"\(\d+\)", t) or re.search(r"\d+\s",t) or "MSE" in t or "MAE" in t or "RMSE" in t or "评价指标" in t):
                   print(f"PARA {i}: {t}")
-                  break
-              print(f"PARA {i}: {t}")
           PY
