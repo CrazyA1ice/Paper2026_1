@@ -1,0 +1,105 @@
+name: Download GEANT dataset
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/download_geant.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  download-geant:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install data dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install             "cesnet-tszoo==2.2.0"             "numpy>=1.26,<3"             "pandas>=2.1,<3"             "tables>=3.10,<4"
+
+      - name: Download and prepare GEANT
+        working-directory: abilene_forecasting
+        run: python prepare_geant.py
+
+      - name: Record source and select files for commit
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          RAW="abilene_forecasting/data/raw/tszoo/databases/GEANT/GEANT-matrix-backbone_network-1_hour.h5"
+          PROCESSED="abilene_forecasting/data/processed/geant_1hour.npz"
+          META_DIR="abilene_forecasting/data/raw/tszoo/databases/GEANT"
+          META="$META_DIR/DATASET_SOURCE.md"
+
+          if [ ! -f "$PROCESSED" ]; then
+            echo "Processed GEANT dataset was not generated."
+            exit 1
+          fi
+
+          mkdir -p "$META_DIR"
+          RAW_BYTES=0
+          if [ -f "$RAW" ]; then
+            RAW_BYTES=$(stat -c%s "$RAW")
+          fi
+          PROCESSED_BYTES=$(stat -c%s "$PROCESSED")
+
+          cat > "$META" <<EOF
+          # GÉANT dataset source
+
+          - Dataset: GÉANT backbone OD traffic matrix
+          - Aggregation used by this project: 1 hour
+          - TS-Zoo subset: matrix
+          - Feature: `avg_matrix_bandwidth_kbs`
+          - Source bucket: `https://liberouter.org/datazoo/download?bucket=geant`
+          - Source file: `GEANT-matrix-backbone_network-1_hour.h5`
+          - Raw H5 bytes downloaded by GitHub Actions: $RAW_BYTES
+          - Processed NPZ bytes: $PROCESSED_BYTES
+          - Preparation entry point: `abilene_forecasting/prepare_geant.py`
+          - Processing: chronological 60/20/20 split, `log1p`, train-only per-channel standardization
+
+          The processed file used by training is committed at
+          `abilene_forecasting/data/processed/geant_1hour.npz`.
+
+          GitHub rejects individual regular Git objects above 100 MiB. The raw H5 is
+          committed only when it is below a conservative 95 MiB threshold.
+          EOF
+
+          git add -f "$PROCESSED" "$META"
+
+          LIMIT=$((95 * 1024 * 1024))
+          if [ -f "$RAW" ] && [ "$RAW_BYTES" -le "$LIMIT" ]; then
+            git add -f "$RAW"
+            echo "Raw H5 will also be committed ($RAW_BYTES bytes)."
+          else
+            echo "Raw H5 is too large for safe regular-Git storage ($RAW_BYTES bytes); committing processed NPZ instead."
+          fi
+
+          echo "raw_bytes=$RAW_BYTES"
+          echo "processed_bytes=$PROCESSED_BYTES"
+          git status --short
+
+      - name: Commit GEANT dataset
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --cached --quiet; then
+            echo "No dataset changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Add GEANT dataset"
+          git push
