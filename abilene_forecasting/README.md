@@ -45,7 +45,7 @@ data/processed/geant_1hour.npz
 
 两套数据采用相同协议：按时间顺序 60%/20%/20% 划分，先做 `log1p`，
 再仅使用训练集统计量按通道标准化。GÉANT 1 小时 Matrix 子集使用
-`avg_matrix_bandwidth_kbs` 字段。
+`matrix_avg_bandwidth_kbps` 字段。
 
 ## 统一训练接口
 
