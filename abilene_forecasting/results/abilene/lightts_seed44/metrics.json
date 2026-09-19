@@ -1,0 +1,48 @@
+{
+  "dataset": "abilene",
+  "data_path": "data\\processed\\abilene_1hour.npz",
+  "data_feature": null,
+  "data_aggregation": null,
+  "model": "lightts",
+  "model_config": {
+    "source": "thuml/Time-Series-Library",
+    "source_commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+    "source_model_sha": "a2051e44d864ec4ec5e72e59660b98c30c93a902",
+    "d_model": 512,
+    "dropout": 0.1,
+    "chunk_size": 24
+  },
+  "seed": 44,
+  "device": "cuda",
+  "n_channels": 144,
+  "split_rows": {
+    "train": 2793,
+    "val": 931,
+    "test": 932
+  },
+  "split_windows": {
+    "train": 2674,
+    "val": 812,
+    "test": 813
+  },
+  "input_len": 96,
+  "pred_len": 24,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 50,
+  "patience": 10,
+  "learning_rate": 0.0001,
+  "parameters": 130162,
+  "best_val_mse_normalized": 0.03082460829336655,
+  "test_normalized": {
+    "mse": 0.25862428545951843,
+    "mae": 0.20068830251693726,
+    "rmse": 0.5085511803627014
+  },
+  "test_original_units": {
+    "mse": 2.1416915526862714e+20,
+    "mae": 107183424.0,
+    "rmse": 14634519552.0
+  },
+  "elapsed_seconds": 412.2661349000009
+}

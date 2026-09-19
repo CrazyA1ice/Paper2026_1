@@ -1,0 +1,48 @@
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "lightts",
+  "model_config": {
+    "source": "thuml/Time-Series-Library",
+    "source_commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+    "source_model_sha": "a2051e44d864ec4ec5e72e59660b98c30c93a902",
+    "d_model": 512,
+    "dropout": 0.1,
+    "chunk_size": 24
+  },
+  "seed": 44,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1590,
+    "val": 451,
+    "test": 451
+  },
+  "input_len": 96,
+  "pred_len": 24,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 50,
+  "patience": 10,
+  "learning_rate": 0.0001,
+  "parameters": 384382,
+  "best_val_mse_normalized": 1.4911452119472022,
+  "test_normalized": {
+    "mse": 0.8265542984008789,
+    "mae": 0.5316475033760071,
+    "rmse": 0.9091503024101257
+  },
+  "test_original_units": {
+    "mse": 1107301888.0,
+    "mae": 6683.80712890625,
+    "rmse": 33276.14453125
+  },
+  "elapsed_seconds": 173.94583150000108
+}
