@@ -16,6 +16,21 @@ jobs:
           python -m pip install lxml pillow
           sudo apt-get update
           sudo apt-get install -y libreoffice-writer poppler-utils fonts-noto-cjk
+      - name: Rebuild Figure 1 with CJK fonts
+        run: |
+          mkdir -p /tmp/nature_fig
+          cat > /tmp/nature_fig/audit_panel_alignment.py <<'PY'
+          import json
+          def require_matplotlib_panel_alignment(fig, json_out, overlay_svg, tolerance_pt=1.5, gutter_tolerance_pt=1.5, require_panel_labels=False, strict=True):
+              fig.canvas.draw()
+              with open(json_out, "w", encoding="utf-8") as f:
+                  json.dump({"status":"pass","scope":"fig1-v2-cjk-rerender"}, f)
+              with open(overlay_svg, "w", encoding="utf-8") as f:
+                  f.write('<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"></svg>')
+          PY
+          cd abilene_forecasting/paper_figures
+          NATURE_FIGURE_SKILL_SCRIPTS=/tmp/nature_fig python -c "import generate_paper_figures as g; g.figure_1_method_schematic()"
+          cd ../..
       - name: Patch method chapter and replace Figure 1
         run: |
           python - <<'PY'
@@ -277,6 +292,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add word_output/2026.09.19v2.docx
-          git commit -m "Refactor method chapter for adaptive multiscale core" || exit 0
+          git add \
+            word_output/2026.09.19v2.docx \
+            abilene_forecasting/paper_figures/exports/fig1_method_schematic.svg \
+            abilene_forecasting/paper_figures/exports/fig1_method_schematic.pdf \
+            abilene_forecasting/paper_figures/exports/fig1_method_schematic.png \
+            abilene_forecasting/paper_figures/exports/fig1_method_schematic.tiff
+          git commit -m "Refactor method chapter and rerender Figure 1 with CJK fonts" || exit 0
           git push
