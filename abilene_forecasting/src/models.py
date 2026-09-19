@@ -6,8 +6,6 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from .pathformer_adapter import PathformerAdapter
-
 
 class MovingAverage(nn.Module):
     """Centered moving average with endpoint replication."""
@@ -226,6 +224,7 @@ def build_model(
     if name == "pathformer":
         if n_channels is None:
             raise ValueError("n_channels is required for Pathformer")
+        from .pathformer_adapter import PathformerAdapter
         return PathformerAdapter(
             input_len=input_len,
             pred_len=pred_len,
