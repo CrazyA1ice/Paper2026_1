@@ -1,0 +1,58 @@
+name: Fetch GEANT dataset
+
+on:
+  push:
+    paths:
+      - ".github/workflows/fetch-geant.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-geant:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: abilene_forecasting
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dataset dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install "cesnet-tszoo==2.2.0" "numpy>=1.26,<3" "tables>=3.10,<4"
+
+      - name: Download and preprocess GEANT
+        run: |
+          python prepare_geant.py
+          ls -lh data/processed/geant_1hour.npz
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          p = Path("data/processed/geant_1hour.npz")
+          h = hashlib.sha256(p.read_bytes()).hexdigest()
+          Path("data/processed/geant_1hour.sha256").write_text(
+              f"{h}  geant_1hour.npz\n", encoding="utf-8"
+          )
+          print("SHA256:", h)
+          PY
+
+      - name: Commit processed GEANT dataset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/processed/geant_1hour.npz data/processed/geant_1hour.sha256
+          if git diff --cached --quiet; then
+            echo "No dataset changes to commit."
+          else
+            git commit -m "Add processed GEANT 1-hour dataset"
+            git push
+          fi
