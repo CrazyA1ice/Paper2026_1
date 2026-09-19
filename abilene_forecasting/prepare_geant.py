@@ -2,4 +2,4 @@ from prepare_dataset import main
 
 
 if __name__ == "__main__":
-    main(default_dataset="abilene")
+    main(default_dataset="geant")

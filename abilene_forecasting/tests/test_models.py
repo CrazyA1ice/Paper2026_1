@@ -3,7 +3,7 @@ import torch
 from src.models import build_model
 
 
-def test_all_model_output_shapes():
+def test_all_native_model_output_shapes():
     x = torch.randn(2, 96, 12)
     for name in (
         "dlinear", "fits", "dlinear_freq", "dlinear_scale",
@@ -12,6 +12,18 @@ def test_all_model_output_shapes():
         output = build_model(name, 96, 24)(x)
         prediction = output[0] if isinstance(output, tuple) else output
         assert prediction.shape == (2, 24, 12)
+
+
+def test_pathformer_is_available_through_model_factory():
+    model = build_model(
+        "pathformer",
+        96,
+        24,
+        n_channels=12,
+        device=torch.device("cpu"),
+    )
+    assert model.experiment_config["source"] == "decisionintelligence/pathformer"
+    assert model.experiment_config["source_commit"]
 
 
 def test_router_weights_sum_to_one():

@@ -14,12 +14,21 @@ def main() -> None:
     args = parser.parse_args()
 
     rows = []
-    for path in Path(args.results).glob("*/metrics.json"):
+    results_root = Path(args.results)
+    dataset_paths = [
+        path
+        for dataset in ("abilene", "geant")
+        for path in (results_root / dataset).glob("*/metrics.json")
+    ]
+    metric_paths = dataset_paths or list(results_root.glob("*/metrics.json"))
+    for path in metric_paths:
         record = json.loads(path.read_text(encoding="utf-8"))
         rows.append(
             {
+                "dataset": record.get("dataset", "abilene"),
                 "model": record["model"],
                 "seed": record["seed"],
+                "n_channels": record.get("n_channels"),
                 "parameters": record["parameters"],
                 "mse": record["test_normalized"]["mse"],
                 "mae": record["test_normalized"]["mae"],
@@ -30,14 +39,21 @@ def main() -> None:
         )
     if not rows:
         raise SystemExit("No metrics.json files found")
-    frame = pd.DataFrame(rows).sort_values(["model", "seed"])
+
+    frame = pd.DataFrame(rows).sort_values(["dataset", "model", "seed"])
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     frame.to_csv(output, index=False)
-    summary = frame.groupby("model").agg(
-        mse_mean=("mse", "mean"), mse_std=("mse", "std"),
-        mae_mean=("mae", "mean"), mae_std=("mae", "std"),
-        raw_rmse_mean=("raw_rmse", "mean"), seconds_mean=("seconds", "mean"),
+
+    summary = frame.groupby(["dataset", "model"]).agg(
+        mse_mean=("mse", "mean"),
+        mse_std=("mse", "std"),
+        mae_mean=("mae", "mean"),
+        mae_std=("mae", "std"),
+        raw_rmse_mean=("raw_rmse", "mean"),
+        seconds_mean=("seconds", "mean"),
+        parameters=("parameters", "first"),
+        n_channels=("n_channels", "first"),
     )
     summary.to_csv(output.with_name("ablation_mean_std.csv"))
     print(summary)
@@ -45,4 +61,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

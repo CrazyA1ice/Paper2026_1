@@ -15,6 +15,12 @@ from src.data import SlidingWindowDataset, inverse_traffic_transform, load_npz
 from src.models import build_model
 
 
+DEFAULT_DATA_PATHS = {
+    "abilene": "data/processed/abilene_1hour.npz",
+    "geant": "data/processed/geant_1hour.npz",
+}
+
+
 def set_seed(seed: int) -> None:
     random.seed(seed)
     np.random.seed(seed)
@@ -25,8 +31,18 @@ def set_seed(seed: int) -> None:
     torch.backends.cudnn.benchmark = False
 
 
-def unpack_prediction(output):
-    return output[0] if isinstance(output, tuple) else output
+def split_model_output(output):
+    """Return prediction, scalar auxiliary loss, and optional router weights."""
+    if not isinstance(output, tuple):
+        return output, None, None
+
+    prediction = output[0]
+    extra = output[1] if len(output) > 1 else None
+    if torch.is_tensor(extra) and extra.ndim == 0:
+        return prediction, extra, None
+    if torch.is_tensor(extra):
+        return prediction, None, extra
+    return prediction, None, None
 
 
 @torch.no_grad()
@@ -37,12 +53,12 @@ def evaluate(model, loader, criterion, device):
     for history, future in loader:
         history, future = history.to(device), future.to(device)
         output = model(history)
-        prediction = unpack_prediction(output)
+        prediction, _, weights = split_model_output(output)
         total_loss += criterion(prediction, future).item() * len(history)
         predictions.append(prediction.cpu().numpy())
         truths.append(future.cpu().numpy())
-        if isinstance(output, tuple):
-            router_weights.append(output[1].cpu().numpy())
+        if weights is not None:
+            router_weights.append(weights.detach().cpu().numpy())
     weights = np.concatenate(router_weights) if router_weights else None
     return (
         total_loss / len(loader.dataset),
@@ -61,6 +77,16 @@ def metrics(prediction: np.ndarray, truth: np.ndarray) -> dict[str, float]:
     }
 
 
+def npz_scalar(arrays: dict[str, np.ndarray], key: str):
+    value = arrays.get(key)
+    if value is None:
+        return None
+    try:
+        return value.item()
+    except (ValueError, AttributeError):
+        return None
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -68,10 +94,20 @@ def main() -> None:
         choices=[
             "dlinear", "fits", "dlinear_freq", "dlinear_scale",
             "dlinear_scale_static", "proposed", "proposed_static",
+            "pathformer",
         ],
         default="dlinear",
     )
-    parser.add_argument("--data", default="data/processed/abilene_1hour.npz")
+    parser.add_argument(
+        "--dataset",
+        choices=sorted(DEFAULT_DATA_PATHS),
+        default="abilene",
+    )
+    parser.add_argument(
+        "--data",
+        default=None,
+        help="Processed NPZ path. Defaults to the selected dataset's standard path.",
+    )
     parser.add_argument("--input-len", type=int, default=96)
     parser.add_argument("--pred-len", type=int, default=24)
     parser.add_argument("--cut-ratio", type=float, default=0.5)
@@ -85,7 +121,26 @@ def main() -> None:
 
     set_seed(args.seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    arrays = load_npz(args.data)
+    data_path = args.data or DEFAULT_DATA_PATHS[args.dataset]
+    arrays = load_npz(data_path)
+
+    required = {"train", "val", "test", "mean", "std"}
+    missing = required.difference(arrays)
+    if missing:
+        raise ValueError(f"Processed dataset is missing keys: {sorted(missing)}")
+
+    stored_dataset = npz_scalar(arrays, "dataset")
+    if stored_dataset is not None and str(stored_dataset).lower() != args.dataset:
+        raise ValueError(
+            f"--dataset={args.dataset} does not match NPZ metadata "
+            f"dataset={stored_dataset}"
+        )
+
+    split_channels = {split: arrays[split].shape[1] for split in ("train", "val", "test")}
+    if len(set(split_channels.values())) != 1:
+        raise ValueError(f"Channel counts differ across splits: {split_channels}")
+    n_channels = split_channels["train"]
+
     datasets = {
         split: SlidingWindowDataset(arrays[split], args.input_len, args.pred_len)
         for split in ("train", "val", "test")
@@ -95,14 +150,29 @@ def main() -> None:
             datasets["train"], batch_size=args.batch_size, shuffle=True,
             num_workers=0, pin_memory=device.type == "cuda",
         ),
-        "val": DataLoader(datasets["val"], batch_size=args.batch_size, num_workers=0),
-        "test": DataLoader(datasets["test"], batch_size=args.batch_size, num_workers=0),
+        "val": DataLoader(
+            datasets["val"], batch_size=args.batch_size, num_workers=0
+        ),
+        "test": DataLoader(
+            datasets["test"], batch_size=args.batch_size, num_workers=0
+        ),
     }
 
-    model = build_model(args.model, args.input_len, args.pred_len, args.cut_ratio).to(device)
+    model = build_model(
+        args.model,
+        args.input_len,
+        args.pred_len,
+        args.cut_ratio,
+        n_channels=n_channels,
+        device=device,
+    ).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
     criterion = nn.MSELoss()
-    run_dir = Path(args.output_root) / f"{args.model}_seed{args.seed}"
+    run_dir = (
+        Path(args.output_root)
+        / args.dataset
+        / f"{args.model}_seed{args.seed}"
+    )
     run_dir.mkdir(parents=True, exist_ok=True)
     checkpoint = run_dir / "best_model.pt"
 
@@ -115,15 +185,21 @@ def main() -> None:
         for history, future in loaders["train"]:
             history, future = history.to(device), future.to(device)
             optimizer.zero_grad(set_to_none=True)
-            prediction = unpack_prediction(model(history))
+            output = model(history)
+            prediction, auxiliary_loss, _ = split_model_output(output)
             loss = criterion(prediction, future)
+            if auxiliary_loss is not None:
+                loss = loss + auxiliary_loss
             loss.backward()
             optimizer.step()
             train_loss += loss.item() * len(history)
 
         val_loss, _, _, _ = evaluate(model, loaders["val"], criterion, device)
         train_loss /= len(datasets["train"])
-        print(f"epoch={epoch:03d} train_mse={train_loss:.6f} val_mse={val_loss:.6f}")
+        print(
+            f"epoch={epoch:03d} train_objective={train_loss:.6f} "
+            f"val_mse={val_loss:.6f}"
+        )
         if val_loss < best_val - 1e-7:
             best_val = val_loss
             stale_epochs = 0
@@ -134,21 +210,45 @@ def main() -> None:
                 print(f"Early stopping at epoch {epoch}")
                 break
 
-    model.load_state_dict(torch.load(checkpoint, map_location=device, weights_only=True))
-    _, prediction, truth, weights = evaluate(model, loaders["test"], criterion, device)
+    model.load_state_dict(
+        torch.load(checkpoint, map_location=device, weights_only=True)
+    )
+    _, prediction, truth, weights = evaluate(
+        model, loaders["test"], criterion, device
+    )
     normalized_metrics = metrics(prediction, truth)
-    raw_prediction = inverse_traffic_transform(prediction, arrays["mean"], arrays["std"])
-    raw_truth = inverse_traffic_transform(truth, arrays["mean"], arrays["std"])
+    raw_prediction = inverse_traffic_transform(
+        prediction, arrays["mean"], arrays["std"]
+    )
+    raw_truth = inverse_traffic_transform(
+        truth, arrays["mean"], arrays["std"]
+    )
     raw_metrics = metrics(raw_prediction, raw_truth)
     elapsed = time.perf_counter() - started
 
     result = {
+        "dataset": args.dataset,
+        "data_path": str(Path(data_path)),
+        "data_feature": npz_scalar(arrays, "feature"),
+        "data_aggregation": npz_scalar(arrays, "aggregation"),
         "model": args.model,
+        "model_config": getattr(model, "experiment_config", {}),
         "seed": args.seed,
         "device": str(device),
+        "n_channels": n_channels,
+        "split_rows": {
+            split: int(len(arrays[split])) for split in ("train", "val", "test")
+        },
+        "split_windows": {
+            split: int(len(datasets[split])) for split in ("train", "val", "test")
+        },
         "input_len": args.input_len,
         "pred_len": args.pred_len,
         "cut_ratio": args.cut_ratio,
+        "batch_size": args.batch_size,
+        "epochs_max": args.epochs,
+        "patience": args.patience,
+        "learning_rate": args.learning_rate,
         "parameters": sum(p.numel() for p in model.parameters()),
         "best_val_mse_normalized": best_val,
         "test_normalized": normalized_metrics,
@@ -158,7 +258,11 @@ def main() -> None:
     (run_dir / "metrics.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    np.savez_compressed(run_dir / "predictions.npz", prediction=prediction, truth=truth)
+    np.savez_compressed(
+        run_dir / "predictions.npz",
+        prediction=prediction,
+        truth=truth,
+    )
     if weights is not None:
         np.savetxt(run_dir / "router_weights.csv", weights, delimiter=",")
     print(json.dumps(result, ensure_ascii=False, indent=2))
