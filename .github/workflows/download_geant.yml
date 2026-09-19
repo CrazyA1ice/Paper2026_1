@@ -61,7 +61,7 @@ jobs:
           - Dataset: GÉANT backbone OD traffic matrix
           - Aggregation used by this project: 1 hour
           - TS-Zoo subset: matrix
-          - Feature: `avg_matrix_bandwidth_kbs`
+          - Feature: `matrix_avg_bandwidth_kbps`
           - Source bucket: `https://liberouter.org/datazoo/download?bucket=geant`
           - Source file: `GEANT-matrix-backbone_network-1_hour.h5`
           - Raw H5 bytes downloaded by GitHub Actions: $RAW_BYTES
