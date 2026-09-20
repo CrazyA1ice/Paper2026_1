@@ -9,20 +9,22 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from PIL import Image
 from matplotlib.path import Path as MplPath
 from matplotlib.patches import Ellipse, FancyArrowPatch, FancyBboxPatch
 from matplotlib.transforms import ScaledTranslation
 
 
 # Publication defaults: editable vector text and grayscale-safe styling.
-mpl.rcParams["font.family"] = "sans-serif"
-mpl.rcParams["font.sans-serif"] = [
-    "Microsoft YaHei",
-    "SimHei",
-    "Noto Sans CJK SC",
-    "Noto Sans CJK JP",
-    "Arial",
-    "DejaVu Sans",
+mpl.rcParams["font.family"] = "serif"
+mpl.rcParams["font.serif"] = [
+    "Times New Roman",
+    "SimSun",
+    "Songti SC",
+    "Noto Serif CJK SC",
+    "Noto Serif CJK JP",
+    "Liberation Serif",
+    "DejaVu Serif",
 ]
 mpl.rcParams.update({"svg.fonttype": "none", "pdf.fonttype": 42})
 mpl.rcParams["axes.unicode_minus"] = False
@@ -36,13 +38,19 @@ plt.rcParams["axes.spines.right"] = False
 plt.rcParams["axes.spines.top"] = False
 plt.rcParams["axes.linewidth"] = 0.8
 plt.rcParams["legend.frameon"] = False
+plt.rcParams["xtick.direction"] = "in"
+plt.rcParams["ytick.direction"] = "in"
 
 
 ROOT = Path(__file__).resolve().parents[1]
 FIGURE_DIR = Path(__file__).resolve().parent
 EXPORT_DIR = FIGURE_DIR / "exports"
+COLOR_EXPORT_DIR = EXPORT_DIR / "color"
+GRAYSCALE_EXPORT_DIR = EXPORT_DIR / "grayscale"
 SOURCE_DIR = FIGURE_DIR / "source_data"
 EXPORT_DIR.mkdir(parents=True, exist_ok=True)
+COLOR_EXPORT_DIR.mkdir(parents=True, exist_ok=True)
+GRAYSCALE_EXPORT_DIR.mkdir(parents=True, exist_ok=True)
 SOURCE_DIR.mkdir(parents=True, exist_ok=True)
 
 BLACK = "#111111"
@@ -83,7 +91,17 @@ def add_panel_label(ax, label: str) -> None:
 
 
 def export_figure(fig, stem: str, require_labels: bool) -> None:
+    """Export publication figures in both color and grayscale.
+
+    The manuscript uses the color version. The grayscale version is kept in
+    exports/grayscale for journals that require monochrome printing.
+    Figure numbers/titles are never baked into the figure body; they belong
+    to the Word caption below the image.
+    """
     base = EXPORT_DIR / stem
+    color_base = COLOR_EXPORT_DIR / f"{stem}_color"
+    gray_base = GRAYSCALE_EXPORT_DIR / f"{stem}_grayscale"
+
     fig.canvas.draw()
     require_matplotlib_panel_alignment(
         fig,
@@ -94,6 +112,8 @@ def export_figure(fig, stem: str, require_labels: bool) -> None:
         require_panel_labels=require_labels,
         strict=True,
     )
+
+    # Legacy paths retained for compatibility with existing manuscript scripts.
     fig.savefig(str(base) + ".svg", bbox_inches="tight")
     fig.savefig(str(base) + ".pdf", bbox_inches="tight")
     fig.savefig(str(base) + ".png", dpi=600, bbox_inches="tight")
@@ -103,7 +123,22 @@ def export_figure(fig, stem: str, require_labels: bool) -> None:
         bbox_inches="tight",
         pil_kwargs={"compression": "tiff_lzw"},
     )
+
+    # Color publication outputs.
+    fig.savefig(str(color_base) + ".svg", bbox_inches="tight")
+    fig.savefig(str(color_base) + ".pdf", bbox_inches="tight")
+    fig.savefig(str(color_base) + ".png", dpi=600, bbox_inches="tight")
+    fig.savefig(str(color_base) + ".jpg", dpi=600, quality=95, bbox_inches="tight")
+
+    # Grayscale publication outputs derived from the exact color raster.
+    color_png = Image.open(str(color_base) + ".png").convert("RGB")
+    gray = color_png.convert("L")
+    gray.save(str(gray_base) + ".png", dpi=(600, 600))
+    gray.save(str(gray_base) + ".jpg", quality=95, subsampling=0, dpi=(600, 600))
+    gray.save(str(gray_base) + ".tiff", compression="tiff_lzw", dpi=(600, 600))
+
     plt.close(fig)
+
 
 
 def box(ax, x, y, w, h, text, *, face=PALE, dashed=False, fontsize=6.5):
@@ -160,12 +195,179 @@ def routed_arrow(ax, points, *, dashed=False):
 
 
 def figure_1_method_schematic() -> None:
-    # Figure 1 intentionally preserves the visual structure of the figure
-    # embedded in word_output/2026.09.19v1.docx. Only obsolete frequency
-    # modules and validation labels are updated for the second-stage paper.
-    from generate_fig1_from_v1 import generate
+    """Publication Figure 1: adaptive multiscale network-traffic predictor.
 
-    generate()
+    The visual structure follows the user-selected scientific diagram:
+    input matrix -> multiscale construction -> DLinear experts ->
+    adaptive weighted fusion -> prediction, with the sample-level router
+    beneath the main path. No figure number, title, or explanatory caption
+    is embedded in the image body.
+    """
+    fig, ax = plt.subplots(figsize=(7.09, 4.05))
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis("off")
+
+    # Deterministic illustrative matrices; these explain tensor flow only.
+    rng = np.random.default_rng(7)
+    in_mat = rng.normal(0, 0.35, (16, 24))
+    in_mat[7:10, 13:] += np.linspace(0.4, 1.8, 11)
+    out_mat = rng.normal(0, 0.25, (16, 12))
+    out_mat[7:10, 5:] += np.linspace(0.3, 1.5, 7)
+
+    def panel(x, y, w, h, title, edge="#333333", face="#fafafa", dashed=False):
+        p = FancyBboxPatch(
+            (x, y), w, h,
+            boxstyle="round,pad=0.002,rounding_size=0.007",
+            linewidth=0.8, edgecolor=edge, facecolor=face,
+            linestyle="--" if dashed else "-"
+        )
+        ax.add_patch(p)
+        ax.text(x + w/2, y + h - 0.035, title, ha="center", va="center",
+                fontsize=6.2, fontweight="bold")
+        return p
+
+    # Main five blocks.
+    panel(0.012, 0.365, 0.168, 0.555, "输入时序数据")
+    panel(0.193, 0.365, 0.205, 0.555, "多尺度序列构造",
+          edge="#4a90e2", face="#f5f9ff", dashed=True)
+    panel(0.410, 0.365, 0.205, 0.555, "DLinear 尺度专家",
+          edge="#e86a6a", face="#fff7f7", dashed=True)
+    panel(0.627, 0.365, 0.178, 0.555, "自适应加权融合",
+          edge="#9a78d0", face="#faf7ff", dashed=True)
+    panel(0.818, 0.365, 0.170, 0.555, "预测结果")
+
+    # Heatmaps with inward ticks and explicit axis labels.
+    ax_in = ax.inset_axes([0.045, 0.565, 0.105, 0.245])
+    ax_in.imshow(in_mat, aspect="auto", cmap="RdBu_r", interpolation="nearest")
+    ax_in.set_xticks([0, 6, 12, 18, 23], ["1", "", "…", "", "96"])
+    ax_in.set_yticks([0, 7, 15], ["1", "…", r"$C$"])
+    ax_in.set_xlabel(r"时间步 $t$", fontsize=5.7)
+    ax_in.set_ylabel(r"OD 流量", fontsize=5.7)
+    ax_in.tick_params(direction="in", labelsize=5.2, width=0.6, length=2)
+    for s in ax_in.spines.values():
+        s.set_linewidth(0.6)
+
+    ax.text(0.096, 0.500, r"$X\in\mathbb{R}^{96\times C}$",
+            ha="center", va="center", fontsize=6.2)
+    ax.text(0.096, 0.448, "（96个历史时间点，", ha="center", va="center", fontsize=5.5)
+    ax.text(0.096, 0.415, r"$C$个OD流量）", ha="center", va="center", fontsize=5.5)
+
+    ax_out = ax.inset_axes([0.850, 0.565, 0.106, 0.245])
+    ax_out.imshow(out_mat, aspect="auto", cmap="RdBu_r", interpolation="nearest")
+    ax_out.set_xticks([0, 3, 6, 9, 11], ["1", "", "…", "", "24"])
+    ax_out.set_yticks([0, 7, 15], ["1", "…", r"$C$"])
+    ax_out.set_xlabel(r"预测时间步 $t$", fontsize=5.7)
+    ax_out.set_ylabel(r"OD 流量", fontsize=5.7)
+    ax_out.tick_params(direction="in", labelsize=5.2, width=0.6, length=2)
+    for s in ax_out.spines.values():
+        s.set_linewidth(0.6)
+
+    ax.text(0.903, 0.500, r"$\hat{Y}\in\mathbb{R}^{24\times C}$",
+            ha="center", va="center", fontsize=6.2)
+    ax.text(0.903, 0.448, "（预测未来24个时间点，", ha="center", va="center", fontsize=5.5)
+    ax.text(0.903, 0.415, r"$C$个OD流量）", ha="center", va="center", fontsize=5.5)
+
+    # Scale lanes.
+    lane_y = [0.735, 0.575, 0.415]
+    lane_face = ["#eef6ff", "#f1f8ef", "#fff3ea"]
+    lane_edge = ["#3c78c6", "#58a45c", "#e78b4d"]
+    lane_titles = [
+        ("尺度 1（原始分辨率）", r"$L=96$", r"$X^{(1)}\in\mathbb{R}^{96\times C}$"),
+        ("尺度 2（2点平均池化）", r"$L=48$", r"$X^{(2)}\in\mathbb{R}^{48\times C}$"),
+        ("尺度 4（4点平均池化）", r"$L=24$", r"$X^{(4)}\in\mathbb{R}^{24\times C}$"),
+    ]
+    for y, face, edge, texts in zip(lane_y, lane_face, lane_edge, lane_titles):
+        p = FancyBboxPatch((0.213, y), 0.166, 0.125,
+                           boxstyle="round,pad=0.002,rounding_size=0.008",
+                           linewidth=0.75, edgecolor=edge, facecolor=face)
+        ax.add_patch(p)
+        ax.text(0.296, y+0.091, texts[0], ha="center", va="center", fontsize=5.6)
+        ax.text(0.296, y+0.058, texts[1], ha="center", va="center", fontsize=5.8)
+        ax.text(0.296, y+0.024, texts[2], ha="center", va="center", fontsize=5.6)
+
+    # Experts.
+    expert_titles = [
+        ("DLinear E1", r"$\hat{Y}^{(1)}\in\mathbb{R}^{24\times C}$"),
+        ("DLinear E2", r"$\hat{Y}^{(2)}\in\mathbb{R}^{24\times C}$"),
+        ("DLinear E4", r"$\hat{Y}^{(4)}\in\mathbb{R}^{24\times C}$"),
+    ]
+    for y, (name, pred) in zip(lane_y, expert_titles):
+        p = FancyBboxPatch((0.430, y), 0.166, 0.125,
+                           boxstyle="round,pad=0.002,rounding_size=0.008",
+                           linewidth=0.75, edgecolor="#d85a5a", facecolor="#fff9f9")
+        ax.add_patch(p)
+        ax.text(0.513, y+0.091, name, ha="center", va="center",
+                fontsize=5.9, fontweight="bold")
+        ax.text(0.513, y+0.058, "趋势项 + 余项", ha="center", va="center", fontsize=5.5)
+        ax.text(0.513, y+0.024, pred, ha="center", va="center", fontsize=5.6)
+
+    # Main flow arrows.
+    for y in [0.797, 0.637, 0.477]:
+        arrow(ax, (0.180, y), (0.213, y))
+        arrow(ax, (0.379, y), (0.430, y))
+        arrow(ax, (0.596, y), (0.640, y))
+    arrow(ax, (0.787, 0.637), (0.818, 0.637))
+
+    # Adaptive fusion box.
+    fusion = FancyBboxPatch((0.645, 0.485), 0.128, 0.250,
+                            boxstyle="round,pad=0.002,rounding_size=0.008",
+                            linewidth=0.8, edgecolor="#6750a4", facecolor="#fbf9ff")
+    ax.add_patch(fusion)
+    ax.text(0.709, 0.695, "动态加权求和", ha="center", va="center",
+            fontsize=5.9, fontweight="bold")
+    ax.text(0.709, 0.630,
+            r"$\hat{Y}=\sum_{s\in\{1,2,4\}}\alpha_s\hat{Y}^{(s)}$",
+            ha="center", va="center", fontsize=6.1)
+    ax.text(0.709, 0.565, r"$\alpha_1+\alpha_2+\alpha_4=1$",
+            ha="center", va="center", fontsize=5.8)
+    ax.text(0.709, 0.525, r"$\alpha_s\geq0$",
+            ha="center", va="center", fontsize=5.8)
+
+    # Router panel.
+    rp = FancyBboxPatch((0.215, 0.075), 0.575, 0.225,
+                        boxstyle="round,pad=0.002,rounding_size=0.008",
+                        linewidth=0.8, edgecolor="#5ba65b", facecolor="#f7fbf5",
+                        linestyle="--")
+    ax.add_patch(rp)
+    ax.text(0.503, 0.265, "样本级自适应尺度路由器",
+            ha="center", va="center", fontsize=6.2, fontweight="bold")
+
+    router_boxes = [
+        (0.238, 0.110, 0.180, 0.120, "统计特征提取",
+         r"$f=[\mu\mid\sigma\mid\mathrm{last}\mid\mathrm{diff}]$" + "\n" + r"$f\in\mathbb{R}^{4}$"),
+        (0.448, 0.110, 0.135, 0.120, "全连接层",
+         r"$4\rightarrow16\rightarrow3$" + "\n" + "ReLU"),
+        (0.612, 0.110, 0.155, 0.120, "Softmax 归一化",
+         r"$\alpha=[\alpha_1,\alpha_2,\alpha_4]$" + "\n" + r"$\alpha\in\mathbb{R}^{3}$"),
+    ]
+    for x, y, w, h, title, body in router_boxes:
+        p = FancyBboxPatch((x, y), w, h,
+                           boxstyle="round,pad=0.002,rounding_size=0.007",
+                           linewidth=0.7, edgecolor="#333333", facecolor="white")
+        ax.add_patch(p)
+        ax.text(x+w/2, y+h-0.032, title, ha="center", va="center",
+                fontsize=5.6, fontweight="bold")
+        ax.text(x+w/2, y+0.050, body, ha="center", va="center", fontsize=5.5)
+
+    arrow(ax, (0.418, 0.170), (0.448, 0.170))
+    arrow(ax, (0.583, 0.170), (0.612, 0.170))
+
+    # Dashed weight-control path from input to router and router to fusion.
+    routed_arrow(ax, [(0.095, 0.365), (0.095, 0.170), (0.215, 0.170)], dashed=True)
+    ax.text(0.120, 0.208, "计算统计特征", ha="left", va="center", fontsize=5.4)
+    routed_arrow(ax, [(0.690, 0.230), (0.690, 0.420), (0.709, 0.485)], dashed=True)
+    ax.text(0.700, 0.385, r"自适应权重 $\alpha_1,\alpha_2,\alpha_4$",
+            ha="left", va="center", fontsize=5.2)
+
+    # Legend inside the figure body, but no figure title/caption.
+    arrow(ax, (0.830, 0.185), (0.875, 0.185))
+    ax.text(0.886, 0.185, "数据流", ha="left", va="center", fontsize=5.4)
+    arrow(ax, (0.830, 0.135), (0.875, 0.135), dashed=True)
+    ax.text(0.886, 0.135, "权重控制", ha="left", va="center", fontsize=5.4)
+
+    fig.subplots_adjust(left=0.005, right=0.995, bottom=0.01, top=0.995)
+    export_figure(fig, "fig1_method_schematic", require_labels=False)
 
 
 def figure_2_main_ablation() -> None:
