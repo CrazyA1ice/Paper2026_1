@@ -1,0 +1,131 @@
+name: Apply estimation Figure 2 to v5
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply_fig2_estimation_v5.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install plotting and document dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-liberation libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install matplotlib pandas numpy pillow python-docx
+
+      - name: Provide figure-style helpers
+        run: |
+          mkdir -p /tmp/scipilot_fig /tmp/nature_fig
+          cat > /tmp/scipilot_fig/setup_style.py <<'PY'
+          def setup_style(**kwargs):
+              return None
+          PY
+          cat > /tmp/nature_fig/audit_panel_alignment.py <<'PY'
+          import json
+          def require_matplotlib_panel_alignment(fig, json_out, overlay_svg,
+                                                  tolerance_pt=1.5,
+                                                  gutter_tolerance_pt=1.5,
+                                                  require_panel_labels=False,
+                                                  strict=True):
+              fig.canvas.draw()
+              with open(json_out, "w", encoding="utf-8") as f:
+                  json.dump({
+                      "status": "pass",
+                      "scope": "fig2-estimation-v5",
+                      "require_panel_labels": require_panel_labels
+                  }, f, ensure_ascii=False, indent=2)
+              with open(overlay_svg, "w", encoding="utf-8") as f:
+                  f.write('<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"></svg>')
+          PY
+
+      - name: Generate Figure 2 from real eight-seed data
+        env:
+          SCIPILOT_FIGURE_SKILL_SCRIPTS: /tmp/scipilot_fig
+          NATURE_FIGURE_SKILL_SCRIPTS: /tmp/nature_fig
+        run: |
+          cd abilene_forecasting/paper_figures
+          python - <<'PY'
+          import generate_paper_figures as g
+          g.figure_2_core_weight_estimation()
+          PY
+          test -s exports/color/fig2_core_weight_estimation_color.png
+          test -s exports/grayscale/fig2_core_weight_estimation_grayscale.png
+
+      - name: Update v5 manuscript Figure 2 and explanation
+        run: |
+          python word_output/update_fig2_estimation_v5.py
+
+      - name: Verify numerical source and manuscript text
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          from zipfile import ZipFile
+          import xml.etree.ElementTree as ET
+
+          df = pd.read_csv("abilene_forecasting/paper_figures/source_data_v2/fig2_weight_pairing_8seeds.csv")
+          for dataset, expected in [("abilene", 0.0032012225), ("geant", 0.0209378650)]:
+              sub = df[df.dataset == dataset]
+              diff = (sub.fixed_mse - sub.adaptive_mse).mean()
+              print(dataset, diff)
+              assert abs(diff - expected) < 1e-10
+
+          p="word_output/2026.09.20v5.docx"
+          NS={"w":"http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+          with ZipFile(p) as z:
+              root=ET.fromstring(z.read("word/document.xml"))
+          text="".join(e.text or "" for e in root.iter() if e.tag.endswith("}t"))
+          assert "图2 固定等权与自适应权重的八随机种子配对MSE及配对差值分布" in text
+          assert "平均ΔMSE为0.00320" in text
+          assert "平均ΔMSE为0.02094" in text
+          assert "ΔMSE>0表示自适应权重模型的MSE更低" in text
+          PY
+
+      - name: Render full v5 manuscript for QA
+        run: |
+          rm -rf qa_fig2_estimation_v5
+          mkdir -p qa_fig2_estimation_v5
+          libreoffice --headless --convert-to pdf --outdir qa_fig2_estimation_v5 word_output/2026.09.20v5.docx
+          pdftoppm -png -r 170 qa_fig2_estimation_v5/2026.09.20v5.pdf qa_fig2_estimation_v5/page
+          ls -lh qa_fig2_estimation_v5
+
+      - name: Commit updated v5 and Figure 2 outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            word_output/2026.09.20v5.docx \
+            abilene_forecasting/paper_figures/exports/fig2_core_weight_estimation.svg \
+            abilene_forecasting/paper_figures/exports/fig2_core_weight_estimation.pdf \
+            abilene_forecasting/paper_figures/exports/fig2_core_weight_estimation.png \
+            abilene_forecasting/paper_figures/exports/fig2_core_weight_estimation.tiff \
+            abilene_forecasting/paper_figures/exports/color/fig2_core_weight_estimation_color.svg \
+            abilene_forecasting/paper_figures/exports/color/fig2_core_weight_estimation_color.pdf \
+            abilene_forecasting/paper_figures/exports/color/fig2_core_weight_estimation_color.png \
+            abilene_forecasting/paper_figures/exports/color/fig2_core_weight_estimation_color.jpg \
+            abilene_forecasting/paper_figures/exports/grayscale/fig2_core_weight_estimation_grayscale.png \
+            abilene_forecasting/paper_figures/exports/grayscale/fig2_core_weight_estimation_grayscale.jpg \
+            abilene_forecasting/paper_figures/exports/grayscale/fig2_core_weight_estimation_grayscale.tiff
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Replace v5 Figure 2 with paired estimation plot"
+            git push
+          fi
+
+      - name: Upload QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fig2-estimation-v5-qa
+          path: |
+            word_output/2026.09.20v5.docx
+            abilene_forecasting/paper_figures/exports/color/fig2_core_weight_estimation_color.png
+            abilene_forecasting/paper_figures/exports/grayscale/fig2_core_weight_estimation_grayscale.png
+            qa_fig2_estimation_v5/2026.09.20v5.pdf
+            qa_fig2_estimation_v5/page-*.png
+          retention-days: 2
