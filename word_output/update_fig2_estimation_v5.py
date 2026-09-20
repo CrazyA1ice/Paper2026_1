@@ -49,11 +49,9 @@ def insert_note_after(paragraph, text: str):
         if next_text.startswith("注：上排为8个随机种子"):
             next_el.getparent().remove(next_el)
 
-    new_p = OxmlElement("w:p")
-    paragraph._p.addnext(new_p)
     note = paragraph._parent.add_paragraph()
     note._p.getparent().remove(note._p)
-    new_p.addnext(note._p)
+    paragraph._p.addnext(note._p)
     run = note.add_run(text)
     run.font.name = "Times New Roman"
     run.font.size = Pt(7.5)
