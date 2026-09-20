@@ -141,7 +141,9 @@ jobs:
         run: |
           rm -rf qa_fig1_label_fix
           mkdir -p qa_fig1_label_fix
-          python /home/oai/skills/docx/render_docx.py word_output/2026.09.19v2.docx --output_dir qa_fig1_label_fix --emit_pdf
+          libreoffice --headless --convert-to pdf --outdir qa_fig1_label_fix word_output/2026.09.19v2.docx
+          pdftoppm -png -r 150 qa_fig1_label_fix/2026.09.19v2.pdf qa_fig1_label_fix/page
+          test -s qa_fig1_label_fix/page-03.png
           ls -lh qa_fig1_label_fix
 
       - name: Commit approved Figure 1 update
