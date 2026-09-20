@@ -1,5 +1,5 @@
 name: Rewrite abstract conclusion v2
-# rerun after English label spacing fix
+# rerun after XML spacing syntax fix
 on:
   push:
     branches: [main]
