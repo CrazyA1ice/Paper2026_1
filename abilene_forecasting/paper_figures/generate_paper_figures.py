@@ -442,7 +442,7 @@ def figure_3_router_weight_dynamics() -> None:
     ]
     colors = ["#3f6fb5", "#58a45c", "#d07a32"]
     linestyles = ["-", "--", "-."]
-    labels = [r"$\\alpha_1$", r"$\\alpha_2$", r"$\\alpha_4$"]
+    labels = [r"$\alpha_1$", r"$\alpha_2$", r"$\alpha_4$"]
     source_rows = []
 
     for idx, (ax, (dataset, title)) in enumerate(zip(axes, dataset_specs)):
