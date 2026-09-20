@@ -471,6 +471,110 @@ def figure_2_core_weight_pairing() -> None:
     export_figure(fig, "fig2_core_weight_pairing_v2", require_labels=True)
 
 
+
+def figure_2_core_weight_estimation() -> None:
+    """Paired estimation plot using all eight seeds and real experiment results."""
+    data = pd.read_csv(SOURCE_DIR_V2 / "fig2_weight_pairing_8seeds.csv")
+    fig, axes = plt.subplots(
+        2, 2, figsize=(6.70, 4.58),
+        gridspec_kw={"height_ratios": [1.72, 1.00]}
+    )
+
+    # Muted publication palette selected by the author.
+    palette = {
+        "abilene": {"edge": "#1F5FAF", "point": "#4F91D8", "fill": "#8FB8E8"},
+        "geant": {"edge": "#B94713", "point": "#EA7A2C", "fill": "#F2B07F"},
+    }
+    specs = [
+        ("abilene", "Abilene", (0.181, 0.198), (-0.010, 0.010)),
+        ("geant", "GÉANT", (0.388, 0.495), (-0.040, 0.060)),
+    ]
+
+    def kde_density(values: np.ndarray, grid: np.ndarray) -> np.ndarray:
+        values = np.asarray(values, dtype=float)
+        sd = float(np.std(values, ddof=1))
+        bw = 1.06 * sd * (len(values) ** (-1 / 5)) if sd > 0 else 0.01
+        span = max(float(np.ptp(values)), 1e-6)
+        bw = max(bw, span / 8, 1e-5)
+        z = (grid[:, None] - values[None, :]) / bw
+        dens = np.exp(-0.5 * z * z).mean(axis=1) / (bw * np.sqrt(2 * np.pi))
+        return dens
+
+    for col, (dataset, title, top_ylim, bottom_ylim) in enumerate(specs):
+        sub = data[data.dataset == dataset].sort_values("seed").reset_index(drop=True)
+        fixed = sub.fixed_mse.to_numpy(dtype=float)
+        adaptive = sub.adaptive_mse.to_numpy(dtype=float)
+        diff = fixed - adaptive
+        color = palette[dataset]
+
+        # Top: paired raw MSE values.
+        ax = axes[0, col]
+        for fval, aval in zip(fixed, adaptive):
+            ax.plot([0, 1], [fval, aval], color="#A8ADB3", lw=0.75, alpha=0.92, zorder=1)
+        ax.scatter(
+            np.zeros_like(fixed), fixed, s=32,
+            facecolor=color["fill"], edgecolor=color["edge"], linewidth=0.85, zorder=3
+        )
+        ax.scatter(
+            np.ones_like(adaptive), adaptive, s=32,
+            facecolor=color["point"], edgecolor=color["edge"], linewidth=0.85, zorder=3
+        )
+        means = np.array([fixed.mean(), adaptive.mean()])
+        sds = np.array([fixed.std(ddof=1), adaptive.std(ddof=1)])
+        ax.errorbar(
+            [0, 1], means, yerr=sds, fmt="D", ms=5.2,
+            color=BLACK, mfc=BLACK, mec=BLACK, ecolor=BLACK,
+            elinewidth=1.0, capsize=3.0, zorder=5
+        )
+        ax.set_xticks([0, 1], ["固定等权", "自适应权重"])
+        ax.set_ylabel("均方误差（MSE）")
+        ax.set_title(title, pad=9, fontweight="bold", fontfamily="Times New Roman", fontsize=10)
+        ax.set_xlim(-0.24, 1.24)
+        ax.set_ylim(*top_ylim)
+        ax.tick_params(direction="in", length=3.0, width=0.7)
+        add_panel_label(ax, chr(ord("a") + col))
+
+        # Bottom: paired differences + half-density + mean 95% CI.
+        axd = axes[1, col]
+        y_grid = np.linspace(bottom_ylim[0], bottom_ylim[1], 260)
+        dens = kde_density(diff, y_grid)
+        width = 0.34 * dens / max(float(dens.max()), 1e-12)
+        density_x = 0.46
+        axd.fill_betweenx(
+            y_grid, density_x, density_x + width,
+            color=color["fill"], alpha=0.62, linewidth=0
+        )
+
+        # Deterministic horizontal jitter for the eight paired differences.
+        jitter = np.linspace(-0.055, 0.055, len(diff))
+        axd.scatter(
+            0.36 + jitter, diff, s=25,
+            facecolor=color["point"], edgecolor=color["edge"], linewidth=0.8, zorder=4
+        )
+
+        mean_diff = float(diff.mean())
+        sem = float(diff.std(ddof=1) / np.sqrt(len(diff)))
+        # t_0.975,7 = 2.364624251; kept explicit to avoid an extra SciPy dependency.
+        half_ci = 2.364624251 * sem
+        axd.errorbar(
+            [0.88], [mean_diff], yerr=[[half_ci], [half_ci]],
+            fmt="o", ms=5.1, color=BLACK, mfc=BLACK, mec=BLACK,
+            ecolor=BLACK, elinewidth=1.0, capsize=3.0, zorder=5
+        )
+        axd.axhline(0.0, color="#555555", lw=0.75, ls="--", dashes=(4, 3), zorder=0)
+        axd.set_xlim(0.08, 1.08)
+        axd.set_ylim(*bottom_ylim)
+        axd.set_xticks([])
+        axd.set_xlabel("配对差值（固定等权 − 自适应权重）")
+        axd.set_ylabel("ΔMSE")
+        axd.tick_params(direction="in", length=3.0, width=0.7)
+
+    fig.subplots_adjust(
+        left=0.095, right=0.985, bottom=0.105, top=0.94,
+        wspace=0.27, hspace=0.20
+    )
+    export_figure(fig, "fig2_core_weight_estimation", require_labels=True)
+
 def candidate_1_representative_horizon_error() -> None:
     """Visual candidate only: per-step error for the saved representative case."""
     data = pd.read_csv(SOURCE_DIR / "fig5_representative_forecast.csv")
