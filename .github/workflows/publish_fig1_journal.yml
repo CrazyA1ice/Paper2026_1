@@ -1,5 +1,5 @@
 name: Publish journal-compliant Figure 1
-# rerun after layout refinement
+# rerun after final axis-label spacing refinement
 on:
   push:
     branches: [main]
