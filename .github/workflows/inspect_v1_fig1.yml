@@ -16,7 +16,7 @@ jobs:
           python - <<'PY'
           from zipfile import ZipFile
           from pathlib import Path
-          from lxml import etree
+          import xml.etree.ElementTree as ET
           docx=Path("word_output/2026.09.19v1.docx")
           out=Path("v1_fig1_extract")
           out.mkdir(exist_ok=True)
@@ -27,19 +27,19 @@ jobs:
             "pr":"http://schemas.openxmlformats.org/package/2006/relationships",
           }
           with ZipFile(docx) as z:
-            doc=etree.fromstring(z.read("word/document.xml"))
-            rels=etree.fromstring(z.read("word/_rels/document.xml.rels"))
-            paras=doc.xpath("/w:document/w:body/w:p",namespaces=NS)
+            doc=ET.fromstring(z.read("word/document.xml"))
+            rels=ET.fromstring(z.read("word/_rels/document.xml.rels"))
+            body=doc.find("w:body",NS)\n            paras=body.findall("w:p",NS)
             def txt(p):
-              return "".join(p.xpath(".//w:t/text()",namespaces=NS))
+              return "".join(e.text or "" for e in p.iter() if e.tag.endswith("}t"))
             cap=next(i for i,p in enumerate(paras) if txt(p).strip()=="图1 自适应多尺度预测框架")
             fig=None
             for i in range(cap-1,max(-1,cap-5),-1):
-              if paras[i].xpath(".//a:blip",namespaces=NS):
+              if any(e.tag.endswith("}blip") for e in paras[i].iter()):
                 fig=paras[i]; break
-            blip=fig.xpath(".//a:blip",namespaces=NS)[0]
+            blip=next(e for e in fig.iter() if e.tag.endswith("}blip"))
             rid=blip.get("{%s}embed"%NS["r"])
-            rel=rels.xpath(f"/pr:Relationships/pr:Relationship[@Id='{rid}']",namespaces=NS)[0]
+            rel=next(e for e in rels if e.get("Id")==rid)
             target=rel.get("Target")
             data=z.read("word/"+target)
             ext=Path(target).suffix or ".bin"
