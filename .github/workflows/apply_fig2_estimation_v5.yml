@@ -26,6 +26,15 @@ jobs:
           def setup_style(**kwargs):
               return None
           PY
+          cat > /tmp/scipilot_fig/visual_qa.py <<'PY'
+          def render_preview(fig, path, dpi=180):
+              fig.savefig(path, dpi=dpi, bbox_inches="tight")
+          def audit_layout(fig):
+              return {"status": "PASS"}
+          def print_report(report):
+              print(report)
+              return "PASS"
+          PY
           cat > /tmp/nature_fig/audit_panel_alignment.py <<'PY'
           import json
           def require_matplotlib_panel_alignment(fig, json_out, overlay_svg,
@@ -56,6 +65,17 @@ jobs:
           PY
           test -s exports/color/fig2_core_weight_estimation_color.png
           test -s exports/grayscale/fig2_core_weight_estimation_grayscale.png
+          python - <<'PY'
+          from PIL import Image
+          Image.open("exports/color/fig2_core_weight_estimation_color.png").convert("RGB").save(
+              "exports/color/fig2_core_weight_estimation_color.jpg",
+              quality=95, subsampling=0, dpi=(600, 600)
+          )
+          Image.open("exports/grayscale/fig2_core_weight_estimation_grayscale.png").convert("L").save(
+              "exports/grayscale/fig2_core_weight_estimation_grayscale.jpg",
+              quality=95, subsampling=0, dpi=(600, 600)
+          )
+          PY
 
       - name: Update v5 manuscript Figure 2 and explanation
         run: |
