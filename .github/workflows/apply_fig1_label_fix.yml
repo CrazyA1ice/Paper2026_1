@@ -1,4 +1,5 @@
 name: Apply approved Figure 1 label fix
+# rerun after ylabel syntax fix
 on:
   push:
     branches: [main]
