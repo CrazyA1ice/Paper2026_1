@@ -53,7 +53,7 @@ def replace_labeled_para(p, label, body_text):
             p.remove(child)
     r1=etree.SubElement(p,W+"r")
     if label_rpr is not None: r1.append(label_rpr)
-    t1=etree.SubElement(r1,W+"t"); t1.text=label
+    t1=etree.SubElement(r1,W+"t")\n    if label.endswith(" "):\n        t1.set("{http://www.w3.org/XML/1998/namespace}space","preserve")\n    t1.text=label
     r2=etree.SubElement(p,W+"r")
     if body_rpr is not None: r2.append(body_rpr)
     t2=etree.SubElement(r2,W+"t"); t2.text=body_text
