@@ -248,7 +248,7 @@ def figure_1_method_schematic() -> None:
     ax_in.set_xticks([0, 6, 12, 18, 23], ["1", "", "…", "", "96"])
     ax_in.set_yticks([0, 7, 15], ["1", "…", r"$C$"])
     ax_in.set_xlabel(r"时间步 $t$", fontsize=5.7)
-    ax_in.set_ylabel(r"OD 流量", fontsize=5.7)
+    ax_in.set_ylabel(r"OD 流量", fontsize=5.7)\n    ax_in.yaxis.set_label_coords(-0.20, 0.5)
     ax_in.tick_params(direction="in", labelsize=5.2, width=0.6, length=2)
     for s in ax_in.spines.values():
         s.set_linewidth(0.6)
@@ -263,7 +263,7 @@ def figure_1_method_schematic() -> None:
     ax_out.set_xticks([0, 3, 6, 9, 11], ["1", "", "…", "", "24"])
     ax_out.set_yticks([0, 7, 15], ["1", "…", r"$C$"])
     ax_out.set_xlabel(r"预测时间步 $t$", fontsize=5.7)
-    ax_out.set_ylabel(r"OD 流量", fontsize=5.7)
+    ax_out.set_ylabel(r"OD 流量", fontsize=5.7)\n    ax_out.yaxis.set_label_coords(-0.20, 0.5)
     ax_out.tick_params(direction="in", labelsize=5.2, width=0.6, length=2)
     for s in ax_out.spines.values():
         s.set_linewidth(0.6)
