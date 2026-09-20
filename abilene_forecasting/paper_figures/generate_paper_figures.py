@@ -48,10 +48,12 @@ EXPORT_DIR = FIGURE_DIR / "exports"
 COLOR_EXPORT_DIR = EXPORT_DIR / "color"
 GRAYSCALE_EXPORT_DIR = EXPORT_DIR / "grayscale"
 SOURCE_DIR = FIGURE_DIR / "source_data"
+SOURCE_DIR_V2 = FIGURE_DIR / "source_data_v2"
 EXPORT_DIR.mkdir(parents=True, exist_ok=True)
 COLOR_EXPORT_DIR.mkdir(parents=True, exist_ok=True)
 GRAYSCALE_EXPORT_DIR.mkdir(parents=True, exist_ok=True)
 SOURCE_DIR.mkdir(parents=True, exist_ok=True)
+SOURCE_DIR_V2.mkdir(parents=True, exist_ok=True)
 
 BLACK = "#111111"
 DARK = "#444444"
@@ -380,98 +382,113 @@ def figure_1_method_schematic() -> None:
     export_figure(fig, "fig1_method_schematic", require_labels=False)
 
 
-def figure_2_main_ablation() -> None:
-    data = pd.read_csv(ROOT / "results" / "ablation_mean_std.csv")
-    order = ["dlinear", "fits", "dlinear_freq", "proposed", "dlinear_scale"]
-    display = {
-        "dlinear": "DLinear",
-        "fits": "FITS",
-        "dlinear_freq": "DLinear + 频域门控",
-        "proposed": "频域门控 + 自适应尺度",
-        "dlinear_scale": "自适应多尺度（本文方法）",
-    }
-    data = data.set_index("model").loc[order].reset_index()
-    data.to_csv(SOURCE_DIR / "fig2_main_ablation.csv", index=False)
-
-    fig, axes = plt.subplots(1, 2, figsize=(7.09, 2.65), sharey=True)
-    y = np.arange(len(data))[::-1]
-    panels = [("mse_mean", "mse_std", "均方误差（MSE）", (0.181, 0.207)),
-              ("mae_mean", "mae_std", "平均绝对误差（MAE）", (0.158, 0.207))]
-    for idx, (ax, (mean_col, sd_col, title, xlim)) in enumerate(zip(axes, panels)):
-        for yi, row in zip(y, data.itertuples(index=False)):
-            is_main = row.model == "dlinear_scale"
-            marker = "D" if is_main else "o"
-            face = BLACK if is_main else "white"
-            ax.errorbar(
-                getattr(row, mean_col),
-                yi,
-                xerr=getattr(row, sd_col),
-                fmt=marker,
-                ms=5 if is_main else 4,
-                mfc=face,
-                mec=BLACK if is_main else MID,
-                ecolor=BLACK if is_main else MID,
-                color=BLACK if is_main else MID,
-                elinewidth=0.8,
-                capsize=2,
-                capthick=0.8,
-                zorder=3 if is_main else 2,
-            )
-        baseline = float(data.loc[data.model == "dlinear", mean_col].iloc[0])
-        ax.axvline(baseline, color=LIGHT, lw=0.8, ls="--", zorder=0)
-        ax.set_title(title)
-        ax.set_xlabel("误差值（均值 ± 随机种子标准差）")
-        ax.set_xlim(*xlim)
-        ax.set_ylim(-0.6, len(data) - 0.4)
-        ax.tick_params(axis="y", length=0)
-        add_panel_label(ax, chr(ord("a") + idx))
-    axes[0].set_yticks(y)
-    axes[0].set_yticklabels([display[m] for m in data.model])
-    for tick, model in zip(axes[0].get_yticklabels(), data.model):
-        if model == "dlinear_scale":
-            tick.set_fontweight("bold")
-    axes[1].tick_params(labelleft=False)
-    fig.subplots_adjust(left=0.34, right=0.98, bottom=0.22, top=0.88, wspace=0.22)
-    export_figure(fig, "fig2_main_ablation", require_labels=True)
-
-
-def figure_3_weight_ablation() -> None:
-    weight = pd.read_csv(ROOT / "results" / "recommended_analysis" / "weight_all_runs.csv")
-    final = pd.read_csv(ROOT / "results" / "recommended_analysis" / "final_cut075_all_runs.csv")
-    configs = [
-        ("无频域门控", weight, "dlinear_scale_static", "dlinear_scale"),
-        ("频域门控，r = 0.50", weight, "proposed_static", "proposed"),
-        ("频域门控，r = 0.75", final, "proposed_static", "proposed_adaptive"),
+def figure_2_core_weight_pairing() -> None:
+    """Eight-seed paired comparison: fixed equal weights vs adaptive routing."""
+    data = pd.read_csv(SOURCE_DIR_V2 / "fig2_weight_pairing_8seeds.csv")
+    fig, axes = plt.subplots(1, 2, figsize=(7.09, 2.55))
+    dataset_specs = [
+        ("abilene", "Abilene", "#3f6fb5", (0.182, 0.199)),
+        ("geant", "GÉANT", "#d07a32", (0.385, 0.505)),
     ]
-    source_rows = []
-    fig, axes = plt.subplots(1, 3, figsize=(7.09, 2.55), sharey=True)
-    for panel_idx, (ax, (title, frame, fixed_name, adaptive_name)) in enumerate(zip(axes, configs)):
-        pivot = frame[frame.model.isin([fixed_name, adaptive_name])].pivot(
-            index="seed", columns="model", values="mse"
-        )
-        fixed = pivot[fixed_name].to_numpy(dtype=float)
-        adaptive = pivot[adaptive_name].to_numpy(dtype=float)
-        seeds = pivot.index.to_numpy(dtype=int)
-        for seed, fval, aval in zip(seeds, fixed, adaptive):
-            ax.plot([0, 1], [fval, aval], color=MID, lw=0.8, marker="o", ms=3)
-            source_rows.append(
-                {"setting": title, "seed": seed, "fixed_mse": fval, "adaptive_mse": aval}
+
+    for idx, (ax, (dataset, title, color, ylim)) in enumerate(zip(axes, dataset_specs)):
+        sub = data[data.dataset == dataset].sort_values("seed")
+        for row in sub.itertuples(index=False):
+            ax.plot(
+                [0, 1],
+                [row.fixed_mse, row.adaptive_mse],
+                color=color,
+                alpha=0.55,
+                lw=0.85,
+                marker="o",
+                ms=3.2,
+                mfc="white",
+                mec=color,
             )
-        means = [fixed.mean(), adaptive.mean()]
-        sds = [fixed.std(ddof=1), adaptive.std(ddof=1)]
+
+        means = [
+            float(sub.fixed_mse.mean()),
+            float(sub.adaptive_mse.mean()),
+        ]
+        sds = [
+            float(sub.fixed_mse.std(ddof=1)),
+            float(sub.adaptive_mse.std(ddof=1)),
+        ]
         ax.errorbar(
-            [0, 1], means, yerr=sds, fmt="D", ms=4.5, color=BLACK,
-            mfc=BLACK, ecolor=BLACK, capsize=2.5, lw=1.1, zorder=4,
+            [0, 1], means, yerr=sds, fmt="D", ms=5,
+            color=BLACK, mfc=BLACK, mec=BLACK,
+            ecolor=BLACK, capsize=2.5, lw=1.0, zorder=5,
+            label="8种子均值±标准差",
         )
         ax.set_xticks([0, 1], ["固定等权", "自适应权重"])
+        ax.set_ylabel("均方误差（MSE）")
         ax.set_title(title)
-        ax.set_xlim(-0.35, 1.35)
-        ax.set_ylim(0.180, 0.207)
-        add_panel_label(ax, chr(ord("a") + panel_idx))
-    axes[0].set_ylabel("均方误差（MSE）")
-    pd.DataFrame(source_rows).to_csv(SOURCE_DIR / "fig3_weight_ablation.csv", index=False)
-    fig.subplots_adjust(left=0.09, right=0.99, bottom=0.20, top=0.86, wspace=0.18)
-    export_figure(fig, "fig3_weight_ablation", require_labels=True)
+        ax.set_xlim(-0.30, 1.30)
+        ax.set_ylim(*ylim)
+        ax.tick_params(direction="in")
+        add_panel_label(ax, chr(ord("a") + idx))
+
+    axes[0].legend(loc="best")
+    fig.subplots_adjust(left=0.10, right=0.98, bottom=0.22, top=0.86, wspace=0.28)
+    export_figure(fig, "fig2_core_weight_pairing", require_labels=True)
+
+
+def figure_3_router_weight_dynamics() -> None:
+    """Representative router dynamics for the objectively fixed seed 42."""
+    fig, axes = plt.subplots(1, 2, figsize=(7.09, 2.55), sharey=True)
+    dataset_specs = [
+        ("abilene", "Abilene"),
+        ("geant", "GÉANT"),
+    ]
+    colors = ["#3f6fb5", "#58a45c", "#d07a32"]
+    linestyles = ["-", "--", "-."]
+    labels = [r"$\\alpha_1$", r"$\\alpha_2$", r"$\\alpha_4$"]
+    source_rows = []
+
+    for idx, (ax, (dataset, title)) in enumerate(zip(axes, dataset_specs)):
+        path = ROOT / "results" / dataset / "dlinear_scale_seed42" / "router_weights.csv"
+        weights = pd.read_csv(path, header=None).to_numpy(dtype=float)
+        if weights.shape[1] != 3:
+            raise ValueError(f"Unexpected router weight shape for {dataset}: {weights.shape}")
+        if not np.allclose(weights.sum(axis=1), 1.0, atol=1e-5):
+            raise ValueError(f"Router weights do not sum to one for {dataset}")
+
+        count = min(150, len(weights))
+        x = np.arange(1, count + 1)
+        for col in range(3):
+            ax.plot(
+                x,
+                weights[:count, col],
+                color=colors[col],
+                linestyle=linestyles[col],
+                lw=1.0,
+                label=labels[col],
+            )
+        ax.axhline(1 / 3, color=MID, lw=0.8, ls=":", zorder=0)
+        ax.set_xlim(1, count)
+        ax.set_ylim(0, 0.82)
+        ax.set_xlabel("测试窗口索引（前150个）")
+        ax.set_title(title)
+        ax.tick_params(direction="in")
+        add_panel_label(ax, chr(ord("a") + idx))
+
+        for row_idx in range(count):
+            source_rows.append({
+                "dataset": dataset,
+                "seed": 42,
+                "test_window_index": row_idx,
+                "alpha_1": float(weights[row_idx, 0]),
+                "alpha_2": float(weights[row_idx, 1]),
+                "alpha_4": float(weights[row_idx, 2]),
+            })
+
+    axes[0].set_ylabel("样本级路由权重")
+    axes[1].legend(loc="best", ncol=3)
+    pd.DataFrame(source_rows).to_csv(
+        SOURCE_DIR_V2 / "fig3_router_seed42_first150.csv", index=False
+    )
+    fig.subplots_adjust(left=0.09, right=0.99, bottom=0.22, top=0.86, wspace=0.18)
+    export_figure(fig, "fig3_router_weight_dynamics", require_labels=True)
 
 
 def figure_4_frequency_sensitivity() -> None:
@@ -636,11 +653,8 @@ def figure_6_router_weight_distribution() -> None:
 
 def main() -> None:
     figure_1_method_schematic()
-    figure_2_main_ablation()
-    figure_3_weight_ablation()
-    figure_4_frequency_sensitivity()
-    figure_5_representative_forecast()
-    figure_6_router_weight_distribution()
+    figure_2_core_weight_pairing()
+    figure_3_router_weight_dynamics()
     print(f"Figures exported to: {EXPORT_DIR}")
 
 
