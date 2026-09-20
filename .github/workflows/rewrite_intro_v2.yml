@@ -1,0 +1,82 @@
+name: Rewrite introduction v2
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rewrite_intro_v2.yml'
+permissions:
+  contents: write
+jobs:
+  rewrite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-writer poppler-utils fonts-noto-cjk fonts-liberation
+          python -m pip install --upgrade pip
+          python -m pip install lxml
+
+      - name: Rewrite introduction
+        run: |
+          python word_output/rewrite_introduction_v2.py
+
+      - name: Verify introduction and references
+        run: |
+          python - <<'PY'
+          from zipfile import ZipFile
+          import xml.etree.ElementTree as ET
+          p="word_output/2026.09.19v2.docx"
+          NS={"w":"http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+          with ZipFile(p) as z:
+              root=ET.fromstring(z.read("word/document.xml"))
+          body=root.find("w:body",NS)
+          children=list(body)
+          def txt(e):
+              return "".join(x.text or "" for x in e.iter() if x.tag.endswith("}t"))
+          ch1=next(i for i,e in enumerate(children) if e.tag.endswith("}p") and txt(e).strip()=="1 自适应多尺度网络流量预测方法")
+          for i,e in enumerate(children[:ch1]):
+              if e.tag.endswith("}p"):
+                  t=txt(e).strip()
+                  if i>=13 and t: print(f"P {i}: {t}")
+          intro="\n".join(txt(e) for e in children[13:ch1])
+          assert "频域门控" not in intro
+          assert "FITS" not in intro
+          assert "FEDformer" not in intro
+          assert "LightTS" in intro
+          assert "GÉANT" in intro
+          refs="\n".join(txt(e) for e in children if e.tag.endswith("}p"))
+          assert "[11] ZHANG T, ZHANG Y, CAO W" in refs
+          PY
+
+      - name: Render full manuscript
+        run: |
+          rm -rf qa_intro_v2
+          mkdir -p qa_intro_v2
+          libreoffice --headless --convert-to pdf --outdir qa_intro_v2 word_output/2026.09.19v2.docx
+          pdftoppm -png -r 150 qa_intro_v2/2026.09.19v2.pdf qa_intro_v2/page
+          ls -lh qa_intro_v2
+
+      - name: Commit introduction rewrite
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.19v2.docx
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Rewrite introduction around adaptive multiscale forecasting"
+            git push
+          fi
+
+      - name: Upload QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: intro-v2-qa
+          path: |
+            word_output/2026.09.19v2.docx
+            qa_intro_v2/2026.09.19v2.pdf
+            qa_intro_v2/page-*.png
+          retention-days: 2
