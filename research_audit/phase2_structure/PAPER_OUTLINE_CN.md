@@ -238,11 +238,9 @@
 - Windows 64 位；
 - NVIDIA GTX 1060 6 GB；
 - PyTorch 2.5.1+cu118；
-- Adam；
-- 学习率 0.001；
-- batch size 16；
-- 最多 30 epochs；
-- patience 6；
+- 所有模型均使用 Adam，batch size 为 16；
+- 核心模型：学习率 0.001，最多 30 epochs，patience 6；
+- LightTS：学习率 0.0001，最多 50 epochs，patience 10；
 - 只依据验证集选择模型。
 
 ### 重复实验设计
@@ -311,7 +309,7 @@
 
 ### 文字解释顺序
 
-1. 先说明同一训练协议下，自适应多尺度在两个数据集的平均 MSE/MAE 均低于 DLinear。
+1. 先说明相同数据划分、预处理和预测任务下，自适应多尺度在两个数据集的平均 MSE/MAE 均低于 DLinear。
 2. 再说明在共同 3 种子下，平均结果也低于 LightTS。
 3. 不把结果外推成“LightTS 不适合流量预测”或“全面优于 LightTS”。
 4. 不用 LightTS 的 3 种子结果替代核心方法的 8 种子稳定性结论。

@@ -1,5 +1,7 @@
 # 正式消融与推荐实验报告
 
+> **历史实验说明（2026-09-20）：** 本报告记录第一阶段 Abilene 三种子与频域探索，数据本身保留，但不属于现行投稿论文的核心证据链。当前主结果以 `results/core_v2_summary.csv` 和 `results/ablation_mean_std.csv` 为准。
+
 ## Material Passport
 
 - 材料类型：Experiment Result + Statistical Analysis

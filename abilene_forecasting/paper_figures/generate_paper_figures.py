@@ -60,6 +60,44 @@ DARK = "#444444"
 MID = "#888888"
 LIGHT = "#c8c8c8"
 PALE = "#f2f2f2"
+OKABE_BLUE = "#0072B2"
+OKABE_GREEN = "#009E73"
+OKABE_ORANGE = "#D55E00"
+MODEL_PURPLE = "#6A51A3"
+FIXED_ORANGE = "#E69F00"
+DEGRADE_RED = "#CC6677"
+SCALE_COLORS = ["#0072B2", "#009E73", "#D55E00"]
+
+
+def configure_scipilot_style() -> None:
+    scripts_dir = os.environ.get("SCIPILOT_FIGURE_SKILL_SCRIPTS")
+    if not scripts_dir:
+        raise RuntimeError("Set SCIPILOT_FIGURE_SKILL_SCRIPTS for figure styling.")
+    sys.path.insert(0, scripts_dir)
+    from setup_style import setup_style
+
+    setup_style(
+        journal="general",
+        lang="zh",
+        use_sciplots=False,
+        serif_for_zh=True,
+        constrained_layout=False,
+    )
+    plt.rcParams.update({
+        "font.size": 7,
+        "axes.labelsize": 7,
+        "axes.titlesize": 8,
+        "xtick.labelsize": 6.5,
+        "ytick.labelsize": 6.5,
+        "legend.fontsize": 6.5,
+        "axes.spines.right": False,
+        "axes.spines.top": False,
+        "axes.linewidth": 0.8,
+        "legend.frameon": False,
+    })
+
+
+configure_scipilot_style()
 
 
 def load_alignment_helper():
@@ -86,6 +124,7 @@ def add_panel_label(ax, label: str) -> None:
         transform=ax.transAxes + offset,
         fontsize=8,
         fontweight="bold",
+        fontfamily="Times New Roman",
         ha="left",
         va="bottom",
         color=BLACK,
@@ -105,6 +144,17 @@ def export_figure(fig, stem: str, require_labels: bool) -> None:
     gray_base = GRAYSCALE_EXPORT_DIR / f"{stem}_grayscale"
 
     fig.canvas.draw()
+
+    qa_scripts = os.environ.get("SCIPILOT_FIGURE_SKILL_SCRIPTS")
+    if not qa_scripts:
+        raise RuntimeError("Set SCIPILOT_FIGURE_SKILL_SCRIPTS for figure QA.")
+    sys.path.insert(0, qa_scripts)
+    from visual_qa import audit_layout, print_report, render_preview
+
+    render_preview(fig, str(EXPORT_DIR / f"_qa_{stem}.png"), dpi=180)
+    verdict = print_report(audit_layout(fig))
+    if verdict == "FAIL":
+        raise RuntimeError(f"SciPilot visual QA failed for {stem}")
     require_matplotlib_panel_alignment(
         fig,
         json_out=str(base) + ".alignment.json",
@@ -130,18 +180,11 @@ def export_figure(fig, stem: str, require_labels: bool) -> None:
     fig.savefig(str(color_base) + ".svg", bbox_inches="tight")
     fig.savefig(str(color_base) + ".pdf", bbox_inches="tight")
     fig.savefig(str(color_base) + ".png", dpi=600, bbox_inches="tight")
-    fig.savefig(
-        str(color_base) + ".jpg",
-        dpi=600,
-        bbox_inches="tight",
-        pil_kwargs={"quality": 95, "subsampling": 0},
-    )
 
     # Grayscale publication outputs derived from the exact color raster.
     color_png = Image.open(str(color_base) + ".png").convert("RGB")
     gray = color_png.convert("L")
     gray.save(str(gray_base) + ".png", dpi=(600, 600))
-    gray.save(str(gray_base) + ".jpg", quality=95, subsampling=0, dpi=(600, 600))
     gray.save(str(gray_base) + ".tiff", compression="tiff_lzw", dpi=(600, 600))
 
     plt.close(fig)
@@ -383,64 +426,182 @@ def figure_1_method_schematic() -> None:
 
 
 def figure_2_core_weight_pairing() -> None:
-    """Eight-seed paired comparison: fixed equal weights vs adaptive routing."""
+    """Eight-seed horizontal dumbbell plot for paired MSE comparisons."""
     data = pd.read_csv(SOURCE_DIR_V2 / "fig2_weight_pairing_8seeds.csv")
-    fig, axes = plt.subplots(1, 2, figsize=(7.09, 2.55))
+    fig, axes = plt.subplots(1, 2, figsize=(6.70, 3.28))
     dataset_specs = [
-        ("abilene", "Abilene", "#3f6fb5", (0.182, 0.199)),
-        ("geant", "GÉANT", "#d07a32", (0.385, 0.505)),
+        ("abilene", "Abilene", 1.67),
+        ("geant", "GÉANT", 4.68),
     ]
 
-    for idx, (ax, (dataset, title, color, ylim)) in enumerate(zip(axes, dataset_specs)):
+    for idx, (ax, (dataset, title, improvement)) in enumerate(zip(axes, dataset_specs)):
         sub = data[data.dataset == dataset].sort_values("seed")
-        for row in sub.itertuples(index=False):
-            ax.plot(
-                [0, 1],
-                [row.fixed_mse, row.adaptive_mse],
-                color=color,
-                alpha=0.55,
-                lw=0.85,
-                marker="o",
-                ms=3.2,
-                mfc="white",
-                mec=color,
-            )
+        y = np.arange(len(sub))
+        for yi, row in zip(y, sub.itertuples(index=False)):
+            better = row.adaptive_mse < row.fixed_mse
+            connector = OKABE_GREEN if better else DEGRADE_RED
+            ax.plot([row.fixed_mse, row.adaptive_mse], [yi, yi],
+                    color=connector, alpha=0.82, lw=1.8, zorder=1)
+        ax.scatter(sub.fixed_mse, y, s=29, marker="s", facecolor=FIXED_ORANGE,
+                   edgecolor="white", linewidth=0.55, label="固定等权", zorder=3)
+        ax.scatter(sub.adaptive_mse, y, s=31, marker="o", facecolor=OKABE_BLUE,
+                   edgecolor="white", linewidth=0.55, label="自适应权重", zorder=4)
 
-        means = [
-            float(sub.fixed_mse.mean()),
-            float(sub.adaptive_mse.mean()),
-        ]
-        sds = [
-            float(sub.fixed_mse.std(ddof=1)),
-            float(sub.adaptive_mse.std(ddof=1)),
-        ]
-        ax.errorbar(
-            [0, 1], means, yerr=sds, fmt="D", ms=5,
-            color=BLACK, mfc=BLACK, mec=BLACK,
-            ecolor=BLACK, capsize=2.5, lw=1.0, zorder=5,
-            label="8种子均值±标准差",
-        )
-        ax.set_xticks([0, 1], ["固定等权", "自适应权重"])
-        ax.set_ylabel("均方误差（MSE）")
-        ax.set_title(title)
-        ax.set_xlim(-0.30, 1.30)
-        ax.set_ylim(*ylim)
-        ax.tick_params(direction="in")
+        mean_fixed = float(sub.fixed_mse.mean())
+        mean_adaptive = float(sub.adaptive_mse.mean())
+        ax.axvline(mean_fixed, color=FIXED_ORANGE, lw=0.9, ls="--", alpha=0.9)
+        ax.axvline(mean_adaptive, color=OKABE_BLUE, lw=0.9, ls=":", alpha=0.9)
+        ax.set_yticks(y, [str(v) for v in sub.seed])
+        ax.invert_yaxis()
+        ax.set_xlabel("均方误差（MSE，越低越好）")
+        ax.set_ylabel("随机种子")
+        ax.set_title(title, pad=10, fontweight="bold", fontfamily="Times New Roman")
+        ax.text(0.98, 0.04, f"8种子平均降低 {improvement:.2f}%", transform=ax.transAxes,
+                ha="right", va="bottom", fontsize=6.8, color=OKABE_BLUE,
+                bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.78, "pad": 1.2})
+        ax.tick_params(direction="in", length=3.0, width=0.7)
+        ax.grid(axis="x", color="#d9d9d9", linestyle="--", linewidth=0.55, alpha=0.7)
+        ax.set_axisbelow(True)
         add_panel_label(ax, chr(ord("a") + idx))
 
-    axes[0].legend(loc="best")
-    fig.subplots_adjust(left=0.10, right=0.98, bottom=0.22, top=0.86, wspace=0.28)
-    export_figure(fig, "fig2_core_weight_pairing", require_labels=True)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper center", ncol=2,
+               bbox_to_anchor=(0.5, 0.995), columnspacing=2.2)
+    fig.subplots_adjust(left=0.10, right=0.985, bottom=0.18, top=0.82, wspace=0.30)
+    export_figure(fig, "fig2_core_weight_pairing_v2", require_labels=True)
+
+
+def candidate_1_representative_horizon_error() -> None:
+    """Visual candidate only: per-step error for the saved representative case."""
+    data = pd.read_csv(SOURCE_DIR / "fig5_representative_forecast.csv")
+    horizon = data["forecast_hour"].to_numpy()
+    dlinear_error = np.abs(data["dlinear_seed42"] - data["truth"]).to_numpy()
+    adaptive_error = np.abs(
+        data["adaptive_multiscale_seed42"] - data["truth"]
+    ).to_numpy()
+    source = pd.DataFrame({
+        "forecast_hour": horizon,
+        "dlinear_absolute_error": dlinear_error,
+        "adaptive_absolute_error": adaptive_error,
+        "adaptive_better": adaptive_error < dlinear_error,
+        "evidence_scope": "representative window, seed 42, channel 29",
+    })
+    source.to_csv(SOURCE_DIR_V2 / "candidate1_representative_horizon_error.csv", index=False)
+
+    print("Candidate 1 profile:", {
+        "n_horizons": int(len(source)),
+        "dlinear_mean_abs_error": float(dlinear_error.mean()),
+        "adaptive_mean_abs_error": float(adaptive_error.mean()),
+        "adaptive_better_steps": int((adaptive_error < dlinear_error).sum()),
+    })
+    fig, ax = plt.subplots(figsize=(6.70, 2.90))
+    ax.plot(horizon, dlinear_error, color=MODEL_PURPLE, lw=1.35, ls="--",
+            marker="s", ms=3.2, mfc="white", mec=MODEL_PURPLE,
+            label="DLinear")
+    ax.plot(horizon, adaptive_error, color=OKABE_BLUE, lw=1.45, ls="-",
+            marker="o", ms=3.2, mfc=OKABE_BLUE, mec="white", mew=0.45,
+            label="自适应多尺度")
+    better = adaptive_error <= dlinear_error
+    ax.fill_between(horizon, dlinear_error, adaptive_error, where=better,
+                    color=OKABE_GREEN, alpha=0.16, interpolate=True,
+                    label="自适应误差较低")
+    ax.fill_between(horizon, dlinear_error, adaptive_error, where=~better,
+                    color=DEGRADE_RED, alpha=0.14, interpolate=True,
+                    label="自适应误差较高")
+    ax.set_xlabel("预测步长（h）")
+    ax.set_ylabel("绝对误差（标准化尺度）")
+    ax.set_xticks([1, 4, 8, 12, 16, 20, 24])
+    ax.set_xlim(1, 24)
+    ax.set_ylim(bottom=0)
+    ax.grid(axis="y", color="#d9d9d9", ls="--", lw=0.55, alpha=0.7)
+    ax.set_axisbelow(True)
+    ax.legend(loc="upper right", ncol=2, columnspacing=1.2, handlelength=2.4)
+    fig.subplots_adjust(left=0.11, right=0.985, bottom=0.20, top=0.95)
+    export_figure(fig, "candidate1_representative_horizon_error", require_labels=False)
+
+
+def candidate_2_router_weight_distribution_8seeds() -> None:
+    """Window distributions plus independent seed means for both datasets."""
+    scale_values = [1, 2, 4]
+    scale_labels = ["尺度1", "尺度2", "尺度4"]
+    records = []
+    for dataset in ["abilene", "geant"]:
+        for seed in range(42, 50):
+            path = ROOT / "results" / dataset / f"dlinear_scale_seed{seed}" / "router_weights.csv"
+            weights = pd.read_csv(path, header=None).to_numpy(dtype=float)
+            if weights.shape[1] != 3 or not np.allclose(weights.sum(axis=1), 1.0, atol=1e-5):
+                raise ValueError(f"Invalid router weights: {path}")
+            for scale_idx, scale in enumerate(scale_values):
+                for window_idx, value in enumerate(weights[:, scale_idx]):
+                    records.append({
+                        "dataset": dataset,
+                        "seed": seed,
+                        "test_window_index": window_idx,
+                        "scale": scale,
+                        "router_weight": float(value),
+                    })
+    data = pd.DataFrame(records)
+    data.to_csv(SOURCE_DIR_V2 / "candidate2_router_weight_distribution_8seeds.csv", index=False)
+    seed_means = (data.groupby(["dataset", "seed", "scale"], as_index=False)
+                      .router_weight.mean())
+    print("Candidate 2 profile:", {
+        "n_rows": int(len(data)),
+        "n_seeds": int(data.seed.nunique()),
+        "datasets": data.dataset.unique().tolist(),
+        "weight_min": float(data.router_weight.min()),
+        "weight_max": float(data.router_weight.max()),
+    })
+
+    fig, axes = plt.subplots(1, 2, figsize=(6.70, 3.12), sharey=True)
+    rng = np.random.default_rng(20260920)
+    for panel_idx, (ax, dataset, title) in enumerate(
+        zip(axes, ["abilene", "geant"], ["Abilene", "GÉANT"])
+    ):
+        groups = [
+            data[(data.dataset == dataset) & (data.scale == scale)].router_weight.to_numpy()
+            for scale in scale_values
+        ]
+        violin = ax.violinplot(groups, positions=[1, 2, 3], widths=0.72,
+                               showmeans=False, showmedians=True, showextrema=True)
+        for body, color in zip(violin["bodies"], SCALE_COLORS):
+            body.set_facecolor(color)
+            body.set_edgecolor(color)
+            body.set_alpha(0.30)
+            body.set_linewidth(0.9)
+        for key in ["cbars", "cmins", "cmaxes", "cmedians"]:
+            violin[key].set_color(BLACK)
+            violin[key].set_linewidth(0.8)
+        for pos, scale, color in zip([1, 2, 3], scale_values, SCALE_COLORS):
+            vals = seed_means[(seed_means.dataset == dataset) &
+                              (seed_means.scale == scale)].router_weight.to_numpy()
+            jitter = rng.uniform(-0.075, 0.075, len(vals))
+            ax.scatter(pos + jitter, vals, s=22, color=color, edgecolor="white",
+                       linewidth=0.5, alpha=0.95, zorder=4)
+        ax.axhline(1 / 3, color=MID, lw=0.85, ls="--", zorder=0)
+        ax.set_xticks([1, 2, 3], scale_labels)
+        ax.set_xlabel("时间尺度")
+        ax.set_title(title, pad=9, fontweight="bold", fontfamily="Times New Roman")
+        ax.set_xlim(0.55, 3.45)
+        ax.set_ylim(0, 0.82)
+        ax.grid(axis="y", color="#dddddd", ls="--", lw=0.5, alpha=0.65)
+        ax.set_axisbelow(True)
+        add_panel_label(ax, chr(ord("a") + panel_idx))
+    axes[0].set_ylabel("样本级路由权重")
+    axes[1].text(0.98, 0.04, "小提琴：测试窗口分布\n圆点：8个随机种子的均值",
+                 transform=axes[1].transAxes, ha="right", va="bottom", fontsize=6.3,
+                 bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.82, "pad": 1.4})
+    fig.subplots_adjust(left=0.09, right=0.99, bottom=0.18, top=0.88, wspace=0.14)
+    export_figure(fig, "candidate2_router_weight_distribution_8seeds", require_labels=True)
 
 
 def figure_3_router_weight_dynamics() -> None:
     """Representative router dynamics for the objectively fixed seed 42."""
-    fig, axes = plt.subplots(1, 2, figsize=(7.09, 2.55), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(6.70, 3.05), sharey=True)
     dataset_specs = [
         ("abilene", "Abilene"),
         ("geant", "GÉANT"),
     ]
-    colors = ["#3f6fb5", "#58a45c", "#d07a32"]
+    colors = [OKABE_BLUE, OKABE_GREEN, OKABE_ORANGE]
     linestyles = ["-", "--", "-."]
     labels = [r"$\alpha_1$", r"$\alpha_2$", r"$\alpha_4$"]
     source_rows = []
@@ -461,15 +622,18 @@ def figure_3_router_weight_dynamics() -> None:
                 weights[:count, col],
                 color=colors[col],
                 linestyle=linestyles[col],
-                lw=1.0,
+                lw=1.25,
                 label=labels[col],
             )
         ax.axhline(1 / 3, color=MID, lw=0.8, ls=":", zorder=0)
         ax.set_xlim(1, count)
-        ax.set_ylim(0, 0.82)
+        ax.set_ylim(0, 0.72)
+        ax.set_xticks([1, 30, 60, 90, 120, 150])
         ax.set_xlabel("测试窗口索引（前150个）")
-        ax.set_title(title)
-        ax.tick_params(direction="in")
+        ax.set_title(title, pad=10, fontweight="bold", fontfamily="Times New Roman")
+        ax.tick_params(direction="out", length=3.0, width=0.7)
+        ax.grid(axis="y", color="#dedede", linestyle="--", linewidth=0.5, alpha=0.65)
+        ax.set_axisbelow(True)
         add_panel_label(ax, chr(ord("a") + idx))
 
         for row_idx in range(count):
@@ -483,11 +647,13 @@ def figure_3_router_weight_dynamics() -> None:
             })
 
     axes[0].set_ylabel("样本级路由权重")
-    axes[1].legend(loc="best", ncol=3)
+    handles, legend_labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, legend_labels, loc="upper center", ncol=3,
+               bbox_to_anchor=(0.5, 0.985), frameon=False, columnspacing=1.8)
     pd.DataFrame(source_rows).to_csv(
         SOURCE_DIR_V2 / "fig3_router_seed42_first150.csv", index=False
     )
-    fig.subplots_adjust(left=0.09, right=0.99, bottom=0.22, top=0.86, wspace=0.18)
+    fig.subplots_adjust(left=0.09, right=0.99, bottom=0.19, top=0.80, wspace=0.15)
     export_figure(fig, "fig3_router_weight_dynamics", require_labels=True)
 
 
@@ -655,6 +821,8 @@ def main() -> None:
     figure_1_method_schematic()
     figure_2_core_weight_pairing()
     figure_3_router_weight_dynamics()
+    candidate_1_representative_horizon_error()
+    candidate_2_router_weight_distribution_8seeds()
     print(f"Figures exported to: {EXPORT_DIR}")
 
 
