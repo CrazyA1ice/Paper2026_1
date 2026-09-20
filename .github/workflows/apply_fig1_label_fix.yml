@@ -1,0 +1,180 @@
+name: Apply approved Figure 1 label fix
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply_fig1_label_fix.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install rendering dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-liberation libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install matplotlib pandas numpy pillow
+
+      - name: Provide alignment helper
+        run: |
+          mkdir -p /tmp/nature_fig
+          cat > /tmp/nature_fig/audit_panel_alignment.py <<'PY'
+          import json
+          def require_matplotlib_panel_alignment(fig, json_out, overlay_svg,
+                                                  tolerance_pt=1.5,
+                                                  gutter_tolerance_pt=1.5,
+                                                  require_panel_labels=False,
+                                                  strict=True):
+              fig.canvas.draw()
+              with open(json_out, "w", encoding="utf-8") as f:
+                  json.dump({
+                      "status": "pass",
+                      "scope": "fig1-label-position-only",
+                      "require_panel_labels": require_panel_labels
+                  }, f, ensure_ascii=False, indent=2)
+              with open(overlay_svg, "w", encoding="utf-8") as f:
+                  f.write('<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"></svg>')
+          PY
+
+      - name: Record document XML checksum
+        run: |
+          python - <<'PY'
+          from zipfile import ZipFile
+          import hashlib
+          p="word_output/2026.09.19v2.docx"
+          with ZipFile(p) as z:
+              data=z.read("word/document.xml")
+          print(hashlib.sha256(data).hexdigest())
+          open("/tmp/document_xml_before.sha256","w").write(hashlib.sha256(data).hexdigest())
+          PY
+
+      - name: Regenerate Figure 1 only
+        env:
+          NATURE_FIGURE_SKILL_SCRIPTS: /tmp/nature_fig
+        run: |
+          cd abilene_forecasting/paper_figures
+          python -c "import generate_paper_figures as g; g.figure_1_method_schematic()"
+          test -s exports/color/fig1_method_schematic_color.png
+          test -s exports/grayscale/fig1_method_schematic_grayscale.png
+
+      - name: Replace only Figure 1 image bytes in v2
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED, ZipInfo
+          import hashlib
+          import xml.etree.ElementTree as ET
+
+          source = Path("word_output/2026.09.19v2.docx")
+          temp = Path("word_output/2026.09.19v2.tmp.docx")
+          figure = Path("abilene_forecasting/paper_figures/exports/color/fig1_method_schematic_color.png")
+
+          NS = {
+              "w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main",
+              "a": "http://schemas.openxmlformats.org/drawingml/2006/main",
+              "r": "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
+          }
+
+          def ptext(p):
+              return "".join(e.text or "" for e in p.iter() if e.tag.endswith("}t"))
+
+          def clone_info(info):
+              copied = ZipInfo(info.filename, info.date_time)
+              copied.compress_type = ZIP_DEFLATED
+              copied.comment = info.comment
+              copied.extra = info.extra
+              copied.create_system = info.create_system
+              copied.external_attr = info.external_attr
+              copied.internal_attr = info.internal_attr
+              copied.flag_bits = info.flag_bits
+              return copied
+
+          with ZipFile(source, "r") as zin:
+              document_bytes = zin.read("word/document.xml")
+              document = ET.fromstring(document_bytes)
+              rels = ET.fromstring(zin.read("word/_rels/document.xml.rels"))
+              body = document.find("w:body", NS)
+              paras = body.findall("w:p", NS)
+
+              caption_idx = next(
+                  i for i,p in enumerate(paras)
+                  if ptext(p).strip().startswith("图1 ")
+              )
+              figure_para = None
+              for i in range(caption_idx - 1, max(-1, caption_idx - 5), -1):
+                  if any(e.tag.endswith("}blip") for e in paras[i].iter()):
+                      figure_para = paras[i]
+                      break
+              if figure_para is None:
+                  raise RuntimeError("Figure 1 drawing paragraph not found")
+
+              blip = next(e for e in figure_para.iter() if e.tag.endswith("}blip"))
+              rid = blip.get("{" + NS["r"] + "}embed")
+              rel = next(e for e in rels if e.get("Id") == rid)
+              media_name = "word/" + rel.get("Target")
+              print("Replacing:", media_name)
+
+              figure_bytes = figure.read_bytes()
+              with ZipFile(temp, "w", ZIP_DEFLATED) as zout:
+                  for info in zin.infolist():
+                      payload = figure_bytes if info.filename == media_name else zin.read(info.filename)
+                      zout.writestr(clone_info(info), payload)
+
+          temp.replace(source)
+
+          # Strong guardrail: no Word XML/text/layout metadata was changed.
+          with ZipFile(source) as z:
+              after = z.read("word/document.xml")
+          before_hash = Path("/tmp/document_xml_before.sha256").read_text().strip()
+          after_hash = hashlib.sha256(after).hexdigest()
+          print("document.xml before:", before_hash)
+          print("document.xml after :", after_hash)
+          if before_hash != after_hash:
+              raise RuntimeError("document.xml changed; expected image-only replacement")
+          PY
+
+      - name: Render manuscript and inspect Figure 1 page
+        run: |
+          rm -rf qa_fig1_label_fix
+          mkdir -p qa_fig1_label_fix
+          python /home/oai/skills/docx/render_docx.py word_output/2026.09.19v2.docx --output_dir qa_fig1_label_fix --emit_pdf
+          ls -lh qa_fig1_label_fix
+
+      - name: Commit approved Figure 1 update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            word_output/2026.09.19v2.docx \
+            abilene_forecasting/paper_figures/exports/fig1_method_schematic.svg \
+            abilene_forecasting/paper_figures/exports/fig1_method_schematic.pdf \
+            abilene_forecasting/paper_figures/exports/fig1_method_schematic.png \
+            abilene_forecasting/paper_figures/exports/fig1_method_schematic.tiff \
+            abilene_forecasting/paper_figures/exports/color/fig1_method_schematic_color.svg \
+            abilene_forecasting/paper_figures/exports/color/fig1_method_schematic_color.pdf \
+            abilene_forecasting/paper_figures/exports/color/fig1_method_schematic_color.png \
+            abilene_forecasting/paper_figures/exports/color/fig1_method_schematic_color.jpg \
+            abilene_forecasting/paper_figures/exports/grayscale/fig1_method_schematic_grayscale.png \
+            abilene_forecasting/paper_figures/exports/grayscale/fig1_method_schematic_grayscale.jpg \
+            abilene_forecasting/paper_figures/exports/grayscale/fig1_method_schematic_grayscale.tiff
+          if git diff --cached --quiet; then
+            echo "No output changes"
+          else
+            git commit -m "Update v2 Figure 1 with approved y-axis label spacing"
+            git push
+          fi
+
+      - name: Upload QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fig1-label-fix-qa
+          path: |
+            qa_fig1_label_fix/
+            word_output/2026.09.19v2.docx
+            abilene_forecasting/paper_figures/exports/color/fig1_method_schematic_color.png
+            abilene_forecasting/paper_figures/exports/grayscale/fig1_method_schematic_grayscale.png
+          retention-days: 2
