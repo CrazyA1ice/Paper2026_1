@@ -128,7 +128,12 @@ def export_figure(fig, stem: str, require_labels: bool) -> None:
     fig.savefig(str(color_base) + ".svg", bbox_inches="tight")
     fig.savefig(str(color_base) + ".pdf", bbox_inches="tight")
     fig.savefig(str(color_base) + ".png", dpi=600, bbox_inches="tight")
-    fig.savefig(str(color_base) + ".jpg", dpi=600, quality=95, bbox_inches="tight")
+    fig.savefig(
+        str(color_base) + ".jpg",
+        dpi=600,
+        bbox_inches="tight",
+        pil_kwargs={"quality": 95, "subsampling": 0},
+    )
 
     # Grayscale publication outputs derived from the exact color raster.
     color_png = Image.open(str(color_base) + ".png").convert("RGB")
