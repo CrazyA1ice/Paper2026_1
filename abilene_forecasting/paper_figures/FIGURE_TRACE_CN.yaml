@@ -1,6 +1,6 @@
 script:
   file: generate_paper_figures.py
-  git_blob_sha: 2f04f87860cf384050ca558ca2171ed869db3510
+  git_blob_sha: eabcc94f6ccf8b377c5b3bda09850e94aa635c83
 
 figure_table_trace:
   - artifact_id: fig-1
