@@ -1,6 +1,6 @@
 script:
   file: generate_paper_figures.py
-  git_blob_sha: 5737eef3bad257ebc6d163c8f4694093e7a87759
+  git_blob_sha: c264271623431a018db021a358e7d137b42c46ca
 
 figure_table_trace:
   - artifact_id: fig-1
@@ -18,16 +18,17 @@ figure_table_trace:
 
   - artifact_id: fig-2
     source_data: {dataset_id: core-v2-eight-seed-pairing, file: source_data_v2/fig2_weight_pairing_8seeds.csv}
-    transformation: {script: generate_paper_figures.py, function: figure_2_core_weight_pairing}
+    transformation: {script: generate_paper_figures.py, function: figure_2_core_weight_estimation}
     outputs:
-      color: paper_figures/exports/color/fig2_core_weight_pairing_color.jpg
-      grayscale: paper_figures/exports/grayscale/fig2_core_weight_pairing_grayscale.jpg
+      color: paper_figures/exports/color/fig2_core_weight_estimation_color.jpg
+      grayscale: paper_figures/exports/grayscale/fig2_core_weight_estimation_grayscale.jpg
     manuscript_usage: color
-    caption_claim: 固定等权与自适应多尺度在Abilene和GÉANT上的8随机种子MSE配对结果。
+    caption_claim: 固定等权与自适应多尺度在Abilene和GÉANT上的8随机种子MSE配对结果及配对差值分布。
     supported_manuscript_claims:
       - {claim: 自适应多尺度的平均MSE在两个数据集上均低于固定等权多尺度。, locator: 第2.4节}
-      - {claim: 自适应模型并非所有随机种子均改善，GÉANT跨种子波动更明显。, locator: 第2.4节}
-    limitations: [图中只展示MSE；MAE及统计量以表3和正文为准。]
+      - {claim: Abilene中6/8、GÉANT中7/8随机种子取得更低MSE，但两数据集相对固定等权的95%置信区间均跨越0。, locator: 第2.4节}
+      - {claim: GÉANT的配对差值分布更宽，跨种子波动更明显。, locator: 第2.4节}
+    limitations: [图中只展示MSE及其配对差值；MAE以表3和正文为准；配对差值95%置信区间跨越0，不宣称相对固定等权在两数据集均达到统计显著。]
 
   - artifact_id: fig-3
     source_data: {dataset_id: router-weights-seed42-two-datasets, file: source_data_v2/fig3_router_seed42_first150.csv}
