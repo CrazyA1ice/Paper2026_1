@@ -1,4 +1,5 @@
 name: Publish journal-compliant Figure 1
+# rerun after layout refinement
 on:
   push:
     branches: [main]
