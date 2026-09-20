@@ -1,6 +1,6 @@
 script:
   file: generate_paper_figures.py
-  git_blob_sha: eabcc94f6ccf8b377c5b3bda09850e94aa635c83
+  git_blob_sha: 5737eef3bad257ebc6d163c8f4694093e7a87759
 
 figure_table_trace:
   - artifact_id: fig-1
@@ -17,41 +17,26 @@ figure_table_trace:
     limitations: [图中输入/输出热图仅为张量流示意，不作为实验性能证据；数值性能以实验表格和结果图为准。]
 
   - artifact_id: fig-2
-    source_data: {dataset_id: abilene-ablation, file: source_data/fig2_main_ablation.csv}
-    transformation: {script: generate_paper_figures.py, function: figure_2_main_ablation}
-    caption_claim: 无频域自适应多尺度模型在五种配置中取得最低MSE和MAE。
+    source_data: {dataset_id: core-v2-eight-seed-pairing, file: source_data_v2/fig2_weight_pairing_8seeds.csv}
+    transformation: {script: generate_paper_figures.py, function: figure_2_core_weight_pairing}
+    outputs:
+      color: paper_figures/exports/color/fig2_core_weight_pairing_color.jpg
+      grayscale: paper_figures/exports/grayscale/fig2_core_weight_pairing_grayscale.jpg
+    manuscript_usage: color
+    caption_claim: 固定等权与自适应多尺度在Abilene和GÉANT上的8随机种子MSE配对结果。
     supported_manuscript_claims:
-      - {claim: 当前Abilene实验的主要误差改善来自自适应多尺度模块。, locator: 实验结果章节}
-    limitations: [仅包含单一数据集和三个随机种子。]
+      - {claim: 自适应多尺度的平均MSE在两个数据集上均低于固定等权多尺度。, locator: 第2.4节}
+      - {claim: 自适应模型并非所有随机种子均改善，GÉANT跨种子波动更明显。, locator: 第2.4节}
+    limitations: [图中只展示MSE；MAE及统计量以表3和正文为准。]
 
   - artifact_id: fig-3
-    source_data: {dataset_id: abilene-weight-ablation, file: source_data/fig3_weight_ablation.csv}
-    transformation: {script: generate_paper_figures.py, function: figure_3_weight_ablation}
-    caption_claim: 在相同尺度和专家结构下，自适应权重的误差低于固定等权。
+    source_data: {dataset_id: router-weights-seed42-two-datasets, file: source_data_v2/fig3_router_seed42_first150.csv}
+    transformation: {script: generate_paper_figures.py, function: figure_3_router_weight_dynamics}
+    outputs:
+      color: paper_figures/exports/color/fig3_router_weight_dynamics_color.jpg
+      grayscale: paper_figures/exports/grayscale/fig3_router_weight_dynamics_grayscale.jpg
+    manuscript_usage: color
+    caption_claim: 两数据集随机种子42前150个测试窗口的三尺度Softmax权重随样本变化。
     supported_manuscript_claims:
-      - {claim: 自适应权重生成方式对模型性能改善有独立贡献。, locator: 自适应权重消融章节}
-    limitations: [频域条件下的置信区间跨越0；统计重复数为三个随机种子。]
-
-  - artifact_id: fig-4
-    source_data: {dataset_id: abilene-frequency-sensitivity, file: source_data/fig4_frequency_sensitivity.csv}
-    transformation: {script: generate_paper_figures.py, function: figure_4_frequency_sensitivity}
-    caption_claim: 频域门控对保留比例敏感，0.75是三个测试值中的探索性较优值。
-    supported_manuscript_claims:
-      - {claim: 低频截断存在平滑与信息损失的权衡，不能预设频域处理必然提升精度。, locator: 频域敏感性章节}
-    limitations: [比例选择来自测试结果探索；完整模型未超过无频域主模型。]
-
-  - artifact_id: fig-5
-    source_data: {dataset_id: abilene-predictions-seed42, file: source_data/fig5_representative_forecast.csv}
-    transformation: {script: generate_paper_figures.py, function: figure_5_representative_forecast}
-    caption_claim: 代表性窗口展示真实值、DLinear和自适应多尺度模型的24小时预测形态。
-    supported_manuscript_claims:
-      - {claim: 本文方法能够输出未来24小时的多变量流量预测。, locator: 实验示例}
-    limitations: [单窗口只用于直观展示；不能代替总体误差统计。]
-
-  - artifact_id: fig-6
-    source_data: {dataset_id: abilene-router-weights, file: source_data/fig6_router_weight_distribution.csv}
-    transformation: {script: generate_paper_figures.py, function: figure_6_router_weight_distribution}
-    caption_claim: 三个随机种子的路由权重均随测试窗口变化，但平均尺度偏好不稳定。
-    supported_manuscript_claims:
-      - {claim: 路由器没有退化为固定等权，并为不同输入生成样本级权重。, locator: 自适应权重消融章节}
-    limitations: [测试窗口具有时间相关性；不同随机种子不支持稳定尺度语义。]
+      - {claim: 路由器没有退化为固定1/3平均融合，而是随输入窗口动态改变尺度组合。, locator: 第2.5节}
+    limitations: [固定展示seed42和前150个窗口，仅用于机制可视化；不用于性能显著性判断或稳定尺度语义解释。]
