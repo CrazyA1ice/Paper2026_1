@@ -253,10 +253,10 @@ def figure_1_method_schematic() -> None:
     for s in ax_in.spines.values():
         s.set_linewidth(0.6)
 
-    ax.text(0.096, 0.500, r"$X\in\mathbb{R}^{96\times C}$",
+    ax.text(0.096, 0.455, r"$X\in\mathbb{R}^{96\times C}$",
             ha="center", va="center", fontsize=6.2)
-    ax.text(0.096, 0.448, "（96个历史时间点，", ha="center", va="center", fontsize=5.5)
-    ax.text(0.096, 0.415, r"$C$个OD流量）", ha="center", va="center", fontsize=5.5)
+    ax.text(0.096, 0.410, "（96个历史时间点，", ha="center", va="center", fontsize=5.5)
+    ax.text(0.096, 0.378, r"$C$个OD流量）", ha="center", va="center", fontsize=5.5)
 
     ax_out = ax.inset_axes([0.850, 0.565, 0.106, 0.245])
     ax_out.imshow(out_mat, aspect="auto", cmap="RdBu_r", interpolation="nearest")
@@ -268,10 +268,10 @@ def figure_1_method_schematic() -> None:
     for s in ax_out.spines.values():
         s.set_linewidth(0.6)
 
-    ax.text(0.903, 0.500, r"$\hat{Y}\in\mathbb{R}^{24\times C}$",
+    ax.text(0.903, 0.455, r"$\hat{Y}\in\mathbb{R}^{24\times C}$",
             ha="center", va="center", fontsize=6.2)
-    ax.text(0.903, 0.448, "（预测未来24个时间点，", ha="center", va="center", fontsize=5.5)
-    ax.text(0.903, 0.415, r"$C$个OD流量）", ha="center", va="center", fontsize=5.5)
+    ax.text(0.903, 0.410, "（预测未来24个时间点，", ha="center", va="center", fontsize=5.5)
+    ax.text(0.903, 0.378, r"$C$个OD流量）", ha="center", va="center", fontsize=5.5)
 
     # Scale lanes.
     lane_y = [0.735, 0.575, 0.415]
