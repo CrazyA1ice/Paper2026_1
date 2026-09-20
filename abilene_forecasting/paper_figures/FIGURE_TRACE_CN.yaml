@@ -1,16 +1,20 @@
 script:
   file: generate_paper_figures.py
-  git_blob_sha: d57f9b74a043f259003c410ce4372642d94a12b0
+  git_blob_sha: cc70f3c885a5ddf03c40b5c591f5194e567c7ffd
 
 figure_table_trace:
   - artifact_id: fig-1
-    source_data: {dataset_id: v1-embedded-method-figure, file: word_output/2026.09.19v1.docx}
-    transformation: {script: generate_fig1_from_v1.py, function: build_v1_based_figure}
-    caption_claim: 图1沿用2026.09.19v1原图的视觉结构，在删除频域门控后展示三尺度DLinear专家、样本级路由和动态加权融合。
+    source_data: {dataset_id: method-specification-v2, file: PAPER_WRITING_INPUT_CN.md}
+    transformation: {script: generate_paper_figures.py, function: figure_1_method_schematic}
+    outputs:
+      color: paper_figures/exports/color/fig1_method_schematic_color.jpg
+      grayscale: paper_figures/exports/grayscale/fig1_method_schematic_grayscale.jpg
+    manuscript_usage: color
+    caption_claim: 图1图体仅展示方法结构，不包含图序、图题或段落式说明；图题由Word在图下方单独排版。
     supported_manuscript_claims:
-      - {claim: 本文使用尺度1、2和4的DLinear专家，并由样本级路由器生成Softmax权重。, locator: 方法章节}
-      - {claim: 图中实验验证区域对应外部基线、固定/自适应、8种子稳定性和路由/预测分析。, locator: 实验章节}
-    limitations: [该图说明方法与验证结构，不提供数值性能证据；图像以v1嵌入位图为母版，因此SVG为位图封装而非完全可编辑矢量。]
+      - {claim: 本文使用尺度1、2和4的DLinear专家，并根据样本级统计路由生成Softmax尺度权重。, locator: 方法章节}
+      - {claim: 输入长度为96，预测长度为24，变量维度以一般符号C表示。, locator: 问题定义与数据预处理}
+    limitations: [图中输入/输出热图仅为张量流示意，不作为实验性能证据；数值性能以实验表格和结果图为准。]
 
   - artifact_id: fig-2
     source_data: {dataset_id: abilene-ablation, file: source_data/fig2_main_ablation.csv}
