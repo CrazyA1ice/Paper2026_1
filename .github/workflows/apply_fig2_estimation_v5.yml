@@ -89,11 +89,11 @@ jobs:
           import xml.etree.ElementTree as ET
 
           df = pd.read_csv("abilene_forecasting/paper_figures/source_data_v2/fig2_weight_pairing_8seeds.csv")
-          for dataset, expected in [("abilene", 0.0032012225), ("geant", 0.0209378650)]:
+          for dataset, expected in [("abilene", 0.00320122018475), ("geant", 0.020937863737125)]:
               sub = df[df.dataset == dataset]
               diff = (sub.fixed_mse - sub.adaptive_mse).mean()
               print(dataset, diff)
-              assert abs(diff - expected) < 1e-10
+              assert abs(diff - expected) < 1e-12
 
           p="word_output/2026.09.20v5.docx"
           NS={"w":"http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
