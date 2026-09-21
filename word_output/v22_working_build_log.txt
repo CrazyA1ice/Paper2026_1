@@ -1,5 +1,0 @@
-method_chars_after 3670
-intro_chars_after 1630
-intro_paragraphs 5
-/home/runner/work/Paper2026_1/Paper2026_1/word_output/v22_working.docx
-exit_code=0
