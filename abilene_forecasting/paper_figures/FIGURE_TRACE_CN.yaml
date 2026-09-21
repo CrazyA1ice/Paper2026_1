@@ -57,17 +57,11 @@ figure_table_trace:
       - {claim: Abilene和GÉANT上尺度4的平均权重均最高，尺度1最低，且不同随机种子间仍存在差异。, locator: 第2.5节}
     limitations: [图4用于机制解释，不直接证明预测性能提升；权重含义应结合图5的样本级动态变化理解。]
 
-  - artifact_id: fig-5
-    source_data: {dataset_id: router-weights-seed42-two-datasets, file: source_data_v2/fig3_router_seed42_first150.csv}
-    transformation: {script: generate_paper_figures.py, function: figure_3_router_weight_dynamics}
-    outputs:
-      color: paper_figures/exports/color/fig3_router_weight_dynamics_color.jpg
-      grayscale: paper_figures/exports/grayscale/fig3_router_weight_dynamics_grayscale.jpg
-    manuscript_usage: color
-    caption_claim: 两数据集随机种子42前150个测试窗口的三尺度Softmax权重随样本变化。
-    supported_manuscript_claims:
-      - {claim: 路由器能够随输入窗口动态改变尺度组合，而不是始终采用固定权重。, locator: 第2.5节}
-    limitations: [固定展示seed42和前150个窗口，仅用于局部动态机制可视化；不用于性能显著性判断或稳定尺度语义解释。]
+
+removed_from_v16:
+  - artifact: router-weight-dynamics-seed42
+    former_caption: 图5 两数据集样本级路由权重变化（随机种子42，灰色点线为等权基准1/3）
+    reason: 与图4的8随机种子、全部测试窗口权重分布在机制说明上重复；v16保留覆盖范围更广的图4以压缩篇幅，动态曲线仅作为历史实验记录。
 
 removed_from_v14:
   - artifact: representative-prediction-window
