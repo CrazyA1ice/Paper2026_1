@@ -1,8 +1,5 @@
-Traceback (most recent call last):
-  File "/home/runner/work/Paper2026_1/Paper2026_1/word_output/v22_working_pipeline.py", line 137, in <module>
-    eq11 = find("(11)")
-           ^^^^^^^^^^^^
-  File "/home/runner/work/Paper2026_1/Paper2026_1/word_output/v22_working_pipeline.py", line 15, in find
-    raise RuntimeError(f"{prefix!r}: {len(xs)} matches")
-RuntimeError: '(11)': 0 matches
-exit_code=1
+method_chars_after 3670
+intro_chars_after 1630
+intro_paragraphs 5
+/home/runner/work/Paper2026_1/Paper2026_1/word_output/v22_working.docx
+exit_code=0
