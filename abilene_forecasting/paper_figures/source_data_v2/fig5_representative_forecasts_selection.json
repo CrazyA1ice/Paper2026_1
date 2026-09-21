@@ -1,0 +1,22 @@
+[
+  {
+    "dataset": "abilene",
+    "seed": 42,
+    "window_index_zero_based": 104,
+    "active_channel_index_zero_based": 29,
+    "original_channel_index_zero_based": 29,
+    "selection_rule": "在标准化测试集上，选择本文方法绝对误差最接近全部测试窗口中位数的窗口；再从该窗口的非恒定OD通道中，选择24步真实值标准差最接近通道中位数的通道。该规则用于展示典型而非最佳预测，不按本文方法相对DLinear的误差优势筛选。",
+    "dlinear_case_mae_standardized": 0.1057083010673523,
+    "adaptive_case_mae_standardized": 0.06798996776342392
+  },
+  {
+    "dataset": "geant",
+    "seed": 42,
+    "window_index_zero_based": 403,
+    "active_channel_index_zero_based": 186,
+    "original_channel_index_zero_based": 188,
+    "selection_rule": "在标准化测试集上，选择本文方法绝对误差最接近全部测试窗口中位数的窗口；再从该窗口的非恒定OD通道中，选择24步真实值标准差最接近通道中位数的通道。该规则用于展示典型而非最佳预测，不按本文方法相对DLinear的误差优势筛选。",
+    "dlinear_case_mae_standardized": 0.2087090015411377,
+    "adaptive_case_mae_standardized": 0.20937304198741913
+  }
+]
