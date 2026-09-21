@@ -1,0 +1,93 @@
+[P0000] 基于自适应多尺度加权的多变量网络流量预测方法
+[P0001] [请填写作者姓名]
+[P0002] （[请填写工作单位] [请填写部门]，[省 市 邮编]）
+[P0003] 摘要：骨干网络源—目的节点对流量具有明显的时变性和多时间尺度特征，不同时间尺度在不同流量状态下的作用并不相同。针对固定尺度模型难以灵活利用这些信息的问题，提出一种样本级自适应多尺度预测方法。方法采用尺度1、2和4的非重叠平均池化构造多分辨率序列，各尺度分别由DLinear专家进行预测；同时从输入窗口提取均值、标准差、末时刻均值和平均绝对一阶差分，经轻量路由网络得到Softmax尺度权重，并据此融合各尺度预测结果。实验在Abilene和GÉANT两个骨干网流量数据集上进行。3个共同随机种子下，所提方法的MSE相对DLinear分别降低4.06%和4.43%，相对LightTS分别降低29.89%和46.83%；8个随机种子的消融实验中，相对固定等权融合分别降低1.67%和4.68%。结果显示，在仅增加少量参数的情况下，自适应尺度加权可以更充分地利用不同时间尺度的信息，从而改善多变量网络流量预测精度。
+[P0004] 关键词：网络流量预测；多变量时间序列；多尺度学习；自适应加权；DLinear
+[P0005] 中图分类号：TP393　　文献标志码：A
+[P0006] A Multivariate Network Traffic Forecasting Method Based on Adaptive Multiscale Weighting
+[P0007] [Author Name]
+[P0008] ([Affiliation] [Department], [City] [Postcode], China; Corresponding author: [Name], E-mail: [E-mail])
+[P0009] Abstract: Backbone origin-destination (OD) traffic varies over time and contains information at multiple temporal scales. The contribution of each scale also changes with the current traffic state, which limits fixed-scale forecasting models. To address this issue, a sample-wise adaptive multiscale forecasting method is developed. Non-overlapping average pooling at scales 1, 2, and 4 is used to form multiresolution sequences, and a separate DLinear expert produces a forecast at each scale. Meanwhile, the mean, standard deviation, latest-step mean, and mean absolute first difference of the input window are fed into a lightweight routing network. The resulting Softmax weights are then used to combine the forecasts from the three scales. Experiments are conducted on the Abilene and GÉANT backbone traffic datasets. With three common random seeds, the method reduces MSE by 4.06% and 4.43% relative to DLinear, and by 29.89% and 46.83% relative to LightTS. In the eight-seed ablation experiment, the MSE reductions over fixed equal weighting are 1.67% and 4.68%, respectively. The results indicate that adaptive scale weighting can make better use of complementary temporal information while introducing only a small number of additional parameters.
+[P0010] Key words: network traffic forecasting; multivariate time series; multiscale learning; adaptive weighting; DLinear
+[P0012] 随着云计算、视频业务、数据中心互联及智能网络应用的发展，骨干网络中的业务类型不断增多，流量规模也持续扩大。源—目的节点对（origin-destination，OD）流量随时间变化明显，同时伴有突发和周期性波动。若能够较准确地预测后一时段的OD流量，网络管理系统就可以提前掌握业务变化，为容量规划、拥塞预警、资源调度和流量工程提供参考。因此，网络流量预测的关键之一，是如何从历史序列中提取有效的时间变化特征。
+[P0013] 网络流量预测的研究经历了从统计方法到机器学习、深度学习方法的发展。Lohrasbinasab等[1]对相关方法进行了综述，认为数据驱动模型更适合处理复杂的流量变化。Qin等[2]将图神经网络用于通信网络流量预测，同时考虑空间关联和时间依赖；韦烜等[10]研究了大型IP网络流量矩阵的分析与预测，表明OD流量之间的关联和时间演化都会影响预测结果。对于网络流量中的周期变化，唐文杰等[11]提出CycleLLH模型，将周期性信息引入预测过程。由这些研究可以看出，时间依赖、变量关联和周期变化都是网络流量建模中需要考虑的因素。
+[P0014] 网络流量在不同时间尺度上呈现的特征并不完全相同。细粒度序列保留了较多短时波动，经过平滑后的粗粒度序列则更容易反映整体趋势。Zhou等[3]采用深度回声状态网络开展多尺度网络流量预测，通过不同时间分辨率提取信息。DLinear[4]使用时间序列分解和线性映射完成预测，结构较为简洁；TimeMixer[5]利用多尺度混合机制处理不同分辨率的时间序列；LightTS[6]采用采样导向的MLP结构进行快速多变量时间序列预测。这些方法说明，多尺度信息并不一定需要依赖复杂模型才能发挥作用，如何在轻量结构中组织和利用这些信息仍有研究空间。
+[P0015] 实际骨干网络的流量状态会不断变化，同一个时间尺度并不一定适合所有输入窗口。固定尺度或固定融合比例虽然实现简单，但在流量水平、波动幅度发生变化时，可能无法充分发挥多尺度信息的作用。基于这一考虑，本文在尺度1、2和4上构造多分辨率序列，以DLinear作为各尺度预测专家，并利用输入窗口的统计特征生成样本级尺度权重。所提方法在Abilene和GÉANT两个公开骨干网数据集上进行验证，实验包括基线模型比较、固定等权消融、多随机种子重复实验和路由权重分析。
+[P0017] 1 自适应多尺度网络流量预测方法
+[P0018] 本文方法的整体结构如图1所示。原始OD流量完成变换和标准化后，在尺度1、2和4上分别构造输入序列，各尺度序列送入对应的DLinear专家得到预测结果。与此同时，路由网络从当前输入窗口的统计特征中计算尺度权重，再对3个专家的输出进行加权。这样处理后，较细时间尺度中的局部变化和较粗时间尺度中的趋势信息可以同时参与最终预测。
+[P0020] 图1 自适应多尺度网络流量预测方法框架
+[P0021] 1.1 问题定义与数据预处理
+[P0022] 设预处理后的多变量流量序列为 xt∈RC，其中t为时间索引，C为OD变量数。第n个样本的输入和目标分别为
+[P0023] (1)
+[P0024] (2)
+[P0025] 本文取输入长度L=96、预测长度H=24、变量数C随具体数据集的有效OD维度确定，学习映射Ŷn=fθ(Xn)。原始非负流量vt,c先作对数变换
+[P0026] (3)
+[P0027] 再按变量进行标准化：
+[P0028] (4)
+[P0029] 其中μctr和σctr由训练集计算，验证集和测试集沿用同一组参数。原始流量在不同OD维度上的数值差异较大，因此先进行log(1+x)变换，再按变量标准化。前者用于压缩数值范围，后者使不同OD变量处于较接近的尺度。数据按时间顺序以6∶2∶2划分为训练集、验证集和测试集，滑动窗口分别在各集合内部构造。
+[P0030] 1.2 多尺度序列构造
+[P0031] 设尺度集合S={1,2,4}。对尺度s，使用窗口大小和步长均为s的非重叠平均池化：
+[P0032] (5)
+[P0033] 本文选取尺度1、2和4构造多分辨率序列，对应的输入长度分别为96、48和24。尺度1直接保留原始时间分辨率；尺度2采用2点平均，减弱部分短时扰动；尺度4进一步平滑局部变化，使较慢的变化趋势更加突出。不同尺度均采用非重叠平均池化完成，因此这一过程本身不引入新的可训练参数。
+[P0034] 1.3 DLinear尺度专家
+[P0035] 每个尺度配置一个独立DLinear专家[4]。对尺度s的输入，以长度q=25的中心移动平均提取趋势项，序列两端采用端点复制以保持长度：
+[P0036] (6)
+[P0037] (7)
+[P0038] 趋势项T(s)和余项R(s)沿时间维分别通过线性层映射到预测长度H：
+[P0039] (8)
+[P0040] 各时间尺度均采用独立的DLinear专家。DLinear通过移动平均将序列分为趋势项和余项，再分别进行线性映射[4]。由于其结构较简单，用作多尺度框架中的基础预测器不会明显增加模型复杂度。同一尺度内，各OD变量共享时间映射参数；不同尺度之间则使用独立参数，以分别学习对应时间分辨率下的变化规律。
+[P0041] 1.4 样本级自适应尺度加权
+[P0042] 得到3个尺度的预测结果后，还需要确定各尺度在当前样本中的占比。固定等权融合对所有输入窗口都使用相同权重，无法反映不同时段流量状态的变化。本文从原始输入Xn中提取四维统计向量zn=[μn,σn,ℓn,dn]，其中
+[P0043] (9)
+[P0044] (10)
+[P0045] μn、σn、ℓn和dn分别表示输入窗口的总体水平、离散程度、最近状态和平均变化强度。这4个统计量用于概括当前窗口的基本状态，并输入隐藏维数为16的两层感知器，得到3个尺度对应的分数。路由网络只使用低维统计特征，因此增加的计算量较小。
+[P0046] (11)
+[P0047] Softmax将三个尺度分数转换为非负且和为1的权重：
+[P0048] (12)
+[P0049] 最终预测为
+[P0050] (13)
+[P0051] 经Softmax归一化后，每个样本得到一组和为1的尺度权重，该组权重在同一时间窗口内由全部OD变量共享。这样既可以让尺度比例随输入样本变化，也可以避免路由器参数量随OD变量数增长。固定等权消融模型将3个尺度权重统一设为1/3，其尺度集合、专家结构和训练过程均保持不变。
+[P0052] 1.5 训练目标与模型复杂度
+[P0053] 模型以所有样本、预测时刻和OD变量上的均方误差为目标：
+[P0054] (14)
+[P0055] 模型采用Adam进行优化，并根据验证集MSE选择参数。DLinear、固定等权多尺度模型和本文方法的可训练参数量分别为4656、8208和8339，其中路由器相对固定等权多尺度模型只增加131个参数。因此，本文方法的参数增量主要来自轻量路由网络，整体模型规模变化较小。
+[P0056] 2 实验与结果分析
+[P0057] 2.1 数据集与实验设置
+[P0058] 实验选用CESNET TS-Zoo[7]中的Abilene[8]和GÉANT[9] 1 h聚合流量矩阵。Abilene保留144维有效OD流量，时间序列相对较长；GÉANT去除恒定通道后保留524维，变量数更多。两个数据集在OD维度和流量分布上存在差异。实验均按时间顺序以6∶2∶2划分数据，输入长度L=96，预测长度H=24，预处理方式与第1.1节一致，具体设置见表1。
+[P0059] 表1 数据集与预测任务设置
+[P0060] 各模型使用相同的数据划分、输入长度和评价指标，批量大小均为16，并根据验证集MSE选择最优模型。DLinear、固定等权多尺度模型和本文方法最多训练30轮，LightTS最多训练50轮。外部基线比较采用随机种子42—44；DLinear、固定等权多尺度模型和本文方法另外使用42—49共8个随机种子重复实验。
+[P0061] 2.2 对比模型与评价指标
+[P0062] 对比模型包括DLinear、LightTS和固定等权多尺度模型。DLinear作为单尺度基线，LightTS作为轻量多变量时间序列预测模型。固定等权多尺度模型与本文方法使用完全相同的尺度集合{1,2,4}和DLinear专家，区别只在于其3个尺度权重始终为1/3，因此可用于观察自适应加权本身带来的变化。
+[P0063] 采用均方误差（MSE）、平均绝对误差（MAE）和均方根误差（RMSE）评价预测性能。MSE按式（14）计算，MAE和RMSE分别为
+[P0064] (15)
+[P0065] (16)
+[P0066] MSE、MAE和RMSE均在标准化空间中计算，数值越小表示预测误差越低。MSE对较大的预测偏差更敏感，MAE反映平均绝对误差，RMSE则给出均方误差开方后的结果。正文主要使用MSE和MAE比较模型，表2报告3个共同随机种子的均值±标准差，表3报告8个随机种子的均值±标准差。
+[P0067] 2.3 两数据集外部基线比较
+[P0068] 表2列出了随机种子42—44下的预测结果。本文方法在Abilene和GÉANT上的MSE分别为0.186和0.434。与DLinear相比，MSE分别降低4.06%和4.43%；与LightTS相比，分别降低29.89%和46.83%。两个数据集上的MAE也低于对应基线。由此可以看出，在相同输入长度和预测长度下，多尺度输入与样本级权重结合后，整体预测误差有所下降。
+[P0069] 表2 三随机种子外部基线比较
+[P0070] 图2给出了3个共同随机种子的逐次结果。Abilene上，本文方法3次实验的MSE和MAE均低于DLinear和LightTS。GÉANT上，相对LightTS同样保持较低误差；与DLinear比较时，个别随机种子的结果存在波动，但3次实验的平均值仍然更低。结合表2可知，本文方法在两个数据集上的平均误差均有所下降，在GÉANT上相对LightTS的差距更明显。
+[P0072] 图2 Abilene与GÉANT上三随机种子外部基线配对结果
+[P0073] 2.4 八随机种子核心消融与稳定性
+[P0074] 表3将DLinear、固定等权多尺度模型和本文方法的重复次数扩展到8个随机种子。本文方法相对DLinear在Abilene和GÉANT上的平均MSE分别降低2.77%和2.37%。固定等权模型已经使用相同的多尺度专家，在此基础上，本文方法的MSE仍分别降低1.67%和4.68%。这表明误差下降并非只来自多尺度输入，尺度权重随样本变化也产生了作用。
+[P0075] 表3 八随机种子核心模型结果
+[P0076] 图3比较了固定等权模型与本文方法在相同随机种子下的MSE。Abilene的8个随机种子中，有6个随机种子下本文方法的MSE更低；GÉANT中为7个。两个数据集的平均ΔMSE均为正，与表3中的平均结果一致。
+[P0078] 图3 固定等权与自适应权重的八随机种子配对MSE及配对差值分布
+[P0079] 2.5 路由权重分析
+[P0080] 图4给出了随机种子42—49下全部测试窗口的尺度权重分布，用于观察路由器在测试阶段对不同时间尺度的分配情况。固定等权模型的3个尺度权重始终为1/3，而本文方法的权重随输入窗口变化，因此可以从分布中看到不同尺度的总体占比。
+[P0082] 图4 八随机种子下样本级自适应路由权重分布
+[P0083] 从图4可以看出，两个数据集的3个尺度并未得到相同权重。Abilene中α1、α2和α4的平均值分别为0.257、0.319和0.424，GÉANT中分别为0.283、0.318和0.399，尺度4的平均权重均最高，尺度1最低。在当前24步预测任务下，较粗时间尺度中的平滑趋势信息占比较大，但尺度1和尺度2仍保留一定权重，用于补充较细粒度的变化信息。
+[P0084] 结合表2、表3和图2—图4，本文方法在Abilene和GÉANT上的平均预测误差均低于相应对比模型。固定等权消融中，自适应权重在相同多尺度专家基础上继续降低了MSE；图4中3个尺度的权重分布也存在明显差异。两项结果对应表明，路由器并非简单地对多尺度结果做平均，而是在不同输入窗口下改变各尺度的参与程度。
+[P0085] 3 结论
+[P0086] 本文研究了骨干网络OD流量的多尺度预测问题，并提出样本级自适应多尺度网络流量预测方法。模型在尺度1、2和4上构造多分辨率序列，由DLinear专家分别预测，再利用轻量路由网络根据输入窗口状态确定尺度权重。Abilene和GÉANT上的实验中，本文方法相对DLinear、LightTS和固定等权多尺度模型均取得了更低的平均预测误差。路由权重结果显示，不同时间尺度在预测中的占比并不相同。该方法仅增加少量参数即可实现多尺度预测结果的动态融合，可用于骨干网络OD流量预测。
+[P0087] 参考文献
+[P0088] [1] LOHRASBINASAB I, KESHAVARZ A, AMIN-NEJAD S, et al. From statistical- to machine learning-based network traffic prediction[J]. Transactions on Emerging Telecommunications Technologies, 2022, 33(4): e4394. DOI: 10.1002/ett.4394.
+[P0089] [2] QIN L, GU H, WEI W, et al. Spatio-temporal communication network traffic prediction method based on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.2024.121003.
+[P0090] [3] ZHOU J, HAN T, XIAO F, et al. Multiscale network traffic prediction method based on deep echo-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-21874. DOI: 10.1109/JIOT.2022.3181807.
+[P0091] [4] ZENG A, CHEN M, ZHANG L, et al. Are transformers effective for time series forecasting?[C]//Proceedings of the AAAI Conference on Artificial Intelligence. 2023, 37(9): 11121-11128. DOI: 10.1609/aaai.v37i9.26317.
+[P0092] [5] WANG S, WU H, SHI X, et al. TimeMixer: decomposable multiscale mixing for time series forecasting[C]//International Conference on Learning Representations. 2024.
+[P0093] [6] ZHANG T, ZHANG Y, CAO W, et al. Less is more: fast multivariate time series forecasting with light sampling-oriented MLP structures[EB/OL]. (2022-07-04)[2026-09-20]. https://arxiv.org/abs/2207.01186. DOI: 10.48550/arXiv.2207.01186.
+[P0094] [7] KUREŠ M, KOUMAR J, HYNEK K. CESNET TS-Zoo: a library for reproducible analysis of network traffic time series[C]//2025 21st International Conference on Network and Service Management. 2025. DOI: 10.23919/CNSM67658.2025.11297513.
+[P0095] [8] ZHANG Y, ROUGHAN M, DUFFIELD N, et al. Fast accurate computation of large-scale IP traffic matrices from link loads[J]. ACM SIGMETRICS Performance Evaluation Review, 2003, 31(1): 206-217. DOI: 10.1145/885651.781053.
+[P0096] [9] UHLIG S, QUOITIN B, LEPROPRE J, et al. Providing public intradomain traffic matrices to the research community[J]. ACM SIGCOMM Computer Communication Review, 2006, 36(1): 83-86. DOI: 10.1145/1111322.1111341.
+[P0097] [10] 韦烜, 刘志华, 李青, 等. 大型IP网络流量矩阵分析预测的探讨研究[J]. 系统工程与电子技术, 2024, 46(6): 2164-2173. DOI: 10.12305/j.issn.1001-506X.2024.06.35.
+[P0098] [11] 唐文杰, 肖一磊, 孔祥宇, 等. CycleLLH：一种基于周期性整合的新型网络流量预测模型[J]. 计算机学报, 2024, 47(12): 2867-2888. DOI: 10.11897/SP.J.1016.2024.02867.
