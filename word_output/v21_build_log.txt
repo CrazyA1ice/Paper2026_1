@@ -1,10 +1,6 @@
-Traceback (most recent call last):
-  File "/home/runner/work/Paper2026_1/Paper2026_1/word_output/rewrite_v20_to_v21_from_aigc_report.py", line 81, in <module>
-    repl(prefix, text)
-  File "/home/runner/work/Paper2026_1/Paper2026_1/word_output/rewrite_v20_to_v21_from_aigc_report.py", line 24, in repl
-    p = find(prefix)
-        ^^^^^^^^^^^^
-  File "/home/runner/work/Paper2026_1/Paper2026_1/word_output/rewrite_v20_to_v21_from_aigc_report.py", line 14, in find
-    raise RuntimeError(f"{prefix!r}: {len(xs)} matches")
-RuntimeError: '对尺度s，使用窗口大小和步长均为s的非重叠平均池化': 0 matches
-exit_code=1
+/home/runner/work/Paper2026_1/Paper2026_1/word_output/2026.09.21v21.docx
+tables 3 figures 4
+abstract_chars 388
+exit_code=0
+Warning: failed to launch javaldx - java may not function correctly
+convert /home/runner/work/Paper2026_1/Paper2026_1/word_output/2026.09.21v21.docx as a Writer document -> /home/runner/work/Paper2026_1/Paper2026_1/word_output/render_v21_word/2026.09.21v21.pdf using filter : writer_pdf_Export
