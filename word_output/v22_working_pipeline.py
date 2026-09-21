@@ -79,3 +79,5 @@ print("intro_paragraphs", sum(1 for t in paras[i_intro:i_sec1] if t))
 
 doc.save(TARGET)
 print(TARGET)
+
+# Step 2 introduction expansion complete.
