@@ -1,0 +1,28 @@
+name: Debug v20 build
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/debug_v20.yml'
+permissions:
+  contents: write
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install python-docx
+      - name: Run builder and capture log
+        run: |
+          set +e
+          python word_output/rewrite_v19_to_v20.py > word_output/v20_build_log.txt 2>&1
+          code=$?
+          echo "exit_code=$code" >> word_output/v20_build_log.txt
+          exit 0
+      - name: Commit log
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/v20_build_log.txt word_output/2026.09.21v20.docx || true
+          git commit -m "Capture v20 build diagnostics" || exit 0
+          git push
