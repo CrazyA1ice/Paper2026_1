@@ -150,7 +150,21 @@ def draw() -> None:
                 facecolor=DARK, edgecolor="white", linewidth=0.6,
                 zorder=4,
             )
+            wins = int((vals > 0).sum())
+            ax.text(
+                0.985, y, f"{wins}/3",
+                transform=ax.get_yaxis_transform(),
+                ha="right", va="center",
+                fontsize=6.1, color=DARK,
+                bbox=dict(facecolor="white", edgecolor="none", alpha=0.78, pad=0.7),
+                zorder=5,
+            )
 
+        ax.text(
+            0.985, 1.035, "胜出次数",
+            transform=ax.transAxes,
+            ha="right", va="bottom", fontsize=6.0, color="#555555",
+        )
         ax.axvline(0.0, color="#666666", lw=0.8, ls="--", dashes=(4, 3), zorder=0)
         ax.grid(axis="x", color=GRID, ls="--", lw=0.45, alpha=0.75)
         ax.set_axisbelow(True)
