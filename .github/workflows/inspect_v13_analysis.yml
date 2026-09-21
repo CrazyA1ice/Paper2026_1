@@ -1,0 +1,43 @@
+name: Inspect v13 analysis
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect_v13_analysis.yml'
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print v13 experiment sections
+        run: |
+          python - <<'PY'
+          from zipfile import ZipFile
+          import xml.etree.ElementTree as ET
+          p="word_output/2026.09.21v13.docx"
+          NS={"w":"http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+          with ZipFile(p) as z:
+              root=ET.fromstring(z.read("word/document.xml"))
+          body=root.find("w:body",NS)
+          children=list(body)
+          def txt(e):
+              return "".join(x.text or "" for x in e.iter() if x.tag.endswith("}t"))
+          start=None; end=None
+          for i,e in enumerate(children):
+              if e.tag.endswith("}p") and txt(e).strip()=="2 实验与结果分析": start=i
+              if start is not None and e.tag.endswith("}p") and txt(e).strip()=="3 结论":
+                  end=i; break
+          print("RANGE",start,end)
+          for i,e in enumerate(children[start:end],start):
+              if e.tag.endswith("}p"):
+                  t=txt(e).strip()
+                  if t: print(f"P {i}: {t}")
+              elif e.tag.endswith("}tbl"):
+                  print("TABLE",i)
+                  for ri,row in enumerate(e.findall("w:tr",NS)):
+                      vals=[txt(c).strip() for c in row.findall("w:tc",NS)]
+                      print("  ",ri,vals)
+          print("INLINE",sum(1 for e in root.iter() if e.tag.endswith("}inline")))
+          PY
