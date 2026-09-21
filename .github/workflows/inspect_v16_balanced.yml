@@ -1,0 +1,26 @@
+name: Inspect v16 for balanced rewrite
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect_v16_balanced.yml'
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print v16 paragraphs
+        run: |
+          python -m pip install -q python-docx
+          python - <<'PY'
+          from docx import Document
+          p="word_output/2026.09.21v16.docx"
+          d=Document(p)
+          for i,p in enumerate(d.paragraphs):
+              t=p.text.strip()
+              if t:
+                  print(f"{i}: {t}")
+          print("TABLES",len(d.tables),"FIGS",len(d.inline_shapes))
+          PY
