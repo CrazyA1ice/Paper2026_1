@@ -63,6 +63,13 @@ def main() -> None:
     FORMAL_GRAY.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(FIG3_COLOR, FORMAL_COLOR)
     shutil.copy2(FIG3_GRAY, FORMAL_GRAY)
+    for ext in ["jpg", "pdf", "svg"]:
+        src = CANDIDATE_DIR / "color" / f"candidate_A_router_weight_distribution_color.{ext}"
+        if src.exists():
+            shutil.copy2(src, EXPORT_DIR / "color" / f"fig3_router_weight_distribution_color.{ext}")
+    gray_jpg = CANDIDATE_DIR / "grayscale" / "candidate_A_router_weight_distribution_grayscale.jpg"
+    if gray_jpg.exists():
+        shutil.copy2(gray_jpg, EXPORT_DIR / "grayscale" / "fig3_router_weight_distribution_grayscale.jpg")
 
     document = Document(DOCX)
     if len(document.inline_shapes) != 3:
