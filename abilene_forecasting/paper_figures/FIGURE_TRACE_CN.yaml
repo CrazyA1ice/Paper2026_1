@@ -16,19 +16,19 @@ figure_table_trace:
     limitations: [图中输入/输出热图仅为张量流示意，不作为实验性能证据；数值性能以实验表格和结果图为准。]
 
   - artifact_id: fig-2
-    source_data: {dataset_id: external-baseline-common-seeds-42-44, file: source_data_v13/fig2_external_baseline_reduction_3seeds.csv}
-    transformation: {script: generate_external_baseline_effect_v13.py, function: draw}
+    source_data: {dataset_id: external-baseline-common-seeds-42-44, file: source_data_v15/fig2_external_baseline_paired_seed42_44.csv}
+    transformation: {script: generate_external_baseline_paired_v15.py, function: main}
     outputs:
-      color: paper_figures/exports/color/fig2_external_baseline_reduction_color.jpg
-      grayscale: paper_figures/exports/grayscale/fig2_external_baseline_reduction_grayscale.jpg
+      color: paper_figures/exports/color/fig2_external_baseline_paired_v15_color.jpg
+      grayscale: paper_figures/exports/grayscale/fig2_external_baseline_paired_v15_grayscale.jpg
     manuscript_usage: color
-    caption_claim: 本文方法相对DLinear与LightTS在Abilene和GÉANT上的三随机种子MSE/MAE相对降低率及胜出次数。
+    caption_claim: Abilene与GÉANT上DLinear、LightTS与本文方法在随机种子42—44下的MSE和MAE逐seed配对结果。
     supported_manuscript_claims:
-      - {claim: Abilene相对DLinear的MSE和MAE在3/3个共同随机种子下均降低。, locator: 第2.3节}
-      - {claim: GÉANT相对DLinear的MSE和MAE在2/3个共同随机种子下降低，seed43出现退化。, locator: 第2.3节}
+      - {claim: Abilene相对DLinear的MSE和MAE均在3/3个共同随机种子下更低。, locator: 第2.3节}
+      - {claim: GÉANT相对DLinear的MSE和MAE均在2/3个共同随机种子下更低，seed43出现退化。, locator: 第2.3节}
       - {claim: 相对LightTS时，两数据集MSE和MAE均在3/3个共同随机种子下更低。, locator: 第2.3节}
       - {claim: 相对LightTS的三种子均值MSE降幅在Abilene和GÉANT上分别为29.89%和46.83%。, locator: 第2.3节}
-    limitations: [外部比较仅有3个共同随机种子；图中降幅不等同于跨任务普遍优越性；GÉANT相对DLinear存在seed43退化。]
+    limitations: [外部比较仅有3个共同随机种子；图中展示绝对误差及配对关系，不在图体重复标注降幅；GÉANT相对DLinear存在seed43退化。]
 
   - artifact_id: fig-3
     source_data: {dataset_id: core-v2-eight-seed-pairing, file: source_data_v2/fig2_weight_pairing_8seeds.csv}
