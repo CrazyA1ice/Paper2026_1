@@ -1,0 +1,111 @@
+name: Build v15 Scheme B Figure 2
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build_v15_scheme_b.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-liberation libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install matplotlib pandas numpy pillow python-docx
+
+      - name: Generate factual Scheme B Figure 2
+        run: |
+          python abilene_forecasting/paper_figures/generate_external_baseline_paired_v15.py
+          test -s abilene_forecasting/paper_figures/exports/color/fig2_external_baseline_paired_v15_color.png
+          test -s abilene_forecasting/paper_figures/exports/grayscale/fig2_external_baseline_paired_v15_grayscale.png
+          test -s abilene_forecasting/paper_figures/source_data_v15/fig2_external_baseline_paired_seed42_44.csv
+
+      - name: Build v15 manuscript
+        run: |
+          python word_output/replace_fig2_scheme_b_v15.py
+
+      - name: Verify statistics and manuscript
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          from zipfile import ZipFile
+          import xml.etree.ElementTree as ET
+
+          df=pd.read_csv("abilene_forecasting/paper_figures/source_data_v15/fig2_external_baseline_paired_seed42_44.csv")
+          checks=[
+            ("abilene","MSE","dlinear",3,4.06),
+            ("abilene","MAE","dlinear",3,10.52),
+            ("abilene","MSE","lightts",3,29.89),
+            ("abilene","MAE","lightts",3,17.65),
+            ("geant","MSE","dlinear",2,4.43),
+            ("geant","MAE","dlinear",2,3.46),
+            ("geant","MSE","lightts",3,46.83),
+            ("geant","MAE","lightts",3,29.29),
+          ]
+          for dataset,metric,base,wins,expected in checks:
+              p=df[(df.dataset==dataset)&(df.metric==metric)&(df.model=="dlinear_scale")].sort_values("seed").value.to_numpy()
+              b=df[(df.dataset==dataset)&(df.metric==metric)&(df.model==base)].sort_values("seed").value.to_numpy()
+              got_wins=int((p<b).sum())
+              reduction=(b.mean()-p.mean())/b.mean()*100
+              print(dataset,metric,base,got_wins,reduction)
+              assert got_wins==wins
+              assert abs(reduction-expected)<0.02
+
+          docx="word_output/2026.09.21v15.docx"
+          NS={"w":"http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+          with ZipFile(docx) as z:
+              root=ET.fromstring(z.read("word/document.xml"))
+          text="".join(x.text or "" for x in root.iter() if x.tag.endswith("}t"))
+          assert "图2 Abilene与GÉANT上三随机种子外部基线配对结果" in text
+          assert "seed43出现退化" in text
+          assert "46.83%和29.29%" in text
+          assert "代表性窗口预测结果" not in text
+          PY
+
+      - name: Render v15 for QA
+        run: |
+          rm -rf word_output/render_v15_word
+          mkdir -p word_output/render_v15_word
+          libreoffice --headless --convert-to pdf --outdir word_output/render_v15_word word_output/2026.09.21v15.docx
+          pdftoppm -png -r 170 word_output/render_v15_word/2026.09.21v15.pdf word_output/render_v15_word/page
+          ls -lh word_output/render_v15_word
+
+      - name: Commit v15 and figure assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            word_output/2026.09.21v15.docx \
+            word_output/render_v15_word/ \
+            abilene_forecasting/paper_figures/exports/color/fig2_external_baseline_paired_v15_color.png \
+            abilene_forecasting/paper_figures/exports/color/fig2_external_baseline_paired_v15_color.jpg \
+            abilene_forecasting/paper_figures/exports/color/fig2_external_baseline_paired_v15_color.pdf \
+            abilene_forecasting/paper_figures/exports/color/fig2_external_baseline_paired_v15_color.svg \
+            abilene_forecasting/paper_figures/exports/grayscale/fig2_external_baseline_paired_v15_grayscale.png \
+            abilene_forecasting/paper_figures/exports/grayscale/fig2_external_baseline_paired_v15_grayscale.jpg \
+            abilene_forecasting/paper_figures/exports/grayscale/fig2_external_baseline_paired_v15_grayscale.tiff \
+            abilene_forecasting/paper_figures/source_data_v15/fig2_external_baseline_paired_seed42_44.csv
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Replace Figure 2 with factual Scheme B paired baseline comparison"
+            git push
+          fi
+
+      - name: Upload QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: v15-scheme-b-qa
+          path: |
+            word_output/2026.09.21v15.docx
+            word_output/render_v15_word/2026.09.21v15.pdf
+            word_output/render_v15_word/page-*.png
+            abilene_forecasting/paper_figures/exports/color/fig2_external_baseline_paired_v15_color.png
+            abilene_forecasting/paper_figures/exports/grayscale/fig2_external_baseline_paired_v15_grayscale.png
+          retention-days: 2
