@@ -1,0 +1,78 @@
+name: Build condensed v16 manuscript
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build_v16_condensed.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-liberation libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install python-docx pillow
+
+      - name: Create condensed v16 manuscript
+        run: |
+          python word_output/condense_v15_to_v16.py
+
+      - name: Verify manuscript structure
+        run: |
+          python - <<'PY'
+          from docx import Document
+          p="word_output/2026.09.21v16.docx"
+          d=Document(p)
+          text="\n".join(x.text for x in d.paragraphs)
+          assert len(d.inline_shapes)==4
+          assert len(d.tables)==3
+          assert "图5 两数据集样本级路由权重变化" not in text
+          assert "2.5 路由权重分析" in text
+          assert "图2 Abilene与GÉANT上三随机种子外部基线配对结果" in text
+          assert "图3 固定等权与自适应权重的八随机种子配对MSE及配对差值分布" in text
+          assert "图4 八随机种子下样本级自适应路由权重分布" in text
+          abstract=next(x.text for x in d.paragraphs if x.text.startswith("摘要：")).replace("摘要：","")
+          conclusion=next(x.text for x in d.paragraphs if x.text.startswith("两数据集实验表明"))
+          assert 300 <= len(abstract) <= 400
+          assert len(conclusion) <= 150
+          print("abstract chars",len(abstract))
+          print("conclusion chars",len(conclusion))
+          PY
+
+      - name: Render v16
+        run: |
+          rm -rf word_output/render_v16_word
+          mkdir -p word_output/render_v16_word
+          libreoffice --headless --convert-to pdf --outdir word_output/render_v16_word word_output/2026.09.21v16.docx
+          pdftoppm -png -r 170 word_output/render_v16_word/2026.09.21v16.pdf word_output/render_v16_word/page
+          pages=$(find word_output/render_v16_word -name 'page-*.png' | wc -l)
+          echo "Rendered pages: $pages"
+          test "$pages" -eq 8
+
+      - name: Commit v16
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.21v16.docx word_output/render_v16_word/
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Condense v15 manuscript to focused eight-page v16"
+            git push
+          fi
+
+      - name: Upload QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: v16-condensed-qa
+          path: |
+            word_output/2026.09.21v16.docx
+            word_output/render_v16_word/2026.09.21v16.pdf
+            word_output/render_v16_word/page-*.png
+          retention-days: 2
