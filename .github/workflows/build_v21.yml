@@ -47,3 +47,5 @@ jobs:
           git add word_output/2026.09.21v21.docx word_output/render_v21_word/
           git commit -m "Revise v20 using AIGC report hotspots" || exit 0
           git push
+
+# retrigger
