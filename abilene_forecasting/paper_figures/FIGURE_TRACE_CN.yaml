@@ -31,6 +31,19 @@ figure_table_trace:
     limitations: [图中只展示MSE及其配对差值；MAE以表3和正文为准；配对差值95%置信区间跨越0，不宣称相对固定等权在两数据集均达到统计显著。]
 
   - artifact_id: fig-3
+    source_data: {dataset_id: router-weights-all-8seeds-two-datasets, file: candidates_v5/source_data/router_all_8seeds.csv}
+    transformation: {script: generate_candidates_v5.py, function: candidate_a_router_distribution}
+    outputs:
+      color: paper_figures/exports/color/fig3_router_weight_distribution_color.jpg
+      grayscale: paper_figures/exports/grayscale/fig3_router_weight_distribution_grayscale.jpg
+    manuscript_usage: color
+    caption_claim: 两数据集随机种子42—49全部测试窗口的三尺度Softmax权重总体分布。
+    supported_manuscript_claims:
+      - {claim: 路由权重并未退化为固定1/3，而是呈现非退化分布与总体尺度偏好。, locator: 第2.5节}
+      - {claim: Abilene和GÉANT上尺度4的平均权重均最高，尺度1最低，且不同随机种子间仍存在差异。, locator: 第2.5节}
+    limitations: [图3用于机制解释，不直接证明预测性能提升；权重含义应结合图4的样本级动态变化理解。]
+
+  - artifact_id: fig-4
     source_data: {dataset_id: router-weights-seed42-two-datasets, file: source_data_v2/fig3_router_seed42_first150.csv}
     transformation: {script: generate_paper_figures.py, function: figure_3_router_weight_dynamics}
     outputs:
@@ -39,5 +52,5 @@ figure_table_trace:
     manuscript_usage: color
     caption_claim: 两数据集随机种子42前150个测试窗口的三尺度Softmax权重随样本变化。
     supported_manuscript_claims:
-      - {claim: 路由器没有退化为固定1/3平均融合，而是随输入窗口动态改变尺度组合。, locator: 第2.5节}
-    limitations: [固定展示seed42和前150个窗口，仅用于机制可视化；不用于性能显著性判断或稳定尺度语义解释。]
+      - {claim: 路由器能够随输入窗口动态改变尺度组合，而不是始终采用固定权重。, locator: 第2.5节}
+    limitations: [固定展示seed42和前150个窗口，仅用于局部动态机制可视化；不用于性能显著性判断或稳定尺度语义解释。]
