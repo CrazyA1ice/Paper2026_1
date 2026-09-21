@@ -1,4 +1,0 @@
-/home/runner/work/Paper2026_1/Paper2026_1/word_output/2026.09.21v20.docx
-tables 3 figures 4
-abstract_chars 408
-exit_code=0
