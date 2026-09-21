@@ -1,0 +1,21 @@
+name: Extract v19 text
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/extract_v19_text.yml'
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install python-docx
+      - run: python word_output/extract_v19_text.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/v19_text_dump.txt
+          git commit -m "Extract v19 manuscript text for academic review" || exit 0
+          git push
