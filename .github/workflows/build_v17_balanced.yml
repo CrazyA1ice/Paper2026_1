@@ -1,0 +1,90 @@
+name: Build journal-balanced v17 manuscript
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build_v17_balanced.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-liberation libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install python-docx pillow
+
+      - name: Build v17
+        run: |
+          python word_output/rebalance_v16_to_v17.py
+
+      - name: Audit section proportions
+        run: |
+          python - <<'PY'
+          from docx import Document
+          p="word_output/2026.09.21v17.docx"
+          d=Document(p)
+          paras=[x.text.strip() for x in d.paragraphs]
+          def idx(prefix):
+              return next(i for i,t in enumerate(paras) if t.startswith(prefix))
+          i_intro=idx("随着云计算")
+          i_m=idx("1 自适应多尺度网络流量预测方法")
+          i_e=idx("2 实验与结果分析")
+          i_c=idx("3 结论")
+          i_r=idx("参考文献")
+          def chars(a,b):
+              return sum(len(t) for t in paras[a:b] if t and not t.startswith("图") and not t.startswith("表"))
+          vals={
+              "intro":chars(i_intro,i_m),
+              "method":chars(i_m,i_e),
+              "experiment":chars(i_e,i_c),
+              "conclusion":chars(i_c,i_r),
+          }
+          total=sum(vals.values())
+          print(vals)
+          print({k:round(v/total*100,1) for k,v in vals.items()})
+          abstract=next(t for t in paras if t.startswith("摘要：")).replace("摘要：","")
+          print("abstract_chars",len(abstract))
+          print("figs",len(d.inline_shapes),"tables",len(d.tables))
+          assert 350 <= len(abstract) <= 400
+          assert len(d.inline_shapes)==4
+          assert len(d.tables)==3
+          PY
+
+      - name: Render v17
+        run: |
+          rm -rf word_output/render_v17_word
+          mkdir -p word_output/render_v17_word
+          libreoffice --headless --convert-to pdf --outdir word_output/render_v17_word word_output/2026.09.21v17.docx
+          pdftoppm -png -r 170 word_output/render_v17_word/2026.09.21v17.pdf word_output/render_v17_word/page
+          pages=$(find word_output/render_v17_word -name 'page-*.png' | wc -l)
+          echo "Rendered pages: $pages"
+          test "$pages" -ge 8
+          test "$pages" -le 10
+
+      - name: Commit v17
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.21v17.docx word_output/render_v17_word/
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Rebalance v16 to journal-style v17 structure"
+            git push
+          fi
+
+      - name: Upload QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: v17-balanced-qa
+          path: |
+            word_output/2026.09.21v17.docx
+            word_output/render_v17_word/2026.09.21v17.pdf
+            word_output/render_v17_word/page-*.png
+          retention-days: 2
