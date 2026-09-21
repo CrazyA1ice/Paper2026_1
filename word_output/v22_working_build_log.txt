@@ -1,8 +1,8 @@
 Traceback (most recent call last):
-  File "/home/runner/work/Paper2026_1/Paper2026_1/word_output/v22_working_pipeline.py", line 95, in <module>
-    p_bridge12.style = find("其中μctr和σctr只在训练集上计算").style
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Paper2026_1/Paper2026_1/word_output/v22_working_pipeline.py", line 137, in <module>
+    eq11 = find("(11)")
+           ^^^^^^^^^^^^
   File "/home/runner/work/Paper2026_1/Paper2026_1/word_output/v22_working_pipeline.py", line 15, in find
     raise RuntimeError(f"{prefix!r}: {len(xs)} matches")
-RuntimeError: '其中μctr和σctr只在训练集上计算': 0 matches
+RuntimeError: '(11)': 0 matches
 exit_code=1
