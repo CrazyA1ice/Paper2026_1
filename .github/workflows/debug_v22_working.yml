@@ -27,3 +27,5 @@ jobs:
           git add word_output/v22_working.docx 2>/dev/null || true
           git commit -m "Capture cumulative v22 working build diagnostics" || exit 0
           git push
+
+# rerun after style-reference fix
