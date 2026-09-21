@@ -1,6 +1,5 @@
 script:
-  file: generate_paper_figures.py
-  git_blob_sha: c264271623431a018db021a358e7d137b42c46ca
+  note: v14 uses multiple reproducible plotting scripts; each figure records its own transformation below.
 
 figure_table_trace:
   - artifact_id: fig-1
@@ -17,6 +16,21 @@ figure_table_trace:
     limitations: [图中输入/输出热图仅为张量流示意，不作为实验性能证据；数值性能以实验表格和结果图为准。]
 
   - artifact_id: fig-2
+    source_data: {dataset_id: external-baseline-common-seeds-42-44, file: source_data_v13/fig2_external_baseline_reduction_3seeds.csv}
+    transformation: {script: generate_external_baseline_effect_v13.py, function: draw}
+    outputs:
+      color: paper_figures/exports/color/fig2_external_baseline_reduction_color.jpg
+      grayscale: paper_figures/exports/grayscale/fig2_external_baseline_reduction_grayscale.jpg
+    manuscript_usage: color
+    caption_claim: 本文方法相对DLinear与LightTS在Abilene和GÉANT上的三随机种子MSE/MAE相对降低率及胜出次数。
+    supported_manuscript_claims:
+      - {claim: Abilene相对DLinear的MSE和MAE在3/3个共同随机种子下均降低。, locator: 第2.3节}
+      - {claim: GÉANT相对DLinear的MSE和MAE在2/3个共同随机种子下降低，seed43出现退化。, locator: 第2.3节}
+      - {claim: 相对LightTS时，两数据集MSE和MAE均在3/3个共同随机种子下更低。, locator: 第2.3节}
+      - {claim: 相对LightTS的三种子均值MSE降幅在Abilene和GÉANT上分别为29.89%和46.83%。, locator: 第2.3节}
+    limitations: [外部比较仅有3个共同随机种子；图中降幅不等同于跨任务普遍优越性；GÉANT相对DLinear存在seed43退化。]
+
+  - artifact_id: fig-3
     source_data: {dataset_id: core-v2-eight-seed-pairing, file: source_data_v2/fig2_weight_pairing_8seeds.csv}
     transformation: {script: generate_paper_figures.py, function: figure_2_core_weight_estimation}
     outputs:
@@ -28,9 +42,9 @@ figure_table_trace:
       - {claim: 自适应多尺度的平均MSE在两个数据集上均低于固定等权多尺度。, locator: 第2.4节}
       - {claim: Abilene中6/8、GÉANT中7/8随机种子取得更低MSE，但两数据集相对固定等权的95%置信区间均跨越0。, locator: 第2.4节}
       - {claim: GÉANT的配对差值分布更宽，跨种子波动更明显。, locator: 第2.4节}
-    limitations: [图中只展示MSE及其配对差值；MAE以表3和正文为准；配对差值95%置信区间跨越0，不宣称相对固定等权在两数据集均达到统计显著。]
+    limitations: [图中只展示MSE及其配对差值；MAE以表3和正文为准；不宣称相对固定等权在两数据集均达到统计显著。]
 
-  - artifact_id: fig-3
+  - artifact_id: fig-4
     source_data: {dataset_id: router-weights-all-8seeds-two-datasets, file: candidates_v5/source_data/router_all_8seeds.csv}
     transformation: {script: generate_candidates_v5.py, function: candidate_a_router_distribution}
     outputs:
@@ -41,9 +55,9 @@ figure_table_trace:
     supported_manuscript_claims:
       - {claim: 路由权重并未退化为固定1/3，而是呈现非退化分布与总体尺度偏好。, locator: 第2.5节}
       - {claim: Abilene和GÉANT上尺度4的平均权重均最高，尺度1最低，且不同随机种子间仍存在差异。, locator: 第2.5节}
-    limitations: [图3用于机制解释，不直接证明预测性能提升；权重含义应结合图4的样本级动态变化理解。]
+    limitations: [图4用于机制解释，不直接证明预测性能提升；权重含义应结合图5的样本级动态变化理解。]
 
-  - artifact_id: fig-4
+  - artifact_id: fig-5
     source_data: {dataset_id: router-weights-seed42-two-datasets, file: source_data_v2/fig3_router_seed42_first150.csv}
     transformation: {script: generate_paper_figures.py, function: figure_3_router_weight_dynamics}
     outputs:
@@ -54,3 +68,8 @@ figure_table_trace:
     supported_manuscript_claims:
       - {claim: 路由器能够随输入窗口动态改变尺度组合，而不是始终采用固定权重。, locator: 第2.5节}
     limitations: [固定展示seed42和前150个窗口，仅用于局部动态机制可视化；不用于性能显著性判断或稳定尺度语义解释。]
+
+removed_from_v14:
+  - artifact: representative-prediction-window
+    former_caption: 图5 Abilene与GÉANT代表性预测窗口的真实值与预测值对比（随机种子42）
+    reason: GÉANT代表性窗口中本文方法与DLinear差异很小，且单一窗口对论文核心结论的支撑弱于外部基线逐seed比较，因此从正文删除；源数据和历史导出仅保留研究追溯。
