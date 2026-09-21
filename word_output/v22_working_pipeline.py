@@ -92,7 +92,7 @@ h12 = find("1.2 多尺度序列构造")
 p_bridge12 = h12.insert_paragraph_before(
     "经过上述处理后，每个输入样本仍保持原始时间分辨率。为了让后续专家同时观察细粒度变化和较平滑的趋势，需要进一步从同一历史窗口构造不同时间尺度的表示。"
 )
-p_bridge12.style = find("其中μctr和σctr只在训练集上计算").style
+p_bridge12.style = find("其中μctr和σctr分别表示").style
 
 # 1.2 Multiscale construction
 repl(
@@ -122,7 +122,7 @@ h14 = find("1.4 样本级自适应尺度加权")
 p_expert_reason = h14.insert_paragraph_before(
     "选择DLinear作为尺度专家还有一个考虑：本文需要比较“单尺度预测”“固定等权多尺度”和“样本级自适应多尺度”之间的差异。如果尺度专家本身使用结构过于复杂的网络，最终误差变化会同时受到预测主干和尺度融合机制的影响。DLinear参数结构较清晰，因此可以在保持预测能力的同时，把实验关注点更多放在多尺度输入和权重分配方式上。"
 )
-p_expert_reason.style = find("对3个尺度分别使用独立DLinear专家[4]").style
+p_expert_reason.style = find("由式（6）和式（7）").style
 
 # 1.4 Sample-wise adaptive scale weighting
 repl(
