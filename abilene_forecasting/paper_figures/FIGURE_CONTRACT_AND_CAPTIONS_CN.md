@@ -21,13 +21,13 @@
 
 - 图1已经按上述规范重绘为“输入时序数据—多尺度序列构造—DLinear尺度专家—自适应加权融合—预测结果”的科研框图，并在下方保留样本级自适应尺度路由器。
 - 图1图体内不包含图序、图题或段落式解释；Word 中单独保留“图1 自适应多尺度网络流量预测方法框架”。
-- 图2为Abilene/GÉANT两数据集共同随机种子42—44下，本文方法相对DLinear与LightTS的MSE/MAE相对降低率图；图3为固定等权与自适应权重的8随机种子配对估计图；图4为8随机种子全部测试窗口的样本级自适应路由权重分布；图5为随机种子42前150个测试窗口的样本级路由权重动态变化。旧频域图与代表性预测窗口图不再进入v14投稿稿，相关文件仅作为历史实验记录保留。
+- 图2为Abilene/GÉANT两数据集共同随机种子42—44下，DLinear、LightTS与本文方法的MSE/MAE逐seed配对图；图3为固定等权与自适应权重的8随机种子配对估计图；图4为8随机种子全部测试窗口的样本级自适应路由权重分布；图5为随机种子42前150个测试窗口的样本级路由权重动态变化。旧频域图与代表性预测窗口图不再进入v15投稿稿，相关文件仅作为历史实验记录保留。
 
 ## 图组契约
 
 - 核心结论：在 Abilene 和 GÉANT 两个骨干网数据集上，自适应多尺度模型均取得更低的平均预测误差；Abilene上的收益更稳定，GÉANT存在更明显的跨随机种子波动。
 - 结果问题：不同数据集上的外部基线表现如何、动态权重是否优于固定等权、逐种子结果是否稳定，以及路由器是否确实随输入窗口改变尺度权重。
-- 图形类型：图1为方法示意图；图2为外部基线相对误差降低率与逐seed一致性；图3为8随机种子配对结果与配对差值分布；图4为8随机种子总体路由权重分布；图5为代表性随机种子的样本级路由权重动态变化。
+- 图形类型：图1为方法示意图；图2为外部基线三随机种子绝对误差配对结果；图3为8随机种子配对结果与配对差值分布；图4为8随机种子总体路由权重分布；图5为代表性随机种子的样本级路由权重动态变化。
 - 后端：Python、Matplotlib，全程不使用生成式图标或装饰性AI元素。
 - 输出：每张图同时生成彩色和灰度两个版本；彩色版优先输出 SVG、PDF、600 dpi PNG/JPG/TIFF，灰度版至少输出600 dpi PNG/JPG/TIFF。
 - 色彩：当前论文使用彩色版，但同时使用线型、标记和明暗保证灰度打印可区分。
@@ -39,7 +39,7 @@
 
 ## 图2图注
 
-**图2 本文方法相对DLinear和LightTS的三随机种子误差降低率。** a，MSE；b，MAE。圆点表示随机种子42—44下本文方法相对对应基线的逐种子误差降低率，黑色菱形表示由3个共同随机种子均值计算的总体降幅，灰色横线表示三个随机种子的取值范围；右侧数字表示3个随机种子中本文方法误差更低的次数。相对降低率大于0表示本文方法误差更低。
+**图2 Abilene与GÉANT上三随机种子外部基线配对结果。** a，Abilene-MSE；b，Abilene-MAE；c，GÉANT-MSE；d，GÉANT-MAE。左侧配对比较DLinear与本文方法，右侧配对比较LightTS与本文方法；方形、圆形和三角形分别表示随机种子42、43和44，细虚线连接同一随机种子的结果，较粗实线连接3个随机种子的均值。降幅和胜出次数在第2.3节正文中给出，不在图体中重复标注。
 
 ## 图3图注
 
@@ -59,7 +59,7 @@
 
 ## 数据来源与排除说明
 
-- 图2直接读取 `results/{abilene,geant}/{dlinear,lightts,dlinear_scale}_seed42...44/metrics.json`，导出源数据为 `source_data_v13/fig2_external_baseline_reduction_3seeds.csv`；所有共同seed均保留。
+- 图2直接读取 `results/{abilene,geant}/{dlinear,lightts,dlinear_scale}_seed42...44/metrics.json`，导出源数据为 `source_data_v15/fig2_external_baseline_paired_seed42_44.csv`；所有共同seed均保留，图中展示绝对MSE/MAE及逐seed配对关系，降幅由正文根据相同数据计算。
 - 图3直接读取 `paper_figures/source_data_v2/fig2_weight_pairing_8seeds.csv`，未删除任何seed 42—49的运行。
 - 图4汇总 `results/{abilene,geant}/dlinear_scale_seed42...49/router_weights.csv` 的全部测试窗口，绘图源数据保存在 `paper_figures/candidates_v5/source_data/router_all_8seeds.csv`；图5读取两数据集 `dlinear_scale_seed42/router_weights.csv`，固定取前150个测试窗口，原始绘图源数据保存在 `source_data_v2/fig3_router_seed42_first150.csv`。
 - 表2读取共同seed 42—44的统计结果，避免将LightTS的3次重复与核心模型的8次重复混合作比较。
