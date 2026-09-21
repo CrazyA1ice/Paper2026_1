@@ -37,3 +37,5 @@ jobs:
           git add word_output/2026.09.21v21.docx word_output/render_v21_word/ 2>/dev/null || true
           git commit -m "Capture v21 build diagnostics" || exit 0
           git push
+
+# retrigger after fix 1
