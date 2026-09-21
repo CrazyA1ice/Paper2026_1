@@ -1,0 +1,40 @@
+name: Inspect v5 section 2.5
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect_v5_section25.yml'
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect section 2.5 and figure captions
+        run: |
+          python - <<'PY'
+          from zipfile import ZipFile
+          import xml.etree.ElementTree as ET
+          p="word_output/2026.09.20v5.docx"
+          NS={"w":"http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+          with ZipFile(p) as z:
+              root=ET.fromstring(z.read("word/document.xml"))
+          body=root.find("w:body",NS)
+          children=list(body)
+          def txt(e):
+              return "".join(x.text or "" for x in e.iter() if x.tag.endswith("}t"))
+          start=None
+          for i,e in enumerate(children):
+              if e.tag.endswith("}p") and txt(e).strip().startswith("2.5 "):
+                  start=i; break
+          print("START",start)
+          for j in range(start,min(start+18,len(children))):
+              e=children[j]
+              if e.tag.endswith("}p"):
+                  drawings=sum(1 for x in e.iter() if x.tag.endswith("}drawing"))
+                  print("P",j,"drawings",drawings,":",txt(e).strip())
+              elif e.tag.endswith("}tbl"):
+                  print("TABLE",j)
+          print("INLINE_SHAPES via XML:",sum(1 for e in root.iter() if e.tag.endswith("}inline")))
+          PY
