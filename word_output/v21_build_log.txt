@@ -1,6 +1,0 @@
-/home/runner/work/Paper2026_1/Paper2026_1/word_output/2026.09.21v21.docx
-tables 3 figures 4
-abstract_chars 388
-exit_code=0
-Warning: failed to launch javaldx - java may not function correctly
-convert /home/runner/work/Paper2026_1/Paper2026_1/word_output/2026.09.21v21.docx as a Writer document -> /home/runner/work/Paper2026_1/Paper2026_1/word_output/render_v21_word/2026.09.21v21.pdf using filter : writer_pdf_Export
