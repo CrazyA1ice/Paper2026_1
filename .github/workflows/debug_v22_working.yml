@@ -29,3 +29,5 @@ jobs:
           git push
 
 # rerun after style-reference fix
+
+# rerun after formula insertion fix
