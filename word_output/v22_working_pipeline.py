@@ -133,9 +133,9 @@ repl(
     "μn、σn、ℓn和dn分别表示输入窗口的总体水平",
     "μn、σn、ℓn和dn分别表示输入窗口的总体水平、离散程度、最近状态和平均变化强度。μn用于概括当前窗口整体处于较高还是较低的流量水平；σn反映窗口内部各观测值的离散程度，可用于描述整体波动大小；ℓn对应窗口末时刻的平均状态，为路由器提供最接近预测起点的信息；dn由相邻时间点的一阶变化构造，用于补充窗口内部变化速度的信息。这4个统计量分别从水平、波动、最近状态和局部变化四个角度概括输入窗口。它们并不直接承担未来流量预测，而是作为尺度选择的依据。"
 )
-# Add explanation immediately before equation 11 by using its paragraph
-eq11 = find("(11)")
-p_router = eq11.insert_paragraph_before(
+# Add routing explanation immediately before the Softmax paragraph (i.e. after formula 11).
+softmax_para = find("3个尺度分数经Softmax处理后得到非负权重")
+p_router = softmax_para.insert_paragraph_before(
     "四维向量输入隐藏维数为16的两层感知器，输出3个尺度对应的未归一化分数。这里没有再使用额外的循环网络、注意力网络或其他完整时序编码器，原因是路由器的任务不是重新学习一遍OD流量预测，而只是根据已经提取的窗口状态判断三个尺度的相对重要程度。低维统计量和较小隐藏层可以把路由模块的参数规模限制在较低水平。其尺度分数计算为"
 )
 p_router.style = find("μn、σn、ℓn和dn分别表示输入窗口的总体水平").style
