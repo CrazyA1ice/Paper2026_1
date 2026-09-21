@@ -198,3 +198,5 @@ doc.save(TARGET)
 print(TARGET)
 
 # Step 2 introduction expansion complete.
+
+# Rebuild after methodology expansion.
