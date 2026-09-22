@@ -1,7 +1,16 @@
 from __future__ import annotations
 
 from pathlib import Path
+import csv
+import json
+
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import numpy as np
 from docx import Document
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.shared import Inches
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "word_output" / "2026.09.21v21.docx"
@@ -267,6 +276,197 @@ i_c2 = next(i for i,t in enumerate(paras_e) if t.startswith("3 结论"))
 experiment_chars = sum(len(t) for t in paras_e[i_e2:i_c2] if t and not t.startswith("图") and not t.startswith("表"))
 print("experiment_chars_after", experiment_chars)
 
+
+# -------------------------
+# Step 5: add two evidence-based figures
+# -------------------------
+
+ASSET_DIR = ROOT / "word_output" / "v22_working_assets"
+ASSET_DIR.mkdir(parents=True, exist_ok=True)
+
+def generate_multiscale_example():
+    """Create a reproducible multiscale example from real Abilene training data."""
+    data_path = ROOT / "abilene_forecasting" / "data" / "processed" / "abilene_1hour.npz"
+    with np.load(data_path, allow_pickle=False) as arrays:
+        train = np.asarray(arrays["train"], dtype=float)
+        active_indices = arrays["active_indices"].copy() if "active_indices" in arrays else None
+
+    L, H = 96, 24
+    channel_sd = train.std(axis=0)
+    eligible = np.flatnonzero(channel_sd > 1e-8)
+    if eligible.size == 0:
+        raise RuntimeError("Abilene training split has no nonconstant OD channel")
+    median_sd = float(np.median(channel_sd[eligible]))
+    channel_idx = int(eligible[np.argmin(np.abs(channel_sd[eligible] - median_sd))])
+
+    max_start = len(train) - L - H + 1
+    if max_start <= 0:
+        raise RuntimeError("Training split is shorter than the configured sliding window")
+    series = train[:, channel_idx]
+    window_sds = np.array([series[i:i+L].std() for i in range(max_start)])
+    target = float(np.median(window_sds))
+    start = int(np.argmin(np.abs(window_sds - target)))
+    scale1 = series[start:start+L].copy()
+    scale2 = scale1.reshape(-1, 2).mean(axis=1)
+    scale4 = scale1.reshape(-1, 4).mean(axis=1)
+
+    csv_path = ASSET_DIR / "fig2_multiscale_example_source.csv"
+    with csv_path.open("w", newline="", encoding="utf-8") as fh:
+        writer = csv.writer(fh)
+        writer.writerow(["scale", "scale_index", "normalized_flow"])
+        for s, values in [(1, scale1), (2, scale2), (4, scale4)]:
+            for idx, value in enumerate(values, start=1):
+                writer.writerow([s, idx, f"{float(value):.10g}"])
+
+    metadata = {
+        "dataset": "abilene",
+        "split": "train",
+        "input_len": L,
+        "pred_len": H,
+        "window_start_zero_based": start,
+        "active_channel_index_zero_based": channel_idx,
+        "original_channel_index_zero_based": (
+            int(active_indices[channel_idx]) if active_indices is not None else channel_idx
+        ),
+        "selection_rule": (
+            "先在Abilene训练集的非恒定OD变量中选择全训练段标准差最接近通道中位数的变量；"
+            "再在可形成L=96、H=24样本的历史窗口中，选择96步标准差最接近全部候选窗口中位数的窗口。"
+            "该选择仅用于展示多尺度平均池化，不依据任何模型预测误差。"
+        ),
+    }
+    (ASSET_DIR / "fig2_multiscale_example_selection.json").write_text(
+        json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+    plt.rcParams.update({
+        "font.family": "sans-serif",
+        "font.sans-serif": ["Noto Sans CJK SC", "Noto Sans CJK JP", "DejaVu Sans"],
+        "axes.unicode_minus": False,
+        "font.size": 8,
+        "axes.labelsize": 8,
+        "axes.titlesize": 8,
+        "xtick.labelsize": 7,
+        "ytick.labelsize": 7,
+        "legend.fontsize": 7,
+    })
+    fig, axes = plt.subplots(3, 1, figsize=(6.6, 4.8))
+    for ax, values, s in zip(axes, [scale1, scale2, scale4], [1, 2, 4]):
+        x = np.arange(1, len(values) + 1)
+        ax.plot(x, values, linewidth=1.15)
+        ax.set_xlim(1, len(values))
+        ax.set_title(f"尺度 {s}：长度 {len(values)}")
+        ax.set_ylabel("标准化流量")
+        ax.grid(axis="y", linestyle="--", linewidth=0.5, alpha=0.5)
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+    axes[-1].set_xlabel("尺度内时间索引")
+    fig.subplots_adjust(left=0.12, right=0.98, bottom=0.10, top=0.96, hspace=0.48)
+
+    out = ASSET_DIR / "fig2_multiscale_example.png"
+    fig.savefig(out, dpi=420, bbox_inches="tight")
+    plt.close(fig)
+    return out, metadata
+
+def insert_picture_before(anchor, image_path, caption_text, width_inches=6.25):
+    pic_p = anchor.insert_paragraph_before()
+    pic_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    pic_p.add_run().add_picture(str(image_path), width=Inches(width_inches))
+    cap_p = anchor.insert_paragraph_before(caption_text)
+    cap_p.style = caption1.style
+    cap_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    return pic_p, cap_p
+
+# Figure 2: actual Abilene window under scales 1/2/4.
+fig2_path, fig2_meta = generate_multiscale_example()
+h13_for_fig = find("1.3 DLinear尺度专家")
+p_fig2_intro = h13_for_fig.insert_paragraph_before(
+    "为直观说明式（5）的尺度变换，图2从Abilene训练集中选取一个非恒定OD变量的96步历史窗口。"
+    "该窗口和OD变量均按波动程度的中位水平确定，选择过程不使用任何模型误差。"
+    "尺度2和尺度4直接由同一尺度1窗口分别进行2点和4点非重叠平均得到，因此三条序列对应的是同一段历史流量在不同时间分辨率下的表示。"
+)
+p_fig2_intro.style = find("尺度集合采用1、2和4").style
+insert_picture_before(
+    h13_for_fig,
+    fig2_path,
+    "图2 Abilene单个OD变量的多尺度序列构造示例",
+    width_inches=5.85,
+)
+p_fig2_analysis = h13_for_fig.insert_paragraph_before(
+    "从图2可以看到，尺度增大后序列长度由96依次缩短为48和24，局部起伏也逐步被平均。"
+    "这里的平滑并不是额外的滤波模型，而是式（5）所定义平均池化的直接结果。"
+    "因此，多尺度构造在不增加可训练参数的情况下，为后续DLinear专家提供了细粒度变化和较慢趋势两类侧重点不同的输入。"
+)
+p_fig2_analysis.style = p_fig2_intro.style
+
+# Renumber existing figures after inserting Figure 2.
+repl(
+    "图2 Abilene与GÉANT上三随机种子外部基线配对结果",
+    "图3 Abilene与GÉANT上三随机种子外部基线配对结果"
+)
+repl(
+    "图3 固定等权与自适应权重的八随机种子配对MSE及配对差值分布",
+    "图5 固定等权与自适应权重的八随机种子配对MSE及配对差值分布"
+)
+repl(
+    "图4 八随机种子下样本级自适应路由权重分布",
+    "图6 八随机种子下样本级自适应路由权重分布"
+)
+
+# Update in-text figure references to their new numbers.
+repl(
+    "图2进一步给出了随机种子42—44的单次实验结果",
+    "图3进一步给出了随机种子42—44的单次实验结果，用于观察表2中的平均值由哪些重复实验构成。Abilene上，本文方法在3次实验中的MSE和MAE均低于DLinear和LightTS。GÉANT上，相对LightTS的3次结果同样保持较低误差；与DLinear相比则存在个别随机种子的波动，但3次结果取平均后仍低于DLinear。由此可见，表2中的平均改善并非完全来自某一个随机种子的异常结果，尤其在Abilene上，3次重复实验的变化方向较一致。"
+)
+repl(
+    "图3按照相同随机种子对固定等权模型和本文方法进行配对比较",
+    "图5按照相同随机种子对固定等权模型和本文方法进行配对比较，以避免把不同随机初始化之间的自然波动混入模型差异。Abilene的8个随机种子中，本文方法有6次取得更低MSE；GÉANT中有7次取得更低MSE。两个数据集的平均ΔMSE均为正，与表3中的均值结果一致。换言之，自适应权重带来的平均改善并不只由少数单次实验推动，而是在多数共同随机种子下都能观察到同方向变化。"
+)
+repl(
+    "从DLinear、固定等权多尺度模型到本文方法",
+    "从DLinear、固定等权多尺度模型到本文方法，模型结构逐步增加了两个因素：先加入多个时间尺度，再把固定权重替换为样本级权重。表3与图5共同说明，在已经具备多尺度专家的前提下，尺度融合方式仍会影响预测结果。这也是后续分析路由权重分布的原因：如果路由器始终输出接近1/3的权重，那么自适应模块与固定等权模型实际上不会形成明显区别。"
+)
+repl(
+    "图4统计随机种子42—49下全部测试窗口的尺度权重",
+    "图6统计随机种子42—49下全部测试窗口的尺度权重，用于观察路由网络在测试阶段是否真正形成了不同于固定1/3的尺度分配。固定等权模型在所有样本上都使用同一组权重，而本文方法的权重由每个输入窗口的统计特征计算，因此测试集中的权重分布能够直接反映路由器对3个尺度的总体偏好及其变化范围。"
+)
+
+# Figure 4: representative prediction curves already generated from real prediction files.
+h24_for_fig = find("2.4 八随机种子核心消融与稳定性")
+p_fig4_intro = h24_for_fig.insert_paragraph_before(
+    "平均指标能够反映整体误差水平，但不容易展示24步预测过程中预测轨迹与真实序列之间的关系。"
+    "因此，图4给出随机种子42下的代表性测试窗口。样本选择不依据本文方法相对DLinear的提升幅度："
+    "先选择本文方法绝对误差最接近全部测试窗口中位数的窗口，再在该窗口的非恒定OD通道中选择真实值波动程度接近通道中位数的通道，"
+    "以避免仅展示最有利的预测案例。"
+)
+p_fig4_intro.style = find("两个数据集上的相对降幅并不完全相同").style
+prediction_fig = (
+    ROOT / "abilene_forecasting" / "paper_figures" / "exports"
+    / "fig5_prediction_curves" / "fig5_representative_forecasts.png"
+)
+if not prediction_fig.exists():
+    raise FileNotFoundError(prediction_fig)
+insert_picture_before(
+    h24_for_fig,
+    prediction_fig,
+    "图4 Abilene与GÉANT代表性测试窗口的24步预测结果",
+    width_inches=6.25,
+)
+p_fig4_analysis = h24_for_fig.insert_paragraph_before(
+    "图4中，两种模型均能跟随真实序列的主要变化，但局部预测阶段仍存在不同程度的偏差。"
+    "Abilene示例中，本文方法在若干快速上升和回落区间与真实值更接近；GÉANT示例中，两条预测曲线在部分时段各有偏差。"
+    "该图的作用是补充展示单个代表性窗口的预测形态，而不是用一个案例替代表2的多随机种子平均结果；整体性能判断仍以全部测试窗口上的MSE和MAE为依据。"
+)
+p_fig4_analysis.style = p_fig4_intro.style
+
+repl(
+    "综合表2、表3和图2—图4",
+    "综合表2、表3和图3—图6可以形成一条较清晰的实验链。表2和图3回答本文方法与外部轻量基线相比处于什么误差水平；图4补充展示代表性测试窗口中的24步预测轨迹；表3和图5进一步控制专家结构，考察固定等权与样本级权重之间的差异；图6则从模型内部的尺度分配结果说明，路由器在测试样本上确实形成了非等权的融合方式。各部分分别对应总体性能、局部预测形态、核心结构消融和内部权重行为，使实验分析与第1节提出的多尺度专家和样本级路由设计相互对应。"
+)
+
+# Figure-specific guardrails and audit.
+assert prediction_fig.exists()
+assert fig2_path.exists()
+
 # Guardrails
 full = "\n".join(p.text for p in doc.paragraphs)
 for token in [
@@ -280,7 +480,16 @@ for token in [
     assert token in full, token
 
 assert len(doc.tables) == 3
-assert len(doc.inline_shapes) == 4
+assert len(doc.inline_shapes) == 6
+for expected_caption in [
+    "图1 自适应多尺度网络流量预测方法框架",
+    "图2 Abilene单个OD变量的多尺度序列构造示例",
+    "图3 Abilene与GÉANT上三随机种子外部基线配对结果",
+    "图4 Abilene与GÉANT代表性测试窗口的24步预测结果",
+    "图5 固定等权与自适应权重的八随机种子配对MSE及配对差值分布",
+    "图6 八随机种子下样本级自适应路由权重分布",
+]:
+    assert expected_caption in full, expected_caption
 
 # Report introduction growth for later audit.
 paras = [p.text.strip() for p in doc.paragraphs]
