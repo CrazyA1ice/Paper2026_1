@@ -285,21 +285,21 @@ ASSET_DIR = ROOT / "word_output" / "v22_assets"
 ASSET_DIR.mkdir(parents=True, exist_ok=True)
 
 TRUTH_COLOR = "#333333"
-DLINEAR_COLOR = "#2B6EA6"
-PROPOSED_COLOR = "#A33D36"
-LIGHT_BLUE = "#BFD3E6"
+DLINEAR_COLOR = "#1768AC"
+PROPOSED_COLOR = "#A9322A"
+LIGHT_BLUE = "#AFCBE3"
 
 plt.rcParams.update({
-    "font.family": "sans-serif",
-    "font.sans-serif": ["Noto Serif CJK SC", "Noto Serif CJK JP", "Noto Sans CJK SC", "DejaVu Sans"],
+    "font.family": "serif",
+    "font.serif": ["Noto Serif CJK SC", "Noto Serif CJK JP", "DejaVu Serif"],
     "axes.unicode_minus": False,
-    "font.size": 8.3,
-    "axes.labelsize": 8.3,
-    "axes.titlesize": 9.0,
-    "xtick.labelsize": 7.3,
-    "ytick.labelsize": 7.3,
-    "legend.fontsize": 7.5,
-    "axes.linewidth": 0.8,
+    "font.size": 11.0,
+    "axes.labelsize": 12.0,
+    "axes.titlesize": 14.0,
+    "xtick.labelsize": 10.5,
+    "ytick.labelsize": 10.5,
+    "legend.fontsize": 10.5,
+    "axes.linewidth": 1.0,
     "xtick.direction": "out",
     "ytick.direction": "out",
 })
@@ -374,8 +374,12 @@ def generate_multiscale_example():
         json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    fig = plt.figure(figsize=(7.05, 5.15))
-    gs = fig.add_gridspec(2, 2, left=0.085, right=0.985, bottom=0.095, top=0.955, wspace=0.22, hspace=0.34)
+    # Recreate the user's approved 2×2 paper-figure style while preserving exact source values.
+    fig = plt.figure(figsize=(8.0, 6.0))
+    gs = fig.add_gridspec(
+        2, 2, left=0.075, right=0.985, bottom=0.085, top=0.96,
+        wspace=0.18, hspace=0.34
+    )
     axes = [fig.add_subplot(gs[0,0]), fig.add_subplot(gs[0,1]), fig.add_subplot(gs[1,0])]
     specs = [
         (axes[0], scale1, 1, 96, None),
@@ -384,15 +388,16 @@ def generate_multiscale_example():
     ]
     y_min = min(np.min(scale1), np.min(scale2), np.min(scale4))
     y_max = max(np.max(scale1), np.max(scale2), np.max(scale4))
-    pad = max(0.04, (y_max-y_min)*0.10)
+    pad = max(0.02, (y_max-y_min)*0.14)
+
     for ax, values, scale, n, marker in specs:
         x = np.arange(1, n+1)
         ax.plot(
-            x, values, color=DLINEAR_COLOR, lw=1.45,
-            marker=marker, ms=3.1 if marker else 0,
-            mfc=DLINEAR_COLOR, mec=DLINEAR_COLOR, mew=0.45
+            x, values, color=DLINEAR_COLOR, lw=1.55,
+            marker=marker, ms=3.9 if marker else 0,
+            mfc=DLINEAR_COLOR, mec=DLINEAR_COLOR, mew=0.5
         )
-        ax.set_title(f"尺度{scale}：{n}步", pad=5)
+        ax.set_title(f"尺度{scale}：{n}步", pad=7)
         ax.set_xlabel("时间步")
         ax.set_ylabel("标准化流量")
         ax.set_xlim(1, n)
@@ -403,47 +408,64 @@ def generate_multiscale_example():
             ax.set_xticks([1, 12, 24, 36, 48])
         else:
             ax.set_xticks([1, 6, 12, 18, 24])
-        ax.grid(axis="y", color="#D8D8D8", ls="--", lw=0.45, alpha=0.55)
-        ax.set_axisbelow(True)
+        ax.grid(False)
         _clean_axes(ax)
 
     for label, ax in zip(["(a)", "(b)", "(c)"], axes):
-        ax.text(-0.11, 1.08, label, transform=ax.transAxes, fontsize=9.3, fontweight="bold", va="top")
+        ax.text(-0.13, 1.10, label, transform=ax.transAxes, fontsize=14.5,
+                fontweight="bold", va="top")
 
     axd = fig.add_subplot(gs[1,1])
     axd.set_axis_off()
     axd.set_xlim(0, 100)
     axd.set_ylim(0, 10)
-    axd.text(0, 9.8, "(d)", fontsize=9.3, fontweight="bold", va="top")
-    axd.text(50, 9.3, "多尺度平均池化示意", ha="center", va="top", fontsize=9.0)
+    axd.text(0, 9.9, "(d)", fontsize=14.5, fontweight="bold", va="top")
+    axd.text(52, 9.65, "多尺度平均池化示意", ha="center", va="top", fontsize=14.0)
 
-    def draw_row(y, xs, fill, edge, size=70):
-        axd.scatter(xs, np.full(len(xs), y), s=size, c=fill, edgecolors=edge, linewidths=0.9, zorder=3)
+    def draw_row(y, xs, fill, edge, size=75):
+        axd.scatter(xs, np.full(len(xs), y), s=size, c=fill,
+                    edgecolors=edge, linewidths=0.9, zorder=3)
 
-    top_x = list(np.linspace(10, 39, 8)) + list(np.linspace(61, 90, 8))
-    mid_x = list(np.linspace(11, 38, 6)) + list(np.linspace(62, 89, 6))
-    bot_x = list(np.linspace(12, 37, 4)) + list(np.linspace(63, 88, 4))
-    draw_row(7.5, top_x, LIGHT_BLUE, DLINEAR_COLOR, 66)
-    draw_row(4.65, mid_x, "#92B8D8", DLINEAR_COLOR, 66)
-    draw_row(1.8, bot_x, "#6F9FC7", DLINEAR_COLOR, 72)
-    axd.text(50, 7.5, "…", ha="center", va="center", fontsize=11)
-    axd.text(50, 4.65, "…", ha="center", va="center", fontsize=11)
-    axd.text(50, 1.8, "…", ha="center", va="center", fontsize=11)
+    top_x = list(np.linspace(11, 41, 9)) + list(np.linspace(63, 91, 9))
+    mid_x = list(np.linspace(11, 39, 7)) + list(np.linspace(64, 90, 7))
+    bot_x = list(np.linspace(11, 37, 5)) + list(np.linspace(66, 90, 5))
 
-    axd.plot([7,93],[8.35,8.35], color="#333333", lw=0.8)
-    axd.plot([7,7],[8.20,8.50], color="#333333", lw=0.8)
-    axd.plot([93,93],[8.20,8.50], color="#333333", lw=0.8)
-    axd.text(50, 8.55, "原始序列（96步）", ha="center", va="bottom", fontsize=8.2)
+    axd.plot([9,93],[8.2,8.2], color="#333333", lw=0.9)
+    axd.plot([9,9],[8.05,8.35], color="#333333", lw=0.9)
+    axd.plot([93,93],[8.05,8.35], color="#333333", lw=0.9)
+    axd.text(51,8.4,"原始序列（96步）",ha="center",va="bottom",fontsize=10.6)
+    draw_row(7.2, top_x, LIGHT_BLUE, DLINEAR_COLOR, 72)
+    axd.text(52,7.2,"…",ha="center",va="center",fontsize=14)
 
-    axd.annotate("", xy=(50,5.45), xytext=(50,6.75), arrowprops=dict(arrowstyle="-|>", lw=0.9, color="#333333"))
-    axd.text(58, 6.1, "每2点平均（不重叠）", fontsize=7.6, va="center")
-    axd.annotate("", xy=(50,2.55), xytext=(50,3.85), arrowprops=dict(arrowstyle="-|>", lw=0.9, color="#333333"))
-    axd.text(58, 3.2, "每4点平均（不重叠）", fontsize=7.6, va="center")
-    axd.text(94, 4.65, "→ 48步", fontsize=8.0, va="center", ha="left")
-    axd.text(94, 1.8, "→ 24步", fontsize=8.0, va="center", ha="left")
+    from matplotlib.patches import FancyBboxPatch
+    axd.add_patch(FancyBboxPatch((8.5,6.75),35,0.9,boxstyle="round,pad=0.08,rounding_size=0.35",
+                                 fill=False,ls="--",lw=0.9,ec=DLINEAR_COLOR))
+    axd.add_patch(FancyBboxPatch((60.5,6.75),34,0.9,boxstyle="round,pad=0.08,rounding_size=0.35",
+                                 fill=False,ls="--",lw=0.9,ec=DLINEAR_COLOR))
+    axd.annotate("",xy=(51,5.25),xytext=(51,6.5),
+                 arrowprops=dict(arrowstyle="-|>",lw=1.0,color="#333333"))
+    axd.text(57,5.9,"每2点平均\n（不重叠）",va="center",fontsize=10.5)
+    draw_row(4.45, mid_x, "#8FB8D8", DLINEAR_COLOR, 70)
+    axd.text(52,4.45,"…",ha="center",va="center",fontsize=14)
+    axd.text(93,4.45,"→ 48步",ha="left",va="center",fontsize=11.2)
+    for x0 in [9.5,18,26.5,35,62.5,71,79.5,88]:
+        axd.plot([x0,x0+5],[5.1,5.1],color="#333333",lw=0.8)
+        axd.plot([x0,x0],[4.92,5.1],color="#333333",lw=0.8)
+        axd.plot([x0+5,x0+5],[4.92,5.1],color="#333333",lw=0.8)
+
+    axd.annotate("",xy=(51,2.55),xytext=(51,3.75),
+                 arrowprops=dict(arrowstyle="-|>",lw=1.0,color="#333333"))
+    axd.text(57,3.15,"每4点平均\n（不重叠）",va="center",fontsize=10.5)
+    draw_row(1.75, bot_x, "#77A8D0", DLINEAR_COLOR, 78)
+    axd.text(52,1.75,"…",ha="center",va="center",fontsize=14)
+    axd.text(93,1.75,"→ 24步",ha="left",va="center",fontsize=11.2)
+    for x0 in [10,25,64,79]:
+        axd.plot([x0,x0+10],[2.42,2.42],color="#333333",lw=0.8)
+        axd.plot([x0,x0],[2.24,2.42],color="#333333",lw=0.8)
+        axd.plot([x0+10,x0+10],[2.24,2.42],color="#333333",lw=0.8)
 
     out = ASSET_DIR / "fig2_multiscale_compact.png"
-    fig.savefig(out, dpi=500, bbox_inches="tight", facecolor="white")
+    fig.savefig(out, dpi=420, bbox_inches="tight", facecolor="white")
     plt.close(fig)
     return out, metadata
 
@@ -490,7 +512,8 @@ def generate_representative_forecast_figure():
         json.dumps(audits, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    fig, axes = plt.subplots(2, 2, figsize=(7.05, 5.15), sharex="col")
+    # Recreate the user's approved 2×2 prediction/error layout using the exact committed source data.
+    fig, axes = plt.subplots(2, 2, figsize=(8.0, 6.0), sharex="col")
     for col, dataset in enumerate(("abilene", "geant")):
         frame = sorted(grouped[dataset], key=lambda r: int(r["forecast_hour"]))
         x = np.array([int(r["forecast_hour"]) for r in frame])
@@ -500,36 +523,45 @@ def generate_representative_forecast_figure():
         title = "Abilene" if dataset == "abilene" else "GÉANT"
 
         ax = axes[0, col]
-        ax.plot(x, truth, color=TRUTH_COLOR, lw=1.55, marker="o", ms=3.0, markevery=2, label="真实值", zorder=4)
-        ax.plot(x, dlinear, color=DLINEAR_COLOR, lw=1.25, ls="--", marker="s", ms=3.1, markevery=2, label="DLinear", zorder=2)
-        ax.plot(x, proposed, color=PROPOSED_COLOR, lw=1.35, marker="^", ms=3.4, markevery=2, label="本文方法", zorder=3)
-        ax.set_title(f"{title} 预测结果", pad=5)
+        ax.plot(x, truth, color=TRUTH_COLOR, lw=1.55, marker="o", ms=3.8,
+                label="真实值", zorder=4)
+        ax.plot(x, dlinear, color=DLINEAR_COLOR, lw=1.45, ls="--",
+                marker="s", ms=3.9, label="DLinear", zorder=2)
+        ax.plot(x, proposed, color=PROPOSED_COLOR, lw=1.55,
+                marker="^", ms=4.3, label="本文方法", zorder=3)
+        ax.set_title(f"{title} 预测结果", pad=6)
         ax.set_ylabel("标准化流量")
-        ax.grid(axis="y", color="#D8D8D8", ls="--", lw=0.45, alpha=0.55)
-        ax.set_axisbelow(True)
+        ax.set_xticks(np.arange(1,25,2))
+        ax.grid(False)
         _clean_axes(ax)
 
         ax2 = axes[1, col]
-        ax2.plot(x, np.abs(dlinear-truth), color=DLINEAR_COLOR, lw=1.25, ls="--", marker="s", ms=3.0, markevery=2, label="DLinear")
-        ax2.plot(x, np.abs(proposed-truth), color=PROPOSED_COLOR, lw=1.35, marker="^", ms=3.3, markevery=2, label="本文方法")
-        ax2.set_title(f"{title} 绝对误差", pad=5)
+        ax2.plot(x, np.abs(dlinear-truth), color=DLINEAR_COLOR, lw=1.45,
+                 ls="--", marker="s", ms=3.9, label="|DLinear-真实值|")
+        ax2.plot(x, np.abs(proposed-truth), color=PROPOSED_COLOR, lw=1.55,
+                 marker="^", ms=4.3, label="|本文方法-真实值|")
+        ax2.set_title(f"{title} 绝对误差", pad=6)
         ax2.set_xlabel("预测步长")
         ax2.set_ylabel("绝对误差（标准化）")
-        ax2.set_xticks([1, 6, 12, 18, 24])
-        ax2.grid(axis="y", color="#D8D8D8", ls="--", lw=0.45, alpha=0.55)
-        ax2.set_axisbelow(True)
+        ax2.set_xticks(np.arange(1,25,2))
+        ax2.set_ylim(bottom=0)
+        ax2.grid(False)
         _clean_axes(ax2)
+        ax2.legend(loc="upper center", ncol=2, frameon=False, handlelength=2.3)
 
     for label, ax in zip(["(a)", "(b)", "(c)", "(d)"], axes.ravel()):
-        ax.text(-0.11, 1.08, label, transform=ax.transAxes, fontsize=9.3, fontweight="bold", va="top")
+        ax.text(-0.12, 1.09, label, transform=ax.transAxes, fontsize=14.5,
+                fontweight="bold", va="top")
 
     handles, labels = axes[0,0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="upper center", bbox_to_anchor=(0.5, 0.995), ncol=3,
-               frameon=True, fancybox=False, edgecolor="#777777", handlelength=2.5, columnspacing=1.8)
-    fig.subplots_adjust(left=0.095, right=0.985, bottom=0.105, top=0.88, wspace=0.23, hspace=0.33)
+    fig.legend(handles, labels, loc="upper center", bbox_to_anchor=(0.5, 0.985),
+               ncol=3, frameon=True, fancybox=False, edgecolor="#666666",
+               handlelength=2.5, columnspacing=1.6)
+    fig.subplots_adjust(left=0.085, right=0.985, bottom=0.085, top=0.89,
+                        wspace=0.16, hspace=0.34)
 
     out = ASSET_DIR / "fig4_representative_prediction_error.png"
-    fig.savefig(out, dpi=500, bbox_inches="tight", facecolor="white")
+    fig.savefig(out, dpi=420, bbox_inches="tight", facecolor="white")
     plt.close(fig)
     return out, audits
 
@@ -613,9 +645,11 @@ insert_picture_before(
     width_inches=6.25,
 )
 p_fig4_analysis = h24_for_fig.insert_paragraph_before(
-    "图4(a)、(b)展示真实值、DLinear和本文方法在24个预测步上的轨迹，图4(c)、(d)给出对应的标准化绝对误差。"
-    "Abilene示例中，本文方法在多数预测步上与真实值更接近；GÉANT示例中，两种方法的误差更为接近，不同预测步各有偏差。"
-    "该图用于补充说明单个典型窗口中的预测形态，整体性能判断仍以表2和表3在全部测试样本、多个随机种子上的统计结果为准。"
+    "图4(a)、(b)展示真实值、DLinear和本文方法在24个预测步上的标准化预测轨迹，图4(c)、(d)给出对应的逐步标准化绝对误差。"
+    f"该代表性窗口中，Abilene上DLinear与本文方法的MAE分别为{fig4_audit['abilene']['dlinear_case_mae_standardized']:.4f}和{fig4_audit['abilene']['adaptive_case_mae_standardized']:.4f}；"
+    f"GÉANT上分别为{fig4_audit['geant']['dlinear_case_mae_standardized']:.4f}和{fig4_audit['geant']['adaptive_case_mae_standardized']:.4f}。"
+    "因此，Abilene示例中本文方法整体误差更低，而GÉANT示例中两种方法较为接近。"
+    "该图用于补充说明典型窗口中的预测形态，整体性能判断仍以表2和表3在全部测试样本、多个随机种子上的统计结果为准。"
 )
 p_fig4_analysis.style = p_fig4_intro.style
 
