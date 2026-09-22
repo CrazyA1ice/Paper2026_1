@@ -54,6 +54,16 @@ jobs:
           test "$pages" -ge 8
           test "$pages" -le 20
 
+      - name: Upload final v22 QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-v22-qa
+          path: |
+            word_output/2026.09.22v22.docx
+            word_output/render_v22_word/2026.09.22v22.pdf
+            word_output/render_v22_word/page-*.png
+          retention-days: 2
+
       - name: Commit final v22
         run: |
           git config user.name "github-actions[bot]"
