@@ -10,5 +10,11 @@
   "pooling_check": {
     "scale2_max_abs_error": 0.0,
     "scale4_max_abs_error": 0.0
-  }
+  },
+  "std_by_scale": {
+    "scale1": 0.07102259783086588,
+    "scale2": 0.06738381463557534,
+    "scale4": 0.06131971046561388
+  },
+  "scale1_to_scale4_std_reduction_pct": 13.661690309271112
 }

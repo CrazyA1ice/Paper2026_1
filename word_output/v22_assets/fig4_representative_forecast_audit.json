@@ -4,13 +4,15 @@
     "dlinear_case_mae_standardized": 0.10570830791666667,
     "adaptive_case_mae_standardized": 0.06798997041666667,
     "dlinear_max_abs_error_standardized": 0.21654365999999997,
-    "adaptive_max_abs_error_standardized": 0.13712662999999997
+    "adaptive_max_abs_error_standardized": 0.13712662999999997,
+    "overall_3seed_mse_reduction_vs_dlinear_pct": 4.064331438521018
   },
   "geant": {
     "n_forecast_steps": 24,
     "dlinear_case_mae_standardized": 0.20870900174583332,
     "adaptive_case_mae_standardized": 0.2093730455916667,
     "dlinear_max_abs_error_standardized": 0.51078276,
-    "adaptive_max_abs_error_standardized": 0.58133696
+    "adaptive_max_abs_error_standardized": 0.58133696,
+    "overall_3seed_mse_reduction_vs_dlinear_pct": 4.433012612192105
   }
 }
