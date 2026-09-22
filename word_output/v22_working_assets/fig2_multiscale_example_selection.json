@@ -1,0 +1,10 @@
+{
+  "dataset": "abilene",
+  "split": "train",
+  "input_len": 96,
+  "pred_len": 24,
+  "window_start_zero_based": 2347,
+  "active_channel_index_zero_based": 32,
+  "original_channel_index_zero_based": 32,
+  "selection_rule": "先在Abilene训练集的非恒定OD变量中选择全训练段标准差最接近通道中位数的变量；再在可形成L=96、H=24样本的历史窗口中，选择96步标准差最接近全部候选窗口中位数的窗口。该选择仅用于展示多尺度平均池化，不依据任何模型预测误差。"
+}
