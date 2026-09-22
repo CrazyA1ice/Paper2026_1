@@ -284,33 +284,36 @@ print("experiment_chars_after", experiment_chars)
 ASSET_DIR = ROOT / "word_output" / "v22_assets"
 ASSET_DIR.mkdir(parents=True, exist_ok=True)
 
-TRUTH_COLOR = "#333333"
-DLINEAR_COLOR = "#1768AC"
-PROPOSED_COLOR = "#A9322A"
-LIGHT_BLUE = "#AFCBE3"
+TRUTH_COLOR = "#252525"
+DLINEAR_COLOR = "#3569A8"
+PROPOSED_COLOR = "#C9493E"
+TEXT_COLOR = "#2A2A2A"
+MUTED_COLOR = "#686868"
+GRID_COLOR = "#D9D9D9"
 
 plt.rcParams.update({
     "font.family": "serif",
     "font.serif": ["Noto Serif CJK SC", "Noto Serif CJK JP", "DejaVu Serif"],
     "axes.unicode_minus": False,
-    "font.size": 11.0,
-    "axes.labelsize": 12.0,
-    "axes.titlesize": 14.0,
-    "xtick.labelsize": 10.5,
-    "ytick.labelsize": 10.5,
-    "legend.fontsize": 10.5,
-    "axes.linewidth": 1.0,
+    "font.size": 9.6,
+    "axes.labelsize": 9.8,
+    "axes.titlesize": 10.7,
+    "xtick.labelsize": 8.8,
+    "ytick.labelsize": 8.8,
+    "legend.fontsize": 8.9,
+    "axes.linewidth": 0.7,
     "xtick.direction": "out",
     "ytick.direction": "out",
 })
 
 def _clean_axes(ax):
-    ax.spines["top"].set_visible(True)
-    ax.spines["right"].set_visible(True)
-    for spine in ax.spines.values():
-        spine.set_linewidth(0.8)
-        spine.set_color("#333333")
-    ax.tick_params(width=0.7, length=3.0, color="#333333")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_color("#555555")
+    ax.spines["bottom"].set_color("#555555")
+    ax.tick_params(width=0.65, length=2.8, color="#555555", pad=2.5)
+    ax.grid(axis="y", color=GRID_COLOR, lw=0.55, alpha=0.6, zorder=0)
+    ax.set_axisbelow(True)
 
 def generate_multiscale_example():
     """Generate Figure 2 from the actual Abilene training split and verify pooling."""
@@ -369,105 +372,139 @@ def generate_multiscale_example():
             "scale2_max_abs_error": float(np.max(np.abs(scale2 - scale1.reshape(-1, 2).mean(axis=1)))),
             "scale4_max_abs_error": float(np.max(np.abs(scale4 - scale1.reshape(-1, 4).mean(axis=1)))),
         },
+        "std_by_scale": {
+            "scale1": float(np.std(scale1)),
+            "scale2": float(np.std(scale2)),
+            "scale4": float(np.std(scale4)),
+        },
+        "scale1_to_scale4_std_reduction_pct": float(
+            (1.0 - np.std(scale4) / np.std(scale1)) * 100.0
+        ),
     }
     (ASSET_DIR / "fig2_multiscale_example_selection.json").write_text(
         json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    # Recreate the user's approved 2×2 paper-figure style while preserving exact source values.
-    fig = plt.figure(figsize=(8.0, 6.0))
+    # Publication layout: three wide data panels + an independent pooling schematic.
+    # The actual source values and the pooling audit above remain unchanged.
+    from matplotlib.patches import FancyBboxPatch
+
+    fig = plt.figure(figsize=(7.45, 5.05))
     gs = fig.add_gridspec(
-        2, 2, left=0.075, right=0.985, bottom=0.085, top=0.96,
-        wspace=0.18, hspace=0.34
+        3, 2, width_ratios=[2.45, 1.10], hspace=0.44, wspace=0.25,
+        left=0.105, right=0.985, bottom=0.105, top=0.965
     )
-    axes = [fig.add_subplot(gs[0,0]), fig.add_subplot(gs[0,1]), fig.add_subplot(gs[1,0])]
-    specs = [
-        (axes[0], scale1, 1, 96, None),
-        (axes[1], scale2, 2, 48, "o"),
-        (axes[2], scale4, 4, 24, "s"),
-    ]
+    axes = [fig.add_subplot(gs[i, 0]) for i in range(3)]
     y_min = min(np.min(scale1), np.min(scale2), np.min(scale4))
     y_max = max(np.max(scale1), np.max(scale2), np.max(scale4))
-    pad = max(0.02, (y_max-y_min)*0.14)
+    pad = (y_max - y_min) * 0.08
 
-    for ax, values, scale, n, marker in specs:
-        x = np.arange(1, n+1)
-        ax.plot(
-            x, values, color=DLINEAR_COLOR, lw=1.55,
-            marker=marker, ms=3.9 if marker else 0,
-            mfc=DLINEAR_COLOR, mec=DLINEAR_COLOR, mew=0.5
-        )
-        ax.set_title(f"尺度{scale}：{n}步", pad=7)
-        ax.set_xlabel("时间步")
-        ax.set_ylabel("标准化流量")
+    for i, (ax, values, scale, n) in enumerate(
+        zip(axes, [scale1, scale2, scale4], [1, 2, 4], [96, 48, 24])
+    ):
+        x = np.arange(1, n + 1)
+        ax.plot(x, values, lw=1.45, color=DLINEAR_COLOR, zorder=3)
+        if scale > 1:
+            ax.scatter(
+                x, values, s=7.0, color=DLINEAR_COLOR,
+                edgecolors="white", linewidths=0.25, zorder=4
+            )
         ax.set_xlim(1, n)
-        ax.set_ylim(y_min-pad, y_max+pad)
-        if n == 96:
-            ax.set_xticks([1, 24, 48, 72, 96])
-        elif n == 48:
-            ax.set_xticks([1, 12, 24, 36, 48])
+        ax.set_ylim(y_min - pad, y_max + pad)
+        ax.set_xticks({
+            96: [1, 24, 48, 72, 96],
+            48: [1, 12, 24, 36, 48],
+            24: [1, 6, 12, 18, 24],
+        }[n])
+        if i < 2:
+            ax.set_xticklabels([])
         else:
-            ax.set_xticks([1, 6, 12, 18, 24])
-        ax.grid(False)
+            ax.set_xlabel("时间步")
+        ax.text(
+            0.012, 0.91, f"({chr(97+i)})  尺度 {scale}  ·  {n} 步",
+            transform=ax.transAxes, ha="left", va="top",
+            fontsize=9.9, fontweight="semibold", color=TEXT_COLOR
+        )
+        ax.text(
+            0.988, 0.91, rf"$\sigma$={np.std(values):.3f}",
+            transform=ax.transAxes, ha="right", va="top",
+            fontsize=8.7, color=MUTED_COLOR
+        )
         _clean_axes(ax)
+    fig.supylabel("标准化流量", x=0.018, fontsize=9.8)
 
-    for label, ax in zip(["(a)", "(b)", "(c)"], axes):
-        ax.text(-0.13, 1.10, label, transform=ax.transAxes, fontsize=14.5,
-                fontweight="bold", va="top")
-
-    axd = fig.add_subplot(gs[1,1])
+    axd = fig.add_subplot(gs[:, 1])
     axd.set_axis_off()
-    axd.set_xlim(0, 100)
-    axd.set_ylim(0, 10)
-    axd.text(0, 9.9, "(d)", fontsize=14.5, fontweight="bold", va="top")
-    axd.text(52, 9.65, "多尺度平均池化示意", ha="center", va="top", fontsize=14.0)
-
-    def draw_row(y, xs, fill, edge, size=75):
-        axd.scatter(xs, np.full(len(xs), y), s=size, c=fill,
-                    edgecolors=edge, linewidths=0.9, zorder=3)
-
-    top_x = list(np.linspace(11, 41, 9)) + list(np.linspace(63, 91, 9))
-    mid_x = list(np.linspace(11, 39, 7)) + list(np.linspace(64, 90, 7))
-    bot_x = list(np.linspace(11, 37, 5)) + list(np.linspace(66, 90, 5))
-
-    axd.plot([9,93],[8.2,8.2], color="#333333", lw=0.9)
-    axd.plot([9,9],[8.05,8.35], color="#333333", lw=0.9)
-    axd.plot([93,93],[8.05,8.35], color="#333333", lw=0.9)
-    axd.text(51,8.4,"原始序列（96步）",ha="center",va="bottom",fontsize=10.6)
-    draw_row(7.2, top_x, LIGHT_BLUE, DLINEAR_COLOR, 72)
-    axd.text(52,7.2,"…",ha="center",va="center",fontsize=14)
-
-    from matplotlib.patches import FancyBboxPatch
-    axd.add_patch(FancyBboxPatch((8.5,6.75),35,0.9,boxstyle="round,pad=0.08,rounding_size=0.35",
-                                 fill=False,ls="--",lw=0.9,ec=DLINEAR_COLOR))
-    axd.add_patch(FancyBboxPatch((60.5,6.75),34,0.9,boxstyle="round,pad=0.08,rounding_size=0.35",
-                                 fill=False,ls="--",lw=0.9,ec=DLINEAR_COLOR))
-    axd.annotate("",xy=(51,5.25),xytext=(51,6.5),
-                 arrowprops=dict(arrowstyle="-|>",lw=1.0,color="#333333"))
-    axd.text(57,5.9,"每2点平均\n（不重叠）",va="center",fontsize=10.5)
-    draw_row(4.45, mid_x, "#8FB8D8", DLINEAR_COLOR, 70)
-    axd.text(52,4.45,"…",ha="center",va="center",fontsize=14)
-    axd.text(93,4.45,"→ 48步",ha="left",va="center",fontsize=11.2)
-    for x0 in [9.5,18,26.5,35,62.5,71,79.5,88]:
-        axd.plot([x0,x0+5],[5.1,5.1],color="#333333",lw=0.8)
-        axd.plot([x0,x0],[4.92,5.1],color="#333333",lw=0.8)
-        axd.plot([x0+5,x0+5],[4.92,5.1],color="#333333",lw=0.8)
-
-    axd.annotate("",xy=(51,2.55),xytext=(51,3.75),
-                 arrowprops=dict(arrowstyle="-|>",lw=1.0,color="#333333"))
-    axd.text(57,3.15,"每4点平均\n（不重叠）",va="center",fontsize=10.5)
-    draw_row(1.75, bot_x, "#77A8D0", DLINEAR_COLOR, 78)
-    axd.text(52,1.75,"…",ha="center",va="center",fontsize=14)
-    axd.text(93,1.75,"→ 24步",ha="left",va="center",fontsize=11.2)
-    for x0 in [10,25,64,79]:
-        axd.plot([x0,x0+10],[2.42,2.42],color="#333333",lw=0.8)
-        axd.plot([x0,x0],[2.24,2.42],color="#333333",lw=0.8)
-        axd.plot([x0+10,x0+10],[2.24,2.42],color="#333333",lw=0.8)
+    axd.set_xlim(0, 1)
+    axd.set_ylim(0, 1)
+    axd.text(
+        0.02, 0.975, "(d)  平均池化与尺度变化",
+        ha="left", va="top", fontsize=9.9,
+        fontweight="semibold", color=TEXT_COLOR
+    )
+    axd.text(
+        0.02, 0.925,
+        "同一 96 步历史窗口\n经非重叠平均形成三种时间分辨率",
+        ha="left", va="top", fontsize=8.05,
+        color=MUTED_COLOR, linespacing=1.25
+    )
+    levels = [
+        (0.78, "尺度 1", "96 步", "保留细粒度波动", float(np.std(scale1))),
+        (0.49, "尺度 2", "48 步", "相邻 2 点平均", float(np.std(scale2))),
+        (0.20, "尺度 4", "24 步", "相邻 4 点平均", float(np.std(scale4))),
+    ]
+    for y, label, note, desc, sd in levels:
+        box = FancyBboxPatch(
+            (0.06, y - 0.073), 0.88, 0.142,
+            boxstyle="round,pad=0.012,rounding_size=0.02",
+            ec=DLINEAR_COLOR, fc="#F7FAFD", lw=0.9
+        )
+        axd.add_patch(box)
+        axd.text(
+            0.11, y + 0.022, label, ha="left", va="center",
+            fontsize=9.7, fontweight="semibold", color=DLINEAR_COLOR
+        )
+        axd.text(
+            0.89, y + 0.022, note, ha="right", va="center",
+            fontsize=9.0, color=TEXT_COLOR
+        )
+        axd.text(
+            0.11, y - 0.031, desc, ha="left", va="center",
+            fontsize=8.15, color=MUTED_COLOR
+        )
+        axd.text(
+            0.89, y - 0.031, rf"$\sigma$={sd:.3f}",
+            ha="right", va="center", fontsize=8.15, color=MUTED_COLOR
+        )
+    for y_start, y_end, label in [
+        (0.690, 0.575, "2 点平均"),
+        (0.400, 0.285, "再按 2 点平均"),
+    ]:
+        axd.annotate(
+            "", xy=(0.43, y_end), xytext=(0.43, y_start),
+            arrowprops=dict(
+                arrowstyle="-|>", lw=0.9, color="#555555",
+                shrinkA=0, shrinkB=0
+            )
+        )
+        axd.text(
+            0.51, (y_start + y_end) / 2, label,
+            ha="left", va="center", fontsize=8.1, color=MUTED_COLOR
+        )
+    sd_drop = (1.0 - np.std(scale4) / np.std(scale1)) * 100.0
+    axd.text(
+        0.50, 0.045,
+        f"示例窗口中：尺度 1 → 4，σ下降 {sd_drop:.1f}%\n"
+        "局部波动减弱，较慢变化趋势更突出",
+        ha="center", va="center", fontsize=8.0,
+        color=TEXT_COLOR, linespacing=1.35
+    )
 
     out = ASSET_DIR / "fig2_multiscale_compact.png"
-    fig.savefig(out, dpi=420, bbox_inches="tight", facecolor="white")
+    fig.savefig(out, dpi=420, facecolor="white")
     plt.close(fig)
     return out, metadata
+
 
 def load_representative_forecast_source():
     source_csv = ROOT / "abilene_forecasting" / "paper_figures" / "source_data_v2" / "fig5_representative_forecasts.csv"
@@ -485,6 +522,27 @@ def generate_representative_forecast_figure():
     grouped = {}
     for row in rows:
         grouped.setdefault(row["dataset"], []).append(row)
+
+    # Derive the overall three-seed MSE reduction from the committed baseline source data.
+    baseline_csv = (
+        ROOT / "abilene_forecasting" / "paper_figures" /
+        "source_data_v15" / "fig2_external_baseline_paired_seed42_44.csv"
+    )
+    baseline_values = {}
+    with baseline_csv.open("r", encoding="utf-8", newline="") as fh:
+        for row in csv.DictReader(fh):
+            if row["metric"] != "MSE" or row["model"] not in ("dlinear", "dlinear_scale"):
+                continue
+            baseline_values.setdefault(row["dataset"], {}).setdefault(row["model"], []).append(
+                float(row["value"])
+            )
+    overall_mse_reduction = {}
+    for dataset in ("abilene", "geant"):
+        d_mean = float(np.mean(baseline_values[dataset]["dlinear"]))
+        p_mean = float(np.mean(baseline_values[dataset]["dlinear_scale"]))
+        overall_mse_reduction[dataset] = (d_mean - p_mean) / d_mean * 100.0
+    assert abs(overall_mse_reduction["abilene"] - 4.06) < 0.02
+    assert abs(overall_mse_reduction["geant"] - 4.43) < 0.02
 
     audits = {}
     for dataset in ("abilene", "geant"):
@@ -506,14 +564,36 @@ def generate_representative_forecast_figure():
             "adaptive_case_mae_standardized": mae_p,
             "dlinear_max_abs_error_standardized": float(np.max(np.abs(dlinear-truth))),
             "adaptive_max_abs_error_standardized": float(np.max(np.abs(proposed-truth))),
+            "overall_3seed_mse_reduction_vs_dlinear_pct": float(
+                overall_mse_reduction[dataset]
+            ),
         }
 
     (ASSET_DIR / "fig4_representative_forecast_audit.json").write_text(
         json.dumps(audits, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    # Recreate the user's approved 2×2 prediction/error layout using the exact committed source data.
-    fig, axes = plt.subplots(2, 2, figsize=(8.0, 6.0), sharex="col")
+    # Publication layout: prediction trajectories above, per-step error advantage below.
+    # Representative-window data remain unchanged; column titles report the independent
+    # three-seed aggregate MSE reduction derived from the baseline source CSV.
+    fig, axes = plt.subplots(
+        2, 2, figsize=(7.55, 5.18), sharex="col",
+        gridspec_kw={"height_ratios": [1.60, 1.0]}
+    )
+    fig.subplots_adjust(
+        left=0.095, right=0.985, bottom=0.12, top=0.845,
+        wspace=0.18, hspace=0.30
+    )
+
+    all_delta = []
+    for dataset in ("abilene", "geant"):
+        frame = sorted(grouped[dataset], key=lambda r: int(r["forecast_hour"]))
+        truth = np.array([float(r["truth"]) for r in frame])
+        dlinear = np.array([float(r["dlinear_seed42"]) for r in frame])
+        proposed = np.array([float(r["adaptive_multiscale_seed42"]) for r in frame])
+        all_delta.extend(np.abs(dlinear - truth) - np.abs(proposed - truth))
+    delta_lim = max(abs(np.min(all_delta)), abs(np.max(all_delta))) * 1.10
+
     for col, dataset in enumerate(("abilene", "geant")):
         frame = sorted(grouped[dataset], key=lambda r: int(r["forecast_hour"]))
         x = np.array([int(r["forecast_hour"]) for r in frame])
@@ -522,48 +602,105 @@ def generate_representative_forecast_figure():
         proposed = np.array([float(r["adaptive_multiscale_seed42"]) for r in frame])
         title = "Abilene" if dataset == "abilene" else "GÉANT"
 
+        mae_d = audits[dataset]["dlinear_case_mae_standardized"]
+        mae_p = audits[dataset]["adaptive_case_mae_standardized"]
+        case_gain = (mae_d - mae_p) / mae_d * 100.0
+
         ax = axes[0, col]
-        ax.plot(x, truth, color=TRUTH_COLOR, lw=1.55, marker="o", ms=3.8,
-                label="真实值", zorder=4)
-        ax.plot(x, dlinear, color=DLINEAR_COLOR, lw=1.45, ls="--",
-                marker="s", ms=3.9, label="DLinear", zorder=2)
-        ax.plot(x, proposed, color=PROPOSED_COLOR, lw=1.55,
-                marker="^", ms=4.3, label="本文方法", zorder=3)
-        ax.set_title(f"{title} 预测结果", pad=6)
-        ax.set_ylabel("标准化流量")
-        ax.set_xticks(np.arange(1,25,2))
-        ax.grid(False)
+        ax.plot(x, truth, color=TRUTH_COLOR, lw=1.35, label="真实值", zorder=4)
+        ax.plot(
+            x, dlinear, color=DLINEAR_COLOR, lw=1.25,
+            ls=(0, (4, 2)), label="DLinear", zorder=2
+        )
+        ax.plot(
+            x, proposed, color=PROPOSED_COLOR, lw=1.55,
+            label="本文方法", zorder=3
+        )
+        ax.scatter(
+            x[::3], proposed[::3], s=12, color=PROPOSED_COLOR,
+            edgecolors="white", linewidths=0.35, zorder=5
+        )
+        ax.set_title(
+            f"{title}  ·  总体3种子MSE较DLinear ↓ "
+            f"{overall_mse_reduction[dataset]:.2f}%",
+            pad=9, fontweight="semibold", fontsize=10.2
+        )
+        if col == 0:
+            ax.set_ylabel("标准化流量")
+        else:
+            ax.tick_params(labelleft=False)
+
+        if case_gain > 0:
+            badge = (
+                f"代表窗口 MAE  {mae_d:.3f} → {mae_p:.3f}  "
+                f"(↓{case_gain:.1f}%)"
+            )
+        else:
+            badge = (
+                f"代表窗口 MAE  {mae_d:.3f} ↔ {mae_p:.3f}  "
+                "(近似持平)"
+            )
+        ax.text(
+            0.02, 0.04, badge, transform=ax.transAxes,
+            ha="left", va="bottom", fontsize=8.1, color=TEXT_COLOR,
+            bbox=dict(
+                boxstyle="round,pad=0.20", fc="white",
+                ec="#CFCFCF", lw=0.55, alpha=0.92
+            )
+        )
+        ax.text(
+            0.015, 0.965, f"({chr(97+col)})",
+            transform=ax.transAxes, ha="left", va="top",
+            fontsize=10.0, fontweight="semibold"
+        )
         _clean_axes(ax)
 
+        e_d = np.abs(dlinear - truth)
+        e_p = np.abs(proposed - truth)
+        delta = e_d - e_p
         ax2 = axes[1, col]
-        ax2.plot(x, np.abs(dlinear-truth), color=DLINEAR_COLOR, lw=1.45,
-                 ls="--", marker="s", ms=3.9, label="|DLinear-真实值|")
-        ax2.plot(x, np.abs(proposed-truth), color=PROPOSED_COLOR, lw=1.55,
-                 marker="^", ms=4.3, label="|本文方法-真实值|")
-        ax2.set_title(f"{title} 绝对误差", pad=6)
+        ax2.axhline(0, color="#6E6E6E", lw=0.75, zorder=1)
+        ax2.plot(x, delta, color=PROPOSED_COLOR, lw=1.35, zorder=3)
+        ax2.fill_between(
+            x, 0, delta, where=delta >= 0, interpolate=True,
+            color=PROPOSED_COLOR, alpha=0.14, zorder=2
+        )
+        ax2.fill_between(
+            x, 0, delta, where=delta < 0, interpolate=True,
+            color=DLINEAR_COLOR, alpha=0.10, zorder=2
+        )
+        ax2.set_xlim(1, 24)
+        ax2.set_ylim(-delta_lim, delta_lim)
+        ax2.set_xticks([1, 4, 8, 12, 16, 20, 24])
         ax2.set_xlabel("预测步长")
-        ax2.set_ylabel("绝对误差（标准化）")
-        ax2.set_xticks(np.arange(1,25,2))
-        ax2.set_ylim(bottom=0)
-        ax2.grid(False)
+        if col == 0:
+            ax2.set_ylabel("逐步误差差值 ΔAE")
+        else:
+            ax2.tick_params(labelleft=False)
+        ax2.text(
+            0.015, 0.95, f"({chr(99+col)})",
+            transform=ax2.transAxes, ha="left", va="top",
+            fontsize=10.0, fontweight="semibold"
+        )
         _clean_axes(ax2)
-        ax2.legend(loc="upper center", ncol=2, frameon=False, handlelength=2.3)
 
-    for label, ax in zip(["(a)", "(b)", "(c)", "(d)"], axes.ravel()):
-        ax.text(-0.12, 1.09, label, transform=ax.transAxes, fontsize=14.5,
-                fontweight="bold", va="top")
-
-    handles, labels = axes[0,0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="upper center", bbox_to_anchor=(0.5, 0.985),
-               ncol=3, frameon=True, fancybox=False, edgecolor="#666666",
-               handlelength=2.5, columnspacing=1.6)
-    fig.subplots_adjust(left=0.085, right=0.985, bottom=0.085, top=0.89,
-                        wspace=0.16, hspace=0.34)
+    handles, labels = axes[0, 0].get_legend_handles_labels()
+    fig.legend(
+        handles, labels, loc="upper center", bbox_to_anchor=(0.5, 0.975),
+        ncol=3, frameon=False, handlelength=2.6, columnspacing=2.0
+    )
+    fig.text(
+        0.5, 0.025,
+        "ΔAE = |DLinear−真实值| − |本文方法−真实值|；"
+        "正值表示本文方法在该预测步的绝对误差更小。",
+        ha="center", va="bottom", fontsize=8.05, color=MUTED_COLOR
+    )
 
     out = ASSET_DIR / "fig4_representative_prediction_error.png"
-    fig.savefig(out, dpi=420, bbox_inches="tight", facecolor="white")
+    fig.savefig(out, dpi=420, facecolor="white")
     plt.close(fig)
     return out, audits
+
 
 def insert_picture_before(anchor, image_path, caption_text, width_inches=6.25):
     pic_p = anchor.insert_paragraph_before()
@@ -592,7 +729,12 @@ insert_picture_before(
 p_fig2_analysis = h13_for_fig.insert_paragraph_before(
     "尺度1保留原始96步输入；尺度2对相邻2点取平均后得到48步序列；尺度4对相邻4点取平均后得到24步序列。"
     "核对源数据可知，尺度2和尺度4分别与尺度1的2点、4点非重叠平均结果一致。"
-    "随着尺度增大，局部波动逐渐被平滑，但整体变化趋势仍被保留，从而为后续3个DLinear专家提供侧重点不同的时间分辨率输入。"
+    f"在该示例窗口中，3个尺度的标准差依次为"
+    f"{fig2_meta['std_by_scale']['scale1']:.3f}、"
+    f"{fig2_meta['std_by_scale']['scale2']:.3f}和"
+    f"{fig2_meta['std_by_scale']['scale4']:.3f}，"
+    f"尺度1到尺度4下降约{fig2_meta['scale1_to_scale4_std_reduction_pct']:.1f}%。"
+    "这说明随着尺度增大，局部波动逐渐被平滑，而较慢的变化趋势仍被保留，从而为后续3个DLinear专家提供侧重点不同的时间分辨率输入。"
 )
 p_fig2_analysis.style = p_fig2_intro.style
 
@@ -632,7 +774,7 @@ repl(
 h24_for_fig = find("2.4 八随机种子核心消融与稳定性")
 p_fig4_intro = h24_for_fig.insert_paragraph_before(
     "平均指标能够反映整体误差水平，但不容易展示24步预测过程中预测轨迹与真实序列之间的局部差异。"
-    "因此，图4给出随机种子42下的代表性测试窗口，并在下方同时绘制逐步绝对误差。"
+    "因此，图4给出随机种子42下的代表性测试窗口，并在下方绘制逐步误差差值，用于直接观察两个模型在各预测步上的误差差异。"
     "样本选择不依据本文方法相对DLinear的提升幅度，而是先选择本文方法绝对误差接近全部测试窗口中位数的窗口，"
     "再选择该窗口中真实值波动程度接近通道中位数的非恒定OD变量，以避免只展示最有利案例。"
 )
@@ -641,22 +783,29 @@ fig4_path, fig4_audit = generate_representative_forecast_figure()
 insert_picture_before(
     h24_for_fig,
     fig4_path,
-    "图4 Abilene与GÉANT代表性测试窗口的24步预测及逐步绝对误差",
+    "图4 Abilene与GÉANT代表性测试窗口的24步预测及逐步误差差值",
     width_inches=6.25,
 )
 p_fig4_analysis = h24_for_fig.insert_paragraph_before(
-    "图4(a)、(b)展示真实值、DLinear和本文方法在24个预测步上的标准化预测轨迹，图4(c)、(d)给出对应的逐步标准化绝对误差。"
-    f"该代表性窗口中，Abilene上DLinear与本文方法的MAE分别为{fig4_audit['abilene']['dlinear_case_mae_standardized']:.4f}和{fig4_audit['abilene']['adaptive_case_mae_standardized']:.4f}；"
-    f"GÉANT上分别为{fig4_audit['geant']['dlinear_case_mae_standardized']:.4f}和{fig4_audit['geant']['adaptive_case_mae_standardized']:.4f}。"
-    "因此，Abilene示例中本文方法整体误差更低，而GÉANT示例中两种方法较为接近。"
-    "该图用于补充说明典型窗口中的预测形态，整体性能判断仍以表2和表3在全部测试样本、多个随机种子上的统计结果为准。"
+    "图4(a)、(b)展示真实值、DLinear和本文方法在24个预测步上的标准化预测轨迹；"
+    "图4(c)、(d)绘制逐步误差差值ΔAE=|DLinear−真实值|−|本文方法−真实值|，正值表示本文方法在该预测步的绝对误差更小。"
+    f"列标题同时给出全部测试样本、随机种子42—44上的总体MSE结果："
+    f"本文方法相对DLinear在Abilene和GÉANT上分别降低"
+    f"{fig4_audit['abilene']['overall_3seed_mse_reduction_vs_dlinear_pct']:.2f}%和"
+    f"{fig4_audit['geant']['overall_3seed_mse_reduction_vs_dlinear_pct']:.2f}%。"
+    f"在图示代表性窗口中，Abilene上DLinear与本文方法的MAE分别为"
+    f"{fig4_audit['abilene']['dlinear_case_mae_standardized']:.4f}和"
+    f"{fig4_audit['abilene']['adaptive_case_mae_standardized']:.4f}；"
+    f"GÉANT上分别为{fig4_audit['geant']['dlinear_case_mae_standardized']:.4f}和"
+    f"{fig4_audit['geant']['adaptive_case_mae_standardized']:.4f}。"
+    "因此，Abilene示例中本文方法的局部优势较明显，而GÉANT代表窗口基本持平；总体性能判断仍以全部测试样本和多个随机种子的统计结果为准。"
 )
 p_fig4_analysis.style = p_fig4_intro.style
 
 repl(
     "综合表2、表3和图2—图4",
     "综合表2、表3和图3—图6可以形成一条较清晰的实验链。表2和图3用于比较本文方法与外部轻量基线的总体误差水平；"
-    "图4补充展示代表性测试窗口中的24步预测轨迹和逐步绝对误差；表3和图5进一步控制专家结构，考察固定等权与样本级权重之间的差异；"
+    "图4补充展示代表性测试窗口中的24步预测轨迹和逐步误差差值；表3和图5进一步控制专家结构，考察固定等权与样本级权重之间的差异；"
     "图6则从模型内部的尺度分配结果说明路由器在测试样本上形成了非等权的融合方式。各部分分别对应总体性能、局部预测形态、核心结构消融和内部权重行为，"
     "与第1节提出的多尺度专家和样本级路由设计相互对应。"
 )
