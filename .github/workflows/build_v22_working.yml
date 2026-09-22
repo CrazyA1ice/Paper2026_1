@@ -1,9 +1,10 @@
-name: Build cumulative v22 working draft
+name: Build final v22 manuscript
 on:
   push:
     branches: [main]
     paths:
       - 'word_output/v22_working_pipeline.py'
+      - '.github/workflows/build_v22_working.yml'
 permissions:
   contents: write
 jobs:
@@ -11,17 +12,52 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk
+          sudo apt-get install -y fonts-noto-cjk libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
           python -m pip install python-docx numpy matplotlib pillow
-      - name: Build working draft
+
+      - name: Build final v22
         run: python word_output/v22_working_pipeline.py
-      - name: Commit working draft
+
+      - name: Audit final v22
+        run: |
+          python - <<'PY'
+          from docx import Document
+          p="word_output/2026.09.22v22.docx"
+          d=Document(p)
+          text="\n".join(x.text for x in d.paragraphs)
+          assert len(d.tables)==3
+          assert len(d.inline_shapes)==6
+          required=[
+              "图2 Abilene单个OD变量的多尺度序列构造与平均池化示意",
+              "图4 Abilene与GÉANT代表性测试窗口的24步预测及逐步绝对误差",
+              "4.06%","4.43%","29.89%","46.83%","1.67%","4.68%",
+              "0.186","0.434","0.257","0.319","0.424","0.283","0.318","0.399"
+          ]
+          for x in required:
+              assert x in text, x
+          print("paragraphs", len(d.paragraphs), "tables", len(d.tables), "figures", len(d.inline_shapes))
+          PY
+
+      - name: Render Word and PDF
+        run: |
+          rm -rf word_output/render_v22_word
+          mkdir -p word_output/render_v22_word
+          libreoffice --headless --convert-to pdf --outdir word_output/render_v22_word word_output/2026.09.22v22.docx
+          pdftoppm -png -r 180 word_output/render_v22_word/2026.09.22v22.pdf word_output/render_v22_word/page
+          pages=$(find word_output/render_v22_word -name 'page-*.png' | wc -l)
+          echo "Rendered pages: $pages"
+          test "$pages" -ge 8
+          test "$pages" -le 20
+
+      - name: Commit final v22
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add word_output/v22_working.docx word_output/v22_working_assets/
-          git commit -m "Update cumulative v22 working draft" || exit 0
+          git add word_output/2026.09.22v22.docx word_output/v22_assets/ word_output/render_v22_word/
+          git commit -m "Finalize v22 with verified compact figures" || exit 0
           git push
