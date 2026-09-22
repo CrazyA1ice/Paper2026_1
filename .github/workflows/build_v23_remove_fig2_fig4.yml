@@ -1,0 +1,80 @@
+name: Build v23 without figures 2 and 4
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'word_output/build_v23_remove_fig2_fig4.py'
+      - '.github/workflows/build_v23_remove_fig2_fig4.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install python-docx
+
+      - name: Build v23
+        run: python word_output/build_v23_remove_fig2_fig4.py
+
+      - name: Audit v23 content
+        run: |
+          python - <<'PY'
+          import re
+          from docx import Document
+
+          p = "word_output/2026.09.22v23.docx"
+          d = Document(p)
+          text = "\n".join(x.text for x in d.paragraphs)
+
+          assert len(d.tables) == 3
+          assert len(d.inline_shapes) == 4
+          assert re.search(r"图2(?!\d)", text) is None
+          assert re.search(r"图4(?!\d)", text) is None
+
+          for forbidden in [
+              "图2 Abilene单个OD变量的多尺度序列构造与平均池化示意",
+              "图4 Abilene与GÉANT代表性测试窗口的24步预测及逐步误差差值",
+              "为直观说明式（5）的尺度变换",
+              "逐步误差差值ΔAE",
+          ]:
+              assert forbidden not in text, forbidden
+
+          for required in [
+              "图1 自适应多尺度网络流量预测方法框架",
+              "图3 Abilene与GÉANT上三随机种子外部基线配对结果",
+              "图5 固定等权与自适应权重的八随机种子配对MSE及配对差值分布",
+              "图6 八随机种子下样本级自适应路由权重分布",
+          ]:
+              assert required in text, required
+
+          print("paragraphs", len(d.paragraphs), "tables", len(d.tables), "figures", len(d.inline_shapes))
+          PY
+
+      - name: Render v23 for QA
+        run: |
+          rm -rf word_output/render_v23_word
+          mkdir -p word_output/render_v23_word
+          libreoffice --headless --convert-to pdf --outdir word_output/render_v23_word word_output/2026.09.22v23.docx
+          pdftoppm -png -r 180 word_output/render_v23_word/2026.09.22v23.pdf word_output/render_v23_word/page
+          pages=$(find word_output/render_v23_word -name 'page-*.png' | wc -l)
+          echo "Rendered pages: $pages"
+          test "$pages" -ge 8
+          test "$pages" -le 20
+
+      - name: Commit v23
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add word_output/2026.09.22v23.docx word_output/render_v23_word/
+          git commit -m "Generate v23 without old figures 2 and 4" || exit 0
+          git push
