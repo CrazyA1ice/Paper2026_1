@@ -14,7 +14,7 @@ from docx.shared import Inches
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "word_output" / "2026.09.21v21.docx"
-TARGET = ROOT / "word_output" / "v22_working.docx"
+TARGET = ROOT / "word_output" / "2026.09.22v22.docx"
 
 doc = Document(SOURCE)
 
@@ -278,14 +278,42 @@ print("experiment_chars_after", experiment_chars)
 
 
 # -------------------------
-# Step 5: add two evidence-based figures
+# Step 5: add two verified, publication-style figures
 # -------------------------
 
-ASSET_DIR = ROOT / "word_output" / "v22_working_assets"
+ASSET_DIR = ROOT / "word_output" / "v22_assets"
 ASSET_DIR.mkdir(parents=True, exist_ok=True)
 
+TRUTH_COLOR = "#333333"
+DLINEAR_COLOR = "#2B6EA6"
+PROPOSED_COLOR = "#A33D36"
+LIGHT_BLUE = "#BFD3E6"
+
+plt.rcParams.update({
+    "font.family": "sans-serif",
+    "font.sans-serif": ["Noto Serif CJK SC", "Noto Serif CJK JP", "Noto Sans CJK SC", "DejaVu Sans"],
+    "axes.unicode_minus": False,
+    "font.size": 8.3,
+    "axes.labelsize": 8.3,
+    "axes.titlesize": 9.0,
+    "xtick.labelsize": 7.3,
+    "ytick.labelsize": 7.3,
+    "legend.fontsize": 7.5,
+    "axes.linewidth": 0.8,
+    "xtick.direction": "out",
+    "ytick.direction": "out",
+})
+
+def _clean_axes(ax):
+    ax.spines["top"].set_visible(True)
+    ax.spines["right"].set_visible(True)
+    for spine in ax.spines.values():
+        spine.set_linewidth(0.8)
+        spine.set_color("#333333")
+    ax.tick_params(width=0.7, length=3.0, color="#333333")
+
 def generate_multiscale_example():
-    """Create a reproducible multiscale example from real Abilene training data."""
+    """Generate Figure 2 from the actual Abilene training split and verify pooling."""
     data_path = ROOT / "abilene_forecasting" / "data" / "processed" / "abilene_1hour.npz"
     with np.load(data_path, allow_pickle=False) as arrays:
         train = np.asarray(arrays["train"], dtype=float)
@@ -304,11 +332,15 @@ def generate_multiscale_example():
         raise RuntimeError("Training split is shorter than the configured sliding window")
     series = train[:, channel_idx]
     window_sds = np.array([series[i:i+L].std() for i in range(max_start)])
-    target = float(np.median(window_sds))
-    start = int(np.argmin(np.abs(window_sds - target)))
+    start = int(np.argmin(np.abs(window_sds - np.median(window_sds))))
+
     scale1 = series[start:start+L].copy()
     scale2 = scale1.reshape(-1, 2).mean(axis=1)
     scale4 = scale1.reshape(-1, 4).mean(axis=1)
+
+    assert len(scale1) == 96 and len(scale2) == 48 and len(scale4) == 24
+    assert np.allclose(scale2, scale1.reshape(-1, 2).mean(axis=1), atol=1e-10)
+    assert np.allclose(scale4, scale1.reshape(-1, 4).mean(axis=1), atol=1e-10)
 
     csv_path = ASSET_DIR / "fig2_multiscale_example_source.csv"
     with csv_path.open("w", newline="", encoding="utf-8") as fh:
@@ -333,39 +365,173 @@ def generate_multiscale_example():
             "再在可形成L=96、H=24样本的历史窗口中，选择96步标准差最接近全部候选窗口中位数的窗口。"
             "该选择仅用于展示多尺度平均池化，不依据任何模型预测误差。"
         ),
+        "pooling_check": {
+            "scale2_max_abs_error": float(np.max(np.abs(scale2 - scale1.reshape(-1, 2).mean(axis=1)))),
+            "scale4_max_abs_error": float(np.max(np.abs(scale4 - scale1.reshape(-1, 4).mean(axis=1)))),
+        },
     }
     (ASSET_DIR / "fig2_multiscale_example_selection.json").write_text(
         json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    plt.rcParams.update({
-        "font.family": "sans-serif",
-        "font.sans-serif": ["Noto Sans CJK SC", "Noto Sans CJK JP", "DejaVu Sans"],
-        "axes.unicode_minus": False,
-        "font.size": 8,
-        "axes.labelsize": 8,
-        "axes.titlesize": 8,
-        "xtick.labelsize": 7,
-        "ytick.labelsize": 7,
-        "legend.fontsize": 7,
-    })
-    fig, axes = plt.subplots(3, 1, figsize=(6.6, 4.8))
-    for ax, values, s in zip(axes, [scale1, scale2, scale4], [1, 2, 4]):
-        x = np.arange(1, len(values) + 1)
-        ax.plot(x, values, linewidth=1.15)
-        ax.set_xlim(1, len(values))
-        ax.set_title(f"尺度 {s}：长度 {len(values)}")
+    fig = plt.figure(figsize=(7.05, 5.15))
+    gs = fig.add_gridspec(2, 2, left=0.085, right=0.985, bottom=0.095, top=0.955, wspace=0.22, hspace=0.34)
+    axes = [fig.add_subplot(gs[0,0]), fig.add_subplot(gs[0,1]), fig.add_subplot(gs[1,0])]
+    specs = [
+        (axes[0], scale1, 1, 96, None),
+        (axes[1], scale2, 2, 48, "o"),
+        (axes[2], scale4, 4, 24, "s"),
+    ]
+    y_min = min(np.min(scale1), np.min(scale2), np.min(scale4))
+    y_max = max(np.max(scale1), np.max(scale2), np.max(scale4))
+    pad = max(0.04, (y_max-y_min)*0.10)
+    for ax, values, scale, n, marker in specs:
+        x = np.arange(1, n+1)
+        ax.plot(
+            x, values, color=DLINEAR_COLOR, lw=1.45,
+            marker=marker, ms=3.1 if marker else 0,
+            mfc=DLINEAR_COLOR, mec=DLINEAR_COLOR, mew=0.45
+        )
+        ax.set_title(f"尺度{scale}：{n}步", pad=5)
+        ax.set_xlabel("时间步")
         ax.set_ylabel("标准化流量")
-        ax.grid(axis="y", linestyle="--", linewidth=0.5, alpha=0.5)
-        ax.spines["top"].set_visible(False)
-        ax.spines["right"].set_visible(False)
-    axes[-1].set_xlabel("尺度内时间索引")
-    fig.subplots_adjust(left=0.12, right=0.98, bottom=0.10, top=0.96, hspace=0.48)
+        ax.set_xlim(1, n)
+        ax.set_ylim(y_min-pad, y_max+pad)
+        if n == 96:
+            ax.set_xticks([1, 24, 48, 72, 96])
+        elif n == 48:
+            ax.set_xticks([1, 12, 24, 36, 48])
+        else:
+            ax.set_xticks([1, 6, 12, 18, 24])
+        ax.grid(axis="y", color="#D8D8D8", ls="--", lw=0.45, alpha=0.55)
+        ax.set_axisbelow(True)
+        _clean_axes(ax)
 
-    out = ASSET_DIR / "fig2_multiscale_example.png"
-    fig.savefig(out, dpi=420, bbox_inches="tight")
+    for label, ax in zip(["(a)", "(b)", "(c)"], axes):
+        ax.text(-0.11, 1.08, label, transform=ax.transAxes, fontsize=9.3, fontweight="bold", va="top")
+
+    axd = fig.add_subplot(gs[1,1])
+    axd.set_axis_off()
+    axd.set_xlim(0, 100)
+    axd.set_ylim(0, 10)
+    axd.text(0, 9.8, "(d)", fontsize=9.3, fontweight="bold", va="top")
+    axd.text(50, 9.3, "多尺度平均池化示意", ha="center", va="top", fontsize=9.0)
+
+    def draw_row(y, xs, fill, edge, size=70):
+        axd.scatter(xs, np.full(len(xs), y), s=size, c=fill, edgecolors=edge, linewidths=0.9, zorder=3)
+
+    top_x = list(np.linspace(10, 39, 8)) + list(np.linspace(61, 90, 8))
+    mid_x = list(np.linspace(11, 38, 6)) + list(np.linspace(62, 89, 6))
+    bot_x = list(np.linspace(12, 37, 4)) + list(np.linspace(63, 88, 4))
+    draw_row(7.5, top_x, LIGHT_BLUE, DLINEAR_COLOR, 66)
+    draw_row(4.65, mid_x, "#92B8D8", DLINEAR_COLOR, 66)
+    draw_row(1.8, bot_x, "#6F9FC7", DLINEAR_COLOR, 72)
+    axd.text(50, 7.5, "…", ha="center", va="center", fontsize=11)
+    axd.text(50, 4.65, "…", ha="center", va="center", fontsize=11)
+    axd.text(50, 1.8, "…", ha="center", va="center", fontsize=11)
+
+    axd.plot([7,93],[8.35,8.35], color="#333333", lw=0.8)
+    axd.plot([7,7],[8.20,8.50], color="#333333", lw=0.8)
+    axd.plot([93,93],[8.20,8.50], color="#333333", lw=0.8)
+    axd.text(50, 8.55, "原始序列（96步）", ha="center", va="bottom", fontsize=8.2)
+
+    axd.annotate("", xy=(50,5.45), xytext=(50,6.75), arrowprops=dict(arrowstyle="-|>", lw=0.9, color="#333333"))
+    axd.text(58, 6.1, "每2点平均（不重叠）", fontsize=7.6, va="center")
+    axd.annotate("", xy=(50,2.55), xytext=(50,3.85), arrowprops=dict(arrowstyle="-|>", lw=0.9, color="#333333"))
+    axd.text(58, 3.2, "每4点平均（不重叠）", fontsize=7.6, va="center")
+    axd.text(94, 4.65, "→ 48步", fontsize=8.0, va="center", ha="left")
+    axd.text(94, 1.8, "→ 24步", fontsize=8.0, va="center", ha="left")
+
+    out = ASSET_DIR / "fig2_multiscale_compact.png"
+    fig.savefig(out, dpi=500, bbox_inches="tight", facecolor="white")
     plt.close(fig)
     return out, metadata
+
+def load_representative_forecast_source():
+    source_csv = ROOT / "abilene_forecasting" / "paper_figures" / "source_data_v2" / "fig5_representative_forecasts.csv"
+    meta_json = ROOT / "abilene_forecasting" / "paper_figures" / "source_data_v2" / "fig5_representative_forecasts_selection.json"
+    rows = []
+    with source_csv.open("r", encoding="utf-8", newline="") as fh:
+        for row in csv.DictReader(fh):
+            rows.append(row)
+    metadata = json.loads(meta_json.read_text(encoding="utf-8"))
+    return rows, metadata
+
+def generate_representative_forecast_figure():
+    """Generate Figure 4 directly from the committed source-data CSV and verify case MAE."""
+    rows, metadata = load_representative_forecast_source()
+    grouped = {}
+    for row in rows:
+        grouped.setdefault(row["dataset"], []).append(row)
+
+    audits = {}
+    for dataset in ("abilene", "geant"):
+        frame = sorted(grouped[dataset], key=lambda r: int(r["forecast_hour"]))
+        hours = np.array([int(r["forecast_hour"]) for r in frame])
+        truth = np.array([float(r["truth"]) for r in frame])
+        dlinear = np.array([float(r["dlinear_seed42"]) for r in frame])
+        proposed = np.array([float(r["adaptive_multiscale_seed42"]) for r in frame])
+        assert np.array_equal(hours, np.arange(1, 25)), f"{dataset}: forecast hours are not 1..24"
+
+        mae_d = float(np.mean(np.abs(dlinear-truth)))
+        mae_p = float(np.mean(np.abs(proposed-truth)))
+        meta = next(m for m in metadata if m["dataset"] == dataset)
+        assert abs(mae_d - float(meta["dlinear_case_mae_standardized"])) < 1e-6
+        assert abs(mae_p - float(meta["adaptive_case_mae_standardized"])) < 1e-6
+        audits[dataset] = {
+            "n_forecast_steps": 24,
+            "dlinear_case_mae_standardized": mae_d,
+            "adaptive_case_mae_standardized": mae_p,
+            "dlinear_max_abs_error_standardized": float(np.max(np.abs(dlinear-truth))),
+            "adaptive_max_abs_error_standardized": float(np.max(np.abs(proposed-truth))),
+        }
+
+    (ASSET_DIR / "fig4_representative_forecast_audit.json").write_text(
+        json.dumps(audits, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+    fig, axes = plt.subplots(2, 2, figsize=(7.05, 5.15), sharex="col")
+    for col, dataset in enumerate(("abilene", "geant")):
+        frame = sorted(grouped[dataset], key=lambda r: int(r["forecast_hour"]))
+        x = np.array([int(r["forecast_hour"]) for r in frame])
+        truth = np.array([float(r["truth"]) for r in frame])
+        dlinear = np.array([float(r["dlinear_seed42"]) for r in frame])
+        proposed = np.array([float(r["adaptive_multiscale_seed42"]) for r in frame])
+        title = "Abilene" if dataset == "abilene" else "GÉANT"
+
+        ax = axes[0, col]
+        ax.plot(x, truth, color=TRUTH_COLOR, lw=1.55, marker="o", ms=3.0, markevery=2, label="真实值", zorder=4)
+        ax.plot(x, dlinear, color=DLINEAR_COLOR, lw=1.25, ls="--", marker="s", ms=3.1, markevery=2, label="DLinear", zorder=2)
+        ax.plot(x, proposed, color=PROPOSED_COLOR, lw=1.35, marker="^", ms=3.4, markevery=2, label="本文方法", zorder=3)
+        ax.set_title(f"{title} 预测结果", pad=5)
+        ax.set_ylabel("标准化流量")
+        ax.grid(axis="y", color="#D8D8D8", ls="--", lw=0.45, alpha=0.55)
+        ax.set_axisbelow(True)
+        _clean_axes(ax)
+
+        ax2 = axes[1, col]
+        ax2.plot(x, np.abs(dlinear-truth), color=DLINEAR_COLOR, lw=1.25, ls="--", marker="s", ms=3.0, markevery=2, label="DLinear")
+        ax2.plot(x, np.abs(proposed-truth), color=PROPOSED_COLOR, lw=1.35, marker="^", ms=3.3, markevery=2, label="本文方法")
+        ax2.set_title(f"{title} 绝对误差", pad=5)
+        ax2.set_xlabel("预测步长")
+        ax2.set_ylabel("绝对误差（标准化）")
+        ax2.set_xticks([1, 6, 12, 18, 24])
+        ax2.grid(axis="y", color="#D8D8D8", ls="--", lw=0.45, alpha=0.55)
+        ax2.set_axisbelow(True)
+        _clean_axes(ax2)
+
+    for label, ax in zip(["(a)", "(b)", "(c)", "(d)"], axes.ravel()):
+        ax.text(-0.11, 1.08, label, transform=ax.transAxes, fontsize=9.3, fontweight="bold", va="top")
+
+    handles, labels = axes[0,0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper center", bbox_to_anchor=(0.5, 0.995), ncol=3,
+               frameon=True, fancybox=False, edgecolor="#777777", handlelength=2.5, columnspacing=1.8)
+    fig.subplots_adjust(left=0.095, right=0.985, bottom=0.105, top=0.88, wspace=0.23, hspace=0.33)
+
+    out = ASSET_DIR / "fig4_representative_prediction_error.png"
+    fig.savefig(out, dpi=500, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    return out, audits
 
 def insert_picture_before(anchor, image_path, caption_text, width_inches=6.25):
     pic_p = anchor.insert_paragraph_before()
@@ -376,25 +542,25 @@ def insert_picture_before(anchor, image_path, caption_text, width_inches=6.25):
     cap_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     return pic_p, cap_p
 
-# Figure 2: actual Abilene window under scales 1/2/4.
+# Figure 2: verified multiscale construction from real Abilene training data.
 fig2_path, fig2_meta = generate_multiscale_example()
 h13_for_fig = find("1.3 DLinear尺度专家")
 p_fig2_intro = h13_for_fig.insert_paragraph_before(
-    "为直观说明式（5）的尺度变换，图2从Abilene训练集中选取一个非恒定OD变量的96步历史窗口。"
-    "该窗口和OD变量均按波动程度的中位水平确定，选择过程不使用任何模型误差。"
-    "尺度2和尺度4直接由同一尺度1窗口分别进行2点和4点非重叠平均得到，因此三条序列对应的是同一段历史流量在不同时间分辨率下的表示。"
+    "为直观说明式（5）的尺度变换，图2选取Abilene训练集中一个非恒定OD变量的96步历史窗口。"
+    "该变量和窗口均按波动程度的中位水平确定，选择过程不使用模型预测误差。"
+    "图2(a)～(c)分别给出尺度1、2和4下的实际序列，图2(d)给出非重叠平均池化的对应关系。"
 )
 p_fig2_intro.style = find("尺度集合采用1、2和4").style
 insert_picture_before(
     h13_for_fig,
     fig2_path,
-    "图2 Abilene单个OD变量的多尺度序列构造示例",
-    width_inches=5.85,
+    "图2 Abilene单个OD变量的多尺度序列构造与平均池化示意",
+    width_inches=6.15,
 )
 p_fig2_analysis = h13_for_fig.insert_paragraph_before(
-    "从图2可以看到，尺度增大后序列长度由96依次缩短为48和24，局部起伏也逐步被平均。"
-    "这里的平滑并不是额外的滤波模型，而是式（5）所定义平均池化的直接结果。"
-    "因此，多尺度构造在不增加可训练参数的情况下，为后续DLinear专家提供了细粒度变化和较慢趋势两类侧重点不同的输入。"
+    "尺度1保留原始96步输入；尺度2对相邻2点取平均后得到48步序列；尺度4对相邻4点取平均后得到24步序列。"
+    "核对源数据可知，尺度2和尺度4分别与尺度1的2点、4点非重叠平均结果一致。"
+    "随着尺度增大，局部波动逐渐被平滑，但整体变化趋势仍被保留，从而为后续3个DLinear专家提供侧重点不同的时间分辨率输入。"
 )
 p_fig2_analysis.style = p_fig2_intro.style
 
@@ -430,42 +596,41 @@ repl(
     "图6统计随机种子42—49下全部测试窗口的尺度权重，用于观察路由网络在测试阶段是否真正形成了不同于固定1/3的尺度分配。固定等权模型在所有样本上都使用同一组权重，而本文方法的权重由每个输入窗口的统计特征计算，因此测试集中的权重分布能够直接反映路由器对3个尺度的总体偏好及其变化范围。"
 )
 
-# Figure 4: representative prediction curves already generated from real prediction files.
+# Figure 4: representative prediction curves + per-step absolute errors from committed source data.
 h24_for_fig = find("2.4 八随机种子核心消融与稳定性")
 p_fig4_intro = h24_for_fig.insert_paragraph_before(
-    "平均指标能够反映整体误差水平，但不容易展示24步预测过程中预测轨迹与真实序列之间的关系。"
-    "因此，图4给出随机种子42下的代表性测试窗口。样本选择不依据本文方法相对DLinear的提升幅度："
-    "先选择本文方法绝对误差最接近全部测试窗口中位数的窗口，再在该窗口的非恒定OD通道中选择真实值波动程度接近通道中位数的通道，"
-    "以避免仅展示最有利的预测案例。"
+    "平均指标能够反映整体误差水平，但不容易展示24步预测过程中预测轨迹与真实序列之间的局部差异。"
+    "因此，图4给出随机种子42下的代表性测试窗口，并在下方同时绘制逐步绝对误差。"
+    "样本选择不依据本文方法相对DLinear的提升幅度，而是先选择本文方法绝对误差接近全部测试窗口中位数的窗口，"
+    "再选择该窗口中真实值波动程度接近通道中位数的非恒定OD变量，以避免只展示最有利案例。"
 )
 p_fig4_intro.style = find("两个数据集上的相对降幅并不完全相同").style
-prediction_fig = (
-    ROOT / "abilene_forecasting" / "paper_figures" / "exports"
-    / "fig5_prediction_curves" / "fig5_representative_forecasts.png"
-)
-if not prediction_fig.exists():
-    raise FileNotFoundError(prediction_fig)
+fig4_path, fig4_audit = generate_representative_forecast_figure()
 insert_picture_before(
     h24_for_fig,
-    prediction_fig,
-    "图4 Abilene与GÉANT代表性测试窗口的24步预测结果",
+    fig4_path,
+    "图4 Abilene与GÉANT代表性测试窗口的24步预测及逐步绝对误差",
     width_inches=6.25,
 )
 p_fig4_analysis = h24_for_fig.insert_paragraph_before(
-    "图4中，两种模型均能跟随真实序列的主要变化，但局部预测阶段仍存在不同程度的偏差。"
-    "Abilene示例中，本文方法在若干快速上升和回落区间与真实值更接近；GÉANT示例中，两条预测曲线在部分时段各有偏差。"
-    "该图的作用是补充展示单个代表性窗口的预测形态，而不是用一个案例替代表2的多随机种子平均结果；整体性能判断仍以全部测试窗口上的MSE和MAE为依据。"
+    "图4(a)、(b)展示真实值、DLinear和本文方法在24个预测步上的轨迹，图4(c)、(d)给出对应的标准化绝对误差。"
+    "Abilene示例中，本文方法在多数预测步上与真实值更接近；GÉANT示例中，两种方法的误差更为接近，不同预测步各有偏差。"
+    "该图用于补充说明单个典型窗口中的预测形态，整体性能判断仍以表2和表3在全部测试样本、多个随机种子上的统计结果为准。"
 )
 p_fig4_analysis.style = p_fig4_intro.style
 
 repl(
     "综合表2、表3和图2—图4",
-    "综合表2、表3和图3—图6可以形成一条较清晰的实验链。表2和图3回答本文方法与外部轻量基线相比处于什么误差水平；图4补充展示代表性测试窗口中的24步预测轨迹；表3和图5进一步控制专家结构，考察固定等权与样本级权重之间的差异；图6则从模型内部的尺度分配结果说明，路由器在测试样本上确实形成了非等权的融合方式。各部分分别对应总体性能、局部预测形态、核心结构消融和内部权重行为，使实验分析与第1节提出的多尺度专家和样本级路由设计相互对应。"
+    "综合表2、表3和图3—图6可以形成一条较清晰的实验链。表2和图3用于比较本文方法与外部轻量基线的总体误差水平；"
+    "图4补充展示代表性测试窗口中的24步预测轨迹和逐步绝对误差；表3和图5进一步控制专家结构，考察固定等权与样本级权重之间的差异；"
+    "图6则从模型内部的尺度分配结果说明路由器在测试样本上形成了非等权的融合方式。各部分分别对应总体性能、局部预测形态、核心结构消融和内部权重行为，"
+    "与第1节提出的多尺度专家和样本级路由设计相互对应。"
 )
 
-# Figure-specific guardrails and audit.
-assert prediction_fig.exists()
 assert fig2_path.exists()
+assert fig4_path.exists()
+
+
 
 # Guardrails
 full = "\n".join(p.text for p in doc.paragraphs)
@@ -483,9 +648,9 @@ assert len(doc.tables) == 3
 assert len(doc.inline_shapes) == 6
 for expected_caption in [
     "图1 自适应多尺度网络流量预测方法框架",
-    "图2 Abilene单个OD变量的多尺度序列构造示例",
+    "图2 Abilene单个OD变量的多尺度序列构造与平均池化示意",
     "图3 Abilene与GÉANT上三随机种子外部基线配对结果",
-    "图4 Abilene与GÉANT代表性测试窗口的24步预测结果",
+    "图4 Abilene与GÉANT代表性测试窗口的24步预测及逐步绝对误差",
     "图5 固定等权与自适应权重的八随机种子配对MSE及配对差值分布",
     "图6 八随机种子下样本级自适应路由权重分布",
 ]:
