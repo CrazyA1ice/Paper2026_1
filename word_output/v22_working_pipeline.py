@@ -505,3 +505,5 @@ print(TARGET)
 # Step 2 introduction expansion complete.
 
 # Rebuild after methodology expansion.
+
+# Rebuild after adding evidence-based figures.
