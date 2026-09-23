@@ -1,0 +1,66 @@
+name: Build v27 from AIGC report
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'word_output/build_v27_report_guided_rewrite.py'
+      - '.github/workflows/build_v27_report_guided_rewrite.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install python-docx
+
+      - name: Build v27
+        run: python word_output/build_v27_report_guided_rewrite.py
+
+      - name: Verify protected content
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          p = Path("word_output/2026.09.23v27.docx")
+          d = Document(p)
+          report = Path("word_output/v27_report_guided_aigc_rewrite.txt").read_text(encoding="utf-8")
+          assert len(d.tables) == 3
+          assert len(d.inline_shapes) == 4
+          assert "Preservation: tables/headings/figure captions/numbers/citations/equation markers/references/protected terms = PASS" in report
+          assert "Edited high-risk paragraphs: 16" in report
+          print("v27 preservation verification PASS")
+          PY
+
+      - name: Render v27 for QA
+        run: |
+          rm -rf word_output/render_v27_word
+          mkdir -p word_output/render_v27_word
+          libreoffice --headless --convert-to pdf --outdir word_output/render_v27_word word_output/2026.09.23v27.docx
+          pdftoppm -png -r 180 word_output/render_v27_word/2026.09.23v27.pdf word_output/render_v27_word/page
+          pages=$(find word_output/render_v27_word -name 'page-*.png' | wc -l)
+          echo "Rendered pages: $pages"
+          test "$pages" -ge 8
+          test "$pages" -le 20
+
+      - name: Commit v27
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            word_output/2026.09.23v27.docx \
+            word_output/v27_report_before.txt \
+            word_output/v27_report_after.txt \
+            word_output/v27_report_guided_aigc_rewrite.txt \
+            word_output/render_v27_word/
+          git commit -m "Rewrite high-AIGC paragraphs from detection report" || exit 0
+          git push
