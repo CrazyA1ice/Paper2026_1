@@ -1,0 +1,76 @@
+name: Build v24 with verified Figure 5
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'word_output/build_v24_replace_fig5.py'
+      - '.github/workflows/build_v24_replace_fig5.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install python-docx matplotlib numpy scipy
+
+      - name: Build verified Figure 5 and v24
+        run: python word_output/build_v24_replace_fig5.py
+
+      - name: Audit v24
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          import csv
+          p = Path("word_output/2026.09.23v24.docx")
+          d = Document(p)
+          text = "\n".join(x.text for x in d.paragraphs)
+          assert "图5 Abilene与GÉANT上本文方法相对两类基线的八随机种子多指标相对改进分布" in text
+          assert "配对差值分布" not in text
+          assert len(d.tables) == 3
+          assert len(d.inline_shapes) == 4
+          for fp in [
+              "abilene_forecasting/paper_figures/exports/color/fig5_relative_improvement_raincloud.png",
+              "abilene_forecasting/paper_figures/exports/grayscale/fig5_relative_improvement_raincloud.png",
+              "abilene_forecasting/paper_figures/source_data_v24/fig5_relative_improvement_8seeds.csv",
+              "abilene_forecasting/paper_figures/source_data_v24/fig5_relative_improvement_summary.csv",
+          ]:
+              assert Path(fp).exists(), fp
+          rows = list(csv.DictReader(open("abilene_forecasting/paper_figures/source_data_v24/fig5_relative_improvement_summary.csv", encoding="utf-8-sig")))
+          assert len(rows) == 12
+          print("v24 audit OK; figures=", len(d.inline_shapes), "summary rows=", len(rows))
+          PY
+
+      - name: Render v24 for QA
+        run: |
+          rm -rf word_output/render_v24_word
+          mkdir -p word_output/render_v24_word
+          libreoffice --headless --convert-to pdf --outdir word_output/render_v24_word word_output/2026.09.23v24.docx
+          pdftoppm -png -r 180 word_output/render_v24_word/2026.09.23v24.pdf word_output/render_v24_word/page
+          pages=$(find word_output/render_v24_word -name 'page-*.png' | wc -l)
+          echo "Rendered pages: $pages"
+          test "$pages" -ge 8
+          test "$pages" -le 20
+
+      - name: Commit v24
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            word_output/2026.09.23v24.docx \
+            word_output/render_v24_word/ \
+            abilene_forecasting/paper_figures/exports/color/fig5_relative_improvement_raincloud.png \
+            abilene_forecasting/paper_figures/exports/grayscale/fig5_relative_improvement_raincloud.png \
+            abilene_forecasting/paper_figures/source_data_v24/
+          git commit -m "Replace Figure 5 with verified relative-improvement raincloud plot" || exit 0
+          git push
