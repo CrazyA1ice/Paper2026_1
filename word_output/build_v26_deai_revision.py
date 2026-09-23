@@ -196,7 +196,12 @@ def protected_numbers(text):
         except ValueError:
             pass
     return Counter(out)
-assert protected_numbers(before_text) == protected_numbers(after_text), "Protected scientific numeric tokens changed"
+before_nums = protected_numbers(before_text)
+after_nums = protected_numbers(after_text)
+if before_nums != after_nums:
+    print("MISSING_PROTECTED_NUMBERS", dict(before_nums - after_nums))
+    print("ADDED_PROTECTED_NUMBERS", dict(after_nums - before_nums))
+assert before_nums == after_nums, "Protected scientific numeric tokens changed"
 for expr in ["1/3", "L=96", "H=24", "S={1,2,4}"]:
     assert before_text.count(expr) == after_text.count(expr), f"Protected expression {expr} changed"
 
