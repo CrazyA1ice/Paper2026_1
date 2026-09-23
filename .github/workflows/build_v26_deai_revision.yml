@@ -1,0 +1,66 @@
+name: Build v26 de-AI prose revision
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'word_output/build_v26_deai_revision.py'
+      - '.github/workflows/build_v26_deai_revision.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install python-docx
+
+      - name: Build v26 targeted prose revision
+        run: python word_output/build_v26_deai_revision.py
+
+      - name: Verify protected content
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          p = Path("word_output/2026.09.23v26.docx")
+          d = Document(p)
+          assert len(d.tables) == 3
+          assert len(d.inline_shapes) == 4
+          report = Path("word_output/v26_ai_style_audit.txt").read_text(encoding="utf-8")
+          assert "preservation: tables/headings/figure_captions/numbers/citations/equation_markers/references = PASS" in report
+          assert "edited_paragraphs=25" in report
+          print("v26 protected-content verification PASS")
+          PY
+
+      - name: Render v26 for QA
+        run: |
+          rm -rf word_output/render_v26_word
+          mkdir -p word_output/render_v26_word
+          libreoffice --headless --convert-to pdf --outdir word_output/render_v26_word word_output/2026.09.23v26.docx
+          pdftoppm -png -r 180 word_output/render_v26_word/2026.09.23v26.pdf word_output/render_v26_word/page
+          pages=$(find word_output/render_v26_word -name 'page-*.png' | wc -l)
+          echo "Rendered pages: $pages"
+          test "$pages" -ge 8
+          test "$pages" -le 20
+
+      - name: Commit v26
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            word_output/2026.09.23v26.docx \
+            word_output/v26_audit_before.txt \
+            word_output/v26_audit_after.txt \
+            word_output/v26_ai_style_audit.txt \
+            word_output/render_v26_word/
+          git commit -m "Revise v25 prose to reduce templated AI-style phrasing" || exit 0
+          git push
