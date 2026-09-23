@@ -1,0 +1,77 @@
+name: Build v25 with verified Figure 3B
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'word_output/build_v25_replace_fig3.py'
+      - '.github/workflows/build_v25_replace_fig3.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk libreoffice-writer poppler-utils
+          python -m pip install --upgrade pip
+          python -m pip install python-docx matplotlib numpy
+
+      - name: Build verified Figure 3B and v25
+        run: python word_output/build_v25_replace_fig3.py
+
+      - name: Audit Figure 3B and manuscript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          import csv
+
+          doc_path = Path("word_output/2026.09.23v25.docx")
+          d = Document(doc_path)
+          text = "\n".join(p.text for p in d.paragraphs)
+
+          assert "图3 Abilene与GÉANT上本文方法相对LightTS的三随机种子多指标性能提升" in text
+          assert "图3 Abilene与GÉANT上三随机种子外部基线配对结果" not in text
+          for token in ["29.80%", "17.57%", "16.23%", "46.89%", "29.15%", "27.18%", "6.41%", "2.17%"]:
+              assert token in text, token
+          assert len(d.tables) == 3
+          assert len(d.inline_shapes) == 4
+
+          raw = list(csv.DictReader(open("abilene_forecasting/paper_figures/source_data_v25/fig3_lightts_improvement_seed42_44.csv", encoding="utf-8-sig")))
+          summary = list(csv.DictReader(open("abilene_forecasting/paper_figures/source_data_v25/fig3_lightts_improvement_summary.csv", encoding="utf-8-sig")))
+          assert len(raw) == 18
+          assert len(summary) == 6
+          assert all(float(r["relative_improvement_pct"]) > 0 for r in raw)
+          print("Figure 3B data audit OK; raw rows=", len(raw), "summary rows=", len(summary))
+          PY
+
+      - name: Render v25 for QA
+        run: |
+          rm -rf word_output/render_v25_word
+          mkdir -p word_output/render_v25_word
+          libreoffice --headless --convert-to pdf --outdir word_output/render_v25_word word_output/2026.09.23v25.docx
+          pdftoppm -png -r 180 word_output/render_v25_word/2026.09.23v25.pdf word_output/render_v25_word/page
+          pages=$(find word_output/render_v25_word -name 'page-*.png' | wc -l)
+          echo "Rendered pages: $pages"
+          test "$pages" -ge 8
+          test "$pages" -le 20
+
+      - name: Commit v25
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            word_output/2026.09.23v25.docx \
+            word_output/render_v25_word/ \
+            abilene_forecasting/paper_figures/exports/color/fig3_lightts_improvement_heatstrip.png \
+            abilene_forecasting/paper_figures/exports/grayscale/fig3_lightts_improvement_heatstrip.png \
+            abilene_forecasting/paper_figures/source_data_v25/
+          git commit -m "Replace Figure 3 with verified LightTS heatstrip comparison" || exit 0
+          git push
