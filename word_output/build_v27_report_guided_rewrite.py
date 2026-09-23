@@ -145,7 +145,12 @@ assert before_figcaps == after_figcaps, "Figure captions changed"
 assert before_shapes == len(doc.inline_shapes), "Figure count changed"
 
 num_pat = re.compile(r"\d+(?:\.\d+)?%?|\d+∶\d+∶\d+")
-assert Counter(num_pat.findall(before_text)) == Counter(num_pat.findall(after_text)), "Numeric token multiset changed"
+before_nums = Counter(num_pat.findall(before_text))
+after_nums = Counter(num_pat.findall(after_text))
+if before_nums != after_nums:
+    print("MISSING_NUMBERS", dict(before_nums - after_nums))
+    print("ADDED_NUMBERS", dict(after_nums - before_nums))
+assert before_nums == after_nums, "Numeric token multiset changed"
 
 cite_pat = re.compile(r"\[\d+\]")
 assert Counter(cite_pat.findall(before_text)) == Counter(cite_pat.findall(after_text)), "Citation markers changed"
