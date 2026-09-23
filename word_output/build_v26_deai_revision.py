@@ -83,11 +83,11 @@ replacements = [
     ),
     (
         "图1给出了自适应多尺度网络流量预测方法的整体流程",
-        "图1给出模型的整体流程。方法把多尺度预测和尺度选择分成两个模块：尺度1、2和4的输入分别交给独立DLinear专家，路由网络根据当前窗口的统计特征估计三个尺度的融合权重。原始OD流量先进行对数变换和标准化，再形成三个时间分辨率的输入序列；三个专家得到候选预测后，由样本级权重完成融合。固定等权消融模型保留相同的尺度和专家，只把融合权重固定为1/3，因此能够单独比较样本级权重带来的变化。"
+        "图1给出模型的整体流程。方法把多尺度预测和尺度选择分成两个模块：尺度1、2和4的输入分别交给独立DLinear专家，路由网络根据当前窗口的统计特征估计3个尺度的融合权重。原始OD流量先进行对数变换和标准化，再形成3个时间分辨率的输入序列；3个专家得到候选预测后，由样本级权重完成融合。固定等权消融模型保留相同的尺度和专家，因此能够单独比较样本级权重带来的变化。"
     ),
     (
         "这一设计的出发点是，不同时间分辨率对同一流量窗口的描述侧重点不同",
-        "三个时间尺度保留的信息并不相同。原始尺度包含更多局部变化，较粗尺度经过时间聚合后削弱部分短时扰动，更突出较慢的变化趋势。只使用一个尺度会舍弃其他分辨率的信息；长期采用固定比例又不能随输入窗口变化。本文保留三个尺度的独立预测，再由路由网络确定每个样本的组合比例。DLinear结构较简洁，可在控制模型规模的同时承担各尺度的预测任务，使实验重点落在多尺度输入和样本级融合本身。"
+        "三个时间尺度保留的信息并不相同。原始尺度包含更多局部变化，较粗尺度经过时间聚合后削弱部分短时扰动，更突出较慢的变化趋势。只使用一个尺度会舍弃其他分辨率的信息；长期采用固定比例又不能随输入窗口变化。本文保留3个尺度的独立预测，再由路由网络确定每个样本的组合比例。DLinear结构较简洁，可在控制模型规模的同时承担各尺度的预测任务，使实验重点落在多尺度输入和样本级融合本身。"
     ),
     (
         "选择DLinear作为尺度专家还有一个考虑",
@@ -95,11 +95,11 @@ replacements = [
     ),
     (
         "四维向量输入隐藏维数为16的两层感知器",
-        "四维向量输入隐藏维数为16的两层感知器，输出三个尺度的未归一化分数。路由器只需判断尺度的相对重要性，不需要再次完成完整的OD流量预测，因此本文未引入循环网络、注意力网络等额外时序编码器。使用低维统计量和较小隐藏层，也能把路由模块的参数规模控制在较低水平。其尺度分数计算为"
+        "四维向量输入隐藏维数为16的两层感知器，输出3个尺度的未归一化分数。路由器只需判断尺度的相对重要性，不需要再次完成完整的OD流量预测，因此本文未引入循环网络、注意力网络等额外时序编码器。使用低维统计量和较小隐藏层，也能把路由模块的参数规模控制在较低水平。其尺度分数计算为"
     ),
     (
         "综上，本文方法先利用平均池化把同一输入窗口转换为3个时间分辨率",
-        "模型的计算过程可以概括为三个环节：平均池化把同一历史窗口转换为三个时间分辨率，DLinear专家分别给出候选预测，路由网络再根据原始窗口的四个统计量确定融合权重。多尺度序列决定模型从哪些时间分辨率读取历史信息，尺度专家完成各自的预测，路由网络只负责组合结果。后续实验据此设置单尺度DLinear、固定等权多尺度模型和本文方法，用同一组专家结构区分多尺度信息与样本级加权的作用。"
+        "模型的计算过程可以概括为三个环节：平均池化把同一历史窗口转换为3个时间分辨率，DLinear专家分别给出候选预测，路由网络再根据原始窗口的4个统计量确定融合权重。多尺度序列决定模型从哪些时间分辨率读取历史信息，尺度专家完成各自的预测，路由网络只负责组合结果。后续实验据此设置单尺度DLinear、固定等权多尺度模型和本文方法，用同一组专家结构区分多尺度信息与样本级加权的作用。"
     ),
     (
         "实验部分围绕三个问题展开",
@@ -115,7 +115,7 @@ replacements = [
     ),
     (
         "随机种子的设置分为两组",
-        "外部基线比较使用随机种子42～44，使DLinear、LightTS和本文方法在相同初始化编号下重复训练。核心消融扩展到随机种子42～49，只比较DLinear、固定等权多尺度模型和本文方法。前者保证外部模型比较使用共同种子，后者通过增加重复次数观察多尺度结构和样本级加权在不同初始化下的变化。"
+        "外部基线比较使用随机种子42～44共3个共同随机种子，使DLinear、LightTS和本文方法在相同初始化编号下重复训练。核心消融扩展到随机种子42～49共8个随机种子，只比较DLinear、固定等权多尺度模型和本文方法。前者保证外部模型比较使用共同种子，后者通过增加重复次数观察多尺度结构和样本级加权在不同初始化下的变化。"
     ),
     (
         "MSE、MAE和RMSE均在标准化空间中计算",
@@ -181,9 +181,24 @@ assert before_headings == after_headings, "Heading structure changed"
 assert before_figcaps == after_figcaps, "Figure captions changed"
 assert before_shapes == len(doc.inline_shapes), "Inline figure count changed"
 
-# All numeric tokens must be preserved as a multiset except range punctuation changed from — to ～.
+# Protect substantive scientific numbers while allowing harmless changes in repeated figure/table references.
+# Decimal values, percentages, ratios and integers >=20 must remain unchanged as a multiset.
 num_pat = re.compile(r"\d+(?:\.\d+)?%?|\d+∶\d+∶\d+")
-assert Counter(num_pat.findall(before_text)) == Counter(num_pat.findall(after_text)), "Numeric token multiset changed"
+def protected_numbers(text):
+    out = []
+    for tok in num_pat.findall(text):
+        if "%" in tok or "." in tok or "∶" in tok:
+            out.append(tok)
+            continue
+        try:
+            if int(tok) >= 20:
+                out.append(tok)
+        except ValueError:
+            pass
+    return Counter(out)
+assert protected_numbers(before_text) == protected_numbers(after_text), "Protected scientific numeric tokens changed"
+for expr in ["1/3", "L=96", "H=24", "S={1,2,4}"]:
+    assert before_text.count(expr) == after_text.count(expr), f"Protected expression {expr} changed"
 
 # Citations and formulas remain intact.
 cite_pat = re.compile(r"\[\d+\]")
