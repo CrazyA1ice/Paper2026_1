@@ -25,6 +25,14 @@ jobs:
         run: python -m pip install --disable-pip-version-check python-docx==1.2.0
       - name: Build V2 and compare report with checks
         run: python paper_template/expand_ccgcxyxbv1_20261022.py
+      - name: Archive generated Word for visual review
+        uses: actions/upload-artifact@v4
+        with:
+          name: ccgcxyxb-v2-visual-check
+          if-no-files-found: error
+          path: |
+            paper_template/长春工程学院学报(自然科学版)/自适应多尺度加权的多变量网络流量预测_ccgcxyxbV2_扩充稿.docx
+            paper_template/长春工程学院学报(自然科学版)/ccgcxyxbV1至V2_扩充修改对比报告.md
       - name: Commit resulting deliverables
         run: |
           git config user.name "paper-revision-bot"
