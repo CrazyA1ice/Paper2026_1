@@ -1,0 +1,60 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\内容精修_20261022\\自适应多尺度加权的多变量网络流量预测_内容精修稿.docx",
+  "source_sha256": "71f2b3f42a83c23e376f00c180344bc7b678a190672cd6862397a10758b403fc",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\优势补充与图表优化_20261022\\自适应多尺度加权的多变量网络流量预测_优势补充稿.docx",
+  "output_sha256": "30e83a8325d6c6800e76e65151b7af4c2c9e2a7cb754e65dcc736cec5ef21ca3",
+  "source_unchanged": true,
+  "changed_package_parts": [
+    "word/document.xml",
+    "word/media/journal_figure4.png"
+  ],
+  "styles_and_format_properties_unchanged": true,
+  "all_original_tables_and_math_unchanged": true,
+  "other_three_figures_unchanged": true,
+  "figure4_container_geometry_unchanged": true,
+  "figure4_image_pixels": [
+    3259,
+    1440
+  ],
+  "existing_empirical_values_unchanged": true,
+  "new_numbers_are_verified_derived_summaries": true,
+  "new_experiments": false,
+  "edits": [
+    {
+      "paragraph": 50,
+      "run": 0,
+      "before": "同一尺度的线性映射在变量间共享，因此参数量不随OD变量数增加。当",
+      "after": "同一尺度的线性映射在变量间共享，因此参数量不随OD变量数增加；24 h配置中，路由参数仅占总参数量的1.57%。当"
+    },
+    {
+      "paragraph": 76,
+      "run": 0,
+      "before": "图3中，本文方法在Abilene上的MAE与平均低估误差分别为0.147和0.137，在GÉANT上分别为0.632和0.577，两项均值均低于所列对照。MAE反映总体偏差，平均低估误差侧重于预测需求不足的幅度，二者共同反映了该24 h任务中高需求点估计的改善，可为容量需求分析提供参考。",
+      "after": "图3中，本文方法在Abilene上的MAE与平均低估误差分别为0.147和0.137，在GÉANT上分别为0.632和0.577，两项均值均低于所列对照。相对DLinear，Abilene两项指标的平均相对降幅分别为13.96%和16.07%。MAE反映总体偏差，平均低估误差侧重于预测需求不足的幅度，二者共同反映了该24 h任务中高需求点估计的改善，可为容量需求分析提供参考。"
+    },
+    {
+      "paragraph": 79,
+      "run": 0,
+      "before": "图4 GÉANT一周预测任务的MSE与MAE（8次重复）",
+      "after": "图4 GÉANT一周预测中本文方法相对各对照的误差降幅（8次重复）"
+    },
+    {
+      "paragraph": 80,
+      "run": 0,
+      "before": "本文方法的MSE和MAE分别为0.841±0.088和0.536±0.028，低于图4中的四种对照。相对DLinear，两项指标的平均相对降幅分别为23.16%和11.16%。在覆盖一周的同时保留逐小时输出，使预测结果能够描述较长区间内的需求变化；上述误差比较为开展这一时间范围的流量需求分析提供了实验依据。",
+      "after": "本文方法的MSE和MAE分别为0.841±0.088和0.536±0.028，低于图4中的四种对照。相对DLinear，两项指标的平均相对降幅分别为23.16%和11.16%；相对其余三种融合对照，MSE降低23.77%～26.11%，MAE降低11.19%～12.39%。图中小圆点为相同随机种子下的单次相对降幅，菱形及横线表示均值与样本标准差。每种对照下的8次重复中，两项误差均降低，体现了该一周任务中优势方向的一致性。"
+    }
+  ],
+  "visual_review_pending": false,
+  "visual_review_pages_passed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "visual_review_result": "PASS: every final page inspected; figures and captions complete, math and tables intact, no clipping or overlap.",
+  "all_original_numeric_text_tokens_preserved": true
+}

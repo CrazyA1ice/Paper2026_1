@@ -1,0 +1,41 @@
+{
+  "dataset": "abilene",
+  "data_path": "data\\processed\\abilene_1hour.npz",
+  "data_feature": null,
+  "data_aggregation": null,
+  "model": "dlinear_scale",
+  "model_config": {},
+  "seed": 43,
+  "device": "cuda",
+  "n_channels": 144,
+  "split_rows": {
+    "train": 2793,
+    "val": 931,
+    "test": 932
+  },
+  "split_windows": {
+    "train": 2650,
+    "val": 788,
+    "test": 789
+  },
+  "input_len": 96,
+  "pred_len": 48,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 16547,
+  "best_val_mse_normalized": 0.03333177544214399,
+  "test_normalized": {
+    "mse": 0.2643595337867737,
+    "mae": 0.22602614760398865,
+    "rmse": 0.514159083366394
+  },
+  "test_original_units": {
+    "mse": 1.7359267260406537e+20,
+    "mae": 43104324.0,
+    "rmse": 13175456768.0
+  },
+  "elapsed_seconds": 74.17224560000068
+}

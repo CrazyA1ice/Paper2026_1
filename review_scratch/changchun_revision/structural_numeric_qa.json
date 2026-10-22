@@ -1,0 +1,40 @@
+{
+  "native_equations_unchanged": 17,
+  "figures_unchanged": 2,
+  "tables_checked": 4,
+  "references_preserved": 11,
+  "source_files_unchanged": true,
+  "parameter_count_verified": 8339,
+  "title_length": 18,
+  "abstract_length": 185,
+  "main_comparisons": "mean errors across all stated seeds",
+  "computed_improvements": {
+    "abilene": {
+      "dlinear": 2.7677258769891226,
+      "dlinear_scale_static": 1.654105562728188,
+      "dlinear_scale_global": 1.7951322860380812,
+      "dlinear_scale_constant_router": 1.8017261437706609,
+      "external_dlinear": 4.0654648014607835,
+      "external_lightts": 29.80333430475474
+    },
+    "geant": {
+      "dlinear": 2.3482639668894825,
+      "dlinear_scale_static": 4.536699588425789,
+      "dlinear_scale_global": 4.310141513757662,
+      "dlinear_scale_constant_router": 4.9745553354649426,
+      "external_dlinear": 4.5362349700259585,
+      "external_lightts": 46.88658964188419
+    }
+  },
+  "seasonal_improvements": {
+    "abilene": {
+      "seasonal_24": 44.933432892692295,
+      "seasonal_168": 47.80050804939241
+    },
+    "geant": {
+      "seasonal_24": 31.772383537578868,
+      "seasonal_168": 29.69131124271481
+    }
+  },
+  "output_sha256": "e17bedc4a3ad444ae387ec607a4a922b0a21adb81c1d7f1fdea9de26b0105d14"
+}

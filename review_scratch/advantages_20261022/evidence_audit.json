@@ -1,0 +1,210 @@
+{
+  "output_dir": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\优势补充与图表优化_20261022",
+  "assets": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\优势补充与图表优化_20261022\\图表源文件",
+  "weekly_raw_rows": 40,
+  "weekly_paired_rows": 64,
+  "weekly_summary": [
+    {
+      "baseline": "dlinear",
+      "metric": "mse",
+      "n": 8,
+      "wins": 8,
+      "mean": 23.160177332680846,
+      "sd": 9.611962789541199,
+      "min": 12.02125936843842,
+      "max": 36.98645133085358
+    },
+    {
+      "baseline": "dlinear",
+      "metric": "mae",
+      "n": 8,
+      "wins": 8,
+      "mean": 11.158897760037743,
+      "sd": 5.204926981978245,
+      "min": 4.918060059133039,
+      "max": 18.12521039755284
+    },
+    {
+      "baseline": "dlinear_scale_static",
+      "metric": "mse",
+      "n": 8,
+      "wins": 8,
+      "mean": 26.114809865030956,
+      "sd": 11.525852169235815,
+      "min": 8.544058243414888,
+      "max": 43.52370979655998
+    },
+    {
+      "baseline": "dlinear_scale_static",
+      "metric": "mae",
+      "n": 8,
+      "wins": 8,
+      "mean": 12.388247959379171,
+      "sd": 6.647067412621333,
+      "min": 2.260154209442378,
+      "max": 22.17788595402894
+    },
+    {
+      "baseline": "dlinear_scale_global",
+      "metric": "mse",
+      "n": 8,
+      "wins": 8,
+      "mean": 26.0174567878909,
+      "sd": 11.618045778332865,
+      "min": 8.42946686944722,
+      "max": 43.70930685085498
+    },
+    {
+      "baseline": "dlinear_scale_global",
+      "metric": "mae",
+      "n": 8,
+      "wins": 8,
+      "mean": 12.343283699169879,
+      "sd": 6.703173591497399,
+      "min": 2.1874370278597977,
+      "max": 22.297417981318066
+    },
+    {
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mse",
+      "n": 8,
+      "wins": 8,
+      "mean": 23.772923891947922,
+      "sd": 6.893548723571897,
+      "min": 12.248417465845659,
+      "max": 34.565690633025675
+    },
+    {
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mae",
+      "n": 8,
+      "wins": 8,
+      "mean": 11.189913119457724,
+      "sd": 3.682003253064264,
+      "min": 5.067304163037714,
+      "max": 16.82644083768866
+    }
+  ],
+  "high_demand": [
+    {
+      "dataset": "abilene",
+      "metric": "mae",
+      "n": 8,
+      "baseline_mean": 0.17257839764864283,
+      "proposed_mean": 0.14665397715680428,
+      "mean_paired_reduction_pct": 13.955902919585073,
+      "wins": 7,
+      "main_text_status": "Existing endpoint; add the Abilene paired reduction in prose."
+    },
+    {
+      "dataset": "abilene",
+      "metric": "mean_shortfall",
+      "n": 8,
+      "baseline_mean": 0.16666678340935512,
+      "proposed_mean": 0.13715056270878812,
+      "mean_paired_reduction_pct": 16.074871371236185,
+      "wins": 7,
+      "main_text_status": "Existing endpoint; add the Abilene paired reduction in prose."
+    },
+    {
+      "dataset": "abilene",
+      "metric": "underprediction_fraction",
+      "n": 8,
+      "baseline_mean": 0.8905636591419701,
+      "proposed_mean": 0.7985293233004046,
+      "mean_paired_reduction_pct": 9.915863972226079,
+      "wins": 7,
+      "main_text_status": "Not added: introduces a third endpoint; error magnitude already answers the main question."
+    },
+    {
+      "dataset": "geant",
+      "metric": "mae",
+      "n": 8,
+      "baseline_mean": 0.6359734084889466,
+      "proposed_mean": 0.6319972164266795,
+      "mean_paired_reduction_pct": 0.41929244266631494,
+      "wins": 4,
+      "main_text_status": "Existing endpoint; add the Abilene paired reduction in prose."
+    },
+    {
+      "dataset": "geant",
+      "metric": "mean_shortfall",
+      "n": 8,
+      "baseline_mean": 0.5921305740696757,
+      "proposed_mean": 0.5765603573559032,
+      "mean_paired_reduction_pct": 2.2685397246979937,
+      "wins": 4,
+      "main_text_status": "Existing endpoint; add the Abilene paired reduction in prose."
+    },
+    {
+      "dataset": "geant",
+      "metric": "underprediction_fraction",
+      "n": 8,
+      "baseline_mean": 0.9115927122728179,
+      "proposed_mean": 0.8941561496978137,
+      "mean_paired_reduction_pct": 1.886390204775534,
+      "wins": 3,
+      "main_text_status": "Not added: introduces a third endpoint; error magnitude already answers the main question."
+    }
+  ],
+  "router_share_pct": 1.5709317663988487,
+  "inventory": [
+    {
+      "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\core_v2_summary.csv",
+      "rows": 54,
+      "sha256": "41e8bd75b043b9a211b49f38eaa54ca7b879048418758234e232cb3cd0f96add",
+      "decision": "Main 24-hour comparison already represented; do not mix original-unit or redundant RMSE endpoints."
+    },
+    {
+      "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\analysis\\paired_summary.csv",
+      "rows": 4,
+      "sha256": "c3b1b44819c9031ed0701d724037f2d7512f8d487a43ce4b82230101e86232ab",
+      "decision": "Main fusion comparison already represented."
+    },
+    {
+      "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\supplement_20261020\\temporal_paired_effects.csv",
+      "rows": 12,
+      "sha256": "356546cc12a235895eabd51d2c4478e17c4bdc4a1ff8ffea7b547712d7283997",
+      "decision": "Conditional subperiod effects; restoring the entire time-stratification protocol would enlarge scope."
+    },
+    {
+      "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\supplement_20261020\\learning_curve_paired_effects.csv",
+      "rows": 16,
+      "sha256": "b3fa3d0833632b6248d9706a63d049c1fbc6c4c6395efe39c9ada0cc68ca3142",
+      "decision": "Training-fraction effects are mixed; not a general data-efficiency advantage."
+    },
+    {
+      "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\supplement_20261020\\seasonal_paired_effects.csv",
+      "rows": 4,
+      "sha256": "64829c60a1f70f4ada4a5b5829e9c154c604c4d73535356cba9542a82f7ca869",
+      "decision": "Different usable target windows; do not combine with the current learned-model comparison."
+    },
+    {
+      "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\analysis\\volatility_summary.csv",
+      "rows": 5,
+      "sha256": "c53221d13a9f6e11f6702071383a9f609f39aab65bd5293aca1cfc682a2578e6",
+      "decision": "Descriptive strata overlap the existing average comparison; not an additional generalization study."
+    },
+    {
+      "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\router_window_assignment_audit\\summary.csv",
+      "rows": 6,
+      "sha256": "7a5126b1222b3e59a364e544dbd82563dfb8aade52abe13e6e1793f1aeb36b27",
+      "decision": "Does not establish a universal benefit from per-window weight assignment."
+    },
+    {
+      "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\paired_reductions.csv",
+      "rows": 64,
+      "sha256": "a772979b7bffa65b544de81dea619105f41d492bdbbe79f06129070ccec01ccf",
+      "decision": "Retain the reported 168-hour task; the full horizon grid has mixed effects."
+    },
+    {
+      "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\inference_benchmark_cpu1\\inference_benchmark_summary.csv",
+      "rows": 6,
+      "sha256": "f5792b7779ef6d23fa8c12018f0f26891f02e05a280c7111a7a3fb53dfb9a3f7",
+      "decision": "Excluded from main text under the standing instruction to omit hardware/timing discussion."
+    }
+  ],
+  "data_exclusion_rule": "All five models, seeds 42-49, and all 307 test origins in the reported GÉANT H168 task; no within-task filtering.",
+  "no_new_experiments": true,
+  "no_significance_tests_added": true
+}

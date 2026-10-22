@@ -1,0 +1,54 @@
+[
+  {
+    "dataset": "abilene",
+    "seed": 42,
+    "channel_zero_based": 46,
+    "window_zero_based": 278,
+    "truth_volatility_quantile": 50,
+    "truth_volatility": 0.02529209665954113,
+    "mse": {
+      "DLinear": 0.0022773235104978085,
+      "固定等权": 0.002159789204597473,
+      "本文方法": 0.005798615515232086
+    }
+  },
+  {
+    "dataset": "abilene",
+    "seed": 42,
+    "channel_zero_based": 46,
+    "window_zero_based": 618,
+    "truth_volatility_quantile": 90,
+    "truth_volatility": 0.0362628698348999,
+    "mse": {
+      "DLinear": 0.012506005354225636,
+      "固定等权": 0.01289439294487238,
+      "本文方法": 0.011043992824852467
+    }
+  },
+  {
+    "dataset": "geant",
+    "seed": 42,
+    "channel_zero_based": 296,
+    "window_zero_based": 397,
+    "truth_volatility_quantile": 50,
+    "truth_volatility": 0.5481211543083191,
+    "mse": {
+      "DLinear": 0.37519407272338867,
+      "固定等权": 0.3938003480434418,
+      "本文方法": 0.30431994795799255
+    }
+  },
+  {
+    "dataset": "geant",
+    "seed": 42,
+    "channel_zero_based": 296,
+    "window_zero_based": 169,
+    "truth_volatility_quantile": 90,
+    "truth_volatility": 0.6803263425827026,
+    "mse": {
+      "DLinear": 0.423163503408432,
+      "固定等权": 0.42027416825294495,
+      "本文方法": 0.41186079382896423
+    }
+  }
+]

@@ -1,0 +1,4161 @@
+{
+  "manuscript": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.02v55.docx",
+  "runs_checked": 86,
+  "checks": [
+    {
+      "check": "abilene: training normalization",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19404635716331928, 'mae': 0.18680102749640282, 'rmse': 0.44050693202640895}"
+    },
+    {
+      "check": "abilene/dlinear/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19238583167542725, 'mae': 0.17921601699737275, 'rmse': 0.43861809319204703}"
+    },
+    {
+      "check": "abilene/dlinear/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19551778288658211, 'mae': 0.19794733982905643, 'rmse': 0.44217392832072555}"
+    },
+    {
+      "check": "abilene/dlinear/45: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/45: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/45: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1946446567925527, 'mae': 0.19275064877082512, 'rmse': 0.44118551289967883}"
+    },
+    {
+      "check": "abilene/dlinear/46: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/46: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/46: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1970762114592615, 'mae': 0.19810289663467084, 'rmse': 0.4439326654564423}"
+    },
+    {
+      "check": "abilene/dlinear/47: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/47: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/47: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19376398318942295, 'mae': 0.17584269349139275, 'rmse': 0.4401863050907229}"
+    },
+    {
+      "check": "abilene/dlinear/48: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/48: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/48: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1945461726518318, 'mae': 0.18851439866846123, 'rmse': 0.4410738857060479}"
+    },
+    {
+      "check": "abilene/dlinear/49: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/49: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear/49: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1915583458815936, 'mae': 0.1914206579172985, 'rmse': 0.4376737893472644}"
+    },
+    {
+      "check": "abilene/lightts/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/lightts/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/lightts/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.2784531314997956, 'mae': 0.21295682630942883, 'rmse': 0.5276865845364989}"
+    },
+    {
+      "check": "abilene/lightts/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/lightts/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/lightts/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.2592559820594837, 'mae': 0.19911964729386378, 'rmse': 0.5091718590608516}"
+    },
+    {
+      "check": "abilene/lightts/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/lightts/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/lightts/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.25862427035505453, 'mae': 0.2006883208900032, 'rmse': 0.508551148219188}"
+    },
+    {
+      "check": "abilene/dlinear_scale_static/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19312669189064466, 'mae': 0.1867023643316647, 'rmse': 0.4394618207428771}"
+    },
+    {
+      "check": "abilene/dlinear_scale_static/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19309951758208255, 'mae': 0.19584685910449146, 'rmse': 0.439430901942595}"
+    },
+    {
+      "check": "abilene/dlinear_scale_static/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1950234077141593, 'mae': 0.18685675454740844, 'rmse': 0.44161454653822185}"
+    },
+    {
+      "check": "abilene/dlinear_scale_static/45: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/45: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/45: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1903927908125056, 'mae': 0.19890930154133724, 'rmse': 0.43634022369305536}"
+    },
+    {
+      "check": "abilene/dlinear_scale_static/46: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/46: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/46: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19201125769632782, 'mae': 0.19571057563996822, 'rmse': 0.43819089184546933}"
+    },
+    {
+      "check": "abilene/dlinear_scale_static/47: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/47: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/47: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19280608200102756, 'mae': 0.18787797583808746, 'rmse': 0.4390968936362765}"
+    },
+    {
+      "check": "abilene/dlinear_scale_static/48: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/48: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/48: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19115908205195514, 'mae': 0.18319755993772466, 'rmse': 0.43721743109344935}"
+    },
+    {
+      "check": "abilene/dlinear_scale_static/49: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/49: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_static/49: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.18854877774470513, 'mae': 0.18894406952835252, 'rmse': 0.43422203737800447}"
+    },
+    {
+      "check": "abilene/dlinear_scale_global/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19365418378116359, 'mae': 0.186143029710048, 'rmse': 0.4400615681710499}"
+    },
+    {
+      "check": "abilene/dlinear_scale_global/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19349633970917401, 'mae': 0.19581124595315177, 'rmse': 0.43988218844273974}"
+    },
+    {
+      "check": "abilene/dlinear_scale_global/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19540930358256178, 'mae': 0.18659199740661322, 'rmse': 0.4420512454258689}"
+    },
+    {
+      "check": "abilene/dlinear_scale_global/45: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/45: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/45: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1906983206952962, 'mae': 0.19967034245627263, 'rmse': 0.43669018845778546}"
+    },
+    {
+      "check": "abilene/dlinear_scale_global/46: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/46: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/46: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19242914846628206, 'mae': 0.19518167112136284, 'rmse': 0.43866746912243454}"
+    },
+    {
+      "check": "abilene/dlinear_scale_global/47: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/47: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/47: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1927693966528791, 'mae': 0.18785472884295634, 'rmse': 0.4390551180123961}"
+    },
+    {
+      "check": "abilene/dlinear_scale_global/48: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/48: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/48: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1911872564397982, 'mae': 0.18381756158777873, 'rmse': 0.43724965001678184}"
+    },
+    {
+      "check": "abilene/dlinear_scale_global/49: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/49: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_global/49: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.18874532195448446, 'mae': 0.18874862945035284, 'rmse': 0.4344482960658086}"
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19236262432660328, 'mae': 0.1880280953538931, 'rmse': 0.43859163731950396}"
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19007314369766729, 'mae': 0.17771670622204827, 'rmse': 0.4359737878561821}"
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1929825989283778, 'mae': 0.17390652727666592, 'rmse': 0.43929784762547813}"
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/45: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/45: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/45: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1923593267632842, 'mae': 0.17343254574079928, 'rmse': 0.4385878780396059}"
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/46: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/46: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/46: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19261031099232467, 'mae': 0.18373506166235862, 'rmse': 0.4388739124080226}"
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/47: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/47: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/47: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19239028339736436, 'mae': 0.18870254203577969, 'rmse': 0.43862316787575684}"
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/48: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/48: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/48: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19567839491465078, 'mae': 0.18578399610517607, 'rmse': 0.44235550738591556}"
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/49: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/49: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale_constant_router/49: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.189870592148013, 'mae': 0.18022889213424903, 'rmse': 0.43574142808323035}"
+    },
+    {
+      "check": "abilene/dlinear_scale/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1855235071591447, 'mae': 0.1680468985836991, 'rmse': 0.43072439814705726}"
+    },
+    {
+      "check": "abilene/dlinear_scale/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.18445459927533533, 'mae': 0.16884723533672166, 'rmse': 0.4294817799107843}"
+    },
+    {
+      "check": "abilene/dlinear_scale/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1883194797760294, 'mae': 0.16771386208333236, 'rmse': 0.43395792396962796}"
+    },
+    {
+      "check": "abilene/dlinear_scale/45: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/45: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/45: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.1926347589692075, 'mae': 0.16848714061886327, 'rmse': 0.43890176460024344}"
+    },
+    {
+      "check": "abilene/dlinear_scale/46: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/46: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/46: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19305462088792777, 'mae': 0.17368549434134217, 'rmse': 0.43937981392859615}"
+    },
+    {
+      "check": "abilene/dlinear_scale/47: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/47: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/47: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.19023462800903376, 'mae': 0.18550970935381783, 'rmse': 0.4361589481015307}"
+    },
+    {
+      "check": "abilene/dlinear_scale/48: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/48: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/48: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.18847738761803556, 'mae': 0.18624556915502272, 'rmse': 0.4341398249619995}"
+    },
+    {
+      "check": "abilene/dlinear_scale/49: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/49: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene/dlinear_scale/49: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.18785884927590962, 'mae': 0.16773722227733268, 'rmse': 0.4334268672751029}"
+    },
+    {
+      "check": "geant: training normalization",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.44988270962502047, 'mae': 0.37711219944219376, 'rmse': 0.6707329644687373}"
+    },
+    {
+      "check": "geant/dlinear/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.46296969627464085, 'mae': 0.3889687976785909, 'rmse': 0.6804187653751481}"
+    },
+    {
+      "check": "geant/dlinear/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.45020497594885683, 'mae': 0.3825499335614178, 'rmse': 0.670973155907788}"
+    },
+    {
+      "check": "geant/dlinear/45: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/45: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/45: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4342065921138944, 'mae': 0.3681703110096613, 'rmse': 0.6589435424328054}"
+    },
+    {
+      "check": "geant/dlinear/46: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/46: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/46: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.41939449782337546, 'mae': 0.35892004760309015, 'rmse': 0.6476067462769173}"
+    },
+    {
+      "check": "geant/dlinear/47: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/47: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/47: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4285129758506661, 'mae': 0.36782157256644676, 'rmse': 0.6546090251827164}"
+    },
+    {
+      "check": "geant/dlinear/48: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/48: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/48: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.426645041456029, 'mae': 0.36188348345850707, 'rmse': 0.6531807111787893}"
+    },
+    {
+      "check": "geant/dlinear/49: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/49: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear/49: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.42257199124188466, 'mae': 0.3587739310311513, 'rmse': 0.6500553755195665}"
+    },
+    {
+      "check": "geant/lightts/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/lightts/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/lightts/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.7893000819699004, 'mae': 0.5293365894112978, 'rmse': 0.8884256198297641}"
+    },
+    {
+      "check": "geant/lightts/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/lightts/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/lightts/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.8340439955161132, 'mae': 0.5071224797443074, 'rmse': 0.9132600919322563}"
+    },
+    {
+      "check": "geant/lightts/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/lightts/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/lightts/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.8265542977826422, 'mae': 0.5316475062579933, 'rmse': 0.9091503163848331}"
+    },
+    {
+      "check": "geant/dlinear_scale_static/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.43786914865343046, 'mae': 0.37271464927258946, 'rmse': 0.6617168190800582}"
+    },
+    {
+      "check": "geant/dlinear_scale_static/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.43647422931615304, 'mae': 0.36957106014800734, 'rmse': 0.6606619629705899}"
+    },
+    {
+      "check": "geant/dlinear_scale_static/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4345663465831543, 'mae': 0.3691107580849196, 'rmse': 0.6592164641323472}"
+    },
+    {
+      "check": "geant/dlinear_scale_static/45: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/45: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/45: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.434914408255012, 'mae': 0.3689200905495884, 'rmse': 0.659480407787079}"
+    },
+    {
+      "check": "geant/dlinear_scale_static/46: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/46: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/46: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.45584980838978345, 'mae': 0.3834173469820995, 'rmse': 0.6751665041971376}"
+    },
+    {
+      "check": "geant/dlinear_scale_static/47: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/47: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/47: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.47475555930462116, 'mae': 0.3949423197009679, 'rmse': 0.6890250788647835}"
+    },
+    {
+      "check": "geant/dlinear_scale_static/48: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/48: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/48: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.45829699093585, 'mae': 0.3847931074647094, 'rmse': 0.6769763592148916}"
+    },
+    {
+      "check": "geant/dlinear_scale_static/49: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/49: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_static/49: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4463443501099813, 'mae': 0.37545096396738875, 'rmse': 0.6680900763444861}"
+    },
+    {
+      "check": "geant/dlinear_scale_global/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.43832827350480325, 'mae': 0.3729538527657374, 'rmse': 0.6620636476237034}"
+    },
+    {
+      "check": "geant/dlinear_scale_global/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4347139839106737, 'mae': 0.36849439222747177, 'rmse': 0.6593284340225846}"
+    },
+    {
+      "check": "geant/dlinear_scale_global/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4341439490336378, 'mae': 0.369013326724428, 'rmse': 0.6588960077536044}"
+    },
+    {
+      "check": "geant/dlinear_scale_global/45: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/45: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/45: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4348605904232931, 'mae': 0.3689833096963975, 'rmse': 0.6594396033173114}"
+    },
+    {
+      "check": "geant/dlinear_scale_global/46: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/46: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/46: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.45457458497103687, 'mae': 0.38275957610369, 'rmse': 0.6742214658189376}"
+    },
+    {
+      "check": "geant/dlinear_scale_global/47: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/47: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/47: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.47241640339511265, 'mae': 0.3936916410542608, 'rmse': 0.6873255439710594}"
+    },
+    {
+      "check": "geant/dlinear_scale_global/48: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/48: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/48: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.457768945539572, 'mae': 0.3846031891287067, 'rmse': 0.6765862439774932}"
+    },
+    {
+      "check": "geant/dlinear_scale_global/49: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/49: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_global/49: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.44376958610089384, 'mae': 0.3739137954186215, 'rmse': 0.6661603306268649}"
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.45402753231056353, 'mae': 0.3822212621011282, 'rmse': 0.6738156515773165}"
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.43644519028312023, 'mae': 0.3731613438951307, 'rmse': 0.6606399853801768}"
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.45861320005079903, 'mae': 0.38539827921701264, 'rmse': 0.6772098641121518}"
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/45: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/45: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/45: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4426211747681911, 'mae': 0.37450003448436564, 'rmse': 0.6652978090811595}"
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/46: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/46: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/46: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4622055069877766, 'mae': 0.389362510463334, 'rmse': 0.6798569753909837}"
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/47: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/47: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/47: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4531593739915931, 'mae': 0.38151652342519143, 'rmse': 0.6731711327675847}"
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/48: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/48: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/48: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.42868122030798583, 'mae': 0.3665955773368378, 'rmse': 0.6547375201620768}"
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/49: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/49: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale_constant_router/49: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4586781433648243, 'mae': 0.3821416594450921, 'rmse': 0.6772578115938009}"
+    },
+    {
+      "check": "geant/dlinear_scale/42: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/42: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/42: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.3987503070881464, 'mae': 0.34954138183728056, 'rmse': 0.6314667901704304}"
+    },
+    {
+      "check": "geant/dlinear_scale/43: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/43: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/43: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.49220042218892995, 'mae': 0.4049221262433121, 'rmse': 0.7015699695603639}"
+    },
+    {
+      "check": "geant/dlinear_scale/44: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/44: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/44: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.41168217972754156, 'mae': 0.3544047810433995, 'rmse': 0.6416246408357004}"
+    },
+    {
+      "check": "geant/dlinear_scale/45: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/45: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/45: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4341368800848121, 'mae': 0.3736204641117662, 'rmse': 0.6588906434946638}"
+    },
+    {
+      "check": "geant/dlinear_scale/46: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/46: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/46: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.4319987167872737, 'mae': 0.37180838485200945, 'rmse': 0.6572660928324796}"
+    },
+    {
+      "check": "geant/dlinear_scale/47: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/47: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/47: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.40995968807101074, 'mae': 0.35352198051727285, 'rmse': 0.6402809446414993}"
+    },
+    {
+      "check": "geant/dlinear_scale/48: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/48: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/48: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.409556670761391, 'mae': 0.35391196966011046, 'rmse': 0.6399661481370643}"
+    },
+    {
+      "check": "geant/dlinear_scale/49: task configuration",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/49: saved truth and shape",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant/dlinear_scale/49: prediction metrics",
+      "passed": true,
+      "detail": "{'mse': 0.42328313531735107, 'mae': 0.36233291966799275, 'rmse': 0.6506021328871825}"
+    },
+    {
+      "check": "table 2/abilene/dlinear",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 2/abilene/lightts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 2/abilene/dlinear_scale",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 2/geant/dlinear",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 2/geant/lightts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 2/geant/dlinear_scale",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 3/abilene/dlinear",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 3/abilene/dlinear_scale_static",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 3/abilene/dlinear_scale_global",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 3/abilene/dlinear_scale_constant_router",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 3/abilene/dlinear_scale",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 3/geant/dlinear",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 3/geant/dlinear_scale_static",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 3/geant/dlinear_scale_global",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 3/geant/dlinear_scale_constant_router",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "table 3/geant/dlinear_scale",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "abilene: routing weights sum to one",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "geant: routing weights sum to one",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/abilene/42/lightts/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/abilene/42/lightts/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/abilene/42/lightts/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/abilene/43/lightts/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/abilene/43/lightts/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/abilene/43/lightts/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/abilene/44/lightts/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/abilene/44/lightts/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/abilene/44/lightts/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/geant/42/lightts/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/geant/42/lightts/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/geant/42/lightts/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/geant/43/lightts/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/geant/43/lightts/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/geant/43/lightts/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/geant/44/lightts/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/geant/44/lightts/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig3_lightts_improvement_seed42_44.csv/geant/44/lightts/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/42/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/42/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/42/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/42/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/42/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/42/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/43/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/43/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/43/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/43/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/43/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/43/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/44/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/44/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/44/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/44/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/44/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/44/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/45/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/45/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/45/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/45/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/45/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/45/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/46/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/46/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/46/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/46/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/46/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/46/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/47/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/47/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/47/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/47/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/47/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/47/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/48/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/48/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/48/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/48/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/48/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/48/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/49/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/49/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/49/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/49/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/49/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/abilene/49/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/42/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/42/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/42/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/42/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/42/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/42/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/43/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/43/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/43/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/43/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/43/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/43/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/44/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/44/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/44/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/44/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/44/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/44/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/45/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/45/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/45/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/45/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/45/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/45/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/46/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/46/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/46/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/46/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/46/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/46/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/47/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/47/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/47/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/47/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/47/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/47/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/48/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/48/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/48/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/48/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/48/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/48/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/49/dlinear/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/49/dlinear_scale_static/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/49/dlinear/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/49/dlinear_scale_static/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/49/dlinear/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "fig5_relative_improvement_8seeds.csv/geant/49/dlinear_scale_static/rmse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/DLinear/42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/42/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/42/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/固定等权/42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/42/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/42/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/本文方法/42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/42/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/42/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/DLinear/43",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/43/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/43/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/固定等权/43",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/43/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/43/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/本文方法/43",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/43/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/43/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/DLinear/44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/44/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/44/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/固定等权/44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/44/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/44/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/本文方法/44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/44/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/44/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/DLinear/45",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/45/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/45/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/固定等权/45",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/45/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/45/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/本文方法/45",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/45/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/45/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/DLinear/46",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/46/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/46/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/固定等权/46",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/46/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/46/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/本文方法/46",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/46/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/46/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/DLinear/47",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/47/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/47/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/固定等权/47",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/47/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/47/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/本文方法/47",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/47/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/47/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/DLinear/48",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/48/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/48/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/固定等权/48",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/48/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/48/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/本文方法/48",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/48/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/48/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/DLinear/49",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/49/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/DLinear/49/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/固定等权/49",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/49/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/固定等权/49/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/本文方法/49",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/49/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/本文方法/49/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/DLinear/42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/42/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/42/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/固定等权/42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/42/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/42/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/本文方法/42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/42/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/42/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/DLinear/43",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/43/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/43/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/固定等权/43",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/43/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/43/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/本文方法/43",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/43/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/43/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/DLinear/44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/44/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/44/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/固定等权/44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/44/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/44/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/本文方法/44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/44/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/44/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/DLinear/45",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/45/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/45/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/固定等权/45",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/45/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/45/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/本文方法/45",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/45/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/45/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/DLinear/46",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/46/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/46/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/固定等权/46",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/46/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/46/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/本文方法/46",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/46/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/46/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/DLinear/47",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/47/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/47/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/固定等权/47",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/47/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/47/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/本文方法/47",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/47/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/47/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/DLinear/48",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/48/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/48/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/固定等权/48",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/48/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/48/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/本文方法/48",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/48/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/48/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/DLinear/49",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/49/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/DLinear/49/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/固定等权/49",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/49/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/固定等权/49/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/本文方法/49",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/49/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/本文方法/49/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/恒定输入路由/42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/42/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/42/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/恒定输入路由/43",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/43/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/43/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/恒定输入路由/44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/44/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/44/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/恒定输入路由/45",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/45/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/45/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/恒定输入路由/46",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/46/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/46/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/恒定输入路由/47",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/47/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/47/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/恒定输入路由/48",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/48/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/48/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/abilene/恒定输入路由/49",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/49/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/abilene/恒定输入路由/49/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/恒定输入路由/42",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/42/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/42/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/恒定输入路由/43",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/43/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/43/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/恒定输入路由/44",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/44/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/44/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/恒定输入路由/45",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/45/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/45/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/恒定输入路由/46",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/46/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/46/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/恒定输入路由/47",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/47/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/47/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/恒定输入路由/48",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/48/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/48/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration counts/geant/恒定输入路由/49",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/49/mse",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "figure4 calibration metric/geant/恒定输入路由/49/mae",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "H=12/H=48 absent from manuscript",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "references numbered by first occurrence",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "numbered equations sequential",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "failed_checks": [],
+  "details": {
+    "tables": [
+      {
+        "table": 2,
+        "dataset": "abilene",
+        "model": "dlinear",
+        "parameters": 4656,
+        "mse": "0.194±0.002",
+        "mae": "0.188±0.009"
+      },
+      {
+        "table": 2,
+        "dataset": "abilene",
+        "model": "lightts",
+        "parameters": 130162,
+        "mse": "0.265±0.011",
+        "mae": "0.204±0.008"
+      },
+      {
+        "table": 2,
+        "dataset": "abilene",
+        "model": "dlinear_scale",
+        "parameters": 8339,
+        "mse": "0.186±0.002",
+        "mae": "0.168±0.001"
+      },
+      {
+        "table": 2,
+        "dataset": "geant",
+        "model": "dlinear",
+        "parameters": 4656,
+        "mse": "0.454±0.007",
+        "mae": "0.383±0.006"
+      },
+      {
+        "table": 2,
+        "dataset": "geant",
+        "model": "lightts",
+        "parameters": 384382,
+        "mse": "0.817±0.024",
+        "mae": "0.523±0.014"
+      },
+      {
+        "table": 2,
+        "dataset": "geant",
+        "model": "dlinear_scale",
+        "parameters": 8339,
+        "mse": "0.434±0.051",
+        "mae": "0.370±0.031"
+      },
+      {
+        "table": 3,
+        "dataset": "abilene",
+        "model": "dlinear",
+        "parameters": 4656,
+        "mse": "0.194±0.002",
+        "mae": "0.189±0.008"
+      },
+      {
+        "table": 3,
+        "dataset": "abilene",
+        "model": "dlinear_scale_static",
+        "parameters": 8208,
+        "mse": "0.192±0.002",
+        "mae": "0.191±0.006"
+      },
+      {
+        "table": 3,
+        "dataset": "abilene",
+        "model": "dlinear_scale_global",
+        "parameters": 8211,
+        "mse": "0.192±0.002",
+        "mae": "0.190±0.006"
+      },
+      {
+        "table": 3,
+        "dataset": "abilene",
+        "model": "dlinear_scale_constant_router",
+        "parameters": 8339,
+        "mse": "0.192±0.002",
+        "mae": "0.181±0.006"
+      },
+      {
+        "table": 3,
+        "dataset": "abilene",
+        "model": "dlinear_scale",
+        "parameters": 8339,
+        "mse": "0.189±0.003",
+        "mae": "0.173±0.008"
+      },
+      {
+        "table": 3,
+        "dataset": "geant",
+        "model": "dlinear",
+        "parameters": 4656,
+        "mse": "0.437±0.016",
+        "mae": "0.371±0.011"
+      },
+      {
+        "table": 3,
+        "dataset": "geant",
+        "model": "dlinear_scale_static",
+        "parameters": 8208,
+        "mse": "0.447±0.014",
+        "mae": "0.377±0.009"
+      },
+      {
+        "table": 3,
+        "dataset": "geant",
+        "model": "dlinear_scale_global",
+        "parameters": 8211,
+        "mse": "0.446±0.014",
+        "mae": "0.377±0.009"
+      },
+      {
+        "table": 3,
+        "dataset": "geant",
+        "model": "dlinear_scale_constant_router",
+        "parameters": 8339,
+        "mse": "0.449±0.012",
+        "mae": "0.379±0.007"
+      },
+      {
+        "table": 3,
+        "dataset": "geant",
+        "model": "dlinear_scale",
+        "parameters": 8339,
+        "mse": "0.426±0.029",
+        "mae": "0.366±0.018"
+      }
+    ],
+    "pairs": [
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear",
+        "metric": "mse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 2.7677258769891218,
+        "ci95": [
+          1.7405113122918137,
+          3.79494044168643
+        ],
+        "wins": 8
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear",
+        "metric": "mae",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 8.011357228328748,
+        "ci95": [
+          2.106374399251931,
+          13.916340057405566
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear",
+        "metric": "rmse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 1.3952966539000995,
+        "ci95": [
+          0.8743461203837553,
+          1.9162471874164437
+        ],
+        "wins": 8
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear_scale_static",
+        "metric": "mse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 1.6541055627281878,
+        "ci95": [
+          -0.10614902921944047,
+          3.414360154675816
+        ],
+        "wins": 6
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear_scale_static",
+        "metric": "mae",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 8.923986517787505,
+        "ci95": [
+          3.941254096047567,
+          13.906718939527442
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear_scale_static",
+        "metric": "rmse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 0.835478895801614,
+        "ci95": [
+          -0.05242870116132359,
+          1.7233864927645517
+        ],
+        "wins": 6
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear_scale_global",
+        "metric": "mse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 1.7951322860380785,
+        "ci95": [
+          0.009256670665409139,
+          3.581007901410748
+        ],
+        "wins": 6
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear_scale_global",
+        "metric": "mae",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 8.912439590404672,
+        "ci95": [
+          3.9820195950008843,
+          13.842859585808458
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear_scale_global",
+        "metric": "rmse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 0.9067694206312926,
+        "ci95": [
+          0.004933523552722363,
+          1.8086053177098629
+        ],
+        "wins": 6
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear_scale_constant_router",
+        "metric": "mse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 1.8017261437706613,
+        "ci95": [
+          0.4896570073852393,
+          3.1137952801560833
+        ],
+        "wins": 6
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear_scale_constant_router",
+        "metric": "mae",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 4.484258714936729,
+        "ci95": [
+          1.6818040461489665,
+          7.286713383724491
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "dlinear_scale_constant_router",
+        "metric": "rmse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 0.9077253381199732,
+        "ci95": [
+          0.24593199311672032,
+          1.5695186831232262
+        ],
+        "wins": 6
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "lightts",
+        "metric": "mse",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "mean": 29.803334304754742,
+        "ci95": [
+          21.848106431448027,
+          37.75856217806145
+        ],
+        "wins": 3
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "lightts",
+        "metric": "mae",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "mean": 17.5741855339389,
+        "ci95": [
+          9.861008001166823,
+          25.287363066710974
+        ],
+        "wins": 3
+      },
+      {
+        "dataset": "abilene",
+        "baseline": "lightts",
+        "metric": "rmse",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "mean": 16.231227254261068,
+        "ci95": [
+          11.46043443931,
+          21.002020069212136
+        ],
+        "wins": 3
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear",
+        "metric": "mse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 2.348263966889481,
+        "ci95": [
+          -2.567275162861702,
+          7.263803096640665
+        ],
+        "wins": 5
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear",
+        "metric": "mae",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 1.324262088823344,
+        "ci95": [
+          -2.4991516958996787,
+          5.147675873546367
+        ],
+        "wins": 4
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear",
+        "metric": "rmse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 1.2204953234569023,
+        "ci95": [
+          -1.2729096782883373,
+          3.713900325202142
+        ],
+        "wins": 5
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear_scale_static",
+        "metric": "mse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 4.536699588425789,
+        "ci95": [
+          -2.2358850448541867,
+          11.309284221705763
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear_scale_static",
+        "metric": "mae",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 3.0496090981583817,
+        "ci95": [
+          -2.133174644029141,
+          8.232392840345904
+        ],
+        "wins": 6
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear_scale_static",
+        "metric": "rmse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 2.368464292276357,
+        "ci95": [
+          -1.0246242339357994,
+          5.7615528184885125
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear_scale_global",
+        "metric": "mse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 4.31014151375766,
+        "ci95": [
+          -2.513005086901681,
+          11.133288114417002
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear_scale_global",
+        "metric": "mae",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 2.9044679164364275,
+        "ci95": [
+          -2.311345036044788,
+          8.120280868917643
+        ],
+        "wins": 6
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear_scale_global",
+        "metric": "rmse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 2.253322265239048,
+        "ci95": [
+          -1.1585163777524459,
+          5.665160908230542
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear_scale_constant_router",
+        "metric": "mse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 4.9745553354649426,
+        "ci95": [
+          -1.6150095394137498,
+          11.564120210343635
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear_scale_constant_router",
+        "metric": "mae",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 3.6006424597251825,
+        "ci95": [
+          -1.0815373790123455,
+          8.28282229846271
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "geant",
+        "baseline": "dlinear_scale_constant_router",
+        "metric": "rmse",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "mean": 2.588476254608871,
+        "ci95": [
+          -0.7001484030679013,
+          5.877100912285643
+        ],
+        "wins": 7
+      },
+      {
+        "dataset": "geant",
+        "baseline": "lightts",
+        "metric": "mse",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "mean": 46.88658964188419,
+        "ci95": [
+          34.16229254540365,
+          59.610886738364734
+        ],
+        "wins": 3
+      },
+      {
+        "dataset": "geant",
+        "baseline": "lightts",
+        "metric": "mae",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "mean": 29.15250696301892,
+        "ci95": [
+          9.775924097906529,
+          48.529089828131305
+        ],
+        "wins": 3
+      },
+      {
+        "dataset": "geant",
+        "baseline": "lightts",
+        "metric": "rmse",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "mean": 27.17615137962596,
+        "ci95": [
+          18.55562063858686,
+          35.79668212066506
+        ],
+        "wins": 3
+      }
+    ],
+    "weights": [
+      {
+        "dataset": "abilene",
+        "mean": [
+          0.25736334496424024,
+          0.31901212898168946,
+          0.42362452676716783
+        ],
+        "between_seed_variance_share": [
+          0.4865255344841623,
+          0.8613681103667791,
+          0.8055914461611253
+        ]
+      },
+      {
+        "dataset": "geant",
+        "mean": [
+          0.2827213673610777,
+          0.31792777655914656,
+          0.39935085635442297
+        ],
+        "between_seed_variance_share": [
+          0.9620480174542161,
+          0.9576801188935711,
+          0.9769873113325508
+        ]
+      }
+    ],
+    "trajectory_cases": [
+      {
+        "dataset": "abilene",
+        "channel_one_based": 47,
+        "window_one_based": 279,
+        "mse": {
+          "DLinear": 0.0022773234512944995,
+          "固定等权多尺度": 0.0021597891795243442,
+          "恒定输入路由": 0.002887943742814425,
+          "本文方法": 0.005798615578993083
+        },
+        "adaptive_best": false
+      },
+      {
+        "dataset": "abilene",
+        "channel_one_based": 47,
+        "window_one_based": 619,
+        "mse": {
+          "DLinear": 0.012506005980442639,
+          "固定等权多尺度": 0.012894393578157507,
+          "恒定输入路由": 0.0110611276076417,
+          "本文方法": 0.01104399346838599
+        },
+        "adaptive_best": true
+      },
+      {
+        "dataset": "geant",
+        "channel_one_based": 297,
+        "window_one_based": 398,
+        "mse": {
+          "DLinear": 0.37519405733495753,
+          "固定等权多尺度": 0.39380032166397694,
+          "恒定输入路由": 0.3939391415294738,
+          "本文方法": 0.30431994321947603
+        },
+        "adaptive_best": true
+      },
+      {
+        "dataset": "geant",
+        "channel_one_based": 297,
+        "window_one_based": 170,
+        "mse": {
+          "DLinear": 0.4231634712377101,
+          "固定等权多尺度": 0.42027412944185266,
+          "恒定输入路由": 0.4239073462930352,
+          "本文方法": 0.4118608069525315
+        },
+        "adaptive_best": true
+      }
+    ],
+    "dataset_shapes": {
+      "abilene": {
+        "train": [
+          2793,
+          144
+        ],
+        "val": [
+          931,
+          144
+        ],
+        "test": [
+          932,
+          144
+        ]
+      },
+      "geant": {
+        "train": [
+          1709,
+          524
+        ],
+        "val": [
+          570,
+          524
+        ],
+        "test": [
+          570,
+          524
+        ]
+      }
+    },
+    "training_configurations": {
+      "dlinear": [
+        [
+          0.001,
+          30,
+          6
+        ]
+      ],
+      "lightts": [
+        [
+          0.0001,
+          50,
+          10
+        ]
+      ],
+      "dlinear_scale_static": [
+        [
+          0.001,
+          30,
+          6
+        ]
+      ],
+      "dlinear_scale_global": [
+        [
+          0.001,
+          30,
+          6
+        ]
+      ],
+      "dlinear_scale_constant_router": [
+        [
+          0.001,
+          30,
+          6
+        ]
+      ],
+      "dlinear_scale": [
+        [
+          0.001,
+          30,
+          6
+        ]
+      ]
+    },
+    "unreported_assignment_audit": [
+      {
+        "dataset": "abilene",
+        "measure": "fixed_minus_adaptive_pct",
+        "mean": "-6.725696319276356",
+        "ci95_low": "-11.6143343839945",
+        "ci95_high": "-1.8370582545582108",
+        "positive_seeds": "1"
+      },
+      {
+        "dataset": "abilene",
+        "measure": "train_fixed_minus_adaptive_pct",
+        "mean": "-5.07006874872721",
+        "ci95_low": "-8.810579833802938",
+        "ci95_high": "-1.3295576636514812",
+        "positive_seeds": "1"
+      },
+      {
+        "dataset": "abilene",
+        "measure": "shuffled_minus_adaptive_pct",
+        "mean": "-2.019999009528935",
+        "ci95_low": "-5.130047980762358",
+        "ci95_high": "1.090049961704488",
+        "positive_seeds": "1"
+      },
+      {
+        "dataset": "geant",
+        "measure": "fixed_minus_adaptive_pct",
+        "mean": "-0.4649639237917211",
+        "ci95_low": "-1.1091516706097713",
+        "ci95_high": "0.17922382302632917",
+        "positive_seeds": "0"
+      },
+      {
+        "dataset": "geant",
+        "measure": "train_fixed_minus_adaptive_pct",
+        "mean": "3.5135231962907145",
+        "ci95_low": "-0.060401194291000326",
+        "ci95_high": "7.087447586872429",
+        "positive_seeds": "6"
+      },
+      {
+        "dataset": "geant",
+        "measure": "shuffled_minus_adaptive_pct",
+        "mean": "-0.11244109419512069",
+        "ci95_low": "-0.18619720122127142",
+        "ci95_high": "-0.03868498716896994",
+        "positive_seeds": "1"
+      }
+    ],
+    "latency_sources": {
+      "inference_benchmark": [
+        {
+          "dataset": "abilene",
+          "model": "dlinear",
+          "model_label": "DLinear",
+          "parameters": "4656",
+          "latency_ms_mean": "0.7670507107827778",
+          "latency_ms_sd_across_seeds": "0.16308132507408518",
+          "throughput_samples_s_mean": "21852.14921487297",
+          "throughput_samples_s_sd_across_seeds": "3726.4563335967105",
+          "seeds": "8"
+        },
+        {
+          "dataset": "abilene",
+          "model": "dlinear_scale_static",
+          "model_label": "固定等权多尺度",
+          "parameters": "8208",
+          "latency_ms_mean": "2.3803910294115362",
+          "latency_ms_sd_across_seeds": "0.3782583534044585",
+          "throughput_samples_s_mean": "6929.931697499736",
+          "throughput_samples_s_sd_across_seeds": "1090.1690333135111",
+          "seeds": "8"
+        },
+        {
+          "dataset": "abilene",
+          "model": "dlinear_scale",
+          "model_label": "自适应多尺度",
+          "parameters": "8339",
+          "latency_ms_mean": "2.6531721813724145",
+          "latency_ms_sd_across_seeds": "0.11842304444490213",
+          "throughput_samples_s_mean": "6108.597099643169",
+          "throughput_samples_s_sd_across_seeds": "270.2396126473363",
+          "seeds": "8"
+        },
+        {
+          "dataset": "geant",
+          "model": "dlinear",
+          "model_label": "DLinear",
+          "parameters": "4656",
+          "latency_ms_mean": "0.7044638793127762",
+          "latency_ms_sd_across_seeds": "0.025290318379645006",
+          "throughput_samples_s_mean": "22201.897653576347",
+          "throughput_samples_s_sd_across_seeds": "746.3380555319201",
+          "seeds": "8"
+        },
+        {
+          "dataset": "geant",
+          "model": "dlinear_scale_static",
+          "model_label": "固定等权多尺度",
+          "parameters": "8208",
+          "latency_ms_mean": "2.104745215515009",
+          "latency_ms_sd_across_seeds": "0.13266739687093598",
+          "throughput_samples_s_mean": "7582.823583625328",
+          "throughput_samples_s_sd_across_seeds": "392.98007766143456",
+          "seeds": "8"
+        },
+        {
+          "dataset": "geant",
+          "model": "dlinear_scale",
+          "model_label": "自适应多尺度",
+          "parameters": "8339",
+          "latency_ms_mean": "2.606044353449855",
+          "latency_ms_sd_across_seeds": "0.11973975961031777",
+          "throughput_samples_s_mean": "6070.132637523572",
+          "throughput_samples_s_sd_across_seeds": "294.28051377559007",
+          "seeds": "8"
+        }
+      ],
+      "inference_benchmark_repeat": [
+        {
+          "dataset": "abilene",
+          "model": "dlinear",
+          "model_label": "DLinear",
+          "parameters": "4656",
+          "latency_ms_mean": "0.4883545833344411",
+          "latency_ms_sd_across_seeds": "0.03483459641064804",
+          "throughput_samples_s_mean": "33269.22145917066",
+          "throughput_samples_s_sd_across_seeds": "2251.8531836371485",
+          "seeds": "8"
+        },
+        {
+          "dataset": "abilene",
+          "model": "dlinear_scale_static",
+          "model_label": "固定等权多尺度",
+          "parameters": "8208",
+          "latency_ms_mean": "2.1336623039226597",
+          "latency_ms_sd_across_seeds": "0.22146410313459616",
+          "throughput_samples_s_mean": "7736.008558861434",
+          "throughput_samples_s_sd_across_seeds": "683.9071175852569",
+          "seeds": "8"
+        },
+        {
+          "dataset": "abilene",
+          "model": "dlinear_scale",
+          "model_label": "自适应多尺度",
+          "parameters": "8339",
+          "latency_ms_mean": "2.866402303922822",
+          "latency_ms_sd_across_seeds": "0.18948018877742692",
+          "throughput_samples_s_mean": "5648.696054093465",
+          "throughput_samples_s_sd_across_seeds": "351.03633497243953",
+          "seeds": "8"
+        },
+        {
+          "dataset": "geant",
+          "model": "dlinear",
+          "model_label": "DLinear",
+          "parameters": "4656",
+          "latency_ms_mean": "0.8055031465471921",
+          "latency_ms_sd_across_seeds": "0.11298097098451433",
+          "throughput_samples_s_mean": "19707.3628305457",
+          "throughput_samples_s_sd_across_seeds": "2067.5779364278033",
+          "seeds": "8"
+        },
+        {
+          "dataset": "geant",
+          "model": "dlinear_scale_static",
+          "model_label": "固定等权多尺度",
+          "parameters": "8208",
+          "latency_ms_mean": "2.287170344821977",
+          "latency_ms_sd_across_seeds": "0.26859986963503973",
+          "throughput_samples_s_mean": "7061.274133608857",
+          "throughput_samples_s_sd_across_seeds": "733.7104067528578",
+          "seeds": "8"
+        },
+        {
+          "dataset": "geant",
+          "model": "dlinear_scale",
+          "model_label": "自适应多尺度",
+          "parameters": "8339",
+          "latency_ms_mean": "2.7641627155162496",
+          "latency_ms_sd_across_seeds": "0.17494939432504925",
+          "throughput_samples_s_mean": "5792.941386954404",
+          "throughput_samples_s_sd_across_seeds": "415.12450733130595",
+          "seeds": "8"
+        }
+      ],
+      "inference_benchmark_cuda_events": [
+        {
+          "dataset": "abilene",
+          "model": "dlinear",
+          "model_label": "DLinear",
+          "parameters": "4656",
+          "latency_ms_mean": "0.7495001306720809",
+          "latency_ms_sd_across_seeds": "0.11495876112957909",
+          "throughput_samples_s_mean": "22492.04218255615",
+          "throughput_samples_s_sd_across_seeds": "2928.7206803998256",
+          "seeds": "8"
+        },
+        {
+          "dataset": "abilene",
+          "model": "dlinear_scale_static",
+          "model_label": "固定等权多尺度",
+          "parameters": "8208",
+          "latency_ms_mean": "2.501850831898209",
+          "latency_ms_sd_across_seeds": "0.24027311753031386",
+          "throughput_samples_s_mean": "6536.314144497081",
+          "throughput_samples_s_sd_across_seeds": "534.5464663659527",
+          "seeds": "8"
+        },
+        {
+          "dataset": "abilene",
+          "model": "dlinear_scale",
+          "model_label": "自适应多尺度",
+          "parameters": "8339",
+          "latency_ms_mean": "3.276328334933013",
+          "latency_ms_sd_across_seeds": "0.20368012194139876",
+          "throughput_samples_s_mean": "4965.185171444387",
+          "throughput_samples_s_sd_across_seeds": "323.2222630483675",
+          "seeds": "8"
+        },
+        {
+          "dataset": "geant",
+          "model": "dlinear",
+          "model_label": "DLinear",
+          "parameters": "4656",
+          "latency_ms_mean": "0.8150775259938733",
+          "latency_ms_sd_across_seeds": "0.0895674454949858",
+          "throughput_samples_s_mean": "19480.906436977097",
+          "throughput_samples_s_sd_across_seeds": "1714.3946395430346",
+          "seeds": "8"
+        },
+        {
+          "dataset": "geant",
+          "model": "dlinear_scale_static",
+          "model_label": "固定等权多尺度",
+          "parameters": "8208",
+          "latency_ms_mean": "2.54918318123653",
+          "latency_ms_sd_across_seeds": "0.2505530507073465",
+          "throughput_samples_s_mean": "6192.7430819111205",
+          "throughput_samples_s_sd_across_seeds": "621.2468458377423",
+          "seeds": "8"
+        },
+        {
+          "dataset": "geant",
+          "model": "dlinear_scale",
+          "model_label": "自适应多尺度",
+          "parameters": "8339",
+          "latency_ms_mean": "5.257902063172439",
+          "latency_ms_sd_across_seeds": "2.7916982535547237",
+          "throughput_samples_s_mean": "3893.641616446329",
+          "throughput_samples_s_sd_across_seeds": "958.218805666608",
+          "seeds": "8"
+        }
+      ]
+    },
+    "volatility_groups": [
+      {
+        "dataset": "abilene",
+        "bin": "low",
+        "n_seeds": "8",
+        "test_windows": "15",
+        "global_mse_mean": "0.0204982899595052",
+        "adaptive_mse_mean": "0.019479353679344058",
+        "reduction_pct_mean": "4.430189959718171",
+        "ci95_low": "-3.9913023045275873",
+        "ci95_high": "12.85168222396393",
+        "adaptive_wins": "5",
+        "adaptive_weight_1_mean": "0.2198555306221048",
+        "adaptive_weight_2_mean": "0.33769358368590474",
+        "adaptive_weight_4_mean": "0.4424508848538002"
+      },
+      {
+        "dataset": "abilene",
+        "bin": "medium",
+        "n_seeds": "8",
+        "test_windows": "406",
+        "global_mse_mean": "0.15469551645219326",
+        "adaptive_mse_mean": "0.1517480593174696",
+        "reduction_pct_mean": "1.9007111664273881",
+        "ci95_low": "0.5875925815208749",
+        "ci95_high": "3.2138297513339014",
+        "adaptive_wins": "7",
+        "adaptive_weight_1_mean": "0.22002945375615005",
+        "adaptive_weight_2_mean": "0.33645410227515904",
+        "adaptive_weight_4_mean": "0.4435164446947096"
+      },
+      {
+        "dataset": "abilene",
+        "bin": "high",
+        "n_seeds": "8",
+        "test_windows": "392",
+        "global_mse_mean": "0.2378187570720911",
+        "adaptive_mse_mean": "0.2336952481418848",
+        "reduction_pct_mean": "1.6927817115616643",
+        "ci95_low": "-1.2852638779444723",
+        "ci95_high": "4.670827301067801",
+        "adaptive_wins": "5",
+        "adaptive_weight_1_mean": "0.29746583742754795",
+        "adaptive_weight_2_mean": "0.30023237648752654",
+        "adaptive_weight_4_mean": "0.40230178684400086"
+      },
+      {
+        "dataset": "geant",
+        "bin": "medium",
+        "n_seeds": "8",
+        "test_windows": "76",
+        "global_mse_mean": "0.36846470832824707",
+        "adaptive_mse_mean": "0.3461480177938938",
+        "reduction_pct_mean": "5.851012485338227",
+        "ci95_low": "-2.335934943468539",
+        "ci95_high": "14.037959914144993",
+        "adaptive_wins": "7",
+        "adaptive_weight_1_mean": "0.2883849990014967",
+        "adaptive_weight_2_mean": "0.3152259127972157",
+        "adaptive_weight_4_mean": "0.39638908952474594"
+      },
+      {
+        "dataset": "geant",
+        "bin": "high",
+        "n_seeds": "8",
+        "test_windows": "375",
+        "global_mse_mean": "0.46210113540291786",
+        "adaptive_mse_mean": "0.4427197240293026",
+        "reduction_pct_mean": "4.0600833273389325",
+        "ci95_low": "-2.545176319935644",
+        "ci95_high": "10.665342974613509",
+        "adaptive_wins": "6",
+        "adaptive_weight_1_mean": "0.2815735380152862",
+        "adaptive_weight_2_mean": "0.3184753542815646",
+        "adaptive_weight_4_mean": "0.39995110776523746"
+      }
+    ]
+  }
+}

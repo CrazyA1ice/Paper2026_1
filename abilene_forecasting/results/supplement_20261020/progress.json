@@ -1,0 +1,13 @@
+{
+  "done": 64,
+  "total": 192,
+  "dataset": "abilene",
+  "model": "dlinear_scale_global",
+  "percent": 75,
+  "seed": 49,
+  "skipped": false,
+  "mse": 0.18392303339989408,
+  "seconds": 71.1669661999913,
+  "source": "new_training",
+  "run_elapsed_seconds": 2755.2946845999686
+}

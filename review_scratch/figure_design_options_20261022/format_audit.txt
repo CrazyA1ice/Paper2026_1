@@ -1,0 +1,92 @@
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\A_紧凑矩阵\图2_多基线增益矩阵.pdf ---
+  category: vector  ext: pdf  size: 46141 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\A_紧凑矩阵\图2_多基线增益矩阵.png ---
+  category: raster  ext: png  size: 211626 B
+  pixels: 3259x1370  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\A_紧凑矩阵\图3_高需求配对增益矩阵.pdf ---
+  category: vector  ext: pdf  size: 45667 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\A_紧凑矩阵\图3_高需求配对增益矩阵.png ---
+  category: raster  ext: png  size: 310363 B
+  pixels: 3259x1700  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\A_紧凑矩阵\图4_一周绝对误差与增益联合矩阵.pdf ---
+  category: vector  ext: pdf  size: 41860 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\A_紧凑矩阵\图4_一周绝对误差与增益联合矩阵.png ---
+  category: raster  ext: png  size: 365373 B
+  pixels: 3259x1842  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\B_误差平面\图2_MSE与MAE综合误差平面.pdf ---
+  category: vector  ext: pdf  size: 52023 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\B_误差平面\图2_MSE与MAE综合误差平面.png ---
+  category: raster  ext: png  size: 278365 B
+  pixels: 3259x1653  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\B_误差平面\图3_高需求双指标误差平面.pdf ---
+  category: vector  ext: pdf  size: 49130 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\B_误差平面\图3_高需求双指标误差平面.png ---
+  category: raster  ext: png  size: 232549 B
+  pixels: 3259x1559  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\B_误差平面\图4_一周配对误差一致性平面.pdf ---
+  category: vector  ext: pdf  size: 48167 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\B_误差平面\图4_一周配对误差一致性平面.png ---
+  category: raster  ext: png  size: 290932 B
+  pixels: 3259x1582  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\C_配对小倍图\图2_基线归一化哑铃图.pdf ---
+  category: vector  ext: pdf  size: 62955 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\C_配对小倍图\图2_基线归一化哑铃图.png ---
+  category: raster  ext: png  size: 290745 B
+  pixels: 3259x1440  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\C_配对小倍图\图3_高需求双指标小倍图.pdf ---
+  category: vector  ext: pdf  size: 60024 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\C_配对小倍图\图3_高需求双指标小倍图.png ---
+  category: raster  ext: png  size: 436739 B
+  pixels: 3259x1984  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\C_配对小倍图\图4_一周逐种子配对小倍图.pdf ---
+  category: vector  ext: pdf  size: 65732 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\C_配对小倍图\图4_一周逐种子配对小倍图.png ---
+  category: raster  ext: png  size: 627381 B
+  pixels: 3259x2031  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+

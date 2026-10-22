@@ -1,0 +1,32 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图1与一周预测表修订_20261022\\自适应多尺度加权的多变量网络流量预测_图1与一周预测表修订稿.docx",
+  "source_sha256": "3dcd7851350ab8492488c2dfffd056eb365887fcfbbcb5cfa2fcd163c4f2fc34",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\摘要强化修订_20261022\\自适应多尺度加权的多变量网络流量预测_摘要强化稿.docx",
+  "output_sha256": "0584c193ad08ec053f4d6d9c61072e233b5c14a1a95559b4280f997d6f44fb84",
+  "changed_package_parts": [
+    "word/document.xml"
+  ],
+  "source_unchanged": true,
+  "only_abstracts_changed": true,
+  "format_and_geometry_unchanged": true,
+  "all_math_tables_figures_and_main_text_unchanged": true,
+  "chinese_abstract_characters": 200,
+  "english_abstract_words": 94,
+  "claims_verified": true,
+  "new_experiments": false,
+  "edits": [
+    {
+      "paragraph": 5,
+      "before": "针对小时级网络流量预测，提出自适应多尺度加权方法。以三个分解线性模型（DLinear）处理多尺度输入，通过四维窗口统计量生成融合权重。8次重复实验中，Abilene和GÉANT的24 h预测均方误差较DLinear平均降低2.77%和2.35%；GÉANT的168 h预测均方误差和平均绝对误差分别降低23.16%和11.16%。24 h模型含8339个参数，为流量需求分析提供预测依据。",
+      "after": "提出自适应多尺度加权方法，按窗口统计量融合三个分解线性模型（DLinear）的小时级流量预测。8次重复中，Abilene和GÉANT的24 h均方误差较LightTS平均降低25.77%和43.74%，参数量为其6.41%和2.17%。较DLinear，Abilene高需求点平均低估误差降低16.07%，GÉANT的168 h均方误差和平均绝对误差降低23.16%和11.16%，辅助容量需求估计。"
+    },
+    {
+      "paragraph": 104,
+      "before": " An adaptive multiscale weighting method is proposed for hourly network traffic forecasting. Three decomposition linear models (DLinear) process multiscale inputs, and four window statistics determine their fusion weights. Across eight training runs with different random seeds, the mean relative reductions in mean squared error against DLinear are 2.77% on Abilene and 2.35% on GÉANT for 24-hour forecasting. For the 168-hour GÉANT task, the corresponding reductions in mean squared error and mean absolute error are 23.16% and 11.16%. The 24-hour model contains 8,339 parameters, providing a forecasting method for traffic demand analysis.",
+      "after": " An adaptive multiscale weighting method forecasts hourly traffic by combining three decomposition linear models (DLinear) according to window statistics. Across eight training runs, mean relative reductions in 24-hour mean squared error versus LightTS are 25.77% on Abilene and 43.74% on GÉANT. Parameter counts are 6.41% and 2.17% of the respective LightTS configurations. Relative to DLinear, the mean shortfall at high-demand Abilene points decreases by 16.07%. For 168-hour GÉANT forecasting against DLinear, mean squared error and mean absolute error decrease by 23.16% and 11.16%, respectively. These results support capacity demand estimation using hourly traffic forecasts."
+    }
+  ],
+  "visual_review_pending": false,
+  "visual_review_passed": true,
+  "final_pages": 7
+}

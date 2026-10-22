@@ -1,0 +1,88 @@
+epoch=001 train_objective=0.511372 val_mse=0.042030
+epoch=002 train_objective=0.249582 val_mse=0.039746
+epoch=003 train_objective=0.218814 val_mse=0.052456
+epoch=004 train_objective=0.203409 val_mse=0.039842
+epoch=005 train_objective=0.198236 val_mse=0.039555
+epoch=006 train_objective=0.192432 val_mse=0.038271
+epoch=007 train_objective=0.188181 val_mse=0.040838
+epoch=008 train_objective=0.185498 val_mse=0.037048
+epoch=009 train_objective=0.182536 val_mse=0.037180
+epoch=010 train_objective=0.182140 val_mse=0.035540
+epoch=011 train_objective=0.179437 val_mse=0.042580
+epoch=012 train_objective=0.179896 val_mse=0.035346
+epoch=013 train_objective=0.176459 val_mse=0.036030
+epoch=014 train_objective=0.173453 val_mse=0.035919
+epoch=015 train_objective=0.173261 val_mse=0.040492
+epoch=016 train_objective=0.171840 val_mse=0.038290
+epoch=017 train_objective=0.169743 val_mse=0.036124
+epoch=018 train_objective=0.167979 val_mse=0.034198
+epoch=019 train_objective=0.165519 val_mse=0.033367
+epoch=020 train_objective=0.167819 val_mse=0.032864
+epoch=021 train_objective=0.165789 val_mse=0.033069
+epoch=022 train_objective=0.164083 val_mse=0.034914
+epoch=023 train_objective=0.162365 val_mse=0.033985
+epoch=024 train_objective=0.160597 val_mse=0.033536
+epoch=025 train_objective=0.159398 val_mse=0.032536
+epoch=026 train_objective=0.159324 val_mse=0.032221
+epoch=027 train_objective=0.157355 val_mse=0.031563
+epoch=028 train_objective=0.157821 val_mse=0.031671
+epoch=029 train_objective=0.156583 val_mse=0.031187
+epoch=030 train_objective=0.155300 val_mse=0.032162
+epoch=031 train_objective=0.154095 val_mse=0.034441
+epoch=032 train_objective=0.155034 val_mse=0.034095
+epoch=033 train_objective=0.153497 val_mse=0.031795
+epoch=034 train_objective=0.152406 val_mse=0.032156
+epoch=035 train_objective=0.152525 val_mse=0.031677
+epoch=036 train_objective=0.150998 val_mse=0.031979
+epoch=037 train_objective=0.152724 val_mse=0.031361
+epoch=038 train_objective=0.149034 val_mse=0.035893
+epoch=039 train_objective=0.148550 val_mse=0.031190
+Early stopping at epoch 39
+{
+  "dataset": "abilene",
+  "data_path": "data\\processed\\abilene_1hour.npz",
+  "data_feature": null,
+  "data_aggregation": null,
+  "model": "lightts",
+  "model_config": {
+    "source": "thuml/Time-Series-Library",
+    "source_commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+    "source_model_sha": "a2051e44d864ec4ec5e72e59660b98c30c93a902",
+    "d_model": 512,
+    "dropout": 0.1,
+    "chunk_size": 24
+  },
+  "seed": 46,
+  "device": "cuda",
+  "n_channels": 144,
+  "split_rows": {
+    "train": 2793,
+    "val": 931,
+    "test": 932
+  },
+  "split_windows": {
+    "train": 2674,
+    "val": 812,
+    "test": 813
+  },
+  "input_len": 96,
+  "pred_len": 24,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 50,
+  "patience": 10,
+  "learning_rate": 0.0001,
+  "parameters": 130162,
+  "best_val_mse_normalized": 0.031187389908459387,
+  "test_normalized": {
+    "mse": 0.25461772084236145,
+    "mae": 0.20364049077033997,
+    "rmse": 0.5045965909957886
+  },
+  "test_original_units": {
+    "mse": 2.748343838757261e+20,
+    "mae": 131297184.0,
+    "rmse": 16578129920.0
+  },
+  "elapsed_seconds": 1326.1938953000063
+}

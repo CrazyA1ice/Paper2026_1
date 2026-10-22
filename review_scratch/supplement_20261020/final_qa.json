@@ -1,0 +1,102 @@
+{
+  "completion": {
+    "status": "complete",
+    "finished_at": "2026-10-20T13:22:38.359950+00:00",
+    "conditions": 192,
+    "new_training_conditions": 144,
+    "archived_reevaluations": 48,
+    "source_data_models_training_code_unchanged": true,
+    "scripts_sha256": {
+      "supplement_seasonal_learning_20261020.py": "950e0ebb52b78039caf74abc03e840a13dadca6097aaed2fbac10ec53466655b",
+      "analyze_supplement_20261020.py": "1b7839cd6aebdb2927f2fb7e9d95ae2b63f716d7492d671600caae7fcf5d97f7",
+      "plot_supplement_20261020.py": "0c3c5ccb165199c7d5d40caf860ea0ad6627e196537b72fd4b8409f7e2c234b7"
+    },
+    "limits": [
+      "No additional network or observation period",
+      "Fixed holdout, not rolling retraining",
+      "History amount and age coverage not isolated"
+    ]
+  },
+  "outputs": {
+    "clean": {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\补充实验_20261020\\基于自适应多尺度加权的多变量网络流量预测方法_补充实验净稿.docx",
+      "bytes": 2298905,
+      "sha256": "1493048fd2a8c50ba7c7ad453366117f0219a7ab7bb0d67faf28d8fe8d4288a4"
+    },
+    "marked": {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\补充实验_20261020\\基于自适应多尺度加权的多变量网络流量预测方法_补充实验标红稿.docx",
+      "bytes": 2298931,
+      "sha256": "4b41b39ec5961878d1f3fa13e675b856f78ca5638188c795e7654d99ed31f8bc"
+    },
+    "report": {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\补充实验_20261020\\补充实验结果与修改说明.docx",
+      "bytes": 43349,
+      "sha256": "dedac7f8fc12475769d6e68db471e5183cd19365a62824aeee79c77ae6dd720d"
+    }
+  },
+  "structural": {
+    "original_and_previous_revision_unchanged": true,
+    "clean_marked_text_equal": true,
+    "original_math_preserved": 42,
+    "original_media_preserved": 5,
+    "figures": 6,
+    "tables": 7,
+    "references_preserved": 11
+  },
+  "rendered_text": {
+    "pages": {
+      "clean": 13,
+      "marked": 13,
+      "report": 3
+    },
+    "clean_marked_pdf_text_equal": true,
+    "supplement_titles_and_results_present": true,
+    "out_of_page_text_spans": []
+  },
+  "visual_review": {
+    "clean_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "marked_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "report_pages": [
+      1,
+      2,
+      3
+    ],
+    "passed": true
+  },
+  "figure_qa": {
+    "alignment": "PASS",
+    "minimum_text_pt": 8,
+    "collision_failures": 0,
+    "collision_warnings": 0,
+    "vector_pdf_svg_and_600dpi_png": true
+  },
+  "protocol_tests": "3 passed"
+}

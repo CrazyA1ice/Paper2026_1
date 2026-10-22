@@ -1,0 +1,60 @@
+{
+  "summary": {
+    "total_chars": 10869,
+    "total_paragraphs": 49,
+    "total_sentences": 239
+  },
+  "template_phrases": {
+    "count": 2,
+    "density_per_1000": 0.1840095684975619,
+    "matches": [
+      "与此同时，",
+      "即使构造多尺度序列，固定的融合比例也"
+    ]
+  },
+  "passive_voice": {
+    "count": 10,
+    "per_sentence": 0.042
+  },
+  "burstiness": {
+    "avg_len": 44.1,
+    "std_len": 27.2,
+    "cv": 0.616,
+    "risk": "正常 — 句子长度变化丰富"
+  },
+  "para_symmetry": {
+    "para_count": 49,
+    "avg_para_len": 219.9,
+    "symmetrical_runs": [
+      3,
+      4,
+      3,
+      3,
+      3
+    ],
+    "risk": "发现 5 处对称段落组（3段以上长度相近）"
+  },
+  "nested_numbers": {
+    "count": 6,
+    "risk": "检测到 6 处编号标记"
+  },
+  "colon_lists": {
+    "count": 2,
+    "risk": "检测到 2 处冒号并列结构"
+  },
+  "punctuation": {
+    "fullwidth_punct_ratio": 5.87,
+    "commas_per_sentence": 1.1,
+    "risk": "正常"
+  },
+  "colloquial": {
+    "count": 0,
+    "terms": [],
+    "risk": "正常"
+  },
+  "dash_density": {
+    "total_dashes": 0,
+    "over_limit_paras": 0,
+    "risk": "正常"
+  }
+}

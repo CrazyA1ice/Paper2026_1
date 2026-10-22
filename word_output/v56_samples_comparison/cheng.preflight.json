@@ -1,0 +1,15 @@
+{
+  "schema": "pdf_read_preflight/1",
+  "verdict": "UNAVAILABLE",
+  "file": "C:\\Users\\Quant\\Downloads\\工业网络通信链路传输安全态势感知方法研究_程阔.pdf",
+  "sha256": "dd4e83ed3a5da3a3182642b817053402949ec3bf112fb2972c61488d03eb1c5a",
+  "declared_page_count": 6,
+  "enumerated_page_count": 6,
+  "reader_page_count": 6,
+  "warnings": [
+    "trailing-data: 179 bytes after the final %%EOF include non-whitespace content (possible truncated incremental update)",
+    "pypdf: Multiple definitions in dictionary at byte 0x17e1c8 for key /MediaBox"
+  ],
+  "generated_at": "2026-10-03T02:35:28.361350+00:00",
+  "tool": "pdf_read_preflight/1.0.0"
+}

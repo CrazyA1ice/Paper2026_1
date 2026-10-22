@@ -1,0 +1,9 @@
+{"dataset": "geant", "percent": 50, "model": "dlinear_scale", "seed": 42, "skipped": false, "mse": 0.6962502301942273, "worker_elapsed": 96.60074199998053}
+{"dataset": "geant", "percent": 50, "model": "dlinear_scale", "seed": 43, "skipped": false, "mse": 0.5495890282752725, "worker_elapsed": 173.53398489998654}
+{"dataset": "geant", "percent": 50, "model": "dlinear_scale", "seed": 44, "skipped": false, "mse": 0.4454703001717928, "worker_elapsed": 233.0019980999641}
+{"dataset": "geant", "percent": 50, "model": "dlinear_scale", "seed": 45, "skipped": false, "mse": 0.5736610267758743, "worker_elapsed": 271.62211689999094}
+{"dataset": "geant", "percent": 50, "model": "dlinear_scale", "seed": 46, "skipped": false, "mse": 0.4357110089719503, "worker_elapsed": 373.13557839998975}
+{"dataset": "geant", "percent": 50, "model": "dlinear_scale", "seed": 47, "skipped": false, "mse": 0.44360014630173694, "worker_elapsed": 428.1638776999898}
+{"dataset": "geant", "percent": 50, "model": "dlinear_scale", "seed": 48, "skipped": false, "mse": 0.4723782190245513, "worker_elapsed": 467.2529276999994}
+{"dataset": "geant", "percent": 50, "model": "dlinear_scale", "seed": 49, "skipped": false, "mse": 0.4284621077086344, "worker_elapsed": 509.2646045999718}
+GEANT50_ROUTER_COMPLETE

@@ -1,0 +1,642 @@
+[
+  {
+    "dataset": "abilene",
+    "model": "dlinear",
+    "seed": 42,
+    "mae": 0.1671445727436209,
+    "mean_shortfall": 0.16222499912568492,
+    "prediction_sha256": "63e1384c06952e06027bcdb33e8abbf436b229f4338cea0b32b17de1deb237a9"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear",
+    "seed": 43,
+    "mae": 0.16348932284887374,
+    "mean_shortfall": 0.1585362518934003,
+    "prediction_sha256": "2467d579339e74729b35996a96853a6907c49da247366d3e3fee65cf5865038b"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear",
+    "seed": 44,
+    "mae": 0.19172139095938104,
+    "mean_shortfall": 0.1881296332879704,
+    "prediction_sha256": "31e6ea8af1961a3b4f116721a36b58f0e0d50789611707d62a1a268ab2be3e6d"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear",
+    "seed": 45,
+    "mae": 0.1826250753857473,
+    "mean_shortfall": 0.17946281066207354,
+    "prediction_sha256": "38c230c3cf0a746f0746cb102e45f0a2b6dc649e90bd32e40fbc42c843e14c67"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear",
+    "seed": 46,
+    "mae": 0.1772393018290565,
+    "mean_shortfall": 0.16602982232215707,
+    "prediction_sha256": "a956639b89f04a88a42473c9a90307597f0a36afc71441912c7ec247e8e32770"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear",
+    "seed": 47,
+    "mae": 0.13823148825936366,
+    "mean_shortfall": 0.12554859231319096,
+    "prediction_sha256": "a14fc419feb7ad1915d01215d1562ccff94e96964ea6bd29388526499b21ccd3"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear",
+    "seed": 48,
+    "mae": 0.17892934030252305,
+    "mean_shortfall": 0.1754741799320697,
+    "prediction_sha256": "3c21f139e7811d07268e4813da2f369497e70cc986e6c19a19056f3fd7d5a1dd"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear",
+    "seed": 49,
+    "mae": 0.1812466888605764,
+    "mean_shortfall": 0.17792797773829405,
+    "prediction_sha256": "969ab0af1206216a83d63e1f4f5651607b0a3edae6f670d6f72a0b893adfd3fa"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_static",
+    "seed": 42,
+    "mae": 0.166159138335821,
+    "mean_shortfall": 0.16177181290747641,
+    "prediction_sha256": "38249cee0c7bdbfe6d9332b52a1f6a9a1215cd923beb6a9a8d82eafebd198c42"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_static",
+    "seed": 43,
+    "mae": 0.19020404140536368,
+    "mean_shortfall": 0.18830232233452582,
+    "prediction_sha256": "a1e87f611d3bdb9716c1bb229f54ee766becdcac6af650d59e5b9b9145a038fc"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_static",
+    "seed": 44,
+    "mae": 0.1675555021402683,
+    "mean_shortfall": 0.15962432698279588,
+    "prediction_sha256": "ba3573b0162404053b7782e3b7141a892d0f521fe293a34c38d8f959e6340486"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_static",
+    "seed": 45,
+    "mae": 0.20040506712312464,
+    "mean_shortfall": 0.1992724914225955,
+    "prediction_sha256": "60d9661b3ba89aba5be2864abc1dfff56715c11efbf1fbafb51259cf0705108a"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_static",
+    "seed": 46,
+    "mae": 0.1866323703182032,
+    "mean_shortfall": 0.1830719622026566,
+    "prediction_sha256": "a1cb32526e0c1009fb5c00f2f48bf3e031955cdc15e8d1b532d878fbfc0a4132"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_static",
+    "seed": 47,
+    "mae": 0.1798340439889804,
+    "mean_shortfall": 0.1765575095187277,
+    "prediction_sha256": "42b3899fb21fddcf04b715502dad7c5b86e1add79472602d64d50753c2bcb8bf"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_static",
+    "seed": 48,
+    "mae": 0.17014186114059496,
+    "mean_shortfall": 0.1665573902579428,
+    "prediction_sha256": "636d3f31ebaebbd5a4e047869aa6edbec3da124e3c33b6777a451da6cb393a84"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_static",
+    "seed": 49,
+    "mae": 0.16890879292770622,
+    "mean_shortfall": 0.162398891886013,
+    "prediction_sha256": "c7752080e6367fceb9258576d29b91ef566c695565f6bb8e66c63d394314f88b"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_global",
+    "seed": 42,
+    "mae": 0.16415887702653084,
+    "mean_shortfall": 0.15948851682051995,
+    "prediction_sha256": "efe161a0db5db8604df088de741d71d44481c823b2f0336d5445a3d886246d87"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_global",
+    "seed": 43,
+    "mae": 0.19012522982034943,
+    "mean_shortfall": 0.1882234321382777,
+    "prediction_sha256": "225d71a747c4bc6f1e822d71ad0a7530f06d00fd82457fe15396d847fd73fb76"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_global",
+    "seed": 44,
+    "mae": 0.16556526206199523,
+    "mean_shortfall": 0.1569766882350062,
+    "prediction_sha256": "570b2d89b37f01829c0771b72bb213b7dae52584330153c3fc49ae04153ce01f"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_global",
+    "seed": 45,
+    "mae": 0.20206008414051044,
+    "mean_shortfall": 0.2009749029008324,
+    "prediction_sha256": "1d6279008889a175d63953891f008b7a141956a8928aac4ceb1214d017a2bcf9"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_global",
+    "seed": 46,
+    "mae": 0.1849885423001236,
+    "mean_shortfall": 0.18120338912605818,
+    "prediction_sha256": "e8a8a0cb00f4aa043ea1ab1b404e2b82550737f1eab58b26c5be3d23d5aab754"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_global",
+    "seed": 47,
+    "mae": 0.1795920049301695,
+    "mean_shortfall": 0.17624851299828423,
+    "prediction_sha256": "09292e74e90afdbaa28678bf1a128a17ee7aa4edce508e0712ed6907e7aa9e9d"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_global",
+    "seed": 48,
+    "mae": 0.17171101008352138,
+    "mean_shortfall": 0.16828151313211134,
+    "prediction_sha256": "6e46f6b05c94c56fcd62d0899a8090f3450c26f753908e342a7862bdfee8dd55"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_global",
+    "seed": 49,
+    "mae": 0.1676265764344304,
+    "mean_shortfall": 0.16067712310715654,
+    "prediction_sha256": "3c121cf4937002020e2d523a0674a1b8619b06def7546dd68972815a2f68cbe9"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_constant_router",
+    "seed": 42,
+    "mae": 0.1757502185017857,
+    "mean_shortfall": 0.17121959773449258,
+    "prediction_sha256": "331588277774b6c12d199e3e30ee88ed2efe99af1db1dc015761e408dd84dc0d"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_constant_router",
+    "seed": 43,
+    "mae": 0.15458297804327306,
+    "mean_shortfall": 0.14882734924335042,
+    "prediction_sha256": "99ec160513870afae6fff2da41279eec43b4e6fefbac5c389fb918bfe42ed296"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_constant_router",
+    "seed": 44,
+    "mae": 0.14565711039305423,
+    "mean_shortfall": 0.1372572151681723,
+    "prediction_sha256": "793edc17d654b397112053eddf19c71fcc0f52102824ef7356cf93a93d162603"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_constant_router",
+    "seed": 45,
+    "mae": 0.13637879160905025,
+    "mean_shortfall": 0.1255532125881306,
+    "prediction_sha256": "0ee8ccd6f492917bacb71ef4251d53c6327ec67cebe4c10fc6dbd6f4c6377c1f"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_constant_router",
+    "seed": 46,
+    "mae": 0.16998720349525062,
+    "mean_shortfall": 0.1649135754390837,
+    "prediction_sha256": "8bf154dc247e69960143730931d4f66b98518740b22a35cc75fa2f1a57cbcd98"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_constant_router",
+    "seed": 47,
+    "mae": 0.17322357493738036,
+    "mean_shortfall": 0.17017180687688044,
+    "prediction_sha256": "7b4851c555f895576ae918d2e1eb6faf63fd0358b93bebba6cb789ae1479ae8f"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_constant_router",
+    "seed": 48,
+    "mae": 0.16081461832315488,
+    "mean_shortfall": 0.15599614881168933,
+    "prediction_sha256": "8466e001fcc5bd41cb18c2d106ddb27f3bf5c57469fa487aa9606e8af6045f4c"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale_constant_router",
+    "seed": 49,
+    "mae": 0.15958883490431086,
+    "mean_shortfall": 0.15226874124872591,
+    "prediction_sha256": "ad749bc19130cc4ffddef8c5a70fcf189db249674733ee221781ca34e0b61737"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale",
+    "seed": 42,
+    "mae": 0.13539712093049167,
+    "mean_shortfall": 0.12206129358285216,
+    "prediction_sha256": "3ecab9cebc1819ecfbcf11cca2ad36dafaa5c91fe371003163c8298f8cdb6314"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale",
+    "seed": 43,
+    "mae": 0.1459657804229638,
+    "mean_shortfall": 0.1373304527740975,
+    "prediction_sha256": "cca39f1120d4993d822785422faa7f19cb10c3cda4ba3d3229d86797e358b33e"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale",
+    "seed": 44,
+    "mae": 0.14131923647151226,
+    "mean_shortfall": 0.13104688418740137,
+    "prediction_sha256": "eb15d8fb45f77420bb1079493162ba70e17080b423e724bf18b4c3f754d7c00d"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale",
+    "seed": 45,
+    "mae": 0.13204971183708392,
+    "mean_shortfall": 0.11839811327743832,
+    "prediction_sha256": "d0d2c472a3e9b39a0aea0ff1aace2868910829e95cdcfdff572ff3d2df0151b8"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale",
+    "seed": 46,
+    "mae": 0.13992262365735728,
+    "mean_shortfall": 0.1234278011795717,
+    "prediction_sha256": "1dd2db7b3fe899b293300929147e354b6b36b6a57a08b016f011edeaea51b512"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale",
+    "seed": 47,
+    "mae": 0.16224900091804315,
+    "mean_shortfall": 0.15765504849951775,
+    "prediction_sha256": "053ffc6df47f47a7cb493e269975a0909d997cb69d8140f58e572008de414d47"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale",
+    "seed": 48,
+    "mae": 0.16771804390345305,
+    "mean_shortfall": 0.1639018861718006,
+    "prediction_sha256": "98ae633d7fbaf86630cda728551c84e72e29867a67608b35a48c7c9875276d63"
+  },
+  {
+    "dataset": "abilene",
+    "model": "dlinear_scale",
+    "seed": 49,
+    "mae": 0.14861029911352924,
+    "mean_shortfall": 0.14338302199762554,
+    "prediction_sha256": "8f2d071f2361f32d1e2ae0e00dc8e391f39cd542f9097ec500e5f0ba8e6b3f04"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear",
+    "seed": 42,
+    "mae": 0.653820591711579,
+    "mean_shortfall": 0.6107699228117508,
+    "prediction_sha256": "baf2bd0c6c106245b26bdde8af89377bc56ab5fb2f66384ac67880be55f053b6"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear",
+    "seed": 43,
+    "mae": 0.7049626738697802,
+    "mean_shortfall": 0.6736572019295171,
+    "prediction_sha256": "69650962e1c5f06249d85f2f68bdd34680c4e274d73d4a2cabd0b8aa4d78008c"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear",
+    "seed": 44,
+    "mae": 0.6801447421143272,
+    "mean_shortfall": 0.6467184874066669,
+    "prediction_sha256": "bf71c1daf1b7dd2063aac6d3a25c1063c5007a4756e4e9fe64b9a578289a42e9"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear",
+    "seed": 45,
+    "mae": 0.6302738612091607,
+    "mean_shortfall": 0.5855678342821923,
+    "prediction_sha256": "6518449310b1a226755509a769ed2232b0a675279ba9614026045b7528ad924c"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear",
+    "seed": 46,
+    "mae": 0.5893003610638804,
+    "mean_shortfall": 0.5383995510311195,
+    "prediction_sha256": "381d34954271eaf79765bead3ff121df236aac38625f430cb4de8bbd35812d81"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear",
+    "seed": 47,
+    "mae": 0.6337855417667283,
+    "mean_shortfall": 0.5923916322594054,
+    "prediction_sha256": "b006476cd94bedb0f443a2534c9344f30bcd234a5859d2e0602743de60f10e63"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear",
+    "seed": 48,
+    "mae": 0.6055398506085257,
+    "mean_shortfall": 0.5546420091149024,
+    "prediction_sha256": "e43b2759c8b9264058fc18f2d8ea163e7ed1c12a4b76da181061d95c5473783a"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear",
+    "seed": 49,
+    "mae": 0.5899596455675913,
+    "mean_shortfall": 0.5348979537218513,
+    "prediction_sha256": "651c7e41b6153371844a6cde241889ea8dec3ca0fd235ebec8568ebf5a2d4566"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_static",
+    "seed": 42,
+    "mae": 0.6425955636714696,
+    "mean_shortfall": 0.6030806957912934,
+    "prediction_sha256": "137077579149c2552a1ead76fcba6aad1f12d64ca1476da5f324d498f1a3332f"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_static",
+    "seed": 43,
+    "mae": 0.6326068897782041,
+    "mean_shortfall": 0.5889941356445307,
+    "prediction_sha256": "c370f2d37348035c61cc587758fc1506fc2369d50a8ee1a73f40d0eb517bc841"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_static",
+    "seed": 44,
+    "mae": 0.6256132170493356,
+    "mean_shortfall": 0.5813061468467691,
+    "prediction_sha256": "0e5d4d4fe33c399c43a25a125d1a94e4a67ff954f43f173b9f8437f4646ee2d4"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_static",
+    "seed": 45,
+    "mae": 0.6307693710797383,
+    "mean_shortfall": 0.5862404729348677,
+    "prediction_sha256": "3c1b3fd71ab9f305fa5ca54c4ef68de718785fc2b8518b570458ff91d8e6e26d"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_static",
+    "seed": 46,
+    "mae": 0.6790347253021292,
+    "mean_shortfall": 0.6441788762963643,
+    "prediction_sha256": "6e00b57038c2fa71708aee14c96685b6157ac23857b279ea99e308ae64abbef0"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_static",
+    "seed": 47,
+    "mae": 0.7223077351303653,
+    "mean_shortfall": 0.6933200685996712,
+    "prediction_sha256": "f5fc81678da4657d84497c0a98d567ea6fc942a10bae1953441cc3dd4aff0cd8"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_static",
+    "seed": 48,
+    "mae": 0.6884292458149128,
+    "mean_shortfall": 0.654387858618118,
+    "prediction_sha256": "c1bb647feede1b2dc5da56acdace95532e9fac3185356f5a27918dcf5420405c"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_static",
+    "seed": 49,
+    "mae": 0.6561657490945103,
+    "mean_shortfall": 0.6157919572786097,
+    "prediction_sha256": "f585ce506d994b3bed3fb99dcb7c60c1bb6b7fa90d29ed3c43107aba16a81f7b"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_global",
+    "seed": 42,
+    "mae": 0.6436898088902392,
+    "mean_shortfall": 0.6042111989422971,
+    "prediction_sha256": "1061d20e66a26802c636f906afb939240e735d7f173dc1cdf3b021940f789f5e"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_global",
+    "seed": 43,
+    "mae": 0.6287173621141129,
+    "mean_shortfall": 0.5843696187854102,
+    "prediction_sha256": "9411f662a469155a79452f4f309c1ea154da04e9dca80c1741f955dc02bfae27"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_global",
+    "seed": 44,
+    "mae": 0.6254102056721248,
+    "mean_shortfall": 0.5811556296343601,
+    "prediction_sha256": "d7847efcb018873d1d1a9a1658d23b08c44d00e058424f879651092e95262da7"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_global",
+    "seed": 45,
+    "mae": 0.6312307242764716,
+    "mean_shortfall": 0.5867517117416488,
+    "prediction_sha256": "78bfa23d2d0c6dab525934b00a0e13d165a36b5c27bf36934dd485a88fc3382f"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_global",
+    "seed": 46,
+    "mae": 0.6768246306343773,
+    "mean_shortfall": 0.6416742242745301,
+    "prediction_sha256": "819f4ee7e34c590d66d77a96c2f8c9b18a2a41dabc9d17b3508984b93a44a780"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_global",
+    "seed": 47,
+    "mae": 0.7180394933585105,
+    "mean_shortfall": 0.6884827779922102,
+    "prediction_sha256": "881824aa94f2eb50871ec68d32b8bde9f29c7d4541f6699377305dada08c1246"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_global",
+    "seed": 48,
+    "mae": 0.6878799349039957,
+    "mean_shortfall": 0.6538097233199324,
+    "prediction_sha256": "eaaaf62f35c5ec40cdeb7f26ecaa9d9018c1b7bf183bd83f76b3b14e2094878a"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_global",
+    "seed": 49,
+    "mae": 0.6506921320471356,
+    "mean_shortfall": 0.609386298478234,
+    "prediction_sha256": "ab84e947aeddeb221fafad4fc665361073f749d567594e2b8d6236d6ed515c80"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_constant_router",
+    "seed": 42,
+    "mae": 0.6800870139082791,
+    "mean_shortfall": 0.6455117022108301,
+    "prediction_sha256": "db6d7b126b49d840b200e8c367e4c09830e94a6ef66c6ab81210fcec4ac5b981"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_constant_router",
+    "seed": 43,
+    "mae": 0.647778963501364,
+    "mean_shortfall": 0.6098606766244139,
+    "prediction_sha256": "aa5a9cde43a36569a73b9f3e59743905976dbcdb9cfcc5a0fe6443e05019bb96"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_constant_router",
+    "seed": 44,
+    "mae": 0.6937264507873634,
+    "mean_shortfall": 0.6608608457392364,
+    "prediction_sha256": "c41a3ac922b0e010c156f7527600f74db3c492e94a3fb6d9c7774e3d4f80b9bc"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_constant_router",
+    "seed": 45,
+    "mae": 0.6509000770845411,
+    "mean_shortfall": 0.6094784587182613,
+    "prediction_sha256": "47e44e0e8725bfa2daadf243c8c9f06851595624d272cd8385f0bcba56f04aa7"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_constant_router",
+    "seed": 46,
+    "mae": 0.7040679358326728,
+    "mean_shortfall": 0.6739047093181535,
+    "prediction_sha256": "c5156246efe96d2d1cc452f24ca3536b35f9c55eb56d74be14045a9700c32165"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_constant_router",
+    "seed": 47,
+    "mae": 0.6766820558075919,
+    "mean_shortfall": 0.6418500314857346,
+    "prediction_sha256": "f82671820cfad1913f3a8fd70da2be2b66cc49a5b6bc3cf3b4d13640f2142101"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_constant_router",
+    "seed": 48,
+    "mae": 0.6209500928357453,
+    "mean_shortfall": 0.575584235330399,
+    "prediction_sha256": "b6c04fb2e1fafb189018756d2d368ef1fcc62df327402ae413e4db7d9703c9f8"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale_constant_router",
+    "seed": 49,
+    "mae": 0.6798991625649756,
+    "mean_shortfall": 0.6419099211094779,
+    "prediction_sha256": "596f7e6c24ba7c6d3ea2ca1a44bef4d827e8fbcfbf1682ff6052f271ff2d17f2"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale",
+    "seed": 42,
+    "mae": 0.5545058238472733,
+    "mean_shortfall": 0.45174471787810927,
+    "prediction_sha256": "7acd0f1e0ca2c9bdf4c30a114295f58f019a5b8b07e0c70bed42dd89cf54a2f0"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale",
+    "seed": 43,
+    "mae": 0.7601559295803845,
+    "mean_shortfall": 0.7330299860976272,
+    "prediction_sha256": "892332a5a63792d4920b2f278d45186e56f0a194bf97c6202118792d90787fa5"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale",
+    "seed": 44,
+    "mae": 0.6029087149131583,
+    "mean_shortfall": 0.5460315018579724,
+    "prediction_sha256": "54ad52515448f0e0207393e36ec72c7bd7f95252d6997fb894f7a2ab5ec0d75e"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale",
+    "seed": 45,
+    "mae": 0.6483003773494822,
+    "mean_shortfall": 0.6075092555051708,
+    "prediction_sha256": "d0a2f3ae5858f35937f6e3f4ed7cdcf6622081a487219419114343eac7fa3137"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale",
+    "seed": 46,
+    "mae": 0.6481144978310693,
+    "mean_shortfall": 0.5997945391764294,
+    "prediction_sha256": "bdd18046fb8a85329d1bfc6731103002b126d9bc91206fa351ec0b735ce4624c"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale",
+    "seed": 47,
+    "mae": 0.6040778283898761,
+    "mean_shortfall": 0.5462376926393084,
+    "prediction_sha256": "4d5d6bd071ed676b61617b533999423d0d94c3ec9718b7f3f3f33275de6cddc8"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale",
+    "seed": 48,
+    "mae": 0.6010533085705376,
+    "mean_shortfall": 0.5442224230858187,
+    "prediction_sha256": "165ba562fd13badc4e5a81456dde52e37db38883081945905a620f0dfdca1db7"
+  },
+  {
+    "dataset": "geant",
+    "model": "dlinear_scale",
+    "seed": 49,
+    "mae": 0.6368612509316548,
+    "mean_shortfall": 0.5839127426067889,
+    "prediction_sha256": "f43e6e15000ff55e5feb586798d4406af815841970dace900f8a543ac4160618"
+  }
+]

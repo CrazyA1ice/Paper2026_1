@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="511.2pt" height="306pt" viewBox="0 0 511.2 306" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-25T20:25:27.597158</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 306 
+L 511.2 306 
+L 511.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 40.896 125.954531 
+L 253.114349 125.954531 
+L 253.114349 42.84 
+L 40.896 42.84 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="59.111884" y="134.424844" transform="rotate(-0 59.111884 134.424844)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="81.085207" y="134.424844" transform="rotate(-0 81.085207 134.424844)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="103.058529" y="134.424844" transform="rotate(-0 103.058529 134.424844)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="125.031852" y="134.424844" transform="rotate(-0 125.031852 134.424844)">3</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="147.005174" y="134.424844" transform="rotate(-0 147.005174 134.424844)">4</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6"/>
+     <g id="text_6">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="168.978497" y="134.424844" transform="rotate(-0 168.978497 134.424844)">5</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7"/>
+     <g id="text_7">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="190.951819" y="134.424844" transform="rotate(-0 190.951819 134.424844)">6</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_8"/>
+     <g id="text_8">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="212.925142" y="134.424844" transform="rotate(-0 212.925142 134.424844)">7</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_9"/>
+     <g id="text_9">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="234.898464" y="134.424844" transform="rotate(-0 234.898464 134.424844)">8</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 7.7px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #243748" x="147.005174" y="146.602078" transform="rotate(-0 147.005174 146.602078)">取得较低MSE的随机种子数（共8个）</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_10">
+      <path d="M 40.896 125.954531 
+L 253.114349 125.954531 
+" clip-path="url(#pc044014f4b)" style="fill: none; stroke: #edf0f2; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_11"/>
+     <g id="text_11">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="128.689688" transform="rotate(-0 37.896 128.689688)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_12">
+      <path d="M 40.896 101.509081 
+L 253.114349 101.509081 
+" clip-path="url(#pc044014f4b)" style="fill: none; stroke: #edf0f2; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_13"/>
+     <g id="text_12">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="104.244237" transform="rotate(-0 37.896 104.244237)">10</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_14">
+      <path d="M 40.896 77.063631 
+L 253.114349 77.063631 
+" clip-path="url(#pc044014f4b)" style="fill: none; stroke: #edf0f2; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_15"/>
+     <g id="text_13">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="79.798787" transform="rotate(-0 37.896 79.798787)">20</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_16">
+      <path d="M 40.896 52.61818 
+L 253.114349 52.61818 
+" clip-path="url(#pc044014f4b)" style="fill: none; stroke: #edf0f2; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_17"/>
+     <g id="text_14">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="55.353336" transform="rotate(-0 37.896 55.353336)">30</text>
+     </g>
+    </g>
+    <g id="text_15">
+     <text style="font-size: 7.7px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #243748" x="22.782682" y="84.397266" transform="rotate(-90 22.782682 84.397266)">OD通道占比 (%)</text>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 50.542289 125.954531 
+L 67.68148 125.954531 
+L 67.68148 125.954531 
+L 50.542289 125.954531 
+z
+" clip-path="url(#pc044014f4b)" style="fill: #bf7664"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 72.515611 125.954531 
+L 89.654803 125.954531 
+L 89.654803 122.55933 
+L 72.515611 122.55933 
+z
+" clip-path="url(#pc044014f4b)" style="fill: #bf7664"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 94.488934 125.954531 
+L 111.628125 125.954531 
+L 111.628125 114.071326 
+L 94.488934 114.071326 
+z
+" clip-path="url(#pc044014f4b)" style="fill: #bf7664"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 116.462256 125.954531 
+L 133.601448 125.954531 
+L 133.601448 115.768927 
+L 116.462256 115.768927 
+z
+" clip-path="url(#pc044014f4b)" style="fill: #bf7664"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 138.435579 125.954531 
+L 155.57477 125.954531 
+L 155.57477 117.466528 
+L 138.435579 117.466528 
+z
+" clip-path="url(#pc044014f4b)" style="fill: #b5c0c4"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 160.408901 125.954531 
+L 177.548093 125.954531 
+L 177.548093 63.143305 
+L 160.408901 63.143305 
+z
+" clip-path="url(#pc044014f4b)" style="fill: #287c82"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 182.382224 125.954531 
+L 199.521415 125.954531 
+L 199.521415 64.840905 
+L 182.382224 64.840905 
+z
+" clip-path="url(#pc044014f4b)" style="fill: #287c82"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 204.355546 125.954531 
+L 221.494738 125.954531 
+L 221.494738 86.909715 
+L 204.355546 86.909715 
+z
+" clip-path="url(#pc044014f4b)" style="fill: #287c82"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 226.328869 125.954531 
+L 243.46806 125.954531 
+L 243.46806 78.421711 
+L 226.328869 78.421711 
+z
+" clip-path="url(#pc044014f4b)" style="fill: #287c82"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 40.896 125.954531 
+L 40.896 42.84 
+" style="fill: none; stroke: #acb9bf; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 40.896 125.954531 
+L 253.114349 125.954531 
+" style="fill: none; stroke: #acb9bf; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: start; fill: #243748" x="40.896" y="35.84" transform="rotate(-0 40.896 35.84)">Abilene   144 OD通道 · 86.1% 多数种子改善</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_14">
+    <path d="M 291.313651 125.954531 
+L 503.532 125.954531 
+L 503.532 42.84 
+L 291.313651 42.84 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_10">
+     <g id="line2d_18"/>
+     <g id="text_17">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="309.529536" y="134.424844" transform="rotate(-0 309.529536 134.424844)">0</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_19"/>
+     <g id="text_18">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="331.502858" y="134.424844" transform="rotate(-0 331.502858 134.424844)">1</text>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_20"/>
+     <g id="text_19">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="353.476181" y="134.424844" transform="rotate(-0 353.476181 134.424844)">2</text>
+     </g>
+    </g>
+    <g id="xtick_13">
+     <g id="line2d_21"/>
+     <g id="text_20">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="375.449503" y="134.424844" transform="rotate(-0 375.449503 134.424844)">3</text>
+     </g>
+    </g>
+    <g id="xtick_14">
+     <g id="line2d_22"/>
+     <g id="text_21">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="397.422826" y="134.424844" transform="rotate(-0 397.422826 134.424844)">4</text>
+     </g>
+    </g>
+    <g id="xtick_15">
+     <g id="line2d_23"/>
+     <g id="text_22">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="419.396148" y="134.424844" transform="rotate(-0 419.396148 134.424844)">5</text>
+     </g>
+    </g>
+    <g id="xtick_16">
+     <g id="line2d_24"/>
+     <g id="text_23">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="441.369471" y="134.424844" transform="rotate(-0 441.369471 134.424844)">6</text>
+     </g>
+    </g>
+    <g id="xtick_17">
+     <g id="line2d_25"/>
+     <g id="text_24">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="463.342793" y="134.424844" transform="rotate(-0 463.342793 134.424844)">7</text>
+     </g>
+    </g>
+    <g id="xtick_18">
+     <g id="line2d_26"/>
+     <g id="text_25">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="485.316116" y="134.424844" transform="rotate(-0 485.316116 134.424844)">8</text>
+     </g>
+    </g>
+    <g id="text_26">
+     <text style="font-size: 7.7px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #243748" x="397.422826" y="146.602078" transform="rotate(-0 397.422826 146.602078)">取得较低MSE的随机种子数（共8个）</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_5">
+     <g id="line2d_27">
+      <path d="M 291.313651 125.954531 
+L 503.532 125.954531 
+" clip-path="url(#pd295f6d272)" style="fill: none; stroke: #edf0f2; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_28"/>
+     <g id="text_27">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="128.689688" transform="rotate(-0 288.313651 128.689688)">0</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_29">
+      <path d="M 291.313651 101.509081 
+L 503.532 101.509081 
+" clip-path="url(#pd295f6d272)" style="fill: none; stroke: #edf0f2; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_30"/>
+     <g id="text_28">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="104.244237" transform="rotate(-0 288.313651 104.244237)">10</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_31">
+      <path d="M 291.313651 77.063631 
+L 503.532 77.063631 
+" clip-path="url(#pd295f6d272)" style="fill: none; stroke: #edf0f2; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_32"/>
+     <g id="text_29">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="79.798787" transform="rotate(-0 288.313651 79.798787)">20</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_33">
+      <path d="M 291.313651 52.61818 
+L 503.532 52.61818 
+" clip-path="url(#pd295f6d272)" style="fill: none; stroke: #edf0f2; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_34"/>
+     <g id="text_30">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="55.353336" transform="rotate(-0 288.313651 55.353336)">30</text>
+     </g>
+    </g>
+    <g id="text_31">
+     <text style="font-size: 7.7px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #243748" x="273.200333" y="84.397266" transform="rotate(-90 273.200333 84.397266)">OD通道占比 (%)</text>
+    </g>
+   </g>
+   <g id="patch_15">
+    <path d="M 300.95994 125.954531 
+L 318.099131 125.954531 
+L 318.099131 113.358593 
+L 300.95994 113.358593 
+z
+" clip-path="url(#pd295f6d272)" style="fill: #bf7664"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 322.933262 125.954531 
+L 340.072454 125.954531 
+L 340.072454 111.959045 
+L 322.933262 111.959045 
+z
+" clip-path="url(#pd295f6d272)" style="fill: #bf7664"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 344.906585 125.954531 
+L 362.045776 125.954531 
+L 362.045776 113.825109 
+L 344.906585 113.825109 
+z
+" clip-path="url(#pd295f6d272)" style="fill: #bf7664"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 366.879907 125.954531 
+L 384.019099 125.954531 
+L 384.019099 118.023756 
+L 366.879907 118.023756 
+z
+" clip-path="url(#pd295f6d272)" style="fill: #bf7664"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 388.85323 125.954531 
+L 405.992421 125.954531 
+L 405.992421 119.423304 
+L 388.85323 119.423304 
+z
+" clip-path="url(#pd295f6d272)" style="fill: #b5c0c4"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 410.826552 125.954531 
+L 427.965744 125.954531 
+L 427.965744 106.827366 
+L 410.826552 106.827366 
+z
+" clip-path="url(#pd295f6d272)" style="fill: #287c82"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 432.799875 125.954531 
+L 449.939066 125.954531 
+L 449.939066 84.434587 
+L 432.799875 84.434587 
+z
+" clip-path="url(#pd295f6d272)" style="fill: #287c82"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 454.773197 125.954531 
+L 471.912389 125.954531 
+L 471.912389 63.441357 
+L 454.773197 63.441357 
+z
+" clip-path="url(#pd295f6d272)" style="fill: #287c82"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 476.74652 125.954531 
+L 493.885711 125.954531 
+L 493.885711 57.843162 
+L 476.74652 57.843162 
+z
+" clip-path="url(#pd295f6d272)" style="fill: #287c82"/>
+   </g>
+   <g id="patch_24">
+    <path d="M 291.313651 125.954531 
+L 291.313651 42.84 
+" style="fill: none; stroke: #acb9bf; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_25">
+    <path d="M 291.313651 125.954531 
+L 503.532 125.954531 
+" style="fill: none; stroke: #acb9bf; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: start; fill: #243748" x="291.313651" y="35.84" transform="rotate(-0 291.313651 35.84)">GÉANT   524 OD通道 · 78.2% 多数种子改善</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_26">
+    <path d="M 40.896 272.34 
+L 253.114349 272.34 
+L 253.114349 160.135383 
+L 40.896 160.135383 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g clip-path="url(#pe1e0205aba)">
+    <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAScAAACcCAYAAAA9IG1DAAADgUlEQVR4nO3cTU7bUBhAUahQl9ExW2MPjNhE9tdldEJHkSIL857jhNzAOTOc+Pkn5sqj7/H59e394cTh39/TPx9efv/5cPvy8zXH/Ubf27vPnvWWn88cf+85ru0/2n40u9+eczl37T3rrT1nI6PfbvYaZu//zLmMjrF1vcPKczr63mfnMLv22jGW25frz17bR/v+mloB4IuJE5AkTkCSOAFJ4gQkiROQJE5AkjgBSeIEJIkTkCROQJI4AUniBCSJE5AkTkCSOAFJ4gQkiROQ9Lg2pvdSI1u/m1td/z3f93s+9xnf/fq22DsO+ZQ3JyBJnIAkcQKSxAlIEicgSZyAJHECksQJSBInIEmcgCRxApLECUgSJyBJnIAkcQKSxAlIEicgSZyAJHECkp6WG0azf3/6nORbXf9Pv+/l+d9+m+vw5gQkiROQJE5AkjgBSeIEJIkTkCROQJI4AUniBCSJE5AkTkCSOAFJ4gQkiROQJE5AkjgBSeIEJIkTcB9jeo9jS5cjSJfbl5+fMwZ17bPl9tEo1dG5ra03+v6WNdeMrnF23T3nvHWfc9bc4qN19x5z9v4tt8/e5z3ncmkvK+tveTZn/8fO7cElrt2bE5AkTkCSOAFJ4gQkiROQJE5AkjgBSeIEJIkTkCROQJI4AUniBCSJE5AkTkCSOAFJ4gQkiROQJE5AkjgBSU+zs7BHZud8b5klPnvM2c+3fv+a57J3Pebu12j73ue+5PDJM3Pp5++ac9KPa3pzApLECUgSJyBJnIAkcQKSxAlIEicgSZyAJHECksQJSBInIEmcgCRxApLECUgSJyBJnIAkcQKSxAlIenx+fXs/3bAcuzkax3mNMaf3MEL1Hs6R9u/1VSOyL2HtGHvGc494cwKSxAlIEicgSZyAJHECksQJSBInIEmcgCRxApLECUgSJyBJnIAkcQKSxAlIEicgSZyAJHECksQJSBInIOnp1icAX6E0O/zS5/Ryw2sbzQ4/x3Ffb05AkjgBSeIEJIkTkCROQJI4AUniBCSJE5AkTkCSOAFJ4gQkiROQJE5AkjgBSeIEJIkTkCROQJI4AT9zTO9x5GZxTOo9cR/79+9Wv9Hhhv9j1zj2cS1vTkCSOAFJ4gQkiROQJE5AkjgBSeIEJIkTkCROQJI4AUniBCSJE5AkTkCSOAFJ4gQkiROQJE5AkjgBSeIEPBT9B0koR+Nh/h5yAAAAAElFTkSuQmCC" id="image4798509964" transform="scale(1 -1) translate(0 -112.32)" x="41.04" y="-159.84" width="212.4" height="112.32"/>
+   </g>
+   <g id="matplotlib.axis_5">
+    <g id="xtick_19">
+     <g id="line2d_35"/>
+     <g id="text_33">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="40.896" y="280.810312" transform="rotate(-0 40.896 280.810312)">0</text>
+     </g>
+    </g>
+    <g id="xtick_20">
+     <g id="line2d_36"/>
+     <g id="text_34">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="93.950587" y="280.810312" transform="rotate(-0 93.950587 280.810312)">25</text>
+     </g>
+    </g>
+    <g id="xtick_21">
+     <g id="line2d_37"/>
+     <g id="text_35">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="147.005174" y="280.810312" transform="rotate(-0 147.005174 280.810312)">50</text>
+     </g>
+    </g>
+    <g id="xtick_22">
+     <g id="line2d_38"/>
+     <g id="text_36">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="200.059761" y="280.810312" transform="rotate(-0 200.059761 280.810312)">75</text>
+     </g>
+    </g>
+    <g id="xtick_23">
+     <g id="line2d_39"/>
+     <g id="text_37">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="253.114349" y="280.810312" transform="rotate(-0 253.114349 280.810312)">100</text>
+     </g>
+    </g>
+    <g id="text_38">
+     <text style="font-size: 7.7px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #243748" x="147.005174" y="293.040484" transform="rotate(-0 147.005174 293.040484)">OD通道按全局模型MSE由低到高排序 (%)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_6">
+    <g id="ytick_9">
+     <g id="line2d_40"/>
+     <g id="text_39">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="169.883327" transform="rotate(-0 37.896 169.883327)">42</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_41"/>
+     <g id="text_40">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="183.908905" transform="rotate(-0 37.896 183.908905)">43</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_42"/>
+     <g id="text_41">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="197.934482" transform="rotate(-0 37.896 197.934482)">44</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_43"/>
+     <g id="text_42">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="211.960059" transform="rotate(-0 37.896 211.960059)">45</text>
+     </g>
+    </g>
+    <g id="ytick_13">
+     <g id="line2d_44"/>
+     <g id="text_43">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="225.985636" transform="rotate(-0 37.896 225.985636)">46</text>
+     </g>
+    </g>
+    <g id="ytick_14">
+     <g id="line2d_45"/>
+     <g id="text_44">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="240.011213" transform="rotate(-0 37.896 240.011213)">47</text>
+     </g>
+    </g>
+    <g id="ytick_15">
+     <g id="line2d_46"/>
+     <g id="text_45">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="254.03679" transform="rotate(-0 37.896 254.03679)">48</text>
+     </g>
+    </g>
+    <g id="ytick_16">
+     <g id="line2d_47"/>
+     <g id="text_46">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="37.896" y="268.062368" transform="rotate(-0 37.896 268.062368)">49</text>
+     </g>
+    </g>
+    <g id="text_47">
+     <text style="font-size: 7.7px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #243748" x="22.782682" y="216.237691" transform="rotate(-90 22.782682 216.237691)">随机种子</text>
+    </g>
+   </g>
+   <g id="patch_27">
+    <path d="M 40.896 272.34 
+L 40.896 160.135383 
+" style="fill: none; stroke: #acb9bf; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_28">
+    <path d="M 40.896 272.34 
+L 253.114349 272.34 
+" style="fill: none; stroke: #acb9bf; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+  </g>
+  <g id="axes_4">
+   <g id="patch_29">
+    <path d="M 291.313651 272.34 
+L 503.532 272.34 
+L 503.532 160.135383 
+L 291.313651 160.135383 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g clip-path="url(#pbc5dccb30a)">
+    <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAASYAAACcCAYAAADS4gZ9AAAEt0lEQVR4nO3cy23bQBiFUTsIUkaq80YNuBWX415SRjYOtGAwGMyLD9nXwDmbJNKQHFLKB63+5/fXl4+njtuv309vf//8//vd9u/Zmu3v9TH1mnJt+Vq9vvV+7/h6/ex6M/X9te6r9+xGf7auM9tPa03vMxo939X77j3/1h72nHvPPe9R3/v2973XnH0/W++NrrvyudXr3gb77P0fae2l911rHTt777M+1x+HjwR4EGEC4ggTEEeYgDjCBMQRJiCOMAFxhAmII0xAHGEC4ggTEEeYgDjCBMQRJiCOMAFxhAmII0xAHGEC4vxsvTgaidkaHVqv7/17NA50dL7WMa21s33P1uw1Gi97ZA9H9zZ6llde5zPOfcWI1vI5j8Yfn9UbN/0V3i4eUXzW2b34xQTEESYgjjABcYQJiCNMQBxhAuIIExBHmIA4wgTEESYgjjABcYQJiCNMQBxhAuIIExBHmIA4wgTEESYgjjAB3z9MCfONr5I0Ixk+2y34++8XExBHmIA4wgTEESYgjjABcYQJiCNMQBxhAuIIExBHmIA4wgTEESYgjjABcYQJiCNMQBxhAuIIExBHmIDvH6beOM5Hjdw9c97Z6NAr9jw6x/36e65xX3t0T7Pj7u8nj1LtSd7z9sxHe3z0d+zMc3rkmOyz5/aLCYgjTEAcYQLiCBMQR5iAOMIExBEmII4wAXGECYgjTEAcYQLiCBMQR5iAOMIExBEmII4wAXGECYgjTEAcYQLyw1TODq5nGrfm+JZryvd786tbr89mXZfvH5klvB1fH7vtebTXbd3K+VvHzvYxu3bvfo8+h9Y1V/a+uofeNUbnHZ3niPLa9We38p2cXfvoHPKrZ2zfTs5DX302V5x7L7+YgDjCBMQRJiCOMAFxhAmII0xAHGEC4ggTEEeYgDjCBMQRJiCOMAFxhAmII0xAHGEC4ggTEEeYgDjCBOSHqRz/eh+PWY7MbY3PLcfTliN4t2PLtds56rGb9XXq0ajl+/WY39lI3u0c5Z/1/lt7KtcfGW9bP6v6nPW999b1RpSujPudXXflvdG5R+t6n3Nvbe+1I6Ndy+/L7Dm09nrF/ff2dcStc9zZUb2rz+aKc+/lFxMQR5iAOMIExBEmII4wAXGECYgjTEAcYQLiCBMQR5iAOMIExBEmII4wAXGECYgjTEAcYQLiCBMQR5iAOMIExHl+f335WFnYm2H9KKOZz1ftpXWe1nV7exnN9S7noc/W7d3r6nH1DPZNfW+9Pdav9Wam9/bVWt+7r9mM9NY1etdrzeSuP4/eflbuvXWu8vXWs2ndb31M/axu1b2OrjPb28jomNE+Vo320vvM/WIC4ggTEEeYgDjCBMQRJiCOMAFxhAmII0xAHGEC4ggTEEeYgDjCBMQRJiCOMAFxhAmII0xAHGEC4ggTkD9adzRaczS6dMVodOfqMbNRo71j94waXdl3/V497nU0CnV1/6t7WRnxWu915Xqj846ew9HnfIWV6+9ZM3p+K89jdM0z42rvRt+5JEf25hcTEEeYgDjCBMQRJiCOMAFxhAmII0xAHGEC4ggTEEeYgDjCBMQRJiCOMAFxhAmII0xAHGEC4ggTEEeYgDjCBDyl+QeLRft3MgJKfAAAAABJRU5ErkJggg==" id="image8274d5687d" transform="scale(1 -1) translate(0 -112.32)" x="291.6" y="-159.84" width="211.68" height="112.32"/>
+   </g>
+   <g id="matplotlib.axis_7">
+    <g id="xtick_24">
+     <g id="line2d_48"/>
+     <g id="text_48">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="291.313651" y="280.810312" transform="rotate(-0 291.313651 280.810312)">0</text>
+     </g>
+    </g>
+    <g id="xtick_25">
+     <g id="line2d_49"/>
+     <g id="text_49">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="344.368239" y="280.810312" transform="rotate(-0 344.368239 280.810312)">25</text>
+     </g>
+    </g>
+    <g id="xtick_26">
+     <g id="line2d_50"/>
+     <g id="text_50">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="397.422826" y="280.810312" transform="rotate(-0 397.422826 280.810312)">50</text>
+     </g>
+    </g>
+    <g id="xtick_27">
+     <g id="line2d_51"/>
+     <g id="text_51">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="450.477413" y="280.810312" transform="rotate(-0 450.477413 280.810312)">75</text>
+     </g>
+    </g>
+    <g id="xtick_28">
+     <g id="line2d_52"/>
+     <g id="text_52">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #62727f" x="503.532" y="280.810312" transform="rotate(-0 503.532 280.810312)">100</text>
+     </g>
+    </g>
+    <g id="text_53">
+     <text style="font-size: 7.7px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #243748" x="397.422826" y="293.040484" transform="rotate(-0 397.422826 293.040484)">OD通道按全局模型MSE由低到高排序 (%)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_8">
+    <g id="ytick_17">
+     <g id="line2d_53"/>
+     <g id="text_54">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="169.883327" transform="rotate(-0 288.313651 169.883327)">42</text>
+     </g>
+    </g>
+    <g id="ytick_18">
+     <g id="line2d_54"/>
+     <g id="text_55">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="183.908905" transform="rotate(-0 288.313651 183.908905)">43</text>
+     </g>
+    </g>
+    <g id="ytick_19">
+     <g id="line2d_55"/>
+     <g id="text_56">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="197.934482" transform="rotate(-0 288.313651 197.934482)">44</text>
+     </g>
+    </g>
+    <g id="ytick_20">
+     <g id="line2d_56"/>
+     <g id="text_57">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="211.960059" transform="rotate(-0 288.313651 211.960059)">45</text>
+     </g>
+    </g>
+    <g id="ytick_21">
+     <g id="line2d_57"/>
+     <g id="text_58">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="225.985636" transform="rotate(-0 288.313651 225.985636)">46</text>
+     </g>
+    </g>
+    <g id="ytick_22">
+     <g id="line2d_58"/>
+     <g id="text_59">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="240.011213" transform="rotate(-0 288.313651 240.011213)">47</text>
+     </g>
+    </g>
+    <g id="ytick_23">
+     <g id="line2d_59"/>
+     <g id="text_60">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="254.03679" transform="rotate(-0 288.313651 254.03679)">48</text>
+     </g>
+    </g>
+    <g id="ytick_24">
+     <g id="line2d_60"/>
+     <g id="text_61">
+      <text style="font-size: 7.2px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: end; fill: #62727f" x="288.313651" y="268.062368" transform="rotate(-0 288.313651 268.062368)">49</text>
+     </g>
+    </g>
+    <g id="text_62">
+     <text style="font-size: 7.7px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #243748" x="273.200333" y="216.237691" transform="rotate(-90 273.200333 216.237691)">随机种子</text>
+    </g>
+   </g>
+   <g id="patch_30">
+    <path d="M 291.313651 272.34 
+L 291.313651 160.135383 
+" style="fill: none; stroke: #acb9bf; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_31">
+    <path d="M 291.313651 272.34 
+L 503.532 272.34 
+" style="fill: none; stroke: #acb9bf; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+  </g>
+  <g id="legend_1">
+   <g id="patch_32">
+    <path d="M 154.6 18.972188 
+L 167.6 18.972188 
+L 167.6 11.972188 
+L 154.6 11.972188 
+z
+" style="fill: #287c82"/>
+   </g>
+   <g id="text_63">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: start; fill: #243748" x="175.6" y="18.972188" transform="rotate(-0 175.6 18.972188)">路由误差更低</text>
+   </g>
+   <g id="patch_33">
+    <path d="M 255.6 18.972188 
+L 268.6 18.972188 
+L 268.6 11.972188 
+L 255.6 11.972188 
+z
+" style="fill: #bf7664"/>
+   </g>
+   <g id="text_64">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: start; fill: #243748" x="276.6" y="18.972188" transform="rotate(-0 276.6 18.972188)">全局权重误差更低</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pc044014f4b">
+   <rect x="40.896" y="42.84" width="212.218349" height="83.114531"/>
+  </clipPath>
+  <clipPath id="pd295f6d272">
+   <rect x="291.313651" y="42.84" width="212.218349" height="83.114531"/>
+  </clipPath>
+  <clipPath id="pe1e0205aba">
+   <rect x="40.896" y="160.135383" width="212.218349" height="112.204617"/>
+  </clipPath>
+  <clipPath id="pbc5dccb30a">
+   <rect x="291.313651" y="160.135383" width="212.218349" height="112.204617"/>
+  </clipPath>
+ </defs>
+</svg>

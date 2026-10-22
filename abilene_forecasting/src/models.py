@@ -146,13 +146,18 @@ class MultiScaleDLinear(nn.Module):
         scales: Sequence[int] = (1, 2, 4),
         use_frequency: bool = False,
         adaptive: bool = True,
+        learned_global: bool = False,
         cut_ratio: float = 0.5,
+        constant_router: bool = False,
     ):
         super().__init__()
+        if adaptive and learned_global:
+            raise ValueError("adaptive and learned_global fusion are mutually exclusive")
         self.scales = tuple(scales)
         if any(input_len % scale != 0 for scale in self.scales):
             raise ValueError("input_len must be divisible by every scale")
         self.adaptive = adaptive
+        self.constant_router = constant_router
         self.experts = nn.ModuleList(
             [DLinear(input_len // scale, pred_len) for scale in self.scales]
         )
@@ -165,6 +170,9 @@ class MultiScaleDLinear(nn.Module):
             ]
         )
         self.router = ScaleRouter(len(self.scales)) if adaptive else None
+        self.global_logits = (
+            nn.Parameter(torch.zeros(len(self.scales))) if learned_global else None
+        )
 
     @staticmethod
     def _downsample(x: torch.Tensor, scale: int) -> torch.Tensor:
@@ -181,11 +189,15 @@ class MultiScaleDLinear(nn.Module):
             forecasts.append(expert(frequency(scaled)))
         stacked = torch.stack(forecasts, dim=1)
 
-        if self.router is None:
+        if self.global_logits is not None:
+            weights = torch.softmax(self.global_logits, dim=0).expand(x.size(0), -1)
+        elif self.router is None:
             weights = torch.full(
                 (x.size(0), len(self.scales)),
                 1.0 / len(self.scales), device=x.device, dtype=x.dtype,
             )
+        elif self.constant_router:
+            weights = self.router(torch.zeros_like(x[:1])).expand(x.size(0), -1)
         else:
             weights = self.router(x)
         output = (stacked * weights[:, :, None, None]).sum(dim=1)
@@ -208,9 +220,18 @@ def build_model(
         return FrequencyDLinear(input_len, pred_len, cut_ratio)
     if name == "dlinear_scale":
         return MultiScaleDLinear(input_len, pred_len, use_frequency=False)
+    if name == "dlinear_scale_constant_router":
+        return MultiScaleDLinear(
+            input_len, pred_len, use_frequency=False, constant_router=True
+        )
     if name == "dlinear_scale_static":
         return MultiScaleDLinear(
             input_len, pred_len, use_frequency=False, adaptive=False
+        )
+    if name == "dlinear_scale_global":
+        return MultiScaleDLinear(
+            input_len, pred_len, use_frequency=False,
+            adaptive=False, learned_global=True,
         )
     if name == "proposed":
         return MultiScaleDLinear(

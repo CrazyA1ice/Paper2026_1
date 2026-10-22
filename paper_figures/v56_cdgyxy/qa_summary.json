@@ -1,0 +1,67 @@
+[
+  {
+    "figure": 1,
+    "alignment": "NOT APPLICABLE",
+    "data_geometry_unchanged": true,
+    "width_mm": 161.925,
+    "text_pt": 7.5,
+    "collisions": {
+      "fail": 0,
+      "warn": 0,
+      "contained_fill_overlays": 55,
+      "contained_image_overlays": 0
+    }
+  },
+  {
+    "figure": 2,
+    "alignment": "PASS",
+    "data_geometry_unchanged": true,
+    "width_mm": 161.925,
+    "text_pt": 7.5,
+    "collisions": {
+      "fail": 0,
+      "warn": 0,
+      "contained_fill_overlays": 32,
+      "contained_image_overlays": 24
+    }
+  },
+  {
+    "figure": 3,
+    "alignment": "PASS",
+    "data_geometry_unchanged": true,
+    "width_mm": 161.925,
+    "text_pt": 7.5,
+    "collisions": {
+      "fail": 0,
+      "warn": 0,
+      "contained_fill_overlays": 0,
+      "contained_image_overlays": 0
+    }
+  },
+  {
+    "figure": 4,
+    "alignment": "PASS",
+    "data_geometry_unchanged": true,
+    "width_mm": 161.925,
+    "text_pt": 7.5,
+    "collisions": {
+      "fail": 0,
+      "warn": 0,
+      "contained_fill_overlays": 0,
+      "contained_image_overlays": 0
+    }
+  },
+  {
+    "figure": 5,
+    "alignment": "PASS",
+    "data_geometry_unchanged": true,
+    "width_mm": 161.925,
+    "text_pt": 7.5,
+    "collisions": {
+      "fail": 0,
+      "warn": 0,
+      "contained_fill_overlays": 0,
+      "contained_image_overlays": 0
+    }
+  }
+]

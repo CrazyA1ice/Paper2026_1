@@ -1,0 +1,58 @@
+{
+  "summary": {
+    "total_chars": 9138,
+    "total_paragraphs": 48,
+    "total_sentences": 188
+  },
+  "template_phrases": {
+    "count": 0,
+    "density_per_1000": 0.0,
+    "matches": []
+  },
+  "passive_voice": {
+    "count": 7,
+    "per_sentence": 0.037
+  },
+  "burstiness": {
+    "avg_len": 47.1,
+    "std_len": 25.8,
+    "cv": 0.548,
+    "risk": "正常 — 句子长度变化丰富"
+  },
+  "para_symmetry": {
+    "para_count": 48,
+    "avg_para_len": 188.4,
+    "symmetrical_runs": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "risk": "发现 6 处对称段落组（3段以上长度相近）"
+  },
+  "nested_numbers": {
+    "count": 6,
+    "risk": "检测到 6 处编号标记"
+  },
+  "colon_lists": {
+    "count": 2,
+    "risk": "检测到 2 处冒号并列结构"
+  },
+  "punctuation": {
+    "fullwidth_punct_ratio": 6.14,
+    "commas_per_sentence": 1.2,
+    "risk": "正常"
+  },
+  "colloquial": {
+    "count": 0,
+    "terms": [],
+    "risk": "正常"
+  },
+  "dash_density": {
+    "total_dashes": 0,
+    "over_limit_paras": 0,
+    "risk": "正常"
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.02v55.docx",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.03v56.docx",
+  "text_changes": [
+    {
+      "before": "摘要：骨干网络源—目的节点对流量兼有短时起伏和较慢趋势，单一时间分辨率难以同时表征两者。本文采用尺度1、2和4的DLinear专家，由轻量路由网络根据输入窗口统计量生成Softmax融合权重。在输入长度96、预测长度24的Abilene和GÉANT实验中，3个共同随机种子下本文方法相对DLinear的MSE分别降低4.07%和4.54%，相对LightTS分别降低29.80%和46.89%。8个随机种子的核心消融加入全局可学习权重和恒定输入路由两类固定权重对照；本文方法相对两者在Abilene上的逐种子平均MSE改进率均约为1.80%，在GÉANT上分别为4.31%和4.97%。结果表明，多尺度加权在两套骨干网数据上取得了较好的平均预测精度，可为小时级流量需求分析提供预测参考。",
+      "after": "摘要：为提高小时级骨干网络流量的多步预测精度，构建了轻量自适应多尺度预测模型。模型将历史窗口转换为三种时间分辨率的序列，分别交由独立的分解线性专家处理，以兼顾局部变化和较慢趋势。路由网络提取窗口的总体水平、离散程度、末时状态和平均变化强度，经两层感知器生成融合权重，得到未来多步预测。在输入长度为96、预测长度为24的Abilene与GÉANT实验中，三个共同随机种子下的均方误差相对单尺度模型分别降低4.07%和4.54%，相对采样导向轻量模型分别降低29.80%和46.89%。八种子消融进一步比较全局可学习权重与恒定输入路由，前一数据集的平均改进率均约1.80%，后一数据集分别为4.31%和4.97%。结果表明，该结构在两套骨干网数据上取得了较低的平均预测误差，低维路由仅增加少量参数，可为未来一天的需求观察与容量规划提供预测参考。"
+    },
+    {
+      "before": "关键词：网络流量预测；多变量时间序列；多尺度学习；自适应加权；DLinear",
+      "after": "关键词：网络流量预测；多变量时间序列；多尺度学习；自适应加权；线性分解预测"
+    },
+    {
+      "before": "Abstract: Short-term fluctuations and slower trends coexist in backbone origin-destination traffic. Input-window statistics determine the Softmax weights used to combine DLinear experts at scales 1, 2, and 4. For input length 96 and forecast length 24, results from three common random seeds give MSE reductions of 4.07% on Abilene and 4.54% on GÉANT relative to DLinear. The corresponding reductions relative to LightTS are 29.80% and 46.89%. An eight-seed ablation adds two fixed-weight controls: learned global weights and a router receiving constant input. Mean seed-wise MSE reductions over the two controls are both about 1.80% on Abilene; on GÉANT, they are 4.31% and 4.97%, respectively. The multiscale weighting model achieves lower mean prediction errors on both backbone datasets and offers a forecasting basis for hourly traffic-demand analysis.",
+      "after": "Abstract: A lightweight adaptive multiscale model was developed to improve multistep forecasting of hourly backbone traffic. Historical windows were represented at three temporal resolutions. Independent decomposition linear predictors captured local changes and slower trends. A two-layer perceptron used four window statistics to produce normalized fusion weights. Experiments on Abilene and GÉANT used an input length of 96 and a forecast length of 24. Across three common random seeds, mean squared error decreased by 4.07% and 4.54% relative to the single-scale model, and by 29.80% and 46.89% relative to the sampling-oriented lightweight model. Eight-seed ablations included learned global weights and a constant-input router. Mean seed-wise improvements over these controls were both approximately 1.80% on Abilene, and 4.31% and 4.97% on GÉANT, respectively. The model achieves lower mean errors on both backbone datasets with limited additional routing parameters. It provides forecasting information for next-day demand observation and capacity planning."
+    },
+    {
+      "before": "Key words: network traffic forecasting; multivariate time series; multiscale learning; adaptive weighting; DLinear",
+      "after": "Key words: network traffic forecasting; multivariate time series; multiscale learning; adaptive weighting; linear decomposition forecasting"
+    },
+    {
+      "before": "",
+      "after": "引言"
+    },
+    {
+      "before": "Lohrasbinasab等[1]系统梳理了网络流量预测方法，指出机器学习和深度学习等数据驱动方法在复杂流量预测中的应用不断增加，反映了传统统计模型之外的研究扩展。网络规模扩大也使OD变量之间的关联更难由单一序列的时间分析覆盖。Qin等[2]把图神经网络引入通信网络流量预测，在同一模型中处理空间关联和时间依赖；韦烜等[3]针对大型IP网络流量矩阵开展分析与预测，讨论了不同OD变量之间的关联及其时间变化。唐文杰等[4]则在CycleLLH模型中引入周期性信息。上述研究涉及的时间依赖、变量关联与周期结构，构成了流量预测的不同观察角度。",
+      "after": "Lohrasbinasab等[1]系统梳理了网络流量预测方法，指出机器学习和深度学习等数据驱动方法在复杂流量预测中的应用不断增加，反映了传统统计模型之外的研究扩展。网络规模扩大也使OD变量之间的关联更难由单一序列的时间分析覆盖。Qin等[2]把图神经网络引入通信网络流量预测，在同一模型中处理空间关联和时间依赖；韦烜等[3]针对大型网际协议（Internet protocol，IP）网络流量矩阵开展分析与预测，讨论了不同OD变量之间的关联及其时间变化。唐文杰等[4]则在CycleLLH模型中引入周期性信息。上述研究涉及的时间依赖、变量关联与周期结构，构成了流量预测的不同观察角度。"
+    },
+    {
+      "before": "时间分辨率决定同一流量序列中哪些特征更易观察：较多局部细节在原始分辨率下保留，短时起伏也更清晰；时间聚合平滑部分局部扰动后，较慢的变化趋势更突出。在Zhou等[5]的多尺度网络流量预测研究中，深度回声状态网络从不同时间分辨率的序列中提取信息，以利用各分辨率之间的互补性。利用多尺度信息还涉及模型结构开销。DLinear[6]通过时间序列分解和线性映射完成预测，TimeMixer[7]以多尺度混合机制处理不同分辨率序列。LightTS[8]则采用采样导向的MLP结构，实现快速多变量时间序列预测。本文将多时间尺度信息与模型规模共同作为预测结构的设计约束。",
+      "after": "时间分辨率决定同一流量序列中哪些特征更易观察：较多局部细节在原始分辨率下保留，短时起伏也更清晰；时间聚合平滑部分局部扰动后，较慢的变化趋势更突出。在Zhou等[5]的多尺度网络流量预测研究中，深度回声状态网络从不同时间分辨率的序列中提取信息，以利用各分辨率之间的互补性。利用多尺度信息还涉及模型结构开销。分解线性模型（decomposition linear model，DLinear）[6]通过时间序列分解和线性映射完成预测，TimeMixer[7]以多尺度混合机制处理不同分辨率序列。LightTS[8]则采用采样导向的多层感知器（multilayer perceptron，MLP）结构，实现快速多变量时间序列预测。本文将多时间尺度信息与模型规模共同作为预测结构的设计约束。"
+    },
+    {
+      "before": "两层感知器将四维统计向量映射为3个尺度的未归一化分数，隐藏层维数设为16。路由器只计算尺度融合分数，尺度专家承担完整OD流量的预测。低维统计量和较小隐藏层用于控制路由参数规模，计算中不额外引入循环网络、注意力网络等时序编码器。其尺度分数计算为",
+      "after": "两层感知器将四维统计向量映射为3个尺度的未归一化分数，隐藏层维数设为16。路由器只计算尺度融合分数，尺度专家承担完整OD流量的预测。低维统计量和较小隐藏层用于控制路由参数规模，计算中不额外引入循环网络、注意力网络等时序编码器。隐藏层采用修正线性单元（rectified linear unit，ReLU）。其尺度分数计算为"
+    },
+    {
+      "before": "本文以均方误差训练模型。损失在训练样本、未来H个预测时刻以及全部C个OD变量上计算，覆盖不同预测步与不同OD维度的偏差。各项偏差在同一目标中汇总，用于模型参数更新。对应训练目标为",
+      "after": "本文以均方误差（mean squared error，MSE）训练模型。损失在训练样本、未来H个预测时刻以及全部C个OD变量上计算，覆盖不同预测步与不同OD维度的偏差。各项偏差在同一目标中汇总，用于模型参数更新。对应训练目标为"
+    },
+    {
+      "before": "训练采用Adam优化器更新参数，并根据验证集MSE选择最终使用的模型。",
+      "after": "训练采用自适应矩估计（adaptive moment estimation，Adam）优化器更新参数，并根据验证集MSE选择最终使用的模型。"
+    },
+    {
+      "before": "所有对比模型使用相同的数据划分、输入长度、预测长度、评价指标和批量大小，batch size统一为16。为控制数据与训练条件，实验未分别搜索各模型的最优超参数。DLinear、固定等权多尺度、全局可学习权重、恒定输入路由和本文方法最多训练30轮，LightTS最多训练50轮；均根据验证集MSE选择测试所用参数，测试集仅用于最终统计。",
+      "after": "所有对比模型使用相同的数据划分、输入长度、预测长度、评价指标和批量大小，批量大小统一为16。为控制数据与训练条件，实验未分别搜索各模型的最优超参数。DLinear、固定等权多尺度、全局可学习权重、恒定输入路由和本文方法最多训练30轮，LightTS最多训练50轮；均根据验证集MSE选择测试所用参数，测试集仅用于最终统计。"
+    },
+    {
+      "before": "均方误差（MSE）、平均绝对误差（MAE）及均方根误差（RMSE）用于评价预测性能。其中MSE采用式（14），MAE和RMSE的定义如下",
+      "after": "均方误差（MSE）、平均绝对误差（mean absolute error，MAE）及均方根误差（root mean squared error，RMSE）用于评价预测性能。其中MSE采用式（14），MAE和RMSE的定义如下"
+    },
+    {
+      "before": "3 结论",
+      "after": "3 结语"
+    },
+    {
+      "before": "本文构建了处理骨干网络OD流量短时波动与较慢趋势的多尺度预测结构。尺度1、2和4的DLinear专家独立预测，轻量路由网络根据输入计算融合权重，将各专家结果组合为最终输出。预测长度为24时，在Abilene和GÉANT两套实验中，本文方法的平均误差均低于作为比较对象的DLinear、LightTS和固定等权模型。相对全局可学习权重与恒定输入路由两类常权重对照，本文方法在Abilene上的逐种子平均MSE改进均约1.80%；GÉANT上的对应改进分别为4.31%和4.97%。",
+      "after": "自适应多尺度加权将独立分解线性专家与低维窗口路由结合，以较小参数规模完成小时级骨干网流量预测。两套数据的重复实验显示，其平均误差低于所设单尺度及固定融合对照，可为未来一天的需求分析提供参考。后续需在更多网络数据和预测长度下检验适用性。"
+    },
+    {
+      "before": "源—目的节点对（origin-destination，OD）流量描述骨干网络不同节点对之间的通信需求。容量规划、拥塞预警、资源调度和流量工程需要判断未来流量状态，本文因而预测后续OD流量。面向小时级骨干网需求分析，预测结果可为流量趋势观察和容量规划提供参考。在云计算、视频业务、数据中心互联及智能网络应用持续增加的背景下，业务在网络内部的迁移和聚集更频繁。这使后续流量的时间变化更加复杂，也增加了预测难度。周期变化、局部波动与突发变化常叠加在同一OD流量序列中，不同变量又有各自的数值范围。这类OD数据包含的复杂短时变化，难以仅用较平稳单变量序列的趋势描述完整覆盖。模型在预测较长时间趋势时，仍需响应短时状态变化。",
+      "after": "源—目的节点对（origin-destination，OD）流量描述骨干网节点对之间的通信需求。容量规划、拥塞预警、资源调度和流量工程需要判断未来流量，本文预测小时级OD需求，为未来一天的趋势观察与容量规划提供参考。云计算、视频业务和数据中心互联增加了业务迁移与聚集，使流量变化更复杂。周期变化、局部波动与突发变化叠加，各OD变量量级不同，模型需同时刻画较慢趋势与短时变化。"
+    },
+    {
+      "before": "Lohrasbinasab等[1]系统梳理了网络流量预测方法，指出机器学习和深度学习等数据驱动方法在复杂流量预测中的应用不断增加，反映了传统统计模型之外的研究扩展。网络规模扩大也使OD变量之间的关联更难由单一序列的时间分析覆盖。Qin等[2]把图神经网络引入通信网络流量预测，在同一模型中处理空间关联和时间依赖；韦烜等[3]针对大型网际协议（Internet protocol，IP）网络流量矩阵开展分析与预测，讨论了不同OD变量之间的关联及其时间变化。唐文杰等[4]则在CycleLLH模型中引入周期性信息。上述研究涉及的时间依赖、变量关联与周期结构，构成了流量预测的不同观察角度。",
+      "after": "Lohrasbinasab等[1]综述了网络流量预测方法，指出机器学习与深度学习等数据驱动方法的应用不断增加。网络规模扩大后，仅分析单一序列难以覆盖OD变量之间的关联。Qin等[2]采用图神经网络处理空间关联与时间依赖；韦烜等[3]分析大型网际协议（Internet protocol，IP）网络流量矩阵的变量关联及时间变化；唐文杰等[4]在CycleLLH中引入周期性信息。这些研究从时间依赖、变量关联和周期结构等角度开展预测。"
+    },
+    {
+      "before": "时间分辨率决定同一流量序列中哪些特征更易观察：较多局部细节在原始分辨率下保留，短时起伏也更清晰；时间聚合平滑部分局部扰动后，较慢的变化趋势更突出。在Zhou等[5]的多尺度网络流量预测研究中，深度回声状态网络从不同时间分辨率的序列中提取信息，以利用各分辨率之间的互补性。利用多尺度信息还涉及模型结构开销。分解线性模型（decomposition linear model，DLinear）[6]通过时间序列分解和线性映射完成预测，TimeMixer[7]以多尺度混合机制处理不同分辨率序列。LightTS[8]则采用采样导向的多层感知器（multilayer perceptron，MLP）结构，实现快速多变量时间序列预测。本文将多时间尺度信息与模型规模共同作为预测结构的设计约束。",
+      "after": "原始时间分辨率保留局部细节，时间聚合平滑短时扰动并突出较慢趋势。Zhou等[5]采用深度回声状态网络提取多分辨率信息，利用各尺度互补性。分解线性模型（decomposition linear model，DLinear）[6]通过序列分解和线性映射预测，TimeMixer[7]采用多尺度混合，LightTS[8]以采样导向的多层感知器（multilayer perceptron，MLP）实现快速预测。本文兼顾多尺度信息与模型规模。"
+    },
+    {
+      "before": "常见流程先给定时间尺度，再分别计算结果并按既定方式融合。各输入窗口中的短时波动和平缓趋势占比不同，尺度1、2和4的预测作用也可能随窗口状态变化。仅采用单一尺度会缺少其他时间分辨率的信息。构造多尺度序列后，固定融合比例仍不使用窗口状态差异；本文则根据当前输入窗口计算融合权重，将状态信息用于各尺度结果的组合。",
+      "after": "常见流程先给定尺度，再按固定比例融合预测。输入窗口的短时波动和平缓趋势占比不同，单尺度难以覆盖多分辨率信息，固定融合也未使用窗口状态差异。本文据此计算输入相关权重，组合各尺度预测。"
+    },
+    {
+      "before": "针对输入窗口之间的状态差异，本文采用样本级自适应多尺度结构。历史窗口按尺度1、2和4构造多分辨率序列，每个尺度由一个DLinear专家给出候选预测。路由网络不重新编码完整时序，而是读取当前输入窗口的总体水平、离散程度、最近状态和变化强度等统计量，生成Softmax尺度权重，并据此融合三个专家的结果。这样可以把尺度内预测与尺度间选择分开处理。实验在Abilene和GÉANT两个公开骨干网数据集上进行，比较DLinear、LightTS、固定等权、全局可学习固定权重与恒定输入路由模型，并通过多个随机种子重复实验和路由权重分析检验预测误差、核心结构消融与尺度分配行为。",
+      "after": "本文采用样本级自适应多尺度结构：尺度1、2和4的独立DLinear专家生成候选预测，路由网络读取窗口的总体水平、离散程度、最近状态和变化强度，经Softmax生成融合权重，使尺度内预测与尺度间选择分开处理。在Abilene和GÉANT上比较DLinear、LightTS、固定等权、全局可学习权重和恒定输入路由，通过多随机种子实验及权重分析检验预测误差、结构消融与尺度分配行为。"
+    },
+    {
+      "before": "三个时间尺度的区别在于历史信息的平滑程度。原始尺度较完整地保留局部变化，较粗尺度则通过时间聚合减弱短时扰动，突出较慢的趋势。3个尺度各自预测，保留独立结果后，由路由网络确定每个样本的融合比例。结构较简洁的DLinear用于全部专家，控制模型规模，并为多尺度输入和样本级融合提供相同的比较主干。",
+      "after": "原始尺度保留局部变化，较粗尺度通过时间聚合突出慢趋势。各尺度独立预测，路由网络确定样本融合比例；统一采用DLinear专家控制规模，也为多尺度输入与样本级融合提供相同主干。"
+    },
+    {
+      "before": "本文使用尺度集合S={1,2,4}。L=96时，尺度1保留原始96步输入。相邻2个时间点的均值构成尺度2的聚合点，序列长度为48步；尺度4以每4个时间点的均值构成聚合点，序列长度为24步。尺度1不压缩时间轴，保留较完整的短时起伏；尺度2适度平滑局部变化。尺度4对短时间内的高频变化进一步平滑，较慢的趋势因而更突出。多分辨率输入由无需训练参数的平均池化构造，尺度变换也不另设可训练模块，因而这部分输入构造不增加模型参数。",
+      "after": "L=96时，尺度1保留原始96步序列；尺度2取相邻2点均值，得到48步；尺度4取相邻4点均值，得到24步。三者分别保留短时起伏、适度平滑局部变化及进一步突出慢趋势。非重叠平均池化无需训练参数，多尺度构造不增加模型参数。"
+    },
+    {
+      "before": "96步历史窗口在尺度1、2和4下均可得到整数长度序列，专家数量由这一尺度设置确定。更多尺度会带来更粗、有效时间长度更短的序列，还需为相应预测增加专家分支。固定尺度组合{1,2,4}是在细粒度信息、趋势信息和模型规模之间作出的取舍。采用非重叠池化时，原始时间点在同一尺度内只参与一次聚合，各尺度的时间聚合含义因此较为直接。",
+      "after": "尺度组合{1,2,4}将96步历史分为整数长度序列，在细粒度信息、趋势信息与模型规模之间作出取舍。增加尺度会缩短序列并增加专家分支。同一尺度内，每个原始时间点仅参与一次聚合。"
+    },
+    {
+      "before": "模型计算依次经过三个环节：平均池化把同一历史窗口转换为3个时间分辨率，DLinear专家分别给出候选预测，路由网络再根据原始窗口的4个统计量确定融合权重。后续实验据此设置单尺度DLinear、固定等权多尺度、全局可学习固定权重模型、恒定输入路由模型和本文方法，用同一组专家结构区分多尺度信息与样本级加权的作用。",
+      "after": "模型由多尺度池化、独立专家预测和窗口路由融合组成。后续设置单尺度DLinear、固定等权、全局可学习权重、恒定输入路由和本文方法，以相同专家结构区分多尺度信息与样本级加权的作用。"
+    },
+    {
+      "before": "实验分为外部基线比较、核心消融和路由行为分析三个层次。LightTS提供独立结构的外部基线，DLinear提供单尺度参照；固定等权、全局可学习常权重、恒定输入路由与样本级路由模型采用相同的三个尺度专家结构，并分别训练，分别比较多尺度结构、非等权融合与输入相关权重的表现；八个共同随机种子的配对结果和逐种子权重分析用于评估结果波动。",
+      "after": "实验包括外部基线比较、核心消融和路由分析。LightTS为独立外部基线，DLinear为单尺度参照；三类固定融合对照与本文方法使用相同尺度专家，分别训练，比较多尺度、非等权及输入相关融合。八个共同种子的配对结果与权重分析用于评估结果波动。"
+    },
+    {
+      "before": "数据取自CESNET TS-Zoo[9]，包括按1 h聚合的Abilene[10]与GÉANT[11]骨干网流量矩阵。Abilene共有4656个时间点，保留144维有效OD流量；GÉANT共有2849个时间点，去除恒定通道后保留524维有效OD流量。两套数据的序列长度和变量规模不同，分别运行相同预测流程，以观察这些数据条件下的表现。沿原序列的时间顺序划分训练集、验证集和测试集，比例为6∶2∶2。输入长度统一设为L=96，预测长度统一设为H=24。预处理按第1.1节执行，数据规模及窗口数量见表1。",
+      "after": "数据取自CESNET TS-Zoo[9]的1 h聚合Abilene[10]和GÉANT[11]流量矩阵。Abilene含4656个时间点、144维有效OD变量；GÉANT含2849个时间点，去除恒定通道后保留524维。两套数据均按时间顺序以6∶2∶2划分，采用L=96、H=24和第1.1节预处理，规模与窗口数见表1。"
+    },
+    {
+      "before": "所有对比模型使用相同的数据划分、输入长度、预测长度、评价指标和批量大小，批量大小统一为16。为控制数据与训练条件，实验未分别搜索各模型的最优超参数。DLinear、固定等权多尺度、全局可学习权重、恒定输入路由和本文方法最多训练30轮，LightTS最多训练50轮；均根据验证集MSE选择测试所用参数，测试集仅用于最终统计。",
+      "after": "所有模型使用相同的数据划分、输入和预测长度、评价指标及批量大小16，未分别搜索最优超参数。DLinear及各多尺度模型最多训练30轮，LightTS为50轮；均按验证集MSE选择参数，测试集仅用于最终统计。"
+    },
+    {
+      "before": "对照包括DLinear、LightTS、固定等权多尺度、全局可学习权重和恒定输入路由五类模型。DLinear用于比较单一尺度与多尺度结构；LightTS提供独立轻量模型基线。后三种多尺度对照与本文方法保留相同的尺度集合{1,2,4}和DLinear专家，分别使用等权、全局可学习权重和恒定输入路由权重。后两者均对全部窗口使用一组固定权重，可检验完整模型相对常权重方案的误差变化。",
+      "after": "DLinear提供单尺度参照，LightTS为独立轻量模型基线。固定等权、全局可学习权重和恒定输入路由与本文方法共用尺度集合{1,2,4}及DLinear主干，以控制结构差异并检验融合方式。后两类对照对全部窗口使用一组常权重。"
+    },
+    {
+      "before": "为了区分多尺度结构、非等权分配与样本相关分配的作用，设置三种共享相同专家的对照：固定等权模型将三个尺度恒定设为1/3；全局可学习权重模型以三个可训练参数经Softmax得到一组常权重；恒定输入路由模型保留完整路由网络，但训练和推理时都向路由器输入全零窗口，使全部样本共用一组可学习权重。三种模型的尺度专家均接收真实历史窗口。",
+      "after": "固定等权模型将各尺度权重设为1/3；全局权重模型用三个可训练参数经Softmax生成常权重；恒定输入路由保留完整网络，但训练与推理均输入全零窗口，使所有样本共用权重。三类对照的专家均接收真实历史窗口，用于区分多尺度、非等权与样本相关分配的作用。"
+    },
+    {
+      "before": "误差在标准化空间计算，各指标越小，预测误差越低。正文以MSE和MAE为主要指标：前者对较大误差更敏感，后者反映平均绝对偏差。RMSE为MSE的平方根，用于补充误差幅值。随机种子42～44的结果在表2中以均值±标准差列出；随机种子42～49的结果在表3中采用同一统计形式。均值描述平均水平，标准差描述种子间波动。相对改进率按共同随机种子逐一配对计算，再将所得改进率取平均；该百分比使用逐种子结果，而非表内四舍五入后的均值。",
+      "after": "指标在标准化空间计算，越小越好。MSE对较大误差敏感，MAE反映平均绝对偏差，RMSE补充误差幅值。表2与表3分别以均值±标准差汇总种子42～44和42～49的结果，标准差反映种子间波动。相对改进率先按共同种子配对计算，再取平均，不使用表内四舍五入后的均值。"
+    },
+    {
+      "before": "GÉANT的OD变量数较多，本文方法相对LightTS的MSE降幅也高于Abilene。这说明该方法在变量规模不同的两套数据上均保持了预测优势。固定等权与全局可学习权重对照均采用相同的多尺度专家结构，适合进一步检验融合方式本身的作用。",
+      "after": "本文方法在OD规模不同的两套数据上均优于LightTS，GÉANT的MSE降幅更高。下节以相同多尺度专家检验融合方式。"
+    },
+    {
+      "before": "应用时，可由运维模块定期读取小时级历史OD序列，调用预测模型生成未来一天的需求估计，辅助观察高需求时段与容量变化。预测输出可供网络运维人员识别需求变化，并为容量规划提供数据参考。",
+      "after": "运维模块可定期读取小时级历史OD序列，生成未来一天的需求估计，辅助识别高需求时段与容量变化，为趋势观察和容量规划提供参考。"
+    },
+    {
+      "before": "图4显示各模型在高真实值区间仍有低估，本文方法的分组平均偏差相对较小。高需求区间的分组平均偏差较小，有助于在流量趋势分析中观察模型对峰值需求的刻画。",
+      "after": "图4中各模型在高真实值区间均有低估，本文方法的分组平均偏差较小，有助于观察模型对高需求趋势的刻画。"
+    },
+    {
+      "before": "实际使用还需将预测恢复到原始流量量纲，并结合拓扑、路由和链路容量，才能由OD需求进一步分析链路负载。本文的实验评估以标准化OD流量预测为对象；将预测结果接入网络管理系统时，可结合业务所需的拓扑与容量信息使用。",
+      "after": "实验评估标准化OD流量。实际接入网络管理系统时，需恢复原始量纲，再结合拓扑、路由和链路容量，由OD需求分析链路负载。"
+    },
+    {
+      "before": "为减少主干结构对融合方式比较的干扰，各尺度专家统一采用DLinear。单尺度预测、固定等权、全局可学习固定权重、恒定输入路由和样本级路由共五种设置均采用这一主干，使实验重点落在尺度融合方式上。",
+      "after": "共用DLinear主干的说明并入上一段，删除重复段落"
+    },
+    {
+      "before": "按真实值分组的校准结果表明，各模型在高流量端仍有低估，本文方法的平均偏差相对较小。结合较小的模型参数量和前向计算开销，本文方法可为小时级骨干网需求分析与容量规划提供预测参考。",
+      "after": "并入150字以内结语"
+    },
+    {
+      "before": "后续可在更多网络数据和预测设置下考察该方法的适用性。",
+      "after": "并入150字以内结语"
+    },
+    {
+      "before": "[2] QIN L, GU H, WEI W, et al. Spatio-temporal communication network traffic prediction method based on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.2024.121003.",
+      "after": "[2] QIN Liang, GU Huaxi, WEI Wenting, et al. Spatio-temporal communication network traffic prediction method based on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.2024.121003."
+    },
+    {
+      "before": "[5] ZHOU J, HAN T, XIAO F, et al. Multiscale network traffic prediction method based on deep echo-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-21874. DOI: 10.1109/JIOT.2022.3181807.",
+      "after": "[5] ZHOU Jian, HAN Taotao, XIAO Fu, et al. Multiscale network traffic prediction method based on deep echo-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-21874. DOI: 10.1109/JIOT.2022.3181807."
+    },
+    {
+      "before": "[6] ZENG A, CHEN M, ZHANG L, et al. Are transformers effective for time series forecasting?[C]//Proceedings of the AAAI Conference on Artificial Intelligence. 2023, 37(9): 11121-11128. DOI: 10.1609/aaai.v37i9.26317.",
+      "after": "[6] ZENG Ailing, CHEN Muxi, ZHANG Lei, et al. Are transformers effective for time series forecasting?[J]. Proceedings of the AAAI Conference on Artificial Intelligence. 2023, 37(9): 11121-11128. DOI: 10.1609/aaai.v37i9.26317."
+    },
+    {
+      "before": "[7] WANG S, WU H, SHI X, et al. TimeMixer: decomposable multiscale mixing for time series forecasting[C]//International Conference on Learning Representations. 2024.",
+      "after": "[7] WANG Shiyu, WU Haixu, SHI Xiaoming, et al. TimeMixer: decomposable multiscale mixing for time series forecasting[C/OL]//International Conference on Learning Representations. 2024[2026-10-03]. https://openreview.net/forum?id=7oLshfEIC2."
+    },
+    {
+      "before": "[8] ZHANG T, ZHANG Y, CAO W, et al. Less is more: fast multivariate time series forecasting with light sampling-oriented MLP structures[EB/OL]. (2022-07-04)[2026-09-20]. https://arxiv.org/abs/2207.01186. DOI: 10.48550/arXiv.2207.01186.",
+      "after": "[8] ZHANG Tianping, ZHANG Yizhuo, CAO Wei, et al. Less is more: fast multivariate time series forecasting with light sampling-oriented MLP structures[EB/OL]. (2022-07-04)[2026-10-03]. https://arxiv.org/abs/2207.01186. DOI: 10.48550/arXiv.2207.01186."
+    },
+    {
+      "before": "[9] KUREŠ M, KOUMAR J, HYNEK K. CESNET TS-Zoo: a library for reproducible analysis of network traffic time series[C]//2025 21st International Conference on Network and Service Management. 2025. DOI: 10.23919/CNSM67658.2025.11297513.",
+      "after": "[9] KUREŠ M, KOUMAR J, HYNEK K. CESNET TS-Zoo: a library for reproducible analysis of network traffic time series[C]//2025 21st International Conference on Network and Service Management. New York: IEEE, 2025: 1-5. DOI: 10.23919/CNSM67658.2025.11297513."
+    },
+    {
+      "before": "[10] ZHANG Y, ROUGHAN M, DUFFIELD N, et al. Fast accurate computation of large-scale IP traffic matrices from link loads[J]. ACM SIGMETRICS Performance Evaluation Review, 2003, 31(1): 206-217. DOI: 10.1145/885651.781053.",
+      "after": "[10] ZHANG Yin, ROUGHAN M, DUFFIELD N, et al. Fast accurate computation of large-scale IP traffic matrices from link loads[J]. ACM SIGMETRICS Performance Evaluation Review, 2003, 31(1): 206-217. DOI: 10.1145/885651.781053."
+    },
+    {
+      "before": "收稿日期：[请填写，格式YYYY-MM-DD]",
+      "after": "收稿日期：[编辑部填写]"
+    }
+  ],
+  "abstract_characters": 367,
+  "conclusion_characters": 117,
+  "figures": [
+    {
+      "figure": 1,
+      "media": "word/media/image1.png",
+      "width_mm": 161.925,
+      "height_mm": 98.933,
+      "sha256": "172e9c963b344c89d07f7ddfb81aa57bf120e00c3ac934ae77bc562f4cd65178"
+    },
+    {
+      "figure": 2,
+      "media": "word/media/image10.png",
+      "width_mm": 161.925,
+      "height_mm": 79.20566666666667,
+      "sha256": "676128c8cd4b78255996cac319e44fe27e48d525b7d2687c919d3f41d9f87ae0"
+    },
+    {
+      "figure": 3,
+      "media": "word/media/image15.png",
+      "width_mm": 161.925,
+      "height_mm": 79.79833333333333,
+      "sha256": "16839c5b8d022be0362148a54c043c54041beff47b38ed76b59f56c65600aa28"
+    },
+    {
+      "figure": 4,
+      "media": "word/media/image20.png",
+      "width_mm": 161.925,
+      "height_mm": 116.62833333333333,
+      "sha256": "0e38e534eb81a26dfa95563778f751516cc090dad8df39a977137c4475939ab1"
+    },
+    {
+      "figure": 5,
+      "media": "word/media/image16.png",
+      "width_mm": 161.925,
+      "height_mm": 76.073,
+      "sha256": "fc0838f0b57eba61c2b6ae94c341e7c16fbee4907f8588f0fd0c81c7731f606f"
+    }
+  ],
+  "native_equations": 41,
+  "math_style_changes": 43,
+  "upright_index_changes": 4,
+  "moved_paragraphs": [
+    "图4详细说明移到图4前"
+  ],
+  "math_expressions_unchanged": true,
+  "table_values_unchanged": true
+}

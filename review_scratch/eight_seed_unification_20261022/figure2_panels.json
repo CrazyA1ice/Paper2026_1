@@ -1,0 +1,44 @@
+{
+  "panels": [
+    {
+      "panel": "mse",
+      "role": "paired relative error reduction",
+      "unit": "paired training seed",
+      "n": 8,
+      "summary": "mean and sample SD",
+      "all_seed_values_used": true
+    },
+    {
+      "panel": "mae",
+      "role": "paired relative error reduction",
+      "unit": "paired training seed",
+      "n": 8,
+      "summary": "mean and sample SD",
+      "all_seed_values_used": true
+    },
+    {
+      "panel": "parameter ratio",
+      "role": "model size relative to LightTS",
+      "unit": "architecture parameter count",
+      "summary": "deterministic count ratio",
+      "error_bar": "not applicable"
+    }
+  ],
+  "width_mm": 138,
+  "height_mm": 54.61,
+  "alignment": "PASS",
+  "literal_display_values": {
+    "mse": [
+      25.77,
+      43.74
+    ],
+    "mae": [
+      12.66,
+      29.09
+    ],
+    "parameters": [
+      6.41,
+      2.17
+    ]
+  }
+}

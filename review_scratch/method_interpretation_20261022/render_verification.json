@@ -1,0 +1,96 @@
+{
+  "pages": 7,
+  "words": 4869,
+  "characters": 9460,
+  "text_boxes": 4,
+  "sections": 3,
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\method_interpretation_20261022\\render_checked\\review.pdf",
+  "output_sha256": "814f0cf44e067e7a242e434318152582a57ea4237913be3813787dd0e9fde123",
+  "outside_page_text": 0,
+  "source_and_output_hashes_match": true,
+  "native_math": 16,
+  "tables": 4,
+  "visual_review_pending": false,
+  "page_details": [
+    {
+      "page": 1,
+      "first": "自适应多尺度加权的多变量网络流量预测\n收稿日期：\n作者简介：柯亚文（1998—），男（汉族），安徽池州人，助教，硕士研究生学历，硕士学位，主要研究方向：\n计算机软件。联系电话：12345678900；",
+      "last": "与参数规模。\n1 自适应多尺度网络流量预测方法\n所提方法由多尺度预测分支和尺度路由分支组成，图1以24 h预测任务为例展示整体流程。预测分支提取\n不同时间分辨率下的趋势与余项，路由分支则根据当前窗口的统计特征分配尺度权重。两条分支共同作用，输\n出未来H个小时的逐小时OD流量预测。",
+      "images": 0
+    },
+    {
+      "page": 2,
+      "first": "图1 自适应多尺度网络流量预测框架\n1.1 数据表示与预处理\n记预处理后的多变量流量向量为xₜ，包含C个OD变量。沿时间轴以1 h步长构造滑动窗口，第n个样本\n由长度为L的历史输入Xₙ和其后长度为H的",
+      "last": "，采用长度q=25的中心移动平均提取趋势项，序列两端通过复制端点补齐。设m=12，补齐\n后的输入参与下式计算：\n𝑻 (𝑠) = 1 ∑𝑚 𝑿̃(𝑠) , 𝑞=2𝑚+1=25. (6)\n𝑛,𝑡 𝑞 𝑖=−𝑚 𝑛,𝑡+𝑖\n(𝑠) (𝑠) (𝑠)\n𝑹 =𝑿 −𝑻 . (7)\n𝑛 𝑛 𝑛",
+      "images": 1
+    },
+    {
+      "page": 3,
+      "first": "式中，带波浪号的X表示端点补齐序列，T与R分别表示趋势项和余项。随后，两个线性层沿时间维分别\n完成映射，并将其输出相加，得到尺度s的预测：\n𝒀̂(𝑠)\n=𝑾\n(𝑠)\n𝑻\n(𝑠)\n+𝒃\n(𝑠)\n+𝑾\n(",
+      "last": "与结果分析\n2.1 数据与实验设置\n实验采用CESNET TS-Zoo[9]中1 h粒度的Abilene[10]与GÉANT[11]流量矩阵，两套数据分别含4656和2849\n个时间点。按时间顺序以 6∶2∶2 划分训练集、验证集和测试集，并独立训练和评价。对数变换后，仅保留训练",
+      "images": 0
+    },
+    {
+      "page": 4,
+      "first": "集标准差大于10⁻⁸的变量，Abilene保留144个OD变量，GÉANT保留524个OD变量。两套数据均开展24 h\n预测，GÉANT另设168 h预测任务，数据划分与样本窗口数见表1。\n表1 数据",
+      "last": "GÉANT上，MSE平均相对降幅分别为25.77%和43.74%，MAE为12.66%和29.09%。\n本文模型均含8339个参数，LightTS两套配置分别含130162和384382个参数，对应比例为6.41%和2.17%。\n图2 相对LightTS的预测误差降低率与参数比例",
+      "images": 1
+    },
+    {
+      "page": 5,
+      "first": "图 2(a)、(b)的柱高为八个共同种子的平均相对降幅，误差线为样本标准差；图 2(c)以对应 LightTS 配置的\n参数量为100%，给出本文模型的参数比例。该结果表明，在所设24 h任务中，多尺",
+      "last": "MAE与平均低估误差（8次重复）\n图3中，本文方法在Abilene上的MAE与平均低估误差分别为0.147和0.137，在GÉANT上分别为0.632\n和0.577，两项均值均低于所列对照。相对DLinear，Abilene两项指标的平均相对降幅分别为13.96%和16.07%。",
+      "images": 1
+    },
+    {
+      "page": 6,
+      "first": "MAE反映总体偏差，平均低估误差侧重于预测需求不足的幅度，二者共同反映了该24 h任务中高需求点估计\n的改善，可为容量需求分析提供参考。\n2.5 一周预测表现\n一周预测取H=168，保持96 h输入及",
+      "last": "network traffic prediction method\nbased on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.2024.121003.",
+      "images": 1
+    },
+    {
+      "page": 7,
+      "first": "[3] 韦烜, 刘志华, 李青, 等. 大型IP网络流量矩阵分析预测的探讨研究[J]. 系统工程与电子技术, 2024, 46(6):\n2164-2173. DOI: 10.12305/j.issn.",
+      "last": "casts.\nKey words: network traffic forecasting; multivariate time series; multiscale learning; adaptive weighting;\ndecomposition linear model",
+      "images": 0
+    }
+  ],
+  "visual_review_passed": true,
+  "visual_review": [
+    {
+      "page": 1,
+      "result": "PASS",
+      "note": "Unchanged abstracts and introduction readable; section 1 opening intact."
+    },
+    {
+      "page": 2,
+      "result": "PASS",
+      "note": "Revised section 1.2 accurately states shared 96-hour history and aggregation intervals; time units remain with numbers; q=25 description and equations 6 and 7 preserved."
+    },
+    {
+      "page": 3,
+      "result": "PASS",
+      "note": "Revised section 1.3 explains standardized statistics and fixed-dimensional router inputs; all native formulas and page flow checked."
+    },
+    {
+      "page": 4,
+      "result": "PASS",
+      "note": "Unchanged experiment settings, tables 1 and 2 and figure 2 checked."
+    },
+    {
+      "page": 5,
+      "result": "PASS",
+      "note": "Unchanged table 3 and figure 3 checked."
+    },
+    {
+      "page": 6,
+      "result": "PASS",
+      "note": "Unchanged table 4 and figure 4 and conclusion checked."
+    },
+    {
+      "page": 7,
+      "result": "PASS",
+      "note": "Unchanged references and English abstract complete and readable."
+    }
+  ]
+}

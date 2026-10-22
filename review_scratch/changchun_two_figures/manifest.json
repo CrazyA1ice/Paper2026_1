@@ -1,0 +1,13 @@
+{
+  "base": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\改投内容修改第一版_20261020\\自适应多尺度加权的多变量网络流量预测_内容修改第一版.docx",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\改投内容修改第一版_20261020\\自适应多尺度加权的多变量网络流量预测_补充两图版.docx",
+  "base_sha256": "e17bedc4a3ad444ae387ec607a4a922b0a21adb81c1d7f1fdea9de26b0105d14",
+  "output_sha256": "b3560b3b5542146e4e27872fc6ab430d940c6fee05c8730dd714ba2b552d09b2",
+  "figures": 4,
+  "tables": 4,
+  "equations": 17,
+  "references": 11,
+  "figure3": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\改投内容修改第一版_20261020\\补充图表\\图3_尺度权重分布.png",
+  "figure4": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\改投内容修改第一版_20261020\\补充图表\\图4_高需求预测误差.png",
+  "source_audit": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\changchun_two_figures\\source_audit.json"
+}

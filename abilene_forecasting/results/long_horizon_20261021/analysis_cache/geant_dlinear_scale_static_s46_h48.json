@@ -1,0 +1,16 @@
+{
+  "dataset": "geant",
+  "model": "dlinear_scale_static",
+  "seed": 46,
+  "horizon": 48,
+  "input_len": 96,
+  "n_common_origins": 307,
+  "n_all_origins": 427,
+  "parameters": 16416,
+  "training_seconds": 41.54162559999986,
+  "prediction_sha256": "4c87cc7e1c1f728d89c805d18f64947fce52551f3470198cbfbfb4ecdeaac33b",
+  "all_mse": 0.5423208927785583,
+  "all_mae": 0.42709908332670077,
+  "common_mse": 0.5274448806483801,
+  "common_mae": 0.4236504232429992
+}

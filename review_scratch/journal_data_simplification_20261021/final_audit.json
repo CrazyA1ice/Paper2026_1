@@ -1,0 +1,61 @@
+{
+  "result_allocation": [
+    {
+      "result": "overall precision",
+      "class": "necessary_support",
+      "main": "Table2 Section2.2",
+      "supplement": "S5 seed details and RMSE"
+    },
+    {
+      "result": "fusion ablation",
+      "class": "core_discovery",
+      "main": "Table3 Section2.3",
+      "supplement": "S6 weight distribution"
+    },
+    {
+      "result": "high demand",
+      "class": "necessary_support",
+      "main": "Figure2 Section2.4",
+      "supplement": "source data complete"
+    },
+    {
+      "result": "weekly forecast",
+      "class": "necessary_support",
+      "main": "Figure3 Section2.5 limited to GEANT H168",
+      "supplement": "S1-S4 complete grid with negative effects"
+    },
+    {
+      "result": "seasonal copies",
+      "class": "alternative_inference",
+      "main": "relocated",
+      "supplement": "S7 TableS6"
+    },
+    {
+      "result": "runtime",
+      "class": "necessary_support",
+      "main": "Section2.6 hardware batch horizon mean SD",
+      "supplement": "S8 warmups and repetitions"
+    }
+  ],
+  "statistics_main": [
+    "MSE and MAE means and sample SD",
+    "paired-seed mean percentage reductions",
+    "3 runs for external baseline and 8 for other comparisons explicitly retained"
+  ],
+  "new_inferential_tests": 0,
+  "observations_or_seeds_excluded": 0,
+  "raw_data_changed": false,
+  "claim_repetition_map": {
+    "abstract": "bounded core finding",
+    "main displays": "full primary means and SD",
+    "results prose": "selected paired reductions and local interpretation",
+    "supplement": "complete grid and non-central descriptive checks"
+  },
+  "formula_change": "Only deterministic RMSE expression moved to supplement as S1; retained formulas unchanged",
+  "results_character_reduction_pct": 44.75,
+  "main_pages": 7,
+  "supplement_pages": 6,
+  "all_13_pages_visually_reviewed": true,
+  "table_values_preserved": true,
+  "old_versions_preserved": true
+}

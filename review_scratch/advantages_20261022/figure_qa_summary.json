@@ -1,0 +1,18 @@
+{
+  "rendered_fonts": [
+    "BGLPLX+SimSun",
+    "BSGCTN+SimSun",
+    "HBQYAD+TimesNewRomanPSMT"
+  ],
+  "width_mm": 137.9999961005317,
+  "minimum_font_pt": 7.5,
+  "panel_alignment": "PASS",
+  "rendered_collision": "PASS",
+  "points": 64,
+  "observations_excluded": 0,
+  "generic_static_preflight_adjudication": {
+    "FONT-FAMILY": "Generic sans-serif gate superseded by the explicit journal Songti/Times requirement; actual embedded fonts verified.",
+    "FINAL-WIDTH": "Generic Nature 89/183 mm widths superseded by the retained journal 138 mm width."
+  },
+  "visual_review": "PASS"
+}

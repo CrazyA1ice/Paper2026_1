@@ -1,0 +1,64 @@
+epoch=001 train_objective=0.955432 val_mse=2.047641
+epoch=002 train_objective=0.885315 val_mse=2.076603
+epoch=003 train_objective=0.879079 val_mse=2.052688
+epoch=004 train_objective=0.878133 val_mse=2.050003
+epoch=005 train_objective=0.877751 val_mse=2.025371
+epoch=006 train_objective=0.878426 val_mse=2.039775
+epoch=007 train_objective=0.877862 val_mse=2.056383
+epoch=008 train_objective=0.879822 val_mse=2.117203
+epoch=009 train_objective=0.877756 val_mse=2.037728
+epoch=010 train_objective=0.877545 val_mse=1.982285
+epoch=011 train_objective=0.877848 val_mse=2.074538
+epoch=012 train_objective=0.878628 val_mse=2.035744
+epoch=013 train_objective=0.877580 val_mse=1.971739
+epoch=014 train_objective=0.880108 val_mse=2.074649
+epoch=015 train_objective=0.877909 val_mse=2.022901
+epoch=016 train_objective=0.876560 val_mse=1.920539
+epoch=017 train_objective=0.878362 val_mse=2.033216
+epoch=018 train_objective=0.877655 val_mse=2.051845
+epoch=019 train_objective=0.878310 val_mse=2.105802
+epoch=020 train_objective=0.877368 val_mse=2.099606
+epoch=021 train_objective=0.878189 val_mse=2.089923
+epoch=022 train_objective=0.878113 val_mse=2.061962
+Early stopping at epoch 22
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "dlinear_scale_static",
+  "model_config": {},
+  "seed": 43,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1446,
+    "val": 307,
+    "test": 307
+  },
+  "input_len": 96,
+  "pred_len": 168,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 57456,
+  "best_val_mse_normalized": 1.9205390700299887,
+  "test_normalized": {
+    "mse": 1.005852222442627,
+    "mae": 0.5790639519691467,
+    "rmse": 1.0029218196868896
+  },
+  "test_original_units": {
+    "mse": 2149326592.0,
+    "mae": 9302.00390625,
+    "rmse": 46360.83203125
+  },
+  "elapsed_seconds": 67.81853189999993
+}

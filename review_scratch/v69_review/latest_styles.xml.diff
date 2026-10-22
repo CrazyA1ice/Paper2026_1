@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -640,6 +640,7 @@
+   <w:style w:type="character" w:default="1" w:styleId="a0">
+     <w:name w:val="Default Paragraph Font"/>
+     <w:uiPriority w:val="1"/>
++    <w:semiHidden/>
+     <w:unhideWhenUsed/>
+   </w:style>
+   <w:style w:type="table" w:default="1" w:styleId="a1">

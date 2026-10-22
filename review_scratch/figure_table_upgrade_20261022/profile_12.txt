@@ -1,0 +1,463 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图表组织优化修订_20261022\\图表与核验数据\\图4_168h绝对误差全部种子.csv",
+  "n_rows": 40,
+  "n_cols": 14,
+  "columns": {
+    "dataset": {
+      "type": "categorical",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "n_unique": 1,
+      "categories": [
+        [
+          "geant",
+          40
+        ]
+      ],
+      "min_group_n": 40,
+      "max_group_n": 40,
+      "small_groups_flag": false
+    },
+    "model": {
+      "type": "categorical",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "n_unique": 5,
+      "categories": [
+        [
+          "dlinear",
+          8
+        ],
+        [
+          "dlinear_scale_static",
+          8
+        ],
+        [
+          "dlinear_scale_global",
+          8
+        ],
+        [
+          "dlinear_scale_constant_router",
+          8
+        ],
+        [
+          "dlinear_scale",
+          8
+        ]
+      ],
+      "min_group_n": 8,
+      "max_group_n": 8,
+      "small_groups_flag": true
+    },
+    "seed": {
+      "type": "continuous",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "mean": 45.5,
+      "median": 45.5,
+      "sd": 2.3204774044612857,
+      "min": 42.0,
+      "max": 49.0,
+      "skewness": 0.0,
+      "skew_label": "approximately symmetric",
+      "n_outliers_iqr": 0,
+      "outlier_lo": 38.5,
+      "outlier_hi": 52.5,
+      "needs_log_axis": "False"
+    },
+    "horizon": {
+      "type": "ordinal",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "n_unique": 1,
+      "categories": [
+        [
+          "168",
+          40
+        ]
+      ],
+      "min_group_n": 40,
+      "max_group_n": 40,
+      "small_groups_flag": false
+    },
+    "input_len": {
+      "type": "ordinal",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "n_unique": 1,
+      "categories": [
+        [
+          "96",
+          40
+        ]
+      ],
+      "min_group_n": 40,
+      "max_group_n": 40,
+      "small_groups_flag": false
+    },
+    "n_common_origins": {
+      "type": "ordinal",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "n_unique": 1,
+      "categories": [
+        [
+          "307",
+          40
+        ]
+      ],
+      "min_group_n": 40,
+      "max_group_n": 40,
+      "small_groups_flag": false
+    },
+    "n_all_origins": {
+      "type": "ordinal",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "n_unique": 1,
+      "categories": [
+        [
+          "307",
+          40
+        ]
+      ],
+      "min_group_n": 40,
+      "max_group_n": 40,
+      "small_groups_flag": false
+    },
+    "parameters": {
+      "type": "ordinal",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "n_unique": 4,
+      "categories": [
+        [
+          "57587",
+          16
+        ],
+        [
+          "32592",
+          8
+        ],
+        [
+          "57456",
+          8
+        ],
+        [
+          "57459",
+          8
+        ]
+      ],
+      "min_group_n": 8,
+      "max_group_n": 16,
+      "small_groups_flag": true
+    },
+    "training_seconds": {
+      "type": "continuous",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "mean": 80.01276436,
+      "median": 76.34487435000028,
+      "sd": 45.21073716390039,
+      "min": 17.5846904,
+      "max": 171.26282880000053,
+      "skewness": 0.30577901737919094,
+      "skew_label": "approximately symmetric",
+      "n_outliers_iqr": 0,
+      "outlier_lo": -95.2145998750002,
+      "outlier_hi": 257.5122631250006,
+      "needs_log_axis": "False"
+    },
+    "prediction_sha256": {
+      "type": "text",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0
+    },
+    "all_mse": {
+      "type": "continuous",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "mean": 1.0678035018962913,
+      "median": 1.0939020960970147,
+      "sd": 0.1443364633360714,
+      "min": 0.7227724589610267,
+      "max": 1.292755438609869,
+      "skewness": -0.6012465705000866,
+      "skew_label": "moderately skewed",
+      "n_outliers_iqr": 2,
+      "outlier_lo": 0.8091538945618397,
+      "outlier_hi": 1.3334893130482255,
+      "needs_log_axis": "False"
+    },
+    "all_mae": {
+      "type": "continuous",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "mean": 0.5942784713368514,
+      "median": 0.6008754188855265,
+      "sd": 0.03696279807285738,
+      "min": 0.502409337684177,
+      "max": 0.6465799779515478,
+      "skewness": -0.7930361991832783,
+      "skew_label": "moderately skewed",
+      "n_outliers_iqr": 2,
+      "outlier_lo": 0.5230508378193637,
+      "outlier_hi": 0.6724861103988942,
+      "needs_log_axis": "False"
+    },
+    "common_mse": {
+      "type": "continuous",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "mean": 1.0678035018962913,
+      "median": 1.0939020960970147,
+      "sd": 0.1443364633360714,
+      "min": 0.7227724589610267,
+      "max": 1.292755438609869,
+      "skewness": -0.6012465705000866,
+      "skew_label": "moderately skewed",
+      "n_outliers_iqr": 2,
+      "outlier_lo": 0.8091538945618397,
+      "outlier_hi": 1.3334893130482255,
+      "needs_log_axis": "False"
+    },
+    "common_mae": {
+      "type": "continuous",
+      "n_total": 40,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 40,
+      "mean": 0.5942784713368514,
+      "median": 0.6008754188855265,
+      "sd": 0.03696279807285738,
+      "min": 0.502409337684177,
+      "max": 0.6465799779515478,
+      "skewness": -0.7930361991832783,
+      "skew_label": "moderately skewed",
+      "n_outliers_iqr": 2,
+      "outlier_lo": 0.5230508378193637,
+      "outlier_hi": 0.6724861103988942,
+      "needs_log_axis": "False"
+    }
+  },
+  "correlation": {
+    "columns": [
+      "seed",
+      "training_seconds",
+      "all_mse",
+      "all_mae",
+      "common_mse",
+      "common_mae"
+    ],
+    "matrix": {
+      "seed": {
+        "seed": 1.0,
+        "training_seconds": 0.186,
+        "all_mse": -0.073,
+        "all_mae": -0.074,
+        "common_mse": -0.073,
+        "common_mae": -0.074
+      },
+      "training_seconds": {
+        "seed": 0.186,
+        "training_seconds": 1.0,
+        "all_mse": 0.145,
+        "all_mae": 0.144,
+        "common_mse": 0.145,
+        "common_mae": 0.144
+      },
+      "all_mse": {
+        "seed": -0.073,
+        "training_seconds": 0.145,
+        "all_mse": 1.0,
+        "all_mae": 0.995,
+        "common_mse": 1.0,
+        "common_mae": 0.995
+      },
+      "all_mae": {
+        "seed": -0.074,
+        "training_seconds": 0.144,
+        "all_mse": 0.995,
+        "all_mae": 1.0,
+        "common_mse": 0.995,
+        "common_mae": 1.0
+      },
+      "common_mse": {
+        "seed": -0.073,
+        "training_seconds": 0.145,
+        "all_mse": 1.0,
+        "all_mae": 0.995,
+        "common_mse": 1.0,
+        "common_mae": 0.995
+      },
+      "common_mae": {
+        "seed": -0.074,
+        "training_seconds": 0.144,
+        "all_mse": 0.995,
+        "all_mae": 1.0,
+        "common_mse": 0.995,
+        "common_mae": 1.0
+      }
+    },
+    "pairs_sorted": [
+      {
+        "a": "all_mse",
+        "b": "common_mse",
+        "r": 1.0,
+        "magnitude": "very strong"
+      },
+      {
+        "a": "all_mae",
+        "b": "common_mae",
+        "r": 1.0,
+        "magnitude": "very strong"
+      },
+      {
+        "a": "all_mse",
+        "b": "all_mae",
+        "r": 0.9953017212191264,
+        "magnitude": "very strong"
+      },
+      {
+        "a": "all_mse",
+        "b": "common_mae",
+        "r": 0.9953017212191264,
+        "magnitude": "very strong"
+      },
+      {
+        "a": "common_mse",
+        "b": "common_mae",
+        "r": 0.9953017212191264,
+        "magnitude": "very strong"
+      },
+      {
+        "a": "all_mae",
+        "b": "common_mse",
+        "r": 0.9953017212191262,
+        "magnitude": "very strong"
+      },
+      {
+        "a": "seed",
+        "b": "training_seconds",
+        "r": 0.18569652798097064,
+        "magnitude": "weak"
+      },
+      {
+        "a": "training_seconds",
+        "b": "all_mse",
+        "r": 0.14471820395128934,
+        "magnitude": "weak"
+      },
+      {
+        "a": "training_seconds",
+        "b": "common_mse",
+        "r": 0.14471820395128934,
+        "magnitude": "weak"
+      },
+      {
+        "a": "training_seconds",
+        "b": "all_mae",
+        "r": 0.1437034579857929,
+        "magnitude": "weak"
+      },
+      {
+        "a": "training_seconds",
+        "b": "common_mae",
+        "r": 0.1437034579857929,
+        "magnitude": "weak"
+      },
+      {
+        "a": "seed",
+        "b": "all_mae",
+        "r": -0.07384848550423458,
+        "magnitude": "negligible"
+      },
+      {
+        "a": "seed",
+        "b": "common_mae",
+        "r": -0.07384848550423458,
+        "magnitude": "negligible"
+      },
+      {
+        "a": "seed",
+        "b": "all_mse",
+        "r": -0.07298386867945839,
+        "magnitude": "negligible"
+      },
+      {
+        "a": "seed",
+        "b": "common_mse",
+        "r": -0.07298386867945839,
+        "magnitude": "negligible"
+      }
+    ]
+  },
+  "group_summary": {
+    "by": [
+      "model"
+    ],
+    "n_groups": 5,
+    "min_n_per_group": 8,
+    "max_n_per_group": 8,
+    "median_n_per_group": 8,
+    "small_groups_flag": true,
+    "tiny_groups_flag": false,
+    "per_group_counts": [
+      [
+        "dlinear",
+        8
+      ],
+      [
+        "dlinear_scale",
+        8
+      ],
+      [
+        "dlinear_scale_constant_router",
+        8
+      ],
+      [
+        "dlinear_scale_global",
+        8
+      ],
+      [
+        "dlinear_scale_static",
+        8
+      ]
+    ]
+  },
+  "warnings": [
+    "列 'model' 至少有一个类别 n<10 — 小样本必须展示原始数据点，不要只画均值柱状图。",
+    "列 'parameters' 至少有一个类别 n<10 — 小样本必须展示原始数据点，不要只画均值柱状图。"
+  ],
+  "suggestions": [
+    "分类 vs 连续，小样本（每组 n<10）→ **箱线图/小提琴图 + stripplot 叠加原始点**；**避免**只画均值柱状图，会掩盖分布。",
+    "≥3 个连续变量 → 相关性热力图（['seed', 'training_seconds', 'all_mse', 'all_mae', 'common_mse']）或 pairplot 散点矩阵",
+    "分类维度组合数 = 20（dataset, model, horizon, input_len, n_common_origins, n_all_origins, parameters 全交叉），**一张图塞不下**——建议按某一维拆成多面板，或选择子集。"
+  ]
+}
+

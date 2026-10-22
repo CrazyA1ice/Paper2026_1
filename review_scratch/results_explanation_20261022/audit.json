@@ -1,0 +1,57 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\方法含义说明修订_20261022\\自适应多尺度加权的多变量网络流量预测_方法含义说明稿.docx",
+  "source_sha256": "814f0cf44e067e7a242e434318152582a57ea4237913be3813787dd0e9fde123",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\实验结果分析修订_20261022\\自适应多尺度加权的多变量网络流量预测_实验结果分析稿.docx",
+  "output_sha256": "a66d4e25a4fc592437afc1b13a1c59f68b9243f9d3d0f0b8d8d9b59e1905a917",
+  "source_unchanged": true,
+  "changed_package_parts": [
+    "word/document.xml"
+  ],
+  "only_sections_2_2_through_2_5_changed": true,
+  "all_existing_math_unchanged": true,
+  "new_numbered_equation": 16,
+  "native_math": 19,
+  "original_tables_figures_references_and_format_properties_unchanged": true,
+  "new_experiments": false,
+  "no_observations_excluded": true,
+  "edits": [
+    {
+      "paragraph": 65,
+      "before": "表2中，本文方法在两套数据上的平均MSE和MAE均低于所列基线。图2给出相对LightTS的误差降幅与参数比例：在Abilene和GÉANT上，MSE平均相对降幅分别为25.77%和43.74%，MAE为12.66%和29.09%。本文模型均含8339个参数，LightTS两套配置分别含130162和384382个参数，对应比例为6.41%和2.17%。",
+      "after": "表2中，本文方法在两套数据上的平均MSE和MAE均最优。相对LightTS，Abilene和GÉANT的MSE平均降低25.77%和43.74%，MAE降低12.66%和29.09%。结合图2，本文参数量为8339，相比LightTS的130162和384382分别减少93.59%和97.83%。"
+    },
+    {
+      "paragraph": 72,
+      "before": "表3中，本文方法在两套数据上的平均MSE和MAE均低于所列对照。相对DLinear，MSE的平均相对降幅分别为2.77%和2.35%；相对全局可学习权重，分别为1.80%和4.31%。全局权重在窗口间保持一致，而本文方法以窗口统计量调整尺度组合；结合恒定输入路由的对照，结果支持了在该24 h任务中依据窗口信息进行融合预测的设计。",
+      "after": "表3中，本文方法各项平均误差均最优。相对DLinear，两套数据的MSE平均降低2.77%和2.35%；相对全局权重，降低1.80%和4.31%。Abilene的MAE较二者降低8.01%和8.91%。GÉANT上，仅本文方法的平均MSE低于DLinear；恒定输入路由保留相同结构和参数量，其误差仍较高，支持窗口统计量驱动的融合设计。"
+    },
+    {
+      "paragraph": 76,
+      "before": "图3中，本文方法在Abilene上的MAE与平均低估误差分别为0.147和0.137，在GÉANT上分别为0.632和0.577，两项均值均低于所列对照。相对DLinear，Abilene两项指标的平均相对降幅分别为13.96%和16.07%。MAE反映总体偏差，平均低估误差侧重于预测需求不足的幅度，二者共同反映了该24 h任务中高需求点估计的改善，可为容量需求分析提供参考。",
+      "after": "图3中，本文方法在Abilene上的MAE与AUE为0.147和0.137，在GÉANT上为0.632和0.577，均值均低于所列对照。Abilene上，相对DLinear两项指标平均降低13.96%和16.07%，相对固定等权降低17.47%和20.84%，说明高需求点的预测误差和需求低估幅度均得到改善。"
+    },
+    {
+      "paragraph": 82,
+      "before": "表4中，本文方法的平均MSE和MAE均为最优，较DLinear平均降低23.16%和11.16%。图4中，小圆点为单次配对降幅，菱形及横线为均值与样本标准差；相对每个对照，8次重复的两项误差均降低。",
+      "after": "表4中，本文方法的平均MSE和MAE均最优，较DLinear降低23.16%和11.16%，较其余融合对照降低23.77%～26.11%和11.19%～12.39%。168 h模型含57587个参数，路由网络仍为131个，仅占0.23%。图4中，全部64个配对降幅（4种对照×2项指标×8个种子）均为正值，体现了本组一周预测实验中误差降低的一致性。"
+    },
+    {
+      "paragraph": 67,
+      "run": 6,
+      "before": ")以对应LightTS配置的参数量为100%，给出本文模型的参数比例。该结果表明，在所设24 h任务中，多尺度线性预测与低维窗口融合能够兼顾参数规模和预测误差。",
+      "after": ")以对应LightTS配置的参数量为100%，给出本文模型的参数比例。"
+    },
+    {
+      "paragraph": 74,
+      "before": "以训练集各OD变量的第90百分位为高需求阈值，在测试集中超过对应阈值的目标点上计算MAE与平均低估误差。后者将低估时的差额计入，其他情况记为0，再对全部高需求点取平均，结果见图3。",
+      "after": "以标准化训练集各OD变量的第90百分位为阈值，定义测试集高需求点集，在集合内全部目标点上计算MAE与平均低估误差（average underestimation error，AUE）：",
+      "new_native_equation": 16
+    }
+  ],
+  "visual_review_pending": false,
+  "visual_review_passed": true,
+  "final_pages": 7,
+  "screenshots_checked_against_current_eight_seed_results": true,
+  "unsupported_stability_mechanism_significance_and_autoregressive_claims_not_added": true,
+  "duplicate_prose_compressed_without_format_changes": true
+}

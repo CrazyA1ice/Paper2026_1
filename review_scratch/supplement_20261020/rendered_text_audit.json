@@ -1,0 +1,10 @@
+{
+  "pages": {
+    "clean": 13,
+    "marked": 13,
+    "report": 3
+  },
+  "clean_marked_pdf_text_equal": true,
+  "supplement_titles_and_results_present": true,
+  "out_of_page_text_spans": []
+}

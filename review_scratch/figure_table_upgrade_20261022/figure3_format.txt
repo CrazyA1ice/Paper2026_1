@@ -1,0 +1,12 @@
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图表组织优化修订_20261022\图表与核验数据\图3_高需求局部范围点图.pdf ---
+  category: vector  ext: pdf  size: 56742 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图表组织优化修订_20261022\图表与核验数据\图3_高需求局部范围点图.png ---
+  category: raster  ext: png  size: 241365 B
+  pixels: 3259x1590  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+

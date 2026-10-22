@@ -1,0 +1,65 @@
+epoch=001 train_objective=0.971226 val_mse=2.111189
+epoch=002 train_objective=0.885988 val_mse=2.041451
+epoch=003 train_objective=0.879680 val_mse=2.099777
+epoch=004 train_objective=0.877390 val_mse=2.008584
+epoch=005 train_objective=0.878243 val_mse=2.043488
+epoch=006 train_objective=0.877821 val_mse=2.036303
+epoch=007 train_objective=0.878601 val_mse=2.057367
+epoch=008 train_objective=0.878123 val_mse=2.030194
+epoch=009 train_objective=0.876174 val_mse=2.006286
+epoch=010 train_objective=0.877433 val_mse=2.106924
+epoch=011 train_objective=0.877217 val_mse=2.143740
+epoch=012 train_objective=0.879520 val_mse=2.160965
+epoch=013 train_objective=0.877214 val_mse=1.997398
+epoch=014 train_objective=0.876412 val_mse=1.979654
+epoch=015 train_objective=0.877613 val_mse=2.078584
+epoch=016 train_objective=0.878948 val_mse=2.105311
+epoch=017 train_objective=0.876267 val_mse=1.964798
+epoch=018 train_objective=0.876214 val_mse=2.073227
+epoch=019 train_objective=0.877397 val_mse=2.167548
+epoch=020 train_objective=0.877348 val_mse=2.081124
+epoch=021 train_objective=0.877251 val_mse=2.021735
+epoch=022 train_objective=0.876490 val_mse=2.083837
+epoch=023 train_objective=0.877033 val_mse=2.034121
+Early stopping at epoch 23
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "dlinear_scale_constant_router",
+  "model_config": {},
+  "seed": 46,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1446,
+    "val": 307,
+    "test": 307
+  },
+  "input_len": 96,
+  "pred_len": 168,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 57587,
+  "best_val_mse_normalized": 1.964797934802425,
+  "test_normalized": {
+    "mse": 1.1023907661437988,
+    "mae": 0.6066163182258606,
+    "rmse": 1.04994797706604
+  },
+  "test_original_units": {
+    "mse": 2251383040.0,
+    "mae": 9684.611328125,
+    "rmse": 47448.7421875
+  },
+  "elapsed_seconds": 161.03360010000006
+}

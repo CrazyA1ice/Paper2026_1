@@ -1,0 +1,38 @@
+PaperPure AIGC检测服务
+https://paperpure.net
+PaperPure AIGC检测服务
+https://paperpure.net
+序号 片段名称 字符数 AI特征
+7 片段7 276 显著 4.9%
+8 片段8 432 显著 7.6%
+9 片段9 219 显著 3.9%
+10 片段10 227 显著 4.0%
+原文内容 高风险 中风险 提示风险 正常 不参与检测
+基于自适应多尺度加权的多变量网络流量预测方法
+[请填写作者姓名]
+（[请填写工作单位] [请填写部门]，[省 市 邮编]）
+摘要：骨干网络源—目的节点对流量兼有短时起伏和较慢趋势，单一时间分辨率难以同时表征两者。本文采用
+尺度1、2和4的DLinear专家，由轻量路由网络根据输入窗口统计量生成Softmax融合权重。在输入长度96、预
+测长度24的Abilene和GÉANT实验中，3个共同随机种子下本文方法相对DLinear的MSE分别降低4.07%和4.54%，
+相对LightTS分别降低29.80%和46.89%。8个随机种子的核心消融加入全局可学习权重和恒定输入路由两类固定
+权重对照；本文方法相对两者在Abilene上的逐种子平均MSE改进率均约为1.80%，在GÉANT上分别为4.31%和4.9
+7%。GÉANT的两项配对95%置信区间均跨越零，且路由权重变化主要来自随机种子之间，因此当前结果支持平均
+误差改善，但尚不能证明路由器稳定识别每个窗口的最佳尺度。
+关键词：网络流量预测；多变量时间序列；多尺度学习；自适应加权；DLinear
+中图分类号：TP393　　文献标志码：A
+A Multivariate Network Traffic Forecasting Method Based on Adaptive Multiscale Weighting
+[Author Name]
+([Affiliation] [Department], [City] [Postcode], China; Corresponding author: [Name], E-mail: [E￾mail])
+Abstract: Short-term fluctuations and slower trends coexist in backbone origin-destination traff
+ic. Input-window statistics determine the Softmax weights used to combine DLinear experts at sca
+les 1, 2, and 4. For input length 96 and forecast length 24, results from three common random se
+eds give MSE reductions of 4.07% on Abilene and 4.54% on GÉANT relative to DLinear. The correspo
+nding reductions relative to LightTS are 29.80% and 46.89%. An eight-seed ablation adds two fixe
+d-weight controls: learned global weights and a router receiving constant input. Mean seed-wise 
+MSE reductions over the two controls are both about 1.80% on Abilene; on GÉANT, they are 4.31% a
+nd 4.97%, respectively. Both paired 95% confidence intervals on GÉANT include zero, and most of 
+its pooled router-weight variance arises between seeds. Reliable window-specific scale selection
+ therefore remains unconfirmed despite the average error reduction.
+Key words: network traffic forecasting; multivariate time series; multiscale learning; adaptive 
+weighting; DLinear
+- 2 -

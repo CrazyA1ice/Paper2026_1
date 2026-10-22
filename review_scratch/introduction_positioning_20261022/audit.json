@@ -1,0 +1,44 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\摘要强化修订_20261022\\自适应多尺度加权的多变量网络流量预测_摘要强化稿.docx",
+  "source_sha256": "0584c193ad08ec053f4d6d9c61072e233b5c14a1a95559b4280f997d6f44fb84",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\引言研究定位修订_20261022\\自适应多尺度加权的多变量网络流量预测_引言研究定位稿.docx",
+  "output_sha256": "0d54c89e68618e0d1b43dd130c28824da1d29258b421acec1e55bd0401c88e2b",
+  "source_unchanged": true,
+  "changed_package_parts": [
+    "word/document.xml"
+  ],
+  "only_introduction_paragraphs_3_4_changed": true,
+  "all_format_properties_unchanged": true,
+  "all_citations_and_references_unchanged": true,
+  "all_original_math_tables_figures_and_abstracts_unchanged": true,
+  "new_experiments": false,
+  "edits": [
+    {
+      "paragraph": 12,
+      "run": 8,
+      "before": "则将基于多层感知机（multilayer perceptron，MLP）的LightTS纳入比较。本文关注以低维窗口特征调整不同尺度预测的融合权重。",
+      "after": "则将基于多层感知机（multilayer perceptron，MLP）的LightTS纳入比较。多尺度信息的提取还需与融合方式相配合。固定等权或全局权重在窗口间共享融合系数，因而不能根据当前窗口的变化状态调整尺度权重。本文关注如何在控制参数规模的同时，利用窗口信息调整尺度权重。"
+    },
+    {
+      "paragraph": 13,
+      "run": 0,
+      "before": "本文据此将三个独立DLinear专家与四维统计特征驱动的尺度路由相结合。时间聚合形成多尺度输入，各专家在OD变量间共享时间映射，路由网络则随窗口状态调整融合权重，以较少参数完成样本级融合。在Abilene和GÉANT上，以过去96 h预测未来24 h，通过基线比较、融合消融与高需求分析评价模型，并在GÉANT上考察未来168 h的一周预测表现。",
+      "after": "据此，本文将三个独立DLinear专家与四维窗口统计特征驱动的尺度路由相结合，构建自适应多尺度加权预测模型。时间聚合形成多分辨率输入，各专家在OD变量间共享时间映射，使参数量不随变量数增加；路由网络仅含131个参数，根据窗口状态分配尺度权重。在Abilene和GÉANT上以96 h输入开展24 h预测、融合消融与高需求点分析，并在GÉANT上开展168 h预测，评价预测误差与参数规模。"
+    }
+  ],
+  "paragraph_lengths": [
+    {
+      "paragraph": 12,
+      "before": 212,
+      "after": 278
+    },
+    {
+      "paragraph": 13,
+      "before": 173,
+      "after": 194
+    }
+  ],
+  "visual_review_pending": false,
+  "visual_review_passed": true,
+  "final_pages": 7
+}

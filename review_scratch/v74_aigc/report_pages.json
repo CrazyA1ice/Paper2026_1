@@ -1,0 +1,149 @@
+[
+  {
+    "page": 1,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure\nAIGC检测\nAIGC检测 · 全文报告单\nNO:PAPERPURE20261007225348\n检测时间:2026-10-07 22:53:48\n篇名:\n2026.10.07v71\n作者:\n单位:\n文件名:\n2026.10.07v71_.docx\n检测范围\n包括但不限于以下AI模型\nGPT-3.5\nGPT-4.0\nGemini\nClaude\n文心一言\n通义千问\n智谱AI\n豆包\nKimi\nDeepSeek\n全文检测结果\nPaperPureAIGC检测  https://paperpure.net\n71.3%\nAIGC率\nAIGC率:\n71.3%\nAI特征字符数:\n6807\n总字符数:\n9543\n高风险\n中风险\n提示风险\n未标识部分\nAIGC片段分布图\n前部20%\nAIGC率:100.0%\nAI特征字符数:2031\n中部60%\nAIGC率:60.0%\nAI特征字符数:3365\n后部20%\nAIGC率:74.0%\nAI特征字符数:1411\n0\n9543\n高风险\n中风险\n提示风险\n未标识部分\n片段指标列表\n序号\n片段名称\n字符数\nAI特征\n1\n片段1\n234\n显著\n3.4%\n2\n片段2\n80\n显著\n1.2%\n3\n片段3\n97\n显著\n1.4%\n4\n片段4\n120\n显著\n1.8%\n5\n片段5\n315\n显著\n4.6%\n6\n片段6\n129\n显著\n1.9%\n- 1 -\n",
+    "colors": {
+      "14737632": 0,
+      "1728436": 0,
+      "7697781": 0,
+      "2171169": 0,
+      "15022389": 0,
+      "16777215": 0
+    }
+  },
+  {
+    "page": 2,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n序号\n片段名称\n字符数\nAI特征\n7\n片段7\n1525\n显著\n22.4%\n8\n片段8\n95\n显著\n1.4%\n9\n片段9\n143\n显著\n2.1%\n10\n片段10\n99\n显著\n1.5%\n原文内容\n高风险\n中风险\n提示风险\n正常\n不参与检测\n基于自适应多尺度加权的多变量网络流量预测方法\n[请填写作者姓名]\n（[请填写工作单位] [请填写部门]，[省 市 邮编]）\n摘要：为兼顾小时级骨干网络流量预测中的短期波动与长期趋势，设计一种轻量自适应多尺度预测模型。模型\n在三种时间分辨率上输入历史窗口数据，分别经由独立分解线性专家生成预测结果，再由路由网络从当前窗口\n提取均值、标准差、末时刻均值和平均绝对一阶差分，多层感知器据此计算融合权重。以Abilene和GÉANT为实\n验数据，均以 96 步历史输入预测未来 24 步。在3个共同随机种子下，与单尺度分解线性模型相比，方法的\n均方误差分别降低4.07%和4.54%；相对采样导向轻量模型LightTS，降幅达到29.80%和46.89%。进一步的8种子\n消融实验中，相对全局可学习权重和恒定输入路由，在Abilene上逐种子平均改进率均约为1.80%，GÉANT分别\n为4.31%和4.97%。结果表明，多尺度候选预测配合低维路由机制，仅引入少量融合参数即可获得更低的平均预\n测误差，输出结果可为次日网络流量需求分析与容量规划提供参考。\n关键词：网络流量预测；多变量时间序列；多尺度学习；自适应加权；分解线性模型\n中图分类号：TP393　　文献标志码：A\nA Multivariate Network Traffic Forecasting Method Based on Adaptive Multiscale Weighting\n[Author Name]\n([Affiliation] [Department], [City] [Postcode], China; Corresponding author: [Name], E-mail: [E-\nmail])\nAbstract: A lightweight adaptive multiscale forecasting model was developed to account for short\n-term fluctuations and long-term trends in hourly backbone network traffic forecasting. Historic\nal windows were represented at three temporal resolutions, and independent decomposition linear \nexperts generated candidate forecasts. A routing network extracted four statistics from the curr\nent window: the mean, standard deviation, mean at the last time step, and mean absolute first di\nfference. A multilayer perceptron with two fully connected layers used these statistics to calcu\nlate fusion weights. Experiments on Abilene and GÉANT used 96 historical steps to predict the ne\nxt 24 steps. Across three common random seeds, the proposed method reduced mean squared error by\n 4.07% and 4.54% relative to the single-scale decomposition linear model, respectively. The corr\nesponding reductions relative to the sampling-oriented lightweight model LightTS were 29.80% and\n 46.89%. Further ablation experiments across eight random seeds compared the proposed method wit\nh learned global weights and a constant-input router. On Abilene, the mean seed-wise improvement\ns over both controls were approximately 1.80%; on GÉANT, they were 4.31% and 4.97%, respectively\n- 2 -\n",
+    "colors": {
+      "14737632": 0,
+      "16777215": 0,
+      "2171169": 0,
+      "15022389": 0,
+      "7697781": 0,
+      "11579568": 0
+    }
+  },
+  {
+    "page": 3,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n. The results show that combining multiscale candidate forecasts with low-dimensional routing ac\nhieves lower mean forecasting errors with few additional fusion parameters. The forecasts can pr\novide a reference for next-day network traffic demand analysis and capacity planning.\nKey words: network traffic forecasting; multivariate time series; multiscale learning; adaptive \nweighting; decomposition linear model\n骨干网节点对之间的通信需求以源—目的节点对（origin-destination，OD）流量描述，容量规划则需要掌握\n各节点对未来的需求变化。本文针对小时级OD流量预测未来一天的需求，为高需求时段观察和容量安排提供参\n考。流量变化的复杂性与云计算、视频业务和数据中心互联所增加的业务迁移与聚集有关。各OD变量量级不同\n，周期变化又与局部波动、突发变化叠加，因此较慢趋势和短时变化均需由预测模型刻画。\nLohrasbinasab等[1]综述了网络流量预测方法，指出机器学习与深度学习等数据驱动方法的应用不断增加。网\n络规模扩大后，仅分析单一序列难以覆盖OD变量之间的关联。Qin等[2]采用图神经网络处理空间关联与时间依\n赖；韦烜等[3]分析大型网际协议（Internet protocol，IP）网络流量矩阵的变量关联及时间变化；唐文杰等\n[4]在CycleLLH中引入周期性信息。这些研究从时间依赖、变量关联和周期结构等角度开展预测。\n时间聚合可平滑原始序列中的短时扰动，使较慢趋势更明显；不同时间分辨率提供互补信息。Zhou等[5]以深\n度回声状态网络进行多尺度流量预测。在轻量预测方向上，分解线性模型（decomposition linear model，DL\ninear）[6]结合序列分解与线性映射；TimeMixer[7]采用多尺度混合；LightTS[8]使用采样导向的多层感知器\n（multilayer perceptron，MLP）。本文以DLinear为主干，研究不同尺度预测结果的融合方式。\n各尺度专家采用相同结构时，融合比例能否随当前窗口状态调整并降低预测误差，是本文考察的问题。固定权\n重可组合多尺度预测结果，但无法利用窗口间的状态差异调整融合比例。\n本文以独立DLinear专家处理尺度1、2和4的序列，用低维窗口统计量驱动路由网络，生成归一化融合权重。尺\n度专家负责各分辨率的候选预测，路由网络负责尺度间融合，在保留多尺度信息的同时控制参数规模。在Abil\nene和GÉANT上，通过基线模型比较、固定融合对照及多随机种子实验评价整体预测精度，并结合预测轨迹和权\n重分布分析模型行为。\n1 自适应多尺度网络流量预测方法\n图1包含专家预测和窗口路由两部分。历史OD窗口完成对数变换与标准化后，生成尺度1、2和4的序列；独立DL\ninear专家分别映射趋势项与余项，把两部分的24步预测相加，形成候选预测。尺度路由网络使用原始时间分\n辨率的预处理输入的4项统计特征计算Softmax权重，对3个尺度候选预测的加权求和给出模型输出。\n图1 自适应多尺度预测框架\n注：梯形虚线表示DLinear专家内部结构的展开，实线表示预测计算流程，折线虚线表示窗口特征与融合权重\n的传递。预测分支与路由分支共享同一预处理历史窗口。图中省略样本下标，曲线和色块仅作机制示意。\n各尺度采用相同DLinear结构并独立预测。原始尺度保留局部波动，时间聚合后的较粗尺度突出较慢趋势；路\n由网络根据当前窗口特征分配融合权重。模型由此在统一预测主干上结合多尺度输入与按样本加权。\n1.1 预测任务与数据预处理\n记预处理后的多变量流量序列为 ，其中t为时间索引，C为有效OD变量数。监督学习样本由连续序列沿时间轴\n生成的滑动窗口构成；第n个样本由历史窗口及预测目标组成：覆盖连续L个时间点，覆盖其后连续的H个时间\n点。向量按时间顺序逐行堆叠，矩阵行对应时间点，列对应OD变量。第n个样本的输入与目标表示为：\n- 3 -\n",
+    "colors": {
+      "14737632": 0,
+      "15022389": 0,
+      "11579568": 0,
+      "8069026": 0,
+      "2171169": 0
+    }
+  },
+  {
+    "page": 4,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n(1)\n(2)\n取输入窗口长度L=96、预测长度H=24，数据中保留的有效OD维度数记为C。由此，历史信息到未来流量的预测\n映射可写为：。原始OD流量非负且变量间量级差异较大，先对原始流量作对数变换压缩其取值范围，得到对数\n变换后的序列，其中log表示自然对数：\n(3)\n再按变量进行标准化：\n(4)\n其中和分别为对数变换后的训练集上第c个OD变量的均值与标准差，验证集与测试集沿用训练统计量。对数变\n换压缩取值范围并保留大小关系，逐变量标准化使输入处于相近数值尺度。数据按时间顺序以6∶2∶2划分，在\n各集合内独立生成滑动窗口，不跨集合边界。\n各尺度序列由同一预处理历史窗口构造，分别保留细粒度变化或较平滑的趋势。\n96步历史和24步预测，在第2.1节的1 h聚合数据上分别为过去96 h与未来24 h。这一设置提供未来一天的流量\n预测，也供小时级需求变化的观察使用。\n1.2 多尺度构造与DLinear专家\n对尺度s，时间维的非重叠平均池化同时将聚合窗口大小和步长设为该尺度的取值。尺度集合为S={1,2,4}，各\n序列按下式构造，其中s取自该集合：\n(5)\n非重叠平均池化不引入可训练参数。L=96时，尺度1保留原始96步序列；尺度2对相邻2点取均值，得到48步序\n列；尺度4对相邻4点取均值，得到24步序列。时间聚合平滑局部波动，使较慢趋势更明显。\n尺度集合{1,2,4}使96步历史得到整数长度序列。尺度取值越大，对应输入越短；三个尺度分别配置一个独立\n专家。同一尺度内，每个时间点仅参与一次聚合。\n每个DLinear专家[6]处理本尺度输入，通过长度q=25的中心移动平均提取趋势项，余项由输入减去趋势项得到\n。序列两端采用端点复制填充，保证分解前后时间长度不变；补齐后的序列记为。越界索引取最近端点的值：\n(6)\n(7)\n趋势项和余项沿时间维分别通过线性层映射到预测长度H：\n(8)\n由式（6）和式（7）可得到尺度s上的趋势项和余项。前者表示局部平滑后的趋势，后者为去除趋势后的剩余\n部分。式（8）对两者分别作线性映射，将预测结果相加。三个专家分别处理长度96、48和24的输入，参数独\n立。两个线性层的权重矩阵均为H×(L/s)，偏置向量均为H维；各OD变量共享参数，偏置沿OD变量维度广播，输\n出为H×C。\n- 4 -\n",
+    "colors": {
+      "14737632": 0,
+      "11579568": 0,
+      "15022389": 0,
+      "8069026": 0,
+      "2171169": 0
+    }
+  },
+  {
+    "page": 5,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n1.3 样本级自适应尺度加权\n固定等权融合对三个尺度均取1/3，与当前窗口状态无关。本文根据窗口统计特征学习融合权重，组合三个DLi\nnear专家的预测结果。局部波动与较慢趋势的预测价值可能随窗口变化，因此从原始时间分辨率的预处理窗口\n中构造四维统计向量，各统计量定义如下：\n(9)\n(10)\n、、和分别为输入窗口的均值、标准差、末时刻均值和平均绝对一阶差分。反映窗口整体流量水平，刻画观测\n值的离散程度，为窗口末时刻各OD变量的均值，为相邻时间点绝对差值的均值。这4个统计量用于计算随输入\n窗口变化的尺度权重，各尺度专家负责生成预测值。\n尺度路由网络是用于生成融合权重的门控网络，由多层感知器实现；各尺度专家独立生成OD流量预测。多层感\n知器由两层全连接层组成，接收四维统计向量，经16维隐藏层输出3个尺度的未归一化分数。路由模块采用上\n述全连接结构，不引入循环网络或注意力编码器。隐藏层采用修正线性单元（rectified linear unit，ReLU\n）进行激活，尺度分数计算如下：\n(11)\n式（11）中，两层权重矩阵依次为16×4和3×16，偏置向量分别为16维和3维。对3个尺度分数作Softmax归一化\n，得到3个总和为1的非负权重；各专家在最终预测中的相对贡献由这些权重表示：\n(12)\n最终预测为\n(13)\n式（13）给出最终预测。输入窗口决定这一组权重，同一窗口内的全部OD变量共用该组取值。\n1.4 模型训练与预测输出\n采用均方误差（mean squared error，MSE）训练模型，损失为N个训练样本、未来H个时刻及C个OD变量上平方\n误差的平均值。其中N为训练样本数，训练目标为\n(14)\n模型参数采用自适应矩估计（adaptive moment estimation，Adam）优化器进行更新，最终模型的选择以验证\n集MSE为依据。\n推理阶段，先按与训练一致的规则处理输入的历史 OD 窗口，随后交由多尺度专家分别给出各尺度预测，再经\n路由模块加权融合，得到未来多步流量预测结果，恢复至原始流量量纲后，可供网络需求分析与容量规划参考\n。\n2 实验与结果分析\n实验从总体预测性能、融合方式消融、预测与权重行为以及计算开销四方面评价模型。\n2.1 数据集与实验设置\n- 5 -\n",
+    "colors": {
+      "14737632": 0,
+      "11579568": 0,
+      "15022389": 0,
+      "16361509": 0,
+      "2171169": 0
+    }
+  },
+  {
+    "page": 6,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n本实验选用CESNET TS-Zoo[9]中的1 h粒度聚合流量矩阵Abilene[10]和GÉANT[11]。两套数据均采用L=96、H=2\n4的设置，规模及窗口数参见表1。其中，Abilene的144维有效OD变量覆盖4656个时间点；GÉANT在2849个时间\n点上按训练集标准差剔除恒定或近恒定变量后，剩余524个有效OD变量。训练、验证、测试集的时间划分比例\n为6∶2∶2，数据预处理按第1.1节所述执行。\n表1 数据集与预测任务设置\n数据集\n时间点\n有效变量C\n训练/验证/测试时间点\n训练/验证/测试窗口\nL/H\nAbilene\n4656\n144\n2793/931/932\n2674/812/813\n96/24\nGÉANT\n2849\n524\n1709/570/570\n1590/451/451\n96/24\n对比设置包括单尺度DLinear、独立轻量基线LightTS、固定等权多尺度、全局可学习权重、恒定输入路由及本\n文方法。四种多尺度模型采用相同的DLinear主干和尺度集合{1,2,4}，比较不同融合方式。\n本实验定义三类融合对照：固定等权模型将各尺度权重设为1/3；全局权重模型用3个由等权初始化的可训练参\n数，经Softmax生成全局固定权重；恒定输入路由保留本文方法的路由网络，训练与推理均输入全零特征向量\n，使所有窗口共用融合权重。三类对照的专家均接收真实历史窗口，用于区分多尺度信息、非等权融合与输入\n相关分配的作用。\n各模型使用相同的数据划分、输入长度、预测长度及评价指标，批量大小统一为16，优化器均为Adam。各模型\n- 6 -\n",
+    "colors": {
+      "14737632": 0,
+      "15022389": 0,
+      "11579568": 0,
+      "2171169": 0
+    }
+  },
+  {
+    "page": 7,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n采用预先固定的超参数配置，未分别进行超参数搜索。多尺度模型联合优化专家与可训练融合参数，按验证集\nMSE选择模型，再在测试集上评价。DLinear及各多尺度模型的学习率为0.001，最多训练30轮；验证集MSE连续\n6轮未下降时执行早停。LightTS的学习率为0.0001，最多训练50轮，早停等待轮数为10轮。\nLightTS采用清华大学软件学院机器学习组的公开实现，分块长度为24，模型维度参数为512。DLinear及各尺\n度专家按文献[6]实现，移动平均窗口长度为25，路由隐藏层维度设为16。Python 3.11.9和PyTorch 2.5.1为\n本实验的软件版本。\n基线模型比较使用随机种子42～44共3个共同随机种子；消融实验使用42～49共8个共同随机种子，比较DLinea\nr、三类固定融合对照及本文方法，并以随机种子作为配对统计单位。\n均方误差（MSE）、平均绝对误差（mean absolute error，MAE）及均方根误差（root mean squared error，\nRMSE）用于评价预测性能。测试集MSE按式（14）的平均规则计算，样本数取测试窗口数；式（15）中的Nte为\n测试样本数。MAE和RMSE定义如下\n(15)\n(16)\n所有指标在标准化空间计算，数值越小，误差越低。MSE对较大误差更敏感；MAE反映平均绝对偏差；RMSE与标\n准化后的预测值处于同一数值尺度。表2、表3分别汇总种子42～44、42～49的均值±样本标准差，标准差反映\n种子间波动。改进率按共同种子配对计算后求平均，不使用表内四舍五入值。八种子配对改进率的95%置信区\n间采用均值、标准误及自由度为7的t分布计算，标准误为种子间样本标准差除以√8。\n2.2 总体预测性能与基线比较\n3个共同随机种子的总体基线结果列于表2，本文方法在Abilene和GÉANT上的MSE分别为0.186和0.434。按种子\n逐一计算，相对DLinear分别降低4.07%和4.54%，相对LightTS分别降低29.80%和46.89%；MAE也呈相同方向变\n化。本文方法与LightTS的逐种子、多指标结果及参数规模在图2中进一步比较。\n表2 三随机种子基线模型比较（均值±标准差）\n数据集\n模型\n参数量\nMSE\nMAE\nAbilene\nDLinear\n4656\n0.194±0.002\n0.188±0.009\n- 7 -\n",
+    "colors": {
+      "14737632": 0,
+      "15022389": 0,
+      "2171169": 0,
+      "11579568": 0
+    }
+  },
+  {
+    "page": 8,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\nAbilene\nLightTS\n130162\n0.265±0.011\n0.204±0.008\nAbilene\n本文方法\n8339\n0.186±0.002\n0.168±0.001\nGÉANT\nDLinear\n4656\n0.454±0.007\n0.383±0.006\nGÉANT\nLightTS\n384382\n0.817±0.024\n0.523±0.014\nGÉANT\n本文方法\n8339\n0.434±0.051\n0.370±0.031\n图2 相对LightTS的误差降低率与参数规模\n注：使用共同随机种子42～44。误差降低率按（LightTS误差\u0000本文方法误差）/LightTS误差计算；参数比例以\n- 8 -\n",
+    "colors": {
+      "14737632": 0,
+      "11579568": 0,
+      "8069026": 0,
+      "2171169": 0
+    }
+  },
+  {
+    "page": 9,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n各数据集的LightTS参数量为参照。\nMSE、MAE和RMSE的平均降幅在Abilene上为29.80%、17.57%和16.23%，在GÉANT上为46.89%、29.15%和27.18%。\n逐种子检查这三项指标，两个数据集的3个共同随机种子均有改善。本文方法的8339个参数，约为LightTS在Ab\nilene和GÉANT上参数量的6.41%和2.17%；LightTS的对应参数量分别为130162和384382。\n本文方法在OD规模不同的两套数据上均优于LightTS，GÉANT的MSE降幅更高。下节以相同多尺度专家检验融合\n方式。\n2.3 八随机种子消融实验与稳定性\n表3汇总随机种子42～49的8次消融实验，列出五种模型的参数量、MSE和MAE。\n表3 八随机种子消融实验结果（均值±标准差）\n数据集\n模型\n参数量\nMSE\nMAE\nAbilene\nDLinear\n4656\n0.194±0.002\n0.189±0.008\nAbilene\n固定等权多尺度\n8208\n0.192±0.002\n0.191±0.006\nAbilene\n全局可学习权重\n8211\n0.192±0.002\n- 9 -\n",
+    "colors": {
+      "14737632": 0,
+      "8069026": 0,
+      "2171169": 0,
+      "11579568": 0
+    }
+  },
+  {
+    "page": 10,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n0.190±0.006\nAbilene\n恒定输入路由\n8339\n0.192±0.002\n0.181±0.006\nAbilene\n本文方法\n8339\n0.189±0.003\n0.173±0.008\nGÉANT\nDLinear\n4656\n0.437±0.016\n0.371±0.011\nGÉANT\n固定等权多尺度\n8208\n0.447±0.014\n0.377±0.009\nGÉANT\n全局可学习权重\n8211\n0.446±0.014\n0.377±0.009\nGÉANT\n- 10 -\n",
+    "colors": {
+      "14737632": 0,
+      "11579568": 0,
+      "2171169": 0
+    }
+  },
+  {
+    "page": 11,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n恒定输入路由\n8339\n0.449±0.012\n0.379±0.007\nGÉANT\n本文方法\n8339\n0.426±0.029\n0.366±0.018\n相对全局可学习权重和恒定输入路由，本文方法在Abilene上的逐种子平均MSE改进均约1.80%，在GÉANT上分别\n为4.31%和4.97%，两类对照下分别均有6/8和7/8个种子的MSE更低。相对恒定输入路由的95%置信区间分别为[0\n.49%,3.11%]和[\u00001.62%,11.56%]，相对全局权重则为[0.01%,3.58%]和[\u00002.51%,11.13%]；GÉANT两项区间均跨\n零。\n图3进一步展示本文方法相对DLinear和固定等权多尺度模型的逐种子改进分布。\n图3 相对两类基线的多指标改进分布\n注：使用共同随机种子42～49，n=8。散点为单个种子的改进率，半小提琴汇总其分布；黑色菱形为均值，横\n向误差线为95%置信区间，0%虚线表示误差相同。\n图3给出了不同随机种子下改进率的分布情况；在两类基线上，三个指标的平均改进率均为正。与DLinear相比\n，Abilene上的MSE、MAE、RMSE平均改进率依次为2.77%、8.01%、1.40%，其中MSE和RMSE在8次实验中均得到了\n改善。GÉANT上对应的三项平均改进率为2.35%、1.32%、1.22%，但负改进率的种子更多，种子间波动较大。相\n对固定等权模型，按相同指标顺序，Abilene的平均改进率为1.65%、8.92%、0.84%，GÉANT上则为4.54%、3.05\n%、2.37%。\n本文方法在表3八次重复实验中的平均MSE较全局可学习权重与恒定输入路由两类对照低，不过GÉANT种子43相\n对恒定输入路由的MSE仍增加12.78%。图4以全测试点的预测偏差和按真实序列波动选取的典型轨迹补充平均误\n差比较，观察模型的预测行为。\n2.4 预测行为与尺度权重分析\n图4展示全测试点的分组预测及典型窗口轨迹。\n图4 真实值分组预测与典型窗口轨迹\n注：（a、b）汇总种子42～49的全部测试窗口、24个预测步及有效OD通道；真实值按分位点分为最多40组，曲\n线为分组平均预测，浅色带为种子间±1个标准差，灰色虚线为理想线。（c～f）使用种子42，选取真实序列标\n准差接近第75百分位的OD通道及窗口平均绝对一阶差分接近中位数、第90百分位的窗口；选例仅依据真实序列\n。\n- 11 -\n",
+    "colors": {
+      "14737632": 0,
+      "11579568": 0,
+      "2171169": 0,
+      "15022389": 0
+    }
+  },
+  {
+    "page": 12,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n四种模型在图4的高真实值区间均有分组预测低于真实值的现象，本文方法的平均偏差较小。四例典型轨迹中\n，本文方法在三例上的24步均方误差低于DLinear、固定等权和恒定输入路由模型；在Abilene典型波动窗口这\n一例中，本文方法的结果较差。整体误差比较见表3。\n图5展示3个尺度的权重分布与各随机种子均值。\n图5 尺度权重分布与种子均值\n注：使用种子42～49，n=8。蓝、绿、橙分别对应尺度1、2、4；小提琴汇总全部种子与测试窗口，彩色点为各\n种子的窗口平均权重，黑色菱形及误差线为8个种子均值的均值±1个标准差。水平虚线为固定等权1/3，短横线\n为汇总分布中位数；小提琴宽度包含种子间与窗口间差异。\nAbilene三个尺度的汇总平均权重依次为0.257、0.319和0.424，GÉANT对应为0.283、0.318和0.399，均偏离固\n定等权的1/3。将汇总权重方差按来源区分，GÉANT三个尺度中约96.2%、95.8%和97.7%来自种子间差异；Abile\nne对应比例为48.7%、86.1%和80.6%。在GÉANT同一种子内部，权重随窗口的变化较小。图5所呈现的是不同尺\n度的总体权重分配，以及其在随机种子间的差异。\n为进一步考察模型在不同波动水平下的表现，本文按训练阶段窗口波动强度的三分位数将测试窗口划分为低、\n中、高三组；波动强度以平均绝对一阶差分度量。以全局权重模型为对照，Abilene三组的逐种子平均MSE改进\n率依次为4.43%、1.90%、1.69%，样本窗口数相应为15、406、392个。在GÉANT上，按相同训练阈值划分时，测\n试集中未出现低波动窗口；中、高波动组分别包含76、375个窗口，对应改进率为5.85%、4.06%。Abilene高波\n动组的尺度1平均权重高于中波动组，但误差优势未随权重增加而增强。而在GÉANT上，中、高波动组的权重取\n值近似相同，误差改善幅度却仍有差异，这说明误差变化与权重调整之间并非简单的对应关系。\n2.5 计算开销与网络管理应用讨论\n单尺度DLinear包含4656个可训练参数，使用三个尺度专家的固定等权模型含8208个参数。在固定等权结构上\n加入三个全局权重参数后，参数总数为8211个；样本级路由和恒定输入路由的参数总数均为8339个。与固定等\n权及全局权重模型相比，路由网络分别增加131个和128个参数。恒定输入路由虽然保留样本级路由的网络结构\n，恒为零的输入却使首层输入权重不参与有效计算。\n使用种子42～49的8个模型检查点测量前向耗时，预测长度为24，批量大小为16。计时前关闭梯度计算，测试\n张量预先载入显存；各检查点预热20个批次后，对完整测试集重复计时10次。每次总耗时除以批次数，先对10\n次测量取平均，再对8个检查点取平均。Abilene与GÉANT上，本文方法的平均每批前向耗时分别为2.65 ms、2.\n61 ms，固定等权模型为2.38 ms、2.10 ms，DLinear为0.77 ms、0.70 ms。测量不包含数据读取与传输开销。\n在小时级网络管理中，模型一次输出全部有效OD变量未来24 h的逐小时需求预测。观测更新后，按训练预处理\n规则将各OD最近96 h的流量构成历史窗口，再按时间与节点对组织预测结果，供需求分析使用。\n在将预测结果投入实际需求分析之前，还需将其从标准化空间还原到原始流量量纲：先用训练阶段保存的逐 O\nD 统计量做逆标准化，再进行逆对数变换，并将结果截断至非负范围。在此基础上，结合网络拓扑与路由关系\n，各 OD 的预测需求可进一步汇总到对应链路上；将链路预测需求与可用容量进行比较，即可为容量调度与扩\n容决策提供参考。\n训练集各OD的第90百分位用作高需求阈值，超过对应阈值的真实值所在测试预测点才参与评价。种子42～49的\n24步预测在标准化空间内统计MAE及低估误差均值。对后者，真实值减预测值仅取正值部分，再在全部高需求\n预测点上平均。高需求预测点在Abilene占13.61%，在GÉANT占13.00%。\n按8个种子的均值±标准差汇总，本文方法在Abilene上的高需求MAE和低估误差均值分别为0.147±0.013、0.137\n- 12 -\n",
+    "colors": {
+      "14737632": 0,
+      "2171169": 0,
+      "11579568": 0,
+      "15022389": 0,
+      "8069026": 0
+    }
+  },
+  {
+    "page": 13,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\n±0.017，相对全局可学习权重的逐种子平均降幅为17.22%、20.49%，8个种子均改善。GÉANT两项指标为0.632±\n0.060、0.577±0.080，平均降幅为3.59%、6.30%，均有6/8个种子改善。\n高需求预测点上的MAE和低估误差均值较低，与图4较高真实值区间的预测结果一致。Abilene不同随机种子下\n的改善较为一致；GÉANT两项配对改进率的95%置信区间均包含零，不同随机种子下的改善并不完全一致。上述\n结果可为高需求时段的流量监测与容量规划提供参考。\n3 结语\n本文结合独立分解线性专家与基于窗口统计特征的尺度路由网络，采用自适应多尺度加权协调各尺度输出，以\n较小参数规模完成小时级骨干网流量预测。重复实验在两套数据上得到的平均误差均低于所设单尺度与固定融\n合对照，预测输出可作为未来一天需求分析的参考。后续将在更多网络数据和预测长度下检验模型适用性。\n参考文献\n[1] LOHRASBINASAB I, SHAHRAKI A, TAHERKORDI A, et al. From statistical- to machine learning-base\nd network traffic prediction[J]. Transactions on Emerging Telecommunications Technologies, 2022,\n 33(4): e4394. DOI: 10.1002/ett.4394.\n[2] QIN Liang, GU Huaxi, WEI Wenting, et al. Spatio-temporal communication network traffic predi\nction method based on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.\n1016/j.ins.2024.121003.\n[3] 韦烜, 刘志华, 李青, 等. 大型IP网络流量矩阵分析预测的探讨研究[J]. 系统工程与电子技术, 2024, 4\n6(6): 2164-2173. DOI: 10.12305/j.issn.1001-506X.2024.06.35.\n[4] 唐文杰, 肖一磊, 孔祥宇, 等. CycleLLH：一种基于周期性整合的新型网络流量预测模型[J]. 计算机学\n报, 2024, 47(12): 2867-2888. DOI: 10.11897/SP.J.1016.2024.02867.\n[5] ZHOU Jian, HAN Taotao, XIAO Fu, et al. Multiscale network traffic prediction method based on\n deep echo-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21)\n: 21862-21874. DOI: 10.1109/JIOT.2022.3181807.\n[6] ZENG Ailing, CHEN Muxi, ZHANG Lei, et al. Are transformers effective for time series forecas\nting?[J]. Proceedings of the AAAI Conference on Artificial Intelligence, 2023, 37(9): 11121-1112\n8. DOI: 10.1609/aaai.v37i9.26317.\n[7] WANG Shiyu, WU Haixu, SHI Xiaoming, et al. TimeMixer: decomposable multiscale mixing for tim\ne series forecasting[C/OL]//International Conference on Learning Representations. 2024[2026-10-0\n3]. https://openreview.net/forum?id=7oLshfEIC2.\n[8] ZHANG Tianping, ZHANG Yizhuo, CAO Wei, et al. Less is more: fast multivariate time series fo\nrecasting with light sampling-oriented MLP structures[EB/OL]. (2022-07-04)[2026-10-03]. https://\narxiv.org/abs/2207.01186. DOI: 10.48550/arXiv.2207.01186.\n[9] KUREŠ M, KOUMAR J, HYNEK K. CESNET TS-Zoo: a library for reproducible analysis of network tr\naffic time series[C]//2025 21st International Conference on Network and Service Management. New \nYork: IEEE, 2025: 1-5. DOI: 10.23919/CNSM67658.2025.11297513.\n[10] ZHANG Yin, ROUGHAN M, DUFFIELD N, et al. Fast accurate computation of large-scale IP traffi\n- 13 -\n",
+    "colors": {
+      "14737632": 0,
+      "2171169": 0,
+      "15022389": 0,
+      "11579568": 0
+    }
+  },
+  {
+    "page": 14,
+    "text": "PaperPure AIGC检测服务\nhttps://paperpure.net\nPaperPure AIGC检测服务\nhttps://paperpure.net\nc matrices from link loads[J]. ACM SIGMETRICS Performance Evaluation Review, 2003, 31(1): 206-21\n7. DOI: 10.1145/885651.781053.\n[11] UHLIG S, QUOITIN B, LEPROPRE J, et al. Providing public intradomain traffic matrices to the\n research community[J]. ACM SIGCOMM Computer Communication Review, 2006, 36(1): 83-86. DOI: 10.1\n145/1111322.1111341.\n说明:\n1、支持中文及英文内容AIGC检测；\n2、紫色为较低风险提示，不计入 AIGC率 与 AI特征字符数；\n3、红色表示高风险片段；\n4、橙色表示中风险片段；\n5、紫色表示较低风险提示片段；\n6、浅灰色表示不参与检测的段落（如字数过少、参考文献等）；\n7、检测结果仅供参考，最终判定是否存在学术不端行为时，需结合人工复核、机构审查以及具体学术政策的综合应用进行审慎判断。\n- 14 -\n",
+    "colors": {
+      "14737632": 0,
+      "11579568": 0,
+      "2171169": 0,
+      "7697781": 0
+    }
+  }
+]

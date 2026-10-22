@@ -1,0 +1,2448 @@
+{
+  "records": 320,
+  "groups": 40,
+  "paired_groups": 64,
+  "prediction_files_hash_verified": 320,
+  "source_files_hash_verified": 5,
+  "all_seeds_preserved": true,
+  "monotonic_groups": 0,
+  "endpoint_increasing_groups": 8,
+  "weekly_means": [
+    {
+      "model": "dlinear",
+      "model_label": "DLinear",
+      "dataset": "geant",
+      "horizon": 168,
+      "n_seeds": 8,
+      "n_common_origins": 307,
+      "common_mse_mean": 1.099746680358226,
+      "common_mse_sd": 0.0912313645478189,
+      "common_mae_mean": 0.6043029256781487,
+      "common_mae_sd": 0.0209607847793709,
+      "all_mse_mean": 1.099746680358226,
+      "all_mse_sd": 0.0912313645478189,
+      "all_mae_mean": 0.6043029256781487,
+      "all_mae_sd": 0.0209607847793709
+    },
+    {
+      "model": "dlinear_scale_static",
+      "model_label": "固定等权",
+      "dataset": "geant",
+      "horizon": 168,
+      "n_seeds": 8,
+      "n_common_origins": 307,
+      "common_mse_mean": 1.1490048564936632,
+      "common_mse_sd": 0.1065403275516072,
+      "common_mae_mean": 0.6135830956521673,
+      "common_mae_sd": 0.0265909099989449,
+      "all_mse_mean": 1.1490048564936632,
+      "all_mse_sd": 0.1065403275516072,
+      "all_mae_mean": 0.6135830956521673,
+      "all_mae_sd": 0.0265909099989449
+    },
+    {
+      "model": "dlinear_scale_global",
+      "model_label": "全局可学习权重",
+      "dataset": "geant",
+      "horizon": 168,
+      "n_seeds": 8,
+      "n_common_origins": 307,
+      "common_mse_mean": 1.147782313648538,
+      "common_mse_sd": 0.1076071620143426,
+      "common_mae_mean": 0.6133067658831776,
+      "common_mae_sd": 0.0269055856459184,
+      "all_mse_mean": 1.147782313648538,
+      "all_mse_sd": 0.1076071620143426,
+      "all_mae_mean": 0.6133067658831776,
+      "all_mae_sd": 0.0269055856459184
+    },
+    {
+      "model": "dlinear_scale_constant_router",
+      "model_label": "恒定输入路由",
+      "dataset": "geant",
+      "horizon": 168,
+      "n_seeds": 8,
+      "n_common_origins": 307,
+      "common_mse_mean": 1.1018733443076392,
+      "common_mse_sd": 0.028427452505211,
+      "common_mae_mean": 0.6038095411557769,
+      "common_mae_sd": 0.0098083910659824,
+      "all_mse_mean": 1.1018733443076392,
+      "all_mse_sd": 0.028427452505211,
+      "all_mae_mean": 0.6038095411557769,
+      "all_mae_sd": 0.0098083910659824
+    },
+    {
+      "model": "dlinear_scale",
+      "model_label": "本文方法",
+      "dataset": "geant",
+      "horizon": 168,
+      "n_seeds": 8,
+      "n_common_origins": 307,
+      "common_mse_mean": 0.840610314673389,
+      "common_mse_sd": 0.087629508377447,
+      "common_mae_mean": 0.5363900283149866,
+      "common_mae_sd": 0.0275180152358873,
+      "all_mse_mean": 0.840610314673389,
+      "all_mse_sd": 0.087629508377447,
+      "all_mae_mean": 0.5363900283149866,
+      "all_mae_sd": 0.0275180152358873
+    }
+  ],
+  "trends": [
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "monotonic": false,
+      "endpoint_improvement": false
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "monotonic": false,
+      "endpoint_improvement": false
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mae",
+      "monotonic": false,
+      "endpoint_improvement": false
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mse",
+      "monotonic": false,
+      "endpoint_improvement": false
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_global",
+      "metric": "mae",
+      "monotonic": false,
+      "endpoint_improvement": false
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_global",
+      "metric": "mse",
+      "monotonic": false,
+      "endpoint_improvement": false
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_static",
+      "metric": "mae",
+      "monotonic": false,
+      "endpoint_improvement": false
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_static",
+      "metric": "mse",
+      "monotonic": false,
+      "endpoint_improvement": false
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "monotonic": false,
+      "endpoint_improvement": true
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "monotonic": false,
+      "endpoint_improvement": true
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mae",
+      "monotonic": false,
+      "endpoint_improvement": true
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mse",
+      "monotonic": false,
+      "endpoint_improvement": true
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "mae",
+      "monotonic": false,
+      "endpoint_improvement": true
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "mse",
+      "monotonic": false,
+      "endpoint_improvement": true
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "mae",
+      "monotonic": false,
+      "endpoint_improvement": true
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "mse",
+      "monotonic": false,
+      "endpoint_improvement": true
+    }
+  ],
+  "predictions": [
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 42,
+      "prediction_sha256": "63e1384c06952e06027bcdb33e8abbf436b229f4338cea0b32b17de1deb237a9"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 43,
+      "prediction_sha256": "2467d579339e74729b35996a96853a6907c49da247366d3e3fee65cf5865038b"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 44,
+      "prediction_sha256": "31e6ea8af1961a3b4f116721a36b58f0e0d50789611707d62a1a268ab2be3e6d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 45,
+      "prediction_sha256": "38c230c3cf0a746f0746cb102e45f0a2b6dc649e90bd32e40fbc42c843e14c67"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 46,
+      "prediction_sha256": "a956639b89f04a88a42473c9a90307597f0a36afc71441912c7ec247e8e32770"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 47,
+      "prediction_sha256": "a14fc419feb7ad1915d01215d1562ccff94e96964ea6bd29388526499b21ccd3"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 48,
+      "prediction_sha256": "3c21f139e7811d07268e4813da2f369497e70cc986e6c19a19056f3fd7d5a1dd"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 49,
+      "prediction_sha256": "969ab0af1206216a83d63e1f4f5651607b0a3edae6f670d6f72a0b893adfd3fa"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 42,
+      "prediction_sha256": "3ecab9cebc1819ecfbcf11cca2ad36dafaa5c91fe371003163c8298f8cdb6314"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 43,
+      "prediction_sha256": "cca39f1120d4993d822785422faa7f19cb10c3cda4ba3d3229d86797e358b33e"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 44,
+      "prediction_sha256": "eb15d8fb45f77420bb1079493162ba70e17080b423e724bf18b4c3f754d7c00d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 45,
+      "prediction_sha256": "d0d2c472a3e9b39a0aea0ff1aace2868910829e95cdcfdff572ff3d2df0151b8"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 46,
+      "prediction_sha256": "1dd2db7b3fe899b293300929147e354b6b36b6a57a08b016f011edeaea51b512"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 47,
+      "prediction_sha256": "053ffc6df47f47a7cb493e269975a0909d997cb69d8140f58e572008de414d47"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 48,
+      "prediction_sha256": "98ae633d7fbaf86630cda728551c84e72e29867a67608b35a48c7c9875276d63"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 49,
+      "prediction_sha256": "8f2d071f2361f32d1e2ae0e00dc8e391f39cd542f9097ec500e5f0ba8e6b3f04"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "prediction_sha256": "331588277774b6c12d199e3e30ee88ed2efe99af1db1dc015761e408dd84dc0d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "prediction_sha256": "99ec160513870afae6fff2da41279eec43b4e6fefbac5c389fb918bfe42ed296"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "prediction_sha256": "793edc17d654b397112053eddf19c71fcc0f52102824ef7356cf93a93d162603"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "prediction_sha256": "0ee8ccd6f492917bacb71ef4251d53c6327ec67cebe4c10fc6dbd6f4c6377c1f"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "prediction_sha256": "8bf154dc247e69960143730931d4f66b98518740b22a35cc75fa2f1a57cbcd98"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "prediction_sha256": "7b4851c555f895576ae918d2e1eb6faf63fd0358b93bebba6cb789ae1479ae8f"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "prediction_sha256": "8466e001fcc5bd41cb18c2d106ddb27f3bf5c57469fa487aa9606e8af6045f4c"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "prediction_sha256": "ad749bc19130cc4ffddef8c5a70fcf189db249674733ee221781ca34e0b61737"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "prediction_sha256": "efe161a0db5db8604df088de741d71d44481c823b2f0336d5445a3d886246d87"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "prediction_sha256": "225d71a747c4bc6f1e822d71ad0a7530f06d00fd82457fe15396d847fd73fb76"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "prediction_sha256": "570b2d89b37f01829c0771b72bb213b7dae52584330153c3fc49ae04153ce01f"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "prediction_sha256": "1d6279008889a175d63953891f008b7a141956a8928aac4ceb1214d017a2bcf9"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "prediction_sha256": "e8a8a0cb00f4aa043ea1ab1b404e2b82550737f1eab58b26c5be3d23d5aab754"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "prediction_sha256": "09292e74e90afdbaa28678bf1a128a17ee7aa4edce508e0712ed6907e7aa9e9d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "prediction_sha256": "6e46f6b05c94c56fcd62d0899a8090f3450c26f753908e342a7862bdfee8dd55"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "prediction_sha256": "3c121cf4937002020e2d523a0674a1b8619b06def7546dd68972815a2f68cbe9"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "prediction_sha256": "38249cee0c7bdbfe6d9332b52a1f6a9a1215cd923beb6a9a8d82eafebd198c42"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "prediction_sha256": "a1e87f611d3bdb9716c1bb229f54ee766becdcac6af650d59e5b9b9145a038fc"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "prediction_sha256": "ba3573b0162404053b7782e3b7141a892d0f521fe293a34c38d8f959e6340486"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "prediction_sha256": "60d9661b3ba89aba5be2864abc1dfff56715c11efbf1fbafb51259cf0705108a"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "prediction_sha256": "a1cb32526e0c1009fb5c00f2f48bf3e031955cdc15e8d1b532d878fbfc0a4132"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "prediction_sha256": "42b3899fb21fddcf04b715502dad7c5b86e1add79472602d64d50753c2bcb8bf"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "prediction_sha256": "636d3f31ebaebbd5a4e047869aa6edbec3da124e3c33b6777a451da6cb393a84"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "prediction_sha256": "c7752080e6367fceb9258576d29b91ef566c695565f6bb8e66c63d394314f88b"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 42,
+      "prediction_sha256": "b8cd93b7be049809a8912295fe3b62f00de161d587369fd643824a28119410f2"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 43,
+      "prediction_sha256": "6a055e3143eb83bbd0dcc82d03703c9eaa1d981db61835ae4d617db83e37aee9"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 44,
+      "prediction_sha256": "ef8c189b23eecaa51c11743d5a1bbe0fc789e384398da083b159a010aac11de7"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 45,
+      "prediction_sha256": "1a95a2f31fe6d8eee014eb4be3cff1476efe8f9cf75000b79e331237cda0fdd6"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 46,
+      "prediction_sha256": "88e71e4a4cd4d42f55e2761c286b2f32e8423e89ca35978e61d8e1ae57ae255e"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 47,
+      "prediction_sha256": "461ee04171bb04ebdeeb511fd674672cfd7c2f7dec9198b4fef1c38c821f08e1"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 48,
+      "prediction_sha256": "335d981067d3b94e433ee9262fdd50975f4fad573df068d175590622a77f1550"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 49,
+      "prediction_sha256": "bdeb9517d3c7df10f093c20373f8bfae3d7247139a6aa8a39e3feb2814791dd6"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 42,
+      "prediction_sha256": "3f8c29a42647d06c7d438e000abaab022d44aa6acf94fcbd68e1b3da6650cf69"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 43,
+      "prediction_sha256": "502182aa921c4a6f615db364fc14bab378622fb56fbb8c0b62711d35a017d0a5"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 44,
+      "prediction_sha256": "cbc23516da3aa96468f28fe80db353340416c35782a04651bf66d800a2f35b59"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 45,
+      "prediction_sha256": "3d923a1e17dc2adb3a3ed15f92d07e908ddcc820c752fb75479d9d68ccf481fd"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 46,
+      "prediction_sha256": "60bc388611edaaf9a8c37179a07a50f83113242ed2a5ba015067ddb25833569f"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 47,
+      "prediction_sha256": "454e904479e887a7069544b4625faeeb6fba330ac02bf43c928751b2a9994010"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 48,
+      "prediction_sha256": "7be6a89b3dde376ef1e8a27c563b0682289e4121ea19be4b139ef7b8925ffb17"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 49,
+      "prediction_sha256": "d46eb2b585f70ca6cf7f3a9e12ab2cb0e759d32f6c676ed5cfd4931c65ffcc09"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "prediction_sha256": "2e5abd44759c599735962e26554a82b3f7c1edace794e8676bc6e6b09e1f4dda"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "prediction_sha256": "cfbb5fa02afc79b3624560dfc5e5f5e4ce0736236fab97119eb4329909c41b04"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "prediction_sha256": "6a4a95d3f51eaf43002374d9f4a337fc4a187eab2febf496a8481e8ff3bda5cf"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "prediction_sha256": "7b7c6044395d31717fb389c51e57592f840c776745d1dfcf7ac1e9e81d0457fd"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "prediction_sha256": "8962053cf0881c63212b1e8fbac23f39b6838e2804f59f414ec809d023063059"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "prediction_sha256": "d88f55ad543ac19592eef7777264979905fb79e1de39f429ad0132fdfc0ad5e7"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "prediction_sha256": "02e81842a9e5d99a519ca6b51bf5402884adf68e973eeb29cca2c71584f81eb7"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "prediction_sha256": "2c488033dbdcd03c717c70c0265de82cfc2c90ca3107a542484e4d507ff3eaa7"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "prediction_sha256": "f49c8d3150bb33dfbc355c8e896e6a6350f09e7789493e2ab4e33af0851baea9"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "prediction_sha256": "04761a11e165e3b0ab0596441133b940b858a12b983762a358fa3ed608ca9f7f"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "prediction_sha256": "2c248ff218f8210bded5492dadf115aeb54c64f75635dc2375538d34a9e64558"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "prediction_sha256": "51ff3899a2ad2dd5b214885aeada984fd886c28a50faba22e49a644be2321627"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "prediction_sha256": "e522ea90171437fbf96cdfd6a74ed13353b59a52d6434b9949f27466a1a61e18"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "prediction_sha256": "620880bbd539bc7dcdbca805314b32984494f430460f66ad9614a379266c7ac6"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "prediction_sha256": "06e02dbf1515120099cc235f56c389db510c0fef267b123514141fa1c9febd5f"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "prediction_sha256": "a9cbd817c9b1f22313ccd59192c4f3082577500dbea568da32ede93b3efd5bd4"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "prediction_sha256": "62052a3b903dda0f4b244463b55518d429c68a246bdc9426da3de8ddb5ea1c23"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "prediction_sha256": "20ded64c1734718fca28368e9f5355ba925daa04e5a8105edec870205c433407"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "prediction_sha256": "ea0118e3f47bdd37819d5a4355904d5dd2f38c6b533ac41bbbb8156105b1eea6"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "prediction_sha256": "01c78d6dcec6959490a7d304c69d769f1ccb50a23f19dc1dab0965f8b151a8c3"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "prediction_sha256": "cb2ca2e6ca3571d5dd686c0c8b771956cad9dd3dd69b4143d576398fed2c2045"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "prediction_sha256": "21557587dd0dca26399f66137c38e43923bdd3bfaa46832c4f7ba86490b5d477"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "prediction_sha256": "5085b26fc62863a94e7920e5db7a84bdf2388e175268f84ebbcb9e10db239ad4"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "prediction_sha256": "5bdb9744492b6b9a4dfa8e704ebeb7a38acb88e853db3deb16776784f4e37310"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 42,
+      "prediction_sha256": "7d777d2d5982d130673c83764bb447338d8fc0bb187cdb3aba41bda81a3ec14b"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 43,
+      "prediction_sha256": "fccd84e680939d912183c1f728e188e344b21368ea2a60f8120e059fdd00b884"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 44,
+      "prediction_sha256": "750c85986ee7b427f05a884f09b890bfcd8b0e84cc13eadb22cc416780878d18"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 45,
+      "prediction_sha256": "ba0e634e900694921a22cd5d73fa022a00d8c56834112f0fac4a23d41b5d1cab"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 46,
+      "prediction_sha256": "1d4061de0731e538da5dc06d01802744342df51da9525e1748a0e64621142b68"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 47,
+      "prediction_sha256": "246e5c6052655893c44a0c1ba86f0cdf4ce69bf72cbf35cd100c9a664f6a062a"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 48,
+      "prediction_sha256": "1253166d285afd94e1f2a1db2a7714dc93fc6ae7c12f0e0e57d9705af4e36ff0"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 49,
+      "prediction_sha256": "b0b4bb475387eabe9d8bc0be303ab4848f49e6bea15b3fd05642a35dbd2a1d69"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 42,
+      "prediction_sha256": "b6de91cbe5b8f05039765669c8e54bfc0f31890370f343e5beb84de66791815d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 43,
+      "prediction_sha256": "3cfaa4a21105a014ca9a3b73157ca4d64d24da7e7a9a0e6b68267ce0eceb85fc"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 44,
+      "prediction_sha256": "c05881e5201ed5c0d6b64b3252554168e54b1c32e928ac8fa558ec5d533df98c"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 45,
+      "prediction_sha256": "c2fcaead8eb4de9a7c3d18939ed6b281bcf03ac14030df1a608ef701deb2ed01"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 46,
+      "prediction_sha256": "a6f2f8eeee9f3b98bd5df9fb069f01f4d0ec37245db7d5244ce2c69b38f38b63"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 47,
+      "prediction_sha256": "e3ff0722697c0b37e9416b20ee7cfa7c0995b61689f0f2ff4f41be207a8d5fe6"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 48,
+      "prediction_sha256": "fc64857d5647058f69d5d3b7db25ec69ad27da69055cac07722d5237ec22db0b"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 49,
+      "prediction_sha256": "dc3197174d5968fdd6df82011c9e03cd323ad1b2de2bac20db5329c41d570655"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "prediction_sha256": "17d66a2b931405493171eb77fb44c1b102749ccab91df0e51442659dd4bbdff2"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "prediction_sha256": "9cb986cc8f455f18f16196966385609ddb5387b3ad04b5effc0ace08706a2b0e"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "prediction_sha256": "6a4e64d5ce392ba853a052f4ea6a5ee977d4b4e2bc50cae0dd34fadae09d4c4d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "prediction_sha256": "a325dccbfc031140e59b495c88c11691289110a56034c2644076cce141dbc769"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "prediction_sha256": "040dab3931f71d4cbd894aa212f3bd52925e2e9bd1f7447af53e163d61886f24"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "prediction_sha256": "2a0500988e377b5c581b0689a8e9c588c7a027b605fa4455c9b2d95a47452628"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "prediction_sha256": "d38e0b4a697d8438f3367e4f80e6673cf60db4098f132823068dc3ff216fd1ad"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "prediction_sha256": "8b4db51e224d480af25674ecbd8fcab1ddb9b41f6e0b2d9e6119acfa347612be"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "prediction_sha256": "2ca378ebb797cad8cb47c86597ab3a5356c8b90a1cbb2e57e2cdb98a055a7101"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "prediction_sha256": "86c4e0828e5e157efe25d43b1813ae1154e2255bc4a5b6c9de4fee0b911668f3"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "prediction_sha256": "74e6201f1e7c70baf71e113bb946da5f50f0dd1e6acdf4572d1b1f480870120a"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "prediction_sha256": "4d9c253babf9edda2c931afd090b9af3ab29ef954741f45e8712ad2b926b2fce"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "prediction_sha256": "ec5fc190ebfe41d84ec6e6e8b6b2cd4c55bc26efb37edeef93fb01a1eb7fbf5d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "prediction_sha256": "a8605a227dbc328c2f76fe5ee5ff6b154ceb98d73147a5948c3b97f8c9b87433"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "prediction_sha256": "ea946f0eebd9805ab663a2d4371e52a223d5ce33b59a43f7d68b31175f1a734b"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "prediction_sha256": "710f63a1a015f9b368445cfd8db149018999b5074995f96e7eb518002ea78121"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "prediction_sha256": "c145d58be822845177874da13e1482467c72a39994dcc56245d91aa0aaf94e7b"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "prediction_sha256": "10a8749ce87e821d60bd3b4354bfcd8b99aa0d9533681ce5d9de8ace4b8a2ab9"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "prediction_sha256": "bdc66cb71b99e8e62bdb6d996d484a33d2cb0df178eb70b25a207ebebbc5506f"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "prediction_sha256": "56e4704870e427e4690015e333bc74b8e4b9e00f37299dd9a2cc914074e9e24f"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "prediction_sha256": "1ee7f4f98f8ed0def03e340e59ab314882ae513a519220626283a6f4b8e8953d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "prediction_sha256": "c99c9e7cd9f26888339467ade1fbdca1b0a995867c4b2dc4319655a8aa3a33f8"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "prediction_sha256": "c695dcef1d888c5a0e06a9d9e78825d61e7a6674763d128bb7f3fafa42259b69"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "prediction_sha256": "455c31708e8f9e3c68ebc4d5b441e82d477d2b0ccb5c17e0550e0821cd35a432"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 42,
+      "prediction_sha256": "89e882b0fd065ee35fb854d0b6c6a31f126fa5727f508d65a43b2b38116351e5"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 43,
+      "prediction_sha256": "def67d09d485a6800dcf780623436230afc65c44f10b44cee651521ee7a10561"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 44,
+      "prediction_sha256": "4125a50892ce6e214accd50377b9b1e2d5648b793015a541782619a669855ab1"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 45,
+      "prediction_sha256": "726c1a6563adacbf770cc070f0b22e6e774c6453df295bd6764bdf5f40ddf9e6"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 46,
+      "prediction_sha256": "fccf4b69cfc363f193db6e55b79b6bec4a5e99e4affc448744d0e8abba0a331c"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 47,
+      "prediction_sha256": "03f8a92328075b49c57d12b6d493bc336b185761a999442384e0db24d91aed95"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 48,
+      "prediction_sha256": "61d726a694e2808d52b5f3f3151e5b67a0bb9828d4a3349d3c0cd6253852d9ca"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 49,
+      "prediction_sha256": "3bd2cb84091f587500760253204f4fa220184a058f76a9de0b7f4d5a61046b9e"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 42,
+      "prediction_sha256": "741d75d7882f173a2498ff630a869688312ec0b2a8d9e18f2544342b0a031263"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 43,
+      "prediction_sha256": "e3471f09ae81cb8e5a647e28b73242309c08e948d1db15eb887a4215b820c518"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 44,
+      "prediction_sha256": "bb6e49f721a682b77fb1825d38a401638b2bef24d8344c50839475cf289c4239"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 45,
+      "prediction_sha256": "ec4bf1e266e207f5d0e1a5180139ea8e3851bacff08833b170e61e302196faae"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 46,
+      "prediction_sha256": "d77ae07be366c24f3cd1d62767058b278aefb7f972db01cb43c547e63ad2118d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 47,
+      "prediction_sha256": "79426e360a9826b82911d9144e15c8b0ded287dbe94684c6d82c9058177dac2a"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 48,
+      "prediction_sha256": "d2515906e7cc8f8b9d9336c8081f22de3f1de68819adc6decb99aa33d1d0e558"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 49,
+      "prediction_sha256": "b9eb1a543119f3946ab6f7be0472d709ba4e4595c009c9c2f4240842cc780066"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "prediction_sha256": "6d250596767f122617bb0fbfc371a0537105e6480790099c0866269a6b489d5d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "prediction_sha256": "73d40f4bda43e5d61b2018acf816cb2d0585b70ade918c42e9e075c6bb2d8c20"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "prediction_sha256": "83ab25006ecf49e9e5abce13ee3c017db2a386c33e5bb21303016ece57ac2ae5"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "prediction_sha256": "789a8efe01e25c033ed22bf65382ea433dcd2569dfceec65ee515d99ed25ea04"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "prediction_sha256": "0e73784b9bbdd4907ef154b30074182cda6082157e6e2a9da06b009ee9dc2f37"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "prediction_sha256": "4ce637a42e7957d68a822782449d074a2f57e3680ea91ddfc0fb65eb74938724"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "prediction_sha256": "8c4a0f27a55b0197d68827b0001b147ab5ddff0fa84d0c9c33b8c4670c40ed25"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "prediction_sha256": "61c3dccf4f57fcc2984b1aae3fdbe1d38824b1df8cbceb9cf34114114a8e8a68"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "prediction_sha256": "409b02d8ce580ef45f7d85184042e5abbead22edc6054fcdfdbf5b2d66f16d21"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "prediction_sha256": "0da46d1832b415cb1c99d9fcac846d000772b2f625689f0a70553aff45f5044d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "prediction_sha256": "39055ea07712004e2549f0a60c83d9f150c3d790f5b46875a09bbf1e2168fadb"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "prediction_sha256": "7bcbb999cba2ea3144bc15ac76b85d9a069f47ae3c2c8e38dfb714eda02a28bc"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "prediction_sha256": "f252578c27f76894328403074938238ab6e9e63cb22412b092333d918ae0b861"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "prediction_sha256": "5382da6c1d704ff5385db40a81817f8f02393f971c9bd3bfc43d091dcde544c6"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "prediction_sha256": "32496577dc7f0f49cac0fd4a10090edd56af0e1c15b2055dde0dd13b09e8ef96"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "prediction_sha256": "109c4a990e41326ad4a59b6eea66f5140b637885835e455a3ddbb0c526725142"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "prediction_sha256": "ddab0aa6578d70f80c1c4e688f4a15dfe269dac97b428471074251f900935521"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "prediction_sha256": "95765a32dc1abc3304c84abee3c5104225f9abc6b05c8d28272672eaaefa46ff"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "prediction_sha256": "33779c3299c69d59e4ffe8109ba95c2b2e2a22ea86eb79db37c1ec09a74b83c3"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "prediction_sha256": "df555f99b099c19109275e36c69b3cc41e7982ada9b85d40258f40e60ce58b5c"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "prediction_sha256": "d4d0f1234d2d2e1bd0030a6f01dfda52e701cd017390b0a53e6e9568f99783e4"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "prediction_sha256": "d5c323fc4444f1df5612c30eb250f2758843f8c600e9919ace29ce40c3961c68"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "prediction_sha256": "dedfec9081ed75dbbb7fe4b2092d4b7ab233ce04632088cefe068ce55182f84d"
+    },
+    {
+      "dataset": "abilene",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "prediction_sha256": "51f7f6877bc8f200660f4bd07ac397a27e4c554797ea31e1e022f10c1b3152ea"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 42,
+      "prediction_sha256": "baf2bd0c6c106245b26bdde8af89377bc56ab5fb2f66384ac67880be55f053b6"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 43,
+      "prediction_sha256": "69650962e1c5f06249d85f2f68bdd34680c4e274d73d4a2cabd0b8aa4d78008c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 44,
+      "prediction_sha256": "bf71c1daf1b7dd2063aac6d3a25c1063c5007a4756e4e9fe64b9a578289a42e9"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 45,
+      "prediction_sha256": "6518449310b1a226755509a769ed2232b0a675279ba9614026045b7528ad924c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 46,
+      "prediction_sha256": "381d34954271eaf79765bead3ff121df236aac38625f430cb4de8bbd35812d81"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 47,
+      "prediction_sha256": "b006476cd94bedb0f443a2534c9344f30bcd234a5859d2e0602743de60f10e63"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 48,
+      "prediction_sha256": "e43b2759c8b9264058fc18f2d8ea163e7ed1c12a4b76da181061d95c5473783a"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear",
+      "seed": 49,
+      "prediction_sha256": "651c7e41b6153371844a6cde241889ea8dec3ca0fd235ebec8568ebf5a2d4566"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 42,
+      "prediction_sha256": "7acd0f1e0ca2c9bdf4c30a114295f58f019a5b8b07e0c70bed42dd89cf54a2f0"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 43,
+      "prediction_sha256": "892332a5a63792d4920b2f278d45186e56f0a194bf97c6202118792d90787fa5"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 44,
+      "prediction_sha256": "54ad52515448f0e0207393e36ec72c7bd7f95252d6997fb894f7a2ab5ec0d75e"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 45,
+      "prediction_sha256": "d0a2f3ae5858f35937f6e3f4ed7cdcf6622081a487219419114343eac7fa3137"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 46,
+      "prediction_sha256": "bdd18046fb8a85329d1bfc6731103002b126d9bc91206fa351ec0b735ce4624c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 47,
+      "prediction_sha256": "4d5d6bd071ed676b61617b533999423d0d94c3ec9718b7f3f3f33275de6cddc8"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 48,
+      "prediction_sha256": "165ba562fd13badc4e5a81456dde52e37db38883081945905a620f0dfdca1db7"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale",
+      "seed": 49,
+      "prediction_sha256": "f43e6e15000ff55e5feb586798d4406af815841970dace900f8a543ac4160618"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "prediction_sha256": "db6d7b126b49d840b200e8c367e4c09830e94a6ef66c6ab81210fcec4ac5b981"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "prediction_sha256": "aa5a9cde43a36569a73b9f3e59743905976dbcdb9cfcc5a0fe6443e05019bb96"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "prediction_sha256": "c41a3ac922b0e010c156f7527600f74db3c492e94a3fb6d9c7774e3d4f80b9bc"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "prediction_sha256": "47e44e0e8725bfa2daadf243c8c9f06851595624d272cd8385f0bcba56f04aa7"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "prediction_sha256": "c5156246efe96d2d1cc452f24ca3536b35f9c55eb56d74be14045a9700c32165"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "prediction_sha256": "f82671820cfad1913f3a8fd70da2be2b66cc49a5b6bc3cf3b4d13640f2142101"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "prediction_sha256": "b6c04fb2e1fafb189018756d2d368ef1fcc62df327402ae413e4db7d9703c9f8"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "prediction_sha256": "596f7e6c24ba7c6d3ea2ca1a44bef4d827e8fbcfbf1682ff6052f271ff2d17f2"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "prediction_sha256": "1061d20e66a26802c636f906afb939240e735d7f173dc1cdf3b021940f789f5e"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "prediction_sha256": "9411f662a469155a79452f4f309c1ea154da04e9dca80c1741f955dc02bfae27"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "prediction_sha256": "d7847efcb018873d1d1a9a1658d23b08c44d00e058424f879651092e95262da7"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "prediction_sha256": "78bfa23d2d0c6dab525934b00a0e13d165a36b5c27bf36934dd485a88fc3382f"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "prediction_sha256": "819f4ee7e34c590d66d77a96c2f8c9b18a2a41dabc9d17b3508984b93a44a780"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "prediction_sha256": "881824aa94f2eb50871ec68d32b8bde9f29c7d4541f6699377305dada08c1246"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "prediction_sha256": "eaaaf62f35c5ec40cdeb7f26ecaa9d9018c1b7bf183bd83f76b3b14e2094878a"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "prediction_sha256": "ab84e947aeddeb221fafad4fc665361073f749d567594e2b8d6236d6ed515c80"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "prediction_sha256": "137077579149c2552a1ead76fcba6aad1f12d64ca1476da5f324d498f1a3332f"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "prediction_sha256": "c370f2d37348035c61cc587758fc1506fc2369d50a8ee1a73f40d0eb517bc841"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "prediction_sha256": "0e5d4d4fe33c399c43a25a125d1a94e4a67ff954f43f173b9f8437f4646ee2d4"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "prediction_sha256": "3c1b3fd71ab9f305fa5ca54c4ef68de718785fc2b8518b570458ff91d8e6e26d"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "prediction_sha256": "6e00b57038c2fa71708aee14c96685b6157ac23857b279ea99e308ae64abbef0"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "prediction_sha256": "f5fc81678da4657d84497c0a98d567ea6fc942a10bae1953441cc3dd4aff0cd8"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "prediction_sha256": "c1bb647feede1b2dc5da56acdace95532e9fac3185356f5a27918dcf5420405c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 24,
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "prediction_sha256": "f585ce506d994b3bed3fb99dcb7c60c1bb6b7fa90d29ed3c43107aba16a81f7b"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 42,
+      "prediction_sha256": "01ba3cbbe8c05f8068d5155d4cddc9160b7be91f65e5d0e149b8daf4fc61f013"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 43,
+      "prediction_sha256": "aede4f62ccccafeacb5f199e7a95d2b1600fadeb171a745c495bfffb4dcdea66"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 44,
+      "prediction_sha256": "30fc724d555cd2e8ffac151f82d771cbaa0e7aab883ba6c9fe9cd1bc2bc75899"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 45,
+      "prediction_sha256": "2bcc421214018105cb8caed8f008e44bd2e0c894c074ee72f2c4871ae6678399"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 46,
+      "prediction_sha256": "83df40f128f418f748e00f91c1d7ea1bce84a3a9306926b3992cc53dadbe1ffb"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 47,
+      "prediction_sha256": "0211e7b1cd832c860d8764c2451ed979c5fc7f36bfa2ceea336f23e9feee5c91"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 48,
+      "prediction_sha256": "0d9ea7937c3d733dc6ffd3044326a84425439d1edab34a7cc7495fa351a5d9a9"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear",
+      "seed": 49,
+      "prediction_sha256": "4a9853a9a5539ccfc3d7b8d1ef3421386ff182fad086d0480f8371154913766e"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 42,
+      "prediction_sha256": "33e0b72795c3335f323a1742e1cdc64c78b8152984880d404142abf3d8da9d97"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 43,
+      "prediction_sha256": "a0bb5baeee8ce9e6879d25bce9744f3db01ac6e1559f1293de483f8ca78e9c86"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 44,
+      "prediction_sha256": "f3759a57db509b51dceaf6075f3cfe0012468b75f56d882f97cb761e2899776a"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 45,
+      "prediction_sha256": "b8be8b16f097b39b16e15bcced57c0a7c8b8b0549164392e853a936a3d1297ab"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 46,
+      "prediction_sha256": "7ac189faa593486441d08ae0788987ee9f371ec3698b7afb6f040dcc8070314c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 47,
+      "prediction_sha256": "abd6da70bde21acdbeb779637e5f092a2a197adb43412f9966f066d49a421cef"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 48,
+      "prediction_sha256": "d6a5a496b4565d554f771d99c8f4749a2330cdc09d2da0e613b3e8f8c62fbf1a"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale",
+      "seed": 49,
+      "prediction_sha256": "980192e7a92388f9252c90c2b1f5bf1792e0643247e7364c849657fdfbf596eb"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "prediction_sha256": "6fa5e223772a4aa6fde8e8ae68f355e0d341984a2e3b34b21c836934e2c09ce1"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "prediction_sha256": "840b49a2d9c42f2d0994d78cabb88a97f253952aa4c76d69fb24eba1da3098f3"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "prediction_sha256": "c999ae8f687fce7618c6438b7fb6c58a93eb76e4fb2d441ba9d90abcb863753a"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "prediction_sha256": "08eed7bbc65ddab99a1585cbe155a6153c2d772018fcc98149d74d71c9586af4"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "prediction_sha256": "c9fa61c8db3d60bcbcf1f82dba831cd4a84cd18cb2d99ad8f261733d10115e6c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "prediction_sha256": "2497a3299ab484e23a0fed6868b81a91ad39c8ffdd134b17dc47462d489d8e2e"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "prediction_sha256": "da1cf6490d07fd47564aef292e04bf549410359b527e8e86c7d68a9dea7515bd"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "prediction_sha256": "079cdbfa77b185003b6a4d4337d323ba73bf932ab75ef58b83cdec33d6426f41"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "prediction_sha256": "3efd9d4d88b0af40ba6e9d3f73b738d31215ff0a98989632157f1a4de54b3296"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "prediction_sha256": "2c6114dd682835975772345978db88a6eeaf7c7cdbbf5fd2603d0c1dc70aa413"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "prediction_sha256": "203c0275718a34476da48dbcff6295b3b3ba4354084f37033b3fde01a5bf2dd1"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "prediction_sha256": "298c44ad754756e8ba26f55571070b5372b0e4fb6879bff2c8523c1ce5c8c40f"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "prediction_sha256": "ed52c6449a474547e20f215cf5773a502c5b953612a1a2db594ead50d87f5860"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "prediction_sha256": "6828328258c038d46906cd92aedae3c1ce28b0d318346e20bdad84f67beb7762"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "prediction_sha256": "1280b17370b202f210ec967a96323f31300aad4d9da26542eec94c0c6043d204"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "prediction_sha256": "5e83013b86fa27bf309cac44cbbb845bd0d9233b86a85cdf44c741ee52d59576"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "prediction_sha256": "70bfd2c90728804a11e973bbcf8dc9ec982061322071137799ec1e1212aa8d75"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "prediction_sha256": "56b0080e5730c0d5024f3f0fb4284e8a65b94863abb1b7339f5a01e7f632c61e"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "prediction_sha256": "41d0010bfde399b7e0bdb0a0946c3dc5d8eca3af692a688b06e9d6eb43c93e0d"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "prediction_sha256": "1ce62ef6ca1ab802f9cea4209415a6498041fa1d7532af8a3e3eae9cb659fb65"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "prediction_sha256": "4c87cc7e1c1f728d89c805d18f64947fce52551f3470198cbfbfb4ecdeaac33b"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "prediction_sha256": "6b0c47b48aaa66464ad6e07d7186ed3d205dc2b2ec8ee1e01a41ffa51a7d6652"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "prediction_sha256": "31a21972e20988e29a65ff6007e3170d3289918541fbc99fc06c31bd0dae310d"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 48,
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "prediction_sha256": "c546d4f87537413a2b928b46f98ffd393d1e05be63c25130891fc89c682b7cc4"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 42,
+      "prediction_sha256": "eb2121eba7c858cbeb846c43ea2ec03fb4672150395939808024516c728f759c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 43,
+      "prediction_sha256": "c3fcdd9d8739d0df1537dbcc23c92ca3029a7fce6b1ec51ea80d32329915cbd2"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 44,
+      "prediction_sha256": "81380ff799210352519a3fc69204548e6bbaf3c89451c7e4c64517a30841dc0c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 45,
+      "prediction_sha256": "3486edf8df809e8f0f5533d0647be3e7f973f62e2483c654ef1957249580f96b"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 46,
+      "prediction_sha256": "757be7ba972d8bde9cd98f1ede2154133950c55c3e3863f6c271c06c56fd153e"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 47,
+      "prediction_sha256": "ce206d21fbd07ebf6ece69220e6a5c29794fbfc9ff640c844667ee42fecdd059"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 48,
+      "prediction_sha256": "8d4181c5993dfb1a5479268d5d249cd712e4c808bbcd8e6e6821ddc886499abc"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear",
+      "seed": 49,
+      "prediction_sha256": "16e3077aa64458ad219d70096a652555d0144043a88417ff2def2ad5a470b983"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 42,
+      "prediction_sha256": "d98c629952809908b29e8b1e8fac513bf0a9c4b44dab43f5661e0e0b03104ac4"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 43,
+      "prediction_sha256": "860167cce02220914bb330d010901195e4c3547bc220db55bf59f6a0ed02af51"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 44,
+      "prediction_sha256": "dc821e64b81dd1d52431f5e86e47964c46701f8d7070e7e16dfe00faf70525c0"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 45,
+      "prediction_sha256": "de26eb2639598c0017e9fbf871e2575fbbe3f3b1a5182fb06411be442742797b"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 46,
+      "prediction_sha256": "1b1e6e6fda3bcddb6fa89c20e212169e27f48f72237e1dfa730ba37a4902e469"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 47,
+      "prediction_sha256": "8e81c9cc7df3629551df1136ac27ac2c25087640545bfdc9b1a80536e3ee955e"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 48,
+      "prediction_sha256": "05448465107ebeff95a02d20861c2ffa9fabfc83e1817eabc8a35e47c39fc414"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale",
+      "seed": 49,
+      "prediction_sha256": "e0717b8c42d10902998f54361acf40ab0a418771b3170489d8f4d9e42df517fb"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "prediction_sha256": "ba4b67b61622ae99a47247627550380a91ca332a5ab1b5c8a26b2b1ddcc8c179"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "prediction_sha256": "7cebfef6e278facb4796be86db2e20fe3f5fdb1e97ccd9c8985e018ead733972"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "prediction_sha256": "3034612cff6a638c7a5df9e07cff3e2ebce0ec8b35b2d3499752e9a3e44d73bd"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "prediction_sha256": "35f205c37f3c99fb16d47346df13cdde0cf184ceeb75709b51292aec009b76b8"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "prediction_sha256": "2dc23e1080c4016a27ca5b39f6f7253e0eef670a417ecbb83a32b1d9b362d841"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "prediction_sha256": "36ee50e8a79d356130b23aee276f04b8bd1f992932199f320b1e04b1cac02c8f"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "prediction_sha256": "3a1f38e593b89e33961bc095048b6bd9b9df4881bbbc3e729565698e1c7c0712"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "prediction_sha256": "39100a2e1b6e950754330ea813363f561434f289374b56cb25e94cf322965b1c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "prediction_sha256": "4d1a42100fcb9547e273cbd6c7940477f642dc770fcebd13732da6c8e17e8630"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "prediction_sha256": "121cf092d52c4e8050389cc3ff54efbbc4e3e766fbc690f84620c1a7bd9979e2"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "prediction_sha256": "4605b862865f8ea81f83d87cf3b1e8b67bc4c09499fb92c8ceb67e7dbe2c87a8"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "prediction_sha256": "08ae514c1f508d872d43ac3920f49d6ec6aad8cc88ccd8a49b5fca1b49a617e1"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "prediction_sha256": "f372ceef10b6e2e2c071478b3878edec1c801301a3bb223067e188fef7345a3d"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "prediction_sha256": "fb13cfc45d1e7a3c0df37ffa0b5845106298be1bab080d2fa26a7c994be93f89"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "prediction_sha256": "32e0d2abda4c01b4e340d1e0c6922fe4a2ef7149832faf0f47cdd6440c3723f6"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "prediction_sha256": "5eda98bd2edf3cbbfcddf72311208983a0a169cb70024e17c4a5f6d36ac62df7"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "prediction_sha256": "ddcec8208c2a7e291002916f95dd6a96ed0b72320c6461e63ae75493eb73125a"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "prediction_sha256": "5d1c2daffd706661bcb17920669f814c87b4596c0e0d2fbf52ac84f428ae00aa"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "prediction_sha256": "64bfe0395a17c1484a38d26ea6655763b7f4b88937e63b978031f39555fd0996"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "prediction_sha256": "4a566c4121fdb52701764ded4861b5de0bf24b332b517c6ba731f67201dfd093"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "prediction_sha256": "1fe0156de2045a3ec4799c6e3f047ed00969a345a1fee07428b55ae4ceedd537"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "prediction_sha256": "5770fdd2fe87dd0e0273f23578a4667caa319bfa207e433ec72716c6d029d121"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "prediction_sha256": "66efbcebed09f2d4f04ac69888cea5600ee42ca0341556864b85ea07c7dab405"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 96,
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "prediction_sha256": "13dbd93adcb27ca678f0a22a7195f16d39adb13f6a854c37aae39783655ede7b"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 42,
+      "prediction_sha256": "a727b8368add986c1d26cb3f7b300cc8acab08f29eb44ff445e95d6dfcc97e6b"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 43,
+      "prediction_sha256": "93bafd06b41959446065050f23d9508737bc0c6ed4d58ca067f580f731433d4b"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 44,
+      "prediction_sha256": "f86bc92b837a64e8715347470ad1b6111d11ef600cc68c202f72ceb35542a50c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 45,
+      "prediction_sha256": "81b082cb57b66f41a4b2bc0fd55222f0dbed69a3384c8928b296f23ee0a876db"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 46,
+      "prediction_sha256": "26115e5109dc4e95fe16fd9e63da34b05f545be2dc799a327d4e93b01a40bfc6"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 47,
+      "prediction_sha256": "dfc0a0aab855e4f24757e52d2dfda9637881e137f6586f869537c6bd7247ee19"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 48,
+      "prediction_sha256": "34b49cab3beeeb7a49daa92fa4bc45f2422cfd664fad280480ee4ed4395e4948"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear",
+      "seed": 49,
+      "prediction_sha256": "35c51b831fc56618742019cf178297d8e4b8892155fcd3c7760c4bb5fd64179e"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 42,
+      "prediction_sha256": "22f0e437c0764d171255e345e48f5bfa7a8f1b7bb8182ef6db216b36197fff65"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 43,
+      "prediction_sha256": "a49529bb6011f8995178ac2b4820809de0351ed44399d98a361afe6f3aa74d78"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 44,
+      "prediction_sha256": "e6ed30e0938d3f956cd35c2c44278824b4bae375060ccbb879bc40f81c8fda1d"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 45,
+      "prediction_sha256": "107c76ef7f39bf6aa260ae4544cfb2ef0f428c7b05cc9f7c3b8d79fc3a0604b5"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 46,
+      "prediction_sha256": "b27788842e095944376a4156d067e25774ca5fc297efd1e9097f9025ad32440c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 47,
+      "prediction_sha256": "dbf4dfc1d0324d27b48de070dd83a79fad95c776caa24b630f95db22b75a5ad7"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 48,
+      "prediction_sha256": "8441559fb57b27c2e328244932ef49710a4c9ac10e93ecec0f56a69d9e68abf8"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale",
+      "seed": 49,
+      "prediction_sha256": "5cb2c122b03f11908285c5ee345471064d4c0f64e49df851ca2f5120d4362586"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "prediction_sha256": "582774e36715861dae8643551b3d73d5e1d69959d6213ea48fbca7db72b86150"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "prediction_sha256": "23a9240114ebbfbec7433ae600435594c4b376c803096582b4d17ac74dc18ce8"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "prediction_sha256": "f704cbdb799400a8cb7f755529171e79260cc506757a60f0c43869bc81811505"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "prediction_sha256": "e7cac33cfe39a92df5891c74377ae86c4a25c6c43eb58a8a6c91ed9214b518cc"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "prediction_sha256": "edec55e5ba3204dacf04b47a891fad9943a716127fa75f3a26f787dea49ab940"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "prediction_sha256": "6ad6648b82e706dd6aa1955789c45ee94a45428a9912fc3b805a55630e31ad07"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "prediction_sha256": "7b753ed4dea0597dca21ca9b88697106210c37c2ec008f428a529915f2310731"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "prediction_sha256": "763802b48a56f48cef78e45bb9ea25b744dc6e27b51a27e6cac48b243b901da0"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "prediction_sha256": "ddd2200eee22953fa4310a49c499d0008de661ed90028c8dd4728b6b194afc31"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "prediction_sha256": "3a53721e9b165e1dc1499c26031cafcdd2ca3523d8e420f76bb9b486748bfa3c"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "prediction_sha256": "62a8948999d42500cfb7e75347bc6c0ffe78c0ef64e7afb876e54cc6a3485290"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "prediction_sha256": "13fd273a77eb74501e9c391e5be8a67c1bfb5d26af51592496d054f9e7b0d358"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "prediction_sha256": "c2c97ad0b5be67f32fc3a2d8d6bc2ece82412fa62eb003d873025023cf730a6e"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "prediction_sha256": "65111037ce6681e5081d9ebf4af3f7440da710ebd00d63c5a697d03664f0031d"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "prediction_sha256": "45322bc9ad222b76ba251af500b2d6b4a2c2a8df9bc2f74f59cf23aa2f63246d"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "prediction_sha256": "ffa831066e4b2b29bd79991e691ffa951967f7c7be18f042281cbde161c532ec"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "prediction_sha256": "21a0c5228187dc64bff6068b06283538efd0b65286766eb47118d4a448cebe1a"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "prediction_sha256": "538ea9d8cc9e355369b29bbd1156d8ad61e322cc4f7b7a41f90fe3b73d4538cc"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "prediction_sha256": "3e04612480ec8a6bd8caec0d870490ddfbf6577be9085978a07776a535aedcd2"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "prediction_sha256": "d6b0fd22c8df7c87c1b59df0827ad95d6b19a3ad61a1cfa7da7d3f1251622555"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "prediction_sha256": "716c9731b95d41990d56a403ca19caa3b85bd2ac3d8c2b871f48b6994e9ffb41"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "prediction_sha256": "77c1e7bf6c92c8795d9cfef55a3992956daece5b5bba749be2fc5ac19dbb64d1"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "prediction_sha256": "8fd4dc9db6a309847b347c3674f9a286738779e1a634bc14867b97d56a45b78a"
+    },
+    {
+      "dataset": "geant",
+      "horizon": 168,
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "prediction_sha256": "554699b6e2418912ddf9fb96e1c2c9f8f56b67b4faa640075271f1191806787f"
+    }
+  ]
+}

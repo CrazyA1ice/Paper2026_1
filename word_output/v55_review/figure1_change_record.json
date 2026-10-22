@@ -1,0 +1,18 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.09.30v54.docx",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.02v55.docx",
+  "figure": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_figures\\fig1_fusion_options_20261002\\B_weighted_branches.png",
+  "paragraph_index": 19,
+  "before": "图1给出模型的整体流程。模型包含多尺度预测和尺度选择两个模块：尺度1、2和4的输入分别交给独立DLinear专家，路由网络根据当前窗口的统计特征估计3个尺度的融合权重。原始OD流量经对数变换和标准化后形成3个时间分辨率的输入序列；3个专家分别预测，再按样本级权重融合。固定等权、全局可学习权重与恒定输入路由对照采用相同的尺度与专家结构，并分别训练，用以比较等权、全局非等权与输入相关融合。",
+  "after": "图1给出模型的整体流程。历史OD窗口经对数变换和标准化后，构造尺度1、2和4的输入序列，分别交给独立DLinear专家。各专家将趋势项和余项分别映射到24步预测，再将两部分结果相加。窗口路由网络根据原始分辨率输入的4项统计特征生成Softmax权重，对3个尺度的候选预测加权求和。图中省略样本下标n，曲边连接表示DLinear专家内部的展开；实线表示预测计算流程，虚线表示窗口特征和融合权重的传递。图中的矩阵、曲线和色块用于说明计算过程。固定等权、全局可学习权重与恒定输入路由对照采用相同的尺度与专家结构，并分别训练，用以比较等权、全局非等权与输入相关融合。",
+  "figure_width_mm": 161.925,
+  "figure_height_mm": 98.96052777777778,
+  "figure_sha256": "f13748c6a9dd736c4f0007cf7e9bab467a31713418a2a4a56198f442e84fb93e",
+  "changed_docx_parts": [
+    "word/document.xml",
+    "word/media/image1.png"
+  ],
+  "tables_unchanged": true,
+  "equations_unchanged": true,
+  "other_figures_unchanged": true
+}

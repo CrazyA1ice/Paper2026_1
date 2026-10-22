@@ -1,0 +1,87 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.07v72.docx",
+  "target": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.07v73.docx",
+  "source_sha256": "9f070c96d09d264b9dec34bb1332b542e781129aa02c69f4f38067c05576c286",
+  "target_sha256": "7f047aae98d81f2f3afb66d4e6ad260f935fe992bd0322877962f9121b5dff7e",
+  "citation_occurrences": 13,
+  "distinct_references": 11,
+  "changed_paragraphs": [
+    12,
+    13,
+    38,
+    64,
+    69
+  ],
+  "changes": [
+    {
+      "paragraph_index": 12,
+      "citation": "[1]",
+      "context": "Lohrasbinasab等[1]综述了网络流量预测方法，指出机器学习与深度学习等数"
+    },
+    {
+      "paragraph_index": 12,
+      "citation": "[2]",
+      "context": "仅分析单一序列难以覆盖OD变量之间的关联。Qin等[2]采用图神经网络处理空间关联与时间依赖；韦烜等[3]"
+    },
+    {
+      "paragraph_index": 12,
+      "citation": "[3]",
+      "context": "[2]采用图神经网络处理空间关联与时间依赖；韦烜等[3]分析大型网际协议（Internet protoco"
+    },
+    {
+      "paragraph_index": 12,
+      "citation": "[4]",
+      "context": "，IP）网络流量矩阵的变量关联及时间变化；唐文杰等[4]在CycleLLH中引入周期性信息。这些研究从时间"
+    },
+    {
+      "paragraph_index": 13,
+      "citation": "[5]",
+      "context": "趋势更明显；不同时间分辨率提供互补信息。Zhou等[5]以深度回声状态网络进行多尺度流量预测。在轻量预测方"
+    },
+    {
+      "paragraph_index": 13,
+      "citation": "[6]",
+      "context": "ion linear model，DLinear）[6]结合序列分解与线性映射；TimeMixer[7]采"
+    },
+    {
+      "paragraph_index": 13,
+      "citation": "[7]",
+      "context": "）[6]结合序列分解与线性映射；TimeMixer[7]采用多尺度混合；LightTS[8]使用采样导向的"
+    },
+    {
+      "paragraph_index": 13,
+      "citation": "[8]",
+      "context": "meMixer[7]采用多尺度混合；LightTS[8]使用采样导向的多层感知器（multilayer p"
+    },
+    {
+      "paragraph_index": 38,
+      "citation": "[6]",
+      "context": "每个DLinear专家[6]处理本尺度输入，通过长度q=25的中心移动平均提取"
+    },
+    {
+      "paragraph_index": 64,
+      "citation": "[9]",
+      "context": "本实验选用CESNET TS-Zoo[9]中的1 h粒度聚合流量矩阵Abilene[10]和"
+    },
+    {
+      "paragraph_index": 64,
+      "citation": "[10]",
+      "context": "oo[9]中的1 h粒度聚合流量矩阵Abilene[10]和GÉANT[11]。两套数据均采用L=96、H="
+    },
+    {
+      "paragraph_index": 64,
+      "citation": "[11]",
+      "context": "粒度聚合流量矩阵Abilene[10]和GÉANT[11]。两套数据均采用L=96、H=24的设置，规模及窗"
+    },
+    {
+      "paragraph_index": 69,
+      "citation": "[6]",
+      "context": "维度参数为512。DLinear及各尺度专家按文献[6]实现，移动平均窗口长度为25，路由隐藏层维度设为1"
+    }
+  ],
+  "text_unchanged": true,
+  "non_document_package_parts_unchanged": true,
+  "tables_equations_images_paragraph_and_section_formats_unchanged": true,
+  "reference_list_unchanged": true,
+  "source_unchanged": true
+}

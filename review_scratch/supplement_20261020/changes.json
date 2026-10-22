@@ -1,0 +1,22 @@
+[
+  {
+    "before": "摘要：针对小时级骨干网流量中短时波动与较慢趋势并存的问题，提出基于自适应多尺度加权的预测方法。模型以三个独立分解线性专家处理不同时间分辨率的历史序列，根据窗口的四项统计量计算尺度权重，并对各尺度预测加权融合。在Abilene和GÉANT上，使用96 h历史预测未来24 h；八随机种子实验中，相对单尺度DLinear的平均均方误差降幅分别为2.77%和2.35%。模型共8339个参数，其中路由网络含131个参数。补充的12 h预测中，相对全局可学习权重，Abilene平均改进15.97%，GÉANT平均改进率为−1.17%。结果表明，输入相关的尺度融合在部分设置下可降低平均误差，但优势依赖数据集和预测长度。现有结果限于两套历史骨干网数据上的离线评价，实际部署效果仍需验证。",
+    "after": "摘要：针对小时级骨干网流量中短时波动与较慢趋势并存的问题，提出基于自适应多尺度加权的预测方法。三个独立DLinear专家处理不同时间分辨率的历史序列，路由网络根据四项窗口统计量计算尺度权重并融合预测。在Abilene和GÉANT上，以96 h历史预测未来24 h，八个共同种子下相对单尺度DLinear的平均MSE降幅分别为2.77%和2.35%；在周期基线可评价的共同起点，相对周周期朴素预测分别降低47.80%和29.69%。模型含8339个参数，其中路由网络含131个参数。训练历史长度和连续测试时段的补充评价显示融合收益存在条件依赖，相对全局可学习权重，部分短历史及12 h预测设置下出现负改进。结果支持该方法在所测历史数据上的离线预测价值，其跨网络迁移和实际部署效果仍需验证。"
+  },
+  {
+    "before": "Abstract: An adaptive multiscale weighting method is proposed for hourly backbone network traffic forecasting, where short-term fluctuations coexist with slower trends. Three independent decomposition linear experts process historical sequences at different temporal resolutions. A routing network computes scale weights from four window statistics and combines the candidate forecasts. Experiments on Abilene and GÉANT use 96 hours of history to predict the next 24 hours. Across eight random seeds, the mean seed-wise reductions in mean squared error relative to single-scale DLinear are 2.77% and 2.35%, respectively. The model has 8,339 parameters, including 131 routing parameters. In additional 12-hour forecasting experiments, the mean improvement over learned global weights is 15.97% on Abilene and −1.17% on GÉANT. These results show that input-dependent scale fusion can reduce mean errors in some settings, but its benefit depends on the dataset and forecast horizon. The evidence is limited to offline evaluation on two historical backbone network datasets; deployment performance requires further validation.",
+    "after": "Abstract: An adaptive multiscale weighting method is proposed for hourly backbone network traffic forecasting, where short-term fluctuations coexist with slower trends. Three independent DLinear experts process historical sequences at different temporal resolutions. A routing network computes scale weights from four window statistics and combines their forecasts. Experiments on Abilene and GÉANT use 96 hours of history to predict the next 24 hours. Across eight matched random seeds, the mean seed-wise reductions in mean squared error relative to single-scale DLinear are 2.77% and 2.35%, respectively. At common test origins where both seasonal references are available, the reductions relative to weekly seasonal naive forecasting are 47.80% and 29.69%. The model has 8,339 parameters, including 131 routing parameters. Additional training-history and chronological-block evaluations show that fusion benefits depend on the setting. Negative improvements over learned global weights occur with some shorter training histories and in the 12-hour forecasting experiment. The results support offline forecasting on these two historical backbone datasets; cross-network transfer and deployment performance require further validation."
+  },
+  {
+    "before": "当前证据还受观测时期较短、单一时间划分和有限基线范围约束。GÉANT的种子波动及12 h负改进进一步表明，低维汇总统计量未必能提供充分的状态区分。后续验证需要更长时期及不同业务网络的数据，在保持验证与测试时间段固定的条件下绘制训练数据量学习曲线，并进行滚动时间评价；实际应用还需测量原始量纲误差、单窗口端到端时延及链路容量决策收益。",
+    "after": "当前证据仍受观测时期较短、单一训练—验证—测试划分和有限基线范围约束。训练历史实验同时改变了观测量、时期覆盖和训练更新次数，未分离这些因素；测试分段也未重新训练模型，不属于滚动重训验证。GÉANT的种子波动及12 h负改进表明，当前融合策略的收益不具有普遍性，尚需进一步检验四维汇总统计量对窗口状态的区分能力。后续需要更长时期及不同业务网络的数据和滚动起点评价；实际使用还需测量原始量纲误差、单窗口端到端时延及链路容量决策收益。"
+  },
+  {
+    "before": "本文研究独立DLinear专家的多尺度融合，以四维窗口统计量生成样本级尺度权重。24 h预测的重复实验在两套数据上得到较低平均误差，但GÉANT的种子间波动较大，12 h设置下也未获得稳定改善。该方法以增加尺度专家计算为代价控制融合参数规模，现阶段适用于所测历史数据上的离线比较。更长时期数据、不同业务网络和在线端到端评价仍是检验其适用性的必要工作。",
+    "after": "本文以四维窗口统计量融合三个独立DLinear尺度专家。所测24 h设置下，完整训练历史的平均误差低于DLinear与全局权重，并超过日、周周期朴素基线；训练历史和分时段分析同时揭示了收益对数据覆盖与测试区间的依赖。较短历史下，Abilene的路由融合未必优于对照，GÉANT的部分比较也存在较大种子波动；12 h预测未在两个数据集上均获得改善。该方法以增加尺度专家计算为代价控制融合参数规模，现有证据限于两套历史骨干网的离线实验。后续需在更长时期、不同业务网络和实际端到端流程中检验适用性。"
+  },
+  {
+    "before": "2.6 泛化能力与研究局限",
+    "after": "2.7 泛化能力与研究局限"
+  }
+]

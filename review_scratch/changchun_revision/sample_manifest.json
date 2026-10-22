@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "file": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\基于AES的网络安全态势感知数据多层次加密方法_胡艳.pdf",
+    "pages": 8,
+    "sha256": "8305a78226371b447c22f15cdbc92f06fbdef375ca3e7fab3244ea88c1350237",
+    "selected": [
+      1,
+      2,
+      8
+    ]
+  },
+  {
+    "id": 2,
+    "file": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\基于PSO的PC构件生产系统人员柔性调度优化研究_原丕业.pdf",
+    "pages": 6,
+    "sha256": "d2d29b502e603da09b82937e16bddb0e8e42aa88684e34c263eee66e87f25a1c",
+    "selected": [
+      1,
+      2,
+      6
+    ]
+  },
+  {
+    "id": 3,
+    "file": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\基于关键词提取模型与强化学习的高校图书馆图书自动分类方法_庄辉凤.pdf",
+    "pages": 5,
+    "sha256": "e2d37e9db0fabc41ee8f6fd18313d19e3cb7d53f79aaed48c23d8e58e9027405",
+    "selected": [
+      1,
+      2,
+      5
+    ]
+  }
+]

@@ -1,0 +1,108 @@
+{
+  "upper_calibration_bias": [
+    {
+      "dataset": "abilene",
+      "model": "DLinear",
+      "signed_bias": -0.15739856720421672,
+      "bins": "30 and above"
+    },
+    {
+      "dataset": "abilene",
+      "model": "固定等权",
+      "signed_bias": -0.16724002887592537,
+      "bins": "30 and above"
+    },
+    {
+      "dataset": "abilene",
+      "model": "本文方法",
+      "signed_bias": -0.13036198884149405,
+      "bins": "30 and above"
+    },
+    {
+      "dataset": "geant",
+      "model": "DLinear",
+      "signed_bias": -0.46109726698297887,
+      "bins": "30 and above"
+    },
+    {
+      "dataset": "geant",
+      "model": "固定等权",
+      "signed_bias": -0.4827835667496802,
+      "bins": "30 and above"
+    },
+    {
+      "dataset": "geant",
+      "model": "本文方法",
+      "signed_bias": -0.449587817700711,
+      "bins": "30 and above"
+    },
+    {
+      "dataset": "abilene",
+      "model": "恒定输入路由",
+      "signed_bias": -0.1434698081123159,
+      "bins": "30 and above"
+    },
+    {
+      "dataset": "geant",
+      "model": "恒定输入路由",
+      "signed_bias": -0.49224516529001755,
+      "bins": "30 and above"
+    }
+  ],
+  "table_borders": [
+    {
+      "table": 1,
+      "table_bottom": "single",
+      "last_row_cell_bottom": [
+        "nil",
+        "nil",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ]
+    },
+    {
+      "table": 2,
+      "table_bottom": "single",
+      "last_row_cell_bottom": [
+        "nil",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ]
+    },
+    {
+      "table": 3,
+      "table_bottom": "single",
+      "last_row_cell_bottom": [
+        "nil",
+        "nil",
+        "nil",
+        "nil",
+        "nil"
+      ]
+    }
+  ],
+  "pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "renderer": "Microsoft Word 2021 COM export followed by bundled Poppler",
+  "equations_unchanged": true,
+  "other_figures_unchanged": true,
+  "data_checks": 587,
+  "failed_checks": []
+}

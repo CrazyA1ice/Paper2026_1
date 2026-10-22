@@ -1,0 +1,11 @@
+{
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图表组织优化修订_20261022\\图表与核验数据\\图4_一周绝对误差与配对降幅.pdf",
+  "auditable": true,
+  "minimum_required_pt": 7.5,
+  "minimum_found_pt": 7.5,
+  "text_run_count": 67,
+  "below_minimum_count": 0,
+  "below_minimum": [],
+  "warnings": []
+}
+

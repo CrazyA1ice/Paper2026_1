@@ -1,0 +1,64 @@
+epoch=001 train_objective=0.946092 val_mse=2.118374
+epoch=002 train_objective=0.885628 val_mse=2.056260
+epoch=003 train_objective=0.881921 val_mse=2.085382
+epoch=004 train_objective=0.880383 val_mse=2.093413
+epoch=005 train_objective=0.880846 val_mse=2.230734
+epoch=006 train_objective=0.882298 val_mse=2.059935
+epoch=007 train_objective=0.880003 val_mse=2.006022
+epoch=008 train_objective=0.879123 val_mse=2.154311
+epoch=009 train_objective=0.879821 val_mse=2.075947
+epoch=010 train_objective=0.880499 val_mse=1.999445
+epoch=011 train_objective=0.879939 val_mse=2.181366
+epoch=012 train_objective=0.882887 val_mse=2.007423
+epoch=013 train_objective=0.881931 val_mse=2.118655
+epoch=014 train_objective=0.880715 val_mse=2.046108
+epoch=015 train_objective=0.879284 val_mse=2.051779
+epoch=016 train_objective=0.881291 val_mse=1.970332
+epoch=017 train_objective=0.881698 val_mse=2.168802
+epoch=018 train_objective=0.878500 val_mse=2.032885
+epoch=019 train_objective=0.881180 val_mse=2.078337
+epoch=020 train_objective=0.881858 val_mse=2.058413
+epoch=021 train_objective=0.881862 val_mse=2.121903
+epoch=022 train_objective=0.883820 val_mse=2.025032
+Early stopping at epoch 22
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "dlinear",
+  "model_config": {},
+  "seed": 45,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1446,
+    "val": 307,
+    "test": 307
+  },
+  "input_len": 96,
+  "pred_len": 168,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 32592,
+  "best_val_mse_normalized": 1.970332241601975,
+  "test_normalized": {
+    "mse": 1.1105952262878418,
+    "mae": 0.6073203086853027,
+    "rmse": 1.0538477897644043
+  },
+  "test_original_units": {
+    "mse": 2245890048.0,
+    "mae": 9690.8388671875,
+    "rmse": 47390.82421875
+  },
+  "elapsed_seconds": 138.5057015000002
+}

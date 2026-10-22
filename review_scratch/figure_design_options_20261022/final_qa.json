@@ -1,0 +1,124 @@
+{
+  "accepted": true,
+  "figures": [
+    {
+      "tag": "A2",
+      "physical_width_mm": 138,
+      "font_floor_pt": 7.5,
+      "final_png_dpi": 600,
+      "alignment": "PASS",
+      "collision": "PASS",
+      "visual_colour_review": "PASS",
+      "visual_grayscale_review": "PASS",
+      "all_eight_seeds_retained": true
+    },
+    {
+      "tag": "A3",
+      "physical_width_mm": 138,
+      "font_floor_pt": 7.5,
+      "final_png_dpi": 600,
+      "alignment": "PASS",
+      "collision": "PASS",
+      "visual_colour_review": "PASS",
+      "visual_grayscale_review": "PASS",
+      "all_eight_seeds_retained": true
+    },
+    {
+      "tag": "A4",
+      "physical_width_mm": 138,
+      "font_floor_pt": 7.5,
+      "final_png_dpi": 600,
+      "alignment": "NOT APPLICABLE",
+      "collision": "PASS",
+      "visual_colour_review": "PASS",
+      "visual_grayscale_review": "PASS",
+      "all_eight_seeds_retained": true
+    },
+    {
+      "tag": "B2",
+      "physical_width_mm": 138,
+      "font_floor_pt": 7.5,
+      "final_png_dpi": 600,
+      "alignment": "PASS",
+      "collision": "PASS",
+      "visual_colour_review": "PASS",
+      "visual_grayscale_review": "PASS",
+      "all_eight_seeds_retained": true
+    },
+    {
+      "tag": "B3",
+      "physical_width_mm": 138,
+      "font_floor_pt": 7.5,
+      "final_png_dpi": 600,
+      "alignment": "PASS",
+      "collision": "PASS",
+      "visual_colour_review": "PASS",
+      "visual_grayscale_review": "PASS",
+      "all_eight_seeds_retained": true
+    },
+    {
+      "tag": "B4",
+      "physical_width_mm": 138,
+      "font_floor_pt": 7.5,
+      "final_png_dpi": 600,
+      "alignment": "PASS",
+      "collision": "PASS",
+      "visual_colour_review": "PASS",
+      "visual_grayscale_review": "PASS",
+      "all_eight_seeds_retained": true
+    },
+    {
+      "tag": "C2",
+      "physical_width_mm": 138,
+      "font_floor_pt": 7.5,
+      "final_png_dpi": 600,
+      "alignment": "PASS",
+      "collision": "PASS",
+      "visual_colour_review": "PASS",
+      "visual_grayscale_review": "PASS",
+      "all_eight_seeds_retained": true
+    },
+    {
+      "tag": "C3",
+      "physical_width_mm": 138,
+      "font_floor_pt": 7.5,
+      "final_png_dpi": 600,
+      "alignment": "PASS",
+      "collision": "PASS",
+      "visual_colour_review": "PASS",
+      "visual_grayscale_review": "PASS",
+      "all_eight_seeds_retained": true
+    },
+    {
+      "tag": "C4",
+      "physical_width_mm": 138,
+      "font_floor_pt": 7.5,
+      "final_png_dpi": 600,
+      "alignment": "PASS",
+      "collision": "PASS",
+      "visual_colour_review": "PASS",
+      "visual_grayscale_review": "PASS",
+      "all_eight_seeds_retained": true
+    }
+  ],
+  "book_pages": 3,
+  "manuscript_unchanged": true,
+  "no_new_experiments": true,
+  "no_seed_exclusions": true,
+  "source_linter_manual_review": {
+    "internal_preview_dpi": 220,
+    "final_scientific_png_dpi": 600,
+    "physical_pdf_width_mm": 138,
+    "notes": "220 dpi files are internal QA previews, not scientific exports. All final individual PNGs pass 600 dpi format audit. Target width 138 mm follows the supplied Chinese journal manuscript. PDF/SVG plus 600 dpi PNG are the requested reference deliverables; TIFF was not required for this comparison task."
+  },
+  "repeat_definition": "eight training seeds, 42–49; sample SD; matched percentage reductions averaged across seeds",
+  "raw_scope": {
+    "core_and_ablation_records": 96,
+    "baseline_records_for_figure2": 48,
+    "high_demand_records": 80,
+    "weekly_records": 40,
+    "baseline_paired_metric_values": 64,
+    "high_demand_paired_metric_values": 128,
+    "weekly_paired_metric_values": 64
+  }
+}

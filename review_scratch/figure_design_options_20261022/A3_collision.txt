@@ -1,0 +1,11 @@
+Nature Figure Rendered Collision Audit
+pdf: C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\A_紧凑矩阵\图3_高需求配对增益矩阵.pdf
+pages: 1
+visible text boxes: 54
+stroke paths: 22
+
+
+summary: 0 fail, 0 warn, 32 contained fill overlays, 32 contained image overlays
+verdict: PASS
+note: contained overlays can be intentional; WARN findings need final-size visual review
+

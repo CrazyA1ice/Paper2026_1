@@ -1,0 +1,489 @@
+
+--- PAGE 1 ---
+第 29 卷 第2期
+2026 年 3 月
+成都工业学院学报
+JOURNAL OF CHENGDU TECHNOLOGICAL UNIVERSITY
+Vol.29,No.2
+Mar.,2026
+DOI:10.13542 / j.cnki.51-1747 / tn.2026.02.006
+收稿日期: 2025-11-16
+基金项目: 四川省科技成果转移转化引导计划项目(2024ZHCG0046);全国大学生创新创业训练计划项目(202511116014)
+第一作者简介: 唐博(2005—),男,通信工程专业,2023 级在读本科生。
+通信作者简介: 姚元飞( 1980—),男,教授,硕士,研究方向为通信工程、数字信号处理、人工智能。 电子邮箱:yyf617488@
+163.com。
+基于 LSTM 预测与强化学习的智能频谱管理优化方法
+唐 博,姚元飞,裴涔宇,白灵希,黄靓文,杨 晨,周景田,邓 浩
+(成都工业学院 电气与电子工程学院,成都 611730)
+摘要: 针对民航地勤、低空无人机等通信环境中频谱资源受限、信道变化剧烈以及多节点干扰复杂等问题,提出了一种融合长
+短期记忆(LSTM)网络时序预测、双深度 Q 网络(Dueling DDQN)强化学习与汤普森采样(TS)自适应分配的智能频谱管理优
+化方法。 该方法构建了“预测—决策—分配—反馈”的闭环协同框架,实现了信道状态的前瞻性感知、策略层的智能决策以及
+信道资源的自适应优化。 通过 LSTM 模块捕获信道的时间依赖特征,可有效提升预测精度与前瞻性调度能力;Dueling DDQN
+模块基于多目标奖励函数进行动态权衡,实现了在高维状态空间中的稳定收敛; TS 机制在探索与利用之间保持平衡,增强了
+系统对非平稳信道的适应性。 实验结果表明,该方法能够在高动态、多节点干扰环境下有效提升通信系统的稳定性、可靠性
+与频谱利用效率,为智能频谱管理与民航地勤通信优化提供了一种可推广的技术路径。
+关键词: 长短期记忆;强化学习;双深度 Q 网络;汤普森采样;智能频谱管理;民航地勤通信
+中图分类号: TP181 文献标志码: A 文章编号: 2095-5383(2026)02-0033-07
+Intelligent Spectrum Management Optimization Method based on
+LSTM Prediction and Reinforcement Learning
+TANG Bo, YAO Yuanfei, PEI Cenyu, BAI Lingxi, HUANG Liangwen, YANG Chen, ZHOU Jingtian, DENG Hao
+(School of Electrical and Electronic Engineering, Chengdu Technological University, Chengdu 611730, China)
+Abstract: To address the challenges of limited spectrum resources, drastic channel variations and complex multi-node interference in
+communication environments such as civil aviation ground services and low-altitude unmanned aerial vehicles, an intelligent
+spectrum management optimization method integrating long short-term memory ( LSTM) network time-series prediction, dueling
+double deep Q-network (Dueling DDQN) reinforcement learning, and Thompson sampling(TS) adaptive allocation was proposed.
+The proposed method establishes a closed-loop collaborative framework of “prediction-decision-allocation-feedback”, which realizes
+prospective perception of channel states, intelligent decision-making at the strategy level and adaptive optimization of channel
+resources. The LSTM module captures the temporal dependence characteristics of channels, which can effectively improve prediction
+accuracy and prospective scheduling capability. The Dueling DDQN module performs dynamic trade-off based on the multi-objective
+reward function, achieving stable convergence in high-dimensional state space. The TS mechanism maintains a balance between
+exploration and exploitation, enhancing the system's adaptability to non-stationary channels. Experimental results show that this
+method can effectively improve the stability, reliability and spectrum utilization efficiency of communication systems in high￾dynamic and multi-node interference environments, providing a scalable technical approach for intelligent spectrum management and
+civil aviation ground service communication optimization.
+Keywords: long short-term memory (LSTM); Reinforcement Learning; dueling double deep Q-network (Dueling DDQN); Thompson
+sampling(TS); intelligent spectrum management; civil aviation ground communication
+近年来,随着智慧民航与低空经济的快速发
+展,机场地面保障作业的通信网络负载与动态复杂
+度显著提升。 2024 年我国枢纽机场日均航班起降
+量超 1 200 架次,地勤作业呈“人员—设备—任务”
+多节点高并发特征,对无线通信的低时延、高可靠
+与频谱效率提出严苛要求。 据中国民航局统计,
+32%的地勤安全事件与通信失效或调度延迟直接相
+关,传统通信网络在机坪环境下中断率达 18. 3%,多
+部门协同信息延迟超 12 s,严重制约机场运行安全
+与效率[1]
+。
+— 33 —
+--- PAGE 2 ---
+成都工业学院学报 第 29 卷
+动态自适应频谱管理与智能资源分配是解决
+上述问题的核心路径,但现有研究存在 3 类共性不
+足:在信道预测方面,Jasim 等[2] 综述的无人机频谱
+管理策略,未充分考虑节点高速移动引发的信道快
+速变化,难以适配地勤高动态场景;在多目标优化
+方面, Wang 等[3] 提 出 的 双 深 度 Q 网 络 ( dueling
+double deep Q-network,Dueling DDQN) 资源分配方
+法,因采用单一目标或固定权重奖赏结构,无法实
+现地勤场景“延迟-丢包-吞吐-频谱效率” 的联合
+最优;在信道分配方面,Deng 等[4] 引入的汤普森采
+样(Thompson sampling,TS) 机制,假设信道统计平
+稳,难以应对地勤通信的非平稳性与强干扰。
+针对现有频谱管理研究中信道预测精度不足、
+决策目标单一以及策略适应性较差等问题,本文提
+出了一种融合长短期记忆( long short-term memory,
+LSTM)网络时序预测、Dueling DDQN 强化学习与汤
+普森采样( TS) 自适应分配的智能频谱管理优化方
+法。 本文方法构建“预测—决策—分配—反馈”的闭
+环协同框架,将时序特征建模与策略学习深度结合,
+使系统在变化的信道条件下能够提前感知趋势、动
+态调整策略,从而实现延迟、丢包率、吞吐量和频谱
+效率的综合优化。
+1 方法与系统模型
+该框架通过将时序特征建模与策略学习深度结
+合,使系统在变化的信道条件下能够提前感知趋势、
+动态调整策略,从而实现延迟、丢包率、吞吐量和频
+谱效率的综合优化。
+1. 1 系统总体架构
+本文提出的智能频谱管理系统整体结构如图 1
+所示。 系统由 3 层协同模块组成:
+1)状态感知与预测层:利用 LSTM 网络对历史
+状态序列进行学习,捕获网络流量、节点位置和信道
+质量的时间依赖特征,并预测下一时刻的系统状态;
+2)智能决策层:采用改进的竞争式 Dueling DDQN
+强化学习智能体,根据预测状态选择最优动作;
+3)自适应分配层:通过 TS 策略在不确定的信道
+环境中平衡探索与利用,实现信道分配的概率自
+更新。
+3 个模块构成了 1 个循环闭环:系统状态经由
+LSTM 预测模块生成未来估计,再由 DDQN 智能体做
+出策略决策,最后通过 TS 分配模块进行信道采样并
+返回反馈结果,从而完成策略的动态演化与持续
+优化。
+图 1 LSTM-Dueling DDQN-TS 协同频谱管理系统框架
+1. 2 系统参数定义与建模
+整个系统的运行依赖于多维状态变量与环境反
+馈信号的交互。 假设网络中共有 N 个节点和 C 条可
+用信道,每个节点在离散时间步 t∈{0,1,...,Tmax }
+的状态可表示为向量 st:
+st
+= [qt,gt,l
+t,pt,vt]。 (1)
+式中:qt 为队列长度;gt 为信道增益;l
+t 为链路负载;
+pt 为功率水平;vt 为节点速度。
+智能体根据状态选择动作 at,包括信道选择与
+路由决策。 系统执行动作后获得奖励 rt,并转移至
+新状态 st+1 。
+同时奖励函数综合考虑系统的多目标性能,定
+义为:
+R = 1(-D)+ 2(-Ploss)+ 3(T)+ 4(η)。 (2)
+式中:D 为平均时延;Ploss为丢包率;T 为吞吐量;η 为
+频谱效率; i(i = 1,2,3)为可调权重。 通过动态调整
+各权重,系统可在训练过程中实现不同性能指标之
+间的自适应权衡。
+— 34 —
+--- PAGE 3 ---
+2026 年第 2 期 唐博,等: 基于 LSTM 预测与强化学习的智能频谱管理优化方法
+表 1 系统主要参数及取值
+参数 含义 默认取值
+N 网络节点数 5
+C 可用信道数/ 条 10
+γ 折扣因子 0. 99
+目标网络更新率 0. 01
+W TS 窗口长度/ 步 50
+αc
+/ βc 信道传输的成功/ 失败次数累积 初值均为 1
+Adam 学习率 1×10
+-3
+1. 3 LSTM 状态预测模块
+在动态通信网络中,节点移动性、信道波动以及
+数据队列变化具有明显的时间依赖性,若仅依赖单
+步观测信息进行决策,智能体难以形成稳定的优化
+策略。 为此,本文引入 LSTM 网络对节点状态的时
+间演化进行建模[5]
+。
+LSTM 单元通过门控机制调控信息流,其紧凑的
+向量更新形式为:
+ft
+=σ(Wf·[ht-1 ,xt]+bf);
+i
+t
+=σ(Wi·[ht-1 ,xt]+bi);
+ot
+=σ(Wo·[ht-1 ,xt]+bo);
+C
+~
+t
+= tanh(WC·[ht-1 ,xt]+bC );
+Ct
+= ft☉Ct-1
++i
+t☉C
+~
+t;
+ht
+= ot☉tanh(Ct)。
+(3)
+式中:xt 为 t 时刻的输入状态向量;ht-1为上一时刻
+隐状态;Wf,Wi,Wo,WC 与 bf,bi,bo,bC 分别为遗忘
+门、输入门、输出门以及细胞状态对应的权重矩阵与
+偏置向量; ft,i
+t,ot 分别为遗忘门、输入门和输出门的
+输出状态向量;Ct 为细胞状态;C
+~
+t 为候选细胞状态;
+σ(·)为 Sigmoid 激活函数;tanh(·)为双曲正切激活
+函数;☉表示矩阵的元素对应乘积。 相比传统展开
+式,该表述更直观地反映了参数规模与计算流程。
+本文设计的 LSTM 预测器包含 2 层隐藏层,第 1
+层含 32 个单元,第 2 层含 16 个单元,如图 2 所示。
+图 2 LSTM 网络结构原理
+通过滑动窗口输入连续状态序列[st-n+1 ,st-n+2 ,...,st],
+网络输出预测状态 s
+~
+t+1 ,作为强化学习决策输入的一
+部分。 该设计使系统在信道状态突变前即可提前做
+出资源预调度,从而减少突发干扰带来的性能波动。
+1. 4 Dueling DDQN 强化学习决策模块
+为在高维状态空间中稳定学习有效策略,本文
+采用改进的 Dueling DDQN 结构,将 Q 值函数分解为
+状态价值函数 V(s)与动作优势函数 A(s,a),其融合
+公式为:
+Q(s,a)= V(s)+ A(s,a) -
+1
+| A| ∑a′
+A(s,a′)
+■
+■
+|
+■
+■
+| 。
+(4)
+式中:V(s)与 A(s,a)分别表示状态价值函数与动作
+优势函数; | A | 代表动作空间的大小;a′为用于计算
+优势函数均值的动作索引。
+与传统深度 Q 网络( deep Q-network,DQN) 相
+比,Dueling DDQN 架构能够更好地估计状态的重要
+性,而无需对所有动作显式采样。 此外,本文在训练
+过程中引入“ 双网络更新机制” 以缓解过估计问
+题[6]
+,其目标值计算为:
+yt
+= rt
++γQ′(st+1 ,argmaxa′Q(st+1 ,a′;θ);θ
+-
+)。 (5)
+式中:yt 为目标 Q 值;rt 为 t 时刻获得的即时奖励;
+Q′表示目标网络;θ 与 θ
+- 分别代表当前策略网络与
+目标网络的参数集合。
+通过软更新策略可在训练中保持网络参数的平
+稳演化,即:
+θ
+-← θ+(1- )θ
+-
+。 (6)
+智能体在每一时刻接收 LSTM 预测的状态输
+入,通过卷积层与全连接层提取特征,经过 Dueling
+DDQN 模块输出动作价值分布,并利用 ε-贪心或掩
+码约束选择动作。 结合优先经验回放策略,可在高
+动态环境中快速收敛。
+1. 5 TS 信道分配机制
+为进一步提高信道分配的灵活性与自适应性,
+本文采用改进的 TS 策略对各信道的成功概率进行
+贝叶斯估计[7]
+。
+设第 c 条信道的传输成功概率服从 Beta 分
+布,即:
+pc ~ Beta(αc,βc)。 (7)
+每次调度时,从每条信道的传输成功概率分布
+中采样 1 个概率,即:
+p^
+c ~ Beta(αc,βc)。 (8)
+— 35 —
+--- PAGE 4 ---
+成都工业学院学报 第 29 卷
+然后,系统将选择概率最大值对应的信道,其索
+引 c
+∗可表示为:
+c
+∗ = argmaxc
+p^
+c。 (9)
+式中:pc 为第 c 条信道的传输成功概率;p^
+c 为第 c 条
+信道的采样成功概率;αc 与 βc 为 Beta 分布的动态形
+状参数,分别对应信道传输的成功与失败次数累积;
+c
+∗表示当前决策时刻被选中的信道索引。
+若信道反馈成功,则更新 αc←αc
++1;失败则更新
+βc←βc
++ 1。 为应对动态信道特性,引入衰减因子
+γd
+= 0. 94,使旧样本逐步衰减,从而增强系统对新环
+境的响应能力。 该机制可在探索与利用之间保持平
+衡,避免陷入局部最优,同时为 DDQN 提供可靠的信
+道先验信息。
+2 实验结果与分析
+2. 1 模型设计与主要参数设置
+本文实验中网络拓扑规模设为 5 个节点、10 条
+可用信道。 节点间状态信息即信道质量、干扰强度、
+队列长度等作为输入向量,经 LSTM 模型提取时序
+特征后输入至 Dueling DDQN 智能体。
+在模型配置上,LSTM 设定为 2 层隐藏层结构,
+Dueling DDQN 采用竞争架构的双分支网络,信道分
+配模块基于 TS 概率更新。 各模块的关键参数设置
+详见表 2。
+表 2 关键参数及设置
+类别 配置项 取值/ 策略
+训练日程 总回合×步长 1 000×20
+批次划分 每批 100 组,共 10 批 批间趋势软约束
+节点,可用信道/ 条 N= 5, C = 10 固定
+LSTM 结构/ 损失/ 优化 32 / 16 单元,2 层;MSE;
+Adam(1×10
+-3
+)
+DDQN 结构/ 更新 Dueling;Double 目标;
+PER; = 0. 01
+TS 证据折扣/ 下界/
+上下文
+γd
+= 0. 94;floor = 0. 2;
+load & interference
+探索率 ε 递减 0. 30→0. 01(随进度)
+2. 2 训练策略与批次控制
+训练共设 1 000 回合,分为 10 批次。 每批次结
+束后计算均值趋势并进行软约束校正。 LSTM 模型
+按时间节流方式训练以避免过拟合;Dueling DDQN
+使用 优 先 经 验 回 放 ( prioritized experience replay,
+PER)与目标网络软更新( = 0. 01);探索率 ε 随批
+次递减(0. 30→0. 01),以平衡探索与收敛速度。
+TS 模块通过衰减因子 γd
+= 0. 94 的折扣与下界
+阈值 floor = 0. 2 的下界确保历史证据平滑衰减,兼顾
+近期信道状态与长期统计。
+2. 3 延迟与丢包率的时域演化
+系统在训练过程中延迟和丢包率的变化趋势如
+图 3、图 4 所示。 从整体来看,二者均呈明显下降趋
+势,但早期波动幅度较大,这是因为智能体在初始阶
+段仍处于“随机探索”模式,对信道状态的认知不足,
+导致路由与信道选择频繁变动,部分链路拥塞与碰
+撞增多。
+图 3 网络延迟变化趋势
+图 4 丢包率变化趋势
+随着训练的深入,LSTM 模块开始准确预测未来
+信道状态,使 Dueling DDQN 智能体能够在决策前提
+前感知潜在的干扰与拥塞情况。 基于预测结果的前
+瞻性调整使得智能体能更合理地分配信道资源与节
+点路由,从而显著降低了平均时延。
+在丢包率方面,TS 机制在多臂分布中持续修正
+信道成功率的先验参数,优质信道被频繁采样,劣质
+信道则被动态淘汰。 这种基于贝叶斯后验的概率筛
+— 36 —
+--- PAGE 5 ---
+2026 年第 2 期 唐博,等: 基于 LSTM 预测与强化学习的智能频谱管理优化方法
+选使得系统的信道利用更高效、误码与冲突更少。
+当训练超过 400 回合后,延迟降低约 43%,丢包率降
+低约 38%,曲线趋于平稳,表明本文算法在多用户干
+扰环境下实现了稳定收敛。
+更重要的是,延迟曲线后期的波动幅度显著减
+小,说明系统不仅达到了性能改善目标,而且形成了
+稳定的控制策略。 这得益于 LSTM 的时间依赖建模能
+力与 Dueling DDQN 的双网络稳定更新机制的结合。
+2. 4 吞吐量与频谱效率演化
+吞吐量与频谱效率是系统整体传输能力的重要
+体现。 随着训练进展,吞吐量稳步上升,频谱效率同
+步提升,最终在第 800 回合左右趋于收敛,如图 5 和
+图 6 所示。
+图 5 吞吐量趋势
+图 6 频谱效率趋势
+这一结果源于模型的协同优化机制。 LSTM 通
+过时间序列预测提供了对未来信道状态的近似预
+报,使 Dueling DDQN 能够基于“预期状态” 进行决
+策,而非仅依赖瞬时观测,从而降低了信道选择的盲
+目性。 Dueling DDQN 的价值函数与优势函数分支将
+状态质量与动作差异有效解耦,避免了传统 DQN 中
+动作价值高估的问题,使得策略更新更稳定。
+TS 模块进一步通过概率采样强化对高成功率
+信道的选择,同时维持一定的探索概率,防止本文算
+法陷入局部最优。 实验表明,与无预测模型或随机
+信道分配策略相比,本文方法在收敛后吞吐量提升
+约 34%,频谱效率提高约 30%。
+从“无序探索”到“预测驱动决策”的转变,体现
+了本文算法的核心思想:通过时间感知的智能学习,
+实现资源配置的动态最优。
+2. 5 多维性能耦合与系统协同机制
+图 7 和图 8 直观展示了延迟、吞吐量与频谱效
+率的三维关系,可以观察到 3 个特征规律:
+1)延迟与吞吐量呈显著负相关,即更高的数据
+传输速率通常伴随更低的平均延迟;
+2)吞吐量与频谱效率呈强正相关,说明信道资
+源的充分利用直接促进了系统产出;
+3)在丢包率较低的区域,数据点云整体上移,反
+映出系统在高可靠性条件下性能协同提升的趋势。
+图 7 网络性能 3D 关系图
+图 8 频谱性能 3D 关系图
+— 37 —
+--- PAGE 6 ---
+成都工业学院学报 第 29 卷
+这种现象说明,所提出的协同框架在资源层与
+决策层之间形成了正反馈闭环。 LSTM 的预测为
+Dueling DDQN 提供“未来可见性”,而 Dueling DDQN
+的动作评估又为 TS 的信道更新提供经验反馈,三者
+共同实现了从数据层到策略层的自适应优化。
+2. 6 分组投递率分布与网络稳定性
+系统的稳定性可通过分组投递率 PDR的统计分
+布反映。 图 9 所示的箱线图表明,PDR的主分布区间
+集中在 85% ~95%之间,且异常值极少。 初期少量低
+值主要来自智能体探索阶段的非最优策略,而在训
+练收敛后,分布的上边界与中位数逐步提升,表明网
+络在波动信道下仍保持较高传输成功率。
+图 9 分组投递率分布箱线图
+LSTM 的状态预测降低了时序不确定性,Dueling
+DDQN 的 PER 机制确保训练样本的多样性与代表
+性,而 TS 的下界机制防止了过度信任历史的偏差。
+这种多层机制叠加,使本文算法在面对动态干扰与
+节点移动时仍能维持高投递率,表现出良好的鲁
+棒性。
+2. 7 指标分布与相关性分析
+为进一步量化性能改进的统计特征,图 10 给出
+了系统主要指标的累积分布函数(cumulative distribution
+function,CDF)分布与相关性热力图。 从 CDF 可见,
+延迟分布整体左移、吞吐量与频谱效率分布右移,说
+明系统在绝大多数回合中均达到了更优的性能水
+平。 热力图揭示了各指标间的线性相关关系:延迟
+与吞吐量的相关系数为-0. 94,吞吐量与频谱效率的
+相关系数为+0. 71。
+这种高一致性的正负相关表明:本文算法的优
+化方向具有全局一致性。 也就是说,延迟的降低并
+非通过牺牲吞吐量或频谱效率实现,而是由于资源
+分配的合理性与预测调度的前瞻性共同带来了整体
+性能的提升。
+图 10 性能指标分布与相关性分析
+2. 8 综合性能评估与收敛性分析
+图 11 展示了系统在 4 个核心指标下的综合雷
+达图。 通过归一化与方向反转处理,可见后期批次
+的包络面积显著扩大,代表系统性能实现了全维度
+均衡提升。 为提高图表可读性,雷达图仅展示了具
+有代表性的训练批次(每隔 2 个批次选取 1 个),以
+避免数据过于密集而影响可视化效果。
+图 11 综合性能雷达图
+2. 9 算法复杂度与实时性分析
+为验证所提框架在地勤高动态通信场景下的工
+程可行性,本文对核心模块的时间复杂度与实时推
+理时延进行了定量分析。
+在时间复杂度方面,系统的计算开销主要集中
+在 LSTM 预测与 Dueling DDQN 决策阶段。 设 LSTM
+的时间窗口为 W,隐藏层单元数为 H,输入特征维数
+为 F,其单步推演的时间复杂度约为 O(W·(4FH+
+4H
+2
+))。 由于本文采用轻量化设计( H1
+= 32,H2
+=
+16),参数规模维持在较低水平。 Dueling DDQN 的
+决策复杂度主要取决于全连接层的矩阵运算,约为
+— 38 —
+--- PAGE 7 ---
+2026 年第 2 期 唐博,等: 基于 LSTM 预测与强化学习的智能频谱管理优化方法
+O(∑l
+Ml·Ml+1 ),其中 Ml 为各层神经元数量。 TS
+的贝叶斯更新仅涉及简单的 Beta 分布参数加法,复
+杂度为 O(1),对系统开销影响可忽略不计。
+在实时性方面,实验在配置为 NVIDIA GeForce
+RTX 5070Ti 的平台上进行测试。 单次“状态预测—
+策略生成—信道分配” 闭环的平均推理时延约为
+4. 2 ms。 考虑到实际民航地勤通信系统的时隙调度
+周期通常在 50 ~ 100 ms 之间,且信道相干时间在地
+勤车辆中低速移动场景下远大于该推理时延,因此,
+本文算法完全满足实时在线调度的时序要求。 此
+外,相较于传统暴力搜索或复杂的迭代优化算法,本
+文方法将计算重负转移至离线训练阶段,在线推理
+阶段仅需进行前向传播,极大地降低了对机载终端
+算力的依赖。
+2. 10 模型的可扩展性分析
+尽管本实验基于 N = 5 的典型地勤编组场景进
+行验证,但所提框架具备良好的可扩展性。 一方面,
+LSTM 状态预测模块采用局部观测特征作为输入,其
+参数维度主要取决于单节点的特征空间,而非全网
+节点总数,因此网络规模的扩大不会导致预测模型
+复杂度的指数级增长。 另一方面,在面对大规模网
+络(如 N 50)时,本框架支持多智能体分布式部署,
+各节点可共享 Dueling DDQN 的网络参数进行去中
+心化决策,从而避免单点计算瓶颈。
+3 结语
+本文提出了一种基于 LSTM 时序预测、Dueling
+DDQN 强化学习和 TS 自适应分配的智能频谱管理
+优化方法,解决了民航地勤、低空无人机等通信环境
+中的频谱资源有限、信道动态变化和多节点干扰等
+问题。 通过“预测—决策—分配—反馈”的闭环协同
+机制,实现了信道状态前瞻性感知、动态策略优化和
+自适应分配。 与已有研究相比,本文方法在多层次
+协同优化和实时性能提升上有所突破。 尽管仿真结
+果良好,但模型训练对数据依赖较强,且在大规模节
+点网络中的实时性和计算复杂度仍需优化。 未来的
+工作将进一步引入平均场博弈理论,以解决超大规
+模节点下的状态空间爆炸问题。
+参考文献:
+[1]中国民用航空局. 2023 年民航行业发展统计公报 [R]. 北京:中
+国民用航空局,2024.
+[2]JASIM M A,AL-SULTAN S,AL-FUQAHA A. A survey on spectrum
+management for unmanned aerial vehicles (UAVs) [J]. IEEE Access,
+2022,10:91547-91570.
+[3]WANG Y,ZHANG H,WANG T,et al. Dueling deep Q-networks for
+social-awareness-aided dynamic spectrum sharing [J]. IEEE Transactions
+on Cognitive Communications and Networking,2022(2):483-495.
+[4]DENG W,CHEN Y,ZHAO C,et al. Thompson sampling-based channel
+selection through density estimation [J]. IEEE Transactions on Vehicular
+Technology,2020(12):15904-15916.
+[5]HOCHREITER S,SCHMIDHUBER J. Long short-term memory [J].
+Neural Computation,1997(8):1735-1780.
+[6]VAN HASSELT H,GUEZ A,SILVER D. Deep reinforcement learning
+with double Q-learning [ C] / / Proceedings of the AAAI Conference
+on Artificial Intelligence. Phoenix:AAAI Press,2016:2094-2100.
+[7] THOMPSON W R. On the likelihood that one unknown probability
+exceeds another in view of the evidence of two samples [J]. Biometrika,
+1933(3 / 4):285-294.
+— 39 —

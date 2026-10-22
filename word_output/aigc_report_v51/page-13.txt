@@ -1,0 +1,43 @@
+PaperPure AIGC检测服务
+https://paperpure.net
+PaperPure AIGC检测服务
+https://paperpure.net
+方差来自种子间差异。Abilene对应的比例分别为48.7%、86.1%和80.6%。在GÉANT的同一种子内部，随窗口发
+生的权重变化较小。图5展示的汇总分布，把种子间差异与同一种子内部的窗口差异放在一起。若仅依据这一
+分布判断路由机制，仍缺少路由器能否有效识别各窗口尺度需求的证据。
+输入窗口的波动强度由平均绝对一阶差分度量。分组阈值取自训练窗口的三分位数，测试窗口按这些阈值分组
+。Abilene低、中、高波动组分别有15、406、392个窗口。本文方法相对全局权重模型的逐种子平均MSE改进率
+分别为4.43%、1.90%、1.69%；GÉANT在训练阈值下无低波动测试窗口，中、高组分别有76、375个窗口，改进
+率为5.85%和4.06%。在Abilene上，高波动组的尺度1平均权重高于中波动组，而相应的误差优势没有增强。GÉ
+ANT中波动组与高波动组的权重则近似相同。依据这些分组结果，当前还不能支持“波动越强，路由收益越大
+”的机制解释。
+前向计算开销单独计时，使用预测长度为24的8个随机种子检查点。NVIDIA GTX 1060为运行设备，测试张量在
+计时前加载，批量大小为16。本文方法在Abilene和GÉANT上的平均每批前向耗时分别为2.65 ms和2.61 ms，固
+定等权模型分别为2.38 ms和2.10 ms，单尺度DLinear分别为0.77 ms和0.70 ms。这组耗时仅对应模型前向计
+算；数据读取和传输需在端到端部署时延中另外计入。尽管参数量较小，三个尺度专家和路由器仍增加了本文
+方法的推理计算开销。
+3 结论
+骨干网络OD流量中的短时波动与较慢趋势由多尺度预测结构共同处理。本文采用尺度1、2和4的DLinear专家分
+别预测，再以轻量路由网络计算输入相关融合权重，组合各专家结果。预测长度为24时，在Abilene和GÉANT两
+套实验中，本文方法的平均误差均低于作为比较对象的DLinear、LightTS和固定等权模型。相对全局可学习权
+重与恒定输入路由两类常权重对照，本文方法在Abilene上的逐种子平均MSE改进均约1.80%；GÉANT上的对应改
+进分别为4.31%和4.97%，但两项95%置信区间均跨越零。预测校准按真实值分组后，高流量端仍被各模型低估
+，本文方法在该端的平均偏差相对较小。这一比较基于分组平均值，不能推广为每个测试点的预测都更准确。
+逐种子权重分析和波动分组分析尚未给出路由器稳定匹配窗口尺度需求的充分证据。输入相关融合收益能否保
+持稳定，仍需采用更多数据和不同预测设置检验。
+参考文献
+[1] LOHRASBINASAB I, KESHAVARZ A, AMIN-NEJAD S, et al. From statistical- to machine learning-bas
+ed network traffic prediction[J]. Transactions on Emerging Telecommunications Technologies, 2022
+, 33(4): e4394. DOI: 10.1002/ett.4394.
+[2] QIN L, GU H, WEI W, et al. Spatio-temporal communication network traffic prediction method b
+ased on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.202
+4.121003.
+[3] 韦烜, 刘志华, 李青, 等. 大型IP网络流量矩阵分析预测的探讨研究[J]. 系统工程与电子技术, 2024, 4
+6(6): 2164-2173. DOI: 10.12305/j.issn.1001-506X.2024.06.35.
+[4] 唐文杰, 肖一磊, 孔祥宇, 等. CycleLLH：一种基于周期性整合的新型网络流量预测模型[J]. 计算机学
+报, 2024, 47(12): 2867-2888. DOI: 10.11897/SP.J.1016.2024.02867.
+[5] ZHOU J, HAN T, XIAO F, et al. Multiscale network traffic prediction method based on deep ech
+o-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-2
+1874. DOI: 10.1109/JIOT.2022.3181807.
+[6] ZENG A, CHEN M, ZHANG L, et al. Are transformers effective for time series forecasting?[C]//
+- 13 -

@@ -1,0 +1,15 @@
+{
+  "schema": "pdf_read_preflight/1",
+  "verdict": "UNAVAILABLE",
+  "file": "C:\\Users\\Quant\\Downloads\\无线传感器网络节点分布式在线异常检测方法_曹春梅.pdf",
+  "sha256": "b82c2861e77e09ff6194c8d58dfc8e2c27df6ab27754e55fd4fe2adf509df0be",
+  "declared_page_count": 6,
+  "enumerated_page_count": 6,
+  "reader_page_count": 6,
+  "warnings": [
+    "trailing-data: 179 bytes after the final %%EOF include non-whitespace content (possible truncated incremental update)",
+    "pypdf: Multiple definitions in dictionary at byte 0x1a94ae for key /MediaBox"
+  ],
+  "generated_at": "2026-10-03T02:35:24.637852+00:00",
+  "tool": "pdf_read_preflight/1.0.0"
+}

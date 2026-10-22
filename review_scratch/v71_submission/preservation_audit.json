@@ -1,0 +1,261 @@
+{
+  "source_sha256": "4ba9ad75c596156efd990307f4e8ccbb126418c73077f02b851252c488b9dc3d",
+  "target_sha256": "ca5e2af93565ffb4467bd88cb693c93abbe203666d19f2a93885ff3c05ec133a",
+  "prose_changes": [
+    {
+      "paragraph": 3,
+      "before": "骨干网络流量在小时尺度上的预测要兼顾短期波动和长期趋势，为此设计一种轻量自适应多尺度预测模型。",
+      "after": "为兼顾小时级骨干网络流量预测中的短期波动与长期趋势，设计一种轻量自适应多尺度预测模型。",
+      "reason": "要求5：删除背景式开头，直接陈述研究目的；保留原有研究对象及方法"
+    },
+    {
+      "paragraph": 9,
+      "before": "Hourly forecasting of backbone network traffic requires consideration of both short-term fluctuations and long-term trends. A lightweight adaptive multiscale forecasting model was therefore developed.",
+      "after": "A lightweight adaptive multiscale forecasting model was developed to account for short-term fluctuations and long-term trends in hourly backbone network traffic forecasting.",
+      "reason": "要求9：与中文摘要对应，以过去时直接陈述研究目的"
+    },
+    {
+      "paragraph": 32,
+      "before": "各尺度使用同一预处理历史窗口，该窗口的时间分辨率未变。不同尺度序列在预处理之后构造，为各专家分别保留细粒度变化或较平滑的趋势。",
+      "after": "各尺度序列由同一预处理历史窗口构造，分别保留细粒度变化或较平滑的趋势。",
+      "reason": "要求10：合并已在框架说明中给出的预处理顺序与共同输入说明，保留尺度构造含义"
+    },
+    {
+      "paragraph": 70,
+      "before": "LightTS采用THUML公开实现",
+      "after": "LightTS采用清华大学软件学院机器学习组的公开实现",
+      "reason": "要求10：用机构完整名称替代没有解释的THUML缩写"
+    },
+    {
+      "paragraph": 122,
+      "before": "Artificial Intelligence. 2023",
+      "after": "Artificial Intelligence, 2023",
+      "reason": "要求17：刊名与出版年之间使用逗号，与期刊文献著录格式一致"
+    }
+  ],
+  "ordinary_text_symbol_formatting": [
+    {
+      "paragraph": 24,
+      "text": "t",
+      "symbols": [
+        "t"
+      ]
+    },
+    {
+      "paragraph": 24,
+      "text": "C",
+      "symbols": [
+        "C"
+      ]
+    },
+    {
+      "paragraph": 24,
+      "text": "n",
+      "symbols": [
+        "n"
+      ]
+    },
+    {
+      "paragraph": 24,
+      "text": "L",
+      "symbols": [
+        "L"
+      ]
+    },
+    {
+      "paragraph": 24,
+      "text": "H",
+      "symbols": [
+        "H"
+      ]
+    },
+    {
+      "paragraph": 24,
+      "text": "向量按时间顺序逐行堆叠，矩阵行对应时间点，列对应OD变量。第n个样本的输入与目标表示为：",
+      "symbols": [
+        "n"
+      ]
+    },
+    {
+      "paragraph": 27,
+      "text": "L=96",
+      "symbols": [
+        "L"
+      ]
+    },
+    {
+      "paragraph": 27,
+      "text": "预测长度H=24",
+      "symbols": [
+        "H"
+      ]
+    },
+    {
+      "paragraph": 27,
+      "text": "C",
+      "symbols": [
+        "C"
+      ]
+    },
+    {
+      "paragraph": 35,
+      "text": "s",
+      "symbols": [
+        "s"
+      ]
+    },
+    {
+      "paragraph": 35,
+      "text": "S={1,2,4}",
+      "symbols": [
+        "S"
+      ]
+    },
+    {
+      "paragraph": 35,
+      "text": "s",
+      "symbols": [
+        "s"
+      ]
+    },
+    {
+      "paragraph": 37,
+      "text": "非重叠平均池化不引入可训练参数。L=96时，尺度1保留原始96步序列；尺度2对相邻2点取均值，得到48步序列；尺度4对相邻4点取均值，得到24步序列。时间聚合平滑局部波动，使较慢趋势更明显。",
+      "symbols": [
+        "L"
+      ]
+    },
+    {
+      "paragraph": 39,
+      "text": "每个DLinear专家[6]处理本尺度输入，通过长度q=25的中心移动平均提取趋势项，余项由输入减去趋势项得到。序列两端采用端点复制填充，保证分解前后时间长度不变；补齐后的序列记为",
+      "symbols": [
+        "q"
+      ]
+    },
+    {
+      "paragraph": 42,
+      "text": "H",
+      "symbols": [
+        "H"
+      ]
+    },
+    {
+      "paragraph": 44,
+      "text": "s",
+      "symbols": [
+        "s"
+      ]
+    },
+    {
+      "paragraph": 44,
+      "text": "H×(L/s)",
+      "symbols": [
+        "H",
+        "L",
+        "s"
+      ]
+    },
+    {
+      "paragraph": 44,
+      "text": "H",
+      "symbols": [
+        "H"
+      ]
+    },
+    {
+      "paragraph": 44,
+      "text": "H×C",
+      "symbols": [
+        "H",
+        "C"
+      ]
+    },
+    {
+      "paragraph": 58,
+      "text": "采用均方误差（mean squared error，MSE）训练模型，损失为N个训练样本、未来H个时刻及C个OD变量上平方误差的平均值。其中",
+      "symbols": [
+        "N",
+        "H",
+        "C"
+      ]
+    },
+    {
+      "paragraph": 58,
+      "text": "N",
+      "symbols": [
+        "N"
+      ]
+    },
+    {
+      "paragraph": 65,
+      "text": "L=96",
+      "symbols": [
+        "L"
+      ]
+    },
+    {
+      "paragraph": 65,
+      "text": "H=24",
+      "symbols": [
+        "H"
+      ]
+    },
+    {
+      "paragraph": 91,
+      "text": "n=8",
+      "symbols": [
+        "n"
+      ]
+    },
+    {
+      "paragraph": 103,
+      "text": "n=8",
+      "symbols": [
+        "n"
+      ]
+    }
+  ],
+  "heading_outline": [
+    {
+      "paragraph": 16,
+      "before": null,
+      "after": 0
+    },
+    {
+      "paragraph": 62,
+      "before": "1",
+      "after": 0
+    },
+    {
+      "paragraph": 114,
+      "before": null,
+      "after": 0
+    }
+  ],
+  "native_math_objects_identical": 41,
+  "table_data_and_geometry_identical": 3,
+  "tables_2_3_xml_identical": true,
+  "table1_header_italic_only": [
+    "C",
+    "L/H"
+  ],
+  "all_media_identical": true,
+  "all_paragraph_numeric_sequences_identical": true,
+  "unchanged_package_parts": 19,
+  "abstract_han_characters": 300,
+  "abstract_nonspace_characters": 397,
+  "conclusion_nonspace_characters": 143,
+  "reference_first_appearance_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ]
+}

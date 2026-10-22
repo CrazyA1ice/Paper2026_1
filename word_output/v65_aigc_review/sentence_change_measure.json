@@ -1,0 +1,6 @@
+{
+  "scope": "Targeted text segments; excludes protected terminology, numeric tokens, Latin identifiers and citation/figure/table/equation labels. Matching-block text-change ratio; not an AIGC score.",
+  "eligible_characters": 3339,
+  "changed_characters": 1478,
+  "ratio": 0.4426
+}

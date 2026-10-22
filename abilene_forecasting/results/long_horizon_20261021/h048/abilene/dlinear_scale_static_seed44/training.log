@@ -1,0 +1,55 @@
+epoch=001 train_objective=0.375644 val_mse=0.046611
+epoch=002 train_objective=0.314834 val_mse=0.039272
+epoch=003 train_objective=0.303204 val_mse=0.044711
+epoch=004 train_objective=0.300337 val_mse=0.051304
+epoch=005 train_objective=0.299715 val_mse=0.038796
+epoch=006 train_objective=0.298157 val_mse=0.041273
+epoch=007 train_objective=0.297848 val_mse=0.037777
+epoch=008 train_objective=0.296473 val_mse=0.049040
+epoch=009 train_objective=0.297208 val_mse=0.051331
+epoch=010 train_objective=0.296583 val_mse=0.044071
+epoch=011 train_objective=0.297873 val_mse=0.041683
+epoch=012 train_objective=0.296022 val_mse=0.046685
+epoch=013 train_objective=0.295953 val_mse=0.050442
+Early stopping at epoch 13
+{
+  "dataset": "abilene",
+  "data_path": "data\\processed\\abilene_1hour.npz",
+  "data_feature": null,
+  "data_aggregation": null,
+  "model": "dlinear_scale_static",
+  "model_config": {},
+  "seed": 44,
+  "device": "cuda",
+  "n_channels": 144,
+  "split_rows": {
+    "train": 2793,
+    "val": 931,
+    "test": 932
+  },
+  "split_windows": {
+    "train": 2650,
+    "val": 788,
+    "test": 789
+  },
+  "input_len": 96,
+  "pred_len": 48,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 16416,
+  "best_val_mse_normalized": 0.03777706224074218,
+  "test_normalized": {
+    "mse": 0.24676285684108734,
+    "mae": 0.22030505537986755,
+    "rmse": 0.4967523217201233
+  },
+  "test_original_units": {
+    "mse": 1.7359318277746065e+20,
+    "mae": 43527248.0,
+    "rmse": 13175476224.0
+  },
+  "elapsed_seconds": 36.7130001000005
+}

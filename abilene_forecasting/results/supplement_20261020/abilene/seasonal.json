@@ -1,0 +1,20 @@
+[
+  {
+    "dataset": "abilene",
+    "model": "seasonal_24",
+    "history_hours": 24,
+    "windows": 741,
+    "mse": 0.36980380840028965,
+    "mae": 0.23114073330135823,
+    "rmse": 0.6081149631445436
+  },
+  {
+    "dataset": "abilene",
+    "model": "seasonal_168",
+    "history_hours": 168,
+    "windows": 741,
+    "mse": 0.3901154105308391,
+    "mae": 0.24524803131796757,
+    "rmse": 0.6245921953809854
+  }
+]

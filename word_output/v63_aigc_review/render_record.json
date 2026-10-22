@@ -1,0 +1,18 @@
+{
+  "page_count_before": 10,
+  "page_count_after": 10,
+  "figure_pages": {
+    "1": 2,
+    "2": 6,
+    "3": 7,
+    "4": 8,
+    "5": 9
+  },
+  "render_input_hash_matches_final": true,
+  "renderer": "Microsoft Word task copy, exported without saving",
+  "table_pages": {
+    "1": 5,
+    "2": 6,
+    "3": 7
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "figure": "N1_open_parallel",
+    "alignment": "NOT APPLICABLE",
+    "text": {
+      "auditable": true,
+      "minimum_required_pt": 5,
+      "minimum_found_pt": 5.74,
+      "text_run_count": 65,
+      "below_minimum_count": 0,
+      "below_minimum": [],
+      "warnings": []
+    },
+    "collision": "PASS",
+    "collision_count": 0
+  },
+  {
+    "figure": "N2_dual_stream",
+    "alignment": "NOT APPLICABLE",
+    "text": {
+      "auditable": true,
+      "minimum_required_pt": 5,
+      "minimum_found_pt": 6.3,
+      "text_run_count": 41,
+      "below_minimum_count": 0,
+      "below_minimum": [],
+      "warnings": []
+    },
+    "collision": "PASS",
+    "collision_count": 0
+  },
+  {
+    "figure": "N3_framework_details",
+    "alignment": "PASS",
+    "text": {
+      "auditable": true,
+      "minimum_required_pt": 5,
+      "minimum_found_pt": 5.74,
+      "text_run_count": 67,
+      "below_minimum_count": 0,
+      "below_minimum": [],
+      "warnings": []
+    },
+    "collision": "PASS",
+    "collision_count": 0
+  }
+]

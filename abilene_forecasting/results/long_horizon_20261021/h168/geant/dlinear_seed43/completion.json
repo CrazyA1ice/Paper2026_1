@@ -1,0 +1,11 @@
+{
+  "job": {
+    "dataset": "geant",
+    "model": "dlinear",
+    "seed": 43,
+    "horizon": 168
+  },
+  "completed_unix": 1792550636.3149266,
+  "metrics_sha256": "8d1e78fd617f690648808364f38e2ec2b977f7ced73d16bc2262b8a2f13d39af",
+  "predictions_sha256": "93bafd06b41959446065050f23d9508737bc0c6ed4d58ca067f580f731433d4b"
+}

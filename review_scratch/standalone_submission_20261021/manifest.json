@@ -1,0 +1,52 @@
+{
+  "base": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\数据处理精简修订_20261021\\自适应多尺度加权的多变量网络流量预测_数据分析精简版.docx",
+  "base_sha256": "3a79dfd13db4bac005b8ffff1e12845f6e7846d84e2acaad7a6520db2f061086",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\主稿独立投稿修订_20261021\\自适应多尺度加权的多变量网络流量预测_独立投稿主稿.docx",
+  "output_sha256": "5419c896a038614c048d0c6d8545b085846498e76f454acec9bdb8c2cc3017f8",
+  "figure2": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\主稿独立投稿修订_20261021\\存档数据与图表\\图2_LightTS误差降低率与参数比例.png",
+  "figures": 4,
+  "tables": 3,
+  "native_math_preserved": 16,
+  "references_preserved": 11,
+  "changed_package_parts": [
+    "word/document.xml",
+    "word/_rels/document.xml.rels"
+  ],
+  "supplement_references": 0,
+  "hardware_mentions": 0,
+  "reported_tasks": [
+    "Abilene H24",
+    "GÉANT H24",
+    "GÉANT H168"
+  ],
+  "standalone_task_table": [
+    [
+      "数据集",
+      "有效变量数",
+      "预测时长/h",
+      "训练/验证/测试时间点",
+      "训练/验证/测试窗口"
+    ],
+    [
+      "Abilene",
+      "144",
+      "24",
+      "2793/931/932",
+      "2674/812/813"
+    ],
+    [
+      "GÉANT",
+      "524",
+      "24",
+      "1709/570/570",
+      "1590/451/451"
+    ],
+    [
+      "GÉANT",
+      "524",
+      "168",
+      "1709/570/570",
+      "1446/307/307"
+    ]
+  ]
+}

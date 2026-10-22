@@ -1,0 +1,3573 @@
+{
+  "datasets": [
+    {
+      "dataset": "abilene",
+      "splits": {
+        "train": [
+          2793,
+          144
+        ],
+        "val": [
+          931,
+          144
+        ],
+        "test": [
+          932,
+          144
+        ]
+      },
+      "windows": {
+        "train": 2674,
+        "val": 812,
+        "test": 813
+      },
+      "keys": [
+        "train",
+        "val",
+        "test",
+        "mean",
+        "std",
+        "active_indices",
+        "original_shape"
+      ],
+      "active_count": 144,
+      "metadata": {
+        "original_shape": "[4656  144]"
+      }
+    },
+    {
+      "dataset": "geant",
+      "splits": {
+        "train": [
+          1709,
+          524
+        ],
+        "val": [
+          570,
+          524
+        ],
+        "test": [
+          570,
+          524
+        ]
+      },
+      "windows": {
+        "train": 1590,
+        "val": 451,
+        "test": 451
+      },
+      "keys": [
+        "train",
+        "val",
+        "test",
+        "mean",
+        "std",
+        "active_indices",
+        "original_shape",
+        "dataset",
+        "feature",
+        "aggregation",
+        "train_ratio",
+        "val_ratio"
+      ],
+      "active_count": 524,
+      "metadata": {
+        "feature": "matrix_avg_bandwidth_kbps",
+        "aggregation": "1_hour",
+        "original_shape": "[2849  529]"
+      }
+    }
+  ],
+  "raw_metric_validation_errors": [],
+  "run_count": 86,
+  "runs": [
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "seed": 42,
+      "parameters": 4656,
+      "mse": 0.19404634833335876,
+      "mae": 0.186801016330719,
+      "rmse": 0.4405069351196289,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_seed42\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846836787648974e+20,
+        "mae": 41737324.0,
+        "rmse": 12979536896.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "seed": 43,
+      "parameters": 4656,
+      "mse": 0.19238583743572235,
+      "mae": 0.17921601235866547,
+      "rmse": 0.43861809372901917,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_seed43\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846852620616414e+20,
+        "mae": 41838932.0,
+        "rmse": 12979543040.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "seed": 44,
+      "parameters": 4656,
+      "mse": 0.19551776349544525,
+      "mae": 0.19794736802577972,
+      "rmse": 0.44217389822006226,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_seed44\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846845583741996e+20,
+        "mae": 42059604.0,
+        "rmse": 12979539968.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "seed": 45,
+      "parameters": 4656,
+      "mse": 0.19464465975761414,
+      "mae": 0.19275064766407013,
+      "rmse": 0.44118550419807434,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_seed45\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846845583741996e+20,
+        "mae": 41949612.0,
+        "rmse": 12979539968.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "seed": 46,
+      "parameters": 4656,
+      "mse": 0.197076216340065,
+      "mae": 0.1981028914451599,
+      "rmse": 0.4439326822757721,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_seed46\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.684683150999316e+20,
+        "mae": 42299808.0,
+        "rmse": 12979534848.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "seed": 47,
+      "parameters": 4656,
+      "mse": 0.19376397132873535,
+      "mae": 0.17584268748760223,
+      "rmse": 0.4401862919330597,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_seed47\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.684683854686758e+20,
+        "mae": 41684048.0,
+        "rmse": 12979536896.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "seed": 48,
+      "parameters": 4656,
+      "mse": 0.1945461928844452,
+      "mae": 0.18851439654827118,
+      "rmse": 0.4410738945007324,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_seed48\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.684685086139781e+20,
+        "mae": 42059596.0,
+        "rmse": 12979542016.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "seed": 49,
+      "parameters": 4656,
+      "mse": 0.1915583312511444,
+      "mae": 0.19142065942287445,
+      "rmse": 0.43767377734184265,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_seed49\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846842065304787e+20,
+        "mae": 41805616.0,
+        "rmse": 12979538944.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "lightts",
+      "seed": 42,
+      "parameters": 130162,
+      "mse": 0.27845314145088196,
+      "mae": 0.21295683085918427,
+      "rmse": 0.527686595916748,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\lightts_seed42\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 50,
+        "patience": 10,
+        "learning_rate": 0.0001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 2.6452497695150527e+23,
+        "mae": 5068815872.0,
+        "rmse": 514319908864.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "lightts",
+      "seed": 43,
+      "parameters": 130162,
+      "mse": 0.259255975484848,
+      "mae": 0.1991196572780609,
+      "rmse": 0.5091718435287476,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\lightts_seed43\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 50,
+        "patience": 10,
+        "learning_rate": 0.0001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 8.900543460253232e+20,
+        "mae": 368646624.0,
+        "rmse": 29833779200.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "lightts",
+      "seed": 44,
+      "parameters": 130162,
+      "mse": 0.25862428545951843,
+      "mae": 0.20068830251693726,
+      "rmse": 0.5085511803627014,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\lightts_seed44\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 50,
+        "patience": 10,
+        "learning_rate": 0.0001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 2.1416915526862714e+20,
+        "mae": 107183424.0,
+        "rmse": 14634519552.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "parameters": 8208,
+      "mse": 0.19312667846679688,
+      "mae": 0.18670237064361572,
+      "rmse": 0.4394617974758148,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_static_seed42\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846829750774556e+20,
+        "mae": 41462460.0,
+        "rmse": 12979533824.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "parameters": 8208,
+      "mse": 0.1930994987487793,
+      "mae": 0.19584685564041138,
+      "rmse": 0.4394308924674988,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_static_seed43\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.68468473429606e+20,
+        "mae": 41951968.0,
+        "rmse": 12979540992.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "parameters": 8208,
+      "mse": 0.19502341747283936,
+      "mae": 0.18685674667358398,
+      "rmse": 0.44161456823349,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_static_seed44\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846833269211765e+20,
+        "mae": 41834236.0,
+        "rmse": 12979534848.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "parameters": 8208,
+      "mse": 0.19039277732372284,
+      "mae": 0.19890928268432617,
+      "rmse": 0.43634021282196045,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_static_seed45\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846852620616414e+20,
+        "mae": 42067076.0,
+        "rmse": 12979543040.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "parameters": 8208,
+      "mse": 0.1920112520456314,
+      "mae": 0.19571058452129364,
+      "rmse": 0.43819087743759155,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_static_seed46\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846840306086183e+20,
+        "mae": 41856256.0,
+        "rmse": 12979537920.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "parameters": 8208,
+      "mse": 0.19280607998371124,
+      "mae": 0.18787796795368195,
+      "rmse": 0.4390968978404999,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_static_seed47\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.68468473429606e+20,
+        "mae": 41953536.0,
+        "rmse": 12979540992.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "parameters": 8208,
+      "mse": 0.19115909934043884,
+      "mae": 0.18319755792617798,
+      "rmse": 0.43721744418144226,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_static_seed48\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846842065304787e+20,
+        "mae": 41756544.0,
+        "rmse": 12979538944.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "parameters": 8208,
+      "mse": 0.18854878842830658,
+      "mae": 0.18894408643245697,
+      "rmse": 0.4342220425605774,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_static_seed49\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846826232337347e+20,
+        "mae": 41634224.0,
+        "rmse": 12979532800.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "parameters": 8211,
+      "mse": 0.19365417957305908,
+      "mae": 0.18614302575588226,
+      "rmse": 0.4400615692138672,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\abilene\\dlinear_scale_global_seed42\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846827991555952e+20,
+        "mae": 41441324.0,
+        "rmse": 12979532800.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "parameters": 8211,
+      "mse": 0.19349633157253265,
+      "mae": 0.19581124186515808,
+      "rmse": 0.43988218903541565,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\abilene\\dlinear_scale_global_seed43\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.68468473429606e+20,
+        "mae": 41960304.0,
+        "rmse": 12979540992.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "parameters": 8211,
+      "mse": 0.19540931284427643,
+      "mae": 0.1865919977426529,
+      "rmse": 0.4420512616634369,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\abilene\\dlinear_scale_global_seed44\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.684683502843037e+20,
+        "mae": 41849540.0,
+        "rmse": 12979535872.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "parameters": 8211,
+      "mse": 0.19069832563400269,
+      "mae": 0.19967034459114075,
+      "rmse": 0.43669018149375916,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\abilene\\dlinear_scale_global_seed45\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846852620616414e+20,
+        "mae": 42106776.0,
+        "rmse": 12979543040.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "parameters": 8211,
+      "mse": 0.19242914021015167,
+      "mae": 0.19518165290355682,
+      "rmse": 0.4386674463748932,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\abilene\\dlinear_scale_global_seed46\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846840306086183e+20,
+        "mae": 41843072.0,
+        "rmse": 12979537920.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "parameters": 8211,
+      "mse": 0.192769393324852,
+      "mae": 0.18785472214221954,
+      "rmse": 0.43905511498451233,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\abilene\\dlinear_scale_global_seed47\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.68468473429606e+20,
+        "mae": 41968428.0,
+        "rmse": 12979540992.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "parameters": 8211,
+      "mse": 0.19118726253509521,
+      "mae": 0.1838175654411316,
+      "rmse": 0.43724966049194336,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\abilene\\dlinear_scale_global_seed48\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846843824523392e+20,
+        "mae": 41803348.0,
+        "rmse": 12979538944.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "parameters": 8211,
+      "mse": 0.18874531984329224,
+      "mae": 0.18874862790107727,
+      "rmse": 0.4344483017921448,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\abilene\\dlinear_scale_global_seed49\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846826232337347e+20,
+        "mae": 41643092.0,
+        "rmse": 12979532800.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "parameters": 8339,
+      "mse": 0.19236262142658234,
+      "mae": 0.18802809715270996,
+      "rmse": 0.4385916292667389,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\abilene\\dlinear_scale_constant_router_seed42\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846843824523392e+20,
+        "mae": 41965352.0,
+        "rmse": 12979538944.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "parameters": 8339,
+      "mse": 0.190073162317276,
+      "mae": 0.1777167171239853,
+      "rmse": 0.4359738230705261,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\abilene\\dlinear_scale_constant_router_seed43\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.684683150999316e+20,
+        "mae": 41428740.0,
+        "rmse": 12979534848.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "parameters": 8339,
+      "mse": 0.19298259913921356,
+      "mae": 0.17390652000904083,
+      "rmse": 0.4392978549003601,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\abilene\\dlinear_scale_constant_router_seed44\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846845583741996e+20,
+        "mae": 41621540.0,
+        "rmse": 12979539968.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "parameters": 8339,
+      "mse": 0.1923593282699585,
+      "mae": 0.17343255877494812,
+      "rmse": 0.43858787417411804,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\abilene\\dlinear_scale_constant_router_seed45\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.684683150999316e+20,
+        "mae": 41505332.0,
+        "rmse": 12979534848.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "parameters": 8339,
+      "mse": 0.19261030852794647,
+      "mae": 0.18373507261276245,
+      "rmse": 0.43887391686439514,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\abilene\\dlinear_scale_constant_router_seed46\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846852620616414e+20,
+        "mae": 42105752.0,
+        "rmse": 12979543040.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "parameters": 8339,
+      "mse": 0.19239026308059692,
+      "mae": 0.1887025386095047,
+      "rmse": 0.4386231303215027,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\abilene\\dlinear_scale_constant_router_seed47\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.684683854686758e+20,
+        "mae": 41675604.0,
+        "rmse": 12979536896.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "parameters": 8339,
+      "mse": 0.19567839801311493,
+      "mae": 0.1857839822769165,
+      "rmse": 0.44235551357269287,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\abilene\\dlinear_scale_constant_router_seed48\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.684683150999316e+20,
+        "mae": 41435652.0,
+        "rmse": 12979534848.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "parameters": 8339,
+      "mse": 0.18987059593200684,
+      "mae": 0.18022890388965607,
+      "rmse": 0.4357414245605469,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\abilene\\dlinear_scale_constant_router_seed49\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846845583741996e+20,
+        "mae": 42049184.0,
+        "rmse": 12979539968.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "seed": 42,
+      "parameters": 8339,
+      "mse": 0.18552349507808685,
+      "mae": 0.16804689168930054,
+      "rmse": 0.4307243824005127,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_seed42\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.684678752952805e+20,
+        "mae": 41258672.0,
+        "rmse": 12979517440.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "seed": 43,
+      "parameters": 8339,
+      "mse": 0.18445460498332977,
+      "mae": 0.1688472330570221,
+      "rmse": 0.42948177456855774,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_seed43\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846805121714094e+20,
+        "mae": 41258924.0,
+        "rmse": 12979524608.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "seed": 44,
+      "parameters": 8339,
+      "mse": 0.18831947445869446,
+      "mae": 0.16771386563777924,
+      "rmse": 0.43395790457725525,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_seed44\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846812158588512e+20,
+        "mae": 41145440.0,
+        "rmse": 12979526656.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "seed": 45,
+      "parameters": 8339,
+      "mse": 0.19263474643230438,
+      "mae": 0.16848713159561157,
+      "rmse": 0.43890175223350525,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_seed45\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846801603276885e+20,
+        "mae": 41134540.0,
+        "rmse": 12979522560.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "seed": 46,
+      "parameters": 8339,
+      "mse": 0.19305463135242462,
+      "mae": 0.1736854910850525,
+      "rmse": 0.43937981128692627,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_seed46\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.684677521499782e+20,
+        "mae": 41598332.0,
+        "rmse": 12979512320.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "seed": 47,
+      "parameters": 8339,
+      "mse": 0.19023463129997253,
+      "mae": 0.18550972640514374,
+      "rmse": 0.4361589550971985,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_seed47\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846827991555952e+20,
+        "mae": 41424372.0,
+        "rmse": 12979532800.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "seed": 48,
+      "parameters": 8339,
+      "mse": 0.18847738206386566,
+      "mae": 0.18624556064605713,
+      "rmse": 0.43413981795310974,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_seed48\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846833269211765e+20,
+        "mae": 41474772.0,
+        "rmse": 12979534848.0
+      }
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "seed": 49,
+      "parameters": 8339,
+      "mse": 0.18785886466503143,
+      "mae": 0.16773721575737,
+      "rmse": 0.4334268867969513,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\abilene\\dlinear_scale_seed49\\metrics.json",
+      "shape": [
+        813,
+        24,
+        144
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 144
+      },
+      "raw": {
+        "mse": 1.6846829750774556e+20,
+        "mae": 41150304.0,
+        "rmse": 12979533824.0
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 42,
+      "parameters": 4656,
+      "mse": 0.44988271594047546,
+      "mae": 0.3771122097969055,
+      "rmse": 0.6707329750061035,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_seed42\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 955324352.0,
+        "mae": 5392.93115234375,
+        "rmse": 30908.322265625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 43,
+      "parameters": 4656,
+      "mse": 0.46296972036361694,
+      "mae": 0.388968825340271,
+      "rmse": 0.6804187893867493,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_seed43\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1141265408.0,
+        "mae": 6100.69873046875,
+        "rmse": 33782.62109375
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 44,
+      "parameters": 4656,
+      "mse": 0.4502049684524536,
+      "mae": 0.3825499415397644,
+      "rmse": 0.6709731221199036,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_seed44\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1075955584.0,
+        "mae": 5885.1064453125,
+        "rmse": 32801.76171875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 45,
+      "parameters": 4656,
+      "mse": 0.4342065751552582,
+      "mae": 0.36817029118537903,
+      "rmse": 0.6589435338973999,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_seed45\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 895025664.0,
+        "mae": 5260.552734375,
+        "rmse": 29916.98046875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 46,
+      "parameters": 4656,
+      "mse": 0.41939446330070496,
+      "mae": 0.35892003774642944,
+      "rmse": 0.6476067304611206,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_seed46\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 771956224.0,
+        "mae": 4839.64990234375,
+        "rmse": 27784.099609375
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 47,
+      "parameters": 4656,
+      "mse": 0.42851296067237854,
+      "mae": 0.3678215742111206,
+      "rmse": 0.6546090245246887,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_seed47\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 933652480.0,
+        "mae": 5425.2412109375,
+        "rmse": 30555.7265625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 48,
+      "parameters": 4656,
+      "mse": 0.42664507031440735,
+      "mae": 0.3618834614753723,
+      "rmse": 0.653180718421936,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_seed48\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 819167872.0,
+        "mae": 4950.1630859375,
+        "rmse": 28621.109375
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 49,
+      "parameters": 4656,
+      "mse": 0.4225720167160034,
+      "mae": 0.3587739169597626,
+      "rmse": 0.6500554084777832,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_seed49\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 766274368.0,
+        "mae": 4728.7939453125,
+        "rmse": 27681.662109375
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 42,
+      "parameters": 384382,
+      "mse": 0.7893001437187195,
+      "mae": 0.5293365716934204,
+      "rmse": 0.8884256482124329,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\lightts_seed42\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 50,
+        "patience": 10,
+        "learning_rate": 0.0001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1890003712.0,
+        "mae": 8046.19287109375,
+        "rmse": 43474.171875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 43,
+      "parameters": 384382,
+      "mse": 0.8340440392494202,
+      "mae": 0.5071224570274353,
+      "rmse": 0.9132601022720337,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\lightts_seed43\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 50,
+        "patience": 10,
+        "learning_rate": 0.0001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1411140864.0,
+        "mae": 7418.89794921875,
+        "rmse": 37565.15625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 44,
+      "parameters": 384382,
+      "mse": 0.8265542984008789,
+      "mae": 0.5316475033760071,
+      "rmse": 0.9091503024101257,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\lightts_seed44\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 50,
+        "patience": 10,
+        "learning_rate": 0.0001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1107301888.0,
+        "mae": 6683.80712890625,
+        "rmse": 33276.14453125
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "parameters": 8208,
+      "mse": 0.4378691613674164,
+      "mae": 0.372714638710022,
+      "rmse": 0.6617168188095093,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_static_seed42\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 945136640.0,
+        "mae": 5472.2568359375,
+        "rmse": 30743.07421875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "parameters": 8208,
+      "mse": 0.4364742338657379,
+      "mae": 0.3695710599422455,
+      "rmse": 0.6606619954109192,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_static_seed43\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 898519424.0,
+        "mae": 5303.6318359375,
+        "rmse": 29975.314453125
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "parameters": 8208,
+      "mse": 0.43456634879112244,
+      "mae": 0.36911076307296753,
+      "rmse": 0.6592164635658264,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_static_seed44\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 881069504.0,
+        "mae": 5190.5458984375,
+        "rmse": 29682.814453125
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "parameters": 8208,
+      "mse": 0.43491438031196594,
+      "mae": 0.36892008781433105,
+      "rmse": 0.6594803929328918,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_static_seed45\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 894172224.0,
+        "mae": 5241.560546875,
+        "rmse": 29902.712890625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "parameters": 8208,
+      "mse": 0.4558497965335846,
+      "mae": 0.3834173381328583,
+      "rmse": 0.6751664876937866,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_static_seed46\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1051007744.0,
+        "mae": 5806.6298828125,
+        "rmse": 32419.25
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "parameters": 8208,
+      "mse": 0.47475558519363403,
+      "mae": 0.39494234323501587,
+      "rmse": 0.6890251040458679,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_static_seed47\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1184743552.0,
+        "mae": 6259.86474609375,
+        "rmse": 34420.10546875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "parameters": 8208,
+      "mse": 0.4582970142364502,
+      "mae": 0.38479310274124146,
+      "rmse": 0.6769763827323914,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_static_seed48\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1078251264.0,
+        "mae": 5892.13134765625,
+        "rmse": 32836.73828125
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "parameters": 8208,
+      "mse": 0.44634437561035156,
+      "mae": 0.3754509687423706,
+      "rmse": 0.6680901050567627,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_static_seed49\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 969630208.0,
+        "mae": 5541.1494140625,
+        "rmse": 31138.88671875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "parameters": 8211,
+      "mse": 0.4383283257484436,
+      "mae": 0.372953861951828,
+      "rmse": 0.6620636582374573,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\geant\\dlinear_scale_global_seed42\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 947783552.0,
+        "mae": 5479.4443359375,
+        "rmse": 30786.09375
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "parameters": 8211,
+      "mse": 0.43471401929855347,
+      "mae": 0.3684943914413452,
+      "rmse": 0.6593284606933594,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\geant\\dlinear_scale_global_seed43\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 887104768.0,
+        "mae": 5259.5087890625,
+        "rmse": 29784.3046875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "parameters": 8211,
+      "mse": 0.43414396047592163,
+      "mae": 0.36901333928108215,
+      "rmse": 0.6588960289955139,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\geant\\dlinear_scale_global_seed44\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 881149312.0,
+        "mae": 5190.90576171875,
+        "rmse": 29684.16015625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "parameters": 8211,
+      "mse": 0.43486061692237854,
+      "mae": 0.36898329854011536,
+      "rmse": 0.6594396233558655,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\geant\\dlinear_scale_global_seed45\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 895670656.0,
+        "mae": 5246.3447265625,
+        "rmse": 29927.7578125
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "parameters": 8211,
+      "mse": 0.4545745849609375,
+      "mae": 0.38275957107543945,
+      "rmse": 0.6742214560508728,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\geant\\dlinear_scale_global_seed46\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1045072320.0,
+        "mae": 5785.224609375,
+        "rmse": 32327.578125
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "parameters": 8211,
+      "mse": 0.47241640090942383,
+      "mae": 0.39369168877601624,
+      "rmse": 0.6873255372047424,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\geant\\dlinear_scale_global_seed47\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1172560128.0,
+        "mae": 6215.52734375,
+        "rmse": 34242.6640625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "parameters": 8211,
+      "mse": 0.4577689468860626,
+      "mae": 0.38460320234298706,
+      "rmse": 0.6765862703323364,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\geant\\dlinear_scale_global_seed48\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1077195904.0,
+        "mae": 5888.25830078125,
+        "rmse": 32820.6640625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "parameters": 8211,
+      "mse": 0.4437696039676666,
+      "mae": 0.37391379475593567,
+      "rmse": 0.6661603450775146,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\global_weight_ablation\\geant\\dlinear_scale_global_seed49\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 953377088.0,
+        "mae": 5477.31591796875,
+        "rmse": 30876.8046875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "parameters": 8339,
+      "mse": 0.45402753353118896,
+      "mae": 0.3822212815284729,
+      "rmse": 0.6738156676292419,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\geant\\dlinear_scale_constant_router_seed42\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1056786816.0,
+        "mae": 5878.64013671875,
+        "rmse": 32508.2578125
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "parameters": 8339,
+      "mse": 0.4364452064037323,
+      "mae": 0.37316134572029114,
+      "rmse": 0.6606400012969971,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\geant\\dlinear_scale_constant_router_seed43\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 976316544.0,
+        "mae": 5622.39501953125,
+        "rmse": 31246.064453125
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "parameters": 8339,
+      "mse": 0.45861318707466125,
+      "mae": 0.3853982985019684,
+      "rmse": 0.6772098541259766,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\geant\\dlinear_scale_constant_router_seed44\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1097989248.0,
+        "mae": 5996.1923828125,
+        "rmse": 33135.921875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "parameters": 8339,
+      "mse": 0.4426211416721344,
+      "mae": 0.374500036239624,
+      "rmse": 0.66529780626297,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\geant\\dlinear_scale_constant_router_seed45\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 962442944.0,
+        "mae": 5463.11474609375,
+        "rmse": 31023.263671875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "parameters": 8339,
+      "mse": 0.46220552921295166,
+      "mae": 0.38936251401901245,
+      "rmse": 0.6798570156097412,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\geant\\dlinear_scale_constant_router_seed46\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1145357824.0,
+        "mae": 6149.42138671875,
+        "rmse": 33843.13671875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "parameters": 8339,
+      "mse": 0.4531593918800354,
+      "mae": 0.38151657581329346,
+      "rmse": 0.6731711626052856,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\geant\\dlinear_scale_constant_router_seed47\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1045638848.0,
+        "mae": 5875.62646484375,
+        "rmse": 32336.33984375
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "parameters": 8339,
+      "mse": 0.42868125438690186,
+      "mae": 0.3665955662727356,
+      "rmse": 0.6547375321388245,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\geant\\dlinear_scale_constant_router_seed48\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 876161280.0,
+        "mae": 5189.58935546875,
+        "rmse": 29600.021484375
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "parameters": 8339,
+      "mse": 0.45867809653282166,
+      "mae": 0.38214167952537537,
+      "rmse": 0.677257776260376,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\constant_router_ablation\\geant\\dlinear_scale_constant_router_seed49\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1034539776.0,
+        "mae": 5732.40966796875,
+        "rmse": 32164.26171875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 42,
+      "parameters": 8339,
+      "mse": 0.39875033497810364,
+      "mae": 0.34954139590263367,
+      "rmse": 0.631466805934906,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_seed42\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 788594496.0,
+        "mae": 4669.81689453125,
+        "rmse": 28081.923828125
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 43,
+      "parameters": 8339,
+      "mse": 0.49220040440559387,
+      "mae": 0.40492209792137146,
+      "rmse": 0.7015699744224548,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_seed43\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 1279152896.0,
+        "mae": 6451.880859375,
+        "rmse": 35765.24609375
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 44,
+      "parameters": 8339,
+      "mse": 0.4116821587085724,
+      "mae": 0.3544047772884369,
+      "rmse": 0.6416246294975281,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_seed44\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 836375488.0,
+        "mae": 5032.59130859375,
+        "rmse": 28920.15625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 45,
+      "parameters": 8339,
+      "mse": 0.43413689732551575,
+      "mae": 0.3736204504966736,
+      "rmse": 0.6588906645774841,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_seed45\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 979200832.0,
+        "mae": 5515.2763671875,
+        "rmse": 31292.185546875
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 46,
+      "parameters": 8339,
+      "mse": 0.43199872970581055,
+      "mae": 0.37180835008621216,
+      "rmse": 0.6572660803794861,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_seed46\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 977660096.0,
+        "mae": 5492.453125,
+        "rmse": 31267.556640625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 47,
+      "parameters": 8339,
+      "mse": 0.40995967388153076,
+      "mae": 0.3535219728946686,
+      "rmse": 0.6402809619903564,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_seed47\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 846235008.0,
+        "mae": 5033.3193359375,
+        "rmse": 29090.119140625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 48,
+      "parameters": 8339,
+      "mse": 0.40955668687820435,
+      "mae": 0.35391196608543396,
+      "rmse": 0.6399661898612976,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_seed48\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 833305984.0,
+        "mae": 5008.09814453125,
+        "rmse": 28867.0390625
+      }
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 49,
+      "parameters": 8339,
+      "mse": 0.42328310012817383,
+      "mae": 0.36233294010162354,
+      "rmse": 0.6506021022796631,
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\geant\\dlinear_scale_seed49\\metrics.json",
+      "shape": [
+        451,
+        24,
+        524
+      ],
+      "settings": {
+        "batch_size": 16,
+        "epochs_max": 30,
+        "patience": 6,
+        "learning_rate": 0.001,
+        "input_len": 96,
+        "pred_len": 24,
+        "n_channels": 524
+      },
+      "raw": {
+        "mse": 941977600.0,
+        "mae": 5356.13427734375,
+        "rmse": 30691.654296875
+      }
+    }
+  ],
+  "summary": [
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "seeds": 3,
+      "parameters": 4656,
+      "mse_mean": 0.1939833164215088,
+      "mse_sd": 0.0015669141576124873,
+      "mae_mean": 0.18798813223838806,
+      "mae_sd": 0.009421934749066354,
+      "rmse_mean": 0.4404329756895701,
+      "rmse_sd": 0.0017790556181866604
+    },
+    {
+      "dataset": "abilene",
+      "model": "lightts",
+      "seeds": 3,
+      "parameters": 130162,
+      "mse_mean": 0.2654444674650828,
+      "mse_sd": 0.01127026872898916,
+      "mae_mean": 0.20425493021806082,
+      "mae_sd": 0.007576771611138278,
+      "rmse_mean": 0.5151365399360657,
+      "rmse_sd": 0.010873096823357992
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "seeds": 3,
+      "parameters": 8339,
+      "mse_mean": 0.1860991915067037,
+      "mse_sd": 0.0019957138569552156,
+      "mae_mean": 0.16820266346136728,
+      "mae_sd": 0.0005825195794820263,
+      "rmse_mean": 0.4313880205154419,
+      "rmse_sd": 0.0023106809871509043
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "seeds": 8,
+      "parameters": 4656,
+      "mse_mean": 0.1941924151033163,
+      "mse_sd": 0.0017241793931332954,
+      "mae_mean": 0.18882445991039276,
+      "mae_sd": 0.008075634333448127,
+      "rmse_mean": 0.44066888466477394,
+      "rmse_sd": 0.0019560858911355223
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_static",
+      "seeds": 8,
+      "parameters": 8208,
+      "mse_mean": 0.1920209489762783,
+      "mse_sd": 0.0019808683419138516,
+      "mae_mean": 0.19050568155944347,
+      "mae_sd": 0.0055648346935906695,
+      "rmse_mean": 0.4381968416273594,
+      "rmse_sd": 0.0022620882951888514
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_global",
+      "seeds": 8,
+      "parameters": 8211,
+      "mse_mean": 0.19229865819215775,
+      "mse_sd": 0.0020566660695617556,
+      "mae_mean": 0.1904773972928524,
+      "mae_sd": 0.0056466644254504535,
+      "rmse_mean": 0.43851321563124657,
+      "rmse_sd": 0.002346737806622358
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale_constant_router",
+      "seeds": 8,
+      "parameters": 8339,
+      "mse_mean": 0.19229090958833694,
+      "mse_sd": 0.0018067944747891546,
+      "mae_mean": 0.1814417988061905,
+      "mae_sd": 0.00605318134174839,
+      "rmse_mean": 0.4385056458413601,
+      "rmse_sd": 0.002058560640411604
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "seeds": 8,
+      "parameters": 8339,
+      "mse_mean": 0.18881972879171371,
+      "mse_sd": 0.003063631983486716,
+      "mae_mean": 0.1732841394841671,
+      "mae_sd": 0.008013800583559192,
+      "rmse_mean": 0.4345214106142521,
+      "rmse_sd": 0.003524394392954697
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seeds": 3,
+      "parameters": 4656,
+      "mse_mean": 0.454352468252182,
+      "mse_sd": 0.007464498451630321,
+      "mae_mean": 0.382876992225647,
+      "mae_sd": 0.005935069894209011,
+      "rmse_mean": 0.6740416288375854,
+      "rmse_sd": 0.005524088174660607
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seeds": 3,
+      "parameters": 384382,
+      "mse_mean": 0.8166328271230062,
+      "mse_sd": 0.023965198539836974,
+      "mae_mean": 0.522702177365621,
+      "mae_sd": 0.013541819141919298,
+      "rmse_mean": 0.9036120176315308,
+      "rmse_sd": 0.013311347633737862
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seeds": 3,
+      "parameters": 8339,
+      "mse_mean": 0.43421096603075665,
+      "mse_sd": 0.05063486188902625,
+      "mae_mean": 0.36962275703748065,
+      "mae_sd": 0.030666687459746725,
+      "rmse_mean": 0.6582204699516296,
+      "rmse_sd": 0.037883769589124976
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seeds": 8,
+      "parameters": 4656,
+      "mse_mean": 0.4367985613644123,
+      "mse_sd": 0.015673528954557054,
+      "mae_mean": 0.3705250322818756,
+      "mae_sd": 0.011265989902057903,
+      "rmse_mean": 0.6608150377869606,
+      "rmse_sd": 0.011810335653004052
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seeds": 8,
+      "parameters": 8208,
+      "mse_mean": 0.4473838619887829,
+      "mse_sd": 0.01449328334283359,
+      "mae_mean": 0.37736503779888153,
+      "mae_sd": 0.009458589058753821,
+      "rmse_mean": 0.6687917187809944,
+      "rmse_sd": 0.010770604552267261
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seeds": 8,
+      "parameters": 8211,
+      "mse_mean": 0.4463220573961735,
+      "mse_sd": 0.013963637617337394,
+      "mae_mean": 0.37680164352059364,
+      "mae_sd": 0.009223994961093034,
+      "rmse_mean": 0.6680026724934578,
+      "rmse_sd": 0.010391543943921286
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seeds": 8,
+      "parameters": 8339,
+      "mse_mean": 0.44930391758680344,
+      "mse_sd": 0.012032496036918493,
+      "mae_mean": 0.37936216220259666,
+      "mae_sd": 0.00738782899981212,
+      "rmse_mean": 0.6702483519911766,
+      "rmse_sd": 0.009012716083419131
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seeds": 8,
+      "parameters": 8339,
+      "mse_mean": 0.42644599825143814,
+      "mse_sd": 0.02919319162428388,
+      "mae_mean": 0.36550799384713173,
+      "mae_sd": 0.018226375056436987,
+      "rmse_mean": 0.652708426117897,
+      "rmse_sd": 0.021849299474059593
+    }
+  ],
+  "paired": [
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "seeds": 3,
+      "mean": 4.065464801460784,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 3,
+      "values": [
+        4.392173997848295,
+        4.122565651456785,
+        3.6816547550772714
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "seeds": 3,
+      "mean": 10.36625482569774,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 3,
+      "values": [
+        10.039626662531377,
+        5.785632190550198,
+        15.273505624011642
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "rmse",
+      "seeds": 3,
+      "mean": 2.0539393609239602,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 3,
+      "values": [
+        2.220748855284095,
+        2.0829781741985998,
+        1.8580910532891857
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "lightts",
+      "metric": "mse",
+      "seeds": 3,
+      "mean": 29.80333430475474,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 3,
+      "values": [
+        33.373531319698735,
+        28.852322636586614,
+        27.18414895797887
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "lightts",
+      "metric": "mae",
+      "seeds": 3,
+      "mean": 17.5741855339389,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 3,
+      "values": [
+        21.088752583653918,
+        15.203131943304246,
+        16.43067207485853
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "lightts",
+      "metric": "rmse",
+      "seeds": 3,
+      "mean": 16.23122725426107,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 3,
+      "values": [
+        18.374962386107846,
+        15.650918245578628,
+        14.667801131096745
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "seeds": 8,
+      "mean": 2.767725876989123,
+      "ci_low": 1.740511312287341,
+      "ci_high": 3.794940441690905,
+      "wins": 8,
+      "values": [
+        4.392173997848295,
+        4.122565651456785,
+        3.6816547550772714,
+        1.0326064572296232,
+        2.0406242124625185,
+        1.8214635076688344,
+        3.1194703584789383,
+        1.931248075690717
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "seeds": 8,
+      "mean": 8.01135722832875,
+      "ci_low": 2.1063743992262145,
+      "ci_high": 13.916340057431285,
+      "wins": 7,
+      "values": [
+        10.039626662531377,
+        5.785632190550198,
+        15.273505624011642,
+        12.58803348393699,
+        12.325615331498986,
+        -5.497549574373445,
+        1.2035345542604698,
+        12.372459554213783
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "rmse",
+      "seeds": 8,
+      "mean": 1.3952966539000984,
+      "ci_low": 0.8743461203814856,
+      "ci_high": 1.916247187418711,
+      "wins": 8,
+      "values": [
+        2.220748855284095,
+        2.0829781741985998,
+        1.8580910532891857,
+        0.5176398460144738,
+        1.0255768882583802,
+        0.914916459159899,
+        1.5720895373940944,
+        0.9703324176020597
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_static",
+      "metric": "mse",
+      "seeds": 8,
+      "mean": 1.654105562728188,
+      "ci_low": -0.10614902922710745,
+      "ci_high": 3.414360154683483,
+      "wins": 6,
+      "values": [
+        3.936889221660379,
+        4.476911551539786,
+        3.4375066856156113,
+        -1.1775494533437822,
+        -0.5433948769550516,
+        1.3336968854695614,
+        1.4028718935305613,
+        0.36591259430843903
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_static",
+      "metric": "mae",
+      "seeds": 8,
+      "mean": 8.923986517787506,
+      "ci_low": 3.9412540960258644,
+      "ci_high": 13.906718939549148,
+      "wins": 7,
+      "values": [
+        9.992095381544695,
+        13.786089388620306,
+        10.244682826060883,
+        15.294485344354333,
+        11.253910201185253,
+        1.260521163994097,
+        -1.6637791215030202,
+        11.223886958043499
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_static",
+      "metric": "rmse",
+      "seeds": 8,
+      "mean": 0.8354788958016143,
+      "ci_low": -0.052428701165189384,
+      "ci_high": 1.723386492768418,
+      "wins": 6,
+      "values": [
+        1.988208104888338,
+        2.2640915942606146,
+        1.7337887395477674,
+        -0.5870509607579952,
+        -0.27132784148479866,
+        0.6690875653529639,
+        0.703912039487456,
+        0.18312192511856837
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_global",
+      "metric": "mse",
+      "seeds": 8,
+      "mean": 1.7951322860380812,
+      "ci_low": 0.009256670657635802,
+      "ci_high": 3.5810079014185265,
+      "wins": 6,
+      "values": [
+        4.198558746781296,
+        4.672815508036422,
+        3.628198821430753,
+        -1.0154367070942028,
+        -0.3250501153774584,
+        1.3149193350460537,
+        1.4173959265367457,
+        0.46965677294504143
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_global",
+      "metric": "mae",
+      "seeds": 8,
+      "mean": 8.912439590404672,
+      "ci_low": 3.9820195949794073,
+      "ci_high": 13.842859585829936,
+      "wins": 7,
+      "values": [
+        9.721628835191465,
+        13.770408966970482,
+        10.117332111375065,
+        15.61734821431903,
+        11.013413145510157,
+        1.2483027896953665,
+        -1.3208722458589592,
+        11.131954906034766
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_global",
+      "metric": "rmse",
+      "seeds": 8,
+      "mean": 0.9067694206312908,
+      "ci_low": 0.004933523548790619,
+      "ci_high": 1.808605317713791,
+      "wins": 6,
+      "values": [
+        2.1217910098431427,
+        2.3643636241931487,
+        1.830863926442914,
+        -0.5064393094850702,
+        -0.16239292838344813,
+        0.6596346992600245,
+        0.7112281197279327,
+        0.23510622345168286
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mse",
+      "seeds": 8,
+      "mean": 1.8017261437706609,
+      "ci_low": 0.48965700737952544,
+      "ci_high": 3.1137952801617965,
+      "wins": 6,
+      "values": [
+        3.555330187214008,
+        2.9559971883708434,
+        2.4163446348627655,
+        -0.14317899985560478,
+        -0.23068486202735153,
+        1.1204474416261614,
+        3.6800260132784994,
+        1.0595275466959662
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mae",
+      "seeds": 8,
+      "mean": 4.48425871493673,
+      "ci_low": 1.6818040461367634,
+      "ci_high": 7.286713383736696,
+      "wins": 7,
+      "values": [
+        10.626712584971477,
+        4.990798958308091,
+        3.5609098330181417,
+        2.8514987118156396,
+        5.4696043519629605,
+        1.6919815853500892,
+        -0.24844895856125468,
+        6.931012652628695
+      ]
+    },
+    {
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "rmse",
+      "seeds": 8,
+      "mean": 0.9077253381199739,
+      "ci_low": 0.24593199311383973,
+      "ci_high": 1.569518683126108,
+      "wins": 6,
+      "values": [
+        1.7937521697299794,
+        1.4890913532939765,
+        1.2155648527616976,
+        -0.07156560358132437,
+        -0.11527101590943739,
+        0.5617978291518745,
+        1.8572608156794306,
+        0.5311723038335945
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "seeds": 3,
+      "mean": 4.5362349700259585,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 2,
+      "values": [
+        11.365713585035175,
+        -6.313735597874331,
+        8.556726922917031
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "seeds": 3,
+      "mean": 3.5222874715840966,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 2,
+      "values": [
+        7.311037186815077,
+        -4.101427040366152,
+        7.357252268303365
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "rmse",
+      "seeds": 3,
+      "mean": 2.3732276539509902,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 2,
+      "values": [
+        5.8542177788173,
+        -3.1085539326109433,
+        4.374019115646615
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "lightts",
+      "metric": "mse",
+      "seeds": 3,
+      "mean": 46.88658964188419,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 3,
+      "values": [
+        49.48051914707302,
+        40.98628115026888,
+        50.19296862831067
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "lightts",
+      "metric": "mae",
+      "seeds": 3,
+      "mean": 29.152506963018922,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 3,
+      "values": [
+        33.96613523520532,
+        20.152994151575268,
+        33.338391502276174
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "lightts",
+      "metric": "rmse",
+      "seeds": 3,
+      "mean": 27.176151379625956,
+      "ci_low": null,
+      "ci_high": null,
+      "wins": 3,
+      "values": [
+        28.922942825271182,
+        23.179609765381223,
+        29.42590154822546
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "seeds": 8,
+      "mean": 2.3482639668894825,
+      "ci_low": -2.567275162883109,
+      "ci_high": 7.263803096662074,
+      "wins": 5,
+      "values": [
+        11.365713585035175,
+        -6.313735597874331,
+        8.556726922917031,
+        0.016047161358051086,
+        -3.005348784508955,
+        4.329690929706272,
+        4.005292601555215,
+        -0.16827508307259864
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "seeds": 8,
+      "mean": 1.3242620888233467,
+      "ci_low": -2.4991516959163294,
+      "ci_high": 5.147675873563023,
+      "wins": 4,
+      "values": [
+        7.311037186815077,
+        -4.101427040366152,
+        7.357252268303365,
+        -1.480336529530114,
+        -3.590858961429196,
+        3.8876461629856447,
+        2.202779689748504,
+        -0.9919960659403553
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "rmse",
+      "seeds": 8,
+      "mean": 1.2204953234569025,
+      "ci_low": -1.2729096782991973,
+      "ci_high": 3.713900325213002,
+      "wins": 5,
+      "values": [
+        5.8542177788173,
+        -3.1085539326109433,
+        4.374019115646615,
+        0.008023346037416834,
+        -1.4915456347230447,
+        2.1887969761394404,
+        2.0231045081312735,
+        -0.08409956978283753
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "mse",
+      "seeds": 8,
+      "mean": 4.536699588425788,
+      "ci_low": -2.2358850448836876,
+      "ci_high": 11.309284221735263,
+      "wins": 7,
+      "values": [
+        8.933907623717785,
+        -12.767344831859573,
+        5.265983007246036,
+        0.17876690715365712,
+        5.232220571149652,
+        13.648267304886067,
+        10.6350959845222,
+        5.16670014059048
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "mae",
+      "seeds": 8,
+      "mean": 3.0496090981583817,
+      "ci_low": -2.133174644051713,
+      "ci_high": 8.232392840368476,
+      "wins": 6,
+      "values": [
+        6.217422231547354,
+        -9.565423760358952,
+        3.9841660703953767,
+        -1.2740869466311395,
+        3.0277681502821028,
+        10.487700559293925,
+        8.025387262872503,
+        3.4939392178658846
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "rmse",
+      "seeds": 8,
+      "mean": 2.368464292276357,
+      "ci_low": -1.0246242339505778,
+      "ci_high": 5.761552818503292,
+      "wins": 7,
+      "values": [
+        4.5714438585716906,
+        -6.1919679496762425,
+        2.66859750030222,
+        0.08942318251267936,
+        2.651258266008464,
+        7.074363730623465,
+        5.466984346147253,
+        2.6176114037213263
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "mse",
+      "seeds": 8,
+      "mean": 4.310141513757662,
+      "ci_low": -2.5130050869314013,
+      "ci_high": 11.133288114446724,
+      "wins": 7,
+      "values": [
+        9.029302567375888,
+        -13.223954727707971,
+        5.173814175078226,
+        0.16642564736828652,
+        4.966369876808432,
+        13.220694054580012,
+        10.532007541319349,
+        4.616472975239074
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "mae",
+      "seeds": 8,
+      "mean": 2.90446791643643,
+      "ci_low": -2.311345036067502,
+      "ci_high": 8.120280868940362,
+      "wins": 6,
+      "values": [
+        6.277577051130891,
+        -9.885552487662379,
+        3.9588167791185827,
+        -1.2567376287504468,
+        2.8611227038575815,
+        10.203343638326459,
+        7.979974183933815,
+        3.0971990915369387
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "rmse",
+      "seeds": 8,
+      "mean": 2.2533222652390488,
+      "ci_low": -1.158516377767309,
+      "ci_high": 5.665160908245406,
+      "wins": 7,
+      "values": [
+        4.621436612909107,
+        -6.406748115298052,
+        2.621263255193094,
+        0.08324625317291602,
+        2.514808082599401,
+        6.844584213429599,
+        5.412477621375791,
+        2.3355101985305353
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mse",
+      "seeds": 8,
+      "mean": 4.974555335464942,
+      "ci_low": -1.6150095394424495,
+      "ci_high": 11.564120210372334,
+      "wins": 7,
+      "values": [
+        12.174856032004966,
+        -12.774844856535186,
+        10.23324877887748,
+        1.9168185944681424,
+        6.535360915863028,
+        9.533007319848481,
+        4.461255842887132,
+        7.716740056305493
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mae",
+      "seeds": 8,
+      "mean": 3.6006424597251825,
+      "ci_low": -1.0815373790327372,
+      "ci_high": 8.282822298483103,
+      "wins": 7,
+      "values": [
+        8.54999111905934,
+        -8.511265318698653,
+        8.041945523372153,
+        0.2348693345352939,
+        4.508437073616986,
+        7.3377160242507715,
+        3.459834584541984,
+        5.183611337123584
+      ]
+    },
+    {
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "rmse",
+      "seeds": 8,
+      "mean": 2.588476254608872,
+      "ci_low": -0.7001484030822236,
+      "ci_high": 5.877100912299968,
+      "wins": 7,
+      "values": [
+        6.284932768532451,
+        -6.195503306657524,
+        5.254682047468969,
+        0.9630486716129816,
+        3.3228950663977583,
+        4.885860007377409,
+        2.256070799740693,
+        3.9358239823982397
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "p": 12,
+      "text": "[1]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 12,
+      "text": "[2]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 12,
+      "text": "[3]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 12,
+      "text": "[4]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 13,
+      "text": "[5]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 13,
+      "text": "[6]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 13,
+      "text": "[7]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 13,
+      "text": "[8]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 38,
+      "text": "[6]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 64,
+      "text": "[9]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 64,
+      "text": "[10]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 64,
+      "text": "[11]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 69,
+      "text": "[6]",
+      "vertical": [
+        "superscript"
+      ],
+      "style": []
+    },
+    {
+      "p": 85,
+      "text": "[0.49%,3.11%]",
+      "vertical": [],
+      "style": []
+    },
+    {
+      "p": 85,
+      "text": "[−1.62%,11.56%]",
+      "vertical": [],
+      "style": []
+    },
+    {
+      "p": 85,
+      "text": "[0.01%,3.58%]",
+      "vertical": [],
+      "style": []
+    },
+    {
+      "p": 85,
+      "text": "[−2.51%,11.13%]",
+      "vertical": [],
+      "style": []
+    }
+  ],
+  "lengths": {
+    "abstract_characters_no_spaces": 397,
+    "abstract_han_characters": 300,
+    "conclusion_characters_no_spaces": 143
+  },
+  "math_serialization_vs_v73_identical": true,
+  "tables_vs_v73_equal": true,
+  "images_vs_v73_equal": true
+}

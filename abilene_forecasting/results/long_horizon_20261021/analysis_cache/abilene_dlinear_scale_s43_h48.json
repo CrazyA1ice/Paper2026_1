@@ -1,0 +1,16 @@
+{
+  "dataset": "abilene",
+  "model": "dlinear_scale",
+  "seed": 43,
+  "horizon": 48,
+  "input_len": 96,
+  "n_common_origins": 669,
+  "n_all_origins": 789,
+  "parameters": 16547,
+  "training_seconds": 74.17224560000068,
+  "prediction_sha256": "502182aa921c4a6f615db364fc14bab378622fb56fbb8c0b62711d35a017d0a5",
+  "all_mse": 0.2643595259792751,
+  "all_mae": 0.22602615961121106,
+  "common_mse": 0.306982697649472,
+  "common_mae": 0.24890132963570014
+}

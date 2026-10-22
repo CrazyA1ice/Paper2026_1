@@ -1,0 +1,49 @@
+{
+  "score": 7,
+  "label": "Minimal AI signals",
+  "issues": [
+    {
+      "type": "em-dash",
+      "text": "1 em dashes in 81 words",
+      "severity": "medium",
+      "suggestion": "Replace with commas, periods, or rewrite"
+    },
+    {
+      "type": "low-ttr",
+      "text": "Vocabulary diversity 28.0% (155 unique / 554 tokens)",
+      "severity": "low",
+      "suggestion": "Text reuses a narrow word set. Vary nouns and verbs deliberately, or check if the topic genuinely warrants the repetition."
+    }
+  ],
+  "stats": {
+    "wordCount": 81,
+    "tier1Count": 0,
+    "tier2Count": 0,
+    "tier2Clusters": 0,
+    "tier3Count": 0,
+    "tier3Flags": 0,
+    "patternCount": 2,
+    "contextMode": "technical",
+    "contextModeFallback": null,
+    "sourceMode": "plain",
+    "maskedFrontmatter": 0,
+    "maskedHtmlComments": 0,
+    "normalization": {
+      "zeroWidth": 0,
+      "homoglyph": 0,
+      "roleplay": 0
+    },
+    "quotedLines": 0,
+    "unmappedHighlights": 1,
+    "denseAIVocab": false,
+    "tier1Distinct": 0
+  },
+  "document_classification": "HUMAN_ONLY",
+  "class_probabilities": {
+    "human": 0.924,
+    "mixed": 0.056,
+    "ai": 0.02
+  },
+  "confidence_category": "medium",
+  "highlight_sentence_for_ai": []
+}

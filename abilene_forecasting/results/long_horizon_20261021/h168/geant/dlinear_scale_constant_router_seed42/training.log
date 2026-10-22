@@ -1,0 +1,60 @@
+epoch=001 train_objective=0.966533 val_mse=2.054203
+epoch=002 train_objective=0.885593 val_mse=2.130292
+epoch=003 train_objective=0.880111 val_mse=2.029607
+epoch=004 train_objective=0.878368 val_mse=2.122033
+epoch=005 train_objective=0.877650 val_mse=2.160581
+epoch=006 train_objective=0.877870 val_mse=2.137401
+epoch=007 train_objective=0.875990 val_mse=2.003452
+epoch=008 train_objective=0.878169 val_mse=2.080113
+epoch=009 train_objective=0.877505 val_mse=2.088069
+epoch=010 train_objective=0.876651 val_mse=2.050579
+epoch=011 train_objective=0.878073 val_mse=2.043564
+epoch=012 train_objective=0.876973 val_mse=1.973454
+epoch=013 train_objective=0.877341 val_mse=2.046765
+epoch=014 train_objective=0.879407 val_mse=2.007779
+epoch=015 train_objective=0.877924 val_mse=2.075765
+epoch=016 train_objective=0.878993 val_mse=2.033107
+epoch=017 train_objective=0.878436 val_mse=2.132613
+epoch=018 train_objective=0.876501 val_mse=2.040679
+Early stopping at epoch 18
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "dlinear_scale_constant_router",
+  "model_config": {},
+  "seed": 42,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1446,
+    "val": 307,
+    "test": 307
+  },
+  "input_len": 96,
+  "pred_len": 168,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 57587,
+  "best_val_mse_normalized": 1.9734541604883895,
+  "test_normalized": {
+    "mse": 1.1151862144470215,
+    "mae": 0.6100380420684814,
+    "rmse": 1.0560237169265747
+  },
+  "test_original_units": {
+    "mse": 2251747072.0,
+    "mae": 9666.017578125,
+    "rmse": 47452.578125
+  },
+  "elapsed_seconds": 78.61243229999991
+}

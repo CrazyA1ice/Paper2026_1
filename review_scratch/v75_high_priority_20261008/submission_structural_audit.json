@@ -1,0 +1,183 @@
+{
+  "equation_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "first_reference_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "all_citations_superscript": true,
+  "citation_occurrences": 13,
+  "abstract_nonspace": 397,
+  "abstract_han": 300,
+  "conclusion_nonspace": 143,
+  "source_han_count": 6316,
+  "figures": [
+    {
+      "number": 1,
+      "matched_figure_sources": [],
+      "sha256": "43b923f4b8ad72283dcd4bc0a7956d93eca10626234274e841fef5261e853e08"
+    },
+    {
+      "number": 2,
+      "matched_figure_sources": [
+        "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_figures\\v56_cdgyxy\\fig2.png"
+      ],
+      "sha256": "676128c8cd4b78255996cac319e44fe27e48d525b7d2687c919d3f41d9f87ae0"
+    },
+    {
+      "number": 3,
+      "matched_figure_sources": [
+        "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_figures\\v56_cdgyxy\\fig3.png"
+      ],
+      "sha256": "16839c5b8d022be0362148a54c043c54041beff47b38ed76b59f56c65600aa28"
+    },
+    {
+      "number": 4,
+      "matched_figure_sources": [
+        "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_figures\\v70_terminology\\fig4.png"
+      ],
+      "sha256": "91d059a8f90d570fad41b8d7db851850161ecab9a656cea7c10a00d9fe3df992"
+    },
+    {
+      "number": 5,
+      "matched_figure_sources": [
+        "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_figures\\v56_cdgyxy\\fig5.png"
+      ],
+      "sha256": "fc0838f0b57eba61c2b6ae94c341e7c16fbee4907f8588f0fd0c81c7731f606f"
+    }
+  ],
+  "footer": "收稿日期：[编辑部填写]第一作者简介：柯亚文（1998—），男，助教，硕士，研究方向：计算机软件。电子邮箱：keyawen@afc.edu.cn 。",
+  "body_has_corresponding_author_mark": false,
+  "body_has_funding": false,
+  "captions": [
+    {
+      "index": 19,
+      "text": "图1 自适应多尺度预测框架",
+      "center": [
+        "center"
+      ],
+      "sizes": [
+        "18",
+        "18",
+        "18"
+      ]
+    },
+    {
+      "index": 65,
+      "text": "表1 数据集与预测任务设置",
+      "center": [
+        "center"
+      ],
+      "sizes": [
+        "18",
+        "18",
+        "18"
+      ]
+    },
+    {
+      "index": 77,
+      "text": "表2 三随机种子基线模型比较（均值±标准差）",
+      "center": [
+        "center"
+      ],
+      "sizes": [
+        "18",
+        "18",
+        "18",
+        "18",
+        "18"
+      ]
+    },
+    {
+      "index": 79,
+      "text": "图2 相对LightTS的误差降低率与参数规模",
+      "center": [
+        "center"
+      ],
+      "sizes": [
+        "18",
+        "18",
+        "18",
+        "18",
+        "18"
+      ]
+    },
+    {
+      "index": 84,
+      "text": "表3 八随机种子消融实验结果（均值±标准差）",
+      "center": [
+        "center"
+      ],
+      "sizes": [
+        "18",
+        "18",
+        "18",
+        "18",
+        "18"
+      ]
+    },
+    {
+      "index": 88,
+      "text": "图3 相对两类基线的多指标改进分布",
+      "center": [
+        "center"
+      ],
+      "sizes": [
+        "18",
+        "18",
+        "18"
+      ]
+    },
+    {
+      "index": 94,
+      "text": "图4 真实值分组预测与典型窗口轨迹",
+      "center": [
+        "center"
+      ],
+      "sizes": [
+        "18",
+        "18",
+        "18"
+      ]
+    },
+    {
+      "index": 98,
+      "text": "图5 尺度权重分布与种子均值",
+      "center": [
+        "center"
+      ],
+      "sizes": [
+        "18",
+        "18",
+        "18"
+      ]
+    }
+  ],
+  "section": "<w:sectPr xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:wpc=\"http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas\" xmlns:cx=\"http://schemas.microsoft.com/office/drawing/2014/chartex\" xmlns:cx1=\"http://schemas.microsoft.com/office/drawing/2015/9/8/chartex\" xmlns:cx2=\"http://schemas.microsoft.com/office/drawing/2015/10/21/chartex\" xmlns:cx3=\"http://schemas.microsoft.com/office/drawing/2016/5/9/chartex\" xmlns:cx4=\"http://schemas.microsoft.com/office/drawing/2016/5/10/chartex\" xmlns:cx5=\"http://schemas.microsoft.com/office/drawing/2016/5/11/chartex\" xmlns:cx6=\"http://schemas.microsoft.com/office/drawing/2016/5/12/chartex\" xmlns:cx7=\"http://schemas.microsoft.com/office/drawing/2016/5/13/chartex\" xmlns:cx8=\"http://schemas.microsoft.com/office/drawing/2016/5/14/chartex\" xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" xmlns:aink=\"http://schemas.microsoft.com/office/drawing/2016/ink\" xmlns:am3d=\"http://schemas.microsoft.com/office/drawing/2017/model3d\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:oel=\"http://schemas.microsoft.com/office/2019/extlst\" xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\" xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:wp14=\"http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing\" xmlns:wp=\"http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing\" xmlns:w10=\"urn:schemas-microsoft-com:office:word\" xmlns:w14=\"http://schemas.microsoft.com/office/word/2010/wordml\" xmlns:w15=\"http://schemas.microsoft.com/office/word/2012/wordml\" xmlns:w16cex=\"http://schemas.microsoft.com/office/word/2018/wordml/cex\" xmlns:w16cid=\"http://schemas.microsoft.com/office/word/2016/wordml/cid\" xmlns:w16=\"http://schemas.microsoft.com/office/word/2018/wordml\" xmlns:w16du=\"http://schemas.microsoft.com/office/word/2023/wordml/word16du\" xmlns:w16sdtdh=\"http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash\" xmlns:w16sdtfl=\"http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock\" xmlns:w16se=\"http://schemas.microsoft.com/office/word/2015/wordml/symex\" xmlns:wpg=\"http://schemas.microsoft.com/office/word/2010/wordprocessingGroup\" xmlns:wpi=\"http://schemas.microsoft.com/office/word/2010/wordprocessingInk\" xmlns:wne=\"http://schemas.microsoft.com/office/word/2006/wordml\" xmlns:wps=\"http://schemas.microsoft.com/office/word/2010/wordprocessingShape\" w:rsidR=\"00B14FA3\" w:rsidRPr=\"00B14FA3\" w:rsidSect=\"00F23B67\"><w:headerReference w:type=\"default\" r:id=\"rId11\"/><w:footerReference w:type=\"first\" r:id=\"rId12\"/><w:pgSz w:w=\"11906\" w:h=\"16838\"/><w:pgMar w:top=\"1757\" w:right=\"1134\" w:bottom=\"1417\" w:left=\"1134\" w:header=\"851\" w:footer=\"992\" w:gutter=\"0\"/><w:cols w:space=\"425\"/><w:titlePg/><w:docGrid w:type=\"lines\" w:linePitch=\"312\"/></w:sectPr>",
+  "all_paragraph_numeric_sequences_preserved": true
+}

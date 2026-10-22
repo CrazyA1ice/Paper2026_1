@@ -1,0 +1,67 @@
+{
+  "dataset": "abilene",
+  "model": "dlinear_scale",
+  "train_percent": 100,
+  "seed": 42,
+  "train_start": 0,
+  "train_rows": 2793,
+  "train_windows": 2674,
+  "val_rows": 931,
+  "test_rows": 932,
+  "n_channels": 144,
+  "constant_channels_in_suffix": 0,
+  "config": {
+    "input_len": 96,
+    "pred_len": 24,
+    "batch_size": 16,
+    "epochs_max": 30,
+    "patience": 6,
+    "learning_rate": 0.001
+  },
+  "source": "archived_full_training_checkpoint",
+  "checkpoint": "results\\abilene\\dlinear_scale_seed42\\best_model.pt",
+  "checkpoint_sha256": "da753c7f6474b5bbd6cb23c17e17ef3e483659d2e96c524ae1599c1e2252a7e1",
+  "device": "cuda",
+  "elapsed_seconds": 3.415060000028461,
+  "epochs_executed": 0,
+  "test_reference": {
+    "mse": 0.1855235071591447,
+    "mae": 0.1680468985836991,
+    "rmse": 0.43072439814705726
+  },
+  "temporal_blocks": [
+    {
+      "block": "T1",
+      "target_start": 96,
+      "target_end_exclusive": 374,
+      "windows": 255,
+      "mse": 0.03072230714959209,
+      "mae": 0.09305451088777125,
+      "rmse": 0.17527779993368267
+    },
+    {
+      "block": "T2",
+      "target_start": 374,
+      "target_end_exclusive": 653,
+      "windows": 256,
+      "mse": 0.5368747038120323,
+      "mae": 0.35299527826532057,
+      "rmse": 0.7327173423715535
+    },
+    {
+      "block": "T3",
+      "target_start": 653,
+      "target_end_exclusive": 932,
+      "windows": 256,
+      "mse": 0.01808235362940805,
+      "mae": 0.07394450009215146,
+      "rmse": 0.1344706422584798
+    }
+  ],
+  "seasonal_common": {
+    "mse": 0.20019625186699141,
+    "mae": 0.17477085710702944,
+    "rmse": 0.4474329579579397
+  },
+  "seasonal_common_windows": 741
+}

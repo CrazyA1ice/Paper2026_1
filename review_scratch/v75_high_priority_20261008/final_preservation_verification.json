@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "changed_text_paragraphs": [
+    15,
+    17,
+    49,
+    60,
+    68,
+    105
+  ],
+  "only_paragraph_format_change": {
+    "paragraphs": [
+      41,
+      61,
+      75
+    ],
+    "change": "keep-with-next"
+  },
+  "protected_math_objects": 41,
+  "tables": 3,
+  "other_package_parts_unchanged": true,
+  "all_numeric_sequences_preserved": true,
+  "original_unchanged": true,
+  "final_sha256": "ffe784b8c13a51bf86034d7264e08b16608714e9a8ac581a31b7612930e3bd81"
+}

@@ -1,0 +1,306 @@
+[
+  {
+    "dataset": "abilene",
+    "baseline": "dlinear",
+    "metric": "mae",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      6.944184640729757,
+      -3.7579173357196725,
+      -4.178964122772312,
+      1.336576564843074
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": -5.607608075886683
+  },
+  {
+    "dataset": "abilene",
+    "baseline": "dlinear",
+    "metric": "mse",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      2.327850159098256,
+      -5.567082728852478,
+      -5.022912783024089,
+      -2.5194502402699577
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": -4.847300399368214
+  },
+  {
+    "dataset": "abilene",
+    "baseline": "dlinear_scale_constant_router",
+    "metric": "mae",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      3.8231028198674437,
+      0.3576336191595195,
+      1.403874044369502,
+      1.970743838576396
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": -1.8523589812910477
+  },
+  {
+    "dataset": "abilene",
+    "baseline": "dlinear_scale_constant_router",
+    "metric": "mse",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      1.4676642451160367,
+      -5.894358888716996,
+      -3.864129743400698,
+      -2.217872980537839
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": -3.685537225653876
+  },
+  {
+    "dataset": "abilene",
+    "baseline": "dlinear_scale_global",
+    "metric": "mae",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      7.790422885885544,
+      -2.0814736316958826,
+      -0.35851135486569585,
+      5.391833617654463
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": -2.398589268231081
+  },
+  {
+    "dataset": "abilene",
+    "baseline": "dlinear_scale_global",
+    "metric": "mse",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      1.3413566976419933,
+      -5.48840315198707,
+      -4.957549025712993,
+      -0.5203850504664822
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": -1.8617417481084755
+  },
+  {
+    "dataset": "abilene",
+    "baseline": "dlinear_scale_static",
+    "metric": "mae",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      7.792869927629434,
+      -1.9378732261813585,
+      -0.28747979517770206,
+      5.434811284429278
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": -2.358058643200156
+  },
+  {
+    "dataset": "abilene",
+    "baseline": "dlinear_scale_static",
+    "metric": "mse",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      1.1929232663353202,
+      -5.4492478204454,
+      -4.904908455485174,
+      -0.48530285153295116
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": -1.6782261178682714
+  },
+  {
+    "dataset": "geant",
+    "baseline": "dlinear",
+    "metric": "mae",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      0.9116237035733289,
+      -6.154044892056751,
+      -2.1694182392935475,
+      11.158897760037743
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": 10.247274056464414
+  },
+  {
+    "dataset": "geant",
+    "baseline": "dlinear",
+    "metric": "mse",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      0.3536911553179162,
+      -12.792134546726729,
+      -2.5583644430010426,
+      23.160177332680846
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": 22.80648617736293
+  },
+  {
+    "dataset": "geant",
+    "baseline": "dlinear_scale_constant_router",
+    "metric": "mae",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      3.097409485417254,
+      -3.963834773412553,
+      1.7258649720358898,
+      11.189913119457724
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": 8.09250363404047
+  },
+  {
+    "dataset": "geant",
+    "baseline": "dlinear_scale_constant_router",
+    "metric": "mse",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      3.0107627998973285,
+      -8.227561845451017,
+      3.824367071925086,
+      23.772923891947922
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": 20.762161092050594
+  },
+  {
+    "dataset": "geant",
+    "baseline": "dlinear_scale_global",
+    "metric": "mae",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      2.430825750431911,
+      -4.258673843505084,
+      1.9954994007806965,
+      12.343283699169877
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": 9.912457948737966
+  },
+  {
+    "dataset": "geant",
+    "baseline": "dlinear_scale_global",
+    "metric": "mse",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      2.3354898898168734,
+      -8.912142703183367,
+      4.4509004083045856,
+      26.0174567878909
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": 23.681966898074027
+  },
+  {
+    "dataset": "geant",
+    "baseline": "dlinear_scale_static",
+    "metric": "mae",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      2.5673147219502317,
+      -4.120670249986768,
+      2.072442446532956,
+      12.388247959379171
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": 9.820933237428939
+  },
+  {
+    "dataset": "geant",
+    "baseline": "dlinear_scale_static",
+    "metric": "mse",
+    "horizons": [
+      24,
+      48,
+      96,
+      168
+    ],
+    "mean_reductions_pct": [
+      2.5553075603062494,
+      -8.604829365075286,
+      4.62547592127045,
+      26.114809865030956
+    ],
+    "monotonically_increasing": false,
+    "change_168_minus_24_percentage_points": 23.559502304724706
+  }
+]

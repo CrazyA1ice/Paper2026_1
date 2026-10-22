@@ -1,0 +1,67 @@
+epoch=001 train_objective=1.063991 val_mse=1.782733
+epoch=002 train_objective=0.742497 val_mse=1.590543
+epoch=003 train_objective=0.608493 val_mse=1.547705
+epoch=004 train_objective=0.570795 val_mse=1.511431
+epoch=005 train_objective=0.543237 val_mse=1.504087
+epoch=006 train_objective=0.521470 val_mse=1.471696
+epoch=007 train_objective=0.511745 val_mse=1.470151
+epoch=008 train_objective=0.491798 val_mse=1.437192
+epoch=009 train_objective=0.477793 val_mse=1.450163
+epoch=010 train_objective=0.462043 val_mse=1.489726
+epoch=011 train_objective=0.453867 val_mse=1.439639
+epoch=012 train_objective=0.439031 val_mse=1.471045
+epoch=013 train_objective=0.431784 val_mse=1.519239
+epoch=014 train_objective=0.418922 val_mse=1.533762
+epoch=015 train_objective=0.408621 val_mse=1.594110
+epoch=016 train_objective=0.399034 val_mse=1.649653
+epoch=017 train_objective=0.391518 val_mse=1.682644
+epoch=018 train_objective=0.382716 val_mse=1.767726
+Early stopping at epoch 18
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "lightts",
+  "model_config": {
+    "source": "thuml/Time-Series-Library",
+    "source_commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+    "source_model_sha": "a2051e44d864ec4ec5e72e59660b98c30c93a902",
+    "d_model": 512,
+    "dropout": 0.1,
+    "chunk_size": 24
+  },
+  "seed": 48,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1590,
+    "val": 451,
+    "test": 451
+  },
+  "input_len": 96,
+  "pred_len": 24,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 50,
+  "patience": 10,
+  "learning_rate": 0.0001,
+  "parameters": 384382,
+  "best_val_mse_normalized": 1.4371919696716935,
+  "test_normalized": {
+    "mse": 0.6959438920021057,
+    "mae": 0.5235123038291931,
+    "rmse": 0.8342325091362
+  },
+  "test_original_units": {
+    "mse": 1630317056.0,
+    "mae": 8092.52880859375,
+    "rmse": 40377.18359375
+  },
+  "elapsed_seconds": 402.8814693000022
+}

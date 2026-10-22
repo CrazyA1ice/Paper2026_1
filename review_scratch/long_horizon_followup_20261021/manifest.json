@@ -1,0 +1,22 @@
+{
+  "base": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\改投内容修改第一版_20261020\\自适应多尺度加权的多变量网络流量预测_柱状图修订版.docx",
+  "base_sha256": "eb2f06a71158bb9162efb38a8bad3943d4ad357ebe7e163c3aa8abfd5fe0ef1f",
+  "main": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\长预测核验与修订_20261021\\自适应多尺度加权的多变量网络流量预测_扩展预测修订版.docx",
+  "supplement": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\长预测核验与修订_20261021\\长预测时长扩展实验_完整结果与核验.docx",
+  "main_sha256": "76b2b907abd388a49503c7ad21e8a4b009848b033e65d59e5660f2033168c744",
+  "supplement_sha256": "57177770317afe921c081a98e4b51fd18158c9e9795d318b0909e0068a095a46",
+  "figures": 5,
+  "tables": 4,
+  "equations_unchanged": 17,
+  "references_unchanged": 11,
+  "original_media_unchanged": 4,
+  "chinese_abstract_characters": 199,
+  "changed_package_parts": [
+    "word/document.xml",
+    "word/_rels/document.xml.rels"
+  ],
+  "data_records_verified": 320,
+  "supplement_summary_rows": 40,
+  "supplement_paired_comparisons": 64,
+  "figure5": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\长预测核验与修订_20261021\\数据与图表\\图5_GEANT一周预测误差.png"
+}

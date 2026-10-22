@@ -1,0 +1,122 @@
+{
+  "version": "long-horizon-20261021-v1",
+  "input_len": 96,
+  "horizons": [
+    24,
+    48,
+    96,
+    168
+  ],
+  "datasets": [
+    "geant",
+    "abilene"
+  ],
+  "models": [
+    "dlinear",
+    "dlinear_scale_static",
+    "dlinear_scale_global",
+    "dlinear_scale_constant_router",
+    "dlinear_scale"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "training": {
+    "batch_size": 16,
+    "epochs_max": 30,
+    "patience": 6,
+    "learning_rate": 0.001
+  },
+  "sampling": "unchanged hourly data, same chronological 6:2:2 split and training-only normalizers",
+  "training_method": "call the unchanged train.main separately per configuration; independent model and optimizer; reset original seeds each run",
+  "primary_scoring": "common forecast origins admitting H=168, score every target hour and OD variable inside each horizon; summarize paired seeds",
+  "secondary_scoring": "all valid test origins per horizon retained for traceability",
+  "primary_metrics": [
+    "normalized MSE",
+    "normalized MAE"
+  ],
+  "improvement": "mean across paired seeds of 100*(baseline-proposed)/baseline; retain negative values",
+  "trend": "descriptive change in the same relative improvement over four fixed horizons; no guaranteed monotonicity",
+  "random_unit": "training seed; overlapping forecast targets are not independent experimental replicates",
+  "h24_reuse": "80 complete archived model-seed runs, rescored on common origins without retraining",
+  "new_runs": 240,
+  "parallel_workers": 2,
+  "source_sha256": {
+    "train.py": "9791e313d13e1ffd0a8334c8cb1d402f74626ef75c43694c1b1f2d23b7d56c44",
+    "src\\models.py": "8a9c140884649bddae78910951196edb2185319bffffd6e90f17bd6662593eaa",
+    "src\\data.py": "0e3695b911d7a7efd1cc576b12226ddc325c6748d83f7a2d7092dcc01b1debd9",
+    "data\\processed\\geant_1hour.npz": "63e2bb6897902ac556efdda2f3cb98a7e224cd664757d8488086271b103741ec",
+    "data\\processed\\abilene_1hour.npz": "d740fe2129862ec51ccd4d1fe58f9d182b6710a0fc94945ecfffad1981a172b5"
+  },
+  "data_readiness": {
+    "geant": {
+      "rows": {
+        "train": 1709,
+        "val": 570,
+        "test": 570
+      },
+      "channels": 524,
+      "windows": {
+        "24": {
+          "train": 1590,
+          "val": 451,
+          "test": 451
+        },
+        "48": {
+          "train": 1566,
+          "val": 427,
+          "test": 427
+        },
+        "96": {
+          "train": 1518,
+          "val": 379,
+          "test": 379
+        },
+        "168": {
+          "train": 1446,
+          "val": 307,
+          "test": 307
+        }
+      },
+      "common_test_origins": 307
+    },
+    "abilene": {
+      "rows": {
+        "train": 2793,
+        "val": 931,
+        "test": 932
+      },
+      "channels": 144,
+      "windows": {
+        "24": {
+          "train": 2674,
+          "val": 812,
+          "test": 813
+        },
+        "48": {
+          "train": 2650,
+          "val": 788,
+          "test": 789
+        },
+        "96": {
+          "train": 2602,
+          "val": 740,
+          "test": 741
+        },
+        "168": {
+          "train": 2530,
+          "val": 668,
+          "test": 669
+        }
+      },
+      "common_test_origins": 669
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "word_statistics": {
+    "words": 7770,
+    "characters": 13382,
+    "pages": 10
+  },
+  "figure_caption_pages": {
+    "1": 2,
+    "2": 6,
+    "3": 7,
+    "4": 8,
+    "5": 9
+  },
+  "deleted_note_paragraphs": 5,
+  "native_equations_unchanged": true,
+  "table_xml_unchanged": true,
+  "all_media_unchanged": true,
+  "unrelated_paragraphs_unchanged": true,
+  "original_source_unchanged": true,
+  "body_nonspace_characters_reduced": 251,
+  "formula_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "reference_first_appearance_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "section_2_3_starts_new_page_to_keep_table3_whole": true
+}

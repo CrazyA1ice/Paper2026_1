@@ -1,0 +1,110 @@
+{
+  "source_files": [
+    {
+      "dataset": "abilene",
+      "seed": 42,
+      "sha256": "3ecab9cebc1819ecfbcf11cca2ad36dafaa5c91fe371003163c8298f8cdb6314"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 43,
+      "sha256": "cca39f1120d4993d822785422faa7f19cb10c3cda4ba3d3229d86797e358b33e"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 44,
+      "sha256": "eb15d8fb45f77420bb1079493162ba70e17080b423e724bf18b4c3f754d7c00d"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 45,
+      "sha256": "d0d2c472a3e9b39a0aea0ff1aace2868910829e95cdcfdff572ff3d2df0151b8"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 46,
+      "sha256": "1dd2db7b3fe899b293300929147e354b6b36b6a57a08b016f011edeaea51b512"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 47,
+      "sha256": "053ffc6df47f47a7cb493e269975a0909d997cb69d8140f58e572008de414d47"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 48,
+      "sha256": "98ae633d7fbaf86630cda728551c84e72e29867a67608b35a48c7c9875276d63"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 49,
+      "sha256": "8f2d071f2361f32d1e2ae0e00dc8e391f39cd542f9097ec500e5f0ba8e6b3f04"
+    },
+    {
+      "dataset": "geant",
+      "seed": 42,
+      "sha256": "7acd0f1e0ca2c9bdf4c30a114295f58f019a5b8b07e0c70bed42dd89cf54a2f0"
+    },
+    {
+      "dataset": "geant",
+      "seed": 43,
+      "sha256": "892332a5a63792d4920b2f278d45186e56f0a194bf97c6202118792d90787fa5"
+    },
+    {
+      "dataset": "geant",
+      "seed": 44,
+      "sha256": "54ad52515448f0e0207393e36ec72c7bd7f95252d6997fb894f7a2ab5ec0d75e"
+    },
+    {
+      "dataset": "geant",
+      "seed": 45,
+      "sha256": "d0a2f3ae5858f35937f6e3f4ed7cdcf6622081a487219419114343eac7fa3137"
+    },
+    {
+      "dataset": "geant",
+      "seed": 46,
+      "sha256": "bdd18046fb8a85329d1bfc6731103002b126d9bc91206fa351ec0b735ce4624c"
+    },
+    {
+      "dataset": "geant",
+      "seed": 47,
+      "sha256": "4d5d6bd071ed676b61617b533999423d0d94c3ec9718b7f3f3f33275de6cddc8"
+    },
+    {
+      "dataset": "geant",
+      "seed": 48,
+      "sha256": "165ba562fd13badc4e5a81456dde52e37db38883081945905a620f0dfdca1db7"
+    },
+    {
+      "dataset": "geant",
+      "seed": 49,
+      "sha256": "f43e6e15000ff55e5feb586798d4406af815841970dace900f8a543ac4160618"
+    }
+  ],
+  "case_indices": [
+    {
+      "dataset": "abilene",
+      "seed": 42,
+      "window_index_zero_based": 104,
+      "active_channel_index_zero_based": 29,
+      "original_channel_index_zero_based": 29,
+      "selection_rule": "在标准化测试集上，选择本文方法绝对误差最接近全部测试窗口中位数的窗口；再从该窗口的非恒定OD通道中，选择24步真实值标准差最接近通道中位数的通道。该规则用于展示典型而非最佳预测，不按本文方法相对DLinear的误差优势筛选。",
+      "dlinear_case_mae_standardized": 0.1057083010673523,
+      "adaptive_case_mae_standardized": 0.06798996776342392
+    },
+    {
+      "dataset": "geant",
+      "seed": 42,
+      "window_index_zero_based": 403,
+      "active_channel_index_zero_based": 186,
+      "original_channel_index_zero_based": 188,
+      "selection_rule": "在标准化测试集上，选择本文方法绝对误差最接近全部测试窗口中位数的窗口；再从该窗口的非恒定OD通道中，选择24步真实值标准差最接近通道中位数的通道。该规则用于展示典型而非最佳预测，不按本文方法相对DLinear的误差优势筛选。",
+      "dlinear_case_mae_standardized": 0.2087090015411377,
+      "adaptive_case_mae_standardized": 0.20937304198741913
+    }
+  ],
+  "curve_rows": 48,
+  "curve_seed_rows": 384,
+  "high_demand_seed_rows": 80,
+  "changes_to_word": false
+}

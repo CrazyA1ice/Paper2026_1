@@ -1,0 +1,89 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\实验结果分析修订_20261022\\自适应多尺度加权的多变量网络流量预测_实验结果分析稿.docx",
+  "source_sha256": "a66d4e25a4fc592437afc1b13a1c59f68b9243f9d3d0f0b8d8d9b59e1905a917",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图表组织优化修订_20261022\\自适应多尺度加权的多变量网络流量预测_图表优化稿.docx",
+  "output_sha256": "ea996d638e7b11f4a02863b5c0de681f8511dbc7b2ead96a16bbaba79ac49d89",
+  "changed_package_parts": [
+    "word/document.xml",
+    "word/media/journal_figure2.png",
+    "word/media/journal_figure3.png",
+    "word/media/journal_figure4.png"
+  ],
+  "source_unchanged": true,
+  "all_original_error_data_unchanged": true,
+  "native_math": 19,
+  "all_existing_math_unchanged": true,
+  "original_page_styles_margins_and_fonts_unchanged": true,
+  "figure1_unchanged": true,
+  "table1_3_4_unchanged": true,
+  "table2_new_parameter_column": true,
+  "all_best_error_values_bold": true,
+  "no_new_experiments": true,
+  "no_seed_exclusions": true,
+  "visual_review_pending": false,
+  "edits": [
+    {
+      "paragraph": 65,
+      "before": "表2中，本文方法在两套数据上的平均MSE和MAE均最优。相对LightTS，Abilene和GÉANT的MSE平均降低25.77%和43.74%，MAE降低12.66%和29.09%。结合图2，本文参数量为8339，相比LightTS的130162和384382分别减少93.59%和97.83%。",
+      "after": "表2中，本文方法在两套数据上的平均MSE与MAE均最优。相对LightTS，Abilene和GÉANT的MSE平均降低25.77%和43.74%，MAE降低12.66%和29.09%；参数量分别减少93.59%和97.83%。"
+    },
+    {
+      "paragraph": 66,
+      "before": "图2 相对LightTS的预测误差降低率与参数比例",
+      "after": "图2 相对DLinear与LightTS的配对误差降幅（8次重复）"
+    },
+    {
+      "paragraph": 67,
+      "before": "图2(a)、(b)的柱高为八个共同种子的平均相对降幅，误差线为样本标准差；图2(c)以对应LightTS配置的参数量为100%，给出本文模型的参数比例。",
+      "after": "图2中，点为单次配对结果，菱形及横线为均值与样本标准差；下方为相对LightTS的参数比例。"
+    },
+    {
+      "paragraph": 76,
+      "before": "图3 高需求预测点的MAE与平均低估误差（8次重复）",
+      "after": "图3 高需求点的MAE与AUE（8次重复，均值±样本标准差）"
+    },
+    {
+      "paragraph": 77,
+      "before": "图3中，本文方法在Abilene上的MAE与AUE为0.147和0.137，在GÉANT上为0.632和0.577，均值均低于所列对照。Abilene上，相对DLinear两项指标平均降低13.96%和16.07%，相对固定等权降低17.47%和20.84%，说明高需求点的预测误差和需求低估幅度均得到改善。",
+      "after": "图3中，本文方法在Abilene上的MAE与AUE为0.147和0.137，在GÉANT上为0.632和0.577，均值均低于所列对照。Abilene上，相对DLinear两项指标平均降低13.96%和16.07%，相对固定等权降低17.47%和20.84%。横轴为局部范围，虚线为DLinear均值。"
+    },
+    {
+      "paragraph": 82,
+      "before": "图4 GÉANT一周预测中本文方法相对各对照的误差降幅（8次重复）",
+      "after": "图4 GÉANT一周预测的绝对误差与配对降幅（8次重复）"
+    },
+    {
+      "paragraph": 83,
+      "before": "表4中，本文方法的平均MSE和MAE均最优，较DLinear降低23.16%和11.16%，较其余融合对照降低23.77%～26.11%和11.19%～12.39%。168 h模型含57587个参数，路由网络仍为131个，仅占0.23%。图4中，全部64个配对降幅（4种对照×2项指标×8个种子）均为正值，体现了本组一周预测实验中误差降低的一致性。",
+      "after": "表4中，本文方法的平均MSE和MAE均最优，较DLinear降低23.16%和11.16%，较其余融合对照降低23.77%～26.11%和11.19%～12.39%。168 h模型含57587个参数，路由网络仍为131个，仅占0.23%。图4左列展示绝对误差，右列中全部64个配对降幅均为正值。"
+    },
+    {
+      "paragraph": 79,
+      "before": "一周预测取H=168，保持96 h输入及原有数据划分与预处理。表4所列五种模型均沿用2.1节的训练设置，按168 h输出独立训练，并在GÉANT的全部307个测试窗口上评价。",
+      "after": "设置H=168，保持96 h输入及原有划分和预处理；五种模型按2.1节设置独立训练，在GÉANT全部307个测试窗口上评价。",
+      "reason": "retain the same task and training protocol without repeated setup prose"
+    },
+    {
+      "table": 2,
+      "added_column": "参数量",
+      "values": [
+        4656,
+        130162,
+        8339,
+        4656,
+        384382,
+        8339
+      ],
+      "total_width_unchanged": true
+    },
+    {
+      "figure": 4,
+      "width_mm": 138,
+      "new_height_mm": 66,
+      "reason": "two rows of absolute and paired-effect panels at original 7.5 pt text"
+    }
+  ],
+  "visual_review_passed": true,
+  "final_pages": 7,
+  "embedded_figures_match_exports": true
+}

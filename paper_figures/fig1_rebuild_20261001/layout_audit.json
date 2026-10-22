@@ -1,0 +1,26 @@
+[
+  {
+    "name": "A_parallel",
+    "width_mm": 180,
+    "height_mm": 106.00000000000001,
+    "min_font_pt": 8.0,
+    "text_overlap": [],
+    "missing_glyphs": []
+  },
+  {
+    "name": "B_vertical",
+    "width_mm": 180,
+    "height_mm": 126.0,
+    "min_font_pt": 8.0,
+    "text_overlap": [],
+    "missing_glyphs": []
+  },
+  {
+    "name": "C_overview_detail",
+    "width_mm": 180,
+    "height_mm": 132.0,
+    "min_font_pt": 8.0,
+    "text_overlap": [],
+    "missing_glyphs": []
+  }
+]

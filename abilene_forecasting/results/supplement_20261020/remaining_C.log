@@ -1,0 +1,9 @@
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale", "seed": 42, "skipped": false, "mse": 0.3973118645315678, "worker_elapsed": 150.40147899999283}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale", "seed": 43, "skipped": false, "mse": 0.5075590243085574, "worker_elapsed": 193.0372602000134}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale", "seed": 44, "skipped": false, "mse": 0.422427648370905, "worker_elapsed": 247.27488049998647}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale", "seed": 45, "skipped": false, "mse": 0.5270320230497374, "worker_elapsed": 305.6263597999932}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale", "seed": 46, "skipped": false, "mse": 0.4179525554161353, "worker_elapsed": 375.9106308000046}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale", "seed": 47, "skipped": false, "mse": 0.4200819510098301, "worker_elapsed": 437.4420217000297}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale", "seed": 48, "skipped": false, "mse": 0.4123609155933809, "worker_elapsed": 490.46585600002436}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale", "seed": 49, "skipped": false, "mse": 0.4283039698377767, "worker_elapsed": 522.4975384999998}
+REMAINING_C_COMPLETE

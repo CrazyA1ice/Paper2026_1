@@ -1,0 +1,342 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图表组织优化修订_20261022\\图表与核验数据\\图3_高需求全部种子.csv",
+  "n_rows": 80,
+  "n_cols": 8,
+  "columns": {
+    "dataset": {
+      "type": "categorical",
+      "n_total": 80,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 80,
+      "n_unique": 2,
+      "categories": [
+        [
+          "abilene",
+          40
+        ],
+        [
+          "geant",
+          40
+        ]
+      ],
+      "min_group_n": 40,
+      "max_group_n": 40,
+      "small_groups_flag": false
+    },
+    "model": {
+      "type": "categorical",
+      "n_total": 80,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 80,
+      "n_unique": 5,
+      "categories": [
+        [
+          "dlinear",
+          16
+        ],
+        [
+          "dlinear_scale_static",
+          16
+        ],
+        [
+          "dlinear_scale_global",
+          16
+        ],
+        [
+          "dlinear_scale_constant_router",
+          16
+        ],
+        [
+          "dlinear_scale",
+          16
+        ]
+      ],
+      "min_group_n": 16,
+      "max_group_n": 16,
+      "small_groups_flag": false
+    },
+    "seed": {
+      "type": "continuous",
+      "n_total": 80,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 80,
+      "mean": 45.5,
+      "median": 45.5,
+      "sd": 2.3057440656331596,
+      "min": 42.0,
+      "max": 49.0,
+      "skewness": 0.0,
+      "skew_label": "approximately symmetric",
+      "n_outliers_iqr": 0,
+      "outlier_lo": 38.5,
+      "outlier_hi": 52.5,
+      "needs_log_axis": "False"
+    },
+    "n_high_targets": {
+      "type": "ordinal",
+      "n_total": 80,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 80,
+      "n_unique": 2,
+      "categories": [
+        [
+          "382341",
+          40
+        ],
+        [
+          "737459",
+          40
+        ]
+      ],
+      "min_group_n": 40,
+      "max_group_n": 40,
+      "small_groups_flag": false
+    },
+    "mae": {
+      "type": "continuous",
+      "n_total": 80,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 80,
+      "mean": 0.40904217841617124,
+      "median": 0.3782829539938919,
+      "sd": 0.24550549153407022,
+      "min": 0.1320497118370839,
+      "max": 0.7601559295803845,
+      "skewness": 0.03394752250443562,
+      "skew_label": "approximately symmetric",
+      "n_outliers_iqr": 0,
+      "outlier_lo": -0.5525563280351922,
+      "outlier_hi": 1.36811435215518,
+      "needs_log_axis": "False"
+    },
+    "mean_shortfall": {
+      "type": "continuous",
+      "n_total": 80,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 80,
+      "mean": 0.38465008286433294,
+      "median": 0.3263598103894708,
+      "sd": 0.2284033880847527,
+      "min": 0.1183981132774383,
+      "max": 0.7330299860976272,
+      "skewness": 0.0618121396417747,
+      "skew_label": "approximately symmetric",
+      "n_outliers_iqr": 0,
+      "outlier_lo": -0.5016650228846958,
+      "outlier_hi": 1.2690561546636423,
+      "needs_log_axis": "False"
+    },
+    "underprediction_fraction": {
+      "type": "continuous",
+      "n_total": 80,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 80,
+      "mean": 0.9002530371748406,
+      "median": 0.9150091149000499,
+      "sd": 0.05959569610462766,
+      "min": 0.6891256757711048,
+      "max": 0.9715620349373988,
+      "skewness": -1.8485507208392344,
+      "skew_label": "highly skewed",
+      "n_outliers_iqr": 9,
+      "outlier_lo": 0.8351311547185789,
+      "outlier_hi": 0.995844319870419,
+      "needs_log_axis": "False"
+    },
+    "signed_bias": {
+      "type": "continuous",
+      "n_total": 80,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 80,
+      "mean": -0.3602579873124946,
+      "median": -0.2744366667850498,
+      "sd": 0.21194673390565322,
+      "min": -0.7059040426148698,
+      "max": -0.1047465147177927,
+      "skewness": -0.10186038900796739,
+      "skew_label": "approximately symmetric",
+      "n_outliers_iqr": 0,
+      "outlier_lo": -1.1776454626396151,
+      "outlier_hi": 0.45546517063674263,
+      "needs_log_axis": false
+    }
+  },
+  "correlation": {
+    "columns": [
+      "seed",
+      "mae",
+      "mean_shortfall",
+      "underprediction_fraction",
+      "signed_bias"
+    ],
+    "matrix": {
+      "seed": {
+        "seed": 1.0,
+        "mae": 0.001,
+        "mean_shortfall": 0.004,
+        "underprediction_fraction": 0.099,
+        "signed_bias": -0.006
+      },
+      "mae": {
+        "seed": 0.001,
+        "mae": 1.0,
+        "mean_shortfall": 0.999,
+        "underprediction_fraction": 0.404,
+        "signed_bias": -0.994
+      },
+      "mean_shortfall": {
+        "seed": 0.004,
+        "mae": 0.999,
+        "mean_shortfall": 1.0,
+        "underprediction_fraction": 0.433,
+        "signed_bias": -0.998
+      },
+      "underprediction_fraction": {
+        "seed": 0.099,
+        "mae": 0.404,
+        "mean_shortfall": 0.433,
+        "underprediction_fraction": 1.0,
+        "signed_bias": -0.466
+      },
+      "signed_bias": {
+        "seed": -0.006,
+        "mae": -0.994,
+        "mean_shortfall": -0.998,
+        "underprediction_fraction": -0.466,
+        "signed_bias": 1.0
+      }
+    },
+    "pairs_sorted": [
+      {
+        "a": "mae",
+        "b": "mean_shortfall",
+        "r": 0.9987820392202708,
+        "magnitude": "very strong"
+      },
+      {
+        "a": "mean_shortfall",
+        "b": "signed_bias",
+        "r": -0.9983654703993898,
+        "magnitude": "very strong"
+      },
+      {
+        "a": "mae",
+        "b": "signed_bias",
+        "r": -0.9943296035500974,
+        "magnitude": "very strong"
+      },
+      {
+        "a": "underprediction_fraction",
+        "b": "signed_bias",
+        "r": -0.46553037222677585,
+        "magnitude": "moderate"
+      },
+      {
+        "a": "mean_shortfall",
+        "b": "underprediction_fraction",
+        "r": 0.4332129941733231,
+        "magnitude": "moderate"
+      },
+      {
+        "a": "mae",
+        "b": "underprediction_fraction",
+        "r": 0.40417421506816315,
+        "magnitude": "moderate"
+      },
+      {
+        "a": "seed",
+        "b": "underprediction_fraction",
+        "r": 0.09863634226294234,
+        "magnitude": "negligible"
+      },
+      {
+        "a": "seed",
+        "b": "signed_bias",
+        "r": -0.006110212405687953,
+        "magnitude": "negligible"
+      },
+      {
+        "a": "seed",
+        "b": "mean_shortfall",
+        "r": 0.0035738770747454126,
+        "magnitude": "negligible"
+      },
+      {
+        "a": "seed",
+        "b": "mae",
+        "r": 0.0013748437966747355,
+        "magnitude": "negligible"
+      }
+    ]
+  },
+  "group_summary": {
+    "by": [
+      "dataset",
+      "model"
+    ],
+    "n_groups": 10,
+    "min_n_per_group": 8,
+    "max_n_per_group": 8,
+    "median_n_per_group": 8,
+    "small_groups_flag": true,
+    "tiny_groups_flag": false,
+    "per_group_counts": [
+      [
+        "('abilene', 'dlinear')",
+        8
+      ],
+      [
+        "('abilene', 'dlinear_scale')",
+        8
+      ],
+      [
+        "('abilene', 'dlinear_scale_constant_router')",
+        8
+      ],
+      [
+        "('abilene', 'dlinear_scale_global')",
+        8
+      ],
+      [
+        "('abilene', 'dlinear_scale_static')",
+        8
+      ],
+      [
+        "('geant', 'dlinear')",
+        8
+      ],
+      [
+        "('geant', 'dlinear_scale')",
+        8
+      ],
+      [
+        "('geant', 'dlinear_scale_constant_router')",
+        8
+      ],
+      [
+        "('geant', 'dlinear_scale_global')",
+        8
+      ],
+      [
+        "('geant', 'dlinear_scale_static')",
+        8
+      ]
+    ]
+  },
+  "warnings": [],
+  "suggestions": [
+    "分类 vs 连续，小样本（每组 n<10）→ **箱线图/小提琴图 + stripplot 叠加原始点**；**避免**只画均值柱状图，会掩盖分布。",
+    "≥3 个连续变量 → 相关性热力图（['seed', 'mae', 'mean_shortfall', 'underprediction_fraction', 'signed_bias']）或 pairplot 散点矩阵",
+    "分类维度组合数 = 20（dataset, model, n_high_targets 全交叉），**一张图塞不下**——建议按某一维拆成多面板，或选择子集。",
+    "underprediction_fraction 高度偏态（skew=-1.85）→ 考虑对数变换或小提琴图代替均值柱图"
+  ]
+}
+

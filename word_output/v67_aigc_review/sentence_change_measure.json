@@ -1,0 +1,7 @@
+{
+  "scope": "本轮修改片段的原文可编辑字符，排除受保护术语、数字、英文标识、引用与图表公式标签",
+  "editable_chars": 3085,
+  "changed_editable_chars": 1412,
+  "changed_editable_percent": 45.77,
+  "not_aigc_score": true
+}

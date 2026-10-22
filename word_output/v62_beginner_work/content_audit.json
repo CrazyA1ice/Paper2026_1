@@ -1,0 +1,74 @@
+{
+  "source_sha256": "7403a693cd9221f4a26b3e9702af893e1c0f0e50c270d669b9e73b13141ecfae",
+  "equations": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "figures": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "tables": [
+    1,
+    2,
+    3
+  ],
+  "point_counts": {
+    "figure3": 96,
+    "figure4_calibration": 80,
+    "figure4_trajectory_values": 480,
+    "figure5_seed_mean_points": 48
+  },
+  "trajectory_mse": {
+    "c": {
+      "DLinear": 0.0022773235104978085,
+      "固定等权": 0.002159789204597473,
+      "恒定输入路由": 0.002887943759560585,
+      "本文方法": 0.005798615515232086
+    },
+    "d": {
+      "DLinear": 0.37519407272338867,
+      "固定等权": 0.3938003480434418,
+      "恒定输入路由": 0.39393913745880127,
+      "本文方法": 0.30431994795799255
+    },
+    "e": {
+      "DLinear": 0.012506005354225636,
+      "固定等权": 0.01289439294487238,
+      "恒定输入路由": 0.011061127297580242,
+      "本文方法": 0.011043992824852467
+    },
+    "f": {
+      "DLinear": 0.423163503408432,
+      "固定等权": 0.42027416825294495,
+      "恒定输入路由": 0.4239073693752289,
+      "本文方法": 0.41186079382896423
+    }
+  },
+  "native_math_exactly_preserved": true,
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.03v62_零基础逐图逐式逐表说明.docx",
+  "output_sha256": "96457ffac9e4a8de127217ce25c68fc51b5a5137dc2102c38d79b2708bfbdcdc",
+  "final_checks": {
+    "original_unmodified": true,
+    "three_original_tables_exact": true,
+    "all_numbered_equations_exact": true,
+    "five_original_figures_exact": true
+  }
+}

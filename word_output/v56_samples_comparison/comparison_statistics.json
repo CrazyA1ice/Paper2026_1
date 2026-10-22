@@ -1,0 +1,25 @@
+{
+  "cao": {
+    "abstract_han_characters": 298,
+    "abstract_nonspace_chars": 360
+  },
+  "yang": {
+    "abstract_han_characters": 354,
+    "abstract_nonspace_chars": 411
+  },
+  "cheng": {
+    "abstract_han_characters": 326,
+    "abstract_nonspace_chars": 355
+  },
+  "v56": {
+    "tables": 3,
+    "section_han_characters_excluding_tables": {
+      "引言": 623,
+      "1 自适应多尺度网络流量预测方法": 2275,
+      "2 实验与结果分析": 2766,
+      "3 结语": 113,
+      "参考文献": 73
+    },
+    "sha256": "9601a45ad6043c838c3d4e9641530ec6a8e463ddb52af24f4c8fb9d7177c960a"
+  }
+}

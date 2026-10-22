@@ -1,0 +1,109 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\优势补充与图表优化_20261022\\自适应多尺度加权的多变量网络流量预测_优势补充稿.docx",
+  "source_sha256": "30e83a8325d6c6800e76e65151b7af4c2c9e2a7cb754e65dcc736cec5ef21ca3",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\窗口动机衔接修订_20261022\\自适应多尺度加权的多变量网络流量预测_窗口动机修订稿.docx",
+  "output_sha256": "7d77ec216d7f57ba108bce2d98b30196ce34268af5e76aa977885e4684292297",
+  "source_unchanged": true,
+  "changed_package_parts": [
+    "word/document.xml"
+  ],
+  "styles_and_format_properties_unchanged": true,
+  "all_original_tables_and_math_unchanged": true,
+  "all_figures_unchanged": true,
+  "all_numeric_text_unchanged": true,
+  "new_experiments": false,
+  "edits": [
+    {
+      "paragraph": 10,
+      "run": 0,
+      "before": "骨干网的容量配置与资源管理需要估计未来的通信需求，而源—目的节点对（origin-destination，OD）的流量预测能够为需求分析提供数据依据。小时级OD流量既包含局部波动，也呈现较慢的趋势变化；同时，不同变量的量级和变化节奏存在差异。因此，预测模型需要从历史序列中提取不同时间尺度的信息，并将其转化为未来多个时刻的预测结果。",
+      "after": "骨干网的容量配置与资源管理需要估计未来的通信需求，而源—目的节点对（origin-destination，OD）的流量预测能够为需求分析提供数据依据。小时级OD流量既包含局部波动，也呈现较慢的趋势变化，而且不同历史窗口的波动幅度与近期变化状态有所不同。因此，预测模型需要提取不同时间尺度的信息，并结合当前窗口的统计特征融合各尺度预测，从而估计未来多个时刻的流量需求。"
+    },
+    {
+      "paragraph": 36,
+      "run": 8,
+      "before": "，组成四维特征向量",
+      "after": "，组成四维窗口整体统计特征向量"
+    },
+    {
+      "paragraph": 39,
+      "run": 0,
+      "before": "均值与标准差概括窗口的整体水平和离散程度，末时刻均值反映近期状态，而平均绝对一阶差分描述相邻时刻的变化幅度。因此，路由网络能够以较低维度接收与当前窗口有关的信息，并据此计算尺度分数：",
+      "after": "均值与标准差概括标准化窗口的整体水平和离散程度，末时刻均值反映窗口末端的整体状态，而平均绝对一阶差分描述相邻时刻的平均变化幅度。因此，路由网络能够以较低维度接收当前窗口的整体变化信息，并据此计算尺度分数："
+    }
+  ],
+  "visual_review_pending": false,
+  "visual_review_passed": true,
+  "visual_review": [
+    {
+      "page": 1,
+      "result": "PASS",
+      "checks": [
+        "text and equation legibility",
+        "no overlap or clipping",
+        "figure and table integrity",
+        "page boundary continuity"
+      ]
+    },
+    {
+      "page": 2,
+      "result": "PASS",
+      "checks": [
+        "text and equation legibility",
+        "no overlap or clipping",
+        "figure and table integrity",
+        "page boundary continuity"
+      ]
+    },
+    {
+      "page": 3,
+      "result": "PASS",
+      "checks": [
+        "text and equation legibility",
+        "no overlap or clipping",
+        "figure and table integrity",
+        "page boundary continuity"
+      ]
+    },
+    {
+      "page": 4,
+      "result": "PASS",
+      "checks": [
+        "text and equation legibility",
+        "no overlap or clipping",
+        "figure and table integrity",
+        "page boundary continuity"
+      ]
+    },
+    {
+      "page": 5,
+      "result": "PASS",
+      "checks": [
+        "text and equation legibility",
+        "no overlap or clipping",
+        "figure and table integrity",
+        "page boundary continuity"
+      ]
+    },
+    {
+      "page": 6,
+      "result": "PASS",
+      "checks": [
+        "text and equation legibility",
+        "no overlap or clipping",
+        "figure and table integrity",
+        "page boundary continuity"
+      ]
+    },
+    {
+      "page": 7,
+      "result": "PASS",
+      "checks": [
+        "text and equation legibility",
+        "no overlap or clipping",
+        "figure and table integrity",
+        "page boundary continuity"
+      ]
+    }
+  ]
+}

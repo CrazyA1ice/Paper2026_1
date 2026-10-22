@@ -1,0 +1,38 @@
+{
+  "source_sha256": "18b92669ebd4c1d4b899ee335374c08b0c081bb62dcbb7e6d238fccad2e3f720",
+  "paragraph_count": 128,
+  "math_count": 41,
+  "tables": 3,
+  "drawings": 5,
+  "sections": [
+    {
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}type": "default",
+      "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id": "rId11"
+    },
+    {
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}type": "first",
+      "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id": "rId12"
+    },
+    {
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}w": "11906",
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}h": "16838"
+    },
+    {
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}top": "1757",
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}right": "1134",
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}bottom": "1417",
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}left": "1134",
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}header": "851",
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}footer": "992",
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}gutter": "0"
+    },
+    {
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}space": "425"
+    },
+    {},
+    {
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}type": "lines",
+      "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}linePitch": "312"
+    }
+  ]
+}

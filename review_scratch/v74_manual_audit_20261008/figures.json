@@ -1,0 +1,57 @@
+[
+  {
+    "figure": 1,
+    "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\v74_manual_audit_20261008\\figure-1.png",
+    "pixels": [
+      3825,
+      1997
+    ],
+    "width_cm": 17.00036111111111,
+    "height_cm": 8.874125,
+    "sha256": "43b923f4b8ad72283dcd4bc0a7956d93eca10626234274e841fef5261e853e08"
+  },
+  {
+    "figure": 2,
+    "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\v74_manual_audit_20261008\\figure-2.png",
+    "pixels": [
+      3825,
+      1871
+    ],
+    "width_cm": 16.1925,
+    "height_cm": 7.920566666666667,
+    "sha256": "676128c8cd4b78255996cac319e44fe27e48d525b7d2687c919d3f41d9f87ae0"
+  },
+  {
+    "figure": 3,
+    "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\v74_manual_audit_20261008\\figure-3.png",
+    "pixels": [
+      3825,
+      1885
+    ],
+    "width_cm": 16.1925,
+    "height_cm": 7.979833333333334,
+    "sha256": "16839c5b8d022be0362148a54c043c54041beff47b38ed76b59f56c65600aa28"
+  },
+  {
+    "figure": 4,
+    "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\v74_manual_audit_20261008\\figure-4.png",
+    "pixels": [
+      3825,
+      2755
+    ],
+    "width_cm": 16.1925,
+    "height_cm": 11.662833333333333,
+    "sha256": "91d059a8f90d570fad41b8d7db851850161ecab9a656cea7c10a00d9fe3df992"
+  },
+  {
+    "figure": 5,
+    "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\v74_manual_audit_20261008\\figure-5.png",
+    "pixels": [
+      3825,
+      1797
+    ],
+    "width_cm": 16.1925,
+    "height_cm": 7.6073,
+    "sha256": "fc0838f0b57eba61c2b6ae94c341e7c16fbee4907f8588f0fd0c81c7731f606f"
+  }
+]

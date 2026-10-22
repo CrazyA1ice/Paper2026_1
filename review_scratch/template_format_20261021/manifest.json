@@ -1,0 +1,63 @@
+{
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\模板规范修订_20261021\\自适应多尺度加权的多变量网络流量预测_期刊模板稿.docx",
+  "output_sha256": "1cce46cf2217fb245f43ff3f0586597f5f631b77637884421a8efc943a06be3d",
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\主稿独立投稿修订_20261021\\自适应多尺度加权的多变量网络流量预测_独立投稿主稿.docx",
+  "source_sha256": "5419c896a038614c048d0c6d8545b085846498e76f454acec9bdb8c2cc3017f8",
+  "template_original": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\论文模板.doc",
+  "template_original_sha256": "0ee7a6df8259ea9cb4c9d1d8c3ed174aebb7db8fdc8d891173fcacfe71b6ab22",
+  "template_converted": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\template_format_20261021\\论文模板.docx",
+  "template_converted_sha256": "c61f9eb714128babde4667a927b8a64e91766cace58e2f012dd321acb41874d8",
+  "native_math": 16,
+  "numbered_equations": 15,
+  "figures": [
+    {
+      "figure": 1,
+      "caption": "图1 自适应多尺度网络流量预测框架",
+      "box_height_pt": 271.4244881889764,
+      "width_cm": 13.8,
+      "effective_dpi": 599.8449275362319,
+      "png_sha256": "436309ef8a72fc5785d3691a2db2655c12142b51d07d2ec795290c6c469fc73b"
+    },
+    {
+      "figure": 2,
+      "caption": "图2 相对LightTS的预测误差降低率与参数比例",
+      "box_height_pt": 176.84,
+      "width_cm": 13.8,
+      "effective_dpi": 599.8449275362319,
+      "png_sha256": "a06ae42e6cb2a9bc64efa71df7e5273ce077b1926c8973582becbc0d5506f647"
+    },
+    {
+      "figure": 3,
+      "caption": "图3 高需求预测点的MAE与平均低估误差（8次重复）",
+      "box_height_pt": 212.84929133858267,
+      "width_cm": 13.8,
+      "effective_dpi": 599.8449275362319,
+      "png_sha256": "f1973702842d6c831f3c1062b84f32b809b061434b0f34647ba89046c2f69a97"
+    },
+    {
+      "figure": 4,
+      "caption": "图4 GÉANT一周预测任务的MSE与MAE（8次重复）",
+      "box_height_pt": 194.84464566929134,
+      "width_cm": 13.8,
+      "effective_dpi": 599.8449275362319,
+      "png_sha256": "3f5157bc8d06167c2ca56e015a293407476a923cd24194ef1be8604812863812"
+    }
+  ],
+  "tables": 3,
+  "references": 11,
+  "chinese_abstract_characters": 198,
+  "english_block_position": "after references",
+  "template_package_parts_changed": [
+    "[Content_Types].xml",
+    "word/document.xml",
+    "word/_rels/document.xml.rels",
+    "word/styles.xml"
+  ],
+  "editorial_values_intentionally_blank": [
+    "receipt date",
+    "article number",
+    "DOI"
+  ],
+  "fund_project": "none, per user",
+  "user_author_metadata_completed": true
+}

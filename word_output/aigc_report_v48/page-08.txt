@@ -1,0 +1,32 @@
+PaperPure AIGC检测服务
+https://paperpure.net
+PaperPure AIGC检测服务
+https://paperpure.net
+Linear与本文尺度专家采用同源结构，后续核心消融也以DLinear作为单尺度内部基线；LightTS属于独立外部
+结构基线，图2进一步给出逐随机种子、多指标和参数规模比较。
+表2 三随机种子外部基线比较
+数据集
+模型
+参数量
+MSE
+MAE
+Abilene
+DLinear
+4656
+0.194±0.002
+0.188±0.009
+Abilene
+LightTS
+130162
+0.265±0.011
+0.204±0.008
+Abilene
+本文方法
+8339
+0.186±0.002
+0.168±0.001
+GÉANT
+DLinear
+4656
+0.454±0.007
+- 8 -

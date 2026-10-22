@@ -1,0 +1,46 @@
+{
+  "figures": [
+    {
+      "figure": 1,
+      "width_cm": 13.8,
+      "height_cm": 8.8,
+      "nominal_font_pt": 7.5,
+      "evidence": "Original schematic: all labels, example curves and connections preserved; typography only.",
+      "png": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\模板规范修订_20261021\\图表源文件\\图1.png",
+      "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\模板规范修订_20261021\\图表源文件\\图1.pdf"
+    },
+    {
+      "figure": 2,
+      "width_cm": 13.8,
+      "height_cm": 5.460999999999999,
+      "nominal_font_pt": 7.5,
+      "evidence": "Same twelve paired reductions, three seeds per dataset/metric; sample SD. Deterministic parameter ratios unchanged.",
+      "png": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\模板规范修订_20261021\\图表源文件\\图2.png",
+      "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\模板规范修订_20261021\\图表源文件\\图2.pdf"
+    },
+    {
+      "figure": 3,
+      "width_cm": 13.8,
+      "height_cm": 6.731,
+      "nominal_font_pt": 7.5,
+      "evidence": "All eighty high-demand dataset/model/seed rows. Same means and sample SD; only fonts, tick direction and grid styling changed.",
+      "png": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\模板规范修订_20261021\\图表源文件\\图3.png",
+      "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\模板规范修订_20261021\\图表源文件\\图3.pdf"
+    },
+    {
+      "figure": 4,
+      "width_cm": 13.8,
+      "height_cm": 6.096,
+      "nominal_font_pt": 7.5,
+      "evidence": "Same forty GÉANT H168 model/seed rows; all five models and eight seeds; mean and sample SD unchanged.",
+      "png": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\模板规范修订_20261021\\图表源文件\\图4.png",
+      "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\模板规范修订_20261021\\图表源文件\\图4.pdf"
+    }
+  ],
+  "high_demand_source_sha256": "c0b1b4ff751b715f63741f85a788516b304b3d85fc4bb227816c1374db0fa913",
+  "paired_seed_rows": 12,
+  "high_demand_seed_rows": 80,
+  "weekly_seed_rows": 40,
+  "new_experiments": false,
+  "changed_numeric_results": false
+}

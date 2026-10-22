@@ -1,0 +1,79 @@
+{
+  "pages": 8,
+  "words": 4657,
+  "characters": 8989,
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\主稿独立投稿修订_20261021\\自适应多尺度加权的多变量网络流量预测_独立投稿主稿.docx",
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\standalone_submission_20261021\\render\\review.pdf",
+  "out_of_page_text": 0,
+  "source_preserved": true,
+  "figures": 4,
+  "tables": 3,
+  "native_math_preserved": 16,
+  "visual_review_pending": false,
+  "page_details": [
+    {
+      "page": 1,
+      "first": "自适应多尺度加权的多变量网络流量预测\n柯亚文\n（安徽财贸职业学院 信息工程学院，安徽 合肥 231200）\n摘要：针对小时级网络流量的多尺度变化，提出自适应加权预测方法。采用三个分解线性模型处\n理多尺度输入，并由四维窗口统计量计算融合权重。以96 h历史预测未来24 h时，八种子平均均方\n误差较DL",
+      "last": "的网络流量预测方法。首先，通过时间聚合构造三种\n分辨率的输入，并由独立DLinear专家生成候选预测；随后，利用窗口统计量计算尺度权重，完成样\n本级融合。在Abilene和GÉANT上，以过去96 h预测未来24 h，通过基线比较、融合消融与高需求\n分析评价预测效果，并在GÉANT上考察未来168 h的一周预测表现。\n作者简介：柯亚文（1998—），男，助教，硕士，研究方向：计算机软件。电子邮箱：keyawen@afc.edu.cn 。",
+      "images": 0
+    },
+    {
+      "page": 2,
+      "first": "1 自适应多尺度网络流量预测方法\n所提方法由多尺度预测分支和尺度路由分支组成，图 1 以 24 h 预测任务为例展示整体流程。预\n测分支提取不同时间分辨率下的趋势与余项，路由分支则根据当前窗口的统计特征分配尺度权重。两\n条分支共同作用，输出未来H个小时的逐小时OD流量预测。\n图1 自适应多尺度网络流",
+      "last": "μ与σ分别为对应变量的均值和标准差。验证集与测试集沿用训练统计量。数据首先按时\n间顺序划分，再在各子集中独立生成滑动窗口，使输入与目标均位于对应时间段内。\n1.2 多尺度构造与线性专家\n为了在同一历史范围内兼顾局部变化与平滑趋势，设置尺度集合 S={1,2,4}。对历史输入沿时间\n维进行非重叠平均池化，聚合长度与步长均为s，得到\n𝑿 (𝑠) = 1 ∑𝑠−1𝑿 , 𝑡 =0,…, 𝐿 −1. (5)\n𝑛,𝑡 𝑠 𝑖=0 𝑛,𝑠𝑡+𝑖 𝑠",
+      "images": 1
+    },
+    {
+      "page": 3,
+      "first": "式中，s∈S。尺度1保留原序列，尺度2与尺度4分别对相邻2个和4个时间点取均值，因而形\n成96、48和24步的输入。三个尺度使用结构相同、参数独立的DLinear专家[6]，并统一输出H步预\n测。\n在每个尺度上，采用长度q=25的中心移动平均提取趋势项，序列两端通过复制端点补齐。设m=12，\n补齐后",
+      "last": "和为1，并在当前窗口的全部\nOD变量和预测步之间共享。最终预测为\n𝒀̂ =∑ 𝛼 𝒀̂(𝑠) . (13)\n𝑛 𝑠∈𝑆 𝑛,𝑠 𝑛\n1.4 模型训练与参数规模\n尺度专家与路由网络联合训练，以均方误差（mean squared error，MSE）为损失函数，对N个训\n练样本、H个预测步和C个变量的平方误差取平均：\nℒ = 1 ∑𝑁 ∑𝐻 ∑𝐶 (𝑌 −𝑌̂ )2. (14)\nMSE 𝑁𝐻𝐶 𝑛=1 ℎ=1 𝑐=1 𝑛,ℎ,𝑐 𝑛,ℎ,𝑐",
+      "images": 0
+    },
+    {
+      "page": 4,
+      "first": "采用自适应矩估计（adaptive moment estimation，Adam）优化器更新参数，并依据验证集MSE选\n择模型。每个尺度包含两个线性层，参数量为 2H(L/s+1)；路由网络参数量为 4×16+16+16×3+3=131。\n因此，当L=96、H=24时，模型总参数量为\n𝑃 = ∑ 2",
+      "last": "对数变换\n与逐变量标准化后的空间计算。测试集MSE按式（14）计算，N取相应测试窗口数；MAE为\nMAE= 1 ∑𝑁te ∑𝐻 ∑𝐶 |𝑌 −𝑌̂ |. (15)\n𝑁te𝐻𝐶 𝑛=1 ℎ=1 𝑐=1 𝑛,ℎ,𝑐 𝑛,ℎ,𝑐\n式中，Nₜₑ为测试窗口数。MSE对较大偏差更敏感，MAE反映平均绝对偏差；两项指标越小，预\n测误差越低。\n2.2 预测精度比较\n选取单尺度DLinear和LightTS作为基线，在相同测试窗口上进行比较，结果见表2。",
+      "images": 0
+    },
+    {
+      "page": 5,
+      "first": "表2 基线模型的24 h预测误差（3次重复）\n数据集 方法 MSE MAE\nAbilene DLinear 0.194±0.002 0.188±0.009\nAbilene LightTS 0.265±0.011 0.204±0.008\nAbilene 本文方法 0.186±0.002 0.168±0",
+      "last": "为100%，给出本文模型的参数比例。该对照表明，在所设24 h任务中，本文方法以较\n少的模型参数取得了较低的平均预测误差。\n2.3 融合方式消融\n保持三个独立DLinear专家及尺度集合不变，比较不同融合方式。固定等权模型将权重设为1/3；\n全局可学习权重模型（图中简称“全局权重”）以三个可训练分数生成所有窗口共用的权重；恒定输入\n路由模型（图中简称“恒定路由”）保留两层路由网络，并输入全零特征。三个对照的尺度专家均处理\n真实历史序列。",
+      "images": 1
+    },
+    {
+      "page": 6,
+      "first": "表3 融合方式的24 h预测误差（8次重复）\n数据集 方法 MSE MAE\nAbilene DLinear 0.194±0.002 0.189±0.008\nAbilene 固定等权多尺度 0.192±0.002 0.191±0.006\nAbilene 全局可学习权重 0.192±0.002 0.19",
+      "last": " OD 变量的第 90 百分位为高需求阈值，在测试集中超过对应阈值的目标点上计算\nMAE与平均低估误差。后者将低估时的差额计入，其他情况记为0，再对全部高需求点取平均，结果\n见图3。\n图3 高需求预测点的MAE与平均低估误差（8次重复）\n图3中，本文方法在Abilene 上的MAE与平均低估误差分别为0.147和0.137，在GÉANT上分\n别为0.632和0.577，两项均值均低于所列对照，体现了该24 h任务下较低的高需求预测误差。",
+      "images": 1
+    },
+    {
+      "page": 7,
+      "first": "2.5 一周预测表现\n为考察一周范围内的预测表现，在GÉANT上设置H=168的任务，并保持小时采样、96 h输入、\n数据划分和预处理方式不变。DLinear、固定等权、全局可学习权重、恒定输入路由与本文方法均按168\nh 输出独立训练，沿用 2.1 节中 DLinear 及多尺度模型的训练设置。五",
+      "last": "ENG Ailing, CHEN Muxi, ZHANG Lei, et al. Are transformers effective for time series forecasting?[J]. Proceedings of the\nAAAI Conference on Artificial Intelligence, 2023, 37(9): 11121-11128. DOI: 10.1609/aaai.v37i9.26317.",
+      "images": 1
+    },
+    {
+      "page": 8,
+      "first": "[7] WANG Shiyu, WU Haixu, SHI Xiaoming, et al. TimeMixer: decomposable multiscale mixing for time series\nforecasting[C/OL]//International Conference o",
+      "last": "781053.\n[11] UHLIG S, QUOITIN B, LEPROPRE J, et al. Providing public intradomain traffic matrices to the research community[J].\nACM SIGCOMM Computer Communication Review, 2006, 36(1): 83-86. DOI: 10.1145/1111322.1111341.",
+      "images": 0
+    }
+  ],
+  "visual_review": {
+    "pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "verdict": "PASS",
+    "table1_rule_repaired": true,
+    "figure_and_caption_pairing": "PASS",
+    "equations": "PASS"
+  }
+}

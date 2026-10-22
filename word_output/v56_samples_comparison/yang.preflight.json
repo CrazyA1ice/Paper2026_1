@@ -1,0 +1,15 @@
+{
+  "schema": "pdf_read_preflight/1",
+  "verdict": "UNAVAILABLE",
+  "file": "C:\\Users\\Quant\\Downloads\\5G无线网络下隐私数据低延时加密传输方法_杨洋.pdf",
+  "sha256": "3727a6455d6a8fa945ac22a5df9b4de905d0f170bf6e08023e8f465b60a660d5",
+  "declared_page_count": 7,
+  "enumerated_page_count": 7,
+  "reader_page_count": 7,
+  "warnings": [
+    "trailing-data: 179 bytes after the final %%EOF include non-whitespace content (possible truncated incremental update)",
+    "pypdf: Multiple definitions in dictionary at byte 0x1e3a8a for key /MediaBox"
+  ],
+  "generated_at": "2026-10-03T02:35:26.452017+00:00",
+  "tool": "pdf_read_preflight/1.0.0"
+}

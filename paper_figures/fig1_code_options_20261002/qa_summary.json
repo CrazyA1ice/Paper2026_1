@@ -1,0 +1,35 @@
+[
+  {
+    "figure": "A_grayscale",
+    "alignment": "NOT APPLICABLE",
+    "minimum_glyph_pt": 5.74,
+    "collision_summary": {
+      "fail": 0,
+      "warn": 0,
+      "contained_fill_overlays": 48,
+      "contained_image_overlays": 0
+    }
+  },
+  {
+    "figure": "B_pale_blue",
+    "alignment": "NOT APPLICABLE",
+    "minimum_glyph_pt": 5.74,
+    "collision_summary": {
+      "fail": 0,
+      "warn": 0,
+      "contained_fill_overlays": 48,
+      "contained_image_overlays": 0
+    }
+  },
+  {
+    "figure": "C_pale_sage",
+    "alignment": "NOT APPLICABLE",
+    "minimum_glyph_pt": 5.74,
+    "collision_summary": {
+      "fail": 0,
+      "warn": 0,
+      "contained_fill_overlays": 48,
+      "contained_image_overlays": 0
+    }
+  }
+]

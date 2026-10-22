@@ -1,0 +1,104 @@
+[0] (Normal) 长春工程学院学报论文格式[RED]([/RED][RED]四[/RED][RED]号[/RED][RED]宋[/RED][RED]体[/RED][RED]加粗[/RED][RED])[/RED]
+[1] (Normal) 收稿日期:投到编辑部的日期[RED]（五[/RED][RED]号宋体[/RED][RED]）[/RED]
+[2] (Normal) 基金项目：基金名称，如：国家“十一五“科技支撑计划(2008BADC4B15)
+[3] (Normal) 吉林省教育厅项目（10ZB097）[RED]（五[/RED][RED]号宋体[/RED][RED]）[/RED]
+[4] (Normal) 作者简介：XXX（出生年—），性别（民族），籍贯,职称或学历,主要研究方向。[RED]（五[/RED][RED]号宋体[/RED][RED]）[/RED]
+[5] (Normal) XXX1，YYY2，ZZZ1[RED]（[/RED][RED]五[/RED][RED]号[/RED][RED]宋体[/RED][RED]）[/RED]
+[6] (Normal) （1. 作者单位（要求写到二级单位），作者单位所在城市 643000； 
+[7] (Normal) 2. 作者单位（要求写到二级单位），作者单位所在城市 400044）[RED]（五号宋体）[/RED]
+[8] (Normal) 摘 要：[RED]（五[/RED][RED]号[/RED][RED]宋[/RED][RED]体[/RED][RED]，加粗[/RED][RED]）[/RED]摘要是以提供文章内容梗概为目的，不加评论和补充解释，简明、确切地记述文献重要内容的短文。论文的中、英文摘要是国内外数据库收录的主要内容，作者应给予高度重视。作者在写作时应注意下列问题：摘要应具有独立性和自明性，拥有与文章同等量的主要信息，达到即使不阅读全文也能获得主要的信息；摘要应包括研究的目的（含简要的研究背景）、采用的方法、试验的结果、得出的结论、作者的创新点或独到之处；在语言表达方式上应排除在本学科领域已经成为常识的内容，应如实地反映所做的研究工作，提供尽可能多的定量的信息，不可进行自我评论，不应有如：“…属于首创”；“…尚未见报道”等； 中文摘要应采用第三人称的写法，不用[RED]“本文”、“作者”和“笔者”[/RED]等；缩略语和简称首次出现用全称，并给出简称；关键词不用缩略语和简称，已通用的除外；摘要中不要使用图、表，一般不分段落；同一篇文章的中英文摘要内容应该一致。[RED]（[/RED][RED]五[/RED][RED]号[/RED][RED]宋体）[/RED]
+[9] (Normal) 关键词：多相流；搅拌器；流场模拟；软件开发；FLUENT；ANSYS[RED]（五[/RED][RED]号[/RED][RED]宋体）[/RED]
+[10] (Normal) 中图分类号:[RED] [/RED][RED]（五号宋体，加粗）[/RED]TB115 [RED]（[/RED][RED]五[/RED][RED]号[/RED][RED]宋体）[/RED][RED]([/RED][RED]中图分类号依据《中国图书馆分类法》（第五版）分类[/RED][RED])[/RED]    文献标志码：[RED]（五号宋体，加粗）[/RED]A[RED]（五[/RED][RED]号[/RED][RED]宋体）[/RED][RED]  [/RED]文章编号：[RED]（五号宋体，加粗）[/RED]
+[11] (Normal) doi:[RED] [/RED][RED]（五号宋体，加粗）[/RED]（此处由编辑部编写）
+[12] (Normal) 
+[13] (Normal) 0 引言[RED]（一级标题：[/RED][RED]小[/RED][RED]四号宋体，[/RED][RED]加粗，如有引言序号为[/RED][RED]0[/RED][RED]，如没有，可以不写[/RED][RED]）[/RED]
+[14] (Normal) [RED]（[/RED][RED]正文：[/RED][RED]五号宋体[/RED][RED]，两端对齐[/RED][RED]，单倍间距或设为固定值[/RED][RED]18[/RED][RED]）[/RED]关键词为经过规范化处理的词语或短语，数量一般为3～8个。同一篇文章的中英文关键词的内容和顺序应一致。
+[15] (Normal) 引言简要说明研究的目的和范围，介绍相关领域内前人所做的工作和研究的概况，理论依据、试验基础和研究方法，作者的意图、预期的结果及其作用和意义。应言简意赅，不要成为摘要的注释。一般教科书中已有的基本理论、试验方法和基本方程的推导，在引言中不必赘述。如实评述，防止吹嘘自己和贬低别人，避免宣传性的用语。对出现的比较专业化的术语或缩写词进行定义和说明，后文中出现时不必再解释，引言中尽量不要出现图表。
+[16] (Normal) 1 正文格式[RED]（一级标题：[/RED][RED]小[/RED][RED]四号宋体[/RED][RED]，加粗[/RED][RED]）[/RED]
+[17] (Normal) 正文各层次标题一律用阿拉伯数字连续编码，并左顶格书写，序码之后空一个汉字间距接写标题，如下列格式所示：
+[18] (Normal)   1 …
+[19] (Normal) ….
+[20] (Normal) 
+[21] (Normal) …
+[22] (Normal) 2…
+[23] (Normal) 2 规范表达[RED]（一级标题：[/RED][RED]小[/RED][RED]四号宋体[/RED][RED]，加粗[/RED][RED]）[/RED]
+[24] (Normal) 2.1  论文分栏[RED]（五号宋体，加粗）[/RED]
+[25] (Normal) [RED]   [/RED][RED] [/RED]论文分栏设置较为简单，主要注意分栏对话框中“应用于—>本节/插入点之后/整篇文档”选项（通常设置为“插入点之后”。首先应将鼠标点击到要分栏的起始位置，然后点击“格式—>分栏”，设置栏数后，点击“应用于—>插入点之后”即可。
+[26] (Normal) 2.2 名词术语[RED]（五号宋体，加粗）[/RED]
+[27] (Normal) 　　应使用全国自然科学名词审定委员会审定的自然科学名词术语；应按有关的标准或规定使用工程技术名词术语；应使用共认共知的尚无标准或规定的名词术语。作者自拟的名词术语在文中第一次出现时，须加以注释说明[1]。表示同一概念或概念组合的名词术语，全文中应前后一致。外国人名可使用原文，不必译出。一般的机关、团体、学校、研究机构和企业等的名称，在论文中第一次出现时必须写全称。
+[28] (Normal) 2.3  数字[RED]（五号宋体，加粗）[/RED]
+[29] (Normal) 　　数字的使用应符合国家标准。
+　　新的国家标准有许多变化，摘要说明如下：
+    　（1）数的书写应符合GB/T 1.1－1993《标准化工作导则 第一单元: 标准的起草与表达规则 第一部分: 标准编写的基本规定》。
+[30] (Normal)      　（2）数字相乘的符号，中文中用“×”，外文中用中圆点“•”。
+[31] (Normal)     　（3）阿拉伯数字书写的数值在表示数值的范围时，使用“～ ”。如：～，－～。
+[32] (Normal) 　　（4）物理量量值必须使用阿拉伯数字，并正确使用法定计量单位。
+[33] (Normal) 　　（5）合理使用国际单位制（SI）词头，一般应使用1～1000以内的数字表示数值，超出此范围的数值应使用相应的量的词头表示，如10000 Pa，应写为10 kPa而非0.01 MPa。
+[34] (Normal) 2.4  外文字母[RED]（五号宋体，加粗）[/RED]
+[35] (Normal) 　　文中出现的易混淆的字母、符号以及上下标等，必须打印清楚或缮写工整。打印稿中所有非中文字符均用Times New Roman字体。要严格区分外文字母的文种、大小写、正斜体、黑体及非黑体（如表示矢量、张量和矩阵的符号用黑斜体）等，必要时用铅笔注明[2]。
+[36] (Normal) 2.4.1 斜体[RED]（五号宋体）[/RED]
+[37] (Normal) 　　斜体外文字母用于表示量的符号，主要用于下列场合：
+[38] (Normal) 　　（1）变量符号、变动附标及函数。
+[39] (Normal) 　　（2）用字母表示的数及代表点、线、面、体和图形的字母。
+[40] (Normal) 　　（3）特征数符号，如Re (雷诺数)、Fo (傅里叶数)、Al (阿尔芬数) 等。
+[41] (Normal) 　　（4）在特定场合中视为常数的参数。　　
+[42] (Normal) 2.4.2  正体[RED]（五号宋体）[/RED]
+[43] (Normal) 　　正体外文字母用于表示名称及与其有关的代号，主要用于下列场合：
+[44] (Normal) 　　（1）有定义的已知函数（例如sin, exp, ln等)。
+[45] (Normal) 　　（2）其值不变的数学常数（例如e = 2.718 281 8…)及已定义的算子。
+[46] (Normal) 　　（3）法定计量单位、词头和量纲符号。
+[47] (Normal) 　　（4）数学符号。
+[48] (Normal) 　　（5）化学元素符号。
+　　（6）机具、仪器、设备和产品等的型号、代号及材料牌号。
+　　（7）硬度符号。
+[49] (Normal) 　　（8）不表示量的外文缩写字。
+[50] (Normal) 　　（9）表示序号的拉丁字母。
+[51] (Normal) 　　（10）量符号中为区别其他量而加的具有特定含义的非量符号下角标。
+[52] (Normal) 2.5  数学公式[RED]（五号宋体，加粗）[/RED]
+[53] (Normal) 重要数学公式应另起行居中排，并按顺序编号。后文不再提及的，可以不编号。编号在全文范围内统一排序，不分章节, 公式号用阿拉伯数字置于圆括号内右顶格书写。例如
+[54] (Normal)  ，（[RED]公式后面必须有标点符号）[/RED][RED] [/RED]    （1）
+[55] (Normal) 式中：Q为……； t为……；I为……；τ为……；K为……；F为……。
+[56] (Normal) 对于公式中首次出现的量的符号，按照其在式中出现的顺序，用准确、简洁的语句对其进行逐一解释。公式中必要时可标出量的单位。
+[57] (Normal) 公式中应尽量避免复合上下角标的使用；尽量少用三层关系的上下标，同时应尽量减少不必要的公式推导。
+[58] (Normal) 2.6  插图[RED]（五号宋体，加粗）[/RED]
+[59] (Normal) 　　插图内容应与正文内容密切结合，尽量避免采用可有可无的插图[3]。每幅图前都应有相应的引出或介绍文字。图形应保证线条清晰，图形大小应适应版面要求，合理布局，图内如有标注或说明性文字时应清晰可辨。[RED]图形和相应文字说明最好一起放在文本框内[/RED]，然后将边框颜色设为无色，这样编排起来较方便，可以很好控制文本框摆放位置，适应论文排版需要。图（照）片清晰，Photoshop（300象素/英寸）或AutoCAD图，图中文字为6号书宋体，图的宽度小于或小于；照片宽度在5～8之间。图题和表题请用中文表述，并在文中按照顺序标注，图表中的数字和说明文字同一用6号宋体。文本框插入步骤为：先插入图形，然后点击选中图形和插图说明文字，点击“插入—>文本框—>横排”，最后将边框设为无色。
+[60] (Normal) 文中有２幅以上插图时，应统一用阿拉伯数字连续编号，如图1、图2，同一幅图有多幅分图时，分图号用（a）、（b）等字母表示，并应有相应的分图名。
+[61] (Normal) 下面通过几种常见图形对插图格式进行简要说明。
+[62] (Normal) （1）坐标图
+[63] (Normal) 坐标轴上有数字刻度时，需在对应坐标上标出与数字一一对应的向内的刻度线[4]，无数字标注处不需标注刻度线。坐标轴应根据内部图形范围以某一数字刻度点为终点，避免出现多多余刻度。坐标轴无数字刻度时须加箭头。
+[64] (Normal) 在各坐标轴旁必须给出对应的物理量名称、符号和单位符号（三者要齐全），例如：额定电流　I/A；若是量纲一的量（即过去称为无量纲量）时，则只给出物理量名称和符号即可。
+[65] (Normal) 坐标轴内部避免出现多余的网格线，实例如图1
+[66] (Normal) 所示。　
+[67] (Normal) （2）照片图
+[68] (Normal) 使用照片图时，应保证图片清晰，如果进行缩放时，应在图题后用“×”加缩放倍数表示，具体举例如下。　
+[69] (Normal) 2.7  表格[RED]（五号宋体，加粗）[/RED]
+[70] (Normal) 　　 推荐使用标准“三线表”，内容易混淆时可加辅助线进行辅助说明。表头中量的说明应包括量名称、符号和单位符号，例如：额定电流I/A；若是量纲一的量（即过去称为无量纲量）时，则只给出物理量名称和符号即可。表格中所有数据的单位一致时可将单位符号标于表格右上角，右顶格书写。
+[71] (Normal) 　　按表格在文中出现的顺序，用阿拉伯数字对其进行编号，如“表1”、“表2”，并应有相应的表题。每个表格前都应有相应的引出或介绍文字。
+[72] (Normal) 三线表格格式示例见表1。
+[73] (Normal) 表1 不同合成方法润滑脂的理化指标及噪声值[RED]（小五宋体[/RED][RED]，加粗[/RED][RED]）[/RED]
+[74] (Normal) 2.8  参考文献格式[RED]（五号宋体，加粗）[/RED]
+[75] (Normal) 参考文献应选取主要的、发表在正式出版物的文献列入，按中文引用的先后顺序编序，并在正文中以上标的方式标注要求每篇论文通常应列出3篇以上参考文献，未正式发表的文献不能列入。中外文参考文献中的[RED]作者均按先姓后名的顺序排列，姓全大写，名的首字母大写，其余为小写[/RED]。中国作者的汉语拼音名字不能缩写，非中国作者名字可缩写，并用空格代替略缩写点。文后参考文献列表中，多位作者只列出前三名，后面用“等”或“et al.”。文后的参考文献列表按照各文献在论文中被引用的顺序，用阿拉伯数字连续编码，并顺序排列。论文中参考文献以上标表示[RED][6][/RED].
+[76] (Normal) 主要文献类型标志见表2
+[77] (Normal) 表2 文献类型和标志代码[RED]（小五宋体[/RED][RED]，加粗[/RED][RED]）[/RED]
+[78] (Normal) 参考文献实例参考文献部分。
+[79] (Normal) 3  结语[RED]（小四号宋体，加粗）[/RED]
+[80] (Normal) 结语是整篇论文的最终的、总体的总结。语言应该准确、完整、明确、精练，避免出现模棱两可、含糊其词的语句。既可按顺序（1）、（2）、（3）…的形式列条，也可为一段。
+[81] (Normal) 结语具有以下功能：归纳总结使用的方法、研究的结果；提出新的发现及研究成果；提出建议、研究设想或尚待解决的问题；突出研究的独创性等。 
+[82] (Normal) [RED]（空一行）[/RED]
+[83] (Normal) 参考文献：[RED]（[/RED][RED]五[/RED][RED]号宋体[/RED][RED]，加粗[/RED][RED]）[/RED]　
+[84] (Normal) [1] 陈志平, 章序文, 林兴华. 搅拌与混合设备选用手册[M]. 北京: 化学工业出版社, 2004.[RED](五[/RED][RED]号[/RED][RED]宋体)[/RED]
+[85] (Normal) [2] 陈涛, 吴大转, 杜红霞, 等. [J]. , : 271-274.
+[86] (Normal) [3] 闵健. 搅拌槽内宏观及微观混合的实验研究与数值模拟[D]. 北京: 北京化工大学, 2005.
+[87] (Normal) [4] HOU Shuandi, ZHANG Zheng, WANG Yingchen, et al. Numerical simulation of turbulent flow in stirred tank agitated by axial impeller[J]. J Chem Industry & Eng, 2000, 51(1): 70-76.
+[88] (Normal) [5] 周国忠, 施力田, 王英琛. 搅拌槽内近桨区流动场的数值研究[J]. 高校化学工程学报, 2002, 16(1): 17-22.
+[89] (Normal) [6] YUFIN S A. Geoecology and computers. In  proceedings of the Third International Conference on Advances of Computer Methods in Geotechnical and Geoenvironmental Engineering，Moscow，Russian, February 1-4，2000[C]. Rotterdam：A. A. Balkema，2000.
+[90] (Normal) [7] 黄楠, 覃长华, 徐元士. 一种大功率X射线衍射仪的测角装置[P]. 实用新型, 87200866.5, 1987. 
+[91] (Normal) 
+[92] (Normal) （设置分栏的起始位置）[RED]（空一行）[/RED]
+[93] (Normal) Charged active contour model[RED]（[/RED][RED]四号[/RED][RED]Times New Roman[/RED][RED]体[/RED][RED],[/RED][RED]加粗，除地名、专有名词外，第一个词的第一个字母大[/RED][RED]写[/RED][RED]，其余均小写[/RED][RED]）[/RED]
+[94] (Normal) TANG Ke-lun[RED]（[/RED][RED]五号[/RED][RED]Times New Roman[/RED][RED]体[/RED][RED]，姓大写，名第一字母大写）[/RED],et al.[RED]（英文[/RED][RED]翻译中[/RED][RED]作者只标注第一作者即可）[/RED]
+[95] (Normal) （College of Mechanical Engineering, Sichuan University of Science & Engineering, 
+[96] (Normal) Zigong  643000, China）[RED]（[/RED][RED]五号[/RED][RED]Times New Roman[/RED][RED]体[/RED][RED]）[/RED]
+[97] (Normal) [RED]（空一行）[/RED]
+[98] (Normal) Abstract:[RED]([/RED][RED]五[/RED][RED]号[/RED][RED]Times New Roman[/RED][RED]体，加粗[/RED][RED])[/RED] A novel, physical-based force, called as Lorentz force inspired by classical electrodynamics is introduced for the active contour models, and the truncation computing method of Lorentz Force is detailed. Several comparative results indicate that the new force field has similar effects with the Gradient Vector Flow (GVF) field, but it has a remarkable promotion of evaluation speed. The new force is more suitable to be applied to real-time image processing applications.[RED]（[/RED][RED]五号[/RED][RED]Times New Roman[/RED][RED]体[/RED][RED]）[/RED].
+[99] (Normal) Key words: [RED]([/RED][RED]五号[/RED]Times New Roman体，加粗[RED])[/RED]active contour; Lorentz force; charged particle model[RED]（[/RED][RED]五号[/RED][RED]Times New Roman[/RED][RED]体[/RED][RED]，分号分隔[/RED][RED]）[/RED]

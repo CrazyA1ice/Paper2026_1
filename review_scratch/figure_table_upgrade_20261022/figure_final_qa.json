@@ -1,0 +1,39 @@
+{
+  "figures": [
+    {
+      "figure": 2,
+      "collision": "PASS",
+      "glyph_floor_pt": 7.5,
+      "alignment": "PASS",
+      "colour_and_grayscale_review": "PASS",
+      "all_replicates_retained": true,
+      "embedded_image_matches_final_export": true
+    },
+    {
+      "figure": 3,
+      "collision": "PASS",
+      "glyph_floor_pt": 7.5,
+      "alignment": "PASS",
+      "colour_and_grayscale_review": "PASS",
+      "all_replicates_retained": true,
+      "embedded_image_matches_final_export": true
+    },
+    {
+      "figure": 4,
+      "collision": "PASS",
+      "glyph_floor_pt": 7.5,
+      "alignment": "PASS",
+      "colour_and_grayscale_review": "PASS",
+      "all_replicates_retained": true,
+      "embedded_image_matches_final_export": true
+    }
+  ],
+  "static_preflight_manual_review": {
+    "finding": "FONT-FAMILY detector only accepts sans-serif names; width detector misparses 138/25.4 expression",
+    "resolution": "Retained journal requires Songti/Times. Final PDFs have embedded 7.5 pt text, actual width 138 mm, 600 dpi raster exports, and pass format, collision and alignment audits. Generic Nature presets do not override the supplied journal manuscript."
+  },
+  "figure2_points": 64,
+  "figure3_metric_points": 160,
+  "figure4_absolute_metric_points": 80,
+  "figure4_paired_points": 64
+}

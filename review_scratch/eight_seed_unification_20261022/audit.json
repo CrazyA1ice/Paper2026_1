@@ -1,0 +1,101 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\窗口动机衔接修订_20261022\\自适应多尺度加权的多变量网络流量预测_窗口动机修订稿.docx",
+  "source_sha256": "7d77ec216d7f57ba108bce2d98b30196ce34268af5e76aa977885e4684292297",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\八次重复统一修订_20261022\\自适应多尺度加权的多变量网络流量预测_八次重复统一稿.docx",
+  "output_sha256": "bc045d2ed19899e315b3ff5fe7f5dc77f889bcb8b0b09c2051a288364bd6b3cd",
+  "source_unchanged": true,
+  "changed_package_parts": [
+    "word/document.xml",
+    "word/media/journal_figure2.png"
+  ],
+  "styles_and_format_properties_unchanged": true,
+  "all_native_math_unchanged": true,
+  "tables_1_and_3_unchanged": true,
+  "figures_1_3_4_unchanged": true,
+  "table2_and_table3_identical_for_shared_models": true,
+  "figure2_container_geometry_unchanged": true,
+  "edits": [
+    {
+      "location": "body[57].run[0]",
+      "before": "表2与图2采用42～44三个共同随机种子，表3、图3和图4采用42～49八个共同随机种子重复训练。误差报告均值与样本标准差，误差线表示样本标准差；相对降幅按相同种子下的结果计算，再取平均。",
+      "after": "各模型均采用42～49八个共同随机种子重复训练。误差报告均值与样本标准差，误差线表示样本标准差；相对降幅按相同种子下的结果计算，再取平均。"
+    },
+    {
+      "location": "body[63].run[0]",
+      "before": "表2 基线模型的24 h预测误差（3次重复）",
+      "after": "表2 基线模型的24 h预测误差（8次重复）"
+    },
+    {
+      "location": "body[65].run[0]",
+      "before": "表2中，本文方法在两套数据上的平均MSE和MAE均低于所列基线。图2给出相对LightTS的误差降幅与参数比例：在Abilene和GÉANT上，MSE平均相对降幅分别为29.80%和46.89%，MAE为17.57%和29.15%。本文模型均含8339个参数，LightTS两套配置分别含130162和384382个参数，对应比例为6.41%和2.17%。",
+      "after": "表2中，本文方法在两套数据上的平均MSE和MAE均低于所列基线。图2给出相对LightTS的误差降幅与参数比例：在Abilene和GÉANT上，MSE平均相对降幅分别为25.77%和43.74%，MAE为12.66%和29.09%。本文模型均含8339个参数，LightTS两套配置分别含130162和384382个参数，对应比例为6.41%和2.17%。"
+    },
+    {
+      "location": "body[83].run[0]",
+      "before": "24 h任务的基线比较和融合消融表明，本文方法在Abilene和GÉANT上均取得了较低的平均预测误差。相对LightTS，MSE的平均相对降幅分别为29.80%和46.89%，参数量分别为对应LightTS配置的6.41%和2.17%。在GÉANT的一周任务中，MSE与MAE相对DLinear的平均相对降幅分别为23.16%和11.16%。结合高需求点的预测结果，这些实验为利用低维窗口信息融合多尺度预测提供了依据，可为小时级OD流量需求分析提供方法参考。",
+      "after": "24 h任务的基线比较和融合消融表明，本文方法在Abilene和GÉANT上均取得了较低的平均预测误差。相对LightTS，MSE的平均相对降幅分别为25.77%和43.74%，参数量分别为对应LightTS配置的6.41%和2.17%。在GÉANT的一周任务中，MSE与MAE相对DLinear的平均相对降幅分别为23.16%和11.16%。结合高需求点的预测结果，这些实验为利用低维窗口信息融合多尺度预测提供了依据，可为小时级OD流量需求分析提供方法参考。"
+    },
+    {
+      "location": "body[67].run[4]",
+      "before": ")的柱高为三个共同种子的平均相对降幅，误差线为样本标准差；图2(",
+      "after": ")的柱高为八个共同种子的平均相对降幅，误差线为样本标准差；图2("
+    },
+    {
+      "location": "table2.row[1].cell[3]",
+      "before": "0.188±0.009",
+      "after": "0.189±0.008"
+    },
+    {
+      "location": "table2.row[2].cell[2]",
+      "before": "0.265±0.011",
+      "after": "0.255±0.014"
+    },
+    {
+      "location": "table2.row[2].cell[3]",
+      "before": "0.204±0.008",
+      "after": "0.199±0.008"
+    },
+    {
+      "location": "table2.row[3].cell[2]",
+      "before": "0.186±0.002",
+      "after": "0.189±0.003"
+    },
+    {
+      "location": "table2.row[3].cell[3]",
+      "before": "0.168±0.001",
+      "after": "0.173±0.008"
+    },
+    {
+      "location": "table2.row[4].cell[2]",
+      "before": "0.454±0.007",
+      "after": "0.437±0.016"
+    },
+    {
+      "location": "table2.row[4].cell[3]",
+      "before": "0.383±0.006",
+      "after": "0.371±0.011"
+    },
+    {
+      "location": "table2.row[5].cell[2]",
+      "before": "0.817±0.024",
+      "after": "0.761±0.056"
+    },
+    {
+      "location": "table2.row[5].cell[3]",
+      "before": "0.523±0.014",
+      "after": "0.516±0.013"
+    },
+    {
+      "location": "table2.row[6].cell[2]",
+      "before": "0.434±0.051",
+      "after": "0.426±0.029"
+    },
+    {
+      "location": "table2.row[6].cell[3]",
+      "before": "0.370±0.031",
+      "after": "0.366±0.018"
+    }
+  ],
+  "visual_review_pending": false,
+  "visual_review_passed": true
+}

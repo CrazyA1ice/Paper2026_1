@@ -1,0 +1,70 @@
+epoch=001 train_objective=0.985303 val_mse=1.730298
+epoch=002 train_objective=0.621752 val_mse=1.578846
+epoch=003 train_objective=0.556362 val_mse=1.485240
+epoch=004 train_objective=0.524690 val_mse=1.415471
+epoch=005 train_objective=0.504508 val_mse=1.405354
+epoch=006 train_objective=0.488093 val_mse=1.374330
+epoch=007 train_objective=0.476696 val_mse=1.341378
+epoch=008 train_objective=0.465130 val_mse=1.339916
+epoch=009 train_objective=0.456481 val_mse=1.354926
+epoch=010 train_objective=0.447645 val_mse=1.351235
+epoch=011 train_objective=0.440844 val_mse=1.319624
+epoch=012 train_objective=0.429914 val_mse=1.326461
+epoch=013 train_objective=0.424849 val_mse=1.359542
+epoch=014 train_objective=0.417803 val_mse=1.382518
+epoch=015 train_objective=0.410211 val_mse=1.423546
+epoch=016 train_objective=0.403691 val_mse=1.429312
+epoch=017 train_objective=0.397449 val_mse=1.501848
+epoch=018 train_objective=0.393043 val_mse=1.579510
+epoch=019 train_objective=0.387576 val_mse=1.642584
+epoch=020 train_objective=0.382533 val_mse=1.708942
+epoch=021 train_objective=0.377730 val_mse=1.715354
+Early stopping at epoch 21
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "lightts",
+  "model_config": {
+    "source": "thuml/Time-Series-Library",
+    "source_commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+    "source_model_sha": "a2051e44d864ec4ec5e72e59660b98c30c93a902",
+    "d_model": 512,
+    "dropout": 0.1,
+    "chunk_size": 24
+  },
+  "seed": 45,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1590,
+    "val": 451,
+    "test": 451
+  },
+  "input_len": 96,
+  "pred_len": 24,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 50,
+  "patience": 10,
+  "learning_rate": 0.0001,
+  "parameters": 384382,
+  "best_val_mse_normalized": 1.3196238481549096,
+  "test_normalized": {
+    "mse": 0.7027662396430969,
+    "mae": 0.5266965627670288,
+    "rmse": 0.8383115530014038
+  },
+  "test_original_units": {
+    "mse": 1492276736.0,
+    "mae": 7509.82080078125,
+    "rmse": 38629.99609375
+  },
+  "elapsed_seconds": 287.24864789999265
+}

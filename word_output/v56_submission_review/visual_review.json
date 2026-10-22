@@ -1,0 +1,22 @@
+{
+  "renderer": "Microsoft Word PDF export + Poppler",
+  "pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "visible_clipping_or_overlap": false,
+  "three_line_tables_verified": true,
+  "table3_kept_on_one_page": true,
+  "figure4_description_before_figure": true,
+  "first_page_footer_verified": true,
+  "font_preflight_override": "Journal requires SimSun and Times New Roman rather than validator default sans-serif preference."
+}

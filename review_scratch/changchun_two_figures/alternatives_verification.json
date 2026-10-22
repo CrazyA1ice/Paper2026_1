@@ -1,0 +1,31 @@
+{
+  "figures": [
+    {
+      "figure": "备选A_预测曲线",
+      "width_mm": 137.9999961005317,
+      "minimum_font_pt": 7.5,
+      "collision": "PASS",
+      "pdf_sha256": "674a64e5802fe017c2c42a099cce88fd3672ccd1ff0f87242f234b142cb8d1dc"
+    },
+    {
+      "figure": "备选B_高需求柱状图",
+      "width_mm": 137.9999961005317,
+      "minimum_font_pt": 7.5,
+      "collision": "PASS",
+      "pdf_sha256": "6db549e85bc086978eafb19808cad4ddc7def7bd39eb9d6554ec63f54f973cbb"
+    }
+  ],
+  "word_unchanged": true,
+  "source_preflight": {
+    "ready": true,
+    "strict": false,
+    "counts": {
+      "PASS": 20,
+      "WARN": 1,
+      "FAIL": 0
+    }
+  },
+  "warning_review": "138 mm is the supplied journal width contract, confirmed from exported PDF.",
+  "visual_review_pending": false,
+  "visual_review": "Both complete figures and all four panels inspected at final size; no clipping, overlaps or missing glyphs; centres and uncertainty match source data."
+}

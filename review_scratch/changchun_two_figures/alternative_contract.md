@@ -1,0 +1,9 @@
+# Figure 4 alternatives
+
+The user requested alternatives after finding the high-demand error dot plot unattractive. Provide two real-data previews before choosing a manuscript replacement. Retain the current Word version and all old plots.
+
+Alternative A is a descriptive 24-hour prediction-curve illustration for the two previously selected cases. Retain the exact existing case indices, not cases selected by relative model gain. Show truth and the proposed method only; use all eight saved training seeds, mean prediction and sample SD. This changes the old single-seed preview into an explicit eight-seed summary. It does not claim superiority over another model or represent population-wide accuracy. Preserve all 24 forecast steps per case. Keep standardised log-space values consistent with the manuscript. Panels contrast the observed trajectory in the two measured networks. The caption states the case identifiers, selection rule, centre and spread.
+
+Alternative B retains the existing high-demand analysis, all five models, both metrics and all eight seeds. Change only the dot plot to grouped vertical bars with sample-SD error bars, zero-based axes and short two-line labels. The same model order and metric colours apply in both network panels. This is a presentation alternative, not a new experiment or a changed estimator.
+
+Both figures use the established Python backend, 138 mm width, Songti and Times New Roman, at least 7.5 pt text, editable PDF/SVG, 600 dpi PNG/TIFF. Every comparable panel passes strict 1.5 pt alignment. Run source preflight, rendered glyph and collision audits on the final files and inspect all panels. Export source data, exact indices and hashes. No retraining, smoothing, interpolation, altered values or performance-driven selection. Existing original plots and manuscript remain unchanged until a figure is chosen.

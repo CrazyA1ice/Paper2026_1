@@ -1,0 +1,105 @@
+{
+  "completed": [
+    {
+      "dataset": "abilene",
+      "seed": 45,
+      "metrics": {
+        "mse": 0.24700722098350525,
+        "mae": 0.19135956466197968,
+        "rmse": 0.49699822068214417
+      },
+      "metrics_sha256": "19c0874200d8cbc9f980d95941e951acadb9b5e2f20b29f1f0fd201affeb49b6"
+    },
+    {
+      "dataset": "geant",
+      "seed": 45,
+      "metrics": {
+        "mse": 0.7027662396430969,
+        "mae": 0.5266965627670288,
+        "rmse": 0.8383115530014038
+      },
+      "metrics_sha256": "0cf36133891c371b058e6928a50da9d6fe84d3ab1e1b6c6b4536df2fd1692852"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 46,
+      "metrics": {
+        "mse": 0.25461772084236145,
+        "mae": 0.20364049077033997,
+        "rmse": 0.5045965909957886
+      },
+      "metrics_sha256": "928fd7a162d22eb643031a1bb647608ac5d13644eefbb0d8f601667bd7ed1d2f"
+    },
+    {
+      "dataset": "geant",
+      "seed": 46,
+      "metrics": {
+        "mse": 0.7004464864730835,
+        "mae": 0.5080227851867676,
+        "rmse": 0.8369268178939819
+      },
+      "metrics_sha256": "869897250c3083c397e241fd4e71ebab6fb7df10a0fce4478a0ab9b365c65343"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 47,
+      "metrics": {
+        "mse": 0.2374095916748047,
+        "mae": 0.18922092020511627,
+        "rmse": 0.48724696040153503
+      },
+      "metrics_sha256": "1626aad83b5020eb52fe7b7d900fc55e653e1dc3cf42714c7387cc84206c5997"
+    },
+    {
+      "dataset": "geant",
+      "seed": 47,
+      "metrics": {
+        "mse": 0.7579024434089661,
+        "mae": 0.4969112277030945,
+        "rmse": 0.8705759048461914
+      },
+      "metrics_sha256": "d3b8cc151c318acd92560ce0bd4dae999f2aaa818a931a9b6cc826eda160ea8b"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 48,
+      "metrics": {
+        "mse": 0.2671450674533844,
+        "mae": 0.19896967709064484,
+        "rmse": 0.5168607831001282
+      },
+      "metrics_sha256": "f3c11c9f3d555ec7a3a4fed0800398d7135fcee86fa76d9ebfaa05c5c6bbbf9b"
+    },
+    {
+      "dataset": "geant",
+      "seed": 48,
+      "metrics": {
+        "mse": 0.6959438920021057,
+        "mae": 0.5235123038291931,
+        "rmse": 0.8342325091362
+      },
+      "metrics_sha256": "82b60d6a9d0de0cf4c6b078257766fdc4ecf2a17e615659e5854c512e74e0045"
+    },
+    {
+      "dataset": "abilene",
+      "seed": 49,
+      "metrics": {
+        "mse": 0.23840253055095673,
+        "mae": 0.19395509362220764,
+        "rmse": 0.4882648289203644
+      },
+      "metrics_sha256": "c1ee60fdf7023bef1ea8c98ba1621c233ad7f75c7305171e5301ee32ff666ab5"
+    },
+    {
+      "dataset": "geant",
+      "seed": 49,
+      "metrics": {
+        "mse": 0.7793761491775513,
+        "mae": 0.5040026903152466,
+        "rmse": 0.8828228116035461
+      },
+      "metrics_sha256": "2d0f5d78f3679bc102d03e9eeed6cd818e9b2ec37c7514280da3d4f31ea0a12f"
+    }
+  ],
+  "total": 10
+}

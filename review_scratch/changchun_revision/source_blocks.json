@@ -1,0 +1,1450 @@
+[
+  {
+    "index": 0,
+    "type": "p",
+    "text": "基于自适应多尺度加权的多变量网络流量预测方法",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 1,
+    "type": "bookmarkEnd",
+    "text": "",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 2,
+    "type": "p",
+    "text": "柯亚文",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 3,
+    "type": "p",
+    "text": "（安徽财贸职业学院 信息工程学院，合肥 231200）",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 4,
+    "type": "p",
+    "text": "摘要：针对小时级骨干网流量中短时波动与较慢趋势并存的问题，提出基于自适应多尺度加权的预测方法。三个独立DLinear专家处理不同时间分辨率的历史序列，路由网络根据四项窗口统计量计算尺度权重并融合预测。在Abilene和GÉANT上，以96 h历史预测未来24 h，八个共同种子下相对单尺度DLinear的平均MSE降幅分别为2.77%和2.35%；在周期基线可评价的共同起点，相对周周期朴素预测分别降低47.80%和29.69%。模型含8339个参数，其中路由网络含131个参数。训练历史长度和连续测试时段的补充评价显示融合收益存在条件依赖，相对全局可学习权重，部分短历史及12 h预测设置下出现负改进。结果支持该方法在所测历史数据上的离线预测价值，其跨网络迁移和实际部署效果仍需验证。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 5,
+    "type": "p",
+    "text": "关键词：网络流量预测；多变量时间序列；多尺度学习；自适应加权；分解线性模型",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 6,
+    "type": "p",
+    "text": "中图分类号：TP393　　文献标志码：A",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 7,
+    "type": "p",
+    "text": "A Multivariate Network Traffic Forecasting Method Based on Adaptive Multiscale Weighting",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 8,
+    "type": "p",
+    "text": "KE Yawen",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 9,
+    "type": "p",
+    "text": "(School of Information Engineering, Anhui Finance & Trade Vocational College, Hefei 231200, China)",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 10,
+    "type": "p",
+    "text": "Abstract: An adaptive multiscale weighting method is proposed for hourly backbone network traffic forecasting, where short-term fluctuations coexist with slower trends. Three independent DLinear experts process historical sequences at different temporal resolutions. A routing network computes scale weights from four window statistics and combines their forecasts. Experiments on Abilene and GÉANT use 96 hours of history to predict the next 24 hours. Across eight matched random seeds, the mean seed-wise reductions in mean squared error relative to single-scale DLinear are 2.77% and 2.35%, respectively. At common test origins where both seasonal references are available, the reductions relative to weekly seasonal naive forecasting are 47.80% and 29.69%. The model has 8,339 parameters, including 131 routing parameters. Additional training-history and chronological-block evaluations show that fusion benefits depend on the setting. Negative improvements over learned global weights occur with some shorter training histories and in the 12-hour forecasting experiment. The results support offline forecasting on these two historical backbone datasets; cross-network transfer and deployment performance require further validation.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 11,
+    "type": "p",
+    "text": "Key words: network traffic forecasting; multivariate time series; multiscale learning; adaptive weighting; decomposition linear model",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 12,
+    "type": "p",
+    "text": "骨干网容量规划需要估计源—目的节点对（origin-destination，OD）未来的通信需求。本文研究根据过去96 h的OD流量预测未来24 h逐小时需求的问题。不同OD变量的量级和变化规律存在差异，同一序列中又常同时出现短时波动与较慢趋势。因此，模型既要保留局部变化，也要利用时间聚合后的趋势信息，并控制多尺度处理带来的额外开销。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 13,
+    "type": "p",
+    "text": "现有研究从时间依赖、变量关联和周期结构等角度处理网络流量预测问题。Lohrasbinasab等[1]综述了统计方法与机器学习方法的发展；Qin等[2]采用图神经网络建模空间关联与时间依赖；韦烜等[3]分析大型网际协议（Internet protocol，IP）网络流量矩阵的变量关联和时间变化；唐文杰等[4]在CycleLLH中引入周期性信息。这些研究说明，多变量流量预测需要根据任务选择时间结构与变量关系的建模方式。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 14,
+    "type": "p",
+    "text": "多尺度方法通过不同时间分辨率描述流量变化。Zhou等[5]采用深度回声状态网络进行多尺度流量预测。在轻量预测方法中，分解线性模型（decomposition linear model，DLinear）[6]利用序列分解和线性映射生成预测，TimeMixer[7]通过多尺度混合组织时间信息，LightTS[8]采用采样导向的多层感知器（multilayer perceptron，MLP）。本文沿用DLinear作为尺度专家，将研究重点放在不同尺度预测的融合方式上。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 15,
+    "type": "p",
+    "text": "在专家结构相同、参数相互独立的条件下，固定融合权重无法随当前窗口调整各尺度的贡献。本文考察以低维窗口统计量驱动尺度权重，能否在有限参数增量下获得优于固定融合的预测误差。这里的自适应针对尺度，所有OD变量在同一窗口内共用一组权重；模型不显式学习逐变量权重或网络拓扑关系。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 16,
+    "type": "p",
+    "text": "为检验这一问题，本文设置尺度1、2和4的独立DLinear专家，并以四维统计特征驱动尺度路由网络。在Abilene和GÉANT上分别训练和测试，通过固定等权、全局可学习权重及恒定输入路由对照区分不同融合方式的作用，进一步比较12 h与24 h预测结果，并分析计算开销和适用边界。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 17,
+    "type": "p",
+    "text": "1 自适应多尺度网络流量预测方法",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 18,
+    "type": "p",
+    "text": "图1给出模型的预测分支与路由分支。历史OD窗口经对数变换和标准化后，构造三个时间尺度的输入；各DLinear专家分别预测趋势项与余项，并将二者相加，得到相同预测长度的候选结果。路由网络从预处理窗口提取四项统计量，经Softmax生成尺度权重，最终对候选预测加权求和。图中曲线和色块仅作示意。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 19,
+    "type": "p",
+    "text": "",
+    "equations": 0,
+    "drawings": 1
+  },
+  {
+    "index": 20,
+    "type": "p",
+    "text": "图1 自适应多尺度预测框架",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 21,
+    "type": "p",
+    "text": "三个专家结构相同、参数独立。细尺度保留局部变化，粗尺度通过时间聚合平滑短时波动；尺度权重决定这些候选预测在最终输出中的相对贡献。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 22,
+    "type": "p",
+    "text": "",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 23,
+    "type": "p",
+    "text": "1.1 预测任务与数据预处理",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 24,
+    "type": "p",
+    "text": "记预处理后的多变量流量序列为 xt∈RC，其中t为时间索引，C为有效OD变量数。监督学习样本由连续序列沿时间轴生成的滑动窗口构成；第n个样本由历史窗口Xn及预测目标Yn组成：Xn覆盖连续L个时间点，Yn覆盖其后连续的H个时间点。向量按时间顺序逐行堆叠，矩阵行对应时间点，列对应OD变量。第n个样本的输入与目标表示为：",
+    "equations": 5,
+    "drawings": 0
+  },
+  {
+    "index": 25,
+    "type": "p",
+    "text": "Xn=[xn,…,xn+L-1]∈RL×C.(1)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 26,
+    "type": "p",
+    "text": "Yn=[xn+L,…,xn+L+H-1]∈RH×C.(2)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 27,
+    "type": "p",
+    "text": "取输入窗口长度L=96、预测长度H=24，数据中保留的有效OD维度数记为C。由此，历史信息到未来流量的预测映射可写为：Yn=fθ(Xn)。原始OD流量非负，且变量间量级差异较大，先对原始流量vt,c作对数变换压缩其取值范围，得到对数变换后的序列，其中log表示自然对数：",
+    "equations": 2,
+    "drawings": 0
+  },
+  {
+    "index": 28,
+    "type": "p",
+    "text": "ut,c=log(1+vt,c).(3)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 29,
+    "type": "p",
+    "text": "再按变量进行标准化：",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 30,
+    "type": "p",
+    "text": "xt,c=ut,c-μctrσctr.(4)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 31,
+    "type": "p",
+    "text": "其中μctr和σctr分别为对数变换后训练集上第c个OD变量的均值与标准差，验证集和测试集直接沿用训练统计量，不再单独估计。对数变换可以在压缩非负流量数值范围的同时保留大小关系，从而减小量级差异。训练集、验证集和测试集按时间先后顺序以6∶2∶2比例划分后，在各集合内独立生成滑动窗口，并使所有窗口保持在集合边界内。",
+    "equations": 2,
+    "drawings": 0
+  },
+  {
+    "index": 32,
+    "type": "p",
+    "text": "各尺度序列由同一预处理历史窗口构造，分别保留细粒度变化或较平滑的趋势。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 33,
+    "type": "p",
+    "text": "主实验使用过去96 h预测未来24 h。补充实验保持历史长度不变，将预测长度改为12 h，用于检验融合效果对预测长度的依赖。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 34,
+    "type": "p",
+    "text": "1.2 多尺度构造与DLinear专家",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 35,
+    "type": "p",
+    "text": "对尺度s，时间维的非重叠平均池化同时将聚合窗口大小和步长设为该尺度的取值。尺度集合为S={1,2,4}，各序列按下式构造，其中s取自该集合：",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 36,
+    "type": "p",
+    "text": "Xn,t(s)=1si=0s-1Xn,st+i, t=0,…,Ls-1.(5)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 37,
+    "type": "p",
+    "text": "非重叠平均池化不引入可训练参数。96步历史在尺度1、2和4上分别形成96、48和24步输入，粗尺度通过局部取均值平滑短时波动。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 38,
+    "type": "p",
+    "text": "尺度集合{1,2,4}使各尺度输入长度均为整数，每个尺度配置一个独立专家；同一尺度内，每个时间点仅参与一次聚合。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 39,
+    "type": "p",
+    "text": "每个DLinear专家[6]处理本尺度输入，通过长度q=25的中心移动平均提取趋势项，余项由输入减去趋势项得到。序列两端采用端点复制填充，保证分解前后时间长度不变；补齐后的序列记为X(s)。越界索引取最近端点的值：",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 40,
+    "type": "p",
+    "text": "Tn,t(s)=1qi=-mmXn,t+i(s), q=2m+1=25.(6)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 41,
+    "type": "p",
+    "text": "Rn(s)=Xn(s)-Tn(s).(7)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 42,
+    "type": "p",
+    "text": "趋势项T(s)和余项R(s)沿时间维分别通过线性层映射到预测长度H：",
+    "equations": 2,
+    "drawings": 0
+  },
+  {
+    "index": 43,
+    "type": "p",
+    "text": "Yn(s)=WT(s)Tn(s)+bT(s)+WR(s)Rn(s)+bR(s).(8)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 44,
+    "type": "p",
+    "text": "由式（6）和式（7）可得到尺度s上的趋势项T(s)和余项R(s)。前者表示局部平滑后的趋势，后者为去除趋势后的剩余部分。式（8）对两者分别作线性映射，将预测结果相加。三个专家分别处理长度96、48和24的输入，参数独立。两个线性层的权重矩阵均为H×(L/s)，偏置向量均为H维；各OD变量共享参数，偏置沿OD变量维度广播，输出为H×C。",
+    "equations": 2,
+    "drawings": 0
+  },
+  {
+    "index": 45,
+    "type": "p",
+    "text": "1.3 样本级自适应尺度加权",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 46,
+    "type": "p",
+    "text": "固定等权融合对三个尺度均取1/3，与当前窗口状态无关。本文根据窗口统计特征学习融合权重，组合三个DLinear专家的预测结果。局部波动与较慢趋势的预测价值可能随窗口变化，因此从原始时间分辨率的预处理窗口Xn中构造四维统计向量zn=[μn,σn,ln,dn]，各统计量定义如下：",
+    "equations": 2,
+    "drawings": 0
+  },
+  {
+    "index": 47,
+    "type": "p",
+    "text": "μn=1LCt=0L-1c=1CXn,t,c, σn=1LCt=0L-1c=1C(Xn,t,c-μn)2.(9)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 48,
+    "type": "p",
+    "text": "ln=1Cc=1CXn,L-1,c, dn=1(L-1)Ct=1L-1c=1C|Xn,t,c-Xn,t-1,c|.(10)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 49,
+    "type": "p",
+    "text": "μn、σn、ln和dn分别为输入窗口的均值、标准差、末时刻均值和平均绝对一阶差分。μn表示标准化窗口的平均水平，σn刻画观测值的离散程度，ln为窗口末时刻各OD变量的均值，dn为相邻时间点绝对差值的均值。这4个统计量用于计算随输入窗口变化的尺度权重，各尺度专家负责生成预测值。",
+    "equations": 8,
+    "drawings": 0
+  },
+  {
+    "index": 50,
+    "type": "p",
+    "text": "尺度路由网络由两层全连接层组成，将四维统计向量映射到16维隐藏层，再输出三个尺度分数。隐藏层采用修正线性单元（rectified linear unit，ReLU）激活。该模块只负责尺度融合，不再增加循环网络或注意力编码器。尺度分数计算如下：",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 51,
+    "type": "p",
+    "text": "an=W2ReLU(W1zn+b1)+b2.(11)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 52,
+    "type": "p",
+    "text": "式（11）中，两层权重矩阵依次为16×4和3×16，偏置向量分别为16维和3维。对3个尺度分数作Softmax归一化，得到3个总和为1的非负权重；各专家在最终预测中的相对贡献由这些权重表示：",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 53,
+    "type": "p",
+    "text": "αn,s=exp(an,s)j∈S​exp(an,j), αn,s≥0, s∈S​αn,s=1.(12)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 54,
+    "type": "p",
+    "text": "最终预测为",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 55,
+    "type": "p",
+    "text": "Yn=s∈S​αn,sYn(s).(13)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 56,
+    "type": "p",
+    "text": "式（13）给出最终预测Yn。同一窗口内的全部OD变量和预测步共用这组尺度权重。变量信息通过共享线性映射和汇总统计量参与预测，模型不构造变量对之间的显式交互。该设计控制了参数规模，但会压缩各变量状态差异。",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 57,
+    "type": "p",
+    "text": "1.4 模型训练与预测输出",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 58,
+    "type": "p",
+    "text": "采用均方误差（mean squared error，MSE）训练模型，损失为N个训练样本、未来H个时刻及C个OD变量上平方误差的平均值。其中N为训练样本数，训练目标为",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 59,
+    "type": "p",
+    "text": "LMSE=1NHCn=1Nh=1Hc=1C(Yn,h,c-Yn,h,c)2.(14)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 60,
+    "type": "p",
+    "text": "模型参数采用自适应矩估计（adaptive moment estimation，Adam）优化器进行更新，以验证集MSE作为选择依据。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 61,
+    "type": "p",
+    "text": "推理时，历史窗口沿用训练阶段的预处理规则，经多尺度专家和路由网络生成未来多步预测。本文的误差评价在标准化空间完成；用于实际需求分析前，还需恢复原始流量量纲。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 62,
+    "type": "p",
+    "text": "1.5 参数规模与计算复杂度",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 63,
+    "type": "p",
+    "text": "设尺度数为K，路由隐藏层宽度为d。每个尺度的两个线性层合计包含2H(L/s+1)个参数，且在OD变量间共享；路由网络参数量为4×16+16+16×3+3=131。主实验取L=96、H=24、K=3，参数总量为：",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 64,
+    "type": "p",
+    "text": "P = s∈S2H(L/s+1) + 131 = 8339",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 65,
+    "type": "p",
+    "text": "对单个窗口，尺度池化及四项统计量的计算量随LC线性增长；各尺度移动平均的直接计算量与qC乘以各尺度输入长度之和成正比，线性预测与HC乘以该长度之和成正比，输出融合与KHC成正比。固定尺度集合及q=25时，主要计算量为O(CHL+CL)，路由MLP的计算量为O(4d+dK)。忽略固定算子的工作区，输入和候选预测的存储量为O(CL+KHC)。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 66,
+    "type": "p",
+    "text": "因此，在历史长度和预测长度固定时，参数量不随OD变量数增加，但计算量与中间张量仍随变量数增长。历史长度或预测长度增加也会提高参数量和计算量。若保留完整OD矩阵，变量数最多随节点数的平方增长，本文的参数共享并不意味着对网络节点数具有线性扩展性。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 67,
+    "type": "p",
+    "text": "2 实验与结果分析",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 68,
+    "type": "p",
+    "text": "实验评价总体误差、融合方式、预测长度、尺度权重和计算开销，并据此讨论适用范围。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 69,
+    "type": "p",
+    "text": "2.1 数据集与实验设置",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 70,
+    "type": "p",
+    "text": "本实验选用CESNET TS-Zoo[9]中的1 h粒度Abilene[10]和GÉANT[11]流量矩阵。主实验均使用96步历史预测未来24步，规模及窗口数见表1。Abilene包含144个有效OD变量；GÉANT仅依据训练集标准差剔除恒定或近恒定变量后保留524个变量。两套数据分别按时间顺序以6∶2∶2划分，并独立训练和测试，预处理见第1.1节。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 71,
+    "type": "p",
+    "text": "表1 数据集与预测任务设置",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 72,
+    "type": "tbl",
+    "text": "数据集时间点有效变量C训练/验证/测试时间点训练/验证/测试窗口L/HAbilene46561442793/931/9322674/812/81396/24GÉANT28495241709/570/5701590/451/45196/24",
+    "equations": 0,
+    "drawings": 0,
+    "rows": [
+      [
+        "数据集",
+        "时间点",
+        "有效变量C",
+        "训练/验证/测试时间点",
+        "训练/验证/测试窗口",
+        "L/H"
+      ],
+      [
+        "Abilene",
+        "4656",
+        "144",
+        "2793/931/932",
+        "2674/812/813",
+        "96/24"
+      ],
+      [
+        "GÉANT",
+        "2849",
+        "524",
+        "1709/570/570",
+        "1590/451/451",
+        "96/24"
+      ]
+    ]
+  },
+  {
+    "index": 73,
+    "type": "p",
+    "text": "按1 h采样点数量折算，两套数据的总观测量约为194.0 d和118.7 d，训练部分约为116.4 d和71.2 d。相邻滑动窗口有重叠，表1窗口数不等于独立观测数，OD变量数也不等于独立网络数。上述数据量可用于所设模型的离线比较，但不足以覆盖长期季节变化及复杂业务变化；增加随机种子不能弥补这一覆盖不足。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 74,
+    "type": "p",
+    "text": "对比设置包括单尺度DLinear、独立轻量基线LightTS、固定等权多尺度、全局可学习权重、恒定输入路由及本文方法。四种多尺度模型采用相同的DLinear主干和尺度集合{1,2,4}，对不同融合方式进行比较。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 75,
+    "type": "p",
+    "text": "本实验对三类融合进行对照：固定等权模型中各尺度权重设为1/3；全局权重模型使用3个由等权初始化的可训练参数，由Softmax生成全局固定权重；恒定输入路由保留本文方法的路由网络，训练与推理均输入全零特征向量，使所有窗口共用融合权重。三类对照的专家均接收真实历史窗口数据，用于区分多尺度信息、非等权融合与输入相关分配的作用。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 76,
+    "type": "p",
+    "text": "各模型使用相同的数据划分、输入长度、主实验预测长度和评价指标，批量大小均为16，优化器均为Adam；超参数预先固定，未对各模型分别搜索。可训练融合参数与尺度专家共同优化，以验证集MSE选择检查点。DLinear及各多尺度模型的学习率为0.001，最多训练30轮，早停耐心值为6；LightTS的学习率为0.0001，最多50轮，早停耐心值为10。因此，表2反映这些固定配置下的比较，不代表各基线经充分调优后的最优性能。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 77,
+    "type": "p",
+    "text": "LightTS采用清华大学软件学院机器学习组的公开实现，分块长度为24，模型维度参数为512。DLinear及各尺度专家按文献[6]实现，移动平均窗口长度为25，路由隐藏层维度设为16。Python 3.11.9和PyTorch 2.5.1为本实验的软件版本。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 78,
+    "type": "p",
+    "text": "外部基线比较采用42～44三个共同随机种子；核心消融采用42～49八个共同随机种子。补充的12 h预测仅比较全局可学习权重与本文方法，保持数据划分、历史长度、批量大小和优化设置不变，并按相同八个种子重新训练。两套数据的训练、验证、测试窗口数在12 h设置下分别为2686/824/825和1602/463/463。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 79,
+    "type": "p",
+    "text": "均方误差（MSE）、平均绝对误差（mean absolute error，MAE）及均方根误差（root mean squared error，RMSE）用于评价预测性能。测试集MSE按式（14）计算，样本数取测试窗口数；式（15）中的Nte为测试样本数。MAE和RMSE定义如下",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 80,
+    "type": "p",
+    "text": "MAE=1NteHCn=1Nteh=1Hc=1C|Yn,h,c-Yn,h,c|.(15)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 81,
+    "type": "p",
+    "text": "RMSE=MSE.(16)",
+    "equations": 1,
+    "drawings": 0
+  },
+  {
+    "index": 82,
+    "type": "p",
+    "text": "所有指标在对数变换及逐变量标准化后的空间计算，数值越小表示误差越低，不能直接解释为原始流量或链路负载的误差。表2和表3分别报告三个、八个种子的均值±样本标准差。改进率按共同种子逐一计算，即对照与本文方法的误差之差除以对照误差，再取平均；不使用表内舍入值计算。八种子改进率的95%置信区间使用自由度7的t分布和种子间标准误。该区间仅描述固定数据划分下的训练随机性，不代表跨网络不确定性；重叠测试窗口不作为独立重复，本文不据此进行显著性检验。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 83,
+    "type": "p",
+    "text": "2.2 总体预测性能与基线比较",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 84,
+    "type": "p",
+    "text": "表2报告三个共同随机种子的基线结果。在本实验配置下，本文方法在Abilene和GÉANT上的逐种子平均MSE相对DLinear分别降低4.07%和4.54%，相对LightTS分别降低29.80%和46.89%。图2补充各指标的逐种子改进率及参数比例。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 85,
+    "type": "p",
+    "text": "表2 三随机种子基线模型比较（均值±标准差）",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 86,
+    "type": "tbl",
+    "text": "数据集模型参数量MSEMAEAbileneDLinear46560.194±0.0020.188±0.009AbileneLightTS1301620.265±0.0110.204±0.008Abilene本文方法83390.186±0.0020.168±0.001GÉANTDLinear46560.454±0.0070.383±0.006GÉANTLightTS3843820.817±0.0240.523±0.014GÉANT本文方法83390.434±0.0510.370±0.031",
+    "equations": 0,
+    "drawings": 0,
+    "rows": [
+      [
+        "数据集",
+        "模型",
+        "参数量",
+        "MSE",
+        "MAE"
+      ],
+      [
+        "Abilene",
+        "DLinear",
+        "4656",
+        "0.194±0.002",
+        "0.188±0.009"
+      ],
+      [
+        "Abilene",
+        "LightTS",
+        "130162",
+        "0.265±0.011",
+        "0.204±0.008"
+      ],
+      [
+        "Abilene",
+        "本文方法",
+        "8339",
+        "0.186±0.002",
+        "0.168±0.001"
+      ],
+      [
+        "GÉANT",
+        "DLinear",
+        "4656",
+        "0.454±0.007",
+        "0.383±0.006"
+      ],
+      [
+        "GÉANT",
+        "LightTS",
+        "384382",
+        "0.817±0.024",
+        "0.523±0.014"
+      ],
+      [
+        "GÉANT",
+        "本文方法",
+        "8339",
+        "0.434±0.051",
+        "0.370±0.031"
+      ]
+    ]
+  },
+  {
+    "index": 87,
+    "type": "p",
+    "text": "",
+    "equations": 0,
+    "drawings": 1
+  },
+  {
+    "index": 88,
+    "type": "p",
+    "text": "图2 相对LightTS的误差降低率与参数规模",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 89,
+    "type": "p",
+    "text": "两个数据集的三个共同种子中，本文方法相对LightTS的MSE、MAE和RMSE均降低。8339个参数分别约为LightTS参数量的6.41%和2.17%。这一结果说明本文方法在所设轻量基线下具有参数规模优势，不能据此推断其优于其他类型的流量预测模型。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 90,
+    "type": "p",
+    "text": "以下使用相同的多尺度专家比较融合方式，以减小主干结构差异对结果解释的影响。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 91,
+    "type": "p",
+    "text": "2.3 融合方式消融与预测长度影响",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 92,
+    "type": "p",
+    "text": "表3报告八个共同种子的消融结果。该设置比表2增加了训练重复次数，但未增加独立的流量观测数据。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 93,
+    "type": "p",
+    "text": "表3 八随机种子消融实验结果（均值±标准差）",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 94,
+    "type": "tbl",
+    "text": "数据集模型参数量MSEMAEAbileneDLinear46560.194±0.0020.189±0.008Abilene固定等权多尺度82080.192±0.0020.191±0.006Abilene全局可学习权重82110.192±0.0020.190±0.006Abilene恒定输入路由83390.192±0.0020.181±0.006Abilene本文方法83390.189±0.0030.173±0.008GÉANTDLinear46560.437±0.0160.371±0.011GÉANT固定等权多尺度82080.447±0.0140.377±0.009GÉANT全局可学习权重82110.446±0.0140.377±0.009GÉANT恒定输入路由83390.449±0.0120.379±0.007GÉANT本文方法83390.426±0.0290.366±0.018",
+    "equations": 0,
+    "drawings": 0,
+    "rows": [
+      [
+        "数据集",
+        "模型",
+        "参数量",
+        "MSE",
+        "MAE"
+      ],
+      [
+        "Abilene",
+        "DLinear",
+        "4656",
+        "0.194±0.002",
+        "0.189±0.008"
+      ],
+      [
+        "Abilene",
+        "固定等权多尺度",
+        "8208",
+        "0.192±0.002",
+        "0.191±0.006"
+      ],
+      [
+        "Abilene",
+        "全局可学习权重",
+        "8211",
+        "0.192±0.002",
+        "0.190±0.006"
+      ],
+      [
+        "Abilene",
+        "恒定输入路由",
+        "8339",
+        "0.192±0.002",
+        "0.181±0.006"
+      ],
+      [
+        "Abilene",
+        "本文方法",
+        "8339",
+        "0.189±0.003",
+        "0.173±0.008"
+      ],
+      [
+        "GÉANT",
+        "DLinear",
+        "4656",
+        "0.437±0.016",
+        "0.371±0.011"
+      ],
+      [
+        "GÉANT",
+        "固定等权多尺度",
+        "8208",
+        "0.447±0.014",
+        "0.377±0.009"
+      ],
+      [
+        "GÉANT",
+        "全局可学习权重",
+        "8211",
+        "0.446±0.014",
+        "0.377±0.009"
+      ],
+      [
+        "GÉANT",
+        "恒定输入路由",
+        "8339",
+        "0.449±0.012",
+        "0.379±0.007"
+      ],
+      [
+        "GÉANT",
+        "本文方法",
+        "8339",
+        "0.426±0.029",
+        "0.366±0.018"
+      ]
+    ]
+  },
+  {
+    "index": 95,
+    "type": "p",
+    "text": "相对全局可学习权重和恒定输入路由，本文方法在Abilene上的逐种子平均MSE改进率均约为1.80%，在GÉANT上分别为4.31%和4.97%。Abilene相对两类对照均有6/8个种子改善，GÉANT均为7/8。相对全局权重的95%置信区间分别为[0.01%,3.58%]和[−2.51%,11.13%]；相对恒定输入路由分别为[0.49%,3.11%]和[−1.62%,11.56%]。GÉANT的两项区间均跨零，因此其平均改进不能表述为稳定优势。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 96,
+    "type": "p",
+    "text": "图3进一步展示了本文方法相对DLinear和固定等权多尺度模型的逐种子改进分布。散点为单个种子的改进率，黑色菱形及横向误差线则分别为均值和95%置信区间。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 97,
+    "type": "p",
+    "text": "",
+    "equations": 0,
+    "drawings": 1
+  },
+  {
+    "index": 98,
+    "type": "p",
+    "text": "图3 相对两类基线的多指标改进分布",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 99,
+    "type": "p",
+    "text": "相对DLinear，Abilene的MSE、MAE和RMSE平均改进率为2.77%、8.01%和1.40%，GÉANT为2.35%、1.32%和1.22%。相对固定等权多尺度，两套数据的MSE平均改进率分别为1.65%和4.54%。GÉANT的种子间波动更大，部分种子出现负改进。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 100,
+    "type": "p",
+    "text": "在24 h设置下，GÉANT种子43相对恒定输入路由的MSE增加12.77%，说明平均误差下降并不等于每次训练均改善。进一步保持历史长度96 h，将预测长度改为12 h，结果见表4。不同预测长度的测试目标与窗口数不同，因此仅在同一预测长度内比较两种融合方式。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 101,
+    "type": "p",
+    "text": "表4 12 h预测的融合方式比较",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 102,
+    "type": "tbl",
+    "text": "数据集全局权重MSE本文方法MSE改进率/%95%区间/%改善种子Abilene0.135±0.0070.113±0.01215.97[5.05,26.88]7/8GÉANT0.386±0.0080.390±0.015-1.17[-5.79,3.46]3/8",
+    "equations": 0,
+    "drawings": 0,
+    "rows": [
+      [
+        "数据集",
+        "全局权重MSE",
+        "本文方法MSE",
+        "改进率/%",
+        "95%区间/%",
+        "改善种子"
+      ],
+      [
+        "Abilene",
+        "0.135±0.007",
+        "0.113±0.012",
+        "15.97",
+        "[5.05,26.88]",
+        "7/8"
+      ],
+      [
+        "GÉANT",
+        "0.386±0.008",
+        "0.390±0.015",
+        "-1.17",
+        "[-5.79,3.46]",
+        "3/8"
+      ]
+    ]
+  },
+  {
+    "index": 103,
+    "type": "p",
+    "text": "表4中MSE为八种子的均值±标准差，改进率按种子配对计算。12 h预测时，本文方法与全局权重模型分别为4235和4107个参数。Abilene有7/8个种子改善；GÉANT仅3/8个，平均MSE反而略高。因此，24 h预测上的平均改进不能直接推广到其他预测长度。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 104,
+    "type": "p",
+    "text": "2.4 预测行为与尺度权重分析",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 105,
+    "type": "p",
+    "text": "图4（a、b）将8个种子的全测试预测点按真实值分位点分为最多40组，展示分组平均预测，浅色带表示种子间±1个标准差。图4（c～f）使用种子42，按真实序列选取标准差接近第75百分位的OD通道，以及平均绝对一阶差分接近中位数、第90百分位的窗口。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 106,
+    "type": "p",
+    "text": "",
+    "equations": 0,
+    "drawings": 1
+  },
+  {
+    "index": 107,
+    "type": "p",
+    "text": "图4 真实值分组预测与典型窗口轨迹",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 108,
+    "type": "p",
+    "text": "图4中，四种模型在较高真实值区间均出现低估，本文方法的分组平均偏差较小。四例典型轨迹中，本文方法有三例的24步MSE低于所示对照，在Abilene典型波动窗口中表现较差。典型轨迹仅用于展示行为，整体比较仍以表3为准。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 109,
+    "type": "p",
+    "text": "图5汇总8个种子的测试窗口权重，彩色点为各随机种子的窗口平均权重，黑色菱形及误差线为这些均值的均值±1个标准差；短横线表示汇总分布中位数，水平虚线表示固定等权1/3。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 110,
+    "type": "p",
+    "text": "",
+    "equations": 0,
+    "drawings": 1
+  },
+  {
+    "index": 111,
+    "type": "p",
+    "text": "图5 尺度权重分布与种子均值",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 112,
+    "type": "p",
+    "text": "Abilene三个尺度的汇总平均权重为0.257、0.319和0.424，GÉANT为0.283、0.318和0.399。GÉANT各尺度权重总方差约有96.2%、95.8%和97.7%来自种子间差异，Abilene对应比例为48.7%、86.1%和80.6%。因此，偏离等权只能说明模型形成了非等权分配，不能单独证明权重随窗口发生有效调整，尤其是GÉANT同一种子内的权重变化较小。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 113,
+    "type": "p",
+    "text": "两个数据集分别按各自训练窗口的平均绝对一阶差分三分位阈值划分低、中、高波动组。Abilene测试窗口数为15、406、392，相对全局权重的平均MSE改进率为4.43%、1.90%、1.69%；GÉANT低波动组为空，中、高组为76、375个窗口，改进率为5.85%、4.06%。Abilene高波动组的尺度1权重较高，但误差改善未同步增大；GÉANT中、高组权重接近，误差改善却有差异。这些结果不支持将误差下降简单归因于更强的动态权重调整。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 114,
+    "type": "p",
+    "text": "2.5 计算开销与网络管理应用",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 115,
+    "type": "p",
+    "text": "表5比较参数量与前向耗时。本文方法比固定等权多尺度增加131个路由参数，比全局可学习权重增加128个参数；但相对单尺度DLinear，参数量由4656增至8339，推理也需执行三个专家。因此，路由参数增量较小不能等同于整个模型的计算开销与单尺度相当。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 116,
+    "type": "p",
+    "text": "采用种子42～49的八个检查点，在GTX 1060（6 GB）上以CUDA事件计时，在i7-8750H上进行单线程CPU计时。批量大小为16，输入张量预先载入目标设备并关闭梯度；GPU各检查点预热50批、完整测试集重复30次，CPU预热30批、重复10次。每次总耗时除以批次数，先在检查点内平均，再报告八个检查点的均值±标准差。表5不包含数据读取、设备传输、预处理和结果还原，不能作为在线端到端延迟。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 117,
+    "type": "p",
+    "text": "表5 参数量与每批前向耗时",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 118,
+    "type": "tbl",
+    "text": "数据集模型参数量GPU耗时/msCPU耗时/msAbileneDLinear46560.75±0.1116.86±1.13Abilene固定等权多尺度82082.50±0.2431.24±0.40Abilene本文方法83393.28±0.2040.65±0.19GÉANTDLinear46560.82±0.0956.71±0.40GÉANT固定等权多尺度82082.55±0.25101.53±2.69GÉANT本文方法83395.26±2.79131.35±1.25",
+    "equations": 0,
+    "drawings": 0,
+    "rows": [
+      [
+        "数据集",
+        "模型",
+        "参数量",
+        "GPU耗时/ms",
+        "CPU耗时/ms"
+      ],
+      [
+        "Abilene",
+        "DLinear",
+        "4656",
+        "0.75±0.11",
+        "16.86±1.13"
+      ],
+      [
+        "Abilene",
+        "固定等权多尺度",
+        "8208",
+        "2.50±0.24",
+        "31.24±0.40"
+      ],
+      [
+        "Abilene",
+        "本文方法",
+        "8339",
+        "3.28±0.20",
+        "40.65±0.19"
+      ],
+      [
+        "GÉANT",
+        "DLinear",
+        "4656",
+        "0.82±0.09",
+        "56.71±0.40"
+      ],
+      [
+        "GÉANT",
+        "固定等权多尺度",
+        "8208",
+        "2.55±0.25",
+        "101.53±2.69"
+      ],
+      [
+        "GÉANT",
+        "本文方法",
+        "8339",
+        "5.26±2.79",
+        "131.35±1.25"
+      ]
+    ]
+  },
+  {
+    "index": 119,
+    "type": "p",
+    "text": "在相同历史长度与预测长度下，144与524个变量均对应8339个参数，但CPU前向耗时明显增加，说明参数共享不能消除变量规模带来的计算增长。已有训练记录中，本文方法在Abilene和GÉANT上的完整训练评估流程耗时分别为52.47±22.48 s和32.73±34.48 s。该计时包含训练、验证、检查点读写及测试，早停轮次也不同，不能作为纯训练速度或扩展性基准。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 120,
+    "type": "p",
+    "text": "面向小时级需求分析，模型可在新观测到达后，以最近96 h历史生成未来24 h的逐小时OD预测。实际使用前需依次逆标准化、逆对数变换并截断至非负，再结合已知拓扑和路由关系汇总链路需求。本文未执行这一步的在线部署，也未测量调度收益，因而当前实验仅评价离线预测能力。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 121,
+    "type": "p",
+    "text": "训练集各OD的第90百分位用作高需求阈值，超过对应阈值的真实值所在测试预测点才参与评价。种子42～49的24步预测在标准化空间内统计MAE及低估误差均值。对后者，真实值减预测值仅取正值部分，再在全部高需求预测点上平均。高需求预测点在Abilene占13.61%，在GÉANT占13.00%。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 122,
+    "type": "p",
+    "text": "按8个种子的均值±标准差汇总，本文方法在Abilene上的高需求MAE和低估误差均值分别为0.147±0.013、0.137±0.017，相对全局可学习权重的逐种子平均降幅为17.22%、20.49%，8个种子均改善。GÉANT两项指标为0.632±0.060、0.577±0.080，平均降幅为3.59%、6.30%，均有6/8个种子改善。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 123,
+    "type": "p",
+    "text": "Abilene高需求预测点的改善在不同种子下较一致；GÉANT两项配对改进率的95%置信区间均跨零。上述结果只说明标准化空间内的高需求预测误差，尚不能证明原始流量量纲下的峰值保障或容量调度效果。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 124,
+    "type": "p",
+    "text": "2.6 周期基线与稳定性补充实验",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 125,
+    "type": "p",
+    "text": "为检验模型相对简单周期预测的收益，增加24 h与168 h滞后的季节性朴素基线，即使用前一日或前一周对应时刻的观测预测未来24 h。共同测试起点从测试段第168小时开始，Abilene和GÉANT分别保留741和379个预测窗口，三个学习模型均在相同起点重新计分。周周期基线使用168 h历史，长于学习模型的96 h，因此该比较允许不同历史长度。所有输入仅来自预测起点之前，结果见表6。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 126,
+    "type": "p",
+    "text": "表6 共同测试起点上的周期基线比较",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 127,
+    "type": "tbl",
+    "text": "数据集方法历史/hMSEMAEAbilene日周期朴素240.3700.231Abilene周周期朴素1680.3900.245AbileneDLinear960.209±0.0020.196±0.008Abilene全局权重960.207±0.0020.198±0.006Abilene本文方法960.204±0.0030.180±0.009GÉANT日周期朴素240.6470.404GÉANT周周期朴素1680.6280.442GÉANTDLinear960.454±0.0160.372±0.012GÉANT全局权重960.464±0.0140.379±0.009GÉANT本文方法960.442±0.0300.367±0.019",
+    "equations": 0,
+    "drawings": 0,
+    "rows": [
+      [
+        "数据集",
+        "方法",
+        "历史/h",
+        "MSE",
+        "MAE"
+      ],
+      [
+        "Abilene",
+        "日周期朴素",
+        "24",
+        "0.370",
+        "0.231"
+      ],
+      [
+        "Abilene",
+        "周周期朴素",
+        "168",
+        "0.390",
+        "0.245"
+      ],
+      [
+        "Abilene",
+        "DLinear",
+        "96",
+        "0.209±0.002",
+        "0.196±0.008"
+      ],
+      [
+        "Abilene",
+        "全局权重",
+        "96",
+        "0.207±0.002",
+        "0.198±0.006"
+      ],
+      [
+        "Abilene",
+        "本文方法",
+        "96",
+        "0.204±0.003",
+        "0.180±0.009"
+      ],
+      [
+        "GÉANT",
+        "日周期朴素",
+        "24",
+        "0.647",
+        "0.404"
+      ],
+      [
+        "GÉANT",
+        "周周期朴素",
+        "168",
+        "0.628",
+        "0.442"
+      ],
+      [
+        "GÉANT",
+        "DLinear",
+        "96",
+        "0.454±0.016",
+        "0.372±0.012"
+      ],
+      [
+        "GÉANT",
+        "全局权重",
+        "96",
+        "0.464±0.014",
+        "0.379±0.009"
+      ],
+      [
+        "GÉANT",
+        "本文方法",
+        "96",
+        "0.442±0.030",
+        "0.367±0.019"
+      ]
+    ]
+  },
+  {
+    "index": 128,
+    "type": "p",
+    "text": "表6中学习模型报告八个种子的均值±样本标准差；朴素基线为确定性计算，不设种子标准差。指标沿用原完整训练集定义的标准化坐标。该表评价的窗口少于表3，二者不能跨表直接比较数值。本文方法相对日周期基线的逐种子平均MSE降幅在Abilene和GÉANT上分别为44.93%和31.77%，相对周周期基线分别为47.80%和29.69%。这一比较提供简单周期复制的参照；融合机制本身的增益仍按表3的等结构对照评价。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 129,
+    "type": "p",
+    "text": "训练历史实验固定原验证、测试时间段及OD变量集合，从同一训练截止点向前保留最近25%、50%、75%和100%的训练观测。前三种比例分别重新拟合训练段的逐变量均值与标准差，再训练DLinear、全局权重和本文方法；训练配置与主实验一致，各用42～49八个共同种子。100%条件沿用主实验检查点，其余比例按相同配置重新训练，均以验证误差选择检查点。所有预测还原到原完整训练集定义的标准化坐标后计分，以保证不同训练比例之间的误差可比。结果见图6。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 130,
+    "type": "p",
+    "text": "",
+    "equations": 0,
+    "drawings": 1
+  },
+  {
+    "index": 131,
+    "type": "p",
+    "text": "图6 不同训练历史长度下的测试MSE",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 132,
+    "type": "p",
+    "text": "图6中点为八种子均值，误差棒为种子间样本标准差。横轴为原训练段保留比例；增加比例同时增加观测量和较早时期的覆盖，不能把二者的作用完全分离。训练轮数上限和早停规则相同，但优化更新次数未匹配。在Abilene上，本文方法使用25%和100%历史时的MSE分别为0.177和0.189，且25%、50%和75%历史下的平均MSE均高于全局权重。GÉANT对应两端的MSE为0.482和0.426，但50%历史下回升至0.506。误差未随历史量增加而稳定下降，模型排序也随条件变化。该结果仅用于描述历史长度敏感性，未据本组测试误差另选训练配置。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 133,
+    "type": "p",
+    "text": "进一步将原测试段从第96小时起的目标时刻均分为三个连续区间T1、T2和T3，保留24 h预测目标全部落在对应区间内的窗口，排除跨区间预测。Abilene三个区间分别有255、256和256个窗口，GÉANT均为135个。使用100%训练历史下的同一模型逐段评价，不在区间之间重新训练。各段目标时刻互不重叠，但段内滑动窗口仍重叠；该分析描述时间稳定性，不把窗口视为独立统计重复。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 134,
+    "type": "p",
+    "text": "表7 三个连续测试时段的MSE",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 135,
+    "type": "tbl",
+    "text": "数据集时段DLinear全局权重本文方法AbileneT10.036±0.0010.036±0.0010.032±0.001AbileneT20.551±0.0050.545±0.0060.544±0.010AbileneT30.024±0.0010.024±0.0010.019±0.001GÉANTT10.354±0.0160.363±0.0140.351±0.028GÉANTT20.393±0.0160.403±0.0150.392±0.030GÉANTT30.433±0.0180.443±0.0160.401±0.036",
+    "equations": 0,
+    "drawings": 0,
+    "rows": [
+      [
+        "数据集",
+        "时段",
+        "DLinear",
+        "全局权重",
+        "本文方法"
+      ],
+      [
+        "Abilene",
+        "T1",
+        "0.036±0.001",
+        "0.036±0.001",
+        "0.032±0.001"
+      ],
+      [
+        "Abilene",
+        "T2",
+        "0.551±0.005",
+        "0.545±0.006",
+        "0.544±0.010"
+      ],
+      [
+        "Abilene",
+        "T3",
+        "0.024±0.001",
+        "0.024±0.001",
+        "0.019±0.001"
+      ],
+      [
+        "GÉANT",
+        "T1",
+        "0.354±0.016",
+        "0.363±0.014",
+        "0.351±0.028"
+      ],
+      [
+        "GÉANT",
+        "T2",
+        "0.393±0.016",
+        "0.403±0.015",
+        "0.392±0.030"
+      ],
+      [
+        "GÉANT",
+        "T3",
+        "0.433±0.018",
+        "0.443±0.016",
+        "0.401±0.036"
+      ]
+    ]
+  },
+  {
+    "index": 136,
+    "type": "p",
+    "text": "表7为八种子均值±样本标准差，不同区间的目标分布不同，误差大小不能单独解释为模型随时间退化。相对全局权重，本文方法在Abilene的T1、T2、T3平均MSE改进率分别为10.12%、0.19%、20.58%，在GÉANT上分别为2.99%、2.59%、9.31%。Abilene的T2仅5/8个种子改善；GÉANT前两段相对DLinear均仅4/8个种子改善。各段平均误差虽均较低，但收益幅度和训练重复间的一致性存在差异，不能据此宣称所有时段均具有稳定优势。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 137,
+    "type": "p",
+    "text": "2.7 泛化能力与研究局限",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 138,
+    "type": "p",
+    "text": "两套骨干网数据的OD规模和流量分布不同，可用于检验同一建模方案在两个数据集上分别训练后的表现；这不等于训练于一个网络、直接迁移至另一网络的跨网络泛化。本文未开展跨网络迁移、业务类型分层或拓扑变化实验，也未评价在线更新和概念漂移适应。因而不能据现有结果推断其适用于接入网、数据中心或动态路由环境。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 139,
+    "type": "p",
+    "text": "当前证据仍受观测时期较短、单一训练—验证—测试划分和有限基线范围约束。训练历史实验同时改变了观测量、时期覆盖和训练更新次数，未分离这些因素；测试分段也未重新训练模型，不属于滚动重训验证。GÉANT的种子波动及12 h负改进表明，当前融合策略的收益不具有普遍性，尚需进一步检验四维汇总统计量对窗口状态的区分能力。后续需要更长时期及不同业务网络的数据和滚动起点评价；实际使用还需测量原始量纲误差、单窗口端到端时延及链路容量决策收益。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 140,
+    "type": "p",
+    "text": "3 结语",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 141,
+    "type": "p",
+    "text": "本文以四维窗口统计量融合三个独立DLinear尺度专家。所测24 h设置下，完整训练历史的平均误差低于DLinear与全局权重，并超过日、周周期朴素基线；训练历史和分时段分析同时揭示了收益对数据覆盖与测试区间的依赖。较短历史下，Abilene的路由融合未必优于对照，GÉANT的部分比较也存在较大种子波动；12 h预测未在两个数据集上均获得改善。该方法以增加尺度专家计算为代价控制融合参数规模，现有证据限于两套历史骨干网的离线实验。后续需在更长时期、不同业务网络和实际端到端流程中检验适用性。",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 142,
+    "type": "p",
+    "text": "参考文献",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 143,
+    "type": "p",
+    "text": "[1] LOHRASBINASAB I, SHAHRAKI A, TAHERKORDI A, et al. From statistical- to machine learning-based network traffic prediction[J]. Transactions on Emerging Telecommunications Technologies, 2022, 33(4): e4394. DOI: 10.1002/ett.4394.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 144,
+    "type": "p",
+    "text": "[2] QIN Liang, GU Huaxi, WEI Wenting, et al. Spatio-temporal communication network traffic prediction method based on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.2024.121003.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 145,
+    "type": "p",
+    "text": "[3] 韦烜, 刘志华, 李青, 等. 大型IP网络流量矩阵分析预测的探讨研究[J]. 系统工程与电子技术, 2024, 46(6): 2164-2173. DOI: 10.12305/j.issn.1001-506X.2024.06.35.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 146,
+    "type": "p",
+    "text": "[4] 唐文杰, 肖一磊, 孔祥宇, 等. CycleLLH：一种基于周期性整合的新型网络流量预测模型[J]. 计算机学报, 2024, 47(12): 2867-2888. DOI: 10.11897/SP.J.1016.2024.02867.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 147,
+    "type": "p",
+    "text": "[5] ZHOU Jian, HAN Taotao, XIAO Fu, et al. Multiscale network traffic prediction method based on deep echo-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-21874. DOI: 10.1109/JIOT.2022.3181807.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 148,
+    "type": "p",
+    "text": "[6] ZENG Ailing, CHEN Muxi, ZHANG Lei, et al. Are transformers effective for time series forecasting?[J]. Proceedings of the AAAI Conference on Artificial Intelligence, 2023, 37(9): 11121-11128. DOI: 10.1609/aaai.v37i9.26317.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 149,
+    "type": "p",
+    "text": "[7] WANG Shiyu, WU Haixu, SHI Xiaoming, et al. TimeMixer: decomposable multiscale mixing for time series forecasting[C/OL]//International Conference on Learning Representations. 2024[2026-10-03]. https://openreview.net/forum?id=7oLshfEIC2.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 150,
+    "type": "p",
+    "text": "[8] ZHANG Tianping, ZHANG Yizhuo, CAO Wei, et al. Less is more: fast multivariate time series forecasting with light sampling-oriented MLP structures[EB/OL]. (2022-07-04)[2026-10-03]. https://arxiv.org/abs/2207.01186. DOI: 10.48550/arXiv.2207.01186.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 151,
+    "type": "p",
+    "text": "[9] KUREŠ M, KOUMAR J, HYNEK K. CESNET TS-Zoo: a library for reproducible analysis of network traffic time series[C]//2025 21st International Conference on Network and Service Management. New York: IEEE, 2025: 1-5. DOI: 10.23919/CNSM67658.2025.11297513.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 152,
+    "type": "p",
+    "text": "[10] ZHANG Yin, ROUGHAN M, DUFFIELD N, et al. Fast accurate computation of large-scale IP traffic matrices from link loads[J]. ACM SIGMETRICS Performance Evaluation Review, 2003, 31(1): 206-217. DOI: 10.1145/885651.781053.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 153,
+    "type": "p",
+    "text": "[11] UHLIG S, QUOITIN B, LEPROPRE J, et al. Providing public intradomain traffic matrices to the research community[J]. ACM SIGCOMM Computer Communication Review, 2006, 36(1): 83-86. DOI: 10.1145/1111322.1111341.",
+    "equations": 0,
+    "drawings": 0
+  },
+  {
+    "index": 154,
+    "type": "sectPr",
+    "text": "",
+    "equations": 0,
+    "drawings": 0
+  }
+]

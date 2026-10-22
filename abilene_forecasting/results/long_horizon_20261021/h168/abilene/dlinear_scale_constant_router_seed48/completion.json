@@ -1,0 +1,11 @@
+{
+  "job": {
+    "dataset": "abilene",
+    "model": "dlinear_scale_constant_router",
+    "seed": 48,
+    "horizon": 168
+  },
+  "completed_unix": 1792556629.5647795,
+  "metrics_sha256": "315d2517eb21dcc81152a9cf06293b00f227cd2a23503ac9d3708b0336e34e5d",
+  "predictions_sha256": "8c4a0f27a55b0197d68827b0001b147ab5ddff0fa84d0c9c33b8c4670c40ed25"
+}

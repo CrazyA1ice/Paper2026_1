@@ -1,0 +1,20 @@
+[
+  {
+    "dataset": "geant",
+    "model": "seasonal_24",
+    "history_hours": 24,
+    "windows": 379,
+    "mse": 0.6471701659233725,
+    "mae": 0.4036042911386037,
+    "rmse": 0.8044688719418375
+  },
+  {
+    "dataset": "geant",
+    "model": "seasonal_168",
+    "history_hours": 168,
+    "windows": 379,
+    "mse": 0.6280145263264649,
+    "mae": 0.44219639478544726,
+    "rmse": 0.7924736754785391
+  }
+]

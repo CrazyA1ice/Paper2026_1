@@ -1,0 +1,37 @@
+{
+  "pages": 10,
+  "figure_pages": {
+    "1": 2,
+    "2": 6,
+    "3": 7,
+    "4": 8,
+    "5": 9
+  },
+  "source_and_target_hashes_verified": true,
+  "rendered_copy_identical_to_final_manuscript": true,
+  "preserved": {
+    "tables": 3,
+    "math_objects": 41,
+    "figures": 5,
+    "references": 11
+  },
+  "word_statistics": {
+    "filename": "2026.10.03v61.docx",
+    "pages": 10,
+    "words": 8062,
+    "far_east_characters": 6900
+  },
+  "visual_review_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "visual_findings": "All pages reviewed; no clipped figures, overlapping text or missing formulas. References end on page 10."
+}

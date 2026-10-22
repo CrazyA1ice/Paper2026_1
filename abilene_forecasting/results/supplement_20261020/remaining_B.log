@@ -1,0 +1,17 @@
+{"dataset": "geant", "percent": 75, "model": "dlinear", "seed": 42, "skipped": true, "mse": 0.4596271950087411, "worker_elapsed": 0.0032227999763563275}
+{"dataset": "geant", "percent": 75, "model": "dlinear", "seed": 43, "skipped": true, "mse": 0.4208885443170831, "worker_elapsed": 0.007022499979939312}
+{"dataset": "geant", "percent": 75, "model": "dlinear", "seed": 44, "skipped": true, "mse": 0.4753026325577189, "worker_elapsed": 0.01106330001493916}
+{"dataset": "geant", "percent": 75, "model": "dlinear", "seed": 45, "skipped": true, "mse": 0.4239822457422559, "worker_elapsed": 0.014563100005034357}
+{"dataset": "geant", "percent": 75, "model": "dlinear", "seed": 46, "skipped": true, "mse": 0.4847342166817105, "worker_elapsed": 0.019961100013460964}
+{"dataset": "geant", "percent": 75, "model": "dlinear", "seed": 47, "skipped": false, "mse": 0.4494815608733393, "worker_elapsed": 68.18653489998542}
+{"dataset": "geant", "percent": 75, "model": "dlinear", "seed": 48, "skipped": false, "mse": 0.4512037948242906, "worker_elapsed": 120.1675081999856}
+{"dataset": "geant", "percent": 75, "model": "dlinear", "seed": 49, "skipped": false, "mse": 0.47609933910348834, "worker_elapsed": 183.14730219997}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale_global", "seed": 42, "skipped": false, "mse": 0.4733208199825065, "worker_elapsed": 290.31292110000504}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale_global", "seed": 43, "skipped": false, "mse": 0.45223128897422243, "worker_elapsed": 417.8724176000105}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale_global", "seed": 44, "skipped": false, "mse": 0.4653873844297152, "worker_elapsed": 492.71017539995955}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale_global", "seed": 45, "skipped": false, "mse": 0.4546276551988793, "worker_elapsed": 604.7391845000093}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale_global", "seed": 46, "skipped": false, "mse": 0.4419859892152336, "worker_elapsed": 639.5843501999625}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale_global", "seed": 47, "skipped": false, "mse": 0.46765366750302084, "worker_elapsed": 718.902194299968}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale_global", "seed": 48, "skipped": false, "mse": 0.45037456523927794, "worker_elapsed": 779.5172040999751}
+{"dataset": "geant", "percent": 75, "model": "dlinear_scale_global", "seed": 49, "skipped": false, "mse": 0.494264509686208, "worker_elapsed": 826.1235518999747}
+REMAINING_B_COMPLETE

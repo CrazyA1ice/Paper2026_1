@@ -1,0 +1,41 @@
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "dlinear_scale_static",
+  "model_config": {},
+  "seed": 45,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1566,
+    "val": 427,
+    "test": 427
+  },
+  "input_len": 96,
+  "pred_len": 48,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 16416,
+  "best_val_mse_normalized": 1.3841927230218534,
+  "test_normalized": {
+    "mse": 0.5910332202911377,
+    "mae": 0.44770240783691406,
+    "rmse": 0.7687868475914001
+  },
+  "test_original_units": {
+    "mse": 1545742208.0,
+    "mae": 7239.93310546875,
+    "rmse": 39315.9296875
+  },
+  "elapsed_seconds": 38.392953400000806
+}

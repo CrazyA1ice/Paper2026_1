@@ -1,0 +1,96 @@
+{
+  "pages": 7,
+  "words": 4667,
+  "characters": 9397,
+  "text_boxes": 4,
+  "sections": 3,
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\figure_table_upgrade_20261022\\render_submission\\review.pdf",
+  "output_sha256": "ea996d638e7b11f4a02863b5c0de681f8511dbc7b2ead96a16bbaba79ac49d89",
+  "outside_page_text": 0,
+  "source_and_output_hashes_match": true,
+  "native_math": 19,
+  "tables": 4,
+  "visual_review_pending": false,
+  "page_details": [
+    {
+      "page": 1,
+      "first": "自适应多尺度加权的多变量网络流量预测\n收稿日期：\n作者简介：柯亚文（1998—），男（汉族），安徽池州人，助教，硕士研究生学历，硕士学位，主要研究方向：\n计算机软件。联系电话：12345678900；",
+      "last": "与参数规模。\n1 自适应多尺度网络流量预测方法\n所提方法由多尺度预测分支和尺度路由分支组成，图1以24 h预测任务为例展示整体流程。预测分支提取\n不同时间分辨率下的趋势与余项，路由分支则根据当前窗口的统计特征分配尺度权重。两条分支共同作用，输\n出未来H个小时的逐小时OD流量预测。",
+      "images": 0
+    },
+    {
+      "page": 2,
+      "first": "图1 自适应多尺度网络流量预测框架\n1.1 数据表示与预处理\n记预处理后的多变量流量向量为xₜ，包含C个OD变量。沿时间轴以1 h步长构造滑动窗口，第n个样本\n由长度为L的历史输入Xₙ和其后长度为H的",
+      "last": "，采用长度q=25的中心移动平均提取趋势项，序列两端通过复制端点补齐。设m=12，补齐\n后的输入参与下式计算：\n𝑻 (𝑠) = 1 ∑𝑚 𝑿̃(𝑠) , 𝑞=2𝑚+1=25. (6)\n𝑛,𝑡 𝑞 𝑖=−𝑚 𝑛,𝑡+𝑖\n(𝑠) (𝑠) (𝑠)\n𝑹 =𝑿 −𝑻 . (7)\n𝑛 𝑛 𝑛",
+      "images": 1
+    },
+    {
+      "page": 3,
+      "first": "式中，带波浪号的X表示端点补齐序列，T与R分别表示趋势项和余项。随后，两个线性层沿时间维分别\n完成映射，并将其输出相加，得到尺度s的预测：\n𝒀̂(𝑠)\n=𝑾\n(𝑠)\n𝑻\n(𝑠)\n+𝒃\n(𝑠)\n+𝑾\n(",
+      "last": "与结果分析\n2.1 数据与实验设置\n实验采用CESNET TS-Zoo[9]中1 h粒度的Abilene[10]与GÉANT[11]流量矩阵，两套数据分别含4656和2849\n个时间点。按时间顺序以 6∶2∶2 划分训练集、验证集和测试集，并独立训练和评价。对数变换后，仅保留训练",
+      "images": 0
+    },
+    {
+      "page": 4,
+      "first": "集标准差大于10⁻⁸的变量，Abilene保留144个OD变量，GÉANT保留524个OD变量。两套数据均开展24 h\n预测，GÉANT另设168 h预测任务，数据划分与样本窗口数见表1。\n表1 数据",
+      "last": "\n平均降低25.77%和43.74%，MAE降低12.66%和29.09%；参数量分别减少93.59%和97.83%。\n图2 相对DLinear与LightTS的配对误差降幅（8次重复）\n图2中，点为单次配对结果，菱形及横线为均值与样本标准差；下方为相对LightTS的参数比例。",
+      "images": 1
+    },
+    {
+      "page": 5,
+      "first": "2.3 融合方式消融\n保持三个独立DLinear专家与尺度集合不变，比较融合方式。固定等权模型将权重设为1/3；全局可学习权\n重模型（图中简称“全局权重”）以三个可训练分数生成所有窗口共用的权重；恒定",
+      "last": "AE与AUE为0.147和0.137，在GÉANT上为0.632和0.577，均值均\n低于所列对照。Abilene 上，相对 DLinear 两项指标平均降低 13.96%和 16.07%，相对固定等权降低 17.47%和\n20.84%。横轴为局部范围，虚线为DLinear均值。",
+      "images": 1
+    },
+    {
+      "page": 6,
+      "first": "2.5 一周预测表现\n设置H=168，保持96 h输入及原有划分和预处理；五种模型按2.1节设置独立训练，在GÉANT全部307\n个测试窗口上评价。\n表4 GÉANT一周预测的绝对误差（8次重复）\n方",
+      "last": "network traffic prediction method\nbased on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.2024.121003.",
+      "images": 1
+    },
+    {
+      "page": 7,
+      "first": "[3] 韦烜, 刘志华, 李青, 等. 大型IP网络流量矩阵分析预测的探讨研究[J]. 系统工程与电子技术, 2024, 46(6):\n2164-2173. DOI: 10.12305/j.issn.",
+      "last": "casts.\nKey words: network traffic forecasting; multivariate time series; multiscale learning; adaptive weighting;\ndecomposition linear model",
+      "images": 0
+    }
+  ],
+  "visual_review_passed": true,
+  "visual_review": [
+    {
+      "page": 1,
+      "result": "PASS",
+      "note": "Unchanged title, abstracts, introduction and opening checked."
+    },
+    {
+      "page": 2,
+      "result": "PASS",
+      "note": "Unchanged figure 1, data processing, equations 1–7 and all symbols checked."
+    },
+    {
+      "page": 3,
+      "result": "PASS",
+      "note": "Unchanged method and training equations checked; no algorithm edits."
+    },
+    {
+      "page": 4,
+      "result": "PASS",
+      "note": "Table 2 fifth column fits, bottom rule spans all five columns, error values and bold best entries intact; figure 2 and its explanatory paragraph readable."
+    },
+    {
+      "page": 5,
+      "result": "PASS",
+      "note": "Table 3 retained, AUE equation 16 preserved, figure 3 local-axis point plot and reference lines explained, complete result paragraph fits."
+    },
+    {
+      "page": 6,
+      "result": "PASS",
+      "note": "Table 4 intact, four-panel weekly figure readable at retained 7.5 pt, absolute and relative directions clear; conclusion and references flow without overflow."
+    },
+    {
+      "page": 7,
+      "result": "PASS",
+      "note": "Remaining references, English title, abstract and keywords complete on page 7."
+    }
+  ]
+}

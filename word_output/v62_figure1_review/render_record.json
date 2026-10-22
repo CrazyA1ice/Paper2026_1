@@ -1,0 +1,39 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.03v61.docx",
+  "target": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.03v62.docx",
+  "figure": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_figures\\fig1_selected_v62\\fig1.png",
+  "width_mm": 161.925,
+  "height_mm": 84.53966666666666,
+  "old_height_mm": 98.933,
+  "changed_zip_parts": [
+    "word/document.xml",
+    "word/media/image1.png"
+  ],
+  "body_tables_equations_other_figures_unchanged": true,
+  "source_sha256": "846eea615f86a7d10ab6a1c824c6e151c26698f93833da15d209754faeb1ba14",
+  "target_sha256": "7403a693cd9221f4a26b3e9702af893e1c0f0e50c270d669b9e73b13141ecfae",
+  "page_count": 10,
+  "figure_pages": {
+    "1": 2,
+    "2": 6,
+    "3": 7,
+    "4": 8,
+    "5": 9
+  },
+  "rendered_text_matches_v61": true,
+  "renderer": "Microsoft Word on an identical temporary copy; no save to manuscript",
+  "render_input_hash_matches_final": true,
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "visual_review": "Figure 1 and caption remain on page 2; all 10 pages inspected, no clipped figures, text collisions or missing formulas."
+}

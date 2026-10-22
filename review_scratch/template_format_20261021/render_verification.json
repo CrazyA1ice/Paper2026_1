@@ -1,0 +1,90 @@
+{
+  "pages": 7,
+  "words": 4771,
+  "characters": 9160,
+  "text_boxes": 4,
+  "sections": 3,
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\template_format_20261021\\render\\review.pdf",
+  "native_math": 16,
+  "numbered_equations": 15,
+  "figures": 4,
+  "tables": 3,
+  "superscript_citations": 13,
+  "first_citation_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "template_geometry_matches": true,
+  "source_and_template_unchanged": true,
+  "outside_page_text": 0,
+  "visual_review_pending": false,
+  "page_details": [
+    {
+      "page": 1,
+      "first": "自适应多尺度加权的多变量网络流量预测\n收稿日期：\n作者简介：柯亚文（1998—），男（汉族），安徽池州人，助教，硕士研究生学历，硕士学位，主要研究方向：\n计算机软件。联系电话：12345678900；电子邮箱：keyawen@afc.edu",
+      "last": "比较、融合消融与高需求分析评价预测效果，并在GÉANT\n上考察未来168 h的一周预测表现。\n1 自适应多尺度网络流量预测方法\n所提方法由多尺度预测分支和尺度路由分支组成，图1以24 h预测任务为例展示整体流程。预测分支提取\n不同时间分辨率下的趋势与余项，路由分支则根据当前窗口的统计特征分配尺度权重。两条分支共同作用，输\n出未来H个小时的逐小时OD流量预测。",
+      "images": 0
+    },
+    {
+      "page": 2,
+      "first": "图1 自适应多尺度网络流量预测框架\n1.1 数据表示与预处理\n记预处理后的多变量流量向量为xₜ，包含C个OD变量。沿时间轴构造滑动窗口，第n个样本由长度为L\n的历史输入Xₙ和其后长度为H的目标Yₙ组成。矩阵的行对应时间点，列对应OD变量，分",
+      "last": "同、参数独立的 DLinear 专家[6]，并统一输\n出H步预测。\n在每个尺度上，采用长度q=25的中心移动平均提取趋势项，序列两端通过复制端点补齐。设m=12，补齐\n后的输入参与下式计算：\n𝑻 (𝑠) = 1 ∑𝑚 𝑿̃(𝑠) , 𝑞=2𝑚+1=25. (6)\n𝑛,𝑡 𝑞 𝑖=−𝑚 𝑛,𝑡+𝑖\n(𝑠) (𝑠) (𝑠)\n𝑹 =𝑿 −𝑻 . (7)\n𝑛 𝑛 𝑛",
+      "images": 1
+    },
+    {
+      "page": 3,
+      "first": "式中，带波浪号的X表示端点补齐序列，T与R分别表示趋势项和余项。随后，两个线性层沿时间维分别\n完成映射，并将其输出相加，得到尺度s的预测：\n𝒀̂(𝑠)\n=𝑾\n(𝑠)\n𝑻\n(𝑠)\n+𝒃\n(𝑠)\n+𝑾\n(𝑠)\n𝑹\n(𝑠)\n+𝒃\n(𝑠)\n. (8",
+      "last": "bilene[10]与GÉANT[11]流量矩阵，两套数据分别含4656和2849\n个时间点。按时间顺序以 6∶2∶2 划分训练集、验证集和测试集，并独立训练和评价。依据训练集标准差筛选有\n效变量后，Abilene保留144个OD变量，GÉANT保留524个OD变量。两套数据均开展24 h预测，GÉANT\n另设168 h预测任务，数据划分与样本窗口数见表1。",
+      "images": 0
+    },
+    {
+      "page": 4,
+      "first": "表1 数据集规模与预测任务设置\n数据集 有效变量数 预测时长/h 训练/验证/测试时间点 训练/验证/测试窗口\nAbilene 144 24 2793/931/932 2674/812/813\nGÉANT 524 24 1709/570/5",
+      "last": "TS的误\n差降幅与参数比例：MSE 的逐种子平均降幅在 Abilene 和 GÉANT 上分别为 29.80%和 46.89%，MAE 分别为\n17.57%和29.15%。本文模型均含8339个参数，而LightTS 的两套配置分别含130162和384382个参数，对应\n参数比例为6.41%和2.17%。\n图2 相对LightTS的预测误差降低率与参数比例",
+      "images": 1
+    },
+    {
+      "page": 5,
+      "first": "图 2(a)、(b)的柱高为三个共同种子的平均相对降幅，误差线为样本标准差；图 2(c)以对应 LightTS 配置的\n参数量为100%，给出本文模型的参数比例。该对照表明，在所设24 h任务中，本文方法以较少的模型参数取\n得了较低的平均预",
+      "last": "计算MAE与平均\n低估误差。后者将低估时的差额计入，其他情况记为0，再对全部高需求点取平均，结果见图3。\n图3 高需求预测点的MAE与平均低估误差（8次重复）\n图3中，本文方法在Abilene上的MAE与平均低估误差分别为0.147和0.137，在GÉANT上分别为0.632\n和0.577，两项均值均低于所列对照，体现了该24 h任务下较低的高需求预测误差。",
+      "images": 1
+    },
+    {
+      "page": 6,
+      "first": "2.5 一周预测表现\n为考察一周范围内的预测表现，在GÉANT上设置H=168的任务，并保持小时采样、96 h输入、数据划分\n和预处理方式不变。DLinear、固定等权、全局可学习权重、恒定输入路由与本文方法均按168 h输出独立训练，\n沿",
+      "last": "ork traffic prediction method based on deep echo-state\nnetwork for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-21874. DOI:\n10.1109/JIOT.2022.3181807.",
+      "images": 1
+    },
+    {
+      "page": 7,
+      "first": "[6] ZENG Ailing, CHEN Muxi, ZHANG Lei, et al. Are transformers effective for time series forecasting?[J].\nProceedings of",
+      "last": "erage prediction error in the evaluated tasks.\nKey words: network traffic forecasting; multivariate time series; multiscale learning; adaptive weighting;\ndecomposition linear model",
+      "images": 0
+    }
+  ],
+  "visual_review": {
+    "pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "verdict": "PASS",
+    "native_equation_typography": "PASS",
+    "figure_text_boxes_and_captions": "PASS",
+    "table_weights_and_values": "PASS",
+    "English_end_block": "PASS"
+  }
+}

@@ -1,0 +1,459 @@
+
+--- PAGE 1 ---
+第 29 卷 第3期
+2026 年 5 月
+成都工业学院学报
+JOURNAL OF CHENGDU TECHNOLOGICAL UNIVERSITY
+Vol.29,No.3
+May.,2026
+DOI:10.13542 / j.cnki.51-1747 / tn.2026.03.007
+收稿日期: 2025-05-09
+基金项目: 福建省中青年课题资助项目(JAT210824)
+第一作者简介: 尹小俊(1990—),男,讲师,硕士,研究方向为物联网技术、无线通信组网、机器视觉应用。
+通信作者简介: 刘华锐(1990—),男,讲师,硕士,研究方向为人工智能、机器视觉、数据挖掘应用。 电子邮箱:stgdh09@ 139.com。
+融合轻量化 Transformer 与 YOLOv5 的无人机
+边缘端人体热成像检测算法
+尹小俊1a,1b
+, 刘华锐2
+(1. 闽江师范高等专科学校 a. 数字信息工程学院;b. 物联网福建省高校应用技术工程中心,福州 350108;2. 闽江学院
+计算机与大数据学院,福州 350108)
+摘要: 为提升红外热成像条件下人体目标检测的精度与实时性,满足无人机边缘端在复杂环境中对目标感知的需求。 针对红
+外图像存在目标边缘模糊、对比度低、噪声干扰强等问题,提出一种融合轻量化 Transformer 与改进 YOLOv5 结构的红外目标
+检测算法。 所提算法在 YOLOv5 主干网络中引入轻量化 Transformer,增强模型的全局语义建模能力;在特征融合阶段,引入
+GhostConv 结构并精简路径聚合网络(PAN),降低计算量并提升特征表达能力,整体结构更适应边缘计算资源有限的实际应用场
+景。 基于 FLIR(菲力尔)公开红外图像数据集及自采无人机红外图像数据集进行测试与评估,结果表明在参数量为 5. 8×10
+6
+、
+推理速度为 15 帧/ s 的情况下,所提算法在平均精度均值、精确率、召回率等指标上均优于 YOLOv5n、YOLOv5s、YOLOv7-tiny 等
+主流轻量化模型,IoU 阈值为 0.5 时的平均精度均值达到 79.3%,精确率为 82.5%,召回率为 78.6%。 所提算法在保持模型轻量
+化的同时有效提升了红外图像中人体目标的检测精度和鲁棒性,具备良好的边缘部署适应性和应用推广价值。
+关键词: 红外目标检测;轻量化 Transformer;YOLOv5;边缘计算
+中图分类号: TP391.2 文献标志码: A 文章编号: 2095-5383(2026)03-0042-06
+Human Thermal Imaging Detection Algorithm for Unmanned Aerial
+Vehicles Edge Devices Combining Lightweight Transformer and YOLOv5
+YIN Xiaojun
+1a,1b
+, LIU Huarui
+2
+( 1. a. School of Digital Information Engineering; b. Fujian Provincial Engineering Center for Applied Technology of Internet of Things in
+Universities, Minjiang Teachers College, Fuzhou 350108, China; 2. School of Computer and Big Data, Minjiang University, Fuzhou 350108, China)
+Abstract: To improve the accuracy and real-time performance of human target detection under infrared thermal imaging conditions,
+and meet the requirements of target perception for UAV edge devices in complex environments, an infrared target detection
+algorithm integrating the lightweight Transformer module and the improved YOLOv5 structure was proposed to address the problems
+such as blurred target edges, low contrast and strong noise interference in infrared images. The proposed algorithm introduced a
+lightweight Transformer module into the YOLOv5 backbone network to enhance the global semantic modeling ability of the model.
+In the feature fusion stage, the GhostConv structure was introduced and the path aggregation network (PAN) was streamlined to
+reduce the computational load and enhance the feature expression ability. The overall structure was more suitable for the actual
+application scenarios with limited edge computing resources. Tests and evaluations were conducted based on the FLIR public infrared
+image dataset and a self-collected UAV infrared image dataset. The results show that when the parameter count is 5.8×10
+6
+and the
+inference speed is 15 frames per second, the proposed algorithm outperforms mainstream lightweight models such as YOLOv5n,
+YOLOv5s, and YOLOv7-tiny in terms of mean average precision (mAP@ 0.5), precision, and recall, reaching 79.3% for mAP,
+82.5% for precision, and 78. 6% for recall. This algorithm effectively improves the detection accuracy and robustness of human
+targets in infrared images while maintaining a lightweight architecture, and exhibits good adaptability for edge deployment and
+application value.
+Keywords: infrared target detection; lightweight Transformer; YOLOv5; Edge Computing
+伴随着人工智能与计算机视觉技术的快速发
+展,红外热成像技术在安防监控、边防巡逻、灾后搜
+救等领域得到了广泛的应用。 在复杂环境下,借助
+红外图像识别人体热特征能够有效提升目标检测的
+— 42 —
+--- PAGE 2 ---
+2026  年  第  3  期    尹小俊,等: 融合轻量化 Transformer 与 YOLOv5 的无人机边缘端人体热成像检测算法
+可靠性和准确性。 另外,无人机所具备的高机动性
+与广泛覆盖性,使其成为边缘智能感知任务中的理
+想载体。 YOLO 系列模型具有优良的端到端目标检
+测性能,是当前学术界关注的焦点[1]
+。 Li 等[2] 提出
+了基于 YOLOv5 的残差空间压缩 Transformer 算法,
+该算法引入切片增强模块、全局注意力双向特征融
+合模块及 RSRT 模块,达到了提升小目标检测性能的
+目的。 Wu 等[3]提出了融合 Transformer 与 YOLOv5 的
+C3TB-YOLOv5 算法,该算法引入 C3TB 模块、改进的
+SimAM 注意力机制以及 Wise-IoU v3 损失函数,提升
+了复杂背景下的小目标检测精度。 丁展博等[4]提出
+了一种轻量化的 YOLO 架构,并将其应用于花椒簇
+检测中,实现了在确保检测精度基础上模型参数量
+大幅度减少的目的。 张贝贝等[5] 对传统 YOLOv5 结
+构进行改进,有效提升了对小目标飞机的检测性能。
+刘聪等[6]提出了一种应用于输电线路异物检测的改
+进 YOLOv5 网络,该网络模型在复杂背景的干扰下
+具有良好的泛化能力。 此外,红外热成像作为一种
+非接触式的无源检测技术,在结构缺陷识别、组件诊
+断中具有广泛的应用。 唐庆菊等[7]利用红外热成像
+技术实现了蜂窝夹层结构缺陷的识别与分类,具有
+优良的性能。 孔松涛等[8] 对 YOLOv5 算法进行改
+进,并应用于光伏组件红外热成像缺陷检测中。 由
+于红外图像存在分辨率低、背景干扰强、目标边界模
+糊等问题,且无人机平台的计算资源有限,这对传统
+YOLOv5 模型的轻量化与运行效率提出了更高要求。
+基于此,本文提出一种融合 Transformer 与 YOLOv5
+的无人机边缘端人体热成像检测算法,从而提升无
+人机边缘端人体热成像的检测性能。
+1 算法设计
+1. 1 总体框架
+传统 YOLOv5 网络由主干网络(Backbone)、颈部
+(Neck)、头部(Head)共 3 部分组成,其中 Backbone
+采用的是 CSPDarknet 作为主干网络,用于从输入图
+像中提取多尺度、高层次的语义特征;Neck 结构借
+鉴路径聚合网络( path aggregation network,PAN) 设
+计,主要作用是增强不同尺度特征之间的信息融合,
+提升 网 络 的 多 尺 度 检 测 性 能; Head 使 用 锚 框
+(anchor-based)多尺度预测方式,对应小、中、大 3 种
+不同尺寸目标。 典型的 YOLOv5 网络结构如图 1 所
+示[9]
+,其中 CBS 为一个串联的基础卷积模块, 由
+Convolution (卷积)+Batch Normalization (批归一化)+
+SiLU (激活函数)构成;SPPF 为空间金字塔池化-快
+速版(spatial pyramid pooling-fast)。
+图 1 典型的 YOLOv5 网络结构
+在传统 YOLOv5 网络结构基础上,引入轻量级
+Transformer 嵌入到 Backbone 部分,提升对红外图像
+中人体目标的长距离依赖建模能力。 在第 2、4 个跨
+阶段部分( cross stage partial,CSP) 网络模块之后插
+入轻量级 Transformer,提升全局语义建模性能。 通
+过融合轻量级 Transformer,增强红外热成像图像中
+弱边缘、低对比目标的全局语义感知能力。 另外,为
+解决边缘部署对模型资源占用的严格限制,对 Neck
+部分实施结构上的压缩和模块替换,降低推理延迟
+和内存开销。 对 Neck 的 PAN 结构实施改进,精简
+PAN 结构的层数,并采用 GhostConv 替换部分卷积
+模块,达到降低计算量的目的。
+1. 2 轻量化 Transformer 设计
+传统 Transformer 结构计算开销大,难以直接在
+边缘设备上应用,因此设计和 YOLOv5 骨干网络相
+匹配的轻量化 Transformer
+[10]
+。 Transformer 输入为二
+维序列形式,而 YOLOv5 的特征图在空间的维度比
+较大,直接展开计算注意力会导致巨大的内存和计
+算负担[11]
+。 为解决该问题,在进入 Transformer 之前
+先对输入特征图进行 1×1 卷积操作,将通道维度减
+少 3 / 4。 压缩后的特征图不仅能够有效保留原始图
+像的大部分信息,同时还能够显著减少后续注意力
+— 43 —
+--- PAGE 3 ---
+成都工业学院学报 第 29 卷
+计算所需的资源消耗,从而为边缘部署提供良好的
+基础。 为降低自注意力机制的计算复杂度,轻量化
+Transformer 借鉴滑动窗口变换器(Swin 模块)的思想
+将输入特征划分为若干固定大小的局部窗口,仅在
+窗口内进行注意力计算。 YOLOv5 网络原生结构中,
+预测模块采用多尺度特征图进行目标预测,浅层特
+征图适用于小目标检测,深层特征图更适合大目标
+检测。 为增强模型对浅层小目标区域的建模能力,
+在与 3 个检测头相连接的区域引入 Swin 模块。 原
+YOLOv5 中的 C3 模块(包含多个 Bottleneck 结构)被
+替换为融合 Swin 模块的 C3STR 模块,模块结构如图
+2 所示。
+图 2 C3STR 模块网络结构
+将 C3STR 模块替换 C3 模块,这不仅增强了网
+络对空间上下文的建模能力,也显著提升了密集区
+域中目标的识别准确度。 Swin 模块在保持精度的
+同时具备较好的计算效率,适合部署于边缘计算环
+境中。
+为稳定训练过程,在轻量化 Transformer 内部引
+入残差连接结构和层归一化操作。 通过残差连接将
+原始特征直接传递至模块输出端,保留低级特征信
+息,避免过拟合。 轻量化 Transformer 由局部窗口注
+意力机制模块和前馈神经网络模块所构成,在每个
+子模块之间加入残差连接和归一化操作,从而达到
+提升训练稳定性的目的。
+1. 3 Neck 结构改进
+对 Neck 结构实施改进包括 2 个方面:一方面是
+精简 PAN 路径结构,减少冗余信息流路径;另一方
+面是引入 GhostConv 轻量卷积模块,从而达到在降低
+计算复杂度的同时提升检测性能[12]
+。 PAN 结构对 3
+个尺度的特征进行处理,分别为 P3(小目标检测)、
+P4(中目标检测)、P5(大目标检测),形成了较深的
+特征融合路径。 将原始结构中的每个融合节点使用
+的 3×Conv 压缩为 1 个 Ghost Conv 层,降低网络深
+度。 同时,将连续的卷积—上采样—拼接模块重构
+为单一轻量级特征调整块。 通过对原始 PAN 结构
+的路径裁剪,Neck 模块从原始的 9 层卷积结构减少
+为 5 层,使得信息流路径显著缩短,有效提高特征传
+递效率。 为减少计算资源消耗,在 Neck 模块中引入
+Ghost Conv 轻量卷积模块来替代传统的标准卷积
+层,模块结构如图 3 所示。
+图 3 Ghost Conv 模块结构
+相对于传统卷积,其总体计算量可以得到明显
+减少。 以 s = 2 为例,其总体计算量减少约 50%,同时
+能够保持相似的表达能力。 Chost Conv 应用于 Neck
+模块,将所有中间融合卷积替换为 1 ×Ghost Conv +
+GhostBN+SiLU,所有上采样并拼接后的特征调整使
+用 Ghost Conv 替代标准卷积,进一步减小模型体积。
+2 实验与结果分析
+2. 1 数据来源与实验设置
+为验证本文出算法的有效性与泛化能力,选择
+FLIR(菲力尔)红外图像公开数据集、KAIST(韩国科
+学技术院)多光谱行人数据集以及自采无人机红外
+图像数据集。 FLIR 红外数据集由 FLIR Systems 发
+布,数据图像使用红外热成像仪拍摄,图像分辨率为
+640× 512, 包含车辆、 人和自行车等典型热目标。
+KAIST 多光谱行人数据集由韩国科学技术院发布,
+包含可见光与红外热成像图像对,数据采集于真实
+城市道路场景,涵盖白天和夜间以及不同光照和环
+境条件下的人体目标。 数据采集涵盖多种天气、时
+间段(包括白天与夜间) 与环境背景,极具代表性。
+数据集中每张图像均配有高质量的目标边界框标
+注,适合用于目标检测、分割等任务。 为提高训练
+效率,从 FLIR 数据集中选取 5 000 张图像作为训
+练样本,500 张图像作为验证集,并保留 300 张图
+像用于测试;从 KAIST 多光谱行人数据集中选取 3
+000 张图像作为训练样本,500 张图像作为验证集,
+并保留 200 张图像用于测试。 自主采集的无人机
+红外图像数据集来自大疆 Mavic 系列无人机,配备
+高精度红外热成像模块,在实际飞行过程中于多个
+场景(城市道路、工厂、住宅区等) 下采集图像。 采
+— 44 —
+--- PAGE 4 ---
+2026  年  第  3  期    尹小俊,等: 融合轻量化 Transformer 与 YOLOv5 的无人机边缘端人体热成像检测算法
+集过程覆盖多个时间段(清晨、正午、黄昏与夜间),
+并充分考虑不同角度、距离与光照条件下的成像差
+异,最终共获得 2 000 张图像。 目标主要包括行人、
+轿车、卡车、摩托车、骑行者等,图像分辨率统一处理
+为 640×512。 所有图像均经过人工标注,使用 YOLO
+格式进行边界框记录,从而确保标注的精度与标注
+的一致性。 为确保网络输入的一致性,将所有图像
+尺寸统一调整为 640×640。 图 4 为获取的部分红
+外图像。
+图 4 获取的部分红外图像
+本实验基于 PyTorch1. 11 深度学习框架,该深度
+学习框架具有灵活的动态图机制,对自定义模块以
+及模型结构的修改十分便捷。 为确保训练效果的稳
+定性和结果的可重复性,所有的实验在相同的环境
+下运行,即固定随机种子为 42,并使用 Adam 优化器
+(初始学习率设为 1×10
+-3
+,权重衰减为 5×10
+-4
+),训
+练轮数设定为 300 轮,每轮训练包含批量大小为 16
+的样本输入。 实验训练阶段使用高性能 GPU 平台
+NVIDIA RTX 3090,配备 24 GiB 显存。
+2. 2 试验结果
+为衡量目标检测模型的性能,采用 IoU 阈值为
+0. 5 时的平均精度均值(mean average precision at IoU
+0. 5,mAP@ 0. 5)、精确率 P、召回率 R、推理速度作为
+衡量指标。 mAP@ 0. 5 衡量模型在各类别检测任务
+中的平均精度,是评价目标检测任务的主流指标;P
+衡量模型预测为正样本中,真实为正样本的比例;R
+衡量模型从所有真实目标中正确检测出的比例;推
+理速度在 Jetson TX2 等边缘设备上实现的。 为验证
+本文算法的优越性,选择 YOLOv5n
+[13]
+、YOLOv5s
+[14]
+、
+YOLOv7-tiny
+[15]
+、EfficientDet-d0
+[16] 作 为 对 比 算 法。
+本文算法和主流轻量化算法性能对比结果如表 1
+所示。
+表 1 本文算法和主流轻量化算法性能对比结果
+算法
+参数
+量/ 10
+6
+mAP@
+0. 5 / %
+推理速度/
+(帧/ s)
+P/ % R/ %
+YOLOv5n 1. 9 69. 3 21 71. 2 66. 8
+YOLOv5s 7. 5 73. 1 11 76. 4 71. 3
+YOLOv7-tiny 6. 2 74. 5 13 77. 1 72. 0
+EfficientDet-d0 6. 3 75. 2 12 78. 6 73. 4
+本文算法 5. 8 79. 3 15 82. 5 78. 6
+由表 1 可知,本文算法在保持模型参数量适中
+(5. 8×10
+6
+)和边缘设备实时性要求( 15 帧 / s) 的前
+提下,在精度指标上均显著优于对比算法。 其中,
+mAP@ 0. 5 提升至 79. 3%,相较 YOLOv5s 提升了
+6. 2 个百分点,P 和 R 分别提升至 82. 5%、78. 6%,
+均明显优于现有轻量检测算法。 这是因为轻量化
+Transformer 的引入有效提升模型对热成像图像中
+模糊目标、遮挡目标的感知能力。 由于 Transformer
+在提取全局语义特征方面具备天然优势,使得算法
+更擅长识别形态变化大的目标。 Neck 结构轻量化
+调整,采用 GhostConv 替换部分卷积,减少冗余计算
+的同时也保留关键特征提取能力。 损失函数 L 用
+于衡量模型预测结果与真实标注之间的误差,是训
+练过程中优化的目标。 对比不同模型的损失函数,
+结果如图 5 所示。
+图 5 不同模型损失函数对比
+由图 5 可知,本文提出的模型在训练初期下降
+迅速,约第 15 轮后趋于平稳,整体损失值低于其他 4
+种经典 检 测 模 型, 尤 其 在 后 期 稳 定 性 方 面 优 于
+YOLOv5n 与 EfficientDet-d0,即 L-Transformer 结构与
+Neck 精简对收敛速度和模型稳定性具有显著提升
+— 45 —
+--- PAGE 5 ---
+成都工业学院学报 第 29 卷
+作用。
+2. 3 消融实验
+为验证本文提出的轻量化 Transformer 对整体检
+测性能的实际贡献,设计 1 组消融实验。 消融实验
+包括 2 个方面,分别为是否引入轻量化 Transformer
+和不同窗口大小设置对检测精度与推理速度的影
+响。 轻量化 Transformer 旨在增强 YOLOv5 模型对
+热成像图像中的全局语义建模能力,尤其是在人形
+目标密集、姿态复杂、热梯度变化剧烈的场景中,传
+统卷积网络容易忽略远距离像素之间的语义联系。
+因此,基于相同的训练集和超参数,分别测试引入
+轻量化 Transformer 与不引入轻量化 Transformer 两种
+设置下 YOLOv5 模型的检测性能。 表 2 为轻量化
+Transformer 对 YOLOv5 模型性能的影响。
+表 2 轻量化 Transformer 对模型性能的影响
+模型配置
+mAP@
+0. 5 / %
+R/ % P/ %
+推理速度/
+(帧/ s)
+参数
+量/ 10
+6
+YOLOv5 +轻量化
+Transformer
+79. 3 78. 6 82. 5 15 5. 8
+YOLOv5 75. 2 75. 0 80. 1 16 5. 1
+由表 2 可知,不引入轻量化 Transformer,mAP@
+0. 5 下降 4. 1 个百分点,说明 L-Transformer 对提升红
+外图像中人体目标的检测准确度有显著帮助。 R 下
+降 3. 6 个百分点,说明引入全局注意力机制后,模型
+更容易捕捉到边缘弱目标或被遮挡的人体。 P 略有
+下降,说明 L-Transformer 提升 R 的同时并未带来严
+重的误检。 推理速度下降 1 帧/ s,但仍在可接受范
+围内。 从整体上来看,轻量化 Transformer 对模型性
+能的积极贡献,尤其是在目标间存在复杂遮挡、热能
+信号弱化等问题的热成像环境中。
+参考 Swin 模块的设计,Transformer 的窗口大小
+会直接影响其感受野大小和计算复杂度。 选取 2 个
+典型的窗口大小,分别为 7×7 与 11×11,进行对比实
+验,结果如表 3 所示。
+表 3 窗口大小对模型性能的影响
+窗口大小
+mAP@
+0. 5 / %
+R/ %
+推理速度/
+(帧/ s)
+备注
+7×7 79. 3 78. 6 15 默认配置,平衡性好
+11×11 80. 5 79. 2 14 精度提升,但推理速
+度下降
+由表 3 可知,将窗口大小扩大为 11×11 后,mAP@
+0. 5 提升了 1. 2 个百分点,即更大的窗口可捕捉更宽
+泛区域的语义关系。 R 也略有提升,进一步增强对边
+缘目标的感知能力。 然而,推理速度下降约 1 帧/ s,
+这对边缘计算平台部署来说,需要谨慎权衡精度与
+实时性。
+3 结论
+针对无人机边缘端在复杂环境中对红外热成
+像人体目标的检测需求,本文提出了一种融合轻量
+化 Transformer 与改进 YOLOv5 结构的目标检测算
+法。 与 现 有 研 究 相 比, 在 算 法 设 计 上, 通 过 在
+YOLOv5 主干网络中引入轻量化 Transformer,增强
+了对红外图像中目标全局语义和长距离依赖的建
+模能力,提升了模型对模糊边界和低对比度目标的
+识别性能。 在特征融合阶段,通过精简 PAN 结构
+并引入 Ghost Conv 模块,在保证特征表达能力的同
+时,降低了模型参数量与计算复杂度,提升了在边
+缘设备上的推理效率。 相较于传统的 YOLOv5 系
+列及其轻量化变体,本文算法将 Transformer 的全局
+建模能力与 YOLO 的高效检测架构相结合,在红外
+复杂场景下显著提升了检测精度,尤其在目标遮
+挡、弱热信号等情况下表现更优。 目前主要针对静
+态与常见动态场景下的红外人体检测,对于极端天
+气、强干扰背景下的鲁棒性仍有提升空间。 此外,
+算法在更轻量级硬件平台上的实时性能仍需进一
+步验证与优化。
+参考文献:
+[1]高翔,王凡,胡小鹏. 基于轻量化 Transformer 的高效图像超分辨率
+算法研究[J]. 大连理工大学学报,2025(2):212-220.
+[2]CHEN L,NAIMENG C,ZHANG W B,et al. Residual spatial reduced
+transformer based on YOLOv5 for UAV images object detection [J].
+International Journal of Pattern Recognition and Artificial Intelligence,
+2024(5):18-32.
+[3]WU Q G,LI Y,HUANG W,et al. C3TB-YOLOv5:integrated YOLOv5
+with transformer for object detection in high-resolution remote sensing
+images [J]. International Journal of Remote Sensing, 2024 ( 8 ):
+2622-2650.
+[4]丁展博,徐健,朱耀麟,等. 基于轻量化 YOLO 模型的花椒簇检测
+研究[J]. 中国农机化学报,2025(4):120-125,353.
+[5]张贝贝,刘建辉,王鑫,等. 基于改进 YOLOv5 的飞机目标检测算
+法[J]. 海洋测绘,2025(1):66-71.
+[6]刘聪,李丽,许婷婷,等. 基于改进 YOLOv5 输电线路异物检测算
+法研究[J]. 河南师范大学学报(自然科学版),2025(2):115-125.
+[7]唐庆菊,谷卓妍,卜红茹,等. 蜂窝夹层结构缺陷红外热成像检测
+— 46 —
+--- PAGE 6 ---
+2026  年  第  3  期    尹小俊,等: 融合轻量化 Transformer 与 YOLOv5 的无人机边缘端人体热成像检测算法
+及缺陷分类[J]. 红外与激光工程,2024(3):80-91.
+[8]孔松涛,徐甄泽,林星宇,等. 基于改进 YOLOv5 算法的光伏组件
+红外热成像缺陷检测[J]. 红外技术,2023(9):974-981.
+[9]唐昉,马永智,王书恒,等. 基于 YOLOv5 的火灾识别模型设计
+[J]. 船海工程,2025(2):86-92.
+[10]陈广秋,刘枫铭,段锦,等. 基于轻量化 Transformer 的车道线检测
+方法[J]. 华中科技大学学报(自然科学版),2025(3):117-126.
+[11]林江,蔡晓龙,周剑桥. 基于 Transformer 模型的光伏系统故障分
+类与预测方法[J]. 智慧电力,2025(4):96-102.
+[12]沈学利,赵青华. 轻量级钢材表面缺陷检测的 YOLOv8 改进方法
+[J]. 兵器装备工程学报,2025(4):302-309.
+[13]FENG Y B,ZHAO X S,TIAN R T,et al. Research on an intelligent
+seed-sorting method and sorter based on machine vision and
+lightweight YOLOv5n [J]. Agronomy,2024(9):1953.
+[14]XIE Z J,ZHANG Y Y,WU W L,et al. Hydroponic Chinese flowering
+cabbage detection and localization algorithm based on improved
+YOLOv5s [J]. Plos One,2024(12):e0315465.
+[15]WANG Q Y,ZHANG Z,CHEN Q G,et al. Lightweight transmission
+line fault detection method based on leaner YOLOv7-tiny [J].
+Sensors,2024(2):565.
+[16] BAGADI K,VAEGAE N K,ANNEPU V, et al. Advanced self￾driving vehicle model for complex road navigation using integrated
+image processing and sensor fusion [J]. IEEE Access,2024( 12):
+187141-187159.
+∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗
+(上接第 41 页)题,本文从海量无序图像数据中高效
+提取结构化语义特征,并实现跨场景实时智能识别
+方法,利用 AR 技术优化设计海量媒体图像特征提
+取与分类识别方法。 在 AR 技术支持下,通过虚实
+融合的交互范式,AR 终端设备可实时叠加分类识别
+结果,确保了动态场景下特征提取与类型识别效果。
+实验结果显示优化设计方法提取特征点的类外方差
+提高 0. 28,优于现有的图像分类识别方法。 本文提
+出方法的局限性在于处理海量图像集效率受限,在
+未来可以引入深度卷积网络、图卷积网络等深度学
+习模型,以提升处理海量数据集时的效率。
+参考文献:
+[1]赵婷婷,高欢,常玉广,等. 基于知识蒸馏与目标区域选取的细粒
+度图像分类方法[J]. 计算机应用研究,2023(9):2863-2868.
+[2]杨洋,徐熙平,薛航,等. 基于 SPA-PSO-BP 的花生高光谱图像分
+类方法研究[J]. 激光技术,2024(4):556-564.
+[3]汤斌,罗希玲,王建旭,等. 基于多尺度空间-光谱特征提取的颜料
+高光谱图像分类方法[J]. 光谱学与光谱分析,2025 ( 8):2364-
+2372.
+[4]吕伏,韩晓天,冯永安,等. 基于自适应纹理特征融合的纹理图像
+分类方法[J]. 计算机工程与科学,2024(3):488-498.
+[5]刘志坚,孟欣雨,刘航,等. 基于改进 ResNet34 网络的变电站设备
+巡检图像分类识别的方法[J]. 电机与控制应用,2024(5):50-60.
+[6]杨秋勇,杨春. 基于半监督学习的多标签遥感图像分类方法[J].
+沈阳工业大学学报,2025(3):355-361.
+[7]杨育婷,李玲玲,刘旭,等. 基于多尺度-多方向 Transformer 的图像
+识别[J]. 计算机学报,2025(2):249-265.
+[8]季晟宇,江志康,马翔,等. 基于注意力机制和多尺度集成学习的
+细粒度图像识别方法[J]. 数据采集与处理,2025(2):384-400.
+[9]刘敬,李洋,刘逸. 基于分数阶微分的高光谱图像特征提取与分类
+[J]. 光学精密工程,2023(21):3221-3236.
+[10]李铁,高乔裕,李文许. 基于卷积增强动态图卷积特征提取的高
+光谱图像分类[J]. 激光与光电子学进展,2024(18):439-448.
+[11]齐爱玲,王宣淋. 基于中层细微特征提取与多尺度特征融合细粒
+度图像识别[J]. 计算机应用,2023(8):2556-2563.
+[12]张泽崴,张建勋,邹航,等. 多智能体深度强化学习的图像特征分
+类方法[J]. 计算机工程与应用,2024(7):222-228.
+— 47 —

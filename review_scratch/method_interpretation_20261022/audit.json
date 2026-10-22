@@ -1,0 +1,33 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\引言研究定位修订_20261022\\自适应多尺度加权的多变量网络流量预测_引言研究定位稿.docx",
+  "source_sha256": "0d54c89e68618e0d1b43dd130c28824da1d29258b421acec1e55bd0401c88e2b",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\方法含义说明修订_20261022\\自适应多尺度加权的多变量网络流量预测_方法含义说明稿.docx",
+  "output_sha256": "814f0cf44e067e7a242e434318152582a57ea4237913be3813787dd0e9fde123",
+  "source_unchanged": true,
+  "changed_package_parts": [
+    "word/document.xml"
+  ],
+  "only_method_explanation_paragraphs_28_39_changed": true,
+  "all_format_properties_unchanged": true,
+  "all_citations_references_abstracts_and_introduction_unchanged": true,
+  "all_math_tables_figures_and_results_unchanged": true,
+  "moving_average_description_and_kernels_unchanged": true,
+  "algorithm_and_experiments_unchanged": true,
+  "edits": [
+    {
+      "paragraph": 28,
+      "run": 6,
+      "before": "为聚合窗口内的时间索引。尺度1保留原序列，尺度2与尺度4分别对相邻2个和4个时间点取均值，因而形成96、48和24步的输入。三个尺度使用结构相同、参数独立的DLinear专家",
+      "after": "为聚合窗口内的时间索引。各尺度覆盖同一96 h历史，分别以1 h输入值、2 h均值和4 h均值构成96、48和24步序列。各尺度使用结构相同、参数独立的DLinear专家"
+    },
+    {
+      "paragraph": 39,
+      "run": 0,
+      "before": "均值与标准差概括标准化窗口的整体水平和离散程度，末时刻均值反映窗口末端的整体状态，而平均绝对一阶差分描述相邻时刻的平均变化幅度。因此，路由网络能够以较低维度接收当前窗口的整体变化信息，并据此计算尺度分数：",
+      "after": "均值反映标准化窗口相对训练期均值的整体偏移，标准差概括时间与变量两个维度的离散程度；末时刻均值表征窗口末端状态，平均绝对一阶差分反映相邻小时的变化幅度。由此，路由网络以四维输入汇总窗口状态，尺度分数计算为："
+    }
+  ],
+  "visual_review_pending": false,
+  "visual_review_passed": true,
+  "final_pages": 7
+}

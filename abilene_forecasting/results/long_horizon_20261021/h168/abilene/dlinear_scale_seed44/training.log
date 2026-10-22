@@ -1,0 +1,71 @@
+epoch=001 train_objective=0.706925 val_mse=0.092776
+epoch=002 train_objective=0.665645 val_mse=0.113065
+epoch=003 train_objective=0.658823 val_mse=0.129662
+epoch=004 train_objective=0.655402 val_mse=0.098406
+epoch=005 train_objective=0.651972 val_mse=0.092052
+epoch=006 train_objective=0.647310 val_mse=0.093878
+epoch=007 train_objective=0.642795 val_mse=0.087610
+epoch=008 train_objective=0.640451 val_mse=0.119635
+epoch=009 train_objective=0.636170 val_mse=0.078304
+epoch=010 train_objective=0.633243 val_mse=0.095585
+epoch=011 train_objective=0.626872 val_mse=0.077663
+epoch=012 train_objective=0.627612 val_mse=0.079654
+epoch=013 train_objective=0.620004 val_mse=0.065214
+epoch=014 train_objective=0.617683 val_mse=0.107385
+epoch=015 train_objective=0.614678 val_mse=0.058510
+epoch=016 train_objective=0.612574 val_mse=0.060683
+epoch=017 train_objective=0.609794 val_mse=0.096220
+epoch=018 train_objective=0.602967 val_mse=0.045358
+epoch=019 train_objective=0.600695 val_mse=0.058950
+epoch=020 train_objective=0.597553 val_mse=0.053693
+epoch=021 train_objective=0.592477 val_mse=0.045592
+epoch=022 train_objective=0.588876 val_mse=0.048839
+epoch=023 train_objective=0.587679 val_mse=0.040565
+epoch=024 train_objective=0.587443 val_mse=0.049187
+epoch=025 train_objective=0.583387 val_mse=0.043248
+epoch=026 train_objective=0.582123 val_mse=0.036432
+epoch=027 train_objective=0.577795 val_mse=0.038269
+epoch=028 train_objective=0.575535 val_mse=0.054512
+epoch=029 train_objective=0.575908 val_mse=0.046076
+epoch=030 train_objective=0.574776 val_mse=0.042418
+{
+  "dataset": "abilene",
+  "data_path": "data\\processed\\abilene_1hour.npz",
+  "data_feature": null,
+  "data_aggregation": null,
+  "model": "dlinear_scale",
+  "model_config": {},
+  "seed": 44,
+  "device": "cuda",
+  "n_channels": 144,
+  "split_rows": {
+    "train": 2793,
+    "val": 931,
+    "test": 932
+  },
+  "split_windows": {
+    "train": 2530,
+    "val": 668,
+    "test": 669
+  },
+  "input_len": 96,
+  "pred_len": 168,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 57587,
+  "best_val_mse_normalized": 0.03643248303832408,
+  "test_normalized": {
+    "mse": 0.3675081431865692,
+    "mae": 0.33643364906311035,
+    "rmse": 0.6062244772911072
+  },
+  "test_original_units": {
+    "mse": 6.824469442098679e+19,
+    "mae": 21047256.0,
+    "rmse": 8261034496.0
+  },
+  "elapsed_seconds": 117.80342400000154
+}

@@ -1,0 +1,4017 @@
+[
+  {
+    "index": 3,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "r",
+        "text": "摘要："
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "为兼顾小时级骨干网络流量预测中的短期波动与长期趋势，设计一种轻量自适应多尺度预测模型。"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "模型"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "在"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "三种时间分辨率"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "上输入"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "历史窗口"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "数据"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "分别"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "经由"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "独立分解线性专家生成预测"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "结果，再由"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "路由网络"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "从"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "当前窗口"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "提取"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "均值、标准差、末时刻均值和平均绝对一阶差分，多层感知器据此计算融合权重。以"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "为实验数据，"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "均以"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": " 96 "
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "步历史输入预测未来"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": " 24 "
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "步"
+      },
+      {
+        "index": 27,
+        "tag": "r",
+        "text": "。在"
+      },
+      {
+        "index": 28,
+        "tag": "r",
+        "text": "3"
+      },
+      {
+        "index": 29,
+        "tag": "r",
+        "text": "个共同随机种子下，"
+      },
+      {
+        "index": 30,
+        "tag": "r",
+        "text": "与"
+      },
+      {
+        "index": 31,
+        "tag": "r",
+        "text": "单尺度分解线性模型"
+      },
+      {
+        "index": 32,
+        "tag": "r",
+        "text": "相比"
+      },
+      {
+        "index": 33,
+        "tag": "r",
+        "text": "，方法的均方误差分别降低"
+      },
+      {
+        "index": 34,
+        "tag": "r",
+        "text": "4.07%"
+      },
+      {
+        "index": 35,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 36,
+        "tag": "r",
+        "text": "4.54%"
+      },
+      {
+        "index": 37,
+        "tag": "r",
+        "text": "；相对采样导向轻量模型"
+      },
+      {
+        "index": 38,
+        "tag": "r",
+        "text": "LightTS"
+      },
+      {
+        "index": 39,
+        "tag": "r",
+        "text": "，降幅"
+      },
+      {
+        "index": 40,
+        "tag": "r",
+        "text": "达到"
+      },
+      {
+        "index": 41,
+        "tag": "r",
+        "text": "29.80%"
+      },
+      {
+        "index": 42,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 43,
+        "tag": "r",
+        "text": "46.89%"
+      },
+      {
+        "index": 44,
+        "tag": "r",
+        "text": "。"
+      },
+      {
+        "index": 45,
+        "tag": "r",
+        "text": "进一步的"
+      },
+      {
+        "index": 46,
+        "tag": "r",
+        "text": "8"
+      },
+      {
+        "index": 47,
+        "tag": "r",
+        "text": "种子消融"
+      },
+      {
+        "index": 48,
+        "tag": "r",
+        "text": "实验中，相对"
+      },
+      {
+        "index": 49,
+        "tag": "r",
+        "text": "全局可学习权重和恒定输入路由，"
+      },
+      {
+        "index": 50,
+        "tag": "r",
+        "text": "在"
+      },
+      {
+        "index": 51,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 52,
+        "tag": "r",
+        "text": "上逐种子平均改进率"
+      },
+      {
+        "index": 53,
+        "tag": "r",
+        "text": "均"
+      },
+      {
+        "index": 54,
+        "tag": "r",
+        "text": "约为"
+      },
+      {
+        "index": 55,
+        "tag": "r",
+        "text": "1.80%"
+      },
+      {
+        "index": 56,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 57,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 58,
+        "tag": "r",
+        "text": "分别为"
+      },
+      {
+        "index": 59,
+        "tag": "r",
+        "text": "4.31%"
+      },
+      {
+        "index": 60,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 61,
+        "tag": "r",
+        "text": "4.97%"
+      },
+      {
+        "index": 62,
+        "tag": "r",
+        "text": "。"
+      },
+      {
+        "index": 63,
+        "tag": "r",
+        "text": "结果表明，"
+      },
+      {
+        "index": 64,
+        "tag": "r",
+        "text": "多尺度"
+      },
+      {
+        "index": 65,
+        "tag": "r",
+        "text": "候选"
+      },
+      {
+        "index": 66,
+        "tag": "r",
+        "text": "预测配合低维路由"
+      },
+      {
+        "index": 67,
+        "tag": "r",
+        "text": "机制"
+      },
+      {
+        "index": 68,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 69,
+        "tag": "r",
+        "text": "仅引入少量融合参数即可获得更低的平均预测误差，输出结果可"
+      },
+      {
+        "index": 70,
+        "tag": "r",
+        "text": "为"
+      },
+      {
+        "index": 71,
+        "tag": "r",
+        "text": "次日网络流量需求分析与容量规划"
+      },
+      {
+        "index": 72,
+        "tag": "r",
+        "text": "提供"
+      },
+      {
+        "index": 73,
+        "tag": "r",
+        "text": "参考。"
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "Abstract:"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": " "
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "A lightweight adaptive multiscale forecasting model was developed to account for short-term fluctuations and long-term trends in hourly backbone network traffic forecasting. Historical windows were represented at three temporal resolutions, and independent decomposition linear experts generated candidate forecasts. A routing network extracted four statistics from the current window: the mean, standard deviation, mean at the last time step, and mean absolute first difference. A multilayer perceptron with two fully connected layers used these statistics to calculate fusion weights. Experiments on Abilene and GÉANT used 96 historical steps to predict the next 24 steps. Across three common random seeds, the proposed method reduced mean squared error by 4.07% and 4.54% relative to the single-scale decomposition linear model, respectively. The corresponding reductions relative to the sampling-oriented lightweight model LightTS were 29.80% and 46.89%. Further ablation experiments across eight random seeds compared the proposed method with learned global weights and a constant-input router. On Abilene, the mean seed-wise improvements over both controls were approximately 1.80%; on GÉANT, they were 4.31% and 4.97%, respectively. The results show that combining multiscale candidate forecasts with low-dimensional routing achieves lower mean forecasting errors with few additional fusion parameters. The forecasts can provide a reference for next-day network traffic demand analysis and capacity planning."
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "时间聚合可平滑原始序列中的短时扰动，使较慢趋势更明显；不同时间分辨率提供互补信息。"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "Zhou"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "等"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "[5]"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "以深度回声状态网络进行多尺度流量预测。在轻量预测方向上，分解线性模型（"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "decomposition linear model"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "）"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "[6]"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "结合序列分解与线性映射；"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "TimeMixer"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "[7]"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "采用多尺度混合；"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "LightTS"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "[8]"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "使用采样导向的多层感知器（"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "multilayer perceptron"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "MLP"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "）。本文以"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "为主干，研究不同尺度预测结果的融合方式。"
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "各尺度专家采用相同结构时，融合比例能否随当前窗口状态调整并降低预测误差，是本文考察的问题。固定权重可组合多尺度预测结果，但无法利用窗口间的状态差异调整融合比例。"
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "r",
+        "text": "图"
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "1"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "包含共享同一预处理历史窗口的预测分支与路由分支，梯形虚线展开"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "专家内部结构。历史"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "窗口完成对数变换与标准化后，生成尺度"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "1"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "2"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "4"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "的序列；独立"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "专家分别映射趋势项与余项，把两部分的"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "24"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "步预测相加，形成候选预测。尺度路由网络使用原始时间分辨率的预处理输入的"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "4"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "项统计特征计算"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "Softmax"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "权重，对"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "3"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "个尺度候选预测的加权求和给出模型输出。图中曲线和色块仅作示意。"
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "各尺度采用相同"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "结构并独立预测。原始尺度保留局部波动，时间聚合后的较粗尺度突出较慢趋势；路由网络根据当前窗口特征分配融合权重。模型由此在统一预测主干上结合多尺度输入与按样本加权。"
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "记预处理后的多变量流量序列为"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": " "
+      },
+      {
+        "index": 3,
+        "tag": "oMath",
+        "text": "xt∈RC"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "，其中"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "t"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "为时间索引，"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "C"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "为有效"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "变量数。监督学习样本由连续序列沿时间轴生成的滑动窗口构成；第"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "n"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "个样本由历史窗口"
+      },
+      {
+        "index": 13,
+        "tag": "oMath",
+        "text": "Xn"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "及预测目标"
+      },
+      {
+        "index": 15,
+        "tag": "oMath",
+        "text": "Yn"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "组成："
+      },
+      {
+        "index": 17,
+        "tag": "oMath",
+        "text": "Xn"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "覆盖连续"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "L"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "个时间点，"
+      },
+      {
+        "index": 21,
+        "tag": "oMath",
+        "text": "Yn"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "覆盖其后连续的"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "H"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "个时间点。向量按时间顺序逐行堆叠，矩阵行对应时间点，列对应"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "变量。第"
+      },
+      {
+        "index": 27,
+        "tag": "r",
+        "text": "n"
+      },
+      {
+        "index": 28,
+        "tag": "r",
+        "text": "个样本的输入与目标表示为："
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "取输入窗口长度"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "L"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "=96"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "预测长度"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "H"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "=24"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "，数据中保留的有效"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "维度数"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "记为"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "C"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "。"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "由此，"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "历史信息到未来流量的预测映射"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "可"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "写为"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "："
+      },
+      {
+        "index": 19,
+        "tag": "oMath",
+        "text": "Yn=fθ(Xn)"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "。原始"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "流量非负且变量间量级差异较大，先对原始流量"
+      },
+      {
+        "index": 23,
+        "tag": "oMath",
+        "text": "vt,c"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "作对数变换"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": "压缩其取值范围，得到对数变换后的序列，其中"
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "log"
+      },
+      {
+        "index": 27,
+        "tag": "r",
+        "text": "表示自然对数："
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "其中"
+      },
+      {
+        "index": 2,
+        "tag": "oMath",
+        "text": "μctr"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 4,
+        "tag": "oMath",
+        "text": "σctr"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "分别为对数变换后的训练集上第"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "c"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "个"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "变量的均值与标准差，验证集与测试集沿用训练统计量。对数变换压缩取值范围并保留大小关系，逐变量标准化使输入处于相近数值尺度。数据按时间顺序以"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "6∶2∶2"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "划分，在各集合内独立生成滑动窗口，不跨集合边界。"
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "非重叠平均池化不引入可训练参数。"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "L"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "=96"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "时，尺度"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "1"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "保留原始"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "96"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "步序列；尺度"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "2"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "对相邻"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "2"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "点取均值，得到"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "48"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "步序列；尺度"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "4"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "对相邻"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "4"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "点取均值，得到"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "24"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "步序列。时间聚合平滑局部波动，使较慢趋势更明显。"
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "尺度集合"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "{1,2,4}"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "使"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "96"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "步历史得到整数长度序列。尺度取值越大，对应输入越短；三个尺度分别配置一个独立专家。同一尺度内，每个时间点仅参与一次聚合。"
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "每个"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "专家"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "[6]"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "处理本尺度输入，通过长度"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "q"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "=25"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "的中心移动平均提取趋势项，余项由输入减去趋势项得到。序列两端采用端点复制填充，保证分解前后时间长度不变；补齐后的序列记为"
+      },
+      {
+        "index": 9,
+        "tag": "oMath",
+        "text": "X(s)"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "。越界索引取最近端点的值："
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "由式（"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "6"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "）和式（"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "7"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "）可得到尺度"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "s"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "上的趋势项"
+      },
+      {
+        "index": 8,
+        "tag": "oMath",
+        "text": "T(s)"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "和余项"
+      },
+      {
+        "index": 10,
+        "tag": "oMath",
+        "text": "R(s)"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "。前者表示局部平滑后的趋势，后者为去除趋势后的剩余部分。式（"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "8"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "）对两者分别作线性映射，将预测结果相加。三个专家分别处理长度"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "96"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "48"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "24"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "的输入，参数独立。两个线性层的权重矩阵均为"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "H"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "×("
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "L"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "/"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "s"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": ")"
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "，偏置向量均为"
+      },
+      {
+        "index": 27,
+        "tag": "r",
+        "text": "H"
+      },
+      {
+        "index": 28,
+        "tag": "r",
+        "text": "维；各"
+      },
+      {
+        "index": 29,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 30,
+        "tag": "r",
+        "text": "变量共享参数，偏置沿"
+      },
+      {
+        "index": 31,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 32,
+        "tag": "r",
+        "text": "变量维度广播，输出为"
+      },
+      {
+        "index": 33,
+        "tag": "r",
+        "text": "H"
+      },
+      {
+        "index": 34,
+        "tag": "r",
+        "text": "×"
+      },
+      {
+        "index": 35,
+        "tag": "r",
+        "text": "C"
+      },
+      {
+        "index": 36,
+        "tag": "r",
+        "text": "。"
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "固定等权融合对三个尺度均取"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "1/3"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "，与当前窗口状态无关。本文根据窗口统计特征学习融合权重，组合三个"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "专家的预测结果。局部波动与较慢趋势的预测价值可能随窗口变化，因此从原始时间分辨率的预处理窗口"
+      },
+      {
+        "index": 6,
+        "tag": "oMath",
+        "text": "Xn"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "中"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "构造四维统计向量"
+      },
+      {
+        "index": 9,
+        "tag": "oMath",
+        "text": "zn=[μn,σn,ln,dn]"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "，各统计量定义"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "如下："
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "尺度路由网络是用于生成融合权重的门控网络，由多层感知器实现；各尺度专家独立生成"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "流量预测。多层感知器由两层全连接层组成，接收四维统计向量，经"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "16"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "维隐藏层输出"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "3"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "个尺度的未归一化分数。路由模块采用上述全连接结构，不引入循环网络或注意力编码器。"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "隐藏层"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "采用"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "修正线性单元（"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "rectified linear unit"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "ReLU"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "）"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "进行"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "激活，尺度分数计算如下"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "："
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "r",
+        "text": "式（"
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "11"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "）中，两层权重矩阵依次为"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "16×4"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "3×16"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "，偏置向量分别为"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "16"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "维和"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "3"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "维。对"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "3"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "个尺度分数作"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "Softmax"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "归一化，得到"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "3"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "个总和为"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "1"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "的非负权重；各专家在最终预测中的相对贡献由这些权重表示："
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "r",
+        "text": "模型"
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "参数"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "采用"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "自适应矩估计（"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "adaptive moment estimation"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "Adam"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "）优化器"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "进行"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "更新，最终模型的选择"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "以"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "验证集"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "MSE"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "为依据"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "。"
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "推理阶段，先按"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "与"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "训练一致的规则处理输入的历史"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": " OD "
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "窗口，随后交由多尺度专家分别给出各尺度预测，再经路由模块加权融合，得到未来多步流量"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "预测"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "结果，恢复至原始流量量纲后，可供网络需求分析与容量规划参考。"
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "r",
+        "text": "本实验选用"
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "CESNET TS-Zoo"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "[9]"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "中的"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "1 h"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "粒度"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "聚合流量矩阵"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "[10]"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "[11]"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "。两套数据"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "均"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "采用"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "L"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "=96"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "H"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "=24"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "的设置"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "，规模及窗口数"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "参"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "见表"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "1"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": "。"
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "其中，"
+      },
+      {
+        "index": 27,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 28,
+        "tag": "r",
+        "text": "的"
+      },
+      {
+        "index": 29,
+        "tag": "r",
+        "text": "144"
+      },
+      {
+        "index": 30,
+        "tag": "r",
+        "text": "维有效"
+      },
+      {
+        "index": 31,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 32,
+        "tag": "r",
+        "text": "变量覆盖"
+      },
+      {
+        "index": 33,
+        "tag": "r",
+        "text": "4656"
+      },
+      {
+        "index": 34,
+        "tag": "r",
+        "text": "个时间点；"
+      },
+      {
+        "index": 35,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 36,
+        "tag": "r",
+        "text": "在"
+      },
+      {
+        "index": 37,
+        "tag": "r",
+        "text": "2849"
+      },
+      {
+        "index": 38,
+        "tag": "r",
+        "text": "个时间点上按训练集标准差剔除恒定或近恒定变量后，剩余"
+      },
+      {
+        "index": 39,
+        "tag": "r",
+        "text": "524"
+      },
+      {
+        "index": 40,
+        "tag": "r",
+        "text": "个有效"
+      },
+      {
+        "index": 41,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 42,
+        "tag": "r",
+        "text": "变量。训练、验证、测试集的时间划分比例为"
+      },
+      {
+        "index": 43,
+        "tag": "r",
+        "text": "6∶2∶2"
+      },
+      {
+        "index": 44,
+        "tag": "r",
+        "text": "，数据预处理按第"
+      },
+      {
+        "index": 45,
+        "tag": "r",
+        "text": "1.1"
+      },
+      {
+        "index": 46,
+        "tag": "r",
+        "text": "节"
+      },
+      {
+        "index": 47,
+        "tag": "r",
+        "text": "所述"
+      },
+      {
+        "index": 48,
+        "tag": "r",
+        "text": "执行。"
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "各模型使用相同的数据划分、输入长度、预测长度及评价指标，批量大小统一为"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "16"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "，优化器均为"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "Adam"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "。各模型采用预先固定的超参数配置，未分别进行超参数搜索。多尺度模型联合优化专家与可训练融合参数，按验证集"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "MSE"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "选择模型，再在测试集上评价。"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "及各多尺度模型的学习率为"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "0.001"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "，最多训练"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "30"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "轮；验证集"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "MSE"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "连续"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "6"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "轮未下降时执行早停。"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "LightTS"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "的学习率为"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "0.0001"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "，最多训练"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "50"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "轮，早停等待轮数为"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "10"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": "轮。"
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "LightTS"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "采用清华大学软件学院机器学习组的公开实现，分块长度为"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "24"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "，模型维度参数为"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "512"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "。"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "及各尺度专家按文献"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "[6]"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "实现，移动平均窗口长度为"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "25"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "，路由隐藏层维度设为"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "16"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "。"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "Python 3.11.9"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "PyTorch 2.5.1"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "为本实验的软件版本。"
+      }
+    ]
+  },
+  {
+    "index": 71,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "r",
+        "text": "均方误差（"
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "MSE"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "）、平均绝对误差（"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "mean absolute error"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "MAE"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "）及均方根误差（"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "root mean squared error"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "RMSE"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "）用于评价预测性能。测试集"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "MSE"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "按式（"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "14"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "）的平均规则计算，样本数取测试窗口数；式（"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "15"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "）中的"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "N"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "te"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "为测试样本数。"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "MAE"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "RMSE"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "定义如下"
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "所有指标在标准化空间计算，数值越小，误差越低。"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "MSE"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "对较大误差更敏感；"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "MAE"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "反映平均绝对偏差；"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "RMSE"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "与标准化后的预测值处于同一数值尺度。表"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "2"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "、表"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "3"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "分别汇总种子"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "42"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "～"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "44"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "42"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "～"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "49"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "的均值"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "±"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "样本标准差，标准差反映种子间波动。改进率为对照模型与本文方法的误差之差除以对照误差，按共同种子配对计算后求平均，不使用表内四舍五入值。八种子配对改进率的"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "95%"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "置信区间采用均值、标准误及自由度为"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "7"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": "的"
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "t"
+      },
+      {
+        "index": 27,
+        "tag": "r",
+        "text": "分布计算，标准误为种子间样本标准差除以"
+      },
+      {
+        "index": 28,
+        "tag": "r",
+        "text": "√8"
+      },
+      {
+        "index": 29,
+        "tag": "r",
+        "text": "。"
+      }
+    ]
+  },
+  {
+    "index": 86,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "r",
+        "text": "图"
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "3"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "进一步展示本文方法相对"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "和固定等权多尺度模型的逐种子改进分布。散点为单个种子的改进率，黑色菱形及横向误差线分别为均值和"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "95%"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "置信区间。"
+      }
+    ]
+  },
+  {
+    "index": 89,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "图"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "3"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "给出了不同随机种子下改进率的分布情况；在两类基线上，三个指标的平均改进率均"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "为正。"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "与"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "相比"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "上"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "的"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "MSE"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "MAE"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "RMSE"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "平均改进率依次为"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "2.77%"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "8.01%"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "1.40%"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "，其中"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "MSE"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "RMSE"
+      },
+      {
+        "index": 27,
+        "tag": "r",
+        "text": "在"
+      },
+      {
+        "index": 28,
+        "tag": "r",
+        "text": "8"
+      },
+      {
+        "index": 29,
+        "tag": "r",
+        "text": "次实验中均"
+      },
+      {
+        "index": 30,
+        "tag": "r",
+        "text": "得到了"
+      },
+      {
+        "index": 31,
+        "tag": "r",
+        "text": "改善。"
+      },
+      {
+        "index": 32,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 33,
+        "tag": "r",
+        "text": "上对应的"
+      },
+      {
+        "index": 34,
+        "tag": "r",
+        "text": "三项平均改进率为"
+      },
+      {
+        "index": 35,
+        "tag": "r",
+        "text": "2.35%"
+      },
+      {
+        "index": 36,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 37,
+        "tag": "r",
+        "text": "1.32%"
+      },
+      {
+        "index": 38,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 39,
+        "tag": "r",
+        "text": "1.22%"
+      },
+      {
+        "index": 40,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 41,
+        "tag": "r",
+        "text": "但负改"
+      },
+      {
+        "index": 42,
+        "tag": "r",
+        "text": "进率的种子更多，种子间波动较大"
+      },
+      {
+        "index": 43,
+        "tag": "r",
+        "text": "。相对固定等权模型，按"
+      },
+      {
+        "index": 44,
+        "tag": "r",
+        "text": "相同"
+      },
+      {
+        "index": 45,
+        "tag": "r",
+        "text": "指标顺序，"
+      },
+      {
+        "index": 46,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 47,
+        "tag": "r",
+        "text": "的平均改进率为"
+      },
+      {
+        "index": 48,
+        "tag": "r",
+        "text": "1.65%"
+      },
+      {
+        "index": 49,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 50,
+        "tag": "r",
+        "text": "8.92%"
+      },
+      {
+        "index": 51,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 52,
+        "tag": "r",
+        "text": "0.84%"
+      },
+      {
+        "index": 53,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 54,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 55,
+        "tag": "r",
+        "text": "上则"
+      },
+      {
+        "index": 56,
+        "tag": "r",
+        "text": "为"
+      },
+      {
+        "index": 57,
+        "tag": "r",
+        "text": "4.54%"
+      },
+      {
+        "index": 58,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 59,
+        "tag": "r",
+        "text": "3.05%"
+      },
+      {
+        "index": 60,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 61,
+        "tag": "r",
+        "text": "2.37%"
+      },
+      {
+        "index": 62,
+        "tag": "r",
+        "text": "。"
+      }
+    ]
+  },
+  {
+    "index": 92,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "r",
+        "text": "图"
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "4"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "（"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "a"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "b"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "）将"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "8"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "个种子的全测试预测点按真实值分位点分为最多"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "40"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "组，展示分组平均预测，浅色带表示种子间"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "±1"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "个标准差。图"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "4"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "（"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "c"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "～"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "f"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "）使用种子"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "42"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "，按真实序列选取标准差接近第"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "75"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "百分位的"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "通道，以及平均绝对一阶差分接近中位数、第"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": "90"
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "百分位的窗口。"
+      }
+    ]
+  },
+  {
+    "index": 96,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "r",
+        "text": "图"
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "5"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "汇总"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "8"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "个种子的测试窗口权重，彩色点为各随机种子的窗口平均权重，黑色菱形及误差线为这些均值的均值"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "±1"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "个标准差；短横线表示汇总分布中位数，水平虚线表示固定等权"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "1/3"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "。"
+      }
+    ]
+  },
+  {
+    "index": 99,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "三个尺度的汇总平均权重依次为"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "0.257"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "0.319"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "0.424"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "对应为"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "0.283"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "0.318"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "0.399"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "，均偏离固定等权的"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "1/3"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "。将汇总权重方差按来源区分，"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "三个尺度中约"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "96.2%"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "95.8%"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": "97.7%"
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "来自种子间差异；"
+      },
+      {
+        "index": 27,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 28,
+        "tag": "r",
+        "text": "对应比例为"
+      },
+      {
+        "index": 29,
+        "tag": "r",
+        "text": "48.7%"
+      },
+      {
+        "index": 30,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 31,
+        "tag": "r",
+        "text": "86.1%"
+      },
+      {
+        "index": 32,
+        "tag": "r",
+        "text": "和"
+      },
+      {
+        "index": 33,
+        "tag": "r",
+        "text": "80.6%"
+      },
+      {
+        "index": 34,
+        "tag": "r",
+        "text": "。在"
+      },
+      {
+        "index": 35,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 36,
+        "tag": "r",
+        "text": "同一种子内部，权重随窗口的变化较小。图"
+      },
+      {
+        "index": 37,
+        "tag": "r",
+        "text": "5"
+      },
+      {
+        "index": 38,
+        "tag": "r",
+        "text": "所呈现的是不同尺度的总体权重分配，以及其在随机种子间的差异。"
+      }
+    ]
+  },
+  {
+    "index": 100,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "为进一步考察模型在不同波动水平下的表现，本文按训练阶段窗口波动强度的三分位数将测试窗口划分为低、中、高三组；波动强度以平均绝对一阶差分度量。"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "以全局权重模型"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "为"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "对照，"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "三"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "组的逐种子平均"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "MSE"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "改进率依次"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "为"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "4.43%"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "1.90%"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "1.69%"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "，样本"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "窗口"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "数相应为"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "15"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "406"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "392"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "个。在"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "上，"
+      },
+      {
+        "index": 27,
+        "tag": "r",
+        "text": "按"
+      },
+      {
+        "index": 28,
+        "tag": "r",
+        "text": "相同"
+      },
+      {
+        "index": 29,
+        "tag": "r",
+        "text": "训练阈值划分时，测试集中未出现低波动窗口"
+      },
+      {
+        "index": 30,
+        "tag": "r",
+        "text": "；中、高波动组分别"
+      },
+      {
+        "index": 31,
+        "tag": "r",
+        "text": "包"
+      },
+      {
+        "index": 32,
+        "tag": "r",
+        "text": "含"
+      },
+      {
+        "index": 33,
+        "tag": "r",
+        "text": "76"
+      },
+      {
+        "index": 34,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 35,
+        "tag": "r",
+        "text": "375"
+      },
+      {
+        "index": 36,
+        "tag": "r",
+        "text": "个窗口，对应改进率为"
+      },
+      {
+        "index": 37,
+        "tag": "r",
+        "text": "5.85%"
+      },
+      {
+        "index": 38,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 39,
+        "tag": "r",
+        "text": "4.06%"
+      },
+      {
+        "index": 40,
+        "tag": "r",
+        "text": "。"
+      },
+      {
+        "index": 41,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 42,
+        "tag": "r",
+        "text": "高波动组的尺度"
+      },
+      {
+        "index": 43,
+        "tag": "r",
+        "text": "1"
+      },
+      {
+        "index": 44,
+        "tag": "r",
+        "text": "平均权重高于中波动组，"
+      },
+      {
+        "index": 45,
+        "tag": "r",
+        "text": "但"
+      },
+      {
+        "index": 46,
+        "tag": "r",
+        "text": "误差优势未随权重增加而增强。"
+      },
+      {
+        "index": 47,
+        "tag": "r",
+        "text": "而在"
+      },
+      {
+        "index": 48,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 49,
+        "tag": "r",
+        "text": "上，"
+      },
+      {
+        "index": 50,
+        "tag": "r",
+        "text": "中、高波动组的权重"
+      },
+      {
+        "index": 51,
+        "tag": "r",
+        "text": "取值"
+      },
+      {
+        "index": 52,
+        "tag": "r",
+        "text": "近似相同，误差改善幅度"
+      },
+      {
+        "index": 53,
+        "tag": "r",
+        "text": "却"
+      },
+      {
+        "index": 54,
+        "tag": "r",
+        "text": "仍有差异，"
+      },
+      {
+        "index": 55,
+        "tag": "r",
+        "text": "这说明"
+      },
+      {
+        "index": 56,
+        "tag": "r",
+        "text": "误差变化与权重调整之间并"
+      },
+      {
+        "index": 57,
+        "tag": "r",
+        "text": "非"
+      },
+      {
+        "index": 58,
+        "tag": "r",
+        "text": "简单的对应关系。"
+      }
+    ]
+  },
+  {
+    "index": 103,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "使用种子"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "42"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "～"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "49"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "的"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "8"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "个模型检查点测量前向耗时，预测长度为"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "24"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "，批量大小为"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "16"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "。计时前关闭梯度计算，测试张量预先载入显存；各检查点预热"
+      },
+      {
+        "index": 12,
+        "tag": "r",
+        "text": "20"
+      },
+      {
+        "index": 13,
+        "tag": "r",
+        "text": "个批次后，对完整测试集重复计时"
+      },
+      {
+        "index": 14,
+        "tag": "r",
+        "text": "10"
+      },
+      {
+        "index": 15,
+        "tag": "r",
+        "text": "次。每次总耗时除以批次数，先对"
+      },
+      {
+        "index": 16,
+        "tag": "r",
+        "text": "10"
+      },
+      {
+        "index": 17,
+        "tag": "r",
+        "text": "次测量取平均，再对"
+      },
+      {
+        "index": 18,
+        "tag": "r",
+        "text": "8"
+      },
+      {
+        "index": 19,
+        "tag": "r",
+        "text": "个检查点取平均。"
+      },
+      {
+        "index": 20,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 21,
+        "tag": "r",
+        "text": "与"
+      },
+      {
+        "index": 22,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 23,
+        "tag": "r",
+        "text": "上，本文方法的平均每批前向耗时分别为"
+      },
+      {
+        "index": 24,
+        "tag": "r",
+        "text": "2.65 ms"
+      },
+      {
+        "index": 25,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 26,
+        "tag": "r",
+        "text": "2.61 ms"
+      },
+      {
+        "index": 27,
+        "tag": "r",
+        "text": "，固定等权模型为"
+      },
+      {
+        "index": 28,
+        "tag": "r",
+        "text": "2.38 ms"
+      },
+      {
+        "index": 29,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 30,
+        "tag": "r",
+        "text": "2.10 ms"
+      },
+      {
+        "index": 31,
+        "tag": "r",
+        "text": "，"
+      },
+      {
+        "index": 32,
+        "tag": "r",
+        "text": "DLinear"
+      },
+      {
+        "index": 33,
+        "tag": "r",
+        "text": "为"
+      },
+      {
+        "index": 34,
+        "tag": "r",
+        "text": "0.77 ms"
+      },
+      {
+        "index": 35,
+        "tag": "r",
+        "text": "、"
+      },
+      {
+        "index": 36,
+        "tag": "r",
+        "text": "0.70 ms"
+      },
+      {
+        "index": 37,
+        "tag": "r",
+        "text": "。测量不包含数据读取与传输开销。"
+      }
+    ]
+  },
+  {
+    "index": 104,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "在小时级网络管理中，模型一次输出全部有效"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "变量未来"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "24 h"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "的逐小时需求预测。观测更新后，按训练预处理规则将各"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "OD"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "最近"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "96 h"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "的流量构成历史窗口，再按时间与节点对组织预测结果，供需求分析使用。"
+      }
+    ]
+  },
+  {
+    "index": 105,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "在将预测结果投入实际需求分析之前，还需将其从标准化空间还原到原始流量量纲：先用训练阶段保存的逐"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": " OD "
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "统计量做逆标准化，再进行逆对数变换，并将结果截断至非负范围。在此基础上，结合网络拓扑与路由关系，各"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": " OD "
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "的预测需求可进一步汇总到对应链路上；将链路预测需求与可用容量进行比较，即可为容量调度与扩容决策提供参考"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "。"
+      }
+    ]
+  },
+  {
+    "index": 108,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "pPr",
+        "text": ""
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "高需求预测点上的"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "MAE"
+      },
+      {
+        "index": 3,
+        "tag": "r",
+        "text": "和低估误差均值较低，与图"
+      },
+      {
+        "index": 4,
+        "tag": "r",
+        "text": "4"
+      },
+      {
+        "index": 5,
+        "tag": "r",
+        "text": "较高真实值区间的预测结果一致。"
+      },
+      {
+        "index": 6,
+        "tag": "r",
+        "text": "Abilene"
+      },
+      {
+        "index": 7,
+        "tag": "r",
+        "text": "不同随机种子下的改善较为一致；"
+      },
+      {
+        "index": 8,
+        "tag": "r",
+        "text": "GÉANT"
+      },
+      {
+        "index": 9,
+        "tag": "r",
+        "text": "两项配对改进率的"
+      },
+      {
+        "index": 10,
+        "tag": "r",
+        "text": "95%"
+      },
+      {
+        "index": 11,
+        "tag": "r",
+        "text": "置信区间均包含零，不同随机种子下的改善并不完全一致。上述结果可为高需求时段的流量监测与容量规划提供参考。"
+      }
+    ]
+  },
+  {
+    "index": 110,
+    "pieces": [
+      {
+        "index": 0,
+        "tag": "r",
+        "text": "本文结合独立分解线性专家与基于窗口统计特征的尺度路由网络，采用自适应多尺度加权协调各尺度输出，以较小参数规模完成小时级骨干网流量预测。重复实验在两套数据上得到的平均误差均低于所设单尺度与固定融合对照，预测输出可作为未来一天需求分析的参考。后续"
+      },
+      {
+        "index": 1,
+        "tag": "r",
+        "text": "将"
+      },
+      {
+        "index": 2,
+        "tag": "r",
+        "text": "在更多网络数据和预测长度下检验模型适用性。"
+      }
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图2-4参考方案_20261022\\A_紧凑矩阵\\图3_高需求配对增益矩阵.pdf",
+  "auditable": true,
+  "minimum_required_pt": 7.5,
+  "minimum_found_pt": 7.5,
+  "text_run_count": 56,
+  "below_minimum_count": 0,
+  "below_minimum": [],
+  "warnings": []
+}
+

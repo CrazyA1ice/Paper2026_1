@@ -1,0 +1,37 @@
+PaperPure AIGC检测服务
+https://paperpure.net
+PaperPure AIGC检测服务
+https://paperpure.net
+[3] 韦烜, 刘志华, 李青, 等. 大型IP网络流量矩阵分析预测的探讨研究[J]. 系统工程与电子技术, 2024, 4
+6(6): 2164-2173. DOI: 10.12305/j.issn.1001-506X.2024.06.35.
+[4] 唐文杰, 肖一磊, 孔祥宇, 等. CycleLLH：一种基于周期性整合的新型网络流量预测模型[J]. 计算机学
+报, 2024, 47(12): 2867-2888. DOI: 10.11897/SP.J.1016.2024.02867.
+[5] ZHOU J, HAN T, XIAO F, et al. Multiscale network traffic prediction method based on deep ech
+o-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-2
+1874. DOI: 10.1109/JIOT.2022.3181807.
+[6] ZENG A, CHEN M, ZHANG L, et al. Are transformers effective for time series forecasting?[C]//
+Proceedings of the AAAI Conference on Artificial Intelligence. 2023, 37(9): 11121-11128. DOI: 10
+.1609/aaai.v37i9.26317.
+[7] WANG S, WU H, SHI X, et al. TimeMixer: decomposable multiscale mixing for time series foreca
+sting[C]//International Conference on Learning Representations. 2024.
+[8] ZHANG T, ZHANG Y, CAO W, et al. Less is more: fast multivariate time series forecasting with
+ light sampling-oriented MLP structures[EB/OL]. (2022-07-04)[2026-09-20]. https://arxiv.org/abs/
+2207.01186. DOI: 10.48550/arXiv.2207.01186.
+[9] KUREŠ M, KOUMAR J, HYNEK K. CESNET TS-Zoo: a library for reproducible analysis of network tr
+affic time series[C]//2025 21st International Conference on Network and Service Management. 2025
+. DOI: 10.23919/CNSM67658.2025.11297513.
+[10] ZHANG Y, ROUGHAN M, DUFFIELD N, et al. Fast accurate computation of large-scale IP traffic 
+matrices from link loads[J]. ACM SIGMETRICS Performance Evaluation Review, 2003, 31(1): 206-217.
+ DOI: 10.1145/885651.781053.
+[11] UHLIG S, QUOITIN B, LEPROPRE J, et al. Providing public intradomain traffic matrices to the
+ research community[J]. ACM SIGCOMM Computer Communication Review, 2006, 36(1): 83-86. DOI: 10.1
+145/1111322.1111341.
+说明:
+1、支持中文及英文内容AIGC检测；
+2、紫色为较低风险提示，不计入 AIGC率 与 AI特征字符数；
+3、红色表示高风险片段；
+4、橙色表示中风险片段；
+5、紫色表示较低风险提示片段；
+6、浅灰色表示不参与检测的段落（如字数过少、参考文献等）；
+7、检测结果仅供参考，最终判定是否存在学术不端行为时，需结合人工复核、机构审查以及具体学术政策的综合应用进行审慎判断。
+- 14 -

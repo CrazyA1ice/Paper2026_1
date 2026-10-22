@@ -1,0 +1,42 @@
+{
+  "visual_review": "passed",
+  "clean_pages_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "marked_pages_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "report_pages_reviewed": [
+    1,
+    2,
+    3
+  ],
+  "source_unchanged": true,
+  "rendered_text_equality": "passed",
+  "remaining_evidence_gaps": [
+    "longer and additional network observations",
+    "training data learning curve",
+    "cross-network transfer",
+    "online end-to-end deployment"
+  ]
+}

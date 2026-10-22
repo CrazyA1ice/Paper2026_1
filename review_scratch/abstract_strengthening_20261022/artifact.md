@@ -1,0 +1,7 @@
+# Abstract strengthening
+
+Retain the accepted journal manuscript, SHA256 3dcd7851350ab8492488c2dfffd056eb365887fcfbbcb5cfa2fcd163c4f2fc34. Revise only the two abstract text runs. Chinese abstract <=200 characters according to the supplied submission guide. Preserve third person, one paragraph, first-use DLinear expansion and exact claim alignment with English. Use current eight-seed paired mean reductions; high-demand result applies to Abilene only and compares mean shortfall with DLinear. Do not call high-demand points peak events or infer noise resistance, universal stability, speed, runtime or deployment outcomes. Retain all existing body text, native equations, four tables, four figures, page geometry and formatting. Term ledger: 自适应多尺度加权/adaptive multiscale weighting; 分解线性模型/decomposition linear model (DLinear); 均方误差/mean squared error; 平均绝对误差/mean absolute error; 平均低估误差/mean shortfall. Final gate: native Word export, packaged page rasterization, every page visually inspected.
+
+## Final acceptance
+
+PASS. All seven final pages visually reviewed. Chinese abstract 200 characters; English abstract 94 words, with matching datasets, horizons, baselines and metrics. Current eight-seed data verified. Only the two abstract text runs changed. All original formatting, formulas, four figures, four tables and main text are preserved. Final SHA256 0584c193ad08ec053f4d6d9c61072e233b5c14a1a95559b4280f997d6f44fb84.

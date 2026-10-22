@@ -1,0 +1,48 @@
+{
+  "metric_files_verified": 18,
+  "all_seeds": 3,
+  "all_comparisons": 12,
+  "no_rows_excluded": true,
+  "summary": [
+    {
+      "dataset": "abilene",
+      "metric": "mse",
+      "mean": 29.803334304754742,
+      "sample_sd": 3.2024101704241734,
+      "n_seeds": 3,
+      "proposed_parameters": 8339,
+      "lightts_parameters": 130162,
+      "parameter_ratio_pct": 6.40663173583688
+    },
+    {
+      "dataset": "abilene",
+      "metric": "mae",
+      "mean": 17.5741855339389,
+      "sample_sd": 3.1049717959831744,
+      "n_seeds": 3,
+      "proposed_parameters": 8339,
+      "lightts_parameters": 130162,
+      "parameter_ratio_pct": 6.40663173583688
+    },
+    {
+      "dataset": "geant",
+      "metric": "mse",
+      "mean": 46.88658964188419,
+      "sample_sd": 5.122218883257505,
+      "n_seeds": 3,
+      "proposed_parameters": 8339,
+      "lightts_parameters": 384382,
+      "parameter_ratio_pct": 2.1694564261593934
+    },
+    {
+      "dataset": "geant",
+      "metric": "mae",
+      "mean": 29.15250696301892,
+      "sample_sd": 7.800124273437046,
+      "n_seeds": 3,
+      "proposed_parameters": 8339,
+      "lightts_parameters": 384382,
+      "parameter_ratio_pct": 2.1694564261593934
+    }
+  ]
+}

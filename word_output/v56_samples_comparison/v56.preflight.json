@@ -1,0 +1,12 @@
+{
+  "schema": "pdf_read_preflight/1",
+  "verdict": "PASS",
+  "file": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\v56_submission_review\\2026.10.03v56.pdf",
+  "sha256": "a9f3ed79e242a2fa8605022bbfc21a90e8c4755e4cc8a03813c0573856e24d2c",
+  "declared_page_count": 11,
+  "enumerated_page_count": 11,
+  "reader_page_count": 11,
+  "warnings": [],
+  "generated_at": "2026-10-03T02:35:30.196928+00:00",
+  "tool": "pdf_read_preflight/1.0.0"
+}

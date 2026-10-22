@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "finished_at": "2026-10-20T13:22:38.359950+00:00",
+  "conditions": 192,
+  "new_training_conditions": 144,
+  "archived_reevaluations": 48,
+  "source_data_models_training_code_unchanged": true,
+  "scripts_sha256": {
+    "supplement_seasonal_learning_20261020.py": "950e0ebb52b78039caf74abc03e840a13dadca6097aaed2fbac10ec53466655b",
+    "analyze_supplement_20261020.py": "1b7839cd6aebdb2927f2fb7e9d95ae2b63f716d7492d671600caae7fcf5d97f7",
+    "plot_supplement_20261020.py": "0c3c5ccb165199c7d5d40caf860ea0ad6627e196537b72fd4b8409f7e2c234b7"
+  },
+  "limits": [
+    "No additional network or observation period",
+    "Fixed holdout, not rolling retraining",
+    "History amount and age coverage not isolated"
+  ]
+}

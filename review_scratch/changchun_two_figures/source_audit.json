@@ -1,0 +1,71 @@
+{
+  "high_demand_seed_rows": 80,
+  "high_demand_summary_rows": 10,
+  "all_seeds_retained": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "weight_source_rows": 30336,
+  "weight_summaries": [
+    {
+      "dataset": "abilene",
+      "mean": [
+        0.25736334496424024,
+        0.31901212898168946,
+        0.42362452676716783
+      ],
+      "sd_of_seed_means": [
+        0.08611552064713604,
+        0.20902648577583344,
+        0.1786547883452444
+      ]
+    },
+    {
+      "dataset": "geant",
+      "mean": [
+        0.2827213673610777,
+        0.31792777655914656,
+        0.3993508563544229
+      ],
+      "sd_of_seed_means": [
+        0.08442628482587658,
+        0.10664687542080858,
+        0.12546200436005917
+      ]
+    }
+  ],
+  "paired_reductions": {
+    "abilene": {
+      "dlinear_mae": 13.955902919585089,
+      "dlinear_mean_shortfall": 16.07487137123619,
+      "dlinear_scale_static_mae": 17.47336640101474,
+      "dlinear_scale_static_mean_shortfall": 20.83670238608594,
+      "dlinear_scale_global_mae": 17.2160073574035,
+      "dlinear_scale_global_mean_shortfall": 20.488971879809565,
+      "dlinear_scale_constant_router_mae": 7.661970286928539,
+      "dlinear_scale_constant_router_mean_shortfall": 9.992274628952035
+    },
+    "geant": {
+      "dlinear_mae": 0.41929244266631516,
+      "dlinear_mean_shortfall": 2.268539724697995,
+      "dlinear_scale_static_mae": 3.868979080629509,
+      "dlinear_scale_static_mean_shortfall": 6.649443586560987,
+      "dlinear_scale_global_mae": 3.5880012653132836,
+      "dlinear_scale_global_mean_shortfall": 6.303687132868034,
+      "dlinear_scale_constant_router_mae": 5.352376061753348,
+      "dlinear_scale_constant_router_mean_shortfall": 8.487172379648833
+    }
+  },
+  "figure3_exact_reuse": true,
+  "figure3_sha256": "fc0838f0b57eba61c2b6ae94c341e7c16fbee4907f8588f0fd0c81c7731f606f",
+  "figure4_source_summary_sha256": "cca98688e8016b1be45e2dd02a13b1e0e02621ac1b376a817fb66cead8b9436f",
+  "figure4_source_seed_sha256": "c0b1b4ff751b715f63741f85a788516b304b3d85fc4bb227816c1374db0fa913",
+  "figure3_file": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\改投内容修改第一版_20261020\\补充图表\\图3_尺度权重分布.png",
+  "figure4_file": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\改投内容修改第一版_20261020\\补充图表\\图4_高需求预测误差.png"
+}

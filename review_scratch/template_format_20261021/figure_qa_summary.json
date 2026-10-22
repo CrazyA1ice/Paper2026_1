@@ -1,0 +1,30 @@
+[
+  {
+    "figure": 1,
+    "collision_verdict": "PASS",
+    "collision_returncode": 0,
+    "font_minimum": 5.25,
+    "font_returncode": 0
+  },
+  {
+    "figure": 2,
+    "collision_verdict": "PASS",
+    "collision_returncode": 0,
+    "font_minimum": 7.5,
+    "font_returncode": 0
+  },
+  {
+    "figure": 3,
+    "collision_verdict": "PASS",
+    "collision_returncode": 0,
+    "font_minimum": 7.5,
+    "font_returncode": 0
+  },
+  {
+    "figure": 4,
+    "collision_verdict": "PASS",
+    "collision_returncode": 0,
+    "font_minimum": 7.5,
+    "font_returncode": 0
+  }
+]

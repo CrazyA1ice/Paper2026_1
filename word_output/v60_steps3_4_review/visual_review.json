@@ -1,0 +1,42 @@
+{
+  "manuscript": "2026.10.03v60.docx",
+  "v59_pages_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "v60_pages_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "method": "Word read-only PDF export and Poppler page rendering; visual inspection",
+  "findings": "No clipped figures, overlapping text, truncated tables or missing formulas observed.",
+  "figure_pages": {
+    "1": 2,
+    "2": 6,
+    "3": 7,
+    "4": 8,
+    "5": 9
+  },
+  "source_and_target_hashes_verified": true,
+  "experiment_evidence_hashes_verified": 89,
+  "tables_preserved": 3,
+  "formulas_preserved": 41,
+  "figures_preserved": 5,
+  "references_preserved": 11
+}

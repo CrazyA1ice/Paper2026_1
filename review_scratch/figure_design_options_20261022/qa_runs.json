@@ -1,0 +1,12 @@
+[
+  {
+    "tag": "C2",
+    "check": "text",
+    "returncode": 0
+  },
+  {
+    "tag": "C2",
+    "check": "collision",
+    "returncode": 0
+  }
+]

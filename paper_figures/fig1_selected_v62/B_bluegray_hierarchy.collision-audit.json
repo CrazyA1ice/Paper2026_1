@@ -1,0 +1,23 @@
+{
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_figures\\fig1_selected_v62\\B_bluegray_hierarchy.pdf",
+  "auditable": true,
+  "verdict": "PASS",
+  "page_count": 1,
+  "visible_text_box_count": 53,
+  "text_trace_count": 136,
+  "stroke_path_count": 114,
+  "filled_region_count": 99,
+  "image_region_count": 0,
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "contained_fill_overlays": 59,
+    "contained_image_overlays": 0
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": []
+}

@@ -1,0 +1,23 @@
+{
+  "titles": [
+    [
+      "a  Abilene  ·  全测试点校准",
+      "a  Abilene  ·  真实值分组预测"
+    ],
+    [
+      "b  GÉANT  ·  全测试点校准",
+      "b  GÉANT  ·  真实值分组预测"
+    ]
+  ],
+  "numeric_artists_unchanged": true,
+  "baseline_plot_and_title_pixels_identical_to_v69": true,
+  "final_pixels_outside_title_band_identical_to_v69": true,
+  "svg_changes_only_two_text_nodes": true,
+  "changed_pixel_bounds": [
+    741,
+    41,
+    3012,
+    103
+  ],
+  "source_csv_sha256": "a5e792633dcaa6624b70441c35f09e174f0fa056dafb0db12cb9ab8a7f1f35ab"
+}

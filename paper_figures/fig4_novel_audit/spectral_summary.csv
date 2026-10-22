@@ -1,0 +1,13 @@
+dataset,baseline,band,mean,minimum,maximum,positive_seeds
+abilene,DLinear,high_k7_12,-1.9320793,-3.208709,-0.48373914,0
+abilene,DLinear,low_k0_2,3.3777223,1.5952344,5.3431673,8
+abilene,DLinear,mid_k3_6,-2.5675688,-4.9273734,0.4897518,1
+abilene,FixedEqual,high_k7_12,-2.0028982,-4.1457987,-0.38663718,0
+abilene,FixedEqual,low_k0_2,2.1366453,-0.74976164,5.317211,6
+abilene,FixedEqual,mid_k3_6,-2.5435176,-5.0242763,0.45116484,1
+geant,DLinear,high_k7_12,-0.9618958,-2.2845204,0.7912023,2
+geant,DLinear,low_k0_2,7.342792,-6.596557,18.711752,7
+geant,DLinear,mid_k3_6,-8.606218,-12.126792,-2.3271396,0
+geant,FixedEqual,high_k7_12,-0.64520276,-1.4127185,0.13846068,1
+geant,FixedEqual,low_k0_2,9.999377,-18.214289,23.79992,7
+geant,FixedEqual,mid_k3_6,-7.3001556,-10.8560505,-3.6757193,0

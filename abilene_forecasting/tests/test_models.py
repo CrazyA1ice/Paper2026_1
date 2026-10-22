@@ -7,7 +7,9 @@ def test_all_native_model_output_shapes():
     x = torch.randn(2, 96, 12)
     for name in (
         "dlinear", "fits", "dlinear_freq", "dlinear_scale",
-        "dlinear_scale_static", "proposed", "proposed_static",
+        "dlinear_scale_static", "dlinear_scale_global",
+        "dlinear_scale_constant_router",
+        "proposed", "proposed_static",
     ):
         output = build_model(name, 96, 24)(x)
         prediction = output[0] if isinstance(output, tuple) else output
@@ -34,6 +36,29 @@ def test_static_scale_weights_are_uniform():
     x = torch.randn(3, 96, 12)
     _, weights = build_model("dlinear_scale_static", 96, 24)(x)
     assert torch.allclose(weights, torch.full((3, 3), 1 / 3), atol=1e-6)
+
+
+def test_global_scale_weights_are_shared_and_trainable():
+    x = torch.randn(3, 96, 12)
+    model = build_model("dlinear_scale_global", 96, 24)
+    prediction, weights = model(x)
+    assert torch.allclose(weights, torch.full((3, 3), 1 / 3), atol=1e-6)
+    assert sum(p.numel() for p in model.parameters()) == 8211
+    prediction.square().mean().backward()
+    assert model.global_logits.grad is not None
+
+
+def test_constant_router_matches_dynamic_capacity_without_window_variation():
+    model = build_model("dlinear_scale_constant_router", 96, 24)
+    dynamic = build_model("dlinear_scale", 96, 24)
+    x = torch.randn(3, 96, 12)
+    prediction, weights = model(x)
+    assert sum(p.numel() for p in model.parameters()) == sum(
+        p.numel() for p in dynamic.parameters()
+    ) == 8339
+    assert torch.allclose(weights, weights[:1].expand_as(weights), atol=1e-7)
+    prediction.square().mean().backward()
+    assert any(p.grad is not None for p in model.router.parameters())
 
 
 def test_proposed_uses_requested_cut_ratio():

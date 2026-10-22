@@ -1,0 +1,23 @@
+{
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\改投内容修改第一版_20261020\\自适应多尺度加权的多变量网络流量预测_内容修改第一版.docx",
+  "pages": 7,
+  "word_count": 4827,
+  "visual_pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "visual_QA_passed": true,
+  "numeric_QA_passed": true,
+  "native_equations": 17,
+  "figures": 2,
+  "tables": 4,
+  "references": 11,
+  "originals_unchanged": true,
+  "template_file_not_opened": true,
+  "output_sha256": "e17bedc4a3ad444ae387ec607a4a922b0a21adb81c1d7f1fdea9de26b0105d14"
+}

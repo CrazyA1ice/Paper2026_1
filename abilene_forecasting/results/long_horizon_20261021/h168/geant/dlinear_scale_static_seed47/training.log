@@ -1,0 +1,50 @@
+epoch=001 train_objective=0.942322 val_mse=2.171326
+epoch=002 train_objective=0.887210 val_mse=2.062644
+epoch=003 train_objective=0.881338 val_mse=2.107307
+epoch=004 train_objective=0.878141 val_mse=2.075182
+epoch=005 train_objective=0.878224 val_mse=2.112698
+epoch=006 train_objective=0.877621 val_mse=2.098377
+epoch=007 train_objective=0.878073 val_mse=2.140889
+epoch=008 train_objective=0.878269 val_mse=2.095465
+Early stopping at epoch 8
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "dlinear_scale_static",
+  "model_config": {},
+  "seed": 47,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1446,
+    "val": 307,
+    "test": 307
+  },
+  "input_len": 96,
+  "pred_len": 168,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 57456,
+  "best_val_mse_normalized": 2.06264419547898,
+  "test_normalized": {
+    "mse": 1.279780387878418,
+    "mae": 0.6455868482589722,
+    "rmse": 1.1312737464904785
+  },
+  "test_original_units": {
+    "mse": 2357318400.0,
+    "mae": 10138.0634765625,
+    "rmse": 48552.22265625
+  },
+  "elapsed_seconds": 37.51087370000005
+}

@@ -1,0 +1,88 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\八次重复统一修订_20261022\\自适应多尺度加权的多变量网络流量预测_八次重复统一稿.docx",
+  "source_sha256": "bc045d2ed19899e315b3ff5fe7f5dc77f889bcb8b0b09c2051a288364bd6b3cd",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图1与一周预测表修订_20261022\\自适应多尺度加权的多变量网络流量预测_图1与一周预测表修订稿.docx",
+  "output_sha256": "3dcd7851350ab8492488c2dfffd056eb365887fcfbbcb5cfa2fcd163c4f2fc34",
+  "source_unchanged": true,
+  "changed_package_parts": [
+    "word/document.xml",
+    "word/media/journal_figure1.png"
+  ],
+  "original_math_and_tables_unchanged": true,
+  "figures_2_3_4_unchanged": true,
+  "existing_paragraphs_unchanged_except_section_2_5": true,
+  "original_styles_and_page_geometry_unchanged": true,
+  "table4_original_records_verified": 40,
+  "no_exclusions": true,
+  "new_training": false,
+  "table4_summary": [
+    {
+      "model": "dlinear",
+      "name": "DLinear",
+      "n": 8,
+      "mse_mean": 1.099746680358226,
+      "mse_sd": 0.09123136454781895,
+      "mse_display": "1.100±0.091",
+      "mae_mean": 0.6043029256781487,
+      "mae_sd": 0.020960784779370932,
+      "mae_display": "0.604±0.021"
+    },
+    {
+      "model": "dlinear_scale_static",
+      "name": "固定等权多尺度",
+      "n": 8,
+      "mse_mean": 1.1490048564936632,
+      "mse_sd": 0.10654032755160725,
+      "mse_display": "1.149±0.107",
+      "mae_mean": 0.6135830956521673,
+      "mae_sd": 0.026590909998944985,
+      "mae_display": "0.614±0.027"
+    },
+    {
+      "model": "dlinear_scale_global",
+      "name": "全局可学习权重",
+      "n": 8,
+      "mse_mean": 1.147782313648538,
+      "mse_sd": 0.10760716201434262,
+      "mse_display": "1.148±0.108",
+      "mae_mean": 0.6133067658831777,
+      "mae_sd": 0.026905585645918443,
+      "mae_display": "0.613±0.027"
+    },
+    {
+      "model": "dlinear_scale_constant_router",
+      "name": "恒定输入路由",
+      "n": 8,
+      "mse_mean": 1.1018733443076392,
+      "mse_sd": 0.02842745250521107,
+      "mse_display": "1.102±0.028",
+      "mae_mean": 0.6038095411557769,
+      "mae_sd": 0.009808391065982493,
+      "mae_display": "0.604±0.010"
+    },
+    {
+      "model": "dlinear_scale",
+      "name": "本文方法",
+      "n": 8,
+      "mse_mean": 0.840610314673389,
+      "mse_sd": 0.08762950837744705,
+      "mse_display": "0.841±0.088",
+      "mae_mean": 0.5363900283149866,
+      "mae_sd": 0.027518015235887375,
+      "mae_display": "0.536±0.028"
+    }
+  ],
+  "edits": [
+    {
+      "location": "section 2.5 setup",
+      "after": "=168，保持96 h输入及原有数据划分与预处理。表4所列五种模型均沿用2.1节的训练设置，按168 h输出独立训练，并在GÉANT的全部307个测试窗口上评价。"
+    },
+    {
+      "location": "section 2.5 results",
+      "after": "表4中，本文方法的平均MSE和MAE均为最优，较DLinear平均降低23.16%和11.16%。图4中，小圆点为单次配对降幅，菱形及横线为均值与样本标准差；相对每个对照，8次重复的两项误差均降低。"
+    }
+  ],
+  "visual_review_pending": false,
+  "visual_review_passed": true,
+  "final_pages": 7
+}

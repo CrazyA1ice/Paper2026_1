@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "stats": {
+    "wordsBefore": 926,
+    "wordsAfter": 926,
+    "fencedBlocks": 0,
+    "headings": 14,
+    "indentedBlocks": 0,
+    "residual": {
+      "issuesBefore": 4,
+      "issuesAfter": 4,
+      "scoreBefore": 6,
+      "scoreAfter": 6
+    }
+  }
+}

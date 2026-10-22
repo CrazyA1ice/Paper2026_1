@@ -1,0 +1,68 @@
+{
+  "pages": 7,
+  "words": 4809,
+  "characters": 9238,
+  "text_boxes": 4,
+  "sections": 3,
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\content_only_20261022\\render\\review.pdf",
+  "output_sha256": "71f2b3f42a83c23e376f00c180344bc7b678a190672cd6862397a10758b403fc",
+  "outside_page_text": 0,
+  "source_and_output_hashes_match": true,
+  "native_math": 16,
+  "tables": 3,
+  "visual_review_pending": false,
+  "page_details": [
+    {
+      "page": 1,
+      "first": "自适应多尺度加权的多变量网络流量预测\n收稿日期：\n作者简介：柯亚文（1998—），男（汉族），安徽池州人，助教，硕士研究生学历，硕士学位，主要研究方向：\n计算机软件。联系电话：12345678900；",
+      "last": "周预测表现。\n1 自适应多尺度网络流量预测方法\n所提方法由多尺度预测分支和尺度路由分支组成，图1以24 h预测任务为例展示整体流程。预测分支提取\n不同时间分辨率下的趋势与余项，路由分支则根据当前窗口的统计特征分配尺度权重。两条分支共同作用，输\n出未来H个小时的逐小时OD流量预测。",
+      "images": 0
+    },
+    {
+      "page": 2,
+      "first": "图1 自适应多尺度网络流量预测框架\n1.1 数据表示与预处理\n记预处理后的多变量流量向量为xₜ，包含C个OD变量。沿时间轴以1 h步长构造滑动窗口，第n个样本\n由长度为L的历史输入Xₙ和其后长度为H的",
+      "last": "，采用长度q=25的中心移动平均提取趋势项，序列两端通过复制端点补齐。设m=12，补齐\n后的输入参与下式计算：\n𝑻 (𝑠) = 1 ∑𝑚 𝑿̃(𝑠) , 𝑞=2𝑚+1=25. (6)\n𝑛,𝑡 𝑞 𝑖=−𝑚 𝑛,𝑡+𝑖\n(𝑠) (𝑠) (𝑠)\n𝑹 =𝑿 −𝑻 . (7)\n𝑛 𝑛 𝑛",
+      "images": 1
+    },
+    {
+      "page": 3,
+      "first": "式中，带波浪号的X表示端点补齐序列，T与R分别表示趋势项和余项。随后，两个线性层沿时间维分别\n完成映射，并将其输出相加，得到尺度s的预测：\n𝒀̂(𝑠)\n=𝑾\n(𝑠)\n𝑻\n(𝑠)\n+𝒃\n(𝑠)\n+𝑾\n(",
+      "last": "间顺序以 6∶2∶2 划分训练集、验证集和测试集，并独立训练和评价。对数变换后，仅保留训练\n集标准差大于10⁻⁸的变量，Abilene保留144个OD变量，GÉANT保留524个OD变量。两套数据均开展24 h\n预测，GÉANT另设168 h预测任务，数据划分与样本窗口数见表1。",
+      "images": 0
+    },
+    {
+      "page": 4,
+      "first": "表1 数据集规模与预测任务设置\n数据集 有效变量数 预测时长/h 训练/验证/测试时间点 训练/验证/测试窗口\nAbilene 144 24 2793/931/932 2674/812/813\nGÉA",
+      "last": "GÉANT上，MSE平均相对降幅分别为29.80%和46.89%，MAE为17.57%和29.15%。\n本文模型均含8339个参数，LightTS两套配置分别含130162和384382个参数，对应比例为6.41%和2.17%。\n图2 相对LightTS的预测误差降低率与参数比例",
+      "images": 1
+    },
+    {
+      "page": 5,
+      "first": "图 2(a)、(b)的柱高为三个共同种子的平均相对降幅，误差线为样本标准差；图 2(c)以对应 LightTS 配置的\n参数量为100%，给出本文模型的参数比例。该结果表明，在所设24 h任务中，多尺",
+      "last": "方法在Abilene上的MAE与平均低估误差分别为0.147和0.137，在GÉANT上分别为0.632\n和0.577，两项均值均低于所列对照。MAE反映总体偏差，平均低估误差侧重于预测需求不足的幅度，二者共\n同反映了该24 h任务中高需求点估计的改善，可为容量需求分析提供参考。",
+      "images": 1
+    },
+    {
+      "page": 6,
+      "first": "2.5 一周预测表现\n为评价较长预测区间的流量需求估计能力，在GÉANT上设置H=168的任务，并保持小时采样、96 h输入、\n数据划分和预处理方式不变。DLinear、固定等权、全局可学习权重、恒定",
+      "last": "506X.2024.06.35.\n[4] 唐文杰, 肖一磊, 孔祥宇, 等. CycleLLH：一种基于周期性整合的新型网络流量预测模型[J]. 计算机学报,\n2024, 47(12): 2867-2888. DOI: 10.11897/SP.J.1016.2024.02867.",
+      "images": 1
+    },
+    {
+      "page": 7,
+      "first": "[5] ZHOU Jian, HAN Taotao, XIAO Fu, et al. Multiscale network traffic prediction method based on dee",
+      "last": "lysis.\nKey words: network traffic forecasting; multivariate time series; multiscale learning; adaptive weighting;\ndecomposition linear model",
+      "images": 0
+    }
+  ],
+  "visual_review_pages_passed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "visual_review_result": "PASS: every final page inspected; no clipping, overlap, orphaned headings, detached figure captions, or single-character paragraph endings."
+}

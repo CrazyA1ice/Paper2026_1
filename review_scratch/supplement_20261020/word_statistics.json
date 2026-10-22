@@ -1,0 +1,20 @@
+[
+  {
+    "kind": "report",
+    "words": 2241,
+    "pages": 3,
+    "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\supplement_20261020\\render_report\\report.pdf"
+  },
+  {
+    "kind": "clean",
+    "words": 9726,
+    "pages": 13,
+    "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\supplement_20261020\\render_clean\\clean.pdf"
+  },
+  {
+    "kind": "marked",
+    "words": 9726,
+    "pages": 13,
+    "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\supplement_20261020\\render_marked\\marked.pdf"
+  }
+]

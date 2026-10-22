@@ -1,0 +1,52 @@
+{
+  "version": "supplement-20261020-v1",
+  "datasets": [
+    "abilene",
+    "geant"
+  ],
+  "models": [
+    "dlinear",
+    "dlinear_scale_global",
+    "dlinear_scale"
+  ],
+  "training_percentages": [
+    25,
+    50,
+    75,
+    100
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "input_len": 96,
+  "pred_len": 24,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "data_design": "nested most-recent training suffixes; validation/test dates fixed",
+  "scaling": "fit suffix-only normalizers; report all errors in original full-training reference coordinates",
+  "channels": "original task's OD universe held fixed across history fractions",
+  "temporal_design": "three equal chronological target-time blocks in original holdout; fixed trained model, no retraining per block",
+  "seasonal_design": "lag-24 and lag-168 references on common origins >=168 inside test; learned models use 96-hour history, weekly reference uses 168 hours",
+  "statistical_unit": "eight paired training seeds; time blocks descriptive; no iid-window hypothesis tests",
+  "limitations": [
+    "post-rejection supplementary analysis, not preregistered",
+    "training-history size changes both amount and age coverage",
+    "fixed epochs/early stopping do not equate optimizer update counts",
+    "time blocks are from the same two networks and are not independent networks"
+  ],
+  "source_files": {
+    "abilene": "d740fe2129862ec51ccd4d1fe58f9d182b6710a0fc94945ecfffad1981a172b5",
+    "geant": "63e2bb6897902ac556efdda2f3cb98a7e224cd664757d8488086271b103741ec"
+  },
+  "model_source_sha256": "8a9c140884649bddae78910951196edb2185319bffffd6e90f17bd6662593eaa",
+  "training_source_sha256": "9791e313d13e1ffd0a8334c8cb1d402f74626ef75c43694c1b1f2d23b7d56c44"
+}

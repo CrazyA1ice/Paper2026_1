@@ -1,0 +1,38 @@
+{
+  "base": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\长预测核验与修订_20261021\\自适应多尺度加权的多变量网络流量预测_扩展预测修订版.docx",
+  "base_sha256": "76b2b907abd388a49503c7ad21e8a4b009848b033e65d59e5660f2033168c744",
+  "si_base": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\长预测核验与修订_20261021\\长预测时长扩展实验_完整结果与核验.docx",
+  "si_base_sha256": "57177770317afe921c081a98e4b51fd18158c9e9795d318b0909e0068a095a46",
+  "main": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\数据处理精简修订_20261021\\自适应多尺度加权的多变量网络流量预测_数据分析精简版.docx",
+  "supplement": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\数据处理精简修订_20261021\\补充材料_完整结果与附加分析.docx",
+  "main_sha256": "3a79dfd13db4bac005b8ffff1e12845f6e7846d84e2acaad7a6520db2f061086",
+  "supplement_sha256": "a771ae1a43ef02c8d87934ea1a1df8918f9a870d329aa87aa2fb310131f62149",
+  "report": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\数据处理精简修订_20261021\\样文对照与数据处理改进说明.md",
+  "main_figures": 3,
+  "main_tables": 3,
+  "main_math_objects": 16,
+  "unchanged_references": 11,
+  "main_changed_parts": [
+    "word/document.xml"
+  ],
+  "before_results_characters": 3236,
+  "after_results_characters": 1788,
+  "before_subsections": {
+    "2.1 数据集与实验设置": 470,
+    "2.2 评价指标": 229,
+    "2.3 基线模型比较": 415,
+    "2.4 融合方式消融分析": 685,
+    "2.5 周期基线比较": 344,
+    "2.6 高需求预测点分析": 422,
+    "2.7 GÉANT一周预测对照": 386,
+    "2.8 24 h任务的模型前向计算耗时": 285
+  },
+  "after_subsections": {
+    "2.1 数据与实验设置": 615,
+    "2.2 预测精度比较": 196,
+    "2.3 融合方式消融": 330,
+    "2.4 高需求预测表现": 215,
+    "2.5 一周预测表现": 270,
+    "2.6 模型计算耗时": 162
+  }
+}

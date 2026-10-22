@@ -1,0 +1,11 @@
+{
+  "classification": "necessary_support",
+  "terminology": {
+    "全局权重": "全局可学习权重",
+    "恒定路由": "恒定输入路由",
+    "误差线": "八个种子间样本标准差"
+  },
+  "before_characters": 352,
+  "after_characters": 402,
+  "changes": "Replace two existing paragraphs; define the metric, explain bar/SD encoding and retain the same bounded numerical results."
+}

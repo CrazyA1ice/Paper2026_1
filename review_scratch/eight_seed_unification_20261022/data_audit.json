@@ -1,0 +1,129 @@
+{
+  "metric_files_verified": 48,
+  "prediction_archives_verified": 48,
+  "new_training_runs": 10,
+  "all_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "all_test_targets_identical_within_dataset": true,
+  "all_predictions_finite": true,
+  "all_metrics_recomputed_from_predictions": true,
+  "no_rows_excluded": true,
+  "original_data_code_and_metrics_unchanged": true,
+  "summary": [
+    {
+      "dataset": "abilene",
+      "model": "dlinear",
+      "n": 8,
+      "parameters": 4656,
+      "mse_mean": 0.1941924151033163,
+      "mse_sd": 0.0017241793931332954,
+      "mae_mean": 0.18882445991039276,
+      "mae_sd": 0.008075634333448127
+    },
+    {
+      "dataset": "abilene",
+      "model": "lightts",
+      "n": 8,
+      "parameters": 130162,
+      "mse_mean": 0.2551144417375326,
+      "mse_sd": 0.014028672757767173,
+      "mae_mean": 0.19873881712555885,
+      "mae_sd": 0.0075413610665436455
+    },
+    {
+      "dataset": "abilene",
+      "model": "dlinear_scale",
+      "n": 8,
+      "parameters": 8339,
+      "mse_mean": 0.18881972879171371,
+      "mse_sd": 0.003063631983486716,
+      "mae_mean": 0.1732841394841671,
+      "mae_sd": 0.008013800583559192
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "n": 8,
+      "parameters": 4656,
+      "mse_mean": 0.4367985613644123,
+      "mse_sd": 0.015673528954557054,
+      "mae_mean": 0.3705250322818756,
+      "mae_sd": 0.011265989902057903
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "n": 8,
+      "parameters": 384382,
+      "mse_mean": 0.7607917115092278,
+      "mse_sd": 0.05615135479788154,
+      "mae_mean": 0.5159065127372742,
+      "mae_sd": 0.013332308471324352
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "n": 8,
+      "parameters": 8339,
+      "mse_mean": 0.42644599825143814,
+      "mse_sd": 0.02919319162428388,
+      "mae_mean": 0.36550799384713173,
+      "mae_sd": 0.018226375056436987
+    }
+  ],
+  "effects": [
+    {
+      "dataset": "abilene",
+      "metric": "mse",
+      "mean": 25.765047182939114,
+      "sample_sd": 4.7081583416348955,
+      "n_seeds": 8,
+      "wins": 8,
+      "proposed_parameters": 8339,
+      "lightts_parameters": 130162,
+      "parameter_ratio_pct": 6.40663173583688
+    },
+    {
+      "dataset": "abilene",
+      "metric": "mae",
+      "mean": 12.657337685601764,
+      "sample_sd": 5.986637690872737,
+      "n_seeds": 8,
+      "wins": 8,
+      "proposed_parameters": 8339,
+      "lightts_parameters": 130162,
+      "parameter_ratio_pct": 6.40663173583688
+    },
+    {
+      "dataset": "geant",
+      "metric": "mse",
+      "mean": 43.7448274472918,
+      "sample_sd": 4.737748788271743,
+      "n_seeds": 8,
+      "wins": 8,
+      "proposed_parameters": 8339,
+      "lightts_parameters": 384382,
+      "parameter_ratio_pct": 2.1694564261593934
+    },
+    {
+      "dataset": "geant",
+      "metric": "mae",
+      "mean": 29.08691066484333,
+      "sample_sd": 4.453465672611452,
+      "n_seeds": 8,
+      "wins": 8,
+      "proposed_parameters": 8339,
+      "lightts_parameters": 384382,
+      "parameter_ratio_pct": 2.1694564261593934
+    }
+  ],
+  "assets": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\八次重复统一修订_20261022\\图表与核验数据"
+}

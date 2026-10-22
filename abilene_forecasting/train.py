@@ -91,7 +91,9 @@ def main() -> None:
         "--model",
         choices=[
             "dlinear", "fits", "dlinear_freq", "dlinear_scale",
-            "dlinear_scale_static", "proposed", "proposed_static",
+            "dlinear_scale_static", "dlinear_scale_global",
+            "dlinear_scale_constant_router",
+            "proposed", "proposed_static",
             "lightts",
         ],
         default="dlinear",

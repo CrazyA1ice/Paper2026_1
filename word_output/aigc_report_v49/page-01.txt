@@ -1,0 +1,45 @@
+PaperPure AIGC检测服务
+https://paperpure.net
+PaperPure AIGC检测服务
+https://paperpure.net
+PaperPure AIGC检测
+AIGC检测 · 全文报告单
+NO:PAPERPURE20260928220107 检测时间:2026-09-28 22:01:07
+篇名: 2026.09.28v49
+作者:
+单位:
+文件名: 2026.09.28v49_.docx
+检测范围 包括但不限于以下AI模型
+GPT-3.5 GPT-4.0 Gemini Claude 文心一言
+通义千问 智谱AI 豆包 Kimi DeepSeek
+全文检测结果 PaperPureAIGC检测 https://paperpure.net
+52.4%
+AIGC率
+AIGC率: 52.4%
+AI特征字符数: 5658
+总字符数: 10804
+高风险
+中风险
+提示风险
+未标识部分
+AIGC片段分布图
+前部20%
+AIGC率:29.9%
+AI特征字符数:669
+中部60%
+AIGC率:53.1%
+AI特征字符数:3426
+后部20%
+AIGC率:74.0%
+AI特征字符数:1563
+0 10804
+高风险 中风险 提示风险 未标识部分
+片段指标列表
+序号 片段名称 字符数 AI特征
+1 片段1 300 显著 5.3%
+2 片段2 199 显著 3.5%
+3 片段3 267 显著 4.7%
+4 片段4 200 显著 3.5%
+5 片段5 176 显著 3.1%
+6 片段6 166 显著 2.9%
+- 1 -

@@ -75,6 +75,29 @@ Time-Series-Library 当前训练入口的默认优化设置为 Adam、MSE、
 `learning_rate=0.0001`。正式实验应在冒烟测试后固定超参数，并对
 Abilene/GÉANT 使用同一套 LightTS 设置。
 
+## 第二预测长度实验（H=12）
+
+在 `abilene_forecasting` 目录的 PowerShell 中运行：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\run_horizon12_global_vs_router.ps1
+```
+
+脚本保持输入长度 96、批量大小 16、最多 30 轮及随机种子 42～49，
+仅比较全局可学习固定权重 `dlinear_scale_global` 与自适应路由器
+`dlinear_scale`，在 Abilene 和 GÉANT 上共执行 32 次训练。
+完整结果存于 `results/horizon12_global_vs_router/`，与 H=24 结果隔离。
+再次运行会跳过配置一致且文件完整的实验，并在结束时生成
+`analysis/paired_seed_results.csv` 与 `analysis/paired_summary.csv`。
+
+训练结束后也可单独重新汇总：
+
+```powershell
+.\.venv\Scripts\python.exe .\analyze_horizon12_global_vs_router.py
+```
+
+汇总脚本要求全部 32 次实验完成，并检查预测长度、训练配置和两模型的测试目标一致。
+
 ## 结果目录
 
 默认结构为：

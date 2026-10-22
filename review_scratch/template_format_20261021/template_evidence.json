@@ -1,0 +1,14 @@
+[
+  {
+    "name": "论文模板",
+    "pages": 5,
+    "sha256": "c61f9eb714128babde4667a927b8a64e91766cace58e2f012dd321acb41874d8",
+    "original_sha256": "0ee7a6df8259ea9cb4c9d1d8c3ed174aebb7db8fdc8d891173fcacfe71b6ab22"
+  },
+  {
+    "name": "投稿须知",
+    "pages": 2,
+    "sha256": "063d0b5af5dd71bce662bc023af6d225ea1371bec6ee67947541de5e39f0be80",
+    "original_sha256": "706f5dfd87b9d6079e6cf9ad59983661f6e79fc3d479751707d099080534262c"
+  }
+]

@@ -1,0 +1,184 @@
+[
+  {
+    "part": "[Content_Types].xml",
+    "size": 2393,
+    "sha256": "511fd646d4be45b8df3157bcf379669d194ce89475ba22271a23c61fd324bf91",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "_rels/.rels",
+    "size": 589,
+    "sha256": "a76c44cf6b278166bfc93edce0a98846be30e584462153ba97fa683469ff5916",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "docProps/app.xml",
+    "size": 726,
+    "sha256": "16f4afa53cbdf98e92ba7652daa041a58ca3fff2f5b68247ebe192506eca4b19",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "docProps/core.xml",
+    "size": 708,
+    "sha256": "4214d2f401be7a0655e51ab0510578d0ef111170cd23c36e4fee47ae356bb8ad",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/document.xml",
+    "size": 235422,
+    "sha256": "ed5d7763a1eeb7dd7a5bce1d15ecf2ed6f4dc80d8794dc123f9ac3492a96c328",
+    "role": "editable",
+    "unchanged": false
+  },
+  {
+    "part": "word/_rels/document.xml.rels",
+    "size": 2783,
+    "sha256": "2b85eafbb286a08311a7c93cc90cfb125a0194c50e3fdb7b481314af92d00b9f",
+    "role": "editable",
+    "unchanged": false
+  },
+  {
+    "part": "word/media/image3.png",
+    "size": 231703,
+    "sha256": "16839c5b8d022be0362148a54c043c54041beff47b38ed76b59f56c65600aa28",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/fontTable.xml",
+    "size": 2973,
+    "sha256": "e3ff639575c8317d3790844b69db4d631d8e74610fdefe0fa8d175c12d791355",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/webSettings.xml",
+    "size": 1083,
+    "sha256": "4a225c07c64feb7f5e4ef8b4444bfe94c0f81e35cb00632fef988cf909172f82",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/media/image2.png",
+    "size": 280779,
+    "sha256": "676128c8cd4b78255996cac319e44fe27e48d525b7d2687c919d3f41d9f87ae0",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/footer1.xml",
+    "size": 4883,
+    "sha256": "fc69b3bc1bc5ade2031f0bf92778b7e443d6c4a7772a34b2568f18de00355eeb",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/settings.xml",
+    "size": 5825,
+    "sha256": "543ba8d08a4589eff4cc9e01e9473af840ab60ede507e302303dab2e8a37ae60",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/styles.xml",
+    "size": 48280,
+    "sha256": "9ea4c2f4435a4f0f06f282f5e5842710b99f03cc3cd5fe7d5bfde8d7bede17df",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/media/image1.png",
+    "size": 488779,
+    "sha256": "43b923f4b8ad72283dcd4bc0a7956d93eca10626234274e841fef5261e853e08",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/header1.xml",
+    "size": 2819,
+    "sha256": "18290ff4d4415241bdf5b1e17b909f7b2cd5dab13326c62ac1533897e7e146ff",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/endnotes.xml",
+    "size": 3050,
+    "sha256": "ad3b6fb9557af17249074bc90f98ac0ab50661c58287b18e78c2a56ded0fd6f3",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/media/image5.png",
+    "size": 397505,
+    "sha256": "fc0838f0b57eba61c2b6ae94c341e7c16fbee4907f8588f0fd0c81c7731f606f",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/footnotes.xml",
+    "size": 3056,
+    "sha256": "8aba4b79f7ca865cb42732e7457765e43197eeab497515f8d3ac61de934fda36",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/media/image4.png",
+    "size": 760800,
+    "sha256": "91d059a8f90d570fad41b8d7db851850161ecab9a656cea7c10a00d9fe3df992",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/theme/theme1.xml",
+    "size": 8398,
+    "sha256": "7017cbe8b7512b56e04e6b3e3579aa862a35b6f9f31e0bf48328f6e5c074ebbd",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/media/image6.png",
+    "size": 302686,
+    "sha256": "161ad186c14d8c307ec1a754dcaf2ee36a37494e1c56b2370248f521da3bc952",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/header2.xml",
+    "size": 1293,
+    "sha256": "e1d2d4060c859ac7d6648284ba49706cf80e2e14374d3cf9bb2983edf9ee677f",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/header3.xml",
+    "size": 1293,
+    "sha256": "e1d2d4060c859ac7d6648284ba49706cf80e2e14374d3cf9bb2983edf9ee677f",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/footer2.xml",
+    "size": 1293,
+    "sha256": "cc831c46cac03c968fc5b2d8e0ce3179d17a559dd54fa4e4fba3f7c2680cc344",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/footer3.xml",
+    "size": 1293,
+    "sha256": "cc831c46cac03c968fc5b2d8e0ce3179d17a559dd54fa4e4fba3f7c2680cc344",
+    "role": "preserve",
+    "unchanged": true
+  },
+  {
+    "part": "word/media/image7.png",
+    "size": 167440,
+    "sha256": "e6bafdaba7fc9dea1a03857aa7b475498ad9f93b5b6cf76d43ab116f41a2b7fa",
+    "role": "preserve",
+    "unchanged": true
+  }
+]

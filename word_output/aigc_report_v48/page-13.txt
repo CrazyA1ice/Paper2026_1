@@ -1,0 +1,42 @@
+PaperPure AIGC检测服务
+https://paperpure.net
+PaperPure AIGC检测服务
+https://paperpure.net
+尺度1、2和4的DLinear专家分别预测骨干网络OD流量，再由轻量路由网络计算输入相关融合权重，形成兼顾短
+时波动与较慢趋势的多尺度预测结构。在Abilene和GÉANT预测长度为24的任务中，本文方法的平均误差低于DL
+inear、LightTS和固定等权模型。相对全局可学习权重与恒定输入路由两类常权重对照，本文方法在Abilene
+上的逐种子平均MSE改进均约1.80%；GÉANT上的对应改进分别为4.31%和4.97%，但两项95%置信区间均跨越零。
+预测校准显示，各模型在较高流量取值处仍低估，本文方法的高值端平均偏差较小。这一分组结果不能推广为
+每个测试点均更准确。结合逐种子权重及波动分组分析，路由器能否稳定匹配窗口尺度需求仍缺乏充分证据；
+输入相关融合的稳定收益需在更多数据与预测设置下检验。
+参考文献
+[1] LOHRASBINASAB I, KESHAVARZ A, AMIN-NEJAD S, et al. From statistical- to machine learning-bas
+ed network traffic prediction[J]. Transactions on Emerging Telecommunications Technologies, 2022
+, 33(4): e4394. DOI: 10.1002/ett.4394.
+[2] QIN L, GU H, WEI W, et al. Spatio-temporal communication network traffic prediction method b
+ased on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.202
+4.121003.
+[3] 韦烜, 刘志华, 李青, 等. 大型IP网络流量矩阵分析预测的探讨研究[J]. 系统工程与电子技术, 2024, 4
+6(6): 2164-2173. DOI: 10.12305/j.issn.1001-506X.2024.06.35.
+[4] 唐文杰, 肖一磊, 孔祥宇, 等. CycleLLH：一种基于周期性整合的新型网络流量预测模型[J]. 计算机学
+报, 2024, 47(12): 2867-2888. DOI: 10.11897/SP.J.1016.2024.02867.
+[5] ZHOU J, HAN T, XIAO F, et al. Multiscale network traffic prediction method based on deep ech
+o-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-2
+1874. DOI: 10.1109/JIOT.2022.3181807.
+[6] ZENG A, CHEN M, ZHANG L, et al. Are transformers effective for time series forecasting?[C]//
+Proceedings of the AAAI Conference on Artificial Intelligence. 2023, 37(9): 11121-11128. DOI: 10
+.1609/aaai.v37i9.26317.
+[7] WANG S, WU H, SHI X, et al. TimeMixer: decomposable multiscale mixing for time series foreca
+sting[C]//International Conference on Learning Representations. 2024.
+[8] ZHANG T, ZHANG Y, CAO W, et al. Less is more: fast multivariate time series forecasting with
+ light sampling-oriented MLP structures[EB/OL]. (2022-07-04)[2026-09-20]. https://arxiv.org/abs/
+2207.01186. DOI: 10.48550/arXiv.2207.01186.
+[9] KUREŠ M, KOUMAR J, HYNEK K. CESNET TS-Zoo: a library for reproducible analysis of network tr
+affic time series[C]//2025 21st International Conference on Network and Service Management. 2025
+. DOI: 10.23919/CNSM67658.2025.11297513.
+[10] ZHANG Y, ROUGHAN M, DUFFIELD N, et al. Fast accurate computation of large-scale IP traffic 
+matrices from link loads[J]. ACM SIGMETRICS Performance Evaluation Review, 2003, 31(1): 206-217.
+ DOI: 10.1145/885651.781053.
+[11] UHLIG S, QUOITIN B, LEPROPRE J, et al. Providing public intradomain traffic matrices to the
+ research community[J]. ACM SIGCOMM Computer Communication Review, 2006, 36(1): 83-86. DOI: 10.1
+- 13 -

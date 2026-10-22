@@ -1,0 +1,25 @@
+{
+  "worker": 0,
+  "pid": 9304,
+  "device": "NVIDIA GeForce GTX 1060",
+  "started_unix": 1792550375.2671006,
+  "assigned": 120,
+  "done": 120,
+  "status": "complete",
+  "current": {
+    "dataset": "abilene",
+    "model": "dlinear_scale_global",
+    "seed": 49,
+    "horizon": 48
+  },
+  "current_started_unix": 1792558798.6342304,
+  "log": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h048\\abilene\\dlinear_scale_global_seed49\\training.log",
+  "last_completed": {
+    "dataset": "abilene",
+    "model": "dlinear_scale_global",
+    "seed": 49,
+    "horizon": 48
+  },
+  "updated_unix": 1792558830.0335968,
+  "finished_unix": 1792558830.0355952
+}

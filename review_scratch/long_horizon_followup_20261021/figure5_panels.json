@@ -1,0 +1,39 @@
+{
+  "panels": [
+    {
+      "panel": "(a) MSE",
+      "endpoint": "mse",
+      "center": "mean",
+      "spread": "sample SD ddof=1",
+      "unit": "training seed",
+      "n": 8,
+      "all_models": 5,
+      "all_seed_rows": 40,
+      "baseline_zero": true,
+      "label_clearance": "mean + sample SD + 2.6% of y-axis range",
+      "visual_review": "PASS",
+      "grayscale_readability": "Neutral controls and darker proposed bar remain distinct with direct labels",
+      "collision_check": "PASS 0 FAIL 0 WARN"
+    },
+    {
+      "panel": "(b) MAE",
+      "endpoint": "mae",
+      "center": "mean",
+      "spread": "sample SD ddof=1",
+      "unit": "training seed",
+      "n": 8,
+      "all_models": 5,
+      "all_seed_rows": 40,
+      "baseline_zero": true,
+      "label_clearance": "mean + sample SD + 2.6% of y-axis range",
+      "visual_review": "PASS",
+      "grayscale_readability": "Neutral controls and darker proposed bar remain distinct with direct labels",
+      "collision_check": "PASS 0 FAIL 0 WARN"
+    }
+  ],
+  "width_mm": 138,
+  "height_mm": 63.5,
+  "alignment_verdict": "PASS",
+  "selection_scope": "GÉANT H168, user-selected after complete-grid analysis; complete grid retained in supplement",
+  "preflight_width_warning": "138 mm is intentional within the retained 162 mm manuscript text column; generic Nature width defaults do not apply to this journal."
+}

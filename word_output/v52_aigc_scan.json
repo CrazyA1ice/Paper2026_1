@@ -1,0 +1,59 @@
+{
+  "summary": {
+    "total_chars": 10398,
+    "total_paragraphs": 49,
+    "total_sentences": 220
+  },
+  "template_phrases": {
+    "count": 1,
+    "density_per_1000": 0.09617234083477591,
+    "matches": [
+      "为改变融合比例提供了设计依据"
+    ]
+  },
+  "passive_voice": {
+    "count": 7,
+    "per_sentence": 0.032
+  },
+  "burstiness": {
+    "avg_len": 45.8,
+    "std_len": 27.1,
+    "cv": 0.591,
+    "risk": "正常 — 句子长度变化丰富"
+  },
+  "para_symmetry": {
+    "para_count": 49,
+    "avg_para_len": 210.2,
+    "symmetrical_runs": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "risk": "发现 5 处对称段落组（3段以上长度相近）"
+  },
+  "nested_numbers": {
+    "count": 6,
+    "risk": "检测到 6 处编号标记"
+  },
+  "colon_lists": {
+    "count": 4,
+    "risk": "检测到 4 处冒号并列结构"
+  },
+  "punctuation": {
+    "fullwidth_punct_ratio": 5.77,
+    "commas_per_sentence": 1.15,
+    "risk": "正常"
+  },
+  "colloquial": {
+    "count": 0,
+    "terms": [],
+    "risk": "正常"
+  },
+  "dash_density": {
+    "total_dashes": 0,
+    "over_limit_paras": 0,
+    "risk": "正常"
+  }
+}

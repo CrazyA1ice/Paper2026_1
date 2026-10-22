@@ -1,0 +1,54 @@
+[
+  {
+    "check": "source_preflight",
+    "returncode": 1
+  },
+  {
+    "check": "figure2_text",
+    "returncode": 0
+  },
+  {
+    "check": "figure2_collision",
+    "returncode": 0
+  },
+  {
+    "check": "figure2_format",
+    "returncode": 0
+  },
+  {
+    "check": "figure3_text",
+    "returncode": 0
+  },
+  {
+    "check": "figure3_collision",
+    "returncode": 0
+  },
+  {
+    "check": "figure3_format",
+    "returncode": 0
+  },
+  {
+    "check": "figure4_text",
+    "returncode": 0
+  },
+  {
+    "check": "figure4_collision",
+    "returncode": 0
+  },
+  {
+    "check": "figure4_format",
+    "returncode": 0
+  },
+  {
+    "check": "profile_10",
+    "returncode": 0
+  },
+  {
+    "check": "profile_11",
+    "returncode": 0
+  },
+  {
+    "check": "profile_12",
+    "returncode": 0
+  }
+]

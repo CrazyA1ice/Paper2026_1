@@ -1,0 +1,115 @@
+{
+  "before": {
+    "summary": {
+      "total_chars": 9058,
+      "total_paragraphs": 52,
+      "total_sentences": 182
+    },
+    "template_phrases": {
+      "count": 0,
+      "density_per_1000": 0.0,
+      "matches": []
+    },
+    "passive_voice": {
+      "count": 4,
+      "per_sentence": 0.022
+    },
+    "burstiness": {
+      "avg_len": 48.2,
+      "std_len": 30.7,
+      "cv": 0.638,
+      "risk": "正常 — 句子长度变化丰富"
+    },
+    "para_symmetry": {
+      "para_count": 52,
+      "avg_para_len": 172.2,
+      "symmetrical_runs": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "risk": "发现 5 处对称段落组（3段以上长度相近）"
+    },
+    "nested_numbers": {
+      "count": 7,
+      "risk": "检测到 7 处编号标记"
+    },
+    "colon_lists": {
+      "count": 2,
+      "risk": "检测到 2 处冒号并列结构"
+    },
+    "punctuation": {
+      "fullwidth_punct_ratio": 5.21,
+      "commas_per_sentence": 1.2,
+      "risk": "正常"
+    },
+    "colloquial": {
+      "count": 0,
+      "terms": [],
+      "risk": "正常"
+    },
+    "dash_density": {
+      "total_dashes": 0,
+      "over_limit_paras": 0,
+      "risk": "正常"
+    }
+  },
+  "after": {
+    "summary": {
+      "total_chars": 8947,
+      "total_paragraphs": 52,
+      "total_sentences": 175
+    },
+    "template_phrases": {
+      "count": 0,
+      "density_per_1000": 0.0,
+      "matches": []
+    },
+    "passive_voice": {
+      "count": 2,
+      "per_sentence": 0.011
+    },
+    "burstiness": {
+      "avg_len": 49.5,
+      "std_len": 30.4,
+      "cv": 0.613,
+      "risk": "正常 — 句子长度变化丰富"
+    },
+    "para_symmetry": {
+      "para_count": 52,
+      "avg_para_len": 170.1,
+      "symmetrical_runs": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "risk": "发现 4 处对称段落组（3段以上长度相近）"
+    },
+    "nested_numbers": {
+      "count": 7,
+      "risk": "检测到 7 处编号标记"
+    },
+    "colon_lists": {
+      "count": 2,
+      "risk": "检测到 2 处冒号并列结构"
+    },
+    "punctuation": {
+      "fullwidth_punct_ratio": 5.38,
+      "commas_per_sentence": 1.24,
+      "risk": "正常"
+    },
+    "colloquial": {
+      "count": 0,
+      "terms": [],
+      "risk": "正常"
+    },
+    "dash_density": {
+      "total_dashes": 0,
+      "over_limit_paras": 0,
+      "risk": "正常"
+    }
+  }
+}

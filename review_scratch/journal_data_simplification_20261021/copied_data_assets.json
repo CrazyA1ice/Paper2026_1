@@ -1,0 +1,50 @@
+[
+  {
+    "source": "paired_reductions.csv",
+    "output": "paired_reductions.csv"
+  },
+  {
+    "source": "per_seed_scores.csv",
+    "output": "per_seed_scores.csv"
+  },
+  {
+    "source": "protocol.json",
+    "output": "protocol.json"
+  },
+  {
+    "source": "summary.csv",
+    "output": "summary.csv"
+  },
+  {
+    "source": "trend_check.json",
+    "output": "trend_check.json"
+  },
+  {
+    "source": "图5_GEANT一周预测误差.pdf",
+    "output": "图3_GEANT一周预测误差.pdf"
+  },
+  {
+    "source": "图5_GEANT一周预测误差.png",
+    "output": "图3_GEANT一周预测误差.png"
+  },
+  {
+    "source": "图5_GEANT一周预测误差.svg",
+    "output": "图3_GEANT一周预测误差.svg"
+  },
+  {
+    "source": "图5_GEANT一周预测误差.tiff",
+    "output": "图3_GEANT一周预测误差.tiff"
+  },
+  {
+    "source": "图5_全部八种子数据.csv",
+    "output": "图3_全部八种子数据.csv"
+  },
+  {
+    "source": "图5_均值与样本标准差.csv",
+    "output": "图3_均值与样本标准差.csv"
+  },
+  {
+    "source": "数据说明.md",
+    "output": "数据说明.md"
+  }
+]

@@ -1,0 +1,11 @@
+Nature Figure Rendered Collision Audit
+pdf: C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图2-4参考方案_20261022\C_配对小倍图\图2_基线归一化哑铃图.pdf
+pages: 1
+visible text boxes: 29
+stroke paths: 124
+
+
+summary: 0 fail, 0 warn, 8 contained fill overlays, 0 contained image overlays
+verdict: PASS
+note: contained overlays can be intentional; WARN findings need final-size visual review
+

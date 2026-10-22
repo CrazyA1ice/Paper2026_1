@@ -1,0 +1,92 @@
+[
+  {
+    "tag": "A2",
+    "suite": "A",
+    "figure": 2,
+    "prefix": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图2-4参考方案_20261022\\A_紧凑矩阵\\图2_多基线增益矩阵",
+    "width_mm": 138.0,
+    "height_mm": 57.99999999999999,
+    "alignment": "PASS",
+    "notes": []
+  },
+  {
+    "tag": "A3",
+    "suite": "A",
+    "figure": 3,
+    "prefix": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图2-4参考方案_20261022\\A_紧凑矩阵\\图3_高需求配对增益矩阵",
+    "width_mm": 138.0,
+    "height_mm": 72.0,
+    "alignment": "PASS",
+    "notes": []
+  },
+  {
+    "tag": "A4",
+    "suite": "A",
+    "figure": 4,
+    "prefix": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图2-4参考方案_20261022\\A_紧凑矩阵\\图4_一周绝对误差与增益联合矩阵",
+    "width_mm": 138.0,
+    "height_mm": 78.0,
+    "alignment": "NOT APPLICABLE",
+    "notes": []
+  },
+  {
+    "tag": "B2",
+    "suite": "B",
+    "figure": 2,
+    "prefix": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图2-4参考方案_20261022\\B_误差平面\\图2_MSE与MAE综合误差平面",
+    "width_mm": 138.0,
+    "height_mm": 70.0,
+    "alignment": "PASS",
+    "notes": []
+  },
+  {
+    "tag": "B3",
+    "suite": "B",
+    "figure": 3,
+    "prefix": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图2-4参考方案_20261022\\B_误差平面\\图3_高需求双指标误差平面",
+    "width_mm": 138.0,
+    "height_mm": 66.0,
+    "alignment": "PASS",
+    "notes": []
+  },
+  {
+    "tag": "B4",
+    "suite": "B",
+    "figure": 4,
+    "prefix": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图2-4参考方案_20261022\\B_误差平面\\图4_一周配对误差一致性平面",
+    "width_mm": 138.0,
+    "height_mm": 67.0,
+    "alignment": "PASS",
+    "notes": []
+  },
+  {
+    "tag": "C2",
+    "suite": "C",
+    "figure": 2,
+    "prefix": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图2-4参考方案_20261022\\C_配对小倍图\\图2_基线归一化哑铃图",
+    "width_mm": 138.0,
+    "height_mm": 61.0,
+    "alignment": "PASS",
+    "notes": []
+  },
+  {
+    "tag": "C3",
+    "suite": "C",
+    "figure": 3,
+    "prefix": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图2-4参考方案_20261022\\C_配对小倍图\\图3_高需求双指标小倍图",
+    "width_mm": 138.0,
+    "height_mm": 84.0,
+    "alignment": "PASS",
+    "notes": []
+  },
+  {
+    "tag": "C4",
+    "suite": "C",
+    "figure": 4,
+    "prefix": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图2-4参考方案_20261022\\C_配对小倍图\\图4_一周逐种子配对小倍图",
+    "width_mm": 138.0,
+    "height_mm": 86.0,
+    "alignment": "PASS",
+    "notes": []
+  }
+]

@@ -1,0 +1,183 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\图表组织优化修订_20261022\\图表与核验数据\\图2_配对相对降幅.csv",
+  "n_rows": 64,
+  "n_cols": 5,
+  "columns": {
+    "dataset": {
+      "type": "categorical",
+      "n_total": 64,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 64,
+      "n_unique": 2,
+      "categories": [
+        [
+          "abilene",
+          32
+        ],
+        [
+          "geant",
+          32
+        ]
+      ],
+      "min_group_n": 32,
+      "max_group_n": 32,
+      "small_groups_flag": false
+    },
+    "baseline": {
+      "type": "categorical",
+      "n_total": 64,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 64,
+      "n_unique": 2,
+      "categories": [
+        [
+          "dlinear",
+          32
+        ],
+        [
+          "lightts",
+          32
+        ]
+      ],
+      "min_group_n": 32,
+      "max_group_n": 32,
+      "small_groups_flag": false
+    },
+    "metric": {
+      "type": "categorical",
+      "n_total": 64,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 64,
+      "n_unique": 2,
+      "categories": [
+        [
+          "mse",
+          32
+        ],
+        [
+          "mae",
+          32
+        ]
+      ],
+      "min_group_n": 32,
+      "max_group_n": 32,
+      "small_groups_flag": false
+    },
+    "seed": {
+      "type": "continuous",
+      "n_total": 64,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 64,
+      "mean": 45.5,
+      "median": 45.5,
+      "sd": 2.309401076758503,
+      "min": 42.0,
+      "max": 49.0,
+      "skewness": 0.0,
+      "skew_label": "approximately symmetric",
+      "n_outliers_iqr": 0,
+      "outlier_lo": 38.5,
+      "outlier_hi": 52.5,
+      "needs_log_axis": "False"
+    },
+    "reduction_pct": {
+      "type": "continuous",
+      "n_total": 64,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 64,
+      "mean": 15.713216517713338,
+      "median": 12.349037442856385,
+      "sd": 15.404997960241849,
+      "min": -6.313735597874331,
+      "max": 50.19296862831067,
+      "skewness": 0.5688723555905254,
+      "skew_label": "moderately skewed",
+      "n_outliers_iqr": 0,
+      "outlier_lo": -35.21642006290417,
+      "outlier_hi": 66.40149394829717,
+      "needs_log_axis": false
+    }
+  },
+  "correlation": {
+    "columns": [
+      "seed",
+      "reduction_pct"
+    ],
+    "matrix": {
+      "seed": {
+        "seed": 1.0,
+        "reduction_pct": -0.101
+      },
+      "reduction_pct": {
+        "seed": -0.101,
+        "reduction_pct": 1.0
+      }
+    },
+    "pairs_sorted": [
+      {
+        "a": "seed",
+        "b": "reduction_pct",
+        "r": -0.10118602352941593,
+        "magnitude": "weak"
+      }
+    ]
+  },
+  "group_summary": {
+    "by": [
+      "dataset",
+      "baseline",
+      "metric"
+    ],
+    "n_groups": 8,
+    "min_n_per_group": 8,
+    "max_n_per_group": 8,
+    "median_n_per_group": 8,
+    "small_groups_flag": true,
+    "tiny_groups_flag": false,
+    "per_group_counts": [
+      [
+        "('abilene', 'dlinear', 'mae')",
+        8
+      ],
+      [
+        "('abilene', 'dlinear', 'mse')",
+        8
+      ],
+      [
+        "('abilene', 'lightts', 'mae')",
+        8
+      ],
+      [
+        "('abilene', 'lightts', 'mse')",
+        8
+      ],
+      [
+        "('geant', 'dlinear', 'mae')",
+        8
+      ],
+      [
+        "('geant', 'dlinear', 'mse')",
+        8
+      ],
+      [
+        "('geant', 'lightts', 'mae')",
+        8
+      ],
+      [
+        "('geant', 'lightts', 'mse')",
+        8
+      ]
+    ]
+  },
+  "warnings": [],
+  "suggestions": [
+    "分类 vs 连续，小样本（每组 n<10）→ **箱线图/小提琴图 + stripplot 叠加原始点**；**避免**只画均值柱状图，会掩盖分布。",
+    "两连续变量 seed vs reduction_pct → 散点图（含回归拟合 + r 值）"
+  ]
+}
+

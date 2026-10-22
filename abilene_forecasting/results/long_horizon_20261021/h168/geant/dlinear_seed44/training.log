@@ -1,0 +1,56 @@
+epoch=001 train_objective=0.947474 val_mse=2.105210
+epoch=002 train_objective=0.887601 val_mse=2.103367
+epoch=003 train_objective=0.883647 val_mse=2.175612
+epoch=004 train_objective=0.879099 val_mse=2.072037
+epoch=005 train_objective=0.879931 val_mse=2.184087
+epoch=006 train_objective=0.879824 val_mse=1.990860
+epoch=007 train_objective=0.881743 val_mse=2.084915
+epoch=008 train_objective=0.878657 val_mse=1.895870
+epoch=009 train_objective=0.882011 val_mse=2.119060
+epoch=010 train_objective=0.879188 val_mse=1.980370
+epoch=011 train_objective=0.877667 val_mse=1.969730
+epoch=012 train_objective=0.881270 val_mse=2.027573
+epoch=013 train_objective=0.879435 val_mse=2.103217
+epoch=014 train_objective=0.881091 val_mse=2.046853
+Early stopping at epoch 14
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "dlinear",
+  "model_config": {},
+  "seed": 44,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1446,
+    "val": 307,
+    "test": 307
+  },
+  "input_len": 96,
+  "pred_len": 168,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 32592,
+  "best_val_mse_normalized": 1.895869819271448,
+  "test_normalized": {
+    "mse": 0.9837433099746704,
+    "mae": 0.575158417224884,
+    "rmse": 0.9918383359909058
+  },
+  "test_original_units": {
+    "mse": 2160425472.0,
+    "mae": 9330.6103515625,
+    "rmse": 46480.37890625
+  },
+  "elapsed_seconds": 36.92985799999997
+}

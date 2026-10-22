@@ -1,0 +1,12 @@
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图表组织优化修订_20261022\图表与核验数据\图2_多基线误差降幅与参数比例.pdf ---
+  category: vector  ext: pdf  size: 49751 B
+  [INFO] pypdf / PyPDF2 未安装，跳过字体嵌入类型检查。pip install pypdf 后可启用。
+  >>> verdict: INFO
+
+--- C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图表组织优化修订_20261022\图表与核验数据\图2_多基线误差降幅与参数比例.png ---
+  category: raster  ext: png  size: 252657 B
+  pixels: 3259x1290  dpi: (599.9988, 599.9988)
+  [PASS] 无问题。
+
+

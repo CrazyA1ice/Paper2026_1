@@ -1,0 +1,55 @@
+{
+  "summary": {
+    "total_chars": 6987,
+    "total_paragraphs": 48,
+    "total_sentences": 144
+  },
+  "template_phrases": {
+    "count": 0,
+    "density_per_1000": 0.0,
+    "matches": []
+  },
+  "passive_voice": {
+    "count": 5,
+    "per_sentence": 0.035
+  },
+  "burstiness": {
+    "avg_len": 46.9,
+    "std_len": 22.0,
+    "cv": 0.469,
+    "risk": "低风险"
+  },
+  "para_symmetry": {
+    "para_count": 48,
+    "avg_para_len": 143.6,
+    "symmetrical_runs": [
+      3,
+      3,
+      3
+    ],
+    "risk": "发现 3 处对称段落组（3段以上长度相近）"
+  },
+  "nested_numbers": {
+    "count": 6,
+    "risk": "检测到 6 处编号标记"
+  },
+  "colon_lists": {
+    "count": 1,
+    "risk": "正常"
+  },
+  "punctuation": {
+    "fullwidth_punct_ratio": 6.47,
+    "commas_per_sentence": 1.39,
+    "risk": "正常"
+  },
+  "colloquial": {
+    "count": 0,
+    "terms": [],
+    "risk": "正常"
+  },
+  "dash_density": {
+    "total_dashes": 0,
+    "over_limit_paras": 0,
+    "risk": "正常"
+  }
+}

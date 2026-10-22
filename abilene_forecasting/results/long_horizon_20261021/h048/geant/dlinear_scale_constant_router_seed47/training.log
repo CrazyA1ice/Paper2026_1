@@ -1,0 +1,62 @@
+epoch=001 train_objective=0.691671 val_mse=1.498496
+epoch=002 train_objective=0.606267 val_mse=1.519590
+epoch=003 train_objective=0.597203 val_mse=1.424235
+epoch=004 train_objective=0.591785 val_mse=1.403818
+epoch=005 train_objective=0.592446 val_mse=1.429628
+epoch=006 train_objective=0.592008 val_mse=1.389408
+epoch=007 train_objective=0.593344 val_mse=1.420702
+epoch=008 train_objective=0.593714 val_mse=1.388607
+epoch=009 train_objective=0.592384 val_mse=1.491548
+epoch=010 train_objective=0.591944 val_mse=1.421772
+epoch=011 train_objective=0.590448 val_mse=1.389709
+epoch=012 train_objective=0.593264 val_mse=1.414268
+epoch=013 train_objective=0.594834 val_mse=1.488665
+epoch=014 train_objective=0.591672 val_mse=1.375180
+epoch=015 train_objective=0.592432 val_mse=1.463007
+epoch=016 train_objective=0.595022 val_mse=1.411419
+epoch=017 train_objective=0.590691 val_mse=1.438069
+epoch=018 train_objective=0.591341 val_mse=1.480521
+epoch=019 train_objective=0.593612 val_mse=1.401426
+epoch=020 train_objective=0.591231 val_mse=1.383423
+Early stopping at epoch 20
+{
+  "dataset": "geant",
+  "data_path": "data\\processed\\geant_1hour.npz",
+  "data_feature": "matrix_avg_bandwidth_kbps",
+  "data_aggregation": "1_hour",
+  "model": "dlinear_scale_constant_router",
+  "model_config": {},
+  "seed": 47,
+  "device": "cuda",
+  "n_channels": 524,
+  "split_rows": {
+    "train": 1709,
+    "val": 570,
+    "test": 570
+  },
+  "split_windows": {
+    "train": 1566,
+    "val": 427,
+    "test": 427
+  },
+  "input_len": 96,
+  "pred_len": 48,
+  "cut_ratio": 0.5,
+  "batch_size": 16,
+  "epochs_max": 30,
+  "patience": 6,
+  "learning_rate": 0.001,
+  "parameters": 16547,
+  "best_val_mse_normalized": 1.3751804466409483,
+  "test_normalized": {
+    "mse": 0.5225144624710083,
+    "mae": 0.4197189211845398,
+    "rmse": 0.7228516340255737
+  },
+  "test_original_units": {
+    "mse": 1345341568.0,
+    "mae": 6671.107421875,
+    "rmse": 36678.8984375
+  },
+  "elapsed_seconds": 80.68823319999956
+}

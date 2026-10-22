@@ -1,0 +1,43 @@
+{
+  "source_sha256": "7d6ceddd0c554c4a9c9568604e48191b6345aa790cb5c1210d4e938b4f68d5b8",
+  "changed_paragraphs": 21,
+  "changed_segments": 21,
+  "paragraph_indices": [
+    3,
+    14,
+    23,
+    28,
+    32,
+    38,
+    40,
+    47,
+    51,
+    62,
+    66,
+    70,
+    76,
+    93,
+    94,
+    106,
+    109,
+    110,
+    111,
+    114,
+    116
+  ],
+  "body_paragraphs": 129,
+  "tables": 3,
+  "figures": 5,
+  "math_objects": 41,
+  "modified_text_chars_before": 3594,
+  "modified_text_chars_after": 3511,
+  "all_prose_chars_before": 12881,
+  "all_prose_chars_after": 12798,
+  "format_skeleton_identical": true,
+  "numeric_identifier_issues": [],
+  "term_count_differences": [],
+  "changed_zip_members": [
+    "word/document.xml"
+  ],
+  "output_sha256": "6ee73a83c9044b11af6ce94e8fc941e4c3de18f05121a440f21c6c805eeb4d8b"
+}

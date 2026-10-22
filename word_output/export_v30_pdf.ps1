@@ -1,0 +1,17 @@
+$ErrorActionPreference = 'Stop'
+$source = 'C:\Users\Quant\Desktop\Paper2026_1\word_output\2026.09.25v30.docx'
+$directory = 'C:\Users\Quant\Desktop\Paper2026_1\word_output\render_v30'
+$target = Join-Path $directory '2026.09.25v30.pdf'
+New-Item -ItemType Directory -Force -Path $directory | Out-Null
+$word = $null
+$document = $null
+try {
+    $word = New-Object -ComObject Word.Application
+    $word.Visible = $false
+    $document = $word.Documents.Open($source, $false, $true)
+    $document.ExportAsFixedFormat($target, 17)
+    Write-Output $target
+} finally {
+    if ($null -ne $document) { $document.Close($false) }
+    if ($null -ne $word) { $word.Quit() }
+}

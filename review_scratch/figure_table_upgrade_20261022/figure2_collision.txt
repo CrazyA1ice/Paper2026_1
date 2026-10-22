@@ -1,0 +1,11 @@
+Nature Figure Rendered Collision Audit
+pdf: C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\图表组织优化修订_20261022\图表与核验数据\图2_多基线误差降幅与参数比例.pdf
+pages: 1
+visible text boxes: 32
+stroke paths: 49
+
+
+summary: 0 fail, 0 warn, 8 contained fill overlays, 0 contained image overlays
+verdict: PASS
+note: contained overlays can be intentional; WARN findings need final-size visual review
+

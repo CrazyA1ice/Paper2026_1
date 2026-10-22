@@ -1,0 +1,72 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.03v57.docx",
+  "target": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\word_output\\2026.10.03v58.docx",
+  "source_sha256": "08d4f9a25be4f7b6a44d984f47e52ab28826dc120b7d98b3a249bcf5d65c7575",
+  "target_sha256": "868a52809ab526d9dd9425538010655ac3cb061e62f184ef2c21dd18f72e4d43",
+  "changes": [
+    {
+      "section": "中文摘要",
+      "before": "摘要：为提高小时级骨干网络流量的多步预测精度，构建了轻量自适应多尺度预测模型。模型将历史窗口转换为三种时间分辨率的序列，分别交由独立的分解线性专家处理，以兼顾局部变化和较慢趋势。路由网络提取窗口的总体水平、离散程度、末时状态和平均变化强度，经两层感知器生成融合权重，得到未来多步预测。在输入长度为96、预测长度为24的Abilene与GÉANT实验中，三个共同随机种子下的均方误差相对单尺度模型分别降低4.07%和4.54%，相对采样导向轻量模型分别降低29.80%和46.89%。八种子消融进一步比较全局可学习权重与恒定输入路由，前一数据集的平均改进率均约1.80%，后一数据集分别为4.31%和4.97%。结果表明，该结构在两套骨干网数据上取得了较低的平均预测误差，低维路由仅增加少量参数，可为未来一天的需求观察与容量规划提供预测参考。",
+      "after": "摘要：为提高小时级骨干网络流量的多步预测精度，构建了轻量自适应多尺度预测模型。模型将历史窗口转换为三种时间分辨率的序列，分别由独立分解线性专家生成候选预测，兼顾局部变化与较慢趋势。路由网络提取窗口的总体水平、离散程度、末时状态和平均变化强度，经两层感知器生成融合权重。在输入96步、预测24步的Abilene和GÉANT实验中，3个共同随机种子的均方误差相对单尺度分解线性模型分别降低4.07%和4.54%，相对采样导向轻量模型LightTS分别降低29.80%和46.89%。8种子消融中，相对全局可学习权重和恒定输入路由的逐种子平均改进率在Abilene上均约1.80%，在GÉANT上分别为4.31%和4.97%。结果表明，多尺度预测与低维路由结合取得了较低的平均误差，仅增加少量融合参数，可为未来一天的网络需求分析与容量规划提供参考。",
+      "reason": "明确单尺度分解线性模型与LightTS两个比较对象；用数据集名称替代“前一/后一”，保留全部结果百分比及3/8种子口径。"
+    },
+    {
+      "section": "英文摘要",
+      "before": "Abstract: A lightweight adaptive multiscale model was developed to improve multistep forecasting of hourly backbone traffic. Historical windows were represented at three temporal resolutions. Independent decomposition linear predictors captured local changes and slower trends. A two-layer perceptron used four window statistics to produce normalized fusion weights. Experiments on Abilene and GÉANT used an input length of 96 and a forecast length of 24. Across three common random seeds, mean squared error decreased by 4.07% and 4.54% relative to the single-scale model, and by 29.80% and 46.89% relative to the sampling-oriented lightweight model. Eight-seed ablations included learned global weights and a constant-input router. Mean seed-wise improvements over these controls were both approximately 1.80% on Abilene, and 4.31% and 4.97% on GÉANT, respectively. The model achieves lower mean errors on both backbone datasets with limited additional routing parameters. It provides forecasting information for next-day demand observation and capacity planning.",
+      "after": "Abstract: A lightweight adaptive multiscale model was developed to improve multistep forecasting of hourly backbone traffic. Historical windows were represented at three temporal resolutions, and independent decomposition linear (DLinear) predictors generated candidate forecasts. A two-layer perceptron used four window statistics to calculate fusion weights: overall level, dispersion, final-time state and mean absolute change. Experiments on Abilene and GÉANT used an input length of 96 and a forecast length of 24. Across three common random seeds, mean squared error decreased by 4.07% and 4.54% relative to single-scale DLinear, respectively. The corresponding reductions relative to the sampling-oriented lightweight model LightTS were 29.80% and 46.89%. Eight-seed ablations compared the model with learned global weights and a constant-input router. Mean seed-wise improvements over both controls were approximately 1.80% on Abilene. On GÉANT, the improvements over learned global weights and the constant-input router were 4.31% and 4.97%, respectively. Combining multiscale forecasting with low-dimensional routing achieves lower mean errors with few additional fusion parameters. The forecasts provide a reference for next-day network demand analysis and capacity planning.",
+      "reason": "与中文摘要逐项对应，明确DLinear与LightTS；工作和结果用过去时，结论用现在时。"
+    },
+    {
+      "section": "引言第1段",
+      "before": "源—目的节点对（origin-destination，OD）流量描述骨干网节点对之间的通信需求。容量规划、拥塞预警、资源调度和流量工程需要判断未来流量，本文预测小时级OD需求，为未来一天的趋势观察与容量规划提供参考。云计算、视频业务和数据中心互联增加了业务迁移与聚集，使流量变化更复杂。周期变化、局部波动与突发变化叠加，各OD变量量级不同，模型需同时刻画较慢趋势与短时变化。",
+      "after": "源—目的节点对（origin-destination，OD）流量描述骨干网节点对之间的通信需求。容量规划需要了解各节点对未来的需求变化。本文面向小时级OD流量，预测未来一天的需求，为高需求时段观察和容量安排提供参考。云计算、视频业务和数据中心互联增加了业务迁移与聚集，使流量变化更复杂。周期变化、局部波动与突发变化叠加，各OD变量量级不同，预测模型需同时刻画较慢趋势与短时变化。",
+      "reason": "将研究任务与容量规划的需求连接，集中说明小时级OD预测的用途。"
+    },
+    {
+      "section": "引言第3段",
+      "before": "原始时间分辨率保留局部细节，时间聚合平滑短时扰动并突出较慢趋势。Zhou等[5]采用深度回声状态网络提取多分辨率信息，利用各尺度互补性。分解线性模型（decomposition linear model，DLinear）[6]通过序列分解和线性映射预测，TimeMixer[7]采用多尺度混合，LightTS[8]以采样导向的多层感知器（multilayer perceptron，MLP）实现快速预测。本文兼顾多尺度信息与模型规模。",
+      "after": "原始时间分辨率保留局部细节，时间聚合平滑短时扰动并突出较慢趋势。Zhou等[5]采用深度回声状态网络提取多分辨率信息，利用各尺度互补性。分解线性模型（decomposition linear model，DLinear）[6]通过序列分解和线性映射预测，TimeMixer[7]采用多尺度混合，LightTS[8]以采样导向的多层感知器（multilayer perceptron，MLP）实现快速预测。这些方法为多分辨率建模和轻量预测提供了基础，本文在分解线性预测的主干上研究尺度间的融合方式。",
+      "reason": "保留全部文献和原有方法描述，将文献介绍过渡到本文关注的尺度融合。"
+    },
+    {
+      "section": "引言第4段",
+      "before": "常见流程先给定尺度，再按固定比例融合预测。输入窗口的短时波动和平缓趋势占比不同，单尺度难以覆盖多分辨率信息，固定融合也未使用窗口状态差异。本文据此计算输入相关权重，组合各尺度预测。",
+      "after": "对于同一历史窗口，不同时间分辨率保留的信息并不相同。将各尺度预测按固定比例融合，可以利用多尺度信息，但融合比例不会随输入状态变化。因此，本文研究在保持尺度专家结构一致的条件下，依据窗口状态生成融合权重是否能够进一步降低整体预测误差。",
+      "reason": "把对“常见流程”的笼统判断改为明确的融合设计问题，不将既有多尺度方法一概描述为固定权重。"
+    },
+    {
+      "section": "引言第5段",
+      "before": "本文采用样本级自适应多尺度结构：尺度1、2和4的独立DLinear专家生成候选预测，路由网络读取窗口的总体水平、离散程度、最近状态和变化强度，经Softmax生成融合权重，使尺度内预测与尺度间选择分开处理。在Abilene和GÉANT上比较DLinear、LightTS、固定等权、全局可学习权重和恒定输入路由，通过多随机种子实验及权重分析检验预测误差、结构消融与尺度分配行为。",
+      "after": "本文以独立DLinear专家处理尺度1、2和4的序列，用低维窗口统计量驱动路由网络，生成归一化融合权重。尺度专家负责各分辨率的候选预测，路由网络负责尺度间融合，在保留多尺度信息的同时控制参数规模。在Abilene和GÉANT上，通过外部基线比较、固定融合对照及多随机种子实验评价整体预测精度，并结合预测轨迹和权重分布分析模型行为。",
+      "reason": "说明专家与路由的分工及验证路径，减少与摘要、方法和实验设置重复的细节清单。"
+    },
+    {
+      "section": "第2.5节应用说明第1段",
+      "before": "运维模块可定期读取小时级历史OD序列，生成未来一天的需求估计，辅助识别高需求时段与容量变化，为趋势观察和容量规划提供参考。",
+      "after": "在小时级网络管理场景中，运维模块可随观测序列更新，读取最近96 h的各OD流量，按训练阶段的预处理规则构造历史窗口，输出未来24 h各OD的逐小时需求估计。一次预测同时覆盖全部有效OD变量，便于按时间和节点对组织后续需求分析。",
+      "reason": "明确应用输入、更新方式和输出组织；96 h与24 h均来自原任务设置。"
+    },
+    {
+      "section": "第2.5节应用说明第2段",
+      "before": "图4中各模型在高真实值区间均有低估，本文方法的分组平均偏差较小，有助于观察模型对高需求趋势的刻画。",
+      "after": "预测输出处于标准化空间。用于实际需求分析时，应先利用训练阶段保存的逐OD统计量逆标准化，再作逆对数变换，恢复原始流量量纲。随后可结合网络拓扑和路由关系，将各OD的预测需求汇总到对应链路，并与链路容量比较，为容量安排提供参考。",
+      "reason": "将原第3段的量纲恢复与链路负载接口移至输入输出说明之后，补清正确的逆变换顺序。"
+    },
+    {
+      "section": "第2.5节应用说明第3段",
+      "before": "实验评估标准化OD流量。实际接入网络管理系统时，需恢复原始量纲，再结合拓扑、路由和链路容量，由OD需求分析链路负载。",
+      "after": "图4中各模型在高真实值区间均有低估，本文方法的分组平均偏差相对较小。这一结果说明模型对高需求水平的估计有所改善，可为需求上升时段的观察和容量复核提供预测参考。",
+      "reason": "保留图4的高值区间结果及低估现象，将其与需求观察联系；不新增已部署或节省容量的结论。"
+    }
+  ],
+  "preserved": {
+    "tables": 3,
+    "math_objects": 41,
+    "figures": 5,
+    "references": 11
+  },
+  "abstract_nonspace_characters_without_label": 368,
+  "all_other_paragraphs_identical": true,
+  "all_other_zip_members_identical": true,
+  "hardware_configuration_absent": true
+}
