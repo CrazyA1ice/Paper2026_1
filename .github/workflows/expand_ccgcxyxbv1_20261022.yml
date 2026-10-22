@@ -1,0 +1,33 @@
+name: Expand ccgcxyxb V1 manuscript
+on:
+  push:
+    branches:
+      - paper-expand-ccgcxyxbv1-20261022
+    paths:
+      - .github/workflows/expand_ccgcxyxbv1_20261022.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout revision branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install document library
+        run: python -m pip install --disable-pip-version-check python-docx==1.2.0
+      - name: Build V2 and compare report with checks
+        run: python paper_template/expand_ccgcxyxbv1_20261022.py
+      - name: Commit resulting deliverables
+        run: |
+          git config user.name "paper-revision-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "paper_template/长春工程学院学报(自然科学版)/自适应多尺度加权的多变量网络流量预测_ccgcxyxbV2_扩充稿.docx" "paper_template/长春工程学院学报(自然科学版)/ccgcxyxbV1至V2_扩充修改对比报告.md" "paper_template/长春工程学院学报(自然科学版)/ccgcxyxbV1至V2_扩充QA.json"
+          git diff --cached --quiet || git commit -m "Add V2 expanded manuscript and evidence-preserving comparison"
+          git push
