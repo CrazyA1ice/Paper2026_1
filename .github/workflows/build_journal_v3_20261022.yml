@@ -1,0 +1,72 @@
+name: Produce journal manuscript V3 and comparison report
+on:
+  push:
+    branches: [paper-coherence-review-20261022]
+    paths:
+      - .github/workflows/build_journal_v3_20261022.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-v3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository and original V2
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+          persist-credentials: true
+      - name: Use Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Word package support
+        run: python -m pip install --disable-pip-version-check python-docx==1.2.0
+      - name: Restore verified V3 revision scripts
+        shell: bash
+        run: |
+          cat review_scratch/journal_sample_review_20261022/v3_payload_{00,01,02,03}.txt > /tmp/v3-payload.b64
+          echo 'ec65570f7c15cda430019a6c9070905d4a7b3595ff7d3fe3988d8400e3eb56d5  /tmp/v3-payload.b64' | sha256sum -c -
+          base64 -d /tmp/v3-payload.b64 > /tmp/v3-payload.tar.xz
+          mkdir -p /tmp/v3-scripts
+          tar -xJf /tmp/v3-payload.tar.xz -C /tmp/v3-scripts
+          python -m py_compile /tmp/v3-scripts/revise_v3.py /tmp/v3-scripts/build_report.py
+      - name: Regenerate V3 and its full comparison
+        run: |
+          python /tmp/v3-scripts/revise_v3.py
+          python /tmp/v3-scripts/build_report.py
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          import json,hashlib
+          base=Path('paper_template/长春工程学院学报(自然科学版)')
+          v2=base/'自适应多尺度加权的多变量网络流量预测_ccgcxyxbV2_扩充稿.docx'
+          v3=base/'自适应多尺度加权的多变量网络流量预测_ccgcxyxbV3_行文连贯性修订稿.docx'
+          report=base/'ccgcxyxbV2至V3_三篇样文比较及全文修改对比报告.docx'
+          meta=json.loads(Path('review_scratch/journal_sample_review_20261022/edits.json').read_text())['meta']
+          assert hashlib.sha256(v2.read_bytes()).hexdigest()=='ce76448527e11cc6da692c3999490a3534be3402ced1b853c10b20b90e60802c'
+          assert meta['edit_count']==17 and meta['run_patches']==13 and meta['moves']==8
+          assert meta['new_char_count']==9900 and meta['original_char_count']==10071
+          assert len(Document(v3).tables)==4 and len(Document(v3).inline_shapes)==8
+          assert len(Document(v3).paragraphs)==112
+          assert len(Document(report).paragraphs)>100
+          for f in (v3,report):
+              assert f.exists() and f.stat().st_size>30000
+              print(f, f.stat().st_size, hashlib.sha256(f.read_bytes()).hexdigest())
+          PY
+      - name: Package generated documents for independent review
+        uses: actions/upload-artifact@v4
+        with:
+          name: journal-v3-final-documents
+          path: |
+            paper_template/长春工程学院学报(自然科学版)/自适应多尺度加权的多变量网络流量预测_ccgcxyxbV3_行文连贯性修订稿.docx
+            paper_template/长春工程学院学报(自然科学版)/ccgcxyxbV2至V3_三篇样文比较及全文修改对比报告.docx
+          retention-days: 7
+      - name: Commit final Word documents on revision branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "paper_template/长春工程学院学报(自然科学版)/自适应多尺度加权的多变量网络流量预测_ccgcxyxbV3_行文连贯性修订稿.docx" "paper_template/长春工程学院学报(自然科学版)/ccgcxyxbV2至V3_三篇样文比较及全文修改对比报告.docx"
+          git diff --cached --quiet || git commit -m "Save journal manuscript V3 and V2–V3 comparison report"
+          git push
