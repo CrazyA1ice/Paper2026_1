@@ -42,10 +42,9 @@ for section,next_title,title,text in blocks:
     if source._p.pPr is not None:node.insert(0,deepcopy(source._p.pPr))
     anchor._p.addprevious(node)
     para=Paragraph(node,anchor._parent);para.style=source.style
-    run=para.add_run(text)
-    for existing in source.runs:
-        if existing.text and existing._r.rPr is not None:
-            run._r.insert(0,deepcopy(existing._r.rPr));break
+    # Inherit JournalBody paragraph style without copying italic variable runs.
+    # The original nearby formula prose may start with a math variable.
+    para.add_run(text)
     para.paragraph_format.keep_with_next=False
 d.save(out)
 after=Document(out)
