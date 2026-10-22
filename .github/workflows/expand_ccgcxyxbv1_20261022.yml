@@ -5,6 +5,7 @@ on:
       - paper-expand-ccgcxyxbv1-20261022
     paths:
       - .github/workflows/expand_ccgcxyxbv1_20261022.yml
+      - paper_template/expand_ccgcxyxbv1_20261022.py
   workflow_dispatch:
 permissions:
   contents: write
