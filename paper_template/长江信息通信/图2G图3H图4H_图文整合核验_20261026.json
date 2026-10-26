@@ -48,6 +48,26 @@
       "crop_top_region_pixel_identical": true
     }
   ],
+  "source_body_structure": {
+    "child_count": 104,
+    "sectPr_indices": [
+      103
+    ],
+    "last_tag_names": [
+      "p",
+      "p",
+      "p",
+      "p",
+      "p",
+      "p",
+      "p",
+      "p",
+      "p",
+      "p",
+      "p",
+      "sectPr"
+    ]
+  },
   "new_text": {
     "2.5": {
       "inserted": true,
@@ -179,7 +199,7 @@
     "inline_images": 8,
     "numbered_formula_paragraphs_unchanged": true,
     "required_values_in_corresponding_sections": true,
-    "output_sha256": "d04962c3cf043f8c41f789c6d9b1a4e38ffd0fc2845e34549a1c5add52a40b09",
+    "output_sha256": "3a1419597ec5aa012c234e9e8c6d462130b2fdf1b9a64b91e66b9fba15009d60",
     "new_document": "自适应多尺度加权的多变量网络流量预测_czxxtx20261026_图文整合稿.docx",
     "source_counts": {
       "tables": 4,
