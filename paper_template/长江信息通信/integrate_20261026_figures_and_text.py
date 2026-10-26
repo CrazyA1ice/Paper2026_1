@@ -146,7 +146,19 @@ def insert_missing_facts(doc):
 def replace_figures(doc):
     # Four original figures: fig 1 remains unchanged; replace images 2–4 only.
     shapes=list(doc.inline_shapes)
-    assert len(shapes) == 4, f"expected four inline figures, found {len(shapes)}"
+    if len(shapes) != 4:
+        print("FIGURE INVENTORY: shape count =", len(shapes), flush=True)
+        for i,s in enumerate(shapes):
+            bs=s._inline.xpath('.//a:blip')
+            ids=[b.get(qn("r:embed")) for b in bs]
+            parts=[str(doc.part.related_parts[x].partname) for x in ids if x in doc.part.related_parts]
+            print("SHAPE",i, "size",s.width,s.height, "rel",ids, "parts",parts,flush=True)
+        for i,p in enumerate(doc.paragraphs):
+            inline=p._p.xpath('.//wp:inline')
+            if inline:
+                print("INLINE PARA",i, "blips",len(p._p.xpath('.//a:blip')),
+                      "text",repr(p.text[:100]),"previous",repr(doc.paragraphs[i-1].text[:85] if i else ""),flush=True)
+        raise AssertionError(f"expected four inline figures, found {len(shapes)}")
     outcome=[]
     for figure_index, (_, cropped, _, _) in enumerate(SPECS, start=2):
         shape=shapes[figure_index-1]
