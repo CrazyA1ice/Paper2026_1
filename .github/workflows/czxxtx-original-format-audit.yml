@@ -1,0 +1,32 @@
+name: Audit original Changjiang concise manuscript against journal templates
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'paper_template/长江信息通信/核对格式_20261026.py'
+      - '.github/workflows/czxxtx-original-format-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools for original DOC template comparison
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer fonts-noto-cjk poppler-utils >/dev/null
+          python -m pip install --disable-pip-version-check python-docx pillow lxml
+      - name: Inspect original structural manuscript and original publisher template
+        run: |
+          python "paper_template/长江信息通信/核对格式_20261026.py"
+      - name: Commit audit report only (do not change original manuscript)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "paper_template/长江信息通信/结构精简稿_期刊格式逐项核验_20261026.json"
+          git commit -m "Record read-only Changjiang format conformity audit [skip ci]" || exit 0
+          git pull --rebase origin main
+          git push origin main
