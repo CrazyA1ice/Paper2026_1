@@ -65,6 +65,41 @@ def main():
     orig_en_abstract=next((x for x in ps if x.startswith("Abstract")),None)
     orig_keywords=next((x for x in ps if x.startswith("关键词")),None)
     orig_en_keywords=next((x for x in ps if x.startswith("Key words")),None)
+    from docx import Document
+    from docx.oxml.ns import qn
+    from collections import Counter
+    doc=Document(paper)
+    styles={}
+    for st in doc.styles:
+        if st.name.startswith("Journal") or st.name in ("Title","Normal"):
+            fonts=[]
+            for el in st._element.xpath(".//w:rFonts"):
+                fonts.append({"eastAsia":el.get(qn("w:eastAsia")),"ascii":el.get(qn("w:ascii")),"hAnsi":el.get(qn("w:hAnsi")),"cs":el.get(qn("w:cs"))})
+            styles[st.name]={"font":st.font.name,"size_pt":st.font.size.pt if st.font.size else None,
+                              "bold":st.font.bold,"font_names":fonts[:5],
+                              "paragraph_line":st.paragraph_format.line_spacing,
+                              "first_line_pt":st.paragraph_format.first_line_indent.pt if st.paragraph_format.first_line_indent else None,
+                              "before_pt":st.paragraph_format.space_before.pt if st.paragraph_format.space_before else None,
+                              "after_pt":st.paragraph_format.space_after.pt if st.paragraph_format.space_after else None}
+    def defaults():
+        opts=[]
+        for el in doc.styles.element.xpath(".//w:docDefaults//w:rFonts"):
+            opts.append({"ascii":el.get(qn("w:ascii")),"eastAsia":el.get(qn("w:eastAsia")),
+                         "hAnsi":el.get(qn("w:hAnsi"))})
+        return opts
+    border_reports=[]
+    for tbl in doc.tables:
+        counts=Counter()
+        for row in tbl.rows:
+            for cell in row.cells:
+                for el in cell._tc.xpath(".//w:tcBorders/*"):
+                    counts[(el.tag.split("}")[-1],el.get(qn("w:val")))]+=1
+        border_reports.append({str(key):v for key,v in counts.items()})
+    a["full_main_paragraphs"]=[{"index":i,"text":p.text,"style":p.style.name if p.style else None}
+                              for i,p in enumerate(doc.paragraphs)]
+    a["computed_style_rules"]=styles
+    a["document_default_fonts"]=defaults()
+    a["table_cell_borders"]=border_reports
     result={
         "source_document":paper.name,
         "source_sha256":hashlib.sha256(paper.read_bytes()).hexdigest(),
