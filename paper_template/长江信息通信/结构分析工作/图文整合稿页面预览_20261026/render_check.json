@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "pages": 7,
+  "pages": 8,
   "source": "20261026_图文整合稿.docx",
   "render_engine": "LibreOffice headless",
   "screenshots": [
@@ -48,6 +48,13 @@
     },
     {
       "name": "page-7.jpg",
+      "size": [
+        869,
+        1228
+      ]
+    },
+    {
+      "name": "page-8.jpg",
       "size": [
         869,
         1228
