@@ -1,0 +1,42 @@
+[
+  {
+    "check": "plot_figure1.py_source",
+    "returncode": 0
+  },
+  {
+    "check": "plot_figures234.py_source",
+    "returncode": 0
+  },
+  {
+    "check": "figure1_text",
+    "returncode": 0
+  },
+  {
+    "check": "figure1_collision",
+    "returncode": 0
+  },
+  {
+    "check": "figure2_text",
+    "returncode": 0
+  },
+  {
+    "check": "figure2_collision",
+    "returncode": 0
+  },
+  {
+    "check": "figure3_text",
+    "returncode": 0
+  },
+  {
+    "check": "figure3_collision",
+    "returncode": 0
+  },
+  {
+    "check": "figure4_text",
+    "returncode": 0
+  },
+  {
+    "check": "figure4_collision",
+    "returncode": 0
+  }
+]

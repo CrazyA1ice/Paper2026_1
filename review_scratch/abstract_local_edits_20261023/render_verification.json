@@ -1,0 +1,89 @@
+{
+  "pages": 10,
+  "words": 8600,
+  "characters": 14351,
+  "shapes": 4,
+  "sections": 3,
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\abstract_local_edits_20261023\\render_submission\\review.pdf",
+  "source_and_output_hashes_match": true,
+  "outside_page_text": 0,
+  "missing_glyph_boxes": 0,
+  "visual_review_pending": false,
+  "page_details": [
+    {
+      "page": 1,
+      "first": "自适应多尺度加权的多变量网络流量预测\n收稿日期：2026.10.22\n作者简介：柯亚文（1998—），男（汉族），安徽池州人，助教，硕士研究",
+      "last": "数量随OD变量维度急剧膨胀，易在样本有限的网络流量数据上引\n发过拟合。此外，采用固定权重或全局静态权重的尺度融合策略忽略了流量窗口的时变非平稳性，在流量突变\n切换期反而会因粗尺度滞后效应拉低预测精度。",
+      "images": 0
+    },
+    {
+      "page": 2,
+      "first": "为突破上述“精度—复杂度”权衡困境并克服静态融合的滞后干扰，本文将三个独立的多分辨率 DLinear 专\n家与四维统计特征驱动的动态尺度路由",
+      "last": "，并将负值截为0。考虑到流量非负且变量量级不同，先进行自然对数变换，再按变量标\n准化：\n𝑢 =log(1+𝑣 ). (3)\n𝑡,𝑐 𝑡,𝑐\n𝑥 =\n𝑢𝑡,𝑐−𝜇𝑐 tr\n. (4)\n𝑡,𝑐 𝜎tr\n𝑐",
+      "images": 1
+    },
+    {
+      "page": 3,
+      "first": "式中，v为原始流量，u为对数变换后的流量；下标t、c分别表示时间与变量，上标tr表示训练集统计量，\nμ 与 σ 分别为对应变量的均值和标准差",
+      "last": "0 𝑐=1 𝑛,𝑡,𝑐 𝑛\nℓ = 1 ∑𝐶 𝑋 , 𝑑 = 1 ∑𝐿−1∑𝐶 |𝑋 −𝑋 |. (10)\n𝑛 𝐶 𝑐=1 𝑛,𝐿−1,𝑐 𝑛 (𝐿−1)𝐶 𝑡=1 𝑐=1 𝑛,𝑡,𝑐 𝑛,𝑡−1,𝑐",
+      "images": 0
+    },
+    {
+      "page": 4,
+      "first": "上述四维统计特征从不同侧面完整刻画了当前流量窗口的运行工况：全局均值𝜇 表征当前窗口的整体业务\n𝑛\n负载水位，标准差𝜎 衡量窗口内的整体能量",
+      "last": "标准差大于 10⁻⁸的变量，Abilene 保留 144 个 OD 变量，\nGÉANT保留524个OD变量。两套数据均开展24 h预测，GÉANT另设168 h预测任务，数据划分与样本窗口\n数见表1。",
+      "images": 0
+    },
+    {
+      "page": 5,
+      "first": "表1 数据集规模与预测任务设置\n数据集 有效变量数 预测时长/h 训练/验证/测试时间点 训练/验证/测试窗口\nAbilene 144 24",
+      "last": "，LightTS的参数规模随OD变量增加而急剧膨胀（两套配置分别高达130162和\n384382个参数），而本文方法得益于变量间共享的多尺度映射与极简路由设计，参数量恒定为8339，仅为LightTS",
+      "images": 0
+    },
+    {
+      "page": 6,
+      "first": "的6.41%和2.17%（即参数量大幅缩减93.59%和97.83%）。这充分证明本文方法以不到LightTS十五分之一乃\n至四十六分之一的",
+      "last": "照可以发现一个关键规律：在变量规模高达524维、流量突发特性更复杂的GÉANT\n数据集上，“固定等权”（MSE为0.447）、“全局可学习权重”（0.446）以及“恒定输入路由”（0.449）三种静态",
+      "images": 1
+    },
+    {
+      "page": 7,
+      "first": "融合策略的误差反而均高于单尺度 DLinear（0.437），这一现象有力地证明：多尺度表征并非简单叠加即可奏\n效，粗粒度尺度（𝑠 =2,4",
+      "last": "当窗口处于高负载爬升期时，路由\n特征中的末态均值ℓ 与均值𝜇 能够有效引导模型向保留完整波峰形态的细粒度专家赋权，从而显著缓解了传统\n𝑛 𝑛\n多尺度模型常见的“削峰低估”弊端，具备更强的工程实用价值。",
+      "images": 1
+    },
+    {
+      "page": 8,
+      "first": "2.5 一周预测表现\n前述实验以未来24 h为预测目标。为了考察相同方法在一周预测任务中的表现，进一步将预测长度扩展为\n168 h，历史输入",
+      "last": "息的问题，本文建立了由三个独立 DLinear 专家和低维窗口\n路由组成的预测模型。模型按1、2、4三个时间尺度提取候选预测，再利用四项窗口统计特征生成融合权重，\n形成面向未来多个小时的OD流量预测。",
+      "images": 1
+    },
+    {
+      "page": 9,
+      "first": "实验从总体精度、融合方式和较长预测区间三个方面验证了模型表现。在Abilene和GÉANT的24 h预测\n任务中，本文方法均取得较低的平均 ",
+      "last": "ity[J]. ACM SIGCOMM Computer Communication Review, 2006, 36(1): 83-86. DOI:\n10.1145/1111322.1111341.",
+      "images": 0
+    },
+    {
+      "page": 10,
+      "first": "Multivariate network traffic forecasting with adaptive multiscale weig",
+      "last": "sting; multivariate time series; multiscale learning; adaptive weighting; decomposition\nlinear model",
+      "images": 0
+    }
+  ],
+  "visual_review_passed": true,
+  "unchanged_previously_reviewed_pages": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "newly_reviewed_pages": [
+    1,
+    2,
+    3,
+    10
+  ]
+}

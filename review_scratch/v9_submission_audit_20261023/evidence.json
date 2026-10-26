@@ -1,0 +1,217 @@
+{
+  "paper": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\逐项修订_20261023\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV9_投稿规范修订稿.docx",
+  "paper_sha256": "63e070311f9b14d291a98a8a0d3d5569049fd566cb371f787275653661863321",
+  "missing_data_audit": [
+    {
+      "dataset": "Abilene",
+      "raw_time_grid": 4656,
+      "observed_aggregate_rows": 4008,
+      "missing_aggregate_rows": 648,
+      "splits": [
+        {
+          "name": "train",
+          "total": 2793,
+          "missing": 624,
+          "missing_first_utc": "2004-03-15T00:00:00+00:00",
+          "missing_last_utc": "2004-04-30T23:00:00+00:00",
+          "missing_rows_are_zero_filled_in_saved_experiment_input": true,
+          "horizons": [
+            {
+              "horizon": 24,
+              "windows": 2674,
+              "target_time_occurrences": 64176,
+              "missing_target_time_occurrences": 14976,
+              "windows_with_missing_targets": 693
+            }
+          ]
+        },
+        {
+          "name": "val",
+          "total": 931,
+          "missing": 0,
+          "missing_first_utc": null,
+          "missing_last_utc": null,
+          "missing_rows_are_zero_filled_in_saved_experiment_input": true,
+          "horizons": [
+            {
+              "horizon": 24,
+              "windows": 812,
+              "target_time_occurrences": 19488,
+              "missing_target_time_occurrences": 0,
+              "windows_with_missing_targets": 0
+            }
+          ]
+        },
+        {
+          "name": "test",
+          "total": 932,
+          "missing": 24,
+          "missing_first_utc": "2004-08-20T00:00:00+00:00",
+          "missing_last_utc": "2004-08-20T23:00:00+00:00",
+          "missing_rows_are_zero_filled_in_saved_experiment_input": true,
+          "horizons": [
+            {
+              "horizon": 24,
+              "windows": 813,
+              "target_time_occurrences": 19512,
+              "missing_target_time_occurrences": 576,
+              "windows_with_missing_targets": 47
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "GEANT",
+      "raw_time_grid": 2849,
+      "observed_aggregate_rows": 2698,
+      "missing_aggregate_rows": 151,
+      "splits": [
+        {
+          "name": "train",
+          "total": 1709,
+          "missing": 119,
+          "missing_first_utc": "2005-01-15T18:30:00+00:00",
+          "missing_last_utc": "2005-03-01T17:30:00+00:00",
+          "missing_rows_are_zero_filled_in_saved_experiment_input": true,
+          "horizons": [
+            {
+              "horizon": 24,
+              "windows": 1590,
+              "target_time_occurrences": 38160,
+              "missing_target_time_occurrences": 2856,
+              "windows_with_missing_targets": 165
+            },
+            {
+              "horizon": 168,
+              "windows": 1446,
+              "target_time_occurrences": 242928,
+              "missing_target_time_occurrences": 19992,
+              "windows_with_missing_targets": 453
+            }
+          ]
+        },
+        {
+          "name": "val",
+          "total": 570,
+          "missing": 32,
+          "missing_first_utc": "2005-03-22T14:30:00+00:00",
+          "missing_last_utc": "2005-03-23T21:30:00+00:00",
+          "missing_rows_are_zero_filled_in_saved_experiment_input": true,
+          "horizons": [
+            {
+              "horizon": 24,
+              "windows": 451,
+              "target_time_occurrences": 10824,
+              "missing_target_time_occurrences": 768,
+              "windows_with_missing_targets": 55
+            },
+            {
+              "horizon": 168,
+              "windows": 307,
+              "target_time_occurrences": 51576,
+              "missing_target_time_occurrences": 4688,
+              "windows_with_missing_targets": 162
+            }
+          ]
+        },
+        {
+          "name": "test",
+          "total": 570,
+          "missing": 0,
+          "missing_first_utc": null,
+          "missing_last_utc": null,
+          "missing_rows_are_zero_filled_in_saved_experiment_input": true,
+          "horizons": [
+            {
+              "horizon": 24,
+              "windows": 451,
+              "target_time_occurrences": 10824,
+              "missing_target_time_occurrences": 0,
+              "windows_with_missing_targets": 0
+            },
+            {
+              "horizon": 168,
+              "windows": 307,
+              "target_time_occurrences": 51576,
+              "missing_target_time_occurrences": 0,
+              "windows_with_missing_targets": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "seed_variability": [
+    {
+      "dataset": "abilene",
+      "models": {
+        "dlinear": {
+          "mse": {
+            "mean": 0.1941924151033163,
+            "sample_sd": 0.0017241793931332954
+          },
+          "mae": {
+            "mean": 0.18882445991039276,
+            "sample_sd": 0.008075634333448127
+          }
+        },
+        "lightts": {
+          "mse": {
+            "mean": 0.2551144417375326,
+            "sample_sd": 0.014028672757767173
+          },
+          "mae": {
+            "mean": 0.19873881712555885,
+            "sample_sd": 0.0075413610665436455
+          }
+        },
+        "dlinear_scale": {
+          "mse": {
+            "mean": 0.18881972879171371,
+            "sample_sd": 0.003063631983486716
+          },
+          "mae": {
+            "mean": 0.1732841394841671,
+            "sample_sd": 0.008013800583559192
+          }
+        }
+      }
+    },
+    {
+      "dataset": "geant",
+      "models": {
+        "dlinear": {
+          "mse": {
+            "mean": 0.4367985613644123,
+            "sample_sd": 0.015673528954557054
+          },
+          "mae": {
+            "mean": 0.3705250322818756,
+            "sample_sd": 0.011265989902057903
+          }
+        },
+        "lightts": {
+          "mse": {
+            "mean": 0.7607917115092278,
+            "sample_sd": 0.05615135479788154
+          },
+          "mae": {
+            "mean": 0.5159065127372742,
+            "sample_sd": 0.013332308471324352
+          }
+        },
+        "dlinear_scale": {
+          "mse": {
+            "mean": 0.42644599825143814,
+            "sample_sd": 0.02919319162428388
+          },
+          "mae": {
+            "mean": 0.36550799384713173,
+            "sample_sd": 0.018226375056436987
+          }
+        }
+      }
+    }
+  ]
+}

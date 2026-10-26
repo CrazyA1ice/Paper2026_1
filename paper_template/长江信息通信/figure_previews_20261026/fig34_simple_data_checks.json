@@ -1,0 +1,234 @@
+{
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "high_demand": {
+    "abilene": {
+      "mean": {
+        "dlinear": [
+          0.1725783976486428,
+          0.16666678340935512
+        ],
+        "dlinear_scale_static": [
+          0.1787301021725078,
+          0.17469458843909175
+        ],
+        "dlinear_scale_global": [
+          0.17822844834970386,
+          0.17400925980728082
+        ],
+        "dlinear_scale_constant_router": [
+          0.1594979162759075,
+          0.15327595588881565
+        ],
+        "dlinear_scale": [
+          0.14665397715680428,
+          0.13715056270878812
+        ]
+      },
+      "sample_sd": {
+        "dlinear": [
+          0.01645962860961217,
+          0.019293682601857796
+        ],
+        "dlinear_scale_static": [
+          0.012639149685901897,
+          0.014513066323268854
+        ],
+        "dlinear_scale_global": [
+          0.013470731470376853,
+          0.015572282043199758
+        ],
+        "dlinear_scale_constant_router": [
+          0.013703579307506104,
+          0.016018885436702584
+        ],
+        "dlinear_scale": [
+          0.012563964570526975,
+          0.016817731423785193
+        ]
+      },
+      "paired_reductions_pct": {
+        "dlinear": [
+          13.955902919585073,
+          16.074871371236185
+        ],
+        "dlinear_scale_static": [
+          17.473366401014726,
+          20.83670238608593
+        ],
+        "dlinear_scale_global": [
+          17.216007357403484,
+          20.48897187980956
+        ],
+        "dlinear_scale_constant_router": [
+          7.661970286928535,
+          9.992274628952028
+        ]
+      }
+    },
+    "geant": {
+      "mean": {
+        "dlinear": [
+          0.6359734084889466,
+          0.5921305740696757
+        ],
+        "dlinear_scale_static": [
+          0.6596903121150832,
+          0.620912526501278
+        ],
+        "dlinear_scale_global": [
+          0.657810536487121,
+          0.6187301478960778
+        ],
+        "dlinear_scale_constant_router": [
+          0.6692614690403166,
+          0.6323700725670633
+        ],
+        "dlinear_scale": [
+          0.6319972164266795,
+          0.5765603573559032
+        ]
+      },
+      "sample_sd": {
+        "dlinear": [
+          0.04189827848558387,
+          0.05012125658287621
+        ],
+        "dlinear_scale_static": [
+          0.03413608955266555,
+          0.039710681801927473
+        ],
+        "dlinear_scale_global": [
+          0.03326512335340024,
+          0.03879553512789834
+        ],
+        "dlinear_scale_constant_router": [
+          0.0273288736509277,
+          0.03195032118768496
+        ],
+        "dlinear_scale": [
+          0.06042935534369165,
+          0.07974121058023428
+        ]
+      },
+      "paired_reductions_pct": {
+        "dlinear": [
+          0.41929244266631494,
+          2.268539724697999
+        ],
+        "dlinear_scale_static": [
+          3.86897908062951,
+          6.649443586560987
+        ],
+        "dlinear_scale_global": [
+          3.588001265313283,
+          6.303687132868034
+        ],
+        "dlinear_scale_constant_router": [
+          5.352376061753349,
+          8.487172379648833
+        ]
+      }
+    }
+  },
+  "geant_168": {
+    "mean": {
+      "dlinear": [
+        1.099746680358226,
+        0.6043029256781488
+      ],
+      "dlinear_scale_static": [
+        1.1490048564936632,
+        0.6135830956521673
+      ],
+      "dlinear_scale_global": [
+        1.1477823136485379,
+        0.6133067658831776
+      ],
+      "dlinear_scale_constant_router": [
+        1.1018733443076392,
+        0.6038095411557769
+      ],
+      "dlinear_scale": [
+        0.840610314673389,
+        0.5363900283149866
+      ]
+    },
+    "sample_sd": {
+      "dlinear": [
+        0.09123136454781895,
+        0.020960784779370936
+      ],
+      "dlinear_scale_static": [
+        0.10654032755160725,
+        0.026590909998944985
+      ],
+      "dlinear_scale_global": [
+        0.1076071620143426,
+        0.026905585645918446
+      ],
+      "dlinear_scale_constant_router": [
+        0.028427452505211066,
+        0.009808391065982493
+      ],
+      "dlinear_scale": [
+        0.08762950837744707,
+        0.027518015235887375
+      ]
+    },
+    "paired_reductions_pct": {
+      "dlinear": [
+        23.160177332680846,
+        11.158897760037743
+      ],
+      "dlinear_scale_static": [
+        26.114809865030956,
+        12.388247959379171
+      ],
+      "dlinear_scale_global": [
+        26.0174567878909,
+        12.34328369916988
+      ],
+      "dlinear_scale_constant_router": [
+        23.772923891947926,
+        11.189913119457723
+      ]
+    },
+    "positive_counts": {
+      "dlinear": [
+        8,
+        8
+      ],
+      "dlinear_scale_static": [
+        8,
+        8
+      ],
+      "dlinear_scale_global": [
+        8,
+        8
+      ],
+      "dlinear_scale_constant_router": [
+        8,
+        8
+      ]
+    }
+  },
+  "sources": [
+    {
+      "path": "abilene_forecasting\\results\\high_demand_analysis\\per_seed.csv",
+      "sha256": "c0b1b4ff751b715f63741f85a788516b304b3d85fc4bb227816c1374db0fa913"
+    },
+    {
+      "path": "abilene_forecasting\\results\\long_horizon_20261021\\per_seed_scores.csv",
+      "sha256": "7808402e6955a811ea86e960089affb754fdbaf3b8132e90ee8bb9121d8ca1c4"
+    }
+  ]
+}

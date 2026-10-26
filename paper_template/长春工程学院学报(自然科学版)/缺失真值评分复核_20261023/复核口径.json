@@ -1,0 +1,9 @@
+{
+  "primary": "Keep the original hourly grid, trained models, normalization and all test origins. Score only finite nonnegative original observations at future target positions. Genuine observed zeros remain valid.",
+  "complete_windows": "Sensitivity analysis. Retain only windows whose 96 h input and 24 h target are entirely observed and valid; identical window set for every model.",
+  "complete_channel_windows": "Additional sensitivity analysis, applied to both datasets. For each OD variable retain a window only when that variable has a fully observed 96 h input and 24 h target. Other variables may still be incomplete. Empty whole-matrix cases are explicitly unavailable, never scored as zero.",
+  "high_same_threshold": "Retain the original training-completed-series per-channel q90; mask unobserved test targets.",
+  "high_observed_training_q90": "Sensitivity analysis. Compute per-channel q90 using only valid observed training values in the existing normalization, and score valid observed high targets.",
+  "replication": "All seeds 42--49. Report seed means and sample SD. Percentage reductions are calculated within matched seed then averaged. Overlapping forecast targets are not independent repetitions.",
+  "training": "No retraining and no checkpoint reselection. This isolates scoring changes; it does not estimate the effect of changing training imputation or validation selection."
+}

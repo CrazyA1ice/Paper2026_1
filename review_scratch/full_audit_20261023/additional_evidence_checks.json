@@ -1,0 +1,60 @@
+{
+  "baseline_metrics_sha_verified": 96,
+  "high_demand_source_files_sha_verified": 162,
+  "weekly_records_verified_against_original_metrics": 40,
+  "router_diagnostic_records_matched_to_current_models": 16,
+  "same_origins_geant_dlinear_mse": [
+    {
+      "dataset": "geant",
+      "horizon": "24",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "n_seeds": "8",
+      "mean_reduction_pct": "0.3536911553179162",
+      "reduction_sd_pct": "5.600383456955104",
+      "seed_wins": "4",
+      "baseline_mean": "0.4164387471860918",
+      "proposed_mean": "0.4148596454206905",
+      "mean_absolute_error_difference": "0.001579101765401325"
+    },
+    {
+      "dataset": "geant",
+      "horizon": "48",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "n_seeds": "8",
+      "mean_reduction_pct": "-12.792134546726729",
+      "reduction_sd_pct": "9.903548972442326",
+      "seed_wins": "1",
+      "baseline_mean": "0.5258501184731701",
+      "proposed_mean": "0.5928814968023572",
+      "mean_absolute_error_difference": "-0.06703137832918715"
+    },
+    {
+      "dataset": "geant",
+      "horizon": "96",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "n_seeds": "8",
+      "mean_reduction_pct": "-2.5583644430010426",
+      "reduction_sd_pct": "12.01629847243424",
+      "seed_wins": "4",
+      "baseline_mean": "0.7454208871009965",
+      "proposed_mean": "0.7661285760981922",
+      "mean_absolute_error_difference": "-0.02070768899719566"
+    },
+    {
+      "dataset": "geant",
+      "horizon": "168",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "n_seeds": "8",
+      "mean_reduction_pct": "23.16017733268085",
+      "reduction_sd_pct": "9.6119627895412",
+      "seed_wins": "8",
+      "baseline_mean": "1.099746680358226",
+      "proposed_mean": "0.840610314673389",
+      "mean_absolute_error_difference": "0.2591363656848371"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+from pathlib import Path
+from hashlib import sha256
+from zipfile import ZipFile
+from xml.etree import ElementTree as ET
+import json
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
+QA = Path(__file__).resolve().parent
+ROOT = QA.parents[1]
+OUT = ROOT/'paper_template/长春工程学院学报(自然科学版)/缺失真值评分复核_20261023'
+PAPER = ROOT/'paper_template/长春工程学院学报(自然科学版)/逐项修订_20261023/自适应多尺度加权的多变量网络流量预测_ccgcxyxbV9_投稿规范修订稿.docx'
+PAPER_SHA = '63e070311f9b14d291a98a8a0d3d5569049fd566cb371f787275653661863321'
+A = json.loads((QA/'summary.json').read_text(encoding='utf-8'))
+W = json.loads((QA/'weekly_summary.json').read_text(encoding='utf-8'))
+audit = json.loads((QA/'audit.json').read_text(encoding='utf-8'))
+waudit = json.loads((QA/'weekly_audit.json').read_text(encoding='utf-8'))
+assert sha256(PAPER.read_bytes()).hexdigest() == PAPER_SHA
+assert audit['original_metrics_reproduced'] and audit['original_high_metrics_reproduced']
+assert waudit['original_weekly_scores_reproduced'] and waudit['originals_unchanged']
+names = {'dlinear':'DLinear', 'lightts':'LightTS', 'dlinear_scale_static':'固定等权多尺度',
+         'dlinear_scale_global':'全局可学习权重', 'dlinear_scale_constant_router':'恒定输入路由', 'dlinear_scale':'本文方法'}
+models = list(names)
+
+def row(data, dataset, case, model):
+    return next(r for r in data['summary'] if r['dataset']==dataset and r['case']==case and r['model']==model)
+
+def effect(data, dataset, case, baseline, metric):
+    return next(r for r in data['effects'] if r['dataset']==dataset and r['case']==case and r['baseline']==baseline and r['metric']==metric)
+
+def value(r, metric):
+    return f"{r[metric+'_mean']:.6f} ± {r[metric+'_sd']:.6f}"
+
+def scores(data, dataset, case, selected):
+    lines = ['| 模型 | MSE，均值 ± 样本标准差 | MAE，均值 ± 样本标准差 |', '|---|---:|---:|']
+    for model in selected:
+        r = row(data, dataset, case, model)
+        lines.append(f"| {names[model]} | {value(r,'mse')} | {value(r,'mae')} |")
+    return '\n'.join(lines)
+
+def changes(data, dataset, selected):
+    lines = ['| 对照 | MSE原降幅 → 重算降幅 | MAE原降幅 → 重算降幅 | 重算后MSE/MAE占优种子数 |', '|---|---:|---:|---:|']
+    for model in selected:
+        es = [effect(data,dataset,'observed_targets',model,m) for m in ['mse','mae']]
+        old = [effect(data,dataset,'original_all',model,m)['mean_reduction_pct'] for m in ['mse','mae']]
+        lines.append(f"| {names[model]} | {old[0]:.2f}% → {es[0]['mean_reduction_pct']:.2f}% | {old[1]:.2f}% → {es[1]['mean_reduction_pct']:.2f}% | {es[0]['seed_wins']}/8，{es[1]['seed_wins']}/8 |")
+    return '\n'.join(lines)
+
+meta = {m['dataset']:m for m in A['metadata']}
+old_a = row(A,'abilene','original_all','dlinear_scale')
+miss_a = row(A,'abilene','unobserved_imputed_targets_diagnostic','dlinear_scale')
+old_d = row(A,'abilene','original_all','dlinear')
+miss_d = row(A,'abilene','unobserved_imputed_targets_diagnostic','dlinear')
+p = meta['abilene']['excluded_target_values']/meta['abilene']['original_target_values']
+missing_share = 100*p*miss_a['mse_mean']/old_a['mse_mean']
+gap = old_d['mse_mean']-old_a['mse_mean']
+missing_gap = p*(miss_d['mse_mean']-miss_a['mse_mean'])
+observed_gap = gap-missing_gap
+weekly_original = row(W,'geant','original_all','dlinear_scale')
+weekly_observed = row(W,'geant','observed_targets','dlinear_scale')
+weekly_excluded = weekly_original['n_target_values']-weekly_observed['n_target_values']
+weekly_effects = [e for e in W['effects'] if e['case']=='observed_targets']
+assert len(weekly_effects) == 8 and sum(e['seed_wins'] for e in weekly_effects) == 64
+
+lines = ['# 缺失真值评分复核：对论文优势与结论的影响',
+         '', '复核日期：2026年10月23日。对象：V9投稿规范修订稿及其对应的已保存实验预测。论文、原始数据、预测文件和原实验评分文件均未修改。',
+         '', '## 1. 结论先行',
+         '', '**这是评价口径的实质问题。剔除缺少原始观测的测试目标后，论文的部分优势保留，但“两个数据集的全部指标全面占优”不能继续成立。**',
+         '', '- Abilene 24 h：MAE仍为六种方法中最低，且MSE与MAE均优于LightTS；MSE相对DLinear及三个静态多尺度对照的原领先不再成立。',
+         '- GÉANT 24 h：本文方法的MSE、MAE均值仍为六种方法中最低，但相对DLinear的平均优势较小，两个指标各只有4/8种子占优。',
+         '- GÉANT 168 h：主要优势保留；相对DLinear，MSE、MAE的逐种子配对平均降幅为22.91%和9.97%。相对四种对照、两项指标、八个种子的64个配对降幅仍全部为正。',
+         '- 参数量优势不受评分掩码影响。按原高需求阈值重算，原高需求MAE/AUE也不变，因为被剔除的目标原本不在高需求集合中。',
+         '', '## 2. 之前为什么漏查',
+         '', '此前核查确认了表格与保存结果是否一致、原流程能否复现，却没有继续把每一个测试目标追溯至原始观测，也没有核对评价函数是否排除了补值目标。这是核查遗漏：可复现和数值一致不能证明评价对象具有有效真值。输入端为了保持小时网格而补值，与把补充值作为真实观测评分，是两个不同问题。',
+         '', '上一次检查进一步发现了Abilene的整小时缺口；本轮逐OD检查又发现GÉANT部分已存在小时矩阵内含非有限OD值。因此，上次“GÉANT测试集没有整小时缺口”的事实不能推出其所有目标均为有效观测。',
+         '', '## 3. 本轮具体处理了什么',
+         '', '保留原小时网格、训练好的模型、归一化参数、检查点和所有测试起点，使用原始数据建立逐时点、逐OD变量的观测掩码，只对有原始有限非负观测的预测目标评分；保留真实观测到的零值。全部模型使用同一掩码，全部种子42～49均纳入。未将缺失小时删除后拼接，也未重新训练或重新选择检查点。',
+         '', '本轮覆盖两个数据集24 h的96个“模型×种子”结果，以及GÉANT 168 h的40个结果，共136个结果。先复现原评分，再执行掩码评分。所有原24 h整体指标、原高需求指标和原168 h指标均成功复现；输入数据、原结果文件及主稿均通过未改动校验。',
+         '', '**口径说明：**GÉANT非有限值本轮按“没有可直接评分的原始有限观测”保守排除。现有本地数据说明未明确区分每个非有限值究竟是未观测还是结构性零；如果后续得到原始数据定义，应据其真实含义统一确定掩码，不能按哪个结果更有利来选择。',
+         '', '| 任务 | 原评分目标数 | 有效观测目标数 | 剔除比例 |', '|---|---:|---:|---:|']
+for dataset,label in [('abilene','Abilene 24 h'),('geant','GÉANT 24 h')]:
+    m=meta[dataset]
+    lines.append(f"| {label} | {m['original_target_values']:,} | {m['observed_target_values']:,} | {100*m['excluded_target_values']/m['original_target_values']:.4f}% |")
+lines += [f"| GÉANT 168 h | {weekly_original['n_target_values']:,} | {weekly_observed['n_target_values']:,} | {100*weekly_excluded/weekly_original['n_target_values']:.4f}% |",
+          '', '上述目标数是重叠预测窗口中的标量目标数，同一个实际时点可能被多个窗口预测；它们不是独立重复实验的数量。均值和样本标准差在8个训练种子间计算。相对降幅先在相同种子内按100%×(对照误差−本文误差)/对照误差计算，再对8个降幅取均值，不是两组均值直接相除。正值表示本文误差更低，负值表示本文误差更高。',
+          '', '## 4. Abilene 24 h：整体MSE领先不再成立',
+          '', scores(A,'abilene','observed_targets',models),
+          '', changes(A,'abilene',models[:-1]),
+          '', '本文MSE均值为0.109673，DLinear为0.109371；两组均值直接比较，本文高约0.28%。逐种子先计算比例再平均时，对应−0.57%的降幅。两者统计定义不同，不能混写。本文MAE均值0.138258仍为所设六种方法中最低。',
+          '', f"Abilene中，仅占{100*p:.4f}%的补零目标贡献了本文原MSE的{missing_share:.2f}%。原DLinear减本文的MSE差为{gap:.9f}，其中补值目标贡献{missing_gap:.9f}，有效观测目标贡献{observed_gap:.9f}。也就是说，原整体MSE相对DLinear的领先来自补值目标；在实际观测目标上未保留该领先。所有模型都采用原补零口径，并不能消除这种相对排序偏差。",
+          '', '这削弱了Abilene“整体MSE全面领先”及相关融合消融结论，却不等于方法完全没有预测价值。MAE、相对LightTS的两项误差以及下文完整数据窗口的表现仍提供正向证据。',
+          '', '## 5. GÉANT 24 h：均值优势保留，幅度更新',
+          '', scores(A,'geant','observed_targets',models),
+          '', changes(A,'geant',models[:-1]),
+          '', '本文方法仍取得最低平均MSE与MAE。相对DLinear的平均降幅更新为1.99%和0.91%；8个种子中两个指标各有4个占优，因此这些数据只支持平均误差较低，不能自动证明逐次占优、统计显著或稳定性最优。',
+          '', '## 6. GÉANT 168 h：主要长时预测优势保留',
+          '', scores(W,'geant','observed_targets',[m for m in models if m!='lightts']),
+          '', changes(W,'geant',[m for m in models[:-1] if m!='lightts']),
+          '', '本文方法的MSE、MAE更新为0.813624 ± 0.084594和0.518766 ± 0.022241。相对DLinear的平均降幅由23.16%/11.16%更新为22.91%/9.97%。相对三个静态多尺度对照，MSE降幅为23.62%～26.01%，MAE降幅为10.05%～11.25%。64/64配对降幅为正仍成立，但仅限于这个数据集、预测时长、对照集和八个种子。',
+          '', '## 7. 高需求与参数优势受到什么影响',
+          '', '维持原训练集第90百分位阈值，只排除无观测测试目标时，两个数据集的高需求目标集合与原集合完全相同。因此，原图3所设DLinear、固定等权、全局权重、恒定输入四种对照的高需求比较数值不变。相对DLinear，Abilene高需求MAE/AUE的配对平均降幅仍为13.96%/16.07%，GÉANT仍为0.42%/2.27%。这是平均结果，不等于每个种子都更好。',
+          '', '另将高需求阈值改为只依据有效训练观测的第90百分位，作为单独敏感性检查。相对DLinear，Abilene高需求MAE/AUE降幅为14.58%/16.79%，GÉANT为1.07%/2.15%。原图3四种对照的平均优势仍保留。阈值改变了目标集合，这组数不能与原阈值结果混用。',
+          '', '额外纳入LightTS进行诊断时，Abilene高需求AUE并非本文最优：原阈值下LightTS的AUE均值为0.132572，本文为0.137151；有效训练观测阈值下也没有对LightTS的AUE优势。因此，“高需求指标优于所有模型”应限于图3实际比较的四种对照，不能扩展到所有已训练模型。此差异已存在于原预测，不是本次掩码造成的新退化。',
+          '', '24 h本文参数量8339、路由器131，以及本文参数量为两套LightTS配置的6.41%和2.17%，均不变。168 h本文参数量57587、路由器占比0.23%，也不变。评分调整不影响模型参数数目。',
+          '', '## 8. 完整窗口检查：辅助理解，不替换主要结果',
+          '', 'Abilene另保留历史96 h及目标24 h在所有OD变量上均完整的670个窗口，共2315520个标量目标。此筛选只使用观测状态，对所有模型一致。',
+          '', scores(A,'abilene','complete_windows',models),
+          '', '在这个完整窗口子集上，本文MSE和MAE均值最低；相对DLinear的配对平均降幅为15.66%和14.06%。它说明完整窗口上仍有优势，同时说明评价结果对含缺失历史的窗口较敏感；仅凭这项检查不能确定具体误差机制，也不能把这组更有利的子集结果替换为覆盖全部有效观测目标的唯一结果。',
+          '', 'GÉANT在24 h和168 h任务中，全变量历史及目标完全观测的窗口均为0，所以不能提供相同的全变量完整窗口分数。另按每个OD变量自己的历史及目标是否完整评分时，相对DLinear，24 h MSE/MAE降幅为1.50%/0.85%，168 h为25.72%/10.44%。这些只代表逐变量完整窗口，不能说其余变量或路由器输入全部完整。',
+          '', '## 9. 对论文结论与后续实验的直接影响',
+          '', '| 论点 | 本轮复核后的状态 |', '|---|---|',
+          '| 参数少、相对本文LightTS配置的精度与参数组合优势 | 保留；24 h误差降幅应更新。 |',
+          '| 两套数据24 h的全部整体误差均优于所有对照 | 不成立；Abilene整体MSE不再领先DLinear及三个静态对照。 |',
+          '| Abilene 24 h平均MAE优势 | 保留；相对DLinear为6.84%，并为六种方法中最低均值。 |',
+          '| GÉANT 24 h平均MSE、MAE优势 | 保留；相对DLinear缩小到1.99%和0.91%。 |',
+          '| GÉANT一周任务的较大优势 | 保留；相对DLinear更新为22.91%和9.97%。 |',
+          '| 原图3对照范围内的高需求优势 | 按原阈值不变；有效训练观测阈值检查也保留平均优势。 |',
+          '| 融合机制在两套数据上整体MSE均最优 | 不成立；需据实际任务与指标限定范围。 |',
+          '', '论文仍有可支持的优势，但必须改变“所有场景与指标全面领先”的概括。后续如采用这次评分口径，表2、表3、图2、图4、中英文摘要、对应结果文字和结论需要同步核对；本轮没有把任何这些变动写入论文。',
+          '', '**本轮工作的边界：**这是对现有已训练模型的测试评分修正。训练目标仍可能包含补零缺失值，GÉANT验证集的补值仍可能影响检查点选择，归一化也沿用原设置。本轮不能估计修正训练损失、验证评分或输入补值后重训会提高还是降低优势。若要把缺失数据处理作为完整实验流程正式修正，下一步需明确原始缺失语义，统一训练/验证/测试的有效目标规则及输入补值策略，再对相同种子和全部对照重新训练、选点和评分；不能只重训本文方法，也不能预设重训后会更好。',
+          '', '## 10. 可复核文件与未改动证明',
+          '', '同目录保留24 h及168 h逐种子指标、各口径均值与标准差、配对降幅汇总，以及复核口径和核验记录。数值保留更多小数用于复核，正文报告按需要舍入。',
+          '', f'主稿SHA-256：`{PAPER_SHA}`。本轮最终校验与复核前完全一致。',
+          '', '原始数据、已保存预测与原实验评分文件均未修改；本次只在独立复核目录生成新结果。']
+
+report = OUT/'缺失真值评分复核_优势影响报告.md'
+report.write_text('\n'.join(lines)+'\n',encoding='utf-8')
+combined = {k:v for k,v in audit.items() if k!='sources'}
+combined['weekly_recalculation_pending'] = False
+combined['weekly'] = {k:v for k,v in waudit.items() if k!='sources'}
+combined['model_seed_runs_scored_total'] = 136
+combined['weekly_corrected_64_of_64_paired_improvements_positive'] = True
+combined['all_136_original_model_seed_scores_reproduced'] = True
+combined['weekly_missing_target_count'] = weekly_excluded
+combined['weekly_observed_target_count'] = weekly_observed['n_target_values']
+combined['report_path'] = str(report)
+combined['manuscript_sha256_final'] = sha256(PAPER.read_bytes()).hexdigest()
+assert combined['manuscript_sha256_final'] == PAPER_SHA
+(OUT/'核验记录.json').write_text(json.dumps(combined,ensure_ascii=False,indent=2),encoding='utf-8')
+print('REPORT', report)
+print('MANUSCRIPT_UNCHANGED', combined['manuscript_sha256_final'])
+print('WEEKLY_64_OF_64', True)
+for dataset in ['abilene','geant']:
+    for case in ['high_observed_same_threshold','high_observed_training_q90']:
+        for baseline in ['dlinear','lightts']:
+            print(dataset,case,baseline,[(m,round(effect(A,dataset,case,baseline,m)['mean_reduction_pct'],4)) for m in ['mae','aue']])

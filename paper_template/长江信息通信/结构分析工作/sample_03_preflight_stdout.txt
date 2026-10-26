@@ -1,0 +1,16 @@
+{
+  "schema": "pdf_read_preflight/1",
+  "verdict": "UNAVAILABLE",
+  "file": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长江信息通信\\深度强化学习下通信网络动态带宽自适应分配优化方法_雍真.pdf",
+  "sha256": "8eb4dde844c7d0df3565047e6570e465af6c808829d369d8a4df4422ee468541",
+  "declared_page_count": 3,
+  "enumerated_page_count": 3,
+  "reader_page_count": 3,
+  "warnings": [
+    "trailing-data: 178 bytes after the final %%EOF include non-whitespace content (possible truncated incremental update)",
+    "pypdf: Multiple definitions in dictionary at byte 0x158b90 for key /MediaBox"
+  ],
+  "generated_at": "2026-10-26T08:07:30.919726+00:00",
+  "tool": "pdf_read_preflight/1.0.0"
+}
+

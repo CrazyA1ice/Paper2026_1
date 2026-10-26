@@ -1,0 +1,11 @@
+{
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\逐项修订_20261023\\V9_图表源文件\\图3_高需求局部范围点图.pdf",
+  "auditable": true,
+  "minimum_required_pt": 5.0,
+  "minimum_found_pt": 7.5,
+  "text_run_count": 40,
+  "below_minimum_count": 0,
+  "below_minimum": [],
+  "warnings": []
+}
+

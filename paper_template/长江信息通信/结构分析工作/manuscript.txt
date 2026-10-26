@@ -1,0 +1,257 @@
+[P000 Title] 自适应多尺度加权的多变量网络流量预测
+
+[P001 JournalMetadata] 收稿日期：2026.10.24
+
+[P002 JournalMetadata] 作者简介：柯亚文（1998—），男（汉族），安徽池州人，助教，硕士研究生学历，硕士学位，主要研究方向：计算机软件。联系电话：18983096676；电子邮箱：keyawen@afc.edu.cn。
+
+[P003 JournalAuthor] 柯亚文
+
+[P004 JournalAffiliation] （安徽财贸职业学院 信息工程学院，安徽 合肥 231200）
+
+[P005 JournalAbstract] 摘要：针对骨干网小时级源—目的（OD）流量序列兼具高频突发波动与长周期演化趋势、传统多尺度模型参数冗余且静态融合易受噪声干扰的问题，提出一种自适应多尺度加权的多变量网络流量预测方法。该方法利用三个分解线性专家（DLinear），提取四维统计特征，自适应生成融合权重。Abilene和GÉANT实验表明：24 h均方误差较LightTS平均降低25.77%和43.74%，参数量为其6.41%和2.17%。
+
+[P006 JournalAbstract] 关键词：网络流量预测；多变量时间序列；多尺度学习；自适应加权；分解线性模型
+
+[P007 JournalMetadata] 中图分类号：TP393    文献标志码：A    文章编号：
+
+[P008 JournalMetadata] doi：
+
+[P009 JournalHeading1] 0　引言
+
+[P010 JournalBody] 骨干网容量配置与资源管理需要提前估计不同源—目的节点对（origin-destination，OD）的流量需求。小时级OD流量在时间上同时表现出逐小时波动和较慢变化趋势，不同历史窗口的近期变化状态也不尽相同。如果只依据一种时间分辨率作出预测，就难以在同一模型中同时利用这些信息。为此，本文着重解决两个相互关联的问题：如何从同一历史窗口提取不同时间尺度的预测信息，以及如何根据窗口状态将这些预测结果组合起来。
+
+[P011 JournalBody] 具体而言，OD流量矩阵以源节点和目的节点的组合为变量，每个时间点对应一组OD流量观测。与全网总流量预测不同，多变量OD预测需要在同一历史输入下估计多个节点对的未来变化。因此，本文采用在OD变量之间共享时间映射参数的线性专家，同时保留每个变量的预测输出；在此基础上再讨论不同时间尺度之间的融合关系。
+
+[P012 JournalBody] 围绕网络流量预测，已有研究从时间依赖、变量关联与周期结构等方面开展探索。Lohrasbinasab等[1]总结了统计方法和机器学习方法的研究进展；Qin等[2]利用图神经网络建模时空关联，韦烜等[3]讨论了大型网际协议（Internet Protocol，IP）网络流量矩阵的变量关系与时间变化，唐文杰等[4]则通过周期性整合组织流量信息。这些研究为流量序列的结构建模提供了不同思路。
+
+[P013 JournalBody] 在时间结构建模方面，现有研究逐渐从单尺度映射转向多尺度特征提取。Zhou等[5]通过深度回声状态网络开展多尺度流量预测，但循环结构在长序列上的计算开销较大。Zeng等提出的分解线性模型（DLinear）[6]将序列解耦为趋势项和余项并分别映射，以极简结构超越了诸多复杂Transformer模型，但其单一时间分辨率难以同时兼顾小时级流量的局部尖峰与跨日趋势。针对多尺度建模，TimeMixer[7]采用可分解多尺度混合架构，LightTS[8]采用基于采样与多层感知机（MLP）的结构进行多变量时间序列预测。然而，这类通用多尺度模型通常依赖复杂的跨尺度交互层或高维通道映射，模型参数量随OD变量维度急剧膨胀，易在样本有限的网络流量数据上引发过拟合。此外，采用固定权重或全局静态权重的尺度融合策略忽略了流量窗口的时变非平稳性，在流量突变切换期反而会因粗尺度滞后效应拉低预测精度。
+
+[P014 JournalBody] 为突破上述“精度—复杂度”权衡困境并克服静态融合的滞后干扰，本文将三个独立的多分辨率DLinear专家与四维统计特征驱动的动态尺度路由相结合，提出一种极轻量化的自适应多尺度网络流量预测框架。首先，通过多粒度时间聚合构造互补的多尺度输入，各尺度专家在数百维OD变量间共享时间映射以严格锁定参数规模；其次，设计基于窗口均值、标准差、末态水平与一阶差分的低维路由分支，仅以131个额外参数即可动态感知当前时间窗口的平稳度与突变状态，实现样本级（Window-wise）的自适应加权融合。在Abilene和GÉANT数据集上的多维度实验佐证，本文方法在24 h常规预测、高需求目标点预测以及168 h一周超长期预测中均取得平均误差优势。
+
+[P015 JournalHeading1] 1　自适应多尺度网络流量预测方法
+
+[P016 JournalBody] 图1给出了模型从输入到输出的完整过程。首先，对历史OD流量构造长度为L的预处理窗口，并在同一历史范围内形成三个时间尺度的序列；其次，各尺度的DLinear专家独立输出未来H个时刻的候选预测；与此同时，从原始时间分辨率的窗口提取四项统计量，经路由网络得到三个融合权重；最后，对候选预测加权求和，得到逐小时OD流量预测。下面依次说明数据处理、多尺度专家、窗口路由和模型训练。
+
+[P017 JournalFigure] 
+
+[P018 JournalHeading2] 1.1　数据表示与预处理
+
+[P019 JournalBody] 记预处理后的多变量流量向量为xₜ，包含C个OD变量。沿时间轴以1 h步长构造滑动窗口，第n个样本由长度为L的历史输入Xₙ和其后长度为H的目标Yₙ组成，其中行对应时间点，列对应OD变量：
+
+[P020 JournalEquation] 		(1) [公式文本: Xn=[xn,…,xn+L-1]∈RL×C.]
+
+[P021 JournalEquation] 		(2) [公式文本: Yn=[xn+L,…,xn+L+H-1]∈RH×C.]
+
+[P022 JournalBody] 上述样本表示用于两类预测任务：基础任务取L=96、H=24，一周任务取L=96、H=168。数据读取时，将缺失值和无穷值记为0，并将负值截为0。考虑到流量非负且变量量级不同，先进行自然对数变换，再按变量标准化：
+
+[P023 JournalEquation] 		(3) [公式文本: ut,c=log(1+vt,c).]
+
+[P024 JournalEquation] 		(4) [公式文本: xt,c=ut,c-μctrσctr.]
+
+[P025 JournalBody] 式中，v为原始流量，u为对数变换后的流量；下标t、c分别表示时间与变量，上标tr表示训练集统计量，μ与σ分别为对应变量的均值和标准差。验证集与测试集沿用训练统计量。数据首先按时间顺序划分，再在各子集中独立生成滑动窗口，使输入与目标均位于对应时间段内。
+
+[P026 JournalHeading2] 1.2　多尺度构造与线性专家
+
+[P027 JournalBody] 为使同一历史窗口同时包含细粒度变化和较平滑的时间信息，模型设置三个并行尺度。三个尺度对应同一预测时段上不同的时间聚合粒度，它们都覆盖过去96 h，只改变输入序列的时间分辨率。每个尺度配置一个独立的DLinear专家，统一输出H步预测，为后续融合提供结构一致的候选结果。
+
+[P028 JournalBody] 具体地，为获得上述三种时间分辨率，设置尺度集合S={1,2,4}。对历史输入沿时间维进行非重叠平均池化，聚合长度与步长均为s，得到
+
+[P029 JournalEquation] 		(5) [公式文本: Xn,t(s)=1si=0s-1Xn,st+i, t=0,…,Ls-1.]
+
+[P030 JournalBody] 式中，s∈S，i为聚合窗口内的时间索引。各尺度覆盖同一96 h历史，分别以1 h输入值、2 h均值和4 h均值构成96、48和24步序列。各尺度使用结构相同、参数独立的DLinear专家[6]，并统一输出H步预测。
+
+[P031 JournalBody] 在每个尺度上，采用长度q=25的中心移动平均提取趋势项，序列两端通过复制端点补齐。设m=12，补齐后的输入参与下式计算：
+
+[P032 JournalEquation] 		(6) [公式文本: Tn,t(s)=1qi=-mmXn,t+i(s), q=2m+1=25.]
+
+[P033 JournalEquation] 		(7) [公式文本: Rn(s)=Xn(s)-Tn(s).]
+
+[P034 JournalBody] 式中，表示端点补齐序列，T与R分别表示趋势项和余项。随后，两个线性层沿时间维分别完成映射，并将其输出相加，得到尺度s的预测： [公式文本: X]
+
+[P035 JournalEquation] 		(8) [公式文本: Yn(s)=WT(s)Tn(s)+bT(s)+WR(s)Rn(s)+bR(s).]
+
+[P036 JournalBody] 式中，W与b分别为线性层的权重和偏置，下标T、R表示对应分量。各权重矩阵的维度为H×(L/s)，偏置为H维，并在OD变量之间共享。由此，各尺度输出均为H×C，可直接进行后续融合。
+
+[P037 JournalHeading2] 1.3　窗口统计特征与自适应加权
+
+[P038 JournalBody] 三个尺度专家能够产生不同分辨率下的候选预测，下一步需要确定各候选结果在最终输出中的占比。考虑到历史窗口的整体水平和变化幅度可能不同，本文利用当前窗口的低维统计特征计算权重，为各窗口生成相应的融合系数。权重对该窗口内的全部OD变量及预测步共享，从而以较少的路由参数完成窗口级自适应融合。
+
+[P039 JournalBody] 在候选预测之外，路由分支从原始时间分辨率的预处理窗口中提取均值μₙ、标准差σₙ、末时刻均值ℓₙ和平均绝对一阶差分dₙ，组成四维窗口整体统计特征向量zₙ。各统计量定义为
+
+[P040 JournalEquation] 		(9) [公式文本: μn=1LCt=0L-1c=1CXn,t,c, σn=1LCt=0L-1c=1C(Xn,t,c-μn)2.]
+
+[P041 JournalEquation] 		(10) [公式文本: ln=1Cc=1CXn,L-1,c, dn=1(L-1)Ct=1L-1c=1C|Xn,t,c-Xn,t-1,c|.]
+
+[P042 JournalBody] 上述四维统计特征用于汇总标准化空间中的窗口状态：均值反映标准化窗口相对训练期均值的整体偏移，标准差概括时间与变量两个维度的离散程度；末时刻均值表征窗口末端状态，平均绝对一阶差分反映相邻小时的变化幅度。当网络处于夜间低谷或平稳运行期时，与较小，路由网络可提高粗尺度专家（）的权重以抑制随机噪声；反之，当早晚高峰切换或突发流量涌入导致与激增时，路由网络能够迅速将权重向细粒度专家（）倾斜，避免粗尺度平滑带来的相位滞后。通过在全变量间聚合这四个统计量，模型既规避了单变量局部异常噪点的误导，又将路由输入压缩至4维，以控制路由分支的参数规模。 [公式文本: μnσnlndnσndns=2,4lndns=1]
+
+[P043 JournalBody] 由此，路由网络以四维输入汇总窗口状态，尺度分数计算为：
+
+[P044 JournalEquation] 		(11) [公式文本: an=W2ReLU(W1zn+b1)+b2.]
+
+[P045 JournalBody] 式中，aₙ为尺度分数向量，W₁、W₂与b₁、b₂分别为两层网络的权重矩阵和偏置。第一层将四维特征映射到16维隐藏层，经修正线性单元（rectified linear unit，ReLU）激活后，第二层输出三个尺度分数。两层权重矩阵分别为16×4和3×16，偏置分别为16维和3维。进一步采用归一化指数函数（Softmax），得到
+
+[P046 JournalEquation] 		(12) [公式文本: αn,s=exp(an,s)j∈S​exp(an,j), αn,s≥0, s∈S​αn,s=1.]
+
+[P047 JournalBody] 其中，αₙ,ₛ表示第n个窗口在尺度s上的融合权重，j为尺度集合中的求和索引。三个非负权重之和为1，并在当前窗口的全部OD变量和预测步之间共享。最终预测为
+
+[P048 JournalEquation] 		(13) [公式文本: Yn=s∈S​αn,sYn(s).]
+
+[P049 JournalHeading2] 1.4　模型训练与参数规模
+
+[P050 JournalBody] 训练时，尺度专家与路由网络同步更新参数，以均方误差（mean squared error，MSE）为损失函数，对N个训练样本、H个预测步和C个变量的平方误差取平均：
+
+[P051 JournalEquation] 		(14) [公式文本: LMSE=1NHCn=1Nh=1Hc=1C(Yn,h,c-Yn,h,c)2.]
+
+[P052 JournalBody] 采用自适应矩估计（adaptive moment estimation，Adam）优化器更新参数，并依据验证集MSE选择模型。每个尺度包含两个线性层，参数量为2H(L/s+1)；路由网络参数量为4×16+16+16×3+3=131。因此，当L=96、H=24时，模型总参数量P为
+
+[P053 JournalEquation]  [公式文本: P = s∈S2H(L/s+1) + 131 = 8339.]
+
+[P054 JournalBody] 同一尺度的线性映射在变量间共享，因此参数量不随OD变量数增加；24 h配置中，路由参数仅占总参数量的1.57%。当H=168时，模型含57587个参数，路由网络仍为131个参数。模型依次通过多尺度预测与自适应融合，输出标准化空间中的多步预测结果。
+
+[P055 JournalHeading1] 2　实验与结果分析
+
+[P056 JournalHeading2] 2.1　数据与实验设置
+
+[P057 JournalBody] 为检验方法在不同OD流量数据上的预测表现，实验采用CESNET TS-Zoo[9]中1 h粒度的Abilene[10]与GÉANT[11]流量矩阵，两套数据分别含4656和2849个时间点。实验使用CESNET TS-Zoo 2.2.0读取两套matrix子集的1_hour聚合文件。按文件时间戳（UTC）计，Abilene覆盖2004年3月1日0时至9月10日23时，GÉANT覆盖2004年12月31日23时30分至2005年4月29日15时30分。Abilene采用小时级平均OD流量字段matrix_avg_realOD，GÉANT采用小时级平均带宽字段matrix_avg_bandwidth_kbps。按时间顺序以6∶2∶2划分训练集、验证集和测试集，并独立训练和评价。对数变换后，仅保留训练集标准差大于10⁻⁸的变量，Abilene保留144个OD变量，GÉANT保留524个OD变量。两套数据均开展24 h预测，GÉANT另设168 h预测任务，数据划分与样本窗口数见表1。
+
+[P058 JournalCaption] 表1 数据集规模与预测任务设置
+
+[P059 JournalBody] 为了使方法间的结果具有可比性，各模型采用相同的数据集划分、预处理规则、历史输入和预测目标，并分别依据验证集MSE选择检查点。实验记录每个随机种子的模型输出和误差；相对降幅则先对相同种子的模型结果进行配对，再对重复实验取平均。这一设置同时用于后续的基线比较和融合消融。
+
+[P060 JournalBody] 基础实验中，各模型均以96 h历史预测未来24 h，批量大小为16。DLinear及多尺度模型的学习率为0.001，最多训练30轮，早停耐心值为6；LightTS采用Time-Series-Library公开代码中的实现[12]，分块长度为24、模型维度为512，学习率为0.0001，最多训练50轮，早停耐心值为10。各模型均按验证集MSE选择检查点。软件环境为Python 3.11.9和PyTorch 2.5.1。
+
+[P061 JournalBody] 在上述设置下，各模型均采用42～49八个共同随机种子重复训练。误差报告均值与样本标准差，误差线表示样本标准差；相对降幅按相同种子下的结果计算，再取平均。
+
+[P062 JournalBody] 实验采用MSE和平均绝对误差（mean absolute error，MAE）评价预测结果，两项指标均在对数变换与逐变量标准化后的空间计算。测试集MSE按式（14）计算，N取相应测试窗口数；MAE为
+
+[P063 JournalEquation] 		(15) [公式文本: MAE=1NteHCn=1Nteh=1Hc=1C|Yn,h,c-Yn,h,c|.]
+
+[P064 JournalBody] 式中，Nₜₑ为测试窗口数。MSE对较大偏差更敏感，MAE反映平均绝对偏差；两项指标越小，预测误差越低。
+
+[P065 JournalHeading2] 2.2　预测精度比较
+
+[P066 JournalBody] 基线比较首先回答所提结构能否有效预测OD流量。单尺度DLinear用于考察增加多尺度信息后的变化，LightTS则提供另一种轻量时序预测结构作为外部参照。表2展示了不同方法在预测误差和参数数量上的总体表现，图2则进一步呈现同一种子下的误差变化。
+
+[P067 JournalCaption] 表2 基线模型的24 h预测误差（8次重复）
+
+[P068 JournalBody] 由表2可见，本文方法在Abilene和GÉANT两套数据集上的MSE与MAE指标均全面优于单尺度DLinear与LightTS基线，展现出较优的综合预测精度与稳定性。具体而言，在Abilene数据集上，本文方法不仅将MSE降至0.189，更将MAE从DLinear的0.189降至0.173（相对降低8.01%），且MAE的样本标准差低至0.008，仅为DLinear的99.23%和LightTS的106.26%，表明自适应多尺度机制有效增强了模型对不同随机初始化的鲁棒性。
+
+[P069 JournalBody] 图2给出了逐种子配对的误差降幅及参数比例。相对LightTS，本文方法在Abilene和GÉANT上的MSE平均降低25.77%和43.74%，MAE平均降低12.66%和29.09%。两套LightTS配置分别含130162和384382个参数；本文方法通过变量间共享映射与低维路由，将参数量保持为8339，分别为LightTS的6.41%和2.17%，即缩减93.59%和97.83%。因此，以不到LightTS十五分之一乃至四十六分之一的参数代价，实现了近26%～44%的误差削减，相对LightTS取得了较少参数与较低平均误差的组合优势。
+
+[P070 JournalFigure] 
+
+[P071 JournalBody] 图2展示了单次配对结果，点为各随机种子的误差降幅，菱形及横线为均值与样本标准差；下方为相对LightTS的参数比例。
+
+[P072 JournalHeading2] 2.3　融合方式消融
+
+[P073 JournalBody] 保持三个独立DLinear专家与尺度集合不变，比较融合方式。固定等权模型将权重设为1/3；全局可学习权重模型（图中简称“全局权重”）以三个可训练分数生成所有窗口共用的权重；恒定输入路由模型（图中简称“恒定路由”）保留两层路由网络，并输入全零特征。各对照均以真实历史序列驱动尺度专家，结果见表3。
+
+[P074 JournalCaption] 表3 融合方式的24 h预测误差（8次重复）
+
+[P075 JournalBody] 表3的消融实验结果揭示了多尺度融合机制在复杂网络流量预测中的核心作用。首先，对比最终性能可知，本文方法在Abilene和GÉANT上的MSE与MAE平均值均为所设对照中的最低值：相较于单尺度DLinear，两套数据集的MSE平均相对降低2.77%和2.35%，Abilene上的MAE更是从0.189降至0.173（降幅达8.01%）；相较于全局可学习权重，MSE分别进一步降低1.80%和4.31%，Abilene上的MAE降低达8.91%。
+
+[P076 JournalBody] 其次，深入剖析消融对照可以发现一个关键规律：在变量规模高达524维、流量突发特性更复杂的GÉANT数据集上，“固定等权”（MSE为0.447）、“全局可学习权重”（0.446）以及“恒定输入路由”（0.449）三种静态融合策略的误差反而均高于单尺度DLinear（0.437）。这表明，在本实验设置下，静态多尺度融合未取得低于单尺度DLinear的平均MSE。相比之下，“恒定输入路由”虽然保留了与本文完全相同的网络结构与参数量，但由于缺失真实窗口统计特征输入，退化为静态加权，其平均误差仍高于本文方法；唯有本文方法通过四维窗口量实时感知样本波动状态，动态抑制突变窗口下的粗尺度干扰并放大有效尺度的贡献，成为GÉANT上唯一成功突破单尺度DLinear性能上限的多尺度模型，印证了窗口自适应路由机制的必要性与有效性。
+
+[P077 JournalHeading2] 2.4　高需求预测表现
+
+[P078 JournalBody] 在骨干网容量配置与流量工程中，高需求时段的预测精度直接关系到链路拥塞控制与服务质量（QoS）保障，尤其当模型对高需求流量产生低估时，极易引发带宽分配不足与突发丢包。为此，以训练集各OD变量的第90百分位值为高需求阈值，构建测试集高需求样本点集合，并在上重点考察高需求MAE与平均低估误差（average underestimation error，AUE）。其中，AUE用于衡量标准化空间中高需求目标点上的平均低估幅度，定义为 [公式文本: τcΩ=n,h,c|Yn,h,c>τcΩ]
+
+[P079 JournalEquation] 		(16) [公式文本: AUE=1Ωn,h,c∈Ωmax0,Yn,h,c-Yn,h,c.]
+
+[P080 JournalBody] 式中，为测试集中高需求目标点的总数。高需求点的MAE与AUE对比结果如图3所示。 [公式文本: |Ω|]
+
+[P081 JournalFigure] 
+
+[P082 JournalBody] 由图3可见，在8次重复实验的均值比较中，本文方法在两套数据集上的高需求MAE与平均低估误差均低于所设对照模型（Abilene上分别为0.147和0.137，GÉANT上分别为0.632和0.577）。在本实验的两套数据上，固定等权与全局权重方法在高需求点上的平均误差均高于单尺度DLinear。而本文方法在Abilene上相较DLinear将高需求MAE与平均低估误差分别大幅降低13.96%和16.07%（相对固定等权更是降低约17.47%和20.84%）。这表明当窗口处于高负载爬升期时，路由特征中的末态均值与均值能够有效引导模型向保留完整波峰形态的细粒度专家赋权，从而缓解了传统多尺度模型常见的“削峰低估”弊端，具备更强的工程实用价值。 [公式文本: lnμn]
+
+[P083 JournalHeading2] 2.5　一周预测表现
+
+[P084 JournalBody] 前述实验以未来24 h为预测目标。为了考察相同方法在一周预测任务中的表现，进一步将预测长度扩展为168 h，历史输入仍保持96 h，并直接输出未来168 h的预测结果。各模型按照新的输出长度独立训练，数据划分、预处理方法和评价指标与基础任务保持一致。由此，可以在相同GÉANT测试目标上比较一周预测的绝对误差和逐种子配对变化。
+
+[P085 JournalBody] 一周预测选择DLinear、固定等权、全局可学习权重、恒定输入路由和本文方法五种模型，在GÉANT的307个共同测试窗口上进行评价，结果分别列于表4和图4。
+
+[P086 JournalCaption] 表4 GÉANT一周预测的绝对误差（8次重复）
+
+[P087 JournalFigure] 
+
+[P088 JournalBody] 在图4中，本文方法在168 h超长周期预测任务中的平均预测误差低于四种对照，其测试集MSE和MAE分别为0.841±0.088和0.536±0.028。具体而言，相较于单尺度DLinear，本文方法的MSE和MAE平均相对降幅分别高达23.16%和11.16%；相较于固定等权、全局权重与恒定路由三种多尺度对照，MSE更是大幅降低23.77%～26.11%，MAE降低11.19%～12.39%。同时，在配置下，路由网络参数量仍保持131不变，仅占模型总参数量（57587）的0.23%。 [公式文本: H=168]
+
+[P089 JournalBody] 此外，图4（b）、（d）中全部8个随机种子下的单次实验散点均稳定落于零轴右侧的正向增益区内（胜率达100%），充分证实了所提方法在长周期流量需求估计中的可靠性与优势。
+
+[P090 JournalHeading1] 3　结语
+
+[P091 JournalBody] 针对不同历史窗口需要合理组合多尺度预测信息的问题，本文建立了由三个独立DLinear专家和低维窗口路由组成的预测模型。模型按1、2、4三个时间尺度提取候选预测，再利用四项窗口统计特征生成融合权重，形成面向未来多个小时的OD流量预测。
+
+[P092 JournalBody] 实验从总体精度、融合方式和较长预测区间三个方面验证了模型表现。在Abilene和GÉANT的24 h预测任务中，本文方法均取得较低的平均MSE和MAE；相对LightTS，MSE平均降低25.77%和43.74%，参数量仅为对应LightTS配置的6.41%和2.17%。GÉANT的一周预测结果进一步显示，MSE和MAE相对DLinear的平均降幅分别为23.16%和11.16%。这些结果表明，利用当前窗口信息对多尺度候选预测进行加权组合，可为小时级OD流量需求分析提供预测依据。
+
+[P094 JournalReferenceHeading] 参考文献：
+
+[P095 JournalReference] [1] LOHRASBINASAB I, SHAHRAKI A, TAHERKORDI A, et al. From statistical- to machine learning-based network traffic prediction[J]. Transactions on Emerging Telecommunications Technologies, 2022, 33(4): e4394. DOI: 10.1002/ett.4394.
+
+[P096 JournalReference] [2] QIN Liang, GU Huaxi, WEI Wenting, et al. Spatio-temporal communication network traffic prediction method based on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.2024.121003.
+
+[P097 JournalReference] [3] 韦烜, 刘志华, 李青, 等. 大型IP网络流量矩阵分析预测的探讨研究[J]. 系统工程与电子技术, 2024, 46(6): 2164-2173. DOI: 10.12305/j.issn.1001-506X.2024.06.35.
+
+[P098 JournalReference] [4] 唐文杰, 肖一磊, 孔祥宇, 等. CycleLLH：一种基于周期性整合的新型网络流量预测模型[J]. 计算机学报, 2024, 47(12): 2867-2888. DOI: 10.11897/SP.J.1016.2024.02867.
+
+[P099 JournalReference] [5] ZHOU Jian, HAN Taotao, XIAO Fu, et al. Multiscale network traffic prediction method based on deep echo-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-21874. DOI: 10.1109/JIOT.2022.3181807.
+
+[P100 JournalReference] [6] ZENG Ailing, CHEN Muxi, ZHANG Lei, et al. Are transformers effective for time series forecasting?[J]. Proceedings of the AAAI Conference on Artificial Intelligence, 2023, 37(9): 11121-11128. DOI: 10.1609/aaai.v37i9.26317.
+
+[P101 JournalReference] [7] WANG Shiyu, WU Haixu, SHI Xiaoming, et al. TimeMixer: decomposable multiscale mixing for time series forecasting[C/OL]//The Twelfth International Conference on Learning Representations. 2024[2026-10-21]. https://openreview.net/forum?id=7oLshfEIC2.
+
+[P102 JournalReference] [8] LIU Xinhe, WANG Wenmin. Deep time series forecasting models: a comprehensive survey[J]. Mathematics, 2024, 12(10): 1504. DOI: 10.3390/math12101504.
+
+[P103 JournalReference] [9] KUREŠ M, KOUMAR J, HYNEK K. CESNET TS-Zoo: a library for reproducible analysis of network traffic time series[C]//2025 21st International Conference on Network and Service Management. New York: IEEE, 2025: 1-5. DOI: 10.23919/CNSM67658.2025.11297513.
+
+[P104 JournalReference] [10] ZHANG Yin, ROUGHAN M, DUFFIELD N, et al. Fast accurate computation of large-scale IP traffic matrices from link loads[J]. ACM SIGMETRICS Performance Evaluation Review, 2003, 31(1): 206-217. DOI: 10.1145/885651.781053.
+
+[P105 JournalReference] [11] UHLIG S, QUOITIN B, LEPROPRE J, et al. Providing public intradomain traffic matrices to the research community[J]. ACM SIGCOMM Computer Communication Review, 2006, 36(1): 83-86. DOI: 10.1145/1111322.1111341.
+
+[P106 JournalReference] [12] THUML. Time-Series-Library[CP/OL]. (2026-04-18)[2026-10-23]. https://github.com/thuml/Time-Series-Library/tree/4e938a1767106324dd753b2a44832bf870a0252e.
+
+[P108 Title] Multivariate network traffic forecasting with adaptive multiscale weighting
+
+[P109 JournalAuthor] KE Yawen
+
+[P110 JournalAffiliation] (School of Information Engineering, Anhui Finance & Trade Vocational College, Hefei Anhui 231200, China)
+
+[P112 JournalAbstract] Abstract: An adaptive multiscale weighting method is proposed for multivariate network traffic forecasting to address the coexistence of high-frequency burst fluctuations and long-term evolution in hourly origin-destination (OD) traffic series of backbone networks, as well as parameter redundancy and noise-sensitive static fusion in conventional multiscale models. The method uses three decomposition linear (DLinear) experts, extracts four-dimensional statistical features, and adaptively generates fusion weights. Experiments on Abilene and GÉANT show mean relative reductions in 24-hour mean squared error of 25.77% and 43.74%, respectively, compared with LightTS, with parameter counts equivalent to 6.41% and 2.17% of the respective LightTS configurations.
+
+[P113 JournalAbstract] Key words: network traffic forecasting; multivariate time series; multiscale learning; adaptive weighting; decomposition linear model
+
+[表格1]
+数据集 | 有效变量数 | 预测时长/h | 训练/验证/测试时间点 | 训练/验证/测试窗口
+Abilene | 144 | 24 | 2793/931/932 | 2674/812/813
+GÉANT | 524 | 24 | 1709/570/570 | 1590/451/451
+GÉANT | 524 | 168 | 1709/570/570 | 1446/307/307
+
+[表格2]
+数据集 | 方法 | MSE | MAE | 参数量
+Abilene | DLinear | 0.194±0.002 | 0.189±0.008 | 4656
+Abilene | LightTS | 0.255±0.014 | 0.199±0.008 | 130162
+Abilene | 本文方法 | 0.189±0.003 | 0.173±0.008 | 8339
+GÉANT | DLinear | 0.437±0.016 | 0.371±0.011 | 4656
+GÉANT | LightTS | 0.761±0.056 | 0.516±0.013 | 384382
+GÉANT | 本文方法 | 0.426±0.029 | 0.366±0.018 | 8339
+
+[表格3]
+数据集 | 方法 | MSE | MAE
+Abilene | DLinear | 0.194±0.002 | 0.189±0.008
+Abilene | 固定等权多尺度 | 0.192±0.002 | 0.191±0.006
+Abilene | 全局可学习权重 | 0.192±0.002 | 0.190±0.006
+Abilene | 恒定输入路由 | 0.192±0.002 | 0.181±0.006
+Abilene | 本文方法 | 0.189±0.003 | 0.173±0.008
+GÉANT | DLinear | 0.437±0.016 | 0.371±0.011
+GÉANT | 固定等权多尺度 | 0.447±0.014 | 0.377±0.009
+GÉANT | 全局可学习权重 | 0.446±0.014 | 0.377±0.009
+GÉANT | 恒定输入路由 | 0.449±0.012 | 0.379±0.007
+GÉANT | 本文方法 | 0.426±0.029 | 0.366±0.018
+
+[表格4]
+方法 | MSE | MAE
+DLinear | 1.100±0.091 | 0.604±0.021
+固定等权多尺度 | 1.149±0.107 | 0.614±0.027
+全局可学习权重 | 1.148±0.108 | 0.613±0.027
+恒定输入路由 | 1.102±0.028 | 0.604±0.010
+本文方法 | 0.841±0.088 | 0.536±0.028

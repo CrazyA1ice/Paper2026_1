@@ -1,0 +1,16 @@
+{
+  "schema": "pdf_read_preflight/1",
+  "verdict": "UNAVAILABLE",
+  "file": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长江信息通信\\计算机网络数据加密与安全传输机制研究_黎燕.pdf",
+  "sha256": "98f88c743e57ebbc76e0c6c8c324c0e84b3fbcc37812070f2a27376f9e580020",
+  "declared_page_count": 3,
+  "enumerated_page_count": 3,
+  "reader_page_count": 3,
+  "warnings": [
+    "trailing-data: 178 bytes after the final %%EOF include non-whitespace content (possible truncated incremental update)",
+    "pypdf: Multiple definitions in dictionary at byte 0x14d17c for key /MediaBox"
+  ],
+  "generated_at": "2026-10-26T08:07:35.298564+00:00",
+  "tool": "pdf_read_preflight/1.0.0"
+}
+

@@ -1,0 +1,218 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\逐项修订_20261023\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV8_指定项目修订稿.docx",
+  "source_sha256": "6c832ce97b2f8ec4b5eaec54dcba67ae195618b960c84af292faa23ea8db773d",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\逐项修订_20261023\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV9_投稿规范修订稿.docx",
+  "output_sha256": "63e070311f9b14d291a98a8a0d3d5569049fd566cb371f787275653661863321",
+  "accepted_issues": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "10",
+    "11",
+    "14",
+    "16"
+  ],
+  "changed_source_paragraphs": [
+    58,
+    73,
+    78,
+    82,
+    88,
+    95,
+    96,
+    109,
+    113
+  ],
+  "removed_duplicate_source_paragraphs": [
+    26,
+    69,
+    77
+  ],
+  "both_abstracts_unchanged": true,
+  "all_table_cells_unchanged": true,
+  "numbered_equation_structures_unchanged": true,
+  "math_objects_before": 36,
+  "math_objects_after": 35,
+  "removed_inline_math_in_replaced_static_claim": 1,
+  "font_attribute_changes": 1200,
+  "data_inputs_unchanged": true,
+  "original_unchanged": true,
+  "unselected_claims_preserved": [
+    "最优的综合预测精度与稳定性",
+    "99.23%",
+    "106.26%",
+    "不同随机初始化的鲁棒性",
+    "唯一成功突破单尺度DLinear性能上限",
+    "可靠性与普适优势",
+    "胜率达100%",
+    "具备更强的工程实用价值",
+    "近26%～44%的误差削减"
+  ],
+  "edits": [
+    {
+      "issues": [
+        "01"
+      ],
+      "source_index": 109,
+      "before": "[8] ZHANG Tianping, ZHANG Yizhuo, CAO Wei, et al. Less is more: fast multivariate time series forecasting with light sampling-oriented MLP structures[EB/OL]. (2022-07-04)[2026-10-23]. https://doi.org/10.48550/arXiv.2207.01186.",
+      "after": "[8] LIU Xinhe, WANG Wenmin. Deep time series forecasting models: a comprehensive survey[J]. Mathematics, 2024, 12(10): 1504. DOI: 10.3390/math12101504."
+    },
+    {
+      "issues": [
+        "02"
+      ],
+      "source_index": 113,
+      "before": "Time-Series-Library[CP/OL]. [2026-10-23].",
+      "after": "Time-Series-Library[CP/OL]. (2026-04-18)[2026-10-23]."
+    },
+    {
+      "issues": [
+        "03",
+        "16"
+      ],
+      "source_index": 26,
+      "before": "经过上述处理，各数据子集均形成与预测任务对应的输入和目标，验证集及测试集不参与标准化参数的估计。此后，各模型使用同一套数据划分和预处理结果，便于将实验中的误差差异对应到预测结构及融合方式。",
+      "after": ""
+    },
+    {
+      "issues": [
+        "03",
+        "16"
+      ],
+      "source_index": 69,
+      "before": "在相同测试窗口上比较三种模型，24 h的预测结果见表2。",
+      "after": ""
+    },
+    {
+      "issues": [
+        "03",
+        "16"
+      ],
+      "source_index": 77,
+      "before": "除比较模型的总体预测能力外，还需明确性能改善与尺度融合方式的关系。为此，在尺度集合、DLinear专家和训练任务保持一致的条件下，分别设置不随窗口变化的融合权重和由当前窗口信息生成的融合权重。这样可以把比较重点集中在尺度权重如何确定，而不是改变预测专家本身。",
+      "after": ""
+    },
+    {
+      "issues": [
+        "03",
+        "16"
+      ],
+      "source_index": 78,
+      "before": "具体而言，保持三个独立DLinear专家与尺度集合不变，比较融合方式。",
+      "after": "保持三个独立DLinear专家与尺度集合不变，比较融合方式。"
+    },
+    {
+      "issues": [
+        "03",
+        "16"
+      ],
+      "source_index": 73,
+      "before": "图2进一步展示了本文方法相对于主流MLP架构LightTS的误差降幅与参数量级对比。在预测精度方面，本文方法在Abilene和GÉANT上的MSE平均相对降幅高达25.77%和43.74%，MAE平均相对降幅分别达12.66%和29.09%；在模型复杂度方面，LightTS的参数规模随OD变量增加而急剧膨胀（两套配置分别高达130162和384382个参数），而本文方法得益于变量间共享的多尺度映射与极简路由设计，参数量恒定为8339，仅为LightTS的6.41%和2.17%（即参数量大幅缩减93.59%和97.83%）。这充分证明本文方法以不到LightTS十五分之一乃至四十六分之一的参数代价，实现了近26%～44%的误差削减，相对LightTS取得了较少参数与较低平均误差的组合优势。",
+      "after": "图2给出了逐种子配对的误差降幅及参数比例。相对LightTS，本文方法在Abilene和GÉANT上的MSE平均降低25.77%和43.74%，MAE平均降低12.66%和29.09%。两套LightTS配置分别含130162和384382个参数；本文方法通过变量间共享映射与低维路由，将参数量保持为8339，分别为LightTS的6.41%和2.17%，即缩减93.59%和97.83%。因此，以不到LightTS十五分之一乃至四十六分之一的参数代价，实现了近26%～44%的误差削减，相对LightTS取得了较少参数与较低平均误差的组合优势。"
+    },
+    {
+      "issues": [
+        "03",
+        "16"
+      ],
+      "source_index": 95,
+      "before": "，大幅领先于所有四种对照模型。",
+      "after": "。"
+    },
+    {
+      "issues": [
+        "03",
+        "10"
+      ],
+      "source_index": 82,
+      "before": "，这一现象有力地证明：多尺度表征并非简单叠加即可奏效，粗粒度尺度（s=2,4）在提取平滑趋势的同时不可避免地损失了高频细节，若采用不随样本窗口变化的静态权重进行无差别融合，在流量剧烈波动的窗口中必然引入严重的平滑滞后偏差，导致多尺度负迁移。",
+      "after": "。这表明，在本实验设置下，静态多尺度融合未取得低于单尺度DLinear的平均MSE。"
+    },
+    {
+      "issues": [
+        "16"
+      ],
+      "source_index": 82,
+      "before": "同样无法遮掩性能下降，",
+      "after": "其平均误差仍高于本文方法；"
+    },
+    {
+      "issues": [
+        "03",
+        "10"
+      ],
+      "source_index": 88,
+      "before": "同样值得注意的是，静态多尺度方法（固定等权、全局权重）在两套数据的高需求点上再次出现误差劣于单尺度DLinear的现象，原因在于均值池化削平了波峰，静态融合必然拉低峰值响应。",
+      "after": "在本实验的两套数据上，固定等权与全局权重方法在高需求点上的平均误差均高于单尺度DLinear。"
+    },
+    {
+      "issues": [
+        "11"
+      ],
+      "source_index": 96,
+      "before": "此外，图4中全部8个随机种子下的单次实验散点",
+      "after": "此外，图4（b）、（d）中全部8个随机种子下的单次实验散点"
+    },
+    {
+      "issues": [
+        "14"
+      ],
+      "source_index": 58,
+      "before": "两套数据均取自matrix子集的1_hour聚合文件，",
+      "after": "实验使用CESNET TS-Zoo 2.2.0读取两套matrix子集的1_hour聚合文件。按文件时间戳（UTC）计，Abilene覆盖2004年3月1日0时至9月10日23时，GÉANT覆盖2004年12月31日23时30分至2005年4月29日15时30分。"
+    },
+    {
+      "issues": [
+        "05"
+      ],
+      "operation": "replace_figure",
+      "figure": 1,
+      "scientific_values_and_panel_organization_unchanged": true
+    },
+    {
+      "issues": [
+        "04"
+      ],
+      "operation": "replace_figure",
+      "figure": 2,
+      "scientific_values_and_panel_organization_unchanged": true
+    },
+    {
+      "issues": [
+        "04"
+      ],
+      "operation": "replace_figure",
+      "figure": 3,
+      "scientific_values_and_panel_organization_unchanged": true
+    },
+    {
+      "issues": [
+        "04"
+      ],
+      "operation": "replace_figure",
+      "figure": 4,
+      "scientific_values_and_panel_organization_unchanged": true
+    }
+  ],
+  "visual_review_pending": false,
+  "final_visual_review_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "final_visual_review_figures": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "membership_symbols_visually_verified_after_font_repair": true
+}

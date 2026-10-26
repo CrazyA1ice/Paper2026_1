@@ -1,0 +1,55 @@
+{
+  "1": {
+    "fonts": {
+      "SimSun": 30,
+      "TimesNewRomanPS-BoldItal": 8,
+      "STIXGeneral-Regular": 4,
+      "TimesNewRomanPSMT": 38,
+      "TimesNewRomanPS-ItalicMT": 44,
+      "TimesNewRomanPS-BoldMT": 5
+    },
+    "minimum_glyph_size": 5.25,
+    "non_tnr_math_or_foreign_glyphs": [
+      {
+        "text": "∈",
+        "font": "STIXGeneral-Regular"
+      },
+      {
+        "text": " ∈",
+        "font": "STIXGeneral-Regular"
+      },
+      {
+        "text": "∈",
+        "font": "STIXGeneral-Regular"
+      },
+      {
+        "text": "∈",
+        "font": "STIXGeneral-Regular"
+      }
+    ]
+  },
+  "2": {
+    "fonts": {
+      "TimesNewRomanPSMT": 26,
+      "SimSun": 6
+    },
+    "minimum_glyph_size": 7.5,
+    "non_tnr_math_or_foreign_glyphs": []
+  },
+  "3": {
+    "fonts": {
+      "TimesNewRomanPSMT": 15,
+      "SimSun": 13
+    },
+    "minimum_glyph_size": 7.5,
+    "non_tnr_math_or_foreign_glyphs": []
+  },
+  "4": {
+    "fonts": {
+      "TimesNewRomanPSMT": 31,
+      "SimSun": 24
+    },
+    "minimum_glyph_size": 7.5,
+    "non_tnr_math_or_foreign_glyphs": []
+  }
+}

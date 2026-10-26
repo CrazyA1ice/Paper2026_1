@@ -1,0 +1,338 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\逐项修订_20261023\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV7_摘要精简稿.docx",
+  "source_sha256": "54aa62d16a2aa678dae7315e0b643e3e5e6c526e219c16428f12c82e31132f3a",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\逐项修订_20261023\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV8_指定项目修订稿.docx",
+  "output_sha256": "6c832ce97b2f8ec4b5eaec54dcba67ae195618b960c84af292faa23ea8db773d",
+  "accepted_issues": [
+    "03",
+    "04",
+    "05",
+    "06",
+    "08",
+    "09",
+    "11",
+    "12",
+    "13",
+    "14",
+    "18",
+    "19"
+  ],
+  "rejected_issues_preserved": [
+    "02",
+    "07",
+    "10",
+    "15",
+    "16",
+    "17"
+  ],
+  "source_unchanged": true,
+  "both_abstracts_unchanged": true,
+  "chinese_abstract_characters": 199,
+  "all_tables_figures_and_numbered_formulas_unchanged": true,
+  "styles_and_paragraph_properties_unchanged": true,
+  "unapproved_changes": 0,
+  "native_math_objects_before": 42,
+  "native_math_objects_after": 36,
+  "removed_inline_math_only_in_authorized_deleted_prose": 6,
+  "changed_source_indices": [
+    13,
+    14,
+    40,
+    44,
+    45,
+    59,
+    63,
+    74,
+    82,
+    86,
+    90,
+    92,
+    97,
+    98,
+    111
+  ],
+  "removed_source_indices": [
+    32,
+    85
+  ],
+  "unverified_calendar_dates_not_inserted": true,
+  "edits": [
+    {
+      "source_index": 13,
+      "issues": [
+        "03"
+      ],
+      "operation": "replace",
+      "before": "TimesNet公开基准",
+      "after": "LightTS"
+    },
+    {
+      "source_index": 13,
+      "issues": [
+        "03"
+      ],
+      "operation": "replace",
+      "before": "则引入基于多层感知机（MLP）的LightTS处理多维时序",
+      "after": "采用基于采样与多层感知机（MLP）的结构进行多变量时间序列预测"
+    },
+    {
+      "source_index": 63,
+      "issues": [
+        "03"
+      ],
+      "operation": "replace",
+      "before": "LightTS采用TimesNet公开基准代码库的实现",
+      "after": "LightTS采用Time-Series-Library公开代码中的实现"
+    },
+    {
+      "source_index": 63,
+      "issues": [
+        "03"
+      ],
+      "operation": "replace",
+      "before": "[8]",
+      "after": "[12]"
+    },
+    {
+      "source_index": 111,
+      "issues": [
+        "03"
+      ],
+      "operation": "replace",
+      "before": "[8] WU Haixu, HU Tengge, LIU Yong, et al. TimesNet: temporal 2D-variation modeling for general time series analysis[C/OL]//The Eleventh International Conference on Learning Representations. 2023[2026-10-21]. https://openreview.net/forum?id=ju_Uqw384Oq.",
+      "after": "[8] ZHANG Tianping, ZHANG Yizhuo, CAO Wei, et al. Less is more: fast multivariate time series forecasting with light sampling-oriented MLP structures[EB/OL]. (2022-07-04)[2026-10-23]. https://doi.org/10.48550/arXiv.2207.01186."
+    },
+    {
+      "issues": [
+        "03"
+      ],
+      "operation": "add_reference",
+      "after": "[12] THUML. Time-Series-Library[CP/OL]. [2026-10-23]. https://github.com/thuml/Time-Series-Library/tree/4e938a1767106324dd753b2a44832bf870a0252e."
+    },
+    {
+      "source_index": 32,
+      "issues": [
+        "04",
+        "05",
+        "19"
+      ],
+      "operation": "remove_redundant_paragraph",
+      "before": "在骨干网通信场景下，尺度集合S={1,2,4}具有明确的物理对应关系：尺度s=1（96步）完整保留1 h粒度的原始高频波动与局部突发尖峰；尺度s=2（48步）通过2 h均值滤波平滑短时毛刺，刻画半日内的潮汐过渡节奏；尺度s=4（24步）则以4 h块均值浓缩长达4天的宏观负载基线。三个尺度互为补充，从微观瞬态到宏观趋势构建起层次化的表征空间。同时，在每个尺度上统一采用长度q=25的移动平均核提取趋势项，使细粒度专家聚焦于日周期（24 h）附近的趋势剥离，而粗粒度专家则捕获跨越多日的超长周期基线水平，从而最大化不同专家预测输出的多样性与互补性。",
+      "after": ""
+    },
+    {
+      "source_index": 44,
+      "issues": [
+        "06",
+        "19"
+      ],
+      "operation": "replace",
+      "before": "上述四维统计特征从不同侧面完整刻画了当前流量窗口的运行工况：全局均值",
+      "after": "上述四维统计特征用于汇总标准化空间中的窗口状态：均值"
+    },
+    {
+      "source_index": 44,
+      "issues": [
+        "06"
+      ],
+      "operation": "replace",
+      "before": "表征当前窗口的整体业务负载水位，标准差",
+      "after": "反映标准化窗口相对训练期均值的整体偏移，标准差"
+    },
+    {
+      "source_index": 44,
+      "issues": [
+        "06"
+      ],
+      "operation": "replace",
+      "before": "衡量窗口内的整体能量离散度与宏观波动幅度；末时刻均值",
+      "after": "概括时间与变量两个维度的离散程度；末时刻均值"
+    },
+    {
+      "source_index": 44,
+      "issues": [
+        "06"
+      ],
+      "operation": "replace",
+      "before": "捕捉历史窗口向未来预测区间过渡时的最新静态边界水平，提供关键的近期锚点信息；平均绝对一阶差分",
+      "after": "表征窗口末端状态，平均绝对一阶差分"
+    },
+    {
+      "source_index": 44,
+      "issues": [
+        "06"
+      ],
+      "operation": "replace",
+      "before": "则直接量化相邻小时之间的高频抖动剧烈程度。",
+      "after": "反映相邻小时的变化幅度。"
+    },
+    {
+      "source_index": 44,
+      "issues": [
+        "08"
+      ],
+      "operation": "replace",
+      "before": "从根本上杜绝了过拟合风险",
+      "after": "以控制路由分支的参数规模"
+    },
+    {
+      "source_index": 45,
+      "issues": [
+        "19"
+      ],
+      "operation": "replace",
+      "before": "式（9）和式（10）从不同侧面刻画窗口状态：均值反映标准化窗口相对训练期均值的整体偏移，标准差概括时间与变量两个维度的离散程度；末时刻均值表征窗口末端状态，平均绝对一阶差分反映相邻小时的变化幅度。",
+      "after": ""
+    },
+    {
+      "source_index": 40,
+      "issues": [
+        "09"
+      ],
+      "operation": "replace",
+      "before": "为各窗口预设不同的融合系数",
+      "after": "为各窗口生成相应的融合系数"
+    },
+    {
+      "source_index": 59,
+      "issues": [
+        "18"
+      ],
+      "operation": "insert_after",
+      "needle": "两套数据分别含4656和2849个时间点。",
+      "addition": "两套数据均取自matrix子集的1_hour聚合文件，Abilene采用小时级平均OD流量字段matrix_avg_realOD，GÉANT采用小时级平均带宽字段matrix_avg_bandwidth_kbps。"
+    },
+    {
+      "source_index": 14,
+      "issues": [
+        "12"
+      ],
+      "operation": "replace",
+      "before": "90分位高需求峰值估计",
+      "after": "高需求目标点预测"
+    },
+    {
+      "source_index": 14,
+      "issues": [
+        "11"
+      ],
+      "operation": "replace",
+      "before": "均取得显著领先优势",
+      "after": "均取得平均误差优势"
+    },
+    {
+      "source_index": 82,
+      "issues": [
+        "11"
+      ],
+      "operation": "replace",
+      "before": "显著降至",
+      "after": "降至"
+    },
+    {
+      "source_index": 86,
+      "issues": [
+        "12"
+      ],
+      "operation": "replace",
+      "before": "高负载峰值时段",
+      "after": "高需求时段"
+    },
+    {
+      "source_index": 86,
+      "issues": [
+        "06",
+        "12"
+      ],
+      "operation": "replace",
+      "before": "AUE专门量化预测值低于真实峰值时的短缺幅度",
+      "after": "AUE用于衡量标准化空间中高需求目标点上的平均低估幅度"
+    },
+    {
+      "source_index": 90,
+      "issues": [
+        "11"
+      ],
+      "operation": "replace",
+      "before": "由图3可见，本文方法在两套数据集上的高需求MAE与平均低估误差均显著低于所有对照模型",
+      "after": "由图3可见，在8次重复实验的均值比较中，本文方法在两套数据集上的高需求MAE与平均低估误差均低于所设对照模型"
+    },
+    {
+      "source_index": 90,
+      "issues": [
+        "11"
+      ],
+      "operation": "replace",
+      "before": "从而显著缓解了",
+      "after": "从而缓解了"
+    },
+    {
+      "source_index": 92,
+      "issues": [
+        "14"
+      ],
+      "operation": "replace",
+      "before": "历史输入仍保持96 h。",
+      "after": "历史输入仍保持96 h，并直接输出未来168 h的预测结果。"
+    },
+    {
+      "source_index": 98,
+      "issues": [
+        "13",
+        "14"
+      ],
+      "operation": "trim_prefix",
+      "before": "对比24 h与168 h任务可以发现，本文方法对DLinear的MSE降幅从2.35%跃升至23.16%（提升近10倍）。这是因为在长达一周（168步）的跨度下，单尺度模型极易受局部噪声误导而产生严重的远期趋势漂移；而本文方法依托粗尺度专家（s=2,4）提供的跨日宏观锚点与动态路由调控，有效抑制了长程预测中的误差累积效应。此外，图4中全部8个随机种子下的单次实验散点均稳定落于零轴右侧的正向增益区内（胜率达100%），充分证实了所提方法在长周期流量需求估计中的可靠性与普适优势。",
+      "after": "此外，图4中全部8个随机种子下的单次实验散点均稳定落于零轴右侧的正向增益区内（胜率达100%），充分证实了所提方法在长周期流量需求估计中的可靠性与普适优势。"
+    },
+    {
+      "source_index": 85,
+      "issues": [
+        "19"
+      ],
+      "operation": "remove_redundant_paragraph",
+      "before": "总体预测误差反映所有目标点的平均表现，而网络容量需求分析还关心较高流量水平下的预测情况。因此，进一步从各OD变量的训练集分布确定高需求阈值，再用相同阈值筛选测试目标。对于这些目标点，除MAE外另计算平均低估误差（AUE），用于描述预测低于真实需求时的平均差额。",
+      "after": ""
+    },
+    {
+      "source_index": 74,
+      "issues": [
+        "19"
+      ],
+      "operation": "replace",
+      "before": "在模型轻量化与预测精度之间取得了极具竞争力的帕累托优势",
+      "after": "相对LightTS取得了较少参数与较低平均误差的组合优势"
+    },
+    {
+      "source_index": 82,
+      "issues": [
+        "19"
+      ],
+      "operation": "replace",
+      "before": "MSE与MAE均取得全场最优",
+      "after": "MSE与MAE平均值均为所设对照中的最低值"
+    },
+    {
+      "source_index": 97,
+      "issues": [
+        "19"
+      ],
+      "operation": "replace",
+      "before": "在168 h超长周期预测任务上展现出压倒性的性能优势",
+      "after": "在168 h超长周期预测任务中的平均预测误差低于四种对照"
+    }
+  ],
+  "visual_review_pending": false,
+  "visual_review_passed": true,
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

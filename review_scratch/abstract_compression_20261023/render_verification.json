@@ -1,0 +1,87 @@
+{
+  "pages": 10,
+  "words": 8278,
+  "characters": 13390,
+  "shapes": 4,
+  "sections": 3,
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\abstract_compression_20261023\\render_submission\\review.pdf",
+  "source_and_output_hashes_match": true,
+  "outside_page_text": 0,
+  "missing_glyph_boxes": 0,
+  "visual_review_pending": false,
+  "page_details": [
+    {
+      "page": 1,
+      "first": "自适应多尺度加权的多变量网络流量预测\n收稿日期：2026.10.22\n作者简介：柯亚文（1998—），男（汉族），安徽池州人，助教，硕士研究",
+      "last": "窗口均值、标准差、末态水平与一阶差分的低维路由分支，仅以131个额外参数即可动态\n感知当前时间窗口的平稳度与突变状态，实现样本级（Window-wise）的自适应加权融合。在Abilene和GÉANT",
+      "images": 0
+    },
+    {
+      "page": 2,
+      "first": "数据集上的多维度实验佐证，本文方法在24 h常规预测、90分位高需求峰值估计以及168 h一周超长期预测中\n均取得显著领先优势。\n1 自适应",
+      "last": "间段内。\n经过上述处理，各数据子集均形成与预测任务对应的输入和目标，验证集及测试集不参与标准化参数的估\n计。此后，各模型使用同一套数据划分和预处理结果，便于将实验中的误差差异对应到预测结构及融合方式。",
+      "images": 1
+    },
+    {
+      "page": 3,
+      "first": "1.2 多尺度构造与线性专家\n为使同一历史窗口同时包含细粒度变化和较平滑的时间信息，模型设置三个并行尺度。三个尺度对应同一\n预测时段上不同的",
+      "last": "于夜间低谷或平稳运行期时，𝜎 与𝑑 较小，路由网络可提高粗尺度专家（𝑠 =2,4）\n𝑛 𝑛\n的权重以抑制随机噪声；反之，当早晚高峰切换或突发流量涌入导致ℓ 与𝑑 激增时，路由网络能够迅速将权重\n𝑛 𝑛",
+      "images": 0
+    },
+    {
+      "page": 4,
+      "first": "向细粒度专家（𝑠 =1）倾斜，避免粗尺度平滑带来的相位滞后。通过在全变量间聚合这四个统计量，模型既规\n避了单变量局部异常噪点的误导，又将路由",
+      "last": "输入和预测目标，并\n分别依据验证集 MSE 选择检查点。实验记录每个随机种子的模型输出和误差；相对降幅则先对相同种子的模\n型结果进行配对，再对重复实验取平均。这一设置同时用于后续的基线比较和融合消融。",
+      "images": 0
+    },
+    {
+      "page": 5,
+      "first": "基础实验中，各模型均以96 h历史预测未来24 h，批量大小为16。DLinear及多尺度模型的学习率为0.001，\n最多训练30轮，早停耐",
+      "last": "3.59%和97.83%）。这充分证明本文方法以不到LightTS十五分之一乃\n至四十六分之一的参数代价，实现了近 26%～44%的误差削减，在模型轻量化与预测精度之间取得了极具竞争\n力的帕累托优势。",
+      "images": 0
+    },
+    {
+      "page": 6,
+      "first": "图2 相对DLinear与LightTS的配对误差降幅（8次重复）\n图 2 展示了单次配对结果，点为各随机种子的误差降幅，菱形及横线为均值与",
+      "last": "效，粗粒度尺度（𝑠 =2,4）在提取平滑趋势的同时不可避免地损失了高频细节，若采用不随样本窗口变化的静\n态权重进行无差别融合，在流量剧烈波动的窗口中必然引入严重的平滑滞后偏差，导致多尺度负迁移。相比之",
+      "images": 1
+    },
+    {
+      "page": 7,
+      "first": "下，“恒定输入路由”虽然保留了与本文完全相同的网络结构与参数量，但由于缺失真实窗口统计特征输入，退\n化为静态加权，同样无法遮掩性能下降，唯有",
+      "last": "周预测的绝对误差和逐种子配对变化。\n一周预测选择 DLinear、固定等权、全局可学习权重、恒定输入路由和本文方法五种模型，在 GÉANT 的\n307个共同测试窗口上进行评价，结果分别列于表4和图4。",
+      "images": 1
+    },
+    {
+      "page": 8,
+      "first": "表4 GÉANT一周预测的绝对误差（8次重复）\n方法 MSE MAE\nDLinear 1.100±0.091 0.604±0.021\n固定等",
+      "last": "结果进一步显示，MSE和MAE相对DLinear的\n平均降幅分别为 23.16%和 11.16%。这些结果表明，利用当前窗口信息对多尺度候选预测进行加权组合，可为\n小时级OD流量需求分析提供预测依据。",
+      "images": 1
+    },
+    {
+      "page": 9,
+      "first": "参考文献：\n[1] LOHRASBINASAB I, SHAHRAKI A, TAHERKORDI A, et al. From stati",
+      "last": "ity[J]. ACM SIGCOMM Computer Communication Review, 2006, 36(1): 83-86. DOI:\n10.1145/1111322.1111341.",
+      "images": 0
+    },
+    {
+      "page": 10,
+      "first": "Multivariate network traffic forecasting with adaptive multiscale weig",
+      "last": "sting; multivariate time series; multiscale learning; adaptive weighting; decomposition\nlinear model",
+      "images": 0
+    }
+  ],
+  "visual_review_passed": true,
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ]
+}

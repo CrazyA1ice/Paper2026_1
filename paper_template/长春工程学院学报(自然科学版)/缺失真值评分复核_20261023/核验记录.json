@@ -1,0 +1,105 @@
+{
+  "manuscript_unchanged": true,
+  "manuscript_sha256": "63e070311f9b14d291a98a8a0d3d5569049fd566cb371f787275653661863321",
+  "no_retraining": true,
+  "all_models_all_8_seeds_scored": true,
+  "original_metrics_reproduced": true,
+  "original_high_metrics_reproduced": true,
+  "all_original_inputs_and_results_unchanged": true,
+  "weekly_recalculation_pending": false,
+  "protocol": {
+    "primary": "Keep the original hourly grid, trained models, normalization and all test origins. Score only finite nonnegative original observations at future target positions. Genuine observed zeros remain valid.",
+    "complete_windows": "Sensitivity analysis. Retain only windows whose 96 h input and 24 h target are entirely observed and valid; identical window set for every model.",
+    "complete_channel_windows": "Additional sensitivity analysis, applied to both datasets. For each OD variable retain a window only when that variable has a fully observed 96 h input and 24 h target. Other variables may still be incomplete. Empty whole-matrix cases are explicitly unavailable, never scored as zero.",
+    "high_same_threshold": "Retain the original training-completed-series per-channel q90; mask unobserved test targets.",
+    "high_observed_training_q90": "Sensitivity analysis. Compute per-channel q90 using only valid observed training values in the existing normalization, and score valid observed high targets.",
+    "replication": "All seeds 42--49. Report seed means and sample SD. Percentage reductions are calculated within matched seed then averaged. Overlapping forecast targets are not independent repetitions.",
+    "training": "No retraining and no checkpoint reselection. This isolates scoring changes; it does not estimate the effect of changing training imputation or validation selection."
+  },
+  "metadata": [
+    {
+      "dataset": "abilene",
+      "original_windows": 813,
+      "complete_windows": 670,
+      "original_target_values": 2809728,
+      "observed_target_values": 2726784,
+      "excluded_target_values": 82944,
+      "missing_whole_test_hours": 24,
+      "nonfinite_cells_in_present_rows": 0,
+      "negative_cells_in_present_rows": 0,
+      "valid_cells_in_train_val_test": [
+        312336,
+        134064,
+        130752
+      ],
+      "nonfinite_active_cells_in_train_val_test": [
+        0,
+        0,
+        0
+      ],
+      "original_high_targets": 382341,
+      "observed_training_q90_high_targets": 321941,
+      "excluded_unobserved_high_targets": 0,
+      "original_and_observed_train_q90_max_absolute_difference": 0.0914955139160154,
+      "case_target_counts": {
+        "original_all": 2809728,
+        "observed_targets": 2726784,
+        "complete_windows": 2315520,
+        "complete_channel_windows": 2315520,
+        "high_original_threshold": 382341,
+        "high_observed_same_threshold": 382341,
+        "high_observed_training_q90": 321941,
+        "high_complete_windows_same_threshold": 344837
+      }
+    },
+    {
+      "dataset": "geant",
+      "original_windows": 451,
+      "complete_windows": 0,
+      "original_target_values": 5671776,
+      "observed_target_values": 5059198,
+      "excluded_target_values": 612578,
+      "missing_whole_test_hours": 0,
+      "nonfinite_cells_in_present_rows": 114864,
+      "negative_cells_in_present_rows": 0,
+      "valid_cells_in_train_val_test": [
+        768978,
+        262536,
+        267374
+      ],
+      "nonfinite_active_cells_in_train_val_test": [
+        64182,
+        19376,
+        31306
+      ],
+      "original_high_targets": 737459,
+      "observed_training_q90_high_targets": 661263,
+      "excluded_unobserved_high_targets": 0,
+      "original_and_observed_train_q90_max_absolute_difference": 41.35215384885669,
+      "case_target_counts": {
+        "original_all": 5671776,
+        "observed_targets": 5059198,
+        "complete_windows": 0,
+        "complete_channel_windows": 4519728,
+        "high_original_threshold": 737459,
+        "high_observed_same_threshold": 737459,
+        "high_observed_training_q90": 661263,
+        "high_complete_windows_same_threshold": 0
+      }
+    }
+  ],
+  "weekly": {
+    "originals_unchanged": true,
+    "manuscript_unchanged": true,
+    "original_weekly_scores_reproduced": true,
+    "no_retraining": true,
+    "all_40_model_seed_runs_scored": true
+  },
+  "model_seed_runs_scored_total": 136,
+  "weekly_corrected_64_of_64_paired_improvements_positive": true,
+  "all_136_original_model_seed_scores_reproduced": true,
+  "weekly_missing_target_count": 2925649,
+  "weekly_observed_target_count": 24100175,
+  "report_path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\缺失真值评分复核_20261023\\缺失真值评分复核_优势影响报告.md",
+  "manuscript_sha256_final": "63e070311f9b14d291a98a8a0d3d5569049fd566cb371f787275653661863321"
+}

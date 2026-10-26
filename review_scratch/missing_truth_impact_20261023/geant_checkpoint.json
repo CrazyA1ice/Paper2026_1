@@ -1,0 +1,3063 @@
+{
+  "metadata": {
+    "dataset": "geant",
+    "original_windows": 451,
+    "complete_windows": 0,
+    "original_target_values": 5671776,
+    "observed_target_values": 5059198,
+    "excluded_target_values": 612578,
+    "missing_whole_test_hours": 0,
+    "nonfinite_cells_in_present_rows": 114864,
+    "negative_cells_in_present_rows": 0,
+    "valid_cells_in_train_val_test": [
+      768978,
+      262536,
+      267374
+    ],
+    "nonfinite_active_cells_in_train_val_test": [
+      64182,
+      19376,
+      31306
+    ],
+    "original_high_targets": 737459,
+    "observed_training_q90_high_targets": 661263,
+    "excluded_unobserved_high_targets": 0,
+    "original_and_observed_train_q90_max_absolute_difference": 41.35215384885669,
+    "case_target_counts": {
+      "original_all": 5671776,
+      "observed_targets": 5059198,
+      "complete_windows": 0,
+      "complete_channel_windows": 4519728,
+      "high_original_threshold": 737459,
+      "high_observed_same_threshold": 737459,
+      "high_observed_training_q90": 661263,
+      "high_complete_windows_same_threshold": 0
+    }
+  },
+  "records": [
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 42,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.44988270962502047,
+      "mae": 0.37711219944219376
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 42,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.44229084159786697,
+      "mae": 0.38294917620808244
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 42,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.3039478043355281,
+      "mae": 0.34782088917184784
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 42,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5125829103165875,
+      "mae": 0.3289054058909551
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 42,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.653820591711579,
+      "aue": 0.6107699228117508
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 42,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.653820591711579,
+      "aue": 0.6107699228117508
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 42,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5730225200320679,
+      "aue": 0.5586582325197615
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 43,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.46296969627464085,
+      "mae": 0.3889687976785909
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 43,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.456214040699363,
+      "mae": 0.39194320147743505
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 43,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.3160784820194992,
+      "mae": 0.35739349636939294
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 43,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5187637325853381,
+      "mae": 0.36440360312327824
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 43,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7049626738697802,
+      "aue": 0.6736572019295171
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 43,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7049626738697802,
+      "aue": 0.6736572019295171
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 43,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6260736064924202,
+      "aue": 0.6189221774607546
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 44,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.45020497594885683,
+      "mae": 0.3825499335614178
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 44,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.44312319129910055,
+      "mae": 0.3863586663623406
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 44,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.3049621150832964,
+      "mae": 0.3516671204438725
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 44,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5086924677237458,
+      "mae": 0.3510941297797561
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 44,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6801447421143272,
+      "aue": 0.6467184874066669
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 44,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6801447421143272,
+      "aue": 0.6467184874066669
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 44,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6011859778704215,
+      "aue": 0.5933938968781336
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 45,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4342065921138944,
+      "mae": 0.3681703110096613
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 45,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.42689541630605216,
+      "mae": 0.37674686307649713
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 45,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2902157122118991,
+      "mae": 0.34129665303217976
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 45,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4945885941196535,
+      "mae": 0.29733773938052754
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 45,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6302738612091607,
+      "aue": 0.5855678342821923
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 45,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6302738612091607,
+      "aue": 0.5855678342821923
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 45,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.549880318333445,
+      "aue": 0.5357637743532232
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 46,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.41939449782337546,
+      "mae": 0.35892004760309015
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 46,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4116354835483779,
+      "mae": 0.36916998067601686
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 46,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2778410476390219,
+      "mae": 0.33336166091453906
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 46,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.483475136537203,
+      "mae": 0.27426725089363535
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 46,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.5893003610638804,
+      "aue": 0.5383995510311195
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 46,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.5893003610638804,
+      "aue": 0.5383995510311195
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 46,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5075604944941893,
+      "aue": 0.4904169834314794
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 47,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4285129758506661,
+      "mae": 0.36782157256644676
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 47,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4216385409462138,
+      "mae": 0.37576339189090374
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 47,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2866118348689822,
+      "mae": 0.3405901759203075
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 47,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4852879944111353,
+      "mae": 0.3022311719274193
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 47,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6337855417667283,
+      "aue": 0.5923916322594054
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 47,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6337855417667283,
+      "aue": 0.5923916322594054
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 47,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5540597807428428,
+      "aue": 0.542543970996834
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 48,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.426645041456029,
+      "mae": 0.36188348345850707
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 48,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.41872697266164494,
+      "mae": 0.3721689505190778
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 48,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.28359345973076183,
+      "mae": 0.3364631309053059
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 48,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4920392897124312,
+      "mae": 0.2769372164004257
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 48,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6055398506085257,
+      "aue": 0.5546420091149024
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 48,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6055398506085257,
+      "aue": 0.5546420091149024
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 48,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.524399732314797,
+      "aue": 0.5063446083929934
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 49,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.42257199124188466,
+      "mae": 0.3587739310311513
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 49,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4141107516554109,
+      "mae": 0.3696819096669398
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 49,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.28017009848630375,
+      "mae": 0.3338642631379138
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 49,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.492452212851882,
+      "mae": 0.26868642593265946
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 49,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.5899596455675913,
+      "aue": 0.5348979537218513
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 49,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.5899596455675913,
+      "aue": 0.5348979537218513
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear",
+      "seed": 49,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5081230763521981,
+      "aue": 0.4874006132855261
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 42,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.7893000819699004,
+      "mae": 0.5293365894112978
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 42,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.7214264007618879,
+      "mae": 0.5059896573721753
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 42,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.5287057373324457,
+      "mae": 0.4651588763465641
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 42,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 1.3498595408799723,
+      "mae": 0.7221557110226915
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 42,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7863155921464505,
+      "aue": 0.7342096085717777
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 42,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7863155921464505,
+      "aue": 0.7342096085717777
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 42,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6778650726915344,
+      "aue": 0.6461908363550373
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 43,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.8340439955161132,
+      "mae": 0.5071224797443074
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 43,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.816202907040078,
+      "mae": 0.49468650003475656
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 43,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.6008895351866201,
+      "mae": 0.45508949631835843
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 43,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.9813911074525192,
+      "mae": 0.6098295369265767
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 43,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.9814936625500463,
+      "aue": 0.9671373603576657
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 43,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.9814936625500463,
+      "aue": 0.9671373603576657
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 43,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.8657025630805942,
+      "aue": 0.8625983953349271
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 44,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.8265542977826422,
+      "mae": 0.5316475062579933
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 44,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.7700729381820246,
+      "mae": 0.5034500593576994
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 44,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.5616395746168255,
+      "mae": 0.4625136314992075
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 44,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 1.2930261291718301,
+      "mae": 0.7645263673386606
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 44,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.8202407587351391,
+      "aue": 0.7892587001703522
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 44,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.8202407587351391,
+      "aue": 0.7892587001703522
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 44,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.7039272889769751,
+      "aue": 0.6906097451545965
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 45,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.7027662535060883,
+      "mae": 0.5266965368567865
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 45,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.6511968067343766,
+      "mae": 0.5102114765126425
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 45,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.4837464374616029,
+      "mae": 0.4731556115445648
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 45,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 1.128671267999835,
+      "mae": 0.6628443977381325
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 45,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7038971881833296,
+      "aue": 0.6438045505796341
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 45,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7038971881833296,
+      "aue": 0.6438045505796341
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 45,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6035367740698062,
+      "aue": 0.5665950349197736
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 46,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.7004464883036595,
+      "mae": 0.5080227765037262
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 46,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.6587701763725663,
+      "mae": 0.49111378597972494
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 46,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.47448925471024667,
+      "mae": 0.45105548440047144
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 46,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 1.0446454539360563,
+      "mae": 0.6476718188151476
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 46,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.8130409358099239,
+      "aue": 0.7637373972346896
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 46,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.8130409358099239,
+      "aue": 0.7637373972346896
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 46,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.7113202875481728,
+      "aue": 0.6870930379052674
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 47,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.7579024265814273,
+      "mae": 0.4969112324788025
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 47,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.7229089955354534,
+      "mae": 0.4762185799477497
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 47,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.5272761535472155,
+      "mae": 0.4342725482495058
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 47,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 1.0469083921252904,
+      "mae": 0.6678090223109501
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 47,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.8085278409921531,
+      "aue": 0.783462453318343
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 47,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.8085278409921531,
+      "aue": 0.783462453318343
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 47,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6995875779337034,
+      "aue": 0.6907613413977638
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 48,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.6959438307873138,
+      "mae": 0.5235123211889708
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 48,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.6605889944703975,
+      "mae": 0.504581304612458
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 48,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.4823590700309123,
+      "mae": 0.4664530868845915
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 48,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.9879345930818619,
+      "mae": 0.6798610003806179
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 48,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.9111513664318598,
+      "aue": 0.8778222471291038
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 48,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.9111513664318598,
+      "aue": 0.8778222471291038
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 48,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.8176620700562609,
+      "aue": 0.8060563679199662
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 49,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.779376213617668,
+      "mae": 0.5040026895339904
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 49,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.7376898765145328,
+      "mae": 0.4827073594066681
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 49,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.531746591656922,
+      "mae": 0.44060772844602997
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 49,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 1.123657975776131,
+      "mae": 0.6798779112845086
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 49,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.8426347204854786,
+      "aue": 0.8078057004756568
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 49,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.8426347204854786,
+      "aue": 0.8078057004756568
+    },
+    {
+      "dataset": "geant",
+      "model": "lightts",
+      "seed": 49,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.7296442041866414,
+      "aue": 0.71267121776783
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.43786914865343046,
+      "mae": 0.37271464927258946
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4305905801151246,
+      "mae": 0.37935210579759543
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.29335582275698147,
+      "mae": 0.34410094484919745
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4979818516755108,
+      "mae": 0.31789680276749566
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6425955636714696,
+      "aue": 0.6030806957912934
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6425955636714696,
+      "aue": 0.6030806957912934
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 42,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5628035127662768,
+      "aue": 0.5519505235746168
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.43647422931615304,
+      "mae": 0.36957106014800734
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.42949533019307723,
+      "mae": 0.3773859734725869
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.29243748922285345,
+      "mae": 0.34201555360472036
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.49411200358435614,
+      "mae": 0.3050287588216681
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6326068897782041,
+      "aue": 0.5889941356445307
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6326068897782041,
+      "aue": 0.5889941356445307
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 43,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5508803899066428,
+      "aue": 0.5381513280826479
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4345663465831543,
+      "mae": 0.3691107580849196
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.42684761862790477,
+      "mae": 0.3762955954549398
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2903167257540261,
+      "mae": 0.3409056925458935
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.49831426608686213,
+      "mae": 0.3097721679743844
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6256132170493356,
+      "aue": 0.5813061468467691
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6256132170493356,
+      "aue": 0.5813061468467691
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 44,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5444668502811405,
+      "aue": 0.5307433189307493
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.434914408255012,
+      "mae": 0.3689200905495884
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4276769712378309,
+      "mae": 0.3768560955957305
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2911375693583035,
+      "mae": 0.34149964230444974
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4946874116642898,
+      "mae": 0.3033777092407067
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6307693710797383,
+      "aue": 0.5862404729348677
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6307693710797383,
+      "aue": 0.5862404729348677
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 45,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5498267981818385,
+      "aue": 0.5359643982430257
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.45584980838978345,
+      "mae": 0.3834173469820995
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4488987998106442,
+      "mae": 0.3875049708224426
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.30887977055272264,
+      "mae": 0.35259969475676123
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.513257238466548,
+      "mae": 0.349658220213237
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6790347253021292,
+      "aue": 0.6441788762963643
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6790347253021292,
+      "aue": 0.6441788762963643
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 46,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5989761385690927,
+      "aue": 0.5903205484143849
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.47475555930462116,
+      "mae": 0.3949423197009679
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4684117481924305,
+      "mae": 0.3967155976884617
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.3262009149327955,
+      "mae": 0.36231754312205366
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5271482284686673,
+      "mae": 0.3802970591010563
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7223077351303653,
+      "aue": 0.6933200685996712
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7223077351303653,
+      "aue": 0.6933200685996712
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 47,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6427481872910797,
+      "aue": 0.6368990556796341
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.45829699093585,
+      "mae": 0.3847931074647094
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4518129229931021,
+      "mae": 0.3886582464307251
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.31180167912561024,
+      "mae": 0.35390934556750536
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5118480220989248,
+      "mae": 0.35287145287282273
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6884292458149128,
+      "aue": 0.654387858618118
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6884292458149128,
+      "aue": 0.654387858618118
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 48,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6082618089291976,
+      "aue": 0.6001201801089864
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4463443501099813,
+      "mae": 0.37545096396738875
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4401673747906132,
+      "mae": 0.3816047872052231
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.30113526610839375,
+      "mae": 0.3464749161698108
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4973591452573696,
+      "mae": 0.3246273786979128
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6561657490945103,
+      "aue": 0.6157919572786097
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6561657490945103,
+      "aue": 0.6157919572786097
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_static",
+      "seed": 49,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5734383437979182,
+      "aue": 0.5629817888536105
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.43832827350480325,
+      "mae": 0.3729538527657374
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.43111122736152613,
+      "mae": 0.37953603891633075
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2938058458548104,
+      "mae": 0.3443032412012959
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4979328714726952,
+      "mae": 0.3185924767308332
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6436898088902392,
+      "aue": 0.6042111989422971
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6436898088902392,
+      "aue": 0.6042111989422971
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 42,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5638008008958929,
+      "aue": 0.5529954293534906
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4347139839106737,
+      "mae": 0.36849439222747177
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4276576503264541,
+      "mae": 0.3765800278973265
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2909659843600865,
+      "mae": 0.34118070975608344
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.49299127881290183,
+      "mae": 0.301716232042716
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6287173621141129,
+      "aue": 0.5843696187854102
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6287173621141129,
+      "aue": 0.5843696187854102
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 43,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5470340057082752,
+      "aue": 0.5338478485224192
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4341439490336378,
+      "mae": 0.369013326724428
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4264316171389496,
+      "mae": 0.3761927245825186
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2900259604370915,
+      "mae": 0.34081362835099954
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.49783904434712095,
+      "mae": 0.30971966079966984
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6254102056721248,
+      "aue": 0.5811556296343601
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6254102056721248,
+      "aue": 0.5811556296343601
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 44,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5443249075479166,
+      "aue": 0.5306429439838564
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4348605904232931,
+      "mae": 0.3689833096963975
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4276596383647691,
+      "mae": 0.37688746130041806
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2911748891355398,
+      "mae": 0.3415472458997354
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4943322695442873,
+      "mae": 0.30370400161357775
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6312307242764716,
+      "aue": 0.5867517117416488
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6312307242764716,
+      "aue": 0.5867517117416488
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 45,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.550278527140081,
+      "aue": 0.5364707306856502
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.45457458497103687,
+      "mae": 0.38275957610369
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4476084754954995,
+      "mae": 0.3869776718481047
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.3078166810607691,
+      "mae": 0.3520597420407755
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5121067312877834,
+      "mae": 0.3479228997066411
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6768246306343773,
+      "aue": 0.6416742242745301
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6768246306343773,
+      "aue": 0.6416742242745301
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 46,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5967999247279413,
+      "aue": 0.5880000104491838
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.47241640339511265,
+      "mae": 0.3936916410542608
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.46605746880238597,
+      "mae": 0.39570529880294386
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.3242495545380547,
+      "mae": 0.3612822975348341
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5249339753184491,
+      "mae": 0.3770611168519188
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7180394933585105,
+      "aue": 0.6884827779922102
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7180394933585105,
+      "aue": 0.6884827779922102
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 47,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6385001510788442,
+      "aue": 0.6323876289730563
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.457768945539572,
+      "mae": 0.3846031891287067
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4512816890614767,
+      "mae": 0.38849556690547266
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.3113979996804092,
+      "mae": 0.35375076428527613
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5113463103804038,
+      "mae": 0.35245657292071597
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6878799349039957,
+      "aue": 0.6538097233199324
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6878799349039957,
+      "aue": 0.6538097233199324
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 48,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.607771033671532,
+      "aue": 0.5996157709705614
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.44376958610089384,
+      "mae": 0.3739137954186215
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.43746202782800114,
+      "mae": 0.3804305970301831
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2989461427170242,
+      "mae": 0.34525846844256003
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4958628480187272,
+      "mae": 0.32009242135750743
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6506921320471356,
+      "aue": 0.609386298478234
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6506921320471356,
+      "aue": 0.609386298478234
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_global",
+      "seed": 49,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5680782757802516,
+      "aue": 0.5570193981249527
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.45402753231056353,
+      "mae": 0.3822212621011282
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4475180134280235,
+      "mae": 0.3869810588559518
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.3078379747065755,
+      "mae": 0.35213306874833095
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5077887593077932,
+      "mae": 0.3429107510765569
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6800870139082791,
+      "aue": 0.6455117022108301
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6800870139082791,
+      "aue": 0.6455117022108301
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 42,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5999290084613255,
+      "aue": 0.5918355164458157
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.43644519028312023,
+      "mae": 0.3731613438951307
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.42953861951613087,
+      "mae": 0.37971972328772063
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2927741734873306,
+      "mae": 0.34460560680343116
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.493485614541273,
+      "mae": 0.3189965846216479
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.647778963501364,
+      "aue": 0.6098606766244139
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.647778963501364,
+      "aue": 0.6098606766244139
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 43,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5680715995927185,
+      "aue": 0.5585582977115221
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.45861320005079903,
+      "mae": 0.38539827921701264
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.45230847539717267,
+      "mae": 0.38941934126354594
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.31198339958255644,
+      "mae": 0.3547044555397031
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5106830594942946,
+      "mae": 0.352188877208294
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6937264507873634,
+      "aue": 0.6608608457392364
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6937264507873634,
+      "aue": 0.6608608457392364
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 44,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6140505837139836,
+      "aue": 0.6065761781025277
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4426211747681911,
+      "mae": 0.37450003448436564
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.43570170215593,
+      "mae": 0.38096923971933816
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2981365358848582,
+      "mae": 0.34588467766070363
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.49976815360355004,
+      "mae": 0.3210717523939829
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6509000770845411,
+      "aue": 0.6094784587182613
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6509000770845411,
+      "aue": 0.6094784587182613
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 45,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5702235063005843,
+      "aue": 0.5578838882502927
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4622055069877766,
+      "mae": 0.389362510463334
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.45531247946654907,
+      "mae": 0.39176395399003466
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.3153944452956628,
+      "mae": 0.357270825766
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5191340794297183,
+      "mae": 0.36952931650697785
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7040679358326728,
+      "aue": 0.6739047093181535
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7040679358326728,
+      "aue": 0.6739047093181535
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 46,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6248104822237559,
+      "aue": 0.6187572939377675
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4531593739915931,
+      "mae": 0.38151652342519143
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.44695664616978414,
+      "mae": 0.3866100921921576
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.3069243067139567,
+      "mae": 0.35163459369844424
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5043868555378453,
+      "mae": 0.33944943495858326
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6766820558075919,
+      "aue": 0.6418500314857346
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6766820558075919,
+      "aue": 0.6418500314857346
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 47,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5960907336998194,
+      "aue": 0.5881716086430867
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.42868122030798583,
+      "mae": 0.3665955773368378
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.421452014447143,
+      "mae": 0.37483311151538595
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.286055510924594,
+      "mae": 0.33947230020297425
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4883862437217624,
+      "mae": 0.29856290812403175
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6209500928357453,
+      "aue": 0.575584235330399
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6209500928357453,
+      "aue": 0.575584235330399
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 48,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5403325184838853,
+      "aue": 0.5260506386422916
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4586781433648243,
+      "mae": 0.3821416594450921
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4518519650339705,
+      "mae": 0.38743746618482383
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.31227075666454657,
+      "mae": 0.35255380875690456
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5150546174776711,
+      "mae": 0.3384043151949932
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6798991625649756,
+      "aue": 0.6419099211094779
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6798991625649756,
+      "aue": 0.6419099211094779
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale_constant_router",
+      "seed": 49,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5991438958452817,
+      "aue": 0.5884383897303715
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 42,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.3987503070881464,
+      "mae": 0.34954138183728056
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 42,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.3885190335896652,
+      "mae": 0.3613991496764928
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 42,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.26600849954947736,
+      "mae": 0.32657209738556026
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 42,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.48324899692187995,
+      "mae": 0.2516096974858886
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 42,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.5545058238472733,
+      "aue": 0.45174471787810927
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 42,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.5545058238472733,
+      "aue": 0.45174471787810927
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 42,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.4722180154695097,
+      "aue": 0.41288080316294085
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 43,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.49220042218892995,
+      "mae": 0.4049221262433121
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 43,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.48625345753306864,
+      "mae": 0.40293604249906784
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 43,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.34339631477297955,
+      "mae": 0.3693241041767767
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 43,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.5413155906948254,
+      "mae": 0.42132492051067627
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 43,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7601559295803845,
+      "aue": 0.7330299860976272
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 43,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.7601559295803845,
+      "aue": 0.7330299860976272
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 43,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.6787746002549125,
+      "aue": 0.6741333858477719
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 44,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.41168217972754156,
+      "mae": 0.3544047810433995
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 44,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4066327186089679,
+      "mae": 0.36764067266808903
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 44,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.27590913161684055,
+      "mae": 0.33230919415388105
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 44,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.45338498915289716,
+      "mae": 0.24509136065310516
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 44,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6029087149131583,
+      "aue": 0.5460315018579724
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 44,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6029087149131583,
+      "aue": 0.5460315018579724
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 44,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5178325508544301,
+      "aue": 0.49934678468382343
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 45,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4341368800848121,
+      "mae": 0.3736204641117662
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 45,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4281376962028647,
+      "mae": 0.37845411017734654
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 45,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2931630614084627,
+      "mae": 0.34374023585258767
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 45,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4836833200437738,
+      "mae": 0.33370004172034523
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 45,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6483003773494822,
+      "aue": 0.6075092555051708
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 45,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6483003773494822,
+      "aue": 0.6075092555051708
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 45,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5649625365285722,
+      "aue": 0.5553480144931995
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 46,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.4319987167872737,
+      "mae": 0.37180838485200945
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 46,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4270365905947136,
+      "mae": 0.37862148313193666
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 46,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2934218702265175,
+      "mae": 0.3440030961007165
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 46,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4729802389920333,
+      "mae": 0.31553993709252254
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 46,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6481144978310693,
+      "aue": 0.5997945391764294
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 46,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6481144978310693,
+      "aue": 0.5997945391764294
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 46,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5636465719141488,
+      "aue": 0.5489784762633603
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 47,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.40995968807101074,
+      "mae": 0.35352198051727285
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 47,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4050031105336856,
+      "mae": 0.3670828387962636
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 47,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.274741563482667,
+      "mae": 0.33187838021713123
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 47,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.4508953846903472,
+      "mae": 0.24152470493219877
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 47,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6040778283898761,
+      "aue": 0.5462376926393084
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 47,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6040778283898761,
+      "aue": 0.5462376926393084
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 47,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5190772397926465,
+      "aue": 0.49979777822246246
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 48,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.409556670761391,
+      "mae": 0.35391196966011046
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 48,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.4041072077934713,
+      "mae": 0.3668430586233712
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 48,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.2742987248541316,
+      "mae": 0.33164700131826474
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 48,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.45456304080467286,
+      "mae": 0.24711587280264752
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 48,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6010533085705376,
+      "aue": 0.5442224230858187
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 48,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6010533085705376,
+      "aue": 0.5442224230858187
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 48,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5162120049431674,
+      "aue": 0.4976260109624877
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 49,
+      "case": "original_all",
+      "n_target_values": 5671776,
+      "mse": 0.42328313531735107,
+      "mae": 0.36233291966799275
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 49,
+      "case": "observed_targets",
+      "n_target_values": 5059198,
+      "mse": 0.41930385974088646,
+      "mae": 0.37389708851346665
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 49,
+      "case": "complete_channel_windows",
+      "n_target_values": 4519728,
+      "mse": 0.28628667067730756,
+      "mae": 0.3389796759466991
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 49,
+      "case": "unobserved_imputed_targets_diagnostic",
+      "n_target_values": 612578,
+      "mse": 0.45614742857943213,
+      "mae": 0.2668260292888346
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 49,
+      "case": "high_original_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6368612509316548,
+      "aue": 0.5839127426067889
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 49,
+      "case": "high_observed_same_threshold",
+      "n_target_values": 737459,
+      "mae": 0.6368612509316548,
+      "aue": 0.5839127426067889
+    },
+    {
+      "dataset": "geant",
+      "model": "dlinear_scale",
+      "seed": 49,
+      "case": "high_observed_training_q90",
+      "n_target_values": 661263,
+      "mae": 0.5517701114641644,
+      "aue": 0.5352150081469357
+    }
+  ]
+}

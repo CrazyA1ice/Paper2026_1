@@ -1,0 +1,11 @@
+Nature Figure Rendered Collision Audit
+pdf: C:\Users\Quant\Desktop\Paper2026_1\paper_template\长春工程学院学报(自然科学版)\逐项修订_20261023\V9_图表源文件\图1_样本窗口符号统一.pdf
+pages: 1
+visible text boxes: 59
+stroke paths: 117
+
+
+summary: 0 fail, 0 warn, 81 contained fill overlays, 0 contained image overlays
+verdict: PASS
+note: contained overlays can be intentional; WARN findings need final-size visual review
+

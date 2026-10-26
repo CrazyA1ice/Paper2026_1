@@ -1,0 +1,16 @@
+{
+  "schema": "pdf_read_preflight/1",
+  "verdict": "UNAVAILABLE",
+  "file": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长江信息通信\\基于粒子群算法的计算机通信网络流量分配优化研究_朱莹莹.pdf",
+  "sha256": "aa6145a4b82136f9f29cc0721cb11cd0a7b2302c7042ca2269cf87bd89a460cf",
+  "declared_page_count": 3,
+  "enumerated_page_count": 3,
+  "reader_page_count": 3,
+  "warnings": [
+    "trailing-data: 178 bytes after the final %%EOF include non-whitespace content (possible truncated incremental update)",
+    "pypdf: Multiple definitions in dictionary at byte 0x30997 for key /MediaBox"
+  ],
+  "generated_at": "2026-10-26T08:07:26.613055+00:00",
+  "tool": "pdf_read_preflight/1.0.0"
+}
+

@@ -1,0 +1,27 @@
+{
+  "引言": {
+    "nonspace_chars": 1242,
+    "cjk_chars": 991,
+    "body_percent": 16.6
+  },
+  "方法": {
+    "nonspace_chars": 2180,
+    "cjk_chars": 1671,
+    "body_percent": 29.2
+  },
+  "实验": {
+    "nonspace_chars": 3686,
+    "cjk_chars": 2336,
+    "body_percent": 49.4
+  },
+  "结语": {
+    "nonspace_chars": 360,
+    "cjk_chars": 236,
+    "body_percent": 4.8
+  },
+  "中文摘要含标签": {
+    "nonspace_chars": 201,
+    "cjk_chars": 133
+  },
+  "正文叙述合计不含公式表内图内文字": 7468
+}

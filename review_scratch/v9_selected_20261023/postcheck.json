@@ -1,0 +1,21 @@
+{
+  "both_abstracts_unchanged": true,
+  "all_unselected_paragraph_text_unchanged": true,
+  "table_values_unchanged": true,
+  "native_numbered_equations_preserved": true,
+  "all_reference_citation_numbers_in_order": true,
+  "chinese_abstract_characters": 199,
+  "all_regular_latin_letters_and_digits_in_TNR": true,
+  "special_math_operators_use_required_symbol_fallback": true,
+  "changed_zip_members": [
+    "word/document.xml",
+    "word/media/image1.png",
+    "word/media/image2.png",
+    "word/media/image3.png",
+    "word/media/image4.png",
+    "word/settings.xml",
+    "word/styles.xml"
+  ],
+  "source_unchanged": true,
+  "output_matches_audited_hash": true
+}

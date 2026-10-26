@@ -1,0 +1,39 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\逐项修订_20261023\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV6_摘要局部修订稿.docx",
+  "source_sha256": "518ec952a88674a8286c005561154d32c9b9f56cf6487adb83f12348116c731a",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\逐项修订_20261023\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV7_摘要精简稿.docx",
+  "output_sha256": "54aa62d16a2aa678dae7315e0b643e3e5e6c526e219c16428f12c82e31132f3a",
+  "source_unchanged": true,
+  "only_two_abstracts_changed": true,
+  "chinese_first_sentence_unchanged": true,
+  "chinese_abstract_characters": 199,
+  "all_other_body_nodes_unchanged": true,
+  "all_styles_figures_tables_equations_unchanged": true,
+  "native_math_objects": 42,
+  "edits": [
+    {
+      "index": 5,
+      "before": "摘要：针对骨干网小时级源—目的（OD）流量序列兼具高频突发波动与长周期演化趋势、传统多尺度模型参数冗余且静态融合易受噪声干扰的问题，提出一种自适应多尺度加权的多变量网络流量预测方法。该方法通过非重叠时间聚合构造多分辨率输入，利用三个参数独立的分解线性专家（DLinear）解耦并提取各尺度下的趋势项与余项特征，进而设计仅含131个参数的轻量级窗口路由网络，提取历史窗口的四维时域统计特征，自适应生成样本级多尺度融合权重。在Abilene和GÉANT真实骨干网数据集上的重复实验表明：在24 h预测任务中，所提方法仅以LightTS模型6.41%和2.17%的参数规模（仅8339个参数），实现了25.77%和43.74%的均方误差（MSE）降幅，相较于单尺度DLinear及静态多尺度融合策略，MSE最高降低4.97%，且在高需求峰点的平均低估误差降低达16.07%。在GÉANT数据集168 h长周期预测任务中，其MSE和平均绝对误差（MAE）较DLinear分别降低23.16%和11.16%，可为骨干网容量规划与资源调度提供预测参考。",
+      "after": "摘要：针对骨干网小时级源—目的（OD）流量序列兼具高频突发波动与长周期演化趋势、传统多尺度模型参数冗余且静态融合易受噪声干扰的问题，提出一种自适应多尺度加权的多变量网络流量预测方法。该方法利用三个分解线性专家（DLinear），提取四维统计特征，自适应生成融合权重。Abilene和GÉANT实验表明：24 h均方误差较LightTS平均降低25.77%和43.74%，参数量为其6.41%和2.17%。"
+    },
+    {
+      "index": 120,
+      "before": "Abstract: An adaptive multiscale weighting method is proposed for multivariate network traffic forecasting to address the coexistence of high-frequency burst fluctuations and long-term evolution in hourly origin-destination (OD) traffic series of backbone networks, as well as parameter redundancy and noise-sensitive static fusion in conventional multiscale models. Non-overlapping temporal aggregation constructs multiresolution inputs, and three independently parameterized decomposition linear models (DLinear) extract trend and residual components at each scale. A lightweight window router with only 131 parameters then extracts four time-domain statistics from each historical window to generate sample-specific multiscale fusion weights. Repeated experiments on the Abilene and GÉANT backbone-network datasets show that, for 24-hour forecasting, the proposed method achieves mean relative reductions in mean squared error (MSE) of 25.77% and 43.74%, respectively, using only 8,339 parameters, equivalent to 6.41% and 2.17% of the respective LightTS parameter counts. Compared with single-scale DLinear and static multiscale fusion strategies, the maximum MSE reduction reaches 4.97%. In addition, the average underestimation error at high-demand peak points on Abilene decreases by 16.07% relative to DLinear. For 168-hour forecasting on GÉANT, MSE and mean absolute error (MAE) decrease by 23.16% and 11.16%, respectively, relative to DLinear. These results provide a forecasting reference for backbone-network capacity planning and resource scheduling.",
+      "after": "Abstract:  An adaptive multiscale weighting method is proposed for multivariate network traffic forecasting to address the coexistence of high-frequency burst fluctuations and long-term evolution in hourly origin-destination (OD) traffic series of backbone networks, as well as parameter redundancy and noise-sensitive static fusion in conventional multiscale models. The method uses three decomposition linear (DLinear) experts, extracts four-dimensional statistical features, and adaptively generates fusion weights. Experiments on Abilene and GÉANT show mean relative reductions in 24-hour mean squared error of 25.77% and 43.74%, respectively, compared with LightTS, with parameter counts equivalent to 6.41% and 2.17% of the respective LightTS configurations."
+    }
+  ],
+  "visual_review_pending": false,
+  "visual_review_passed": true,
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ]
+}

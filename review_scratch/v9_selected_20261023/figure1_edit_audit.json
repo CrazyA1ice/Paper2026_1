@@ -1,0 +1,73 @@
+{
+  "edits": [
+    {
+      "before": "$\\alpha_1\\hat{\\boldsymbol{Y}}^{(1)}$",
+      "after": "$\\alpha_{n,1}\\hat{\\boldsymbol{Y}}^{(1)}_n$"
+    },
+    {
+      "before": "$\\alpha_2\\hat{\\boldsymbol{Y}}^{(2)}$",
+      "after": "$\\alpha_{n,2}\\hat{\\boldsymbol{Y}}^{(2)}_n$"
+    },
+    {
+      "before": "$\\alpha_4\\hat{\\boldsymbol{Y}}^{(4)}$",
+      "after": "$\\alpha_{n,4}\\hat{\\boldsymbol{Y}}^{(4)}_n$"
+    },
+    {
+      "before": "$\\alpha_1,\\alpha_2,\\alpha_4$",
+      "after": "$\\alpha_{n,1},\\alpha_{n,2},\\alpha_{n,4}$"
+    },
+    {
+      "complete_formula": "$\\hat{\\boldsymbol{Y}}_n=\\sum_{s\\in S}\\alpha_{n,s}\\hat{\\boldsymbol{Y}}^{(s)}_n$"
+    },
+    {
+      "complete_formula": "$\\sum_{s\\in S}\\alpha_{n,s}=1$"
+    }
+  ],
+  "unchanged_geometry": true,
+  "other_labels_unchanged": true,
+  "width_mm": 138,
+  "height_mm": 88,
+  "alignment": {
+    "schema_version": 1,
+    "applicable": false,
+    "auditable": false,
+    "verdict": "NOT APPLICABLE",
+    "backend": "python-matplotlib",
+    "summary": {
+      "fail": 0,
+      "warn": 0,
+      "comparisons": 0,
+      "exemptions": 0
+    },
+    "tolerances": {
+      "alignment_pt": 1.5,
+      "gutter_pt": 1.5
+    },
+    "errors": [],
+    "findings": [],
+    "layout": {
+      "schema_version": 1,
+      "backend": "python-matplotlib",
+      "figure": {
+        "width_pt": 391.18110236220474,
+        "height_pt": 249.4488188976378
+      },
+      "panels": [
+        {
+          "id": "a",
+          "bbox_pt": [
+            0.0,
+            0.0,
+            391.18110236220474,
+            249.4488188976378
+          ]
+        }
+      ],
+      "row_groups": [],
+      "column_groups": [],
+      "boundary_groups": [],
+      "exemptions": []
+    }
+  },
+  "prefix": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\逐项修订_20261023\\V9_图表源文件\\图1_样本窗口符号统一"
+}

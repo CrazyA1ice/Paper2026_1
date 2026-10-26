@@ -1,0 +1,80 @@
+{
+  "pages": 9,
+  "words": 7707,
+  "characters": 12953,
+  "shapes": 4,
+  "sections": 3,
+  "pdf": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\review_scratch\\selected_revisions_20261023\\render_submission\\review.pdf",
+  "source_and_output_hashes_match": true,
+  "outside_page_text": 0,
+  "missing_glyph_boxes": 0,
+  "visual_review_pending": false,
+  "page_details": [
+    {
+      "page": 1,
+      "first": "自适应多尺度加权的多变量网络流量预测\n收稿日期：2026.10.22\n作者简介：柯亚文（1998—），男（汉族），安徽池州人，助教，硕士研究",
+      "last": "窗口均值、标准差、末态水平与一阶差分的低维路由分支，仅以131个额外参数即可动态\n感知当前时间窗口的平稳度与突变状态，实现样本级（Window-wise）的自适应加权融合。在Abilene和GÉANT",
+      "images": 0
+    },
+    {
+      "page": 2,
+      "first": "数据集上的多维度实验佐证，本文方法在24 h常规预测、高需求目标点预测以及168 h一周超长期预测中均取\n得平均误差优势。\n1 自适应多尺度",
+      "last": "间段内。\n经过上述处理，各数据子集均形成与预测任务对应的输入和目标，验证集及测试集不参与标准化参数的估\n计。此后，各模型使用同一套数据划分和预处理结果，便于将实验中的误差差异对应到预测结构及融合方式。",
+      "images": 1
+    },
+    {
+      "page": 3,
+      "first": "1.2 多尺度构造与线性专家\n为使同一历史窗口同时包含细粒度变化和较平滑的时间信息，模型设置三个并行尺度。三个尺度对应同一\n预测时段上不同的",
+      "last": "分别为16维和3维。进一步采用归一化指数函数（Softmax），得到\n𝛼 =\nexp(𝑎𝑛,𝑠)\n, 𝛼 ≥0, ∑ 𝛼 =1. (12)\n𝑛,𝑠 ∑ 𝑗∈𝑆exp(𝑎𝑛,𝑗) 𝑛,𝑠 𝑠∈𝑆 𝑛,𝑠",
+      "images": 0
+    },
+    {
+      "page": 4,
+      "first": "其中，αₙ,ₛ表示第n个窗口在尺度s上的融合权重，j为尺度集合中的求和索引。三个非负权重之和为1，并\n在当前窗口的全部OD变量和预测步之间共",
+      "last": "化后的空间计算。测试集MSE按式（14）计算，N取相应测试窗口数；MAE为\nMAE= 1 ∑𝑁te ∑𝐻 ∑𝐶 |𝑌 −𝑌̂ |. (15)\n𝑁te𝐻𝐶 𝑛=1 ℎ=1 𝑐=1 𝑛,ℎ,𝑐 𝑛,ℎ,𝑐",
+      "images": 0
+    },
+    {
+      "page": 5,
+      "first": "式中，Nₜₑ为测试窗口数。MSE 对较大偏差更敏感，MAE 反映平均绝对偏差；两项指标越小，预测误差越\n低。\n2.2 预测精度比较\n基线比较",
+      "last": "合优势。\n图2 相对DLinear与LightTS的配对误差降幅（8次重复）\n图 2 展示了单次配对结果，点为各随机种子的误差降幅，菱形及横线为均值与样本标准差；下方为相对\nLightTS的参数比例。",
+      "images": 1
+    },
+    {
+      "page": 6,
+      "first": "2.3 融合方式消融\n除比较模型的总体预测能力外，还需明确性能改善与尺度融合方式的关系。为此，在尺度集合、DLinear专\n家和训练任务保持",
+      "last": "为\nAUE= 1 ∑ max(0,𝑌 −𝑌̂ ). (16)\n|𝛺| (𝑛,ℎ,𝑐)∈𝛺 𝑛,ℎ,𝑐 𝑛,ℎ,𝑐\n式中，|𝛺|为测试集中高需求目标点的总数。高需求点的MAE与AUE对比结果如图3所示。",
+      "images": 0
+    },
+    {
+      "page": 7,
+      "first": "图3 高需求点的MAE与AUE（8次重复，均值±样本标准差）\n由图 3 可见，在 8 次重复实验的均值比较中，本文方法在两套数据集上的高需求",
+      "last": "14±0.027\n全局可学习权重 1.148±0.108 0.613±0.027\n恒定输入路由 1.102±0.028 0.604±0.010\n本文方法 0.841±0.088 0.536±0.028",
+      "images": 1
+    },
+    {
+      "page": 8,
+      "first": "图4 GÉANT一周预测的绝对误差与配对降幅（8次重复）\n在图4中，本文方法在168 h超长周期预测任务中的平均预测误差低于四种对照，其测试",
+      "last": "ycleLLH：一种基于周期性整合的新型网络流量预测模型[J]. 计算机学报,\n2024, 47(12): 2867-2888. DOI: 10.11897/SP.J.1016.2024.02867.",
+      "images": 1
+    },
+    {
+      "page": 9,
+      "first": "[5] ZHOU Jian, HAN Taotao, XIAO Fu, et al. Multiscale network traffic ",
+      "last": "sting; multivariate time series; multiscale learning; adaptive weighting; decomposition\nlinear model",
+      "images": 0
+    }
+  ],
+  "visual_review_passed": true,
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

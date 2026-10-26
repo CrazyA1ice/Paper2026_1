@@ -1,0 +1,14 @@
+[
+  {
+    "figure": "图2_多基线误差降幅与参数比例",
+    "all_scatter_and_errorbar_geometry_identical": true
+  },
+  {
+    "figure": "图3_高需求局部范围点图",
+    "all_scatter_and_errorbar_geometry_identical": true
+  },
+  {
+    "figure": "图4_一周绝对误差与配对降幅",
+    "all_scatter_and_errorbar_geometry_identical": true
+  }
+]

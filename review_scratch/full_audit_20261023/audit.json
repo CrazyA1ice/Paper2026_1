@@ -1,0 +1,28 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\截图逐项修改_20261023\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV4_截图逐项修改稿.docx",
+  "source_sha256": "11a1c619de23ad5616dc4cf7b0b8cbe225d93b594769cfa8552d1429a7568068",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\英文摘要同步及全文核查_20261023\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV5_英文摘要同步稿.docx",
+  "output_sha256": "3b4b12be780ae850d5f9fa6c9234508f7d3aadbeee203f42f4ae884c9d77435e",
+  "only_english_abstract_changed": true,
+  "source_unchanged": true,
+  "paragraph_index": 120,
+  "before": "Abstract: An adaptive multiscale weighting method forecasts hourly traffic by combining three decomposition linear models (DLinear) according to window statistics. Across eight training runs, mean relative reductions in 24-hour mean squared error versus LightTS are 25.77% on Abilene and 43.74% on GÉANT. Parameter counts are 6.41% and 2.17% of the respective LightTS configurations. Relative to DLinear, the mean shortfall at high-demand Abilene points decreases by 16.07%. For 168-hour GÉANT forecasting against DLinear, mean squared error and mean absolute error decrease by 23.16% and 11.16%, respectively. These results support capacity demand estimation using hourly traffic forecasts.",
+  "after": "Abstract: An adaptive multiscale weighting method is proposed for multivariate network traffic forecasting to address the coexistence of high-frequency burst fluctuations and long-term evolution in hourly origin-destination (OD) traffic series of backbone networks, as well as parameter redundancy and noise-sensitive static fusion in conventional multiscale models. Non-overlapping temporal aggregation constructs multiresolution inputs, and three independently parameterized decomposition linear models (DLinear) extract trend and residual components at each scale. A lightweight window router with only 131 parameters then extracts four time-domain statistics from each historical window to generate sample-specific multiscale fusion weights. Repeated experiments on the Abilene and GÉANT backbone-network datasets show that, for 24-hour forecasting, the proposed method achieves mean relative reductions in mean squared error (MSE) of 25.77% and 43.74%, respectively, using only 8,339 parameters, equivalent to 6.41% and 2.17% of the respective LightTS parameter counts. Compared with single-scale DLinear and static multiscale fusion strategies, the maximum MSE reduction reaches 4.97%. In addition, the average underestimation error at high-demand peak points on Abilene decreases by 16.07% relative to DLinear. For 168-hour forecasting on GÉANT, MSE and mean absolute error (MAE) decrease substantially by 23.16% and 11.16%, respectively, relative to DLinear. These results demonstrate a favorable accuracy-complexity balance and robust forecasting performance for engineering applications, providing reliable support for backbone-network capacity planning and resource scheduling.",
+  "all_other_body_nodes_unchanged": true,
+  "native_math_unchanged": true,
+  "format_unchanged": true,
+  "visual_review_pending": false,
+  "visual_review_passed": true,
+  "unchanged_previously_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "new_page_visually_reviewed": 10
+}

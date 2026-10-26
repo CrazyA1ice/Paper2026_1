@@ -1,0 +1,404 @@
+{
+  "all_8_seed_rows_checked": true,
+  "baseline_rows": 96,
+  "high_demand_rows": 80,
+  "weekly_rows": 40,
+  "effects": [
+    {
+      "family": "baseline_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "mean": 2.767725876989123,
+      "sd": 1.228694807006027,
+      "positive_pairs": 8
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "mean": 8.01135722832875,
+      "sd": 7.063199828834607,
+      "positive_pairs": 7
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "abilene",
+      "baseline": "lightts",
+      "metric": "mse",
+      "mean": 25.76504718293911,
+      "sd": 4.7081583416348955,
+      "positive_pairs": 8
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "abilene",
+      "baseline": "lightts",
+      "metric": "mae",
+      "mean": 12.657337685601764,
+      "sd": 5.986637690872737,
+      "positive_pairs": 8
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_static",
+      "metric": "mse",
+      "mean": 1.654105562728188,
+      "sd": 2.1055150018943576,
+      "positive_pairs": 6
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_static",
+      "metric": "mae",
+      "mean": 8.923986517787506,
+      "sd": 5.960057091963537,
+      "positive_pairs": 7
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_global",
+      "metric": "mse",
+      "mean": 1.7951322860380812,
+      "sd": 2.136161392156358,
+      "positive_pairs": 6
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_global",
+      "metric": "mae",
+      "mean": 8.912439590404672,
+      "sd": 5.897483985243568,
+      "positive_pairs": 7
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mse",
+      "mean": 1.8017261437706609,
+      "sd": 1.5694214137089268,
+      "positive_pairs": 6
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mae",
+      "mean": 4.48425871493673,
+      "sd": 3.3521346140803416,
+      "positive_pairs": 7
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "mean": 2.3482639668894825,
+      "sd": 5.879684352158632,
+      "positive_pairs": 5
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "mean": 1.3242620888233467,
+      "sd": 4.573347014125286,
+      "positive_pairs": 4
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "geant",
+      "baseline": "lightts",
+      "metric": "mse",
+      "mean": 43.7448274472918,
+      "sd": 4.737748788271742,
+      "positive_pairs": 8
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "geant",
+      "baseline": "lightts",
+      "metric": "mae",
+      "mean": 29.086910664843334,
+      "sd": 4.453465672611452,
+      "positive_pairs": 8
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "mse",
+      "mean": 4.536699588425788,
+      "sd": 8.100975059063757,
+      "positive_pairs": 7
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "mae",
+      "mean": 3.0496090981583817,
+      "sd": 6.199346941442135,
+      "positive_pairs": 6
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "mse",
+      "mean": 4.310141513757662,
+      "sd": 8.161454367755553,
+      "positive_pairs": 7
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "mae",
+      "mean": 2.90446791643643,
+      "sd": 6.238854577492185,
+      "positive_pairs": 6
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mse",
+      "mean": 4.974555335464942,
+      "sd": 7.882057381632437,
+      "positive_pairs": 7
+    },
+    {
+      "family": "baseline_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mae",
+      "mean": 3.6006424597251825,
+      "sd": 5.600553429672561,
+      "positive_pairs": 7
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "mean": 13.95590291958509,
+      "sd": 14.561443898664201,
+      "positive_pairs": 7
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear",
+      "metric": "mean_shortfall",
+      "mean": 16.074871371236185,
+      "sd": 19.033517078746986,
+      "positive_pairs": 7
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_static",
+      "metric": "mae",
+      "mean": 17.47336640101474,
+      "sd": 10.12904355503753,
+      "positive_pairs": 8
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_static",
+      "metric": "mean_shortfall",
+      "mean": 20.83670238608594,
+      "sd": 12.791226390901743,
+      "positive_pairs": 8
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_global",
+      "metric": "mae",
+      "mean": 17.2160073574035,
+      "sd": 10.079117140914756,
+      "positive_pairs": 8
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_global",
+      "metric": "mean_shortfall",
+      "mean": 20.48897187980957,
+      "sd": 12.73363300378741,
+      "positive_pairs": 8
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mae",
+      "mean": 7.661970286928539,
+      "sd": 8.670611778275699,
+      "positive_pairs": 7
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "abilene",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mean_shortfall",
+      "mean": 9.992274628952034,
+      "sd": 11.24296261018782,
+      "positive_pairs": 7
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "mean": 0.41929244266631494,
+      "sd": 9.358633508209937,
+      "positive_pairs": 4
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mean_shortfall",
+      "mean": 2.2685397246979946,
+      "sd": 13.35818734497109,
+      "positive_pairs": 4
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "mae",
+      "mean": 3.8689790806295092,
+      "sd": 11.674090760283436,
+      "positive_pairs": 6
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "mean_shortfall",
+      "mean": 6.649443586560988,
+      "sd": 15.728584783135705,
+      "positive_pairs": 6
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "mae",
+      "mean": 3.5880012653132853,
+      "sd": 11.83225876031828,
+      "positive_pairs": 6
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "mean_shortfall",
+      "mean": 6.303687132868035,
+      "sd": 15.959531704673124,
+      "positive_pairs": 6
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mae",
+      "mean": 5.352376061753348,
+      "sd": 10.776301692494725,
+      "positive_pairs": 7
+    },
+    {
+      "family": "high_demand_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mean_shortfall",
+      "mean": 8.487172379648834,
+      "sd": 14.584085530978555,
+      "positive_pairs": 7
+    },
+    {
+      "family": "weekly_effects",
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mse",
+      "mean": 23.16017733268085,
+      "sd": 9.611962789541199,
+      "positive_pairs": 8
+    },
+    {
+      "family": "weekly_effects",
+      "dataset": "geant",
+      "baseline": "dlinear",
+      "metric": "mae",
+      "mean": 11.158897760037743,
+      "sd": 5.204926981978245,
+      "positive_pairs": 8
+    },
+    {
+      "family": "weekly_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "mse",
+      "mean": 26.114809865030956,
+      "sd": 11.525852169235815,
+      "positive_pairs": 8
+    },
+    {
+      "family": "weekly_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_static",
+      "metric": "mae",
+      "mean": 12.388247959379171,
+      "sd": 6.647067412621333,
+      "positive_pairs": 8
+    },
+    {
+      "family": "weekly_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "mse",
+      "mean": 26.0174567878909,
+      "sd": 11.618045778332867,
+      "positive_pairs": 8
+    },
+    {
+      "family": "weekly_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_global",
+      "metric": "mae",
+      "mean": 12.343283699169879,
+      "sd": 6.703173591497399,
+      "positive_pairs": 8
+    },
+    {
+      "family": "weekly_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mse",
+      "mean": 23.772923891947926,
+      "sd": 6.893548723571899,
+      "positive_pairs": 8
+    },
+    {
+      "family": "weekly_effects",
+      "dataset": "geant",
+      "baseline": "dlinear_scale_constant_router",
+      "metric": "mae",
+      "mean": 11.189913119457724,
+      "sd": 3.682003253064264,
+      "positive_pairs": 8
+    }
+  ]
+}

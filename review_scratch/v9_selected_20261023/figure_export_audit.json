@@ -1,0 +1,26 @@
+[
+  {
+    "figure": 2,
+    "stem": "图2_多基线误差降幅与参数比例",
+    "width_mm": 138.0,
+    "height_mm": 54.60999999999999,
+    "alignment": "PASS",
+    "glyph_warnings": []
+  },
+  {
+    "figure": 3,
+    "stem": "图3_高需求局部范围点图",
+    "width_mm": 138.0,
+    "height_mm": 67.31,
+    "alignment": "PASS",
+    "glyph_warnings": []
+  },
+  {
+    "figure": 4,
+    "stem": "图4_一周绝对误差与配对降幅",
+    "width_mm": 138.0,
+    "height_mm": 66.0,
+    "alignment": "PASS",
+    "glyph_warnings": []
+  }
+]

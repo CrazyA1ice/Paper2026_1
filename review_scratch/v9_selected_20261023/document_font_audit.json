@@ -1,0 +1,232 @@
+{
+  "fonts": {
+    "TimesNewRomanPSMT": 892,
+    "SimSun": 718,
+    "TimesNewRomanPS-BoldMT": 86,
+    "TimesNewRomanPS-BoldItal": 44,
+    "TimesNewRomanPS-ItalicMT": 285,
+    "CambriaMath": 55
+  },
+  "Cambria_math_symbols": [
+    {
+      "text": "] ∈",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "] ∈",
+      "font": "CambriaMath"
+    },
+    {
+      "text": " ",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∈",
+      "font": "CambriaMath"
+    },
+    {
+      "text": " ",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "̃",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "̃",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "̂",
+      "font": "CambriaMath"
+    },
+    {
+      "text": " ",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "√",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": " ",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": " ",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∈",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∈",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "̂",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∈",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "̂",
+      "font": "CambriaMath"
+    },
+    {
+      "text": " ",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "̂",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∈",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∶",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∶",
+      "font": "CambriaMath"
+    },
+    {
+      "text": " ",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "̂",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "{(",
+      "font": "CambriaMath"
+    },
+    {
+      "text": ")",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "}",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "|",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "|",
+      "font": "CambriaMath"
+    },
+    {
+      "text": " ",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "∑",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "(",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "̂",
+      "font": "CambriaMath"
+    },
+    {
+      "text": ")",
+      "font": "CambriaMath"
+    },
+    {
+      "text": "(",
+      "font": "CambriaMath"
+    },
+    {
+      "text": ")∈",
+      "font": "CambriaMath"
+    }
+  ]
+}

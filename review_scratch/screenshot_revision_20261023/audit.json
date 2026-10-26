@@ -1,0 +1,144 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV3_行文连贯性修订稿.docx",
+  "source_sha256": "625685542a13f7ec84ad45f82583f258324a47af6fe3c02224c7b59deed95357",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长春工程学院学报(自然科学版)\\截图逐项修改_20261023\\自适应多尺度加权的多变量网络流量预测_ccgcxyxbV4_截图逐项修改稿.docx",
+  "output_sha256": "11a1c619de23ad5616dc4cf7b0b8cbe225d93b594769cfa8552d1429a7568068",
+  "source_unchanged": true,
+  "changed_package_parts": [
+    "word/document.xml"
+  ],
+  "replaced_source_indices": [
+    5,
+    13,
+    14,
+    71,
+    79,
+    82,
+    85,
+    92
+  ],
+  "insert_after_source_indices": [
+    31,
+    42,
+    83
+  ],
+  "screenshot_paragraphs": 14,
+  "only_numeric_edits_to_screenshot_prose": true,
+  "numeric_corrections": {
+    "abstract": [
+      [
+        "29.80%",
+        "25.77%"
+      ],
+      [
+        "46.89%",
+        "43.74%"
+      ],
+      [
+        "4.31%",
+        "4.97%"
+      ]
+    ],
+    "results22a": [
+      [
+        "0.186",
+        "0.189"
+      ],
+      [
+        "0.188",
+        "0.189"
+      ],
+      [
+        "0.168",
+        "0.173"
+      ],
+      [
+        "10.64%",
+        "8.01%"
+      ],
+      [
+        "0.001",
+        "0.008"
+      ],
+      [
+        "0.009",
+        "0.008"
+      ],
+      [
+        "1/9",
+        "99.23%"
+      ],
+      [
+        "1/8",
+        "106.26%"
+      ]
+    ],
+    "results22b": [
+      [
+        "29.80%",
+        "25.77%"
+      ],
+      [
+        "46.89%",
+        "43.74%"
+      ],
+      [
+        "17.57%",
+        "12.66%"
+      ],
+      [
+        "29.15%",
+        "29.09%"
+      ],
+      [
+        "30%～47%",
+        "26%～44%"
+      ]
+    ],
+    "results23a": [
+      [
+        "8.47%",
+        "8.01%"
+      ],
+      [
+        "8.95%",
+        "8.91%"
+      ]
+    ],
+    "results24": [
+      [
+        "17.4%",
+        "17.47%"
+      ],
+      [
+        "21.3%",
+        "20.84%"
+      ]
+    ]
+  },
+  "all_other_source_nodes_unchanged": "All words, drawings, native math and formatting preserved except documented keepNext/keepLines pagination properties",
+  "tables_unchanged": "All values and formatting preserved except paragraph keepNext in table 1",
+  "images_unchanged": true,
+  "source_math_preserved": true,
+  "original_native_math": 20,
+  "native_math": 42,
+  "sections": 3,
+  "visual_review_pending": false,
+  "pagination_only_adjustments": [
+    "表1整表同页",
+    "英文题名、作者信息及摘要保持同页"
+  ],
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "visual_review_passed": true
+}

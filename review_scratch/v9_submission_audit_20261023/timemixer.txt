@@ -1,0 +1,1296 @@
+PublishedasaconferencepaperatICLR2024
+TIMEMIXER: DECOMPOSABLE MULTISCALE MIXING
+FOR TIME SERIES FORECASTING
+ShiyuWang1∗,HaixuWu2∗,XiaomingShi1,TenggeHu2,HuakunLuo2,LintaoMa1(cid:66),
+JamesY.Zhang1,JunZhou1(cid:66)
+1AntGroup,Hangzhou,China2TsinghuaUniversity,Beijing,China
+{weiming.wsy,lintao.mlt,peter.sxm,james.z,jun.zhoujun}@antgroup.com,
+{wuhx23,htg21,luohk19}@mails.tsinghua.edu.cn
+ABSTRACT
+Time series forecasting is widely used in extensive applications, such as traffic
+planningandweatherforecasting. However,real-worldtimeseriesusuallypresent
+intricatetemporalvariations,makingforecastingextremelychallenging. Going
+beyondthemainstreamparadigmsofplaindecompositionandmultiperiodicity
+analysis, we analyze temporal variations in a novel view of multiscale-mixing,
+whichisbasedonanintuitivebutimportantobservationthattimeseriespresent
+distinctpatternsindifferentsamplingscales. Themicroscopicandthemacroscopic
+informationarereflectedinfineandcoarsescalesrespectively,andtherebycomplex
+variationscanbeinherentlydisentangled. Basedonthisobservation,wepropose
+TimeMixer as a fully MLP-based architecture with Past-Decomposable-Mixing
+(PDM)andFuture-Multipredictor-Mixing(FMM)blockstotakefulladvantageof
+disentangledmultiscaleseriesinbothpastextractionandfuturepredictionphases.
+Concretely,PDMappliesthedecompositiontomultiscaleseriesandfurthermixes
+thedecomposedseasonalandtrendcomponentsinfine-to-coarseandcoarse-to-fine
+directionsseparately,whichsuccessivelyaggregatesthemicroscopicseasonaland
+macroscopictrendinformation. FMMfurtherensemblesmultiplepredictorsto
+utilizecomplementaryforecastingcapabilitiesinmultiscaleobservations. Conse-
+quently,TimeMixerisabletoachieveconsistentstate-of-the-artperformancesin
+bothlong-termandshort-termforecastingtaskswithfavorablerun-timeefficiency.
+1 INTRODUCTION
+Timeseriesforecastinghasbeenstudiedwithimmenseinterestinextensiveapplications,suchas
+economics(Granger&Newbold,2014),energy(Martínetal.,2010;Qianetal.,2019),trafficplanning
+(Chenetal.,2001;Yinetal.,2021)andweatherprediction(Wuetal.,2023b),whichistopredict
+futuretemporalvariationsbasedonpastobservationsoftimeseries(Wuetal.,2023a). However,due
+tothecomplexandnon-stationarynatureoftherealworldorsystems,theobservedseriesusually
+presentintricatetemporalpatterns,wherethemultitudinousvariations,suchasincreasing,decreasing,
+andfluctuating,aredeeplymixed,bringingseverechallengestotheforecastingtask.
+Recently,deepmodelshaveachievedpromisingprogressintimeseriesforecasting.Therepresentative
+modelscapturetemporalvariationswithwell-designedarchitectures,whichspanawiderangeof
+foundationbackbones,includingCNN(Wangetal.,2023;Wuetal.,2023a;Hewageetal.,2020),
+RNN(Laietal.,2018;Qinetal.,2017;Salinasetal.,2020), Transformer(Vaswanietal.,2017;
+Zhouetal.,2021;Wuetal.,2021;Zhouetal.,2022b;Nieetal.,2023)andMLP(Zengetal.,2023;
+Zhangetal.,2022;Oreshkinetal.,2019;Challuetal.,2023). Inthedevelopmentofelaborative
+modelarchitectures,totackleintricatetemporalpatterns,somespecialdesignsarealsoinvolvedin
+thesedeepmodels. Thewidely-acknowledgedparadigmsprimarilyincludeseriesdecompositionand
+multiperiodicityanalysis. Asaclassicaltimeseriesanalysistechnology,decompositionisintroduced
+todeepmodelsasabasicmoduleby(Wuetal.,2021),whichdecomposesthecomplextemporal
+patterns into more predictable components, such as seasonal and trend, and thereby benefiting
+the forecasting process (Zeng et al., 2023; Zhou et al., 2022b; Wang et al., 2023). Furthermore,
+∗EqualContribution.WorkwasdonewhileHaixuWu,TenggeHu,HuakunLuowereinternsatAntGroup.
+1
+PublishedasaconferencepaperatICLR2024
+multiperiodicityanalysisisalsoinvolvedintimeseriesforecasting(Wuetal.,2023a;Zhouetal.,
+2022a) to disentangle mixed temporal variations into multiple components with different period
+lengths. Empoweredwiththesedesigns,deepmodelsareabletohighlightinherentpropertiesoftime
+seriesfromtanglesomevariationsandfurtherboosttheforecastingperformance.
+Going beyond the above mentioned designs, we further observe that time series present distinct
+temporalvariationsindifferentsamplingscales,e.g.,thehourlyrecordedtrafficflowpresentstraffic
+changesatdifferenttimesoftheday,whileforthedailysampledseries,thesefine-grainedvariations
+disappearbutfluctuationsassociatedwithholidaysemerge. Ontheotherhand,thetrendofmacro-
+economicsdominatestheyearlyaveragedpatterns. Theseobservationsnaturallycallforamultiscale
+analysis paradigm to disentangle complex temporal variations, where fine and coarse scales can
+reflect the micro- and the macro-scopic information respectively. Especially for the time series
+forecastingtask,itisalsonotablethatthefuturevariationisjointlydeterminedbythevariationsin
+multiplescales. Therefore,inthispaper,weattempttodesigntheforecastingmodelfromanovel
+view of multiscale-mixing, which is able to take advantage of both disentangled variations and
+complementaryforecastingcapabilitiesfrommultiscaleseriessimultaneously.
+Technically, we propose TimeMixer with a multiscale mixing architecture that is able to extract
+essentialinformationfrompastvariationsbyPast-Decomposable-Mixing(PDM)blocksandthen
+predictsthefutureseriesbytheFuture-Multipredictor-Mixing(FMM)block. Concretely,TimeMixer
+firstgeneratesmultiscaleobservationsthroughaveragedownsampling. Next,PDMadoptsadecom-
+posabledesigntobettercopewithdistinctpropertiesofseasonalandtrendvariations,bymixing
+decomposedmultiscaleseasonalandtrendcomponentsinfine-to-coarseandcoarse-to-finedirections
+separately. With our novel design, PDM is able to successfully aggregate the detailed seasonal
+informationstartingfromthefinestseriesanddiveintomacroscopictrendcomponentsalongwith
+theknowledgefromcoarserscales. Intheforecastingphase,FMMensemblesmultiplepredictorsto
+utilizecomplementaryforecastingcapabilitiesfrommultiscaleobservations. Withourmeticulous
+architecture,TimeMixerachievestheconsistentstate-of-the-artperformancesinbothlong-termand
+short-termforecastingtaskswithsuperiorefficiencyacrossallofourexperiments,coveringextensive
+well-establishedbenchmarks. Ourcontributionsaresummarizedasfollows:
+• Goingbeyondpreviousmethods,wetackleintricatetemporalvariationsinseriesforecasting
+fromanovelviewofmultiscalemixing,takingadvantageofdisentangledvariationsand
+complementaryforecastingcapabilitiesfrommultiscaleseriessimultaneously.
+• We propose TimeMixer as a simple but effective forecasting model, which enables the
+combinationofthemultiscaleinformationinbothhistoryextractionandfutureprediction
+phases,empoweredbyourtailoreddecomposableandmultiple-predictormixingtechnique.
+• TimeMixerachievesconsistentstate-of-the-artinperformancesinbothlong-termandshort-
+termforecastingtaskswithsuperiorefficiencyonawiderangeofbenchmarks.
+2 RELATED WORK
+2.1 TEMPORALMODELINGINDEEPTIMESERIESFORECASTING
+Asthekeyproblemintimeseriesanalysis(Wuetal.,2023a),temporalmodelinghasbeenwidely
+explored. According to foundation backbones, deep models can be roughly categorized into the
+followingfourparadigms: RNN-,CNN-,Transformer-andMLP-basedmethods. Typically,CNN-
+basedmodelsemploytheconvolutionkernelsalongthetimedimensiontocapturetemporalpatterns
+(Wangetal.,2023;Hewageetal.,2020). AndRNN-basedmethodsadopttherecurrentstructure
+to model the temporal state transition (Lai et al., 2018; Zhao et al., 2017). However, both RNN-
+andCNN-basedmethodssufferfromthelimitedreceptivefield,limitingthelong-termforecasting
+capability. Recently,benefitingfromtheglobalmodelingcapacity,Transformer-basedmodelshave
+been widely-acknowledged in long-term series forecasting (Zhou et al., 2021; Wu et al., 2021;
+Liuetal.,2022b;Kitaevetal.,2020;Nieetal.,2023),whichcancapturethelong-termtemporal
+dependenciesadaptivelywithattentionmechanism. Furthermore,multiplelayerprojection(MLP)
+isalsointroducedtotimeseriesforecasting(Oreshkinetal.,2019;Challuetal.,2023;Zengetal.,
+2023),whichachievesfavourableperformanceinbothforecastingperformanceandefficiency.
+Additionally, several specific designs are proposed to better capture intricate temporal patterns,
+includingseriesdecompositionandmulti-periodicityanalysis. Firstly,fortheseriesdecomposition,
+2
+PublishedasaconferencepaperatICLR2024
+Autoformer(Wuetal.,2021)presentstheseriesdecompositionblockbasedonmovingaverageto
+decomposecomplextemporalvariationsintoseasonalandtrendcomponents.Afterwards,FEDformer
+(Zhouetal.,2022b)enhancestheseriesdecompositionblockwithmultiplekernelsmovingaverage.
+DLinear (Zeng et al., 2023) utilizes the series decomposition as the pre-processing before linear
+regression. MICN(Wangetal.,2023)alsodecomposesinputseriesintoseasonalandtrendterms,
+andthenintegratestheglobalandlocalcontextforforecasting. Asforthemulti-periodicityanalysis,
+N-BEATS(Oreshkinetal.,2019)fitsthetimeserieswithmultipletrigonometricbasisfunctions.
+FiLM(Zhouetal.,2022a)projectstimeseriesintoLegendrePolynomialsspace,wheredifferentbasis
+functionscorrespondtodifferentperiodcomponentsintheoriginalseries. Recently,TimesNet(Wu
+etal.,2023a)adoptsFourierTransformtomaptimeseriesintomultiplecomponentswithdifferent
+periodlengthsandpresentsamodulararchitecturetoprocessdecomposedcomponents.
+Unlikethedesignsmentionedabove,thispaperexploresthemultiscalemixingarchitectureintime
+series forecasting. Although there exist some models with temporal multiscale designs, such as
+Pyraformer(Liuetal.,2021)withpyramidalattentionandSCINet(Liuetal.,2022a)withabifurcate
+downsamplingtree,theirfuturepredictionsdonotmakeuseoftheinformationatdifferentscales
+extractedfromthepastobservationssimultaneously. InTimeMixer,wepresentanewmultiscale
+mixingarchitecturewithPast-Decomposable-Mixingtoutilizethedisentangledseriesformultiscale
+representationlearningandFuture-Multipredictor-Mixingtoensemblethecomplementaryforecasting
+skillsofmultiscaleseriesforbetterprediction.
+2.2 MIXINGNETWORKS
+Mixingisaneffectivewayofinformationintegrationandhasbeenappliedtocomputervisionand
+naturallanguageprocessing. Forinstance,MLP-Mixer(Tolstikhinetal.,2021)designsatwo-stage
+mixingstructureforimagerecognition,whichmixesthechannelinformationandpatchinformation
+successivelywithlinearlayers. FNet(Lee-Thorpetal.,2022)replacesattentionlayersinTransformer
+withsimpleFourierTransform,achievingtheefficienttokenmixingofasentence. Inthispaper,we
+furtherexplorethemixingstructureintimeseriesforecasting. Unlikepreviousdesigns,TimeMixer
+presentsadecomposablemulti-scalemixingarchitectureanddistinguishesthemixingmethodsin
+bothpastinformationextractionandfuturepredictionphases.
+3 TIMEMIXER
+Givenaseriesxwithoneormultipleobservedvariates,themainobjectiveoftimeseriesforecasting
+istoutilizepastobservations(length-P)toobtainthemostprobablefutureprediction(length-F). As
+mentionedabove,thekeychallengeofaccurateforecastingistotackleintricatetemporalvariations.In
+thispaper,weproposeTimeMixerofmultiscale-mixing,benefitingfromdisentangledvariationsand
+complementaryforecastingcapabilitiesfrommultiscaleseries. Technically,TimeMixerconsistsofa
+multiscalemixingarchitecturewithPast-Decomposable-MixingandFuture-Multipredictor-Mixing
+forpastinformationextractionandfuturepredictionrespectively.
+3.1 MULTISCALEMIXINGARCHITECTURE
+Timeseriesofdifferentscalesnaturallyexhibitdistinctproperties,wherefinescalesmainlydepict
+detailedpatternsandcoarsescaleshighlightmacroscopicvariations(Mozer,1991). Thismultiscale
+view can inherently disentangle intricate variations in multiple components, thereby benefiting
+temporalvariationmodeling.Itisalsonotablethat,especiallyfortheforecastingtask,multiscaletime
+seriespresentdifferentforecastingcapabilities,duetotheirdistinctdominatingtemporalpatterns
+(Ferreiraetal.,2006). Therefore,wepresentTimeMixerinamultiscalemixingarchitecturetoutilize
+multiscaleserieswithdistinguishingdesignsforpastextractionandfuturepredictionphases.
+AsshowninFigure1,todisentanglecomplexvariations,wefirstdownsamplethepastobservations
+x ∈ RP×C into M scales by average pooling and finally obtain a set of multiscale time series
+X ={x 0 ,··· ,x M },wherex m ∈R⌊ 2 P m⌋×C,m∈{0,··· ,M},C denotesthevariatenumber. The
+lowestlevelseriesx =xistheinputseries,whichcontainsthefinesttemporalvariations,whilethe
+0
+highest-levelseriesx isforthemacroscopicvariations. Thenweprojectthesemultiscaleseries
+M
+intodeepfeaturesX0bytheembeddinglayer,whichcanbeformalizedasX0 =Embed(X). With
+theabovedesigns,weobtainthemultiscalerepresentationsofinputseries.
+3
+PublishedasaconferencepaperatICLR2024
+L x Seasonal Mixing
+Bottom-up +
++
+Top-down +
++
+Input Series Trend Mixing
+noitisopmoceD
+Predictor
+Predictor
+Predictor
+Predictor +
+noitciderP
+(a) Multiscale Time Series (b) Past Decomposable Mixing (c) Future Multipredictor Mixing
+Down-
+Sampling
+drawroF
+deeF
+Figure 1: Overall architecture of TimeMixer, which consists of Past-Decomposable Mixing and
+Future-Multipredictor-Mixingforpastobservationsandfuturepredictionsrespectively.
+Next,weutilizestackedPast-Decomposable-Mixing(PDM)blockstomixpastinformationacross
+differentscales. Forthel-thlayer,theinputisXl−1andtheprocessofPDMcanbeformalizedas:
+Xl =PDM(Xl−1), l∈{0,··· ,L}, (1)
+where L is the total layer and Xl = {xl 0 ,··· ,xl M },xl m ∈ R⌊ 2 P m⌋×dmodel denotes the mixed past
+representationswithd channels. MoredetailsofPDMaredescribedinthenextsection.
+model
+As for the future prediction phase, we adopt the Future-Multipredictor-Mixing (FMM) block to
+ensembleextractedmultiscalepastinformationXLandgeneratefuturepredictions,whichis:
+x=FMM(XL), (2)
+(cid:98)
+wherex∈RF×C representsthefinalprediction.Withtheabovedesigns,TimeMixercansuccessfully
+(cid:98)
+captureessentialpastinformationfromdisentangledmultiscaleobservationsandpredictthefuture
+withbenefitsfrommultiscalepastinformation.
+3.2 PASTDECOMPOSABLEMIXING
+Weobservethatforpastobservations,duetothecomplexnatureofreal-worldseries,eventhecoarsest
+scaleseriespresentmixedvariations. AsshowninFigure1,theseriesinthetoplayerstillpresent
+clearseasonalityandtrendsimultaneously. Itisnotablethattheseasonalandtrendcomponentshold
+distinctpropertiesintimeseriesanalysis(Clevelandetal.,1990),whichcorrespondstoshort-term
+andlong-termvariationsorstationaryandnon-stationarydynamicsrespectively. Therefore,instead
+ofdirectlymixingmultiscaleseriesasawhole,weproposethePast-Decomposable-Mixing(PDM)
+blocktomixthedecomposedseasonalandtrendcomponentsinmultiplescalesseparately.
+Concretely,forthel-thPDMblock,wefirstdecomposethemultiscaletimeseriesX intoseasonal
+l
+partsSl ={sl,··· ,sl }andtrendpartsTl ={tl,··· ,tl }byseriesdecompositionblockfrom
+0 M 0 M
+Autoformer(Wuetal.,2021). Astheaboveanalyzed,takingthedistinctpropertiesofseasonal-trend
+partsintoaccount,weapplythemixingoperationtoseasonalandtrendtermsseparatelytointeract
+informationfrommultiplescales. Overall,thel-thPDMblockcanbeformalizedas:
+sl ,tl =SeriesDecomp(xl ),m∈{0,··· ,M},
+m m m
+(cid:18) (cid:19) (3)
+Xl =Xl−1+FeedForward S-Mix (cid:0) {sl }M (cid:1) +T-Mix (cid:0) {tl }M (cid:1) ,
+m m=0 m m=0
+whereFeedForward(·)containstwolinearlayerswithintermediateGELUactivationfunctionfor
+informationinteractionamongchannels,S-Mix(·),T-Mix(·)denoteseasonalandtrendmixing.
+Seasonal Mixing In seasonality analysis (Box & Jenkins, 1970), larger periods can be seen as
+theaggregationofsmallerperiods,suchastheweeklyperiodoftrafficflowformedbysevendaily
+changes,addressingtheimportanceofdetailedinformationinpredictingfutureseasonalvariations.
+Therefore,inseasonalmixing,weadoptthebottom-upapproachtoincorporateinformationfrom
+thelower-levelfine-scaletimeseriesupwards,whichcansupplementdetailedinformationtothe
+seasonalitymodelingofcoarserscales. Technically,forthesetofmultiscaleseasonalpartsSl =
+4
+PublishedasaconferencepaperatICLR2024
+Mixing Mixing
+…
+Botto
+m-
+Up-
+…
+Top-Do
+wn-
+…
+Predictor
+(a) Seasonal Mixing (b) Trend Mixing (c) Future Prediction
+Figure2: Thetemporallinearlayerinseasonalmixing(a),trendmixing(b)andfutureprediction(c).
+{sl,··· ,sl },weusetheBottom-Up-Mixinglayerforthem-thscaleinaresidualwaytoachieve
+0 M
+bottom-upseasonalinformationinteraction,whichcanbeformalizedas:
+form:1→M do: sl =sl +Bottom-Up-Mixing(sl ). (4)
+m m m−1
+whereBottom-Up-Mixing(·)isinstantiatedastwolinearlayerswithanintermediateGELUactiva-
+tionfunctionalongthetemporaldimension,whoseinputdimensionis⌊ P ⌋andoutputdimension
+2m−1
+is⌊ P ⌋. SeeFigure2foranintuitiveunderstanding.
+2m
+TrendMixing Contrarytoseasonalparts,fortrenditems,thedetailedvariationscanintroduce
+noiseincapturingmacroscopictrend. Notethattheuppercoarsescaletimeseriescaneasilyprovide
+clearmacroinformationthanthelowerlevel. Therefore,weadoptatop-downmixingmethodto
+utilizethemacroknowledgefromcoarserscalestoguidethetrendmodelingoffinerscales.
+Technically,formultiscaletrendcomponentsTl ={tl,··· ,tl },weadopttheTop-Down-Mixing
+0 M
+layerforthem-thscaleinaresidualwaytoachievetop-downtrendinformationinteraction:
+form:(M −1)→0do: tl =tl +Top-Down-Mixing(tl ), (5)
+m m m+1
+whereTop-Down-Mixing(·)istwolinearlayerswithanintermediateGELUactivationfunction,
+whoseinputdimensionis⌊ P ⌋andoutputdimensionis⌊ P ⌋asshowninFigure2.
+2m+1 2m
+Empowered by seasonal and trend mixing, PDM progressively aggregates the detailed seasonal
+informationfromfinetocoarseanddiveintothemacroscopictrendinformationwithpriorknowledge
+fromcoarserscales,eventuallyachievingthemultiscalemixinginpastinformationextraction.
+3.3 FUTUREMULTIPREDICTORMIXING
+AfterLPDMblocks, weobtainthemultiscalepastinformationasXL = {xL,··· ,xL },xL ∈
+0 M m
+R⌊ 2 P m⌋×dmodel. Since the series in different scales presents different dominating variations, their
+predictionsalsopresentdifferentcapabilities. Tofullyutilizethemultiscaleinformation,wepropose
+toaggregatepredictionsfrommultiscaleseriesandpresentFuture-Multipredictor-Mixingblockas:
+M
+(cid:88)
+x =Predictor (xL), m∈{0,··· ,M}, x= x , (6)
+(cid:98)m m m (cid:98) (cid:98)m
+m=0
+wherex ∈RF×C representsthefuturepredictionfromthem-thscaleseriesandthefinaloutputis
+(cid:98)m
+x∈RF×C. Predictor (·)denotesthepredictorofthem-thscaleseries,whichfirstlyadoptsone
+(cid:98) m
+singlelinearlayertodirectlyregresslength-F futurefromlength-⌊ P ⌋extractedpastinformation
+2m
+(Figure2)andthenprojectsdeeprepresentationsintoC variates. NotethatFMMisanensembleof
+multiplepredictors,wheredifferentpredictorsarebasedonpastinformationfromdifferentscales,
+enablingFMMtointegratecomplementaryforecastingcapabilitiesofmixedmultiscaleseries.
+4 EXPERIMENTS
+WeconductextensiveexperimentstoevaluatetheperformanceandefficiencyofTimeMixer,covering
+long-termandshort-termforecasting,including18real-worldbenchmarksand15baselines. The
+detailedmodelandexperimentconfigurationsaresummarizedinAppendixA.
+5
+PublishedasaconferencepaperatICLR2024
+Table1: Summaryofbenchmarks. ForecastabilityisoneminustheentropyofFourierdomain.
+Tasks Dataset Variate PredictLength Frequency Forecastability Information
+ETT(4subsets) 7 96∼720 15mins 0.46 Temperature
+Long-term Weather 21 96∼720 10mins 0.75 Weather
+forecasting Solar-Energy 137 96∼720 10min 0.33 Electricity
+Electricity 321 96∼720 Hourly 0.77 Electricity
+Traffic 862 96∼720 Hourly 0.68 Transportation
+Short-term PEMS(4subsets) 170∼883 12 5min 0.55 Trafficnetwork
+forecasting M4(6subsets) 1 6∼48 Hourly∼Yearly 0.47 Database
+Benchmarks Forlong-termforecasting,weexperimenton8well-establishedbenchmarks: ETT
+datasets(including4subsets: ETTh1,ETTh2,ETTm1,ETTm2),Weather,Solar-Energy,Electricity,
+andTrafficfollowing(Zhouetal.,2021;Wuetal.,2021;Liuetal.,2022a).Forshort-termforecasting,
+weadoptthePeMS(Chenetal.,2001)whichcontainsfourpublictrafficnetworkdatasets(PEMS03,
+PEMS04,PEMS07,PEMS08),andM4datasetwhichinvolves100,000differenttimeseriescollected
+indifferentfrequencies. Furthermore,wemeasuretheforecastability(Goerg,2013)ofalldatasets.
+ItisobservedthatETT,M4,andSolar-Energyexhibitrelativelylowforecastability,indicatingthe
+challengesinthesebenchmarks. MoreinformationissummarizedinTable1.
+Baselines WecompareTimeMixerwith15baselines,whichcomprisethestate-of-the-artlong-term
+forecastingmodelPatchTST(2023)andadvancedshort-termforecastingmodelsTimesNet(2023a)
+and SCINet (2022a), as well as other competitive models including Crossformer (2023), MICN
+(2023),FiLM(2022a),DLinear(2023),LightTS(2022),FEDformer(2022b),Stationary(2022b),
+Pyraformer(2021),Autoformer(2021),Informer(2021),N-HiTS(2023)andN-BEATS(2019).
+Unified experiment settings Note that experimental results reported by the above mentioned
+baselinescannotbecompareddirectlyduetodifferentchoicesofinputlengthandhyper-parameter
+searchingstrategy. Forfairness,wemakeagreatefforttoprovidetwotypesofexperiments. Inthe
+maintext,wealigntheinputlengthofallbaselinesandreportresultsaveragedfromthreerepeats(see
+AppendixCforerrorbars). InAppendix,tocomparetheupperboundofmodels,wealsoconducta
+comprehensivehyperparametersearchingandreportthebestresultsinTable14ofAppendix.
+Implementationdetails AlltheexperimentsareimplementedinPyTorch(Paszkeetal.,2019)and
+conductedonasingleNVIDIAA10080GBGPU.WeutilizetheL2lossformodeltraining. The
+numberofscalesM issetaccordingtothetimeserieslengthtotradeoffperformanceandefficiency.
+4.1 MAINRESULTS
+Long-term forecasting As shown in Table 2, TimeMixer achieves consistent state-of-the-art
+performanceinallbenchmarks,coveringalargevarietyofserieswithdifferentfrequencies,variate
+numbersandreal-worldscenarios. Especially,TimeMixeroutperformsPatchTSTbyaconsiderable
+margin,witha9.4%MSEreductioninWeatheranda24.7%MSEreductioninSolar-Energy. Itis
+worthnotingthatTimeMixerexhibitsgoodperformanceevenfordatasetswithlowforecastability,
+suchasSolar-EnergyandETT,furtherprovingthegeneralityandeffectivenessofTimeMixer.
+Table 2: Long-term forecasting results. All the results are averaged from 4 different prediction
+lengths,thatis{96,192,336,720}. AlowerMSEorMAEindicatesabetterprediction. Wefixthe
+inputlengthas96forallexperiments. SeeTable13inAppendixforthefullresults.
+TimeMixer PatchTST TimesNet Crossformer MICN FiLM DLinear FEDformer Stationary Autoformer Informer
+Models
+(Ours) (2023) (2023a) (2023) (2023) (2022a) (2023) (2022b) (2022b) (2021) (2021)
+Metric MSEMAEMSEMAEMSEMAEMSE MAE MSEMAEMSEMAEMSEMAEMSEMAEMSEMAEMSEMAEMSEMAE
+Weather 0.2400.2710.2650.2850.2510.2940.2640.3200.2680.3210.2710.2910.2650.3150.3090.3600.2880.3140.3380.3820.6340.548
+Solar-Energy0.2160.2800.2870.3330.4030.3740.4060.4420.2830.3580.3800.3710.3300.4010.3280.3830.3500.3900.5860.5570.3310.381
+Electricity 0.1820.2720.2160.3180.1930.3040.2440.3340.1960.3090.2230.3020.2250.3190.2140.3270.1930.2960.2270.3380.3110.397
+Traffic 0.4840.2970.5290.3410.6200.3360.6670.4260.5930.3560.6370.3840.6250.3830.6100.3760.6240.3400.6280.3790.7640.416
+ETTh1 0.4470.4400.5160.4840.4950.4500.5290.5220.4750.4800.5160.4830.4610.4570.4980.4840.5700.5370.4960.4871.0400.795
+ETTh2 0.3640.3950.3910.4110.4140.4270.9420.6840.5740.5310.4020.4200.5630.5190.4370.4490.5260.5160.4500.4594.4311.729
+ETTm1 0.3810.3950.4060.4070.4000.4060.5130.4950.4230.4220.4110.4020.4040.4080.4480.4520.4810.4560.5880.5170.9610.734
+ETTm2 0.2750.3230.2900.3340.2910.3330.7570.6100.3530.4020.2870.3290.3540.4020.3050.3490.3060.3470.3270.3711.4100.810
+6
+PublishedasaconferencepaperatICLR2024
+Table3: Short-termforecastingresultsinthePEMSdatasetswithmultiplevariates. Allinputlengths
+are96andpredictionlengthsare12. AlowerMAE,MAPEorRMSEindicatesabetterprediction.
+TimeMixerSCINetCrossformerPatchTSTTimesNetMICN FiLM DLinearFEDformerStationaryAutoformerInformer
+Models
+(Ours) (2022a) (2023) (2023) (2023a) (2023)(2022a) (2023) (2022b) (2022b) (2021) (2021)
+MAE 14.63 15.97 15.64 18.95 16.41 15.71 21.36 19.70 19.00 17.64 18.08 19.19
+PEMS03MAPE 14.54 15.89 15.74 17.29 15.17 15.67 18.35 18.35 18.57 17.56 18.75 19.58
+RMSE 23.28 25.20 25.56 30.15 26.72 24.55 35.07 32.35 30.05 28.37 27.82 32.70
+MAE 19.21 20.35 20.38 24.86 21.63 21.62 26.74 24.62 26.51 22.34 25.00 22.05
+PEMS04MAPE 12.53 12.84 12.84 16.65 13.15 13.53 16.46 16.12 16.76 14.85 16.70 14.88
+RMSE 30.92 32.31 32.41 40.46 34.90 34.39 42.86 39.51 41.81 35.47 38.02 36.20
+MAE 20.57 22.79 22.54 27.87 25.12 22.28 28.76 28.65 27.92 26.02 26.92 27.26
+PEMS07MAPE 8.62 9.41 9.38 12.69 10.60 9.57 11.21 12.15 12.29 11.75 11.83 11.63
+RMSE 33.59 35.61 35.49 42.56 40.71 35.40 45.85 45.02 42.29 42.34 40.60 45.81
+MAE 15.22 17.38 17.56 20.35 19.01 17.76 22.11 20.26 20.56 19.29 20.47 20.96
+PEMS08MAPE 9.67 10.80 10.92 13.15 11.83 10.76 12.81 12.09 12.41 12.21 12.27 13.20
+RMSE 24.26 27.34 27.21 31.04 30.65 27.26 35.13 32.38 32.97 38.62 31.52 30.61
+Table4: Short-termforecastingresultsintheM4datasetwithasinglevariate. Allpredictionlengths
+arein[6,48]. AlowerSMAPE,MASEorOWAindicatesabetterprediction. ∗.intheTransformers
+indicatesthenameof∗former. StationarymeanstheNon-stationaryTransformer.
+TimeMixerTimesNetN-HiTSN-BEATS∗SCINetPatchTSTMICN FiLM LightTSDLinear FED. Stationary Auto. Pyra. In.
+Models
+(Ours) (2023a) (2023) (2019) (2022a) (2023) (2023)(2022a) (2022) (2023) (2022b) (2022b) (2021)(2021)(2021)
+ylraeY SMAPE 13.206 13.387 13.418 13.436 18.605 16.463 25.02217.431 14.247 16.965 13.728 13.717 13.97415.53014.727
+MASE 2.916 2.996 3.045 3.043 4.471 3.967 7.162 4.043 3.109 4.283 3.048 3.078 3.134 3.711 3.418
+OWA 0.776 0.786 0.793 0.794 1.132 1.003 1.667 1.042 0.827 1.058 0.803 0.807 0.822 0.942 0.881
+ylretrauQ SMAPE 9.996 10.100 10.202 10.124 14.871 10.644 15.21412.925 11.364 12.145 10.792 10.958 11.33815.44911.360
+MASE 1.166 1.182 1.194 1.169 2.054 1.278 1.963 1.664 1.328 1.520 1.283 1.325 1.365 2.350 1.401
+OWA 0.825 0.890 0.899 0.886 1.424 0.949 1.407 1.193 1.000 1.106 0.958 0.981 1.012 1.558 1.027
+ylhtnoM SMAPE 12.605 12.670 12.791 12.677 14.925 13.399 16.94315.407 14.014 13.514 14.260 13.917 13.95817.64214.062
+MASE 0.919 0.933 0.969 0.937 1.131 1.031 1.442 1.298 1.053 1.037 1.102 1.097 1.103 1.913 1.141
+OWA 0.869 0.878 0.899 0.880 1.027 0.949 1.265 1.144 0.981 0.956 1.012 0.998 1.002 1.511 1.024
+srehtO SMAPE 4.564 4.891 5.061 4.925 16.655 6.558 41.985 7.134 15.880 6.709 4.954 6.302 5.48524.78624.460
+MASE 3.115 3.302 3.216 3.391 15.034 4.511 62.734 5.09 11.434 4.953 3.264 4.064 3.86518.58120.960
+OWA 0.982 1.035 1.040 1.053 4.123 1.401 14.313 1.553 3.474 1.487 1.036 1.304 1.187 5.538 5.879
+dethgieW egarevA SMAPE 11.723 11.829 11.927 11.851 15.542 13.152 19.63814.863 13.525 13.639 12.840 12.780 12.90916.98714.086
+MASE 1.559 1.585 1.613 1.559 2.816 1.945 5.947 2.207 2.111 2.095 1.701 1.756 1.771 3.265 2.718
+OWA 0.840 0.851 0.861 0.855 1.309 0.998 2.279 1.125 1.051 1.051 0.918 0.930 0.939 1.480 1.230
+∗TheoriginalpaperofN-BEATS(2019)adoptsaspecialensemblemethodtopromotetheperformance.
+Forfaircomparisons,weremovetheensembleandonlycomparethepureforecastingmodels.
+Short-termforecasting TimeMixeralsoshowsgreatperformanceinshort-termforecastingunder
+bothmultivariateandunivariatesettings(Table3-4). ForPeMSbenchmarksthatrecordmultiple
+time series of citywide traffic networks, due to the complex spatiotemporal correlations among
+multiple variates, many advanced models degenerate a lot in this task, such as PatchTST (2023)
+andDLinear(2023), whichadoptthechannelindependencedesign. Incontrast, TimeMixerstill
+performsfavourablelyinthischallengingproblem,verifyingitseffectivenessinhandlingcomplex
+multivariate time series forecasting. As for the M4 dataset for univariate forecasting, it contains
+varioustemporalvariationsunderdifferentsamplingfrequencies,includinghourly,daily,weekly,
+monthly,quarterly,andyearly,whichexhibitslowpredictabilityanddistinctivecharacteristicsacross
+different frequencies. Remarkably, Timemixer consistently performs best across all frequencies,
+affirmingthemultiscalemixingarchitecture’scapacityinmodelingcomplextemporalvariations.
+4.2 MODELANALYSIS
+Ablations ToverifytheeffectivenessofeachcomponentofTimeMixer,weprovidedetailedablation
+studyoneverypossibledesigninbothPast-Decomposable-MixingandFuture-Multipredictor-Mixing
+blocksonall18experimentbenchmarks. FromTable5,wehavethefollowingobservations.
+TheexclusionofFuture-Multipredictor-Mixinginablation②resultsinasignificantdecreaseinthe
+model’sforecastingaccuracyforbothshortandlong-termpredictions. Thisdemonstratesthatmixing
+futurepredictionsfrommultiscaleseriescaneffectivelyboostthemodelperformance.
+Forthepastmixing,weverifytheeffectivenessbyremovingorreplacingcomponentsgradually. In
+ablations③and④thatremoveseasonalmixingandtrendmixingrespectively,alsocauseadecline
+7
+PublishedasaconferencepaperatICLR2024
+Table5:AblationsonbothPDM(Decompose,SeasonMixing,TrendMixing)andFMMblocksinM4,
+PEMS04andpredict-336settingofETTm1. ↗indicatesthebottom-upmixingwhile↙indicates
+top-down. A check mark ✓ and a wrong mark × indicate with and without certain components
+respectively. ①istheofficialdesigninTimeMixer(SeeAppendixFforcompleteablationresults).
+Pastmixing Futuremixing M4 PEMS04 ETTm1
+Case Decompose
+Seasonal Trend Multipredictor SMAPE MASE OWA MAE MAPE RMSE MSE MAE
+① ✓ ↗ ↙ ✓ 11.723 1.559 0.840 19.21 12.53 30.92 0.390 0.404
+② ✓ ↗ ↙ × 12.503 1.634 0.925 21.67 13.45 34.89 0.402 0.415
+③ ✓ × ↙ ✓ 13.051 1.676 0.962 24.49 16.28 38.79 0.411 0.427
+④ ✓ ↗ × ✓ 12.911 1.655 0.941 22.91 15.02 37.04 0.405 0.414
+⑤ ✓ ↙ ↙ ✓ 12.008 1.628 0.871 20.78 13.02 32.47 0.392 0.413
+⑥ ✓ ↗ ↗ ✓ 11.978 1.626 0.859 21.09 13.78 33.11 0.396 0.415
+⑦ ✓ ↙ ↗ ✓ 13.012 1.657 0.954 22.27 15.14 34.67 0.412 0.429
+⑧ × ↗ ✓ 11.975 1.617 0.851 21.51 13.47 34.81 0.395 0.408
+⑨ × ↙ ✓ 11.973 1.622 0.850 21.79 14.03 35.23 0.393 0.406
+⑩ × × ✓ 12.468 1.671 0.916 24.87 16.66 39.48 0.405 0.412
+ofperformance. Thisillustratesthatsolelyrelyingonseasonalortrendinformationinteractionis
+insufficientforaccuratepredictions. Furthermore,inbothablations⑤and⑥,weemployedthesame
+mixingapproachforbothseasonsandtrends. However,itcannotbringbetterpredictiveperformance.
+Similar situation occurs in ⑦ that adopts opposite mixing strategies to our design. These results
+demonstratetheeffectivenessofourdesigninbothbottom-upseasonalmixingandtop-downtrend
+mixing.Concurrently,inablations⑧and⑨,weoptedtoeliminatethedecompositionarchitectureand
+mixthemultiscaleseriesdirectly. However,withoutdecomposition,neitherbottom-upnortop-down
+mixingmethodcanachieveagoodperformance,indicatingthenecessityofseason-trendseparate
+mixing. Furthermore,inablations⑩,eliminatingtheentirePast-Decomposable-Mixingblockcauses
+aseriousdropinthemodel’spredictiveperformance. Theabovefindingshighlightthesubstantial
+influenceofanappropriatepastmixingmethodonthefinalperformanceofthemodel. Startingfrom
+theinsightsintimeseries,TimeMixerpresentsthebestmixingmethodinpastinformationextraction.
+Seasonal and trend mixing visualization To provide an intuitive understanding of PDM, we
+visualizetemporallinearweightsforseasonalmixingandtrendmixinginFigure3(a)∼(b). Wefind
+thattheseasonalandtrenditemspresentdistinctmixingproperties,wheretheseasonalmixinglayer
+presentsperiodicchanges(repeatedbluelinesin(a))andthetrendmixinglayerisdominatedby
+localaggregations(thedominatingdiagonalyellowlinein(b)). Thisalsoverifiesthenecessityof
+adoptingseparatemixingtechniquesforseasonalandtrendterms. Furthermore,Figure3(c)shows
+thepredictionsofseasonandtrendtermsinfine(scale0)andcoarse(scale3)scales. Wecanobserve
+thattheseasonaltermsoffine-scaleandtrendpartsofcoarse-scalearecrucialforaccuratepredictions.
+Thisobservationprovidesinsightsforourdesigninutilizingbottom-upmixingforseasonalterms
+andtop-downmixingfortrendcomponents.
+0
+24
+48
+72
+96
+0 24 48
+(b)TrendMixingWeights
+(top-down:from48to96)
+nosaeS
+dnerT
+Scale0 Scale3
+(c)MultiscaleSeason-trendPredictions
+(input-96-predict-96)
+gnixiM
+-0.05 -0.00 -0.50 -0.10 -0.15
+0 -0.10
+12 -0.05
+0.00
+24
+0.05
+36
+0.10
+48 0.15
+0 24 48 72 96
+(a)SeasonalMixingWeights
+(bottom-up:from96to48)
+Figure3: Visualizationoftemporallinearweightsinseasonalmixing(Eq.4),trendmixing(Eq.5),
+andpredictionsfrommultiscaleseason-trenditems. AlltheexperimentsareontheETTh1dataset
+undertheinput-96-predict-96setting.
+8
+PublishedasaconferencepaperatICLR2024
+(a)Multiscalemixing (b)Scale0 (c)Scale1 (d)Scale2 (e)Scale3
+69-tciderp-69-tupnI
+Figure4: Visualizationofpredictionsfromdifferentscales(xL inEq.6)ontheinput-96-predict-96
+(cid:98)m
+settingsoftheETTh1dataset. TheimplementationdetailsareincludedinAppendixA.
+(a) Memory Efficiency Analysis (b) Running Time Efficiency Analysis
+Figure5: EfficiencyanalysisinbothGPUmemoryandrunningtime. Theresultsarerecordedonthe
+ETTh1datasetwithbatchsizeas16. Therunningtimeisaveragedfrom102iterations.
+Multipredictorvisualization Toprovideanintuitiveunderstandingoftheforecastingskillsof
+multiscaleseries, weplottheforecastingresultsfromdifferentscalesforqualitativecomparison.
+Figure4(a)presentstheoverallpredictionofourmodelwithFuture-Multipredictor-Mixing,which
+indicates accurate prediction according to the future variations using mixed scales. To study the
+componentofeachindividualscale,wedemonstratethepredictionresultsforeachscaleinFigure
+4(b)∼(e). Specifically,predictionresultsfromfine-scaletimeseriesconcentratemoreonthedetailed
+variationsoftimeseriesandcaptureseasonalpatternswithgreaterprecision. Incontrast,asshownin
+Figure4(c)∼(e),withmultipledownsampling,thepredictionsfromcoarse-scaleseriesfocusmore
+onmacrotrends. TheaboveresultsalsohighlightthebenefitsofFuture-Multipredictor-Mixingin
+utilizingcomplementaryforecastingskillsfrommultiscaleseries.
+0.60
+0.52
+0.34
+0.30
+1 2 3 4 Number of scales
+ESM
+Analysis on Number of Scales
+Efficiencyanalysis Wecomparetherunningmemoryand
+predict-720
+timeagainstthelateststate-of-the-artmodelsinFigure5un- predict-336
+predict-192
+derthetrainingphase,whereTimeMixerconsistentlydemon- predict-96
+strates favorable efficiency, in terms of both GPU memory
+andrunningtime,forvariousserieslengths(rangingfrom192
+to3072),inadditiontotheconsistentstate-of-the-artperfor-
+mancesforbothlong-termandshort-termforecastingtasks.
+Analysisonnumberofscales Weexploretheimpactfrom
+thenumberofscales(M)inFigure6underdifferentseries
+lengths. Specifically,whenM increases,theperformancegain Figure6: Analysisonnumberofscales
+declinesforshorterpredictionlengths. Incontrast,forlonger onETTm1dataset.
+predictionlengths,theperformanceimprovesmoreasM increases. Therefore,wesetM as3for
+long-termforecastand1forshort-termforecasttotradeoffperformanceandefficiency.
+5 CONCLUSION
+We presented TimeMixer with a multiscale mixing architecture to tackle the intricate temporal
+variations in time series forecasting. Empowered by Past-Decomposable-Mixing and Future-
+Multipredictor-Mixing blocks, TimeMixer took advantage of both disentangled variations and
+complementary forecasting capabilities. In all of our experiments, TimeMixer achieved consis-
+tent state-of-the-art performances in both long-term and short-term forecasting tasks. Moreover,
+benefiting from the fully MLP-based architecture, TimeMixer demonstrated favorable run-time
+efficiency. Detailedvisualizationsandablationsareincludedtoprovideinsightsforourdesign.
+9
+PublishedasaconferencepaperatICLR2024
+6 ETHICS STATEMENT
+Ourworkonlyfocusesonthescientificproblem,sothereisnopotentialethicalrisk.
+7 REPRODUCIBILITY STATEMENT
+WeinvolvetheimplementationdetailsinAppendixA,includingdatasetdescriptions,metriccalcu-
+lationandexperimentconfiguration. Thesourcecodeisprovidedinsupplementarymaterialsand
+publicinGitHub(https://github.com/kwuking/TimeMixer)forreproducibility.
+ACKNOWLEDGMENTS
+ThisworkwassupportedbyAntGroupthroughCCF-AntResearchFund.
+REFERENCES
+LiliMengAminShabani,AmirAbdiandTristanSylvain. Scaleformer: iterativemulti-scalerefining
+trans-formersfortimeseriesforecasting. ICLR,2023.
+G.E.P.BoxandGwilymM.Jenkins. Timeseriesanalysis,forecastingandcontrol. 1970.
+CristianChallu,KinGOlivares,BorisNOreshkin,FedericoGarza,MaxMergenthaler,andArtur
+Dubrawski. N-hits: Neuralhierarchicalinterpolationfortimeseriesforecasting. AAAI,2023.
+ChaoChen,KarlF.Petty,AlexanderSkabardonis,PravinPratapVaraiya,andZhanfengJia. Freeway
+performancemeasurementsystem: Miningloopdetectordata. TransportationResearchRecord,
+2001.
+Si-AnChen,Chun-LiangLi,NateYoder,SercanO.Arik,andTomasPfister. Tsmixer: Anall-mlp
+architecturefortimeseriesforecasting. arXivpreprintarXiv:2303.06053,2023.
+RobertBCleveland,WilliamSCleveland,JeanEMcRae,andIrmaTerpenning. STL:Aseasonal-
+trenddecomposition. JournalofOfficialStatistics,1990.
+MarcoA.R.Ferreira,MichaelA.West,HerbertK.H.Lee,andDavidM.Higdon. Multi-scaleand
+hiddenresolutiontimeseriesmodels. BayesianAnalysis,2006.
+GeorgGoerg. Forecastablecomponentanalysis. ICML,2013.
+CliveWilliamJohnGrangerandPaulNewbold. Forecastingeconomictimeseries. Academicpress,
+2014.
+PradeepHewage,ArdhenduBehera,MarcelloTrovati,EllaPereira,MortezaGhahremani,Francesco
+Palmieri,andYonghuaiLiu.Temporalconvolutionalneural(TCN)networkforaneffectiveweather
+forecastingusingtime-seriesdatafromthelocalweatherstation. SoftComputing,2020.
+DiederikP.KingmaandJimmyBa. Adam: Amethodforstochasticoptimization. ICLR,2015.
+NikitaKitaev,LukaszKaiser,andAnselmLevskaya. Reformer: Theefficienttransformer. ICLR,
+2020.
+GuokunLai, Wei-ChengChang, YimingYang,andHanxiaoLiu. Modelinglong-andshort-term
+temporalpatternswithdeepneuralnetworks. SIGIR,2018.
+JamesLee-Thorp,JoshuaAinslie,IlyaEckstein,andSantiagoOntanon. Fnet: Mixingtokenswith
+fouriertransforms. NAACL,2022.
+ZheLi,ZhongwenRao,LujiaPan,andZenglinXu. Mts-mixers: Multivariatetimeseriesforecasting
+viafactorizedtemporalandchannelmixing. arXivpreprintarXiv:2302.04501,2023.
+MinhaoLiu,AilingZeng,MuxiChen,ZhijianXu,QiuxiaLai,LingnaMa,andQiangXu. SCINet:
+timeseriesmodelingandforecastingwithsampleconvolutionandinteraction. NeurIPS,2022a.
+10
+PublishedasaconferencepaperatICLR2024
+Shizhan Liu, Hang Yu, Cong Liao, Jianguo Li, Weiyao Lin, Alex X Liu, and Schahram Dust-
+dar. Pyraformer: Low-complexitypyramidalattentionforlong-rangetimeseriesmodelingand
+forecasting. ICLR,2021.
+YongLiu,HaixuWu,JianminWang,andMingshengLong. Non-stationarytransformers: Rethinking
+thestationarityintimeseriesforecasting. NeurIPS,2022b.
+LuisMartín,LuisFZarzalejo,JesusPolo,AnaNavarro,RuthMarchante,andMarcoCony.Prediction
+ofglobalsolarirradiancebasedontimeseriesanalysis: Applicationtosolarthermalpowerplants
+energyproductionplanning. SolarEnergy,2010.
+MichaelC.Mozer. Inductionofmultiscaletemporalstructure. NeurIPS,1991.
+YuqiNie,NamHNguyen,PhanwadeeSinthong,andJayantKalagnanam. Atimeseriesisworth64
+words: Long-termforecastingwithtransformers. ICLR,2023.
+BorisNOreshkin,DmitriCarpov,NicolasChapados,andYoshuaBengio. N-BEATS:Neuralbasis
+expansionanalysisforinterpretabletimeseriesforecasting. ICLR,2019.
+AdamPaszke,S.Gross,FranciscoMassa,A.Lerer,JamesBradbury,GregoryChanan,TrevorKilleen,
+Z.Lin,N.Gimelshein,L.Antiga,AlbanDesmaison,AndreasKöpf,EdwardYang,ZachDeVito,
+MartinRaison,AlykhanTejani,SasankChilamkurthy,BenoitSteiner,LuFang,JunjieBai,and
+SoumithChintala. Pytorch: Animperativestyle,high-performancedeeplearninglibrary. NeurIPS,
+2019.
+Zheng Qian, Yan Pei, Hamidreza Zareipour, and Niya Chen. A review and discussion of
+decomposition-basedhybridmodelsforwindenergyforecastingapplications. Appliedenergy,
+2019.
+YaoQin,DongjinSong,HaifengChen,WeiCheng,GuofeiJiang,andGarrisonCottrell. Adual-stage
+attention-basedrecurrentneuralnetworkfortimeseriesprediction. IJCAI,2017.
+David Salinas, Valentin Flunkert, Jan Gasthaus, and Tim Januschowski. DeepAR: Probabilistic
+forecastingwithautoregressiverecurrentnetworks. InternationalJournalofForecasting,2020.
+Ilya Tolstikhin, Neil Houlsby, Alexander Kolesnikov, Lucas Beyer, Xiaohua Zhai, Thomas Un-
+terthiner, Jessica Yung, Andreas Steiner, Daniel Keysers, Jakob Uszkoreit, Mario Lucic, and
+AlexeyDosovitskiy. MLP-Mixer: Anall-MLParchitectureforvision. NeurIPS,2021.
+AshishVaswani,NoamShazeer,NikiParmar,JakobUszkoreit,LlionJones,AidanNGomez,Lukasz
+Kaiser,andIlliaPolosukhin. Attentionisallyouneed. NeurIPS,2017.
+HuiqiangWang,JianPeng,FeihuHuang,JinceWang,JunhuiChen,andYifeiXiao. MICN:Multi-
+scalelocalandglobalcontextmodelingforlong-termseriesforecasting. ICLR,2023.
+HaixuWu,JiehuiXu,JianminWang,andMingshengLong.Autoformer:Decompositiontransformers
+withAuto-Correlationforlong-termseriesforecasting. NeurIPS,2021.
+HaixuWu, TenggeHu, YongLiu, HangZhou, JianminWang, andMingshengLong. TimesNet:
+Temporal2d-variationmodelingforgeneraltimeseriesanalysis. ICLR,2023a.
+HaixuWu,HangZhou,MingshengLong,andJianminWang. Interpretableweatherforecastingfor
+worldwidestationswithaunifieddeepmodel. NatureMachineIntelligence,2023b.
+XueyanYin,GenzeWu,JinzeWei,YanmingShen,HengQi,andBaocaiYin. Deeplearningon
+traffic prediction: Methods, analysis, and future directions. IEEE Transactions on Intelligent
+TransportationSystems,2021.
+Ailing Zeng, Muxi Chen, Lei Zhang, and Qiang Xu. Are transformers effective for time series
+forecasting? AAAI,2023.
+TianpingZhang,YizhuoZhang,WeiCao,JiangBian,XiaohanYi,ShunZheng,andJianLi. Lessis
+more: Fastmultivariatetimeseriesforecastingwithlightsampling-orientedmlpstructures. arXiv
+preprintarXiv:2207.01186,2022.
+11
+PublishedasaconferencepaperatICLR2024
+YunhaoZhangandJunchiYan. Crossformer: Transformerutilizingcross-dimensiondependencyfor
+multivariatetimeseriesforecasting. ICLR,2023.
+ZhengZhao,WeihaiChen,XingmingWu,PeterCYChen,andJingmengLiu. Lstmnetwork: adeep
+learningapproachforshort-termtrafficforecast. IETIntelligentTransportSystems,2017.
+HaoyiZhou,ShanghangZhang,JieqiPeng,ShuaiZhang,JianxinLi,HuiXiong,andWancaiZhang.
+Informer: Beyondefficienttransformerforlongsequencetime-seriesforecasting. AAAI,2021.
+Tian Zhou, Ziqing Ma, Qingsong Wen, Liang Sun, Tao Yao, Wotao Yin, Rong Jin, et al. Film:
+Frequency improved legendre memory model for long-term time series forecasting. NeurIPS,
+2022a.
+TianZhou,ZiqingMa,QingsongWen,XueWang,LiangSun,andRongJin. FEDformer: Frequency
+enhanceddecomposedtransformerforlong-termseriesforecasting. ICML,2022b.
+A IMPLEMENTATION DETAILS
+Wesummarizeddetailsofdatasets,evaluationmetrics,experimentsandvisualizationsinthissection.
+Datasetsdetails Weevaluatetheperformanceofdifferentmodelsforlong-termforecastingon
+8well-establisheddatasets,includingWeather,Traffic,Electricity,Solar-Energy,andETTdatasets
+(ETTh1,ETTh2,ETTm1,ETTm2). Furthermore,weadoptPeMSandM4datasetsforshort-term
+forecasting. WedetailthedescriptionsofthedatasetinTable6.
+Table6: Datasetdetaileddescriptions. Thedatasetsizeisorganizedin(Train,Validation,Test).
+Tasks Dataset Dim SeriesLength DatasetSize Frequency Forecastability∗ Information
+ETTm1 7 {96,192,336,720} (34465,11521,11521) 15min 0.46 Temperature
+ETTm2 7 {96,192,336,720} (34465,11521,11521) 15min 0.55 Temperature
+ETTh1 7 {96,192,336,720} (8545,2881,2881) 15min 0.38 Temperature
+ETTh2 7 {96,192,336,720} (8545,2881,2881) 15min 0.45 Temperature
+Long-term Electricity 321 {96,192,336,720} (18317,2633,5261) Hourly 0.77 Electricity
+Forecasting Traffic 862 {96,192,336,720} (12185,1757,3509) Hourly 0.68 Transportation
+Weather 21 {96,192,336,720} (36792,5271,10540) 10min 0.75 Weather
+Solar-Energy 137 {96,192,336,720} (36601,5161,10417) 10min 0.33 Electricity
+PEMS03 358 12 (15701,5216,434) 5min 0.65 Transportation
+PEMS04 307 12 (10172,3375,281) 5min 0.45 Transportation
+PEMS07 883 12 (16911,5622,468) 5min 0.58 Transportation
+Short-term PEMS08 170 12 (10690,3548,265) 5min 0.52 Transportation
+Forecasting M4-Yearly 1 6 (23000,0,23000) Yearly 0.43 Demographic
+M4-Quarterly 1 8 (24000,0,24000) Quarterly 0.47 Finance
+M4-Monthly 1 18 (48000,0,48000) Monthly 0.44 Industry
+M4-Weakly 1 13 (359,0,359) Weakly 0.43 Macro
+M4-Daily 1 14 (4227,0,4227) Daily 0.44 Micro
+M4-Hourly 1 48 (414,0,414) Hourly 0.46 Other
+∗TheforecastabilityiscalculatedbyoneminustheentropyofFourierdecompositionoftimeseries(Goerg,2013).A
+largervalueindicatesbetterpredictability.
+Metric details Regarding metrics, we utilize the mean square error (MSE) and mean absolute
+error(MAE)forlong-termforecasting. Inthecaseofshort-termforecasting,wefollowthemetrics
+ofSCINet(Liuetal.,2022a)onthePeMSdatasets,includingmeanabsoluteerror(MAE),mean
+absolutepercentageerror(MAPE),rootmeansquarederror(RMSE).AsfortheM4datasets,we
+followthemethodologyofN-BEATS(Oreshkinetal.,2019)andimplementthesymmetricmean
+absolute percentage error (SMAPE), mean absolute scaled error (MASE), and overall weighted
+12
+PublishedasaconferencepaperatICLR2024
+average (OWA) as metrics. It is worth noting that OWA is a specific metric utilized in the M4
+competition. Thecalculationsofthesemetricsare:
+F F
+RMSE=( (cid:88) (X
+i
+−X(cid:98)i )2)1 2, MAE= (cid:88) |X
+i
+−X(cid:98)i |,
+i=1 i=1
+F F
+SMAPE=
+200(cid:88) |X
+i
+−X(cid:98)i |
+, MAPE=
+100(cid:88)|X
+i
+−X(cid:98)i |
+,
+F i=1 |X i |+|X(cid:98)i | F i=1 |X i |
+F (cid:20) (cid:21)
+MASE= 1 (cid:88) |X i −X(cid:98)i | , OWA= 1 SMAPE + MASE ,
+F i=1 F 1 −s (cid:80)F j=s+1 |X j −X j−s | 2 SMAPE Naïve2 MASE Naïve2
+wheresistheperiodicityofthedata. X,X(cid:98) ∈RF×C arethegroundtruthandpredictionresultsof
+thefuturewithF timepintsandC dimensions. X meansthei-thfuturetimepoint.
+i
+Experimentdetails Allexperimentswererunthreetimes,implementedinPytorch(Paszkeetal.,
+2019),andconductedonasingleNVIDIAA10080GBGPU.Wesettheinitiallearningrateas10−2
+or10−3andusedtheADAMoptimizer(Kingma&Ba,2015)withL2lossformodeloptimization.
+Andthebatchsizewassettobe8between128.Bydefault,TimeMixercontains2PastDecomposable
+Mixingblocks.WechoosethenumberofscalesM accordingtothelengthofthetimeseriestoachieve
+abalancebetweenperformanceandefficiency. Tohandlelongerseriesinlong-termforecasting,we
+setM to3. Asforshort-termforecastingwithlimitedserieslength,wesetM to1. Detailedmodel
+configurationinformationispresentedinTable7.
+Visualizationdetails Toverifycomplementaryforecastingcapabilitiesofmultiscaleseries,we
+fixthePDMandtrainanewpredictorforthefeatureateachscalewiththegroundtruthfutureas
+supervisioninFigure4;Figure3(c)alsoutilizesthesameoperations. EspeciallyforFigure4,wealso
+providethevisualizationofdirectlyplottingtheoutputofeachpredictor,i.e. x , m∈{0,··· ,M}
+(cid:98)m
+inEq.6. NotethatinFMM,weadoptthesumensemblex=
+(cid:80)M
+x asthefinaloutput,thescale
+(cid:98) m=0(cid:98)m
+ofeachplottedcureisaround 1 ofgroundtruth,whilewecanstillobservethedistinctforecasting
+M+1
+capabilityofseriesindifferentscales. Forclearness,wealsoplotthe(M +1)×x inthesecond
+(cid:98)m
+rowofFigure7,wherethevisualizationsaresimilartoFigure4.
+(b)Scale0 (c)Scale1 (d)Scale2 (e)Scale3
+(a)Multiscalemixing
+(f)Scale0× (𝑀+1) (g)Scale1× (𝑀+1) (h)Scale2× (𝑀+1) (i)Scale3× (𝑀+1)
+Figure7: Directvisualizationofpredictionsfromdifferentscales(xL inEq.6)ontheinput-96-
+(cid:98)m
+predict-96settingsoftheETTh1dataset. Wemultiplythe(M +1)bythepredictionsofeachscale
+inthesecondrow.
+B EFFICIENCY ANALYSIS
+Inthemaintext,wehaveplotedthecurveofefficiencyinFigure5. Herewepresentthequantitive
+results in Table 8. It should be noted that TimeMixer’s outstanding efficiency advantage over
+Transformer-basedmodels,suchasPatchTST,FEDformer,andAutoformer,isattributedtoitsfully
+MLP-basednetworkarchitecture.
+13
+PublishedasaconferencepaperatICLR2024
+Table 7: Experiment configuration of TimeMixer. All the experiments use the ADAM (2015)
+optimizerwiththedefaulthyperparameterconfigurationfor(β ,β )as(0.9,0.999).
+1 2
+ModelHyper-parameter TrainingProcess
+Dataset/Configurations
+M (Equ.1) Layers d LR∗ Loss BatchSize Epochs
+model
+ETTh1 3 2 16 10−2 MSE 128 10
+ETTh2 3 2 16 10−2 MSE 128 10
+ETTm1 3 2 16 10−2 MSE 128 10
+ETTm2 3 2 32 10−2 MSE 128 10
+Weather 3 2 16 10−2 MSE 128 20
+Electricity 3 2 16 10−2 MSE 32 20
+Solar-Energy 3 2 128 10−2 MSE 32 20
+Traffic 3 2 32 10−2 MSE 8 20
+PEMS 1 5 128 10−3 MSE 32 10
+M4 1 4 32 10−2 SMAPE 128 50
+∗LRmeanstheinitiallearningrate.
+Table8: TheGPUmemory(MiB)andspeed(runningtime,s/iter)ofeachmodel.
+SeriesLength 192 384 768 1536 3072
+Models Mem Speed Mem Speed Mem Speed Mem Speed Mem Speed
+TimeMixer(Ours) 1003 0.007 1043 0.007 1075 0.008 1151 0.009 1411 0.016
+PatchTST(2023) 1919 0.018 2097 0.019 2749 0.021 5465 0.032 16119 0.094
+TimesNet(2023a) 1148 0.028 1245 0.024 1585 0.042 2491 0.045 2353 0.073
+Crossformer(2023) 1737 0.027 1799 0.027 1895 0.028 2303 0.033 3759 0.035
+MICN(2023) 1771 0.014 1801 0.016 1873 0.017 1991 0.018 2239 0.020
+DLinear(2023) 1001 0.002 1021 0.003 1041 0.003 1081 0.0.004 1239 0.015
+FEDFormer(2022b) 2567 0.132 5977 0.141 7111 0.143 9173 0.178 12485 0.288
+Autoformer(2021) 1761 0.028 2101 0.070 3209 0.071 5395 0.129 10043 0.255
+C ERROR BARS
+Inthispaper,werepeatalltheexperimentsthreetimes. Herewereportthestandarddeviationofour
+modelandthesecondbestmodel,aswellasthestatisticalsignificancetestinTable9,10,11.
+Table9: StandarddeviationandstatisticaltestsforourTimeMixermethodandsecond-bestmethod
+(PatchTST)onETT,Weather,Solar-Energy,ElectricityandTrafficdatasets.
+Model TimeMixer PatchTST(2023) Confidence
+Dataset MSE MAE MSE MAE Interval
+Weather 0.240±0.010 0.271±0.009 0.265±0.012 0.285±0.011 99%
+Solar-Energy 0.216±0.002 0.280±0.022 0.287±0.020 0.333±0.018 99%
+Electricity 0.182±0.017 0.272±0.006 0.216±0.012 0.318±0.015 99%
+Traffic 0.484±0.015 0.297±0.013 0.529±0.008 0.341±0.002 99%
+ETTh1 0.447±0.002 0.440±0.005 0.516±0.003 0.484±0.005 99%
+ETTh2 0.364±0.008 0.395±0.010 0.391±0.005 0.411±0.003 99%
+ETTm1 0.381±0.003 0.395±0.006 0.400±0.002 0.407±0.005 99%
+ETTm2 0.275±0.001 0.323±0.003 0.290±0.002 0.334±0.002 99%
+14
+PublishedasaconferencepaperatICLR2024
+Table10: StandarddeviationandstatisticaltestsforourTimeMixermethodandsecond-bestmethod
+(SCINet)onPEMSdataset.
+Model TimeMixer SCINet(2022a) Confidence
+Dataset MAE MAPE RMSE MAE MAPE RMSE Interval
+PEMS03 14.63±0.112 14.54±0.105 23.28±0.128 15.97±0.153 15.89±0.122 25.20±0.137 99%
+PEMS04 19.21±0.217 12.53±0.154 30.92±0.143 20.35±0.201 12.84±0.213 32.31±0.178 95%
+PEMS07 20.57±0.158 8.62±0.112 33.59±0.273 22.79±0.179 9.41±0.105 35.61±0.112 99%
+PEMS08 15.22±0.311 9.67±0.101 24.26±0.212 17.38±0.332 10.80±0.219 27.34±0.178 99%
+Table11: StandarddeviationandstatisticaltestsforourTimeMixermethodandsecond-bestmethod
+(TimesNet)onM4dataset.
+Model TimeMixer TimesNet(2023a) Confidence
+Dataset SMAPE MAPE OWA SMAPE MAPE OWA Interval
+Yearly 13.206±0.121 2.916±0.022 0.776±0.002 13.387±0.112 2.996±0.017 0.786±0.010 95%
+Quarterly 9.996±0.101 1.166±0.015 0.825±0.008 10.100±0.105 1.182±0.012 0.890±0.006 95%
+Monthly 12.605±0.115 0.919±0.011 0.869±0.003 12.670±0.106 0.933±0.008 0.878±0.001 95%
+Others 4.564±0.114 3.115±0.027 0.982±0.011 4.891±0.120 3.302±0.023 1.035±0.017 99%
+Averaged 11.723±0.011 1.559±0.022 0.840±0.001 11.829±0.120 1.585±0.017 0.851±0.003 95%
+D HYPERPARAMTER SENSITIVITY
+Inthemaintext,wehaveexploredtheeffectofnumberofscalesM. Here,wefurtherevaluatethe
+numberoflayersL. AsshowninTable12,wecanfindthatingeneral,increasingthenumberof
+layers(L)willbringimprovementsacrossdifferentpredictionlengths. Therefore,wesetto2totrade
+offefficiencyandperformance.
+Table12: TheMSEresultsofdifferentnumberofscales(M)andlayers(L)ontheETTm1dataset.
+PredictLength PredictLength
+96 192 336 720 96 192 336 720
+Num.ofScales Num.ofLayers
+1 0.326 0.371 0.405 0.469 1 0.328 0.369 0.405 0.467
+2 0.323 0.365 0.401 0.460 2 0.320 0.361 0.390 0.454
+3 0.320 0.361 0.390 0.454 3 0.321 0.360 0.389 0.451
+4 0.321 0.360 0.388 0.454 4 0.318 0.361 0.385 0.452
+5 0.321 0.362 0.389 0.461 5 0.322 0.359 0.390 0.457
+E FULL RESULTS
+Toensureafaircomparisonbetweenmodels,weconductedexperimentsusingunifiedparameters
+andreportedresultsinthemaintext,includingaligningalltheinputlengths,batchsizes,andtraining
+epochsinallexperiments. Here,weprovidethefullresultsforeachforecastingsettinginTable13.
+In addition, considering that the reported results in different papers are mostly obtained through
+hyperparameter search, we provide the experiment results with the full version of the parameter
+search. Wesearchedforinputlengthamong96,192,336,and512,learningratefrom10−5to0.05,
+encoderlayersfrom1to5,thed from16to512,trainingepochsfrom10to100. Theresultsare
+model
+includedinTable14,whichcanbeusedtocomparetheupperboundofeachforecastingmodel.
+WecanfindthattherelativepromotionofTimesMixeroverPatchTSTissmallerundercomprehensive
+hyperparametersearchthantheunifiedhyperparametersetting. ItisworthnoticingthatTimeMixer
+runs much faster than PatchTST according to the efficiency comparison in Table 8. Therefore,
+considering perfromance, hyperparameter-search cost and efficiency, we believe TimeMixer is a
+practicalmodelinreal-worldapplicationsandisvaluabletodeeptimeseriesforecastingcommunity.
+15
+PublishedasaconferencepaperatICLR2024
+Table13: Unifiedhyperparameterresultsforthelong-termforecastingtask. Wecompareextensive
+competitive models under different prediction lengths. Avg is averaged from all four prediction
+lengths,thatis96,192,336,720.
+TimeMixer PatchTST TimesNet Crossformer MICN FiLM DLinear FEDformer Stationary Autoformer Informer
+Models
+(Ours) 2023 2023a 2023 2023 2022a 2023 2022b 2022b 2021 2021
+Metric MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE
+rehtaeW
+96 0.1630.2090.1860.2270.1720.2200.1950.2710.1980.2610.1950.2360.1950.2520.2170.2960.1730.2230.2660.3360.3000.384
+192 0.2080.2500.2340.2650.2190.2610.2090.2770.2390.2990.2390.2710.2370.2950.2760.3360.2450.2850.3070.3670.5980.544
+336 0.2510.2870.2840.3010.2460.3370.2730.3320.2850.3360.2890.3060.2820.3310.3390.3800.3210.3380.3590.3950.5780.523
+720 0.3390.3410.3560.3490.3650.3590.3790.4010.3510.3880.3610.3510.3450.3820.4030.4280.4140.4100.4190.4281.0590.741
+Avg 0.2400.2710.2650.2850.2510.2940.2640.3200.2680.3210.2710.2910.2650.3150.3090.3600.2880.3140.3380.3820.6340.548
+ygrenE-raloS 96 0.1890.2590.2650.3230.3730.3580.2320.3020.2570.3250.3330.3500.2900.3780.2860.3410.3210.3800.4560.4460.2870.323
+192 0.2220.2830.2880.3320.3970.3760.3710.4100.2780.3540.3710.3720.3200.3980.2910.3370.3460.3690.5880.5610.2970.341
+336 0.2310.2920.3010.3390.4200.3800.4950.5150.2980.3750.4080.3850.3530.4150.3540.4160.3570.3870.5950.5880.3670.429
+720 0.2230.2850.2950.3360.4200.3810.5260.5420.2990.3790.4060.3770.3570.4130.3800.4370.3750.4240.7330.6330.3740.431
+Avg 0.2160.2800.2870.3330.4030.3740.4060.4420.2830.3580.3800.3710.3300.4010.3280.3830.3500.3900.5860.5570.3310.381
+yticirtcelE
+96 0.1530.2470.1900.2960.1680.2720.2190.3140.1800.2930.1980.2740.2100.3020.1930.3080.1690.2730.2010.3170.2740.368
+192 0.1660.2560.1990.3040.1840.3220.2310.3220.1890.3020.1980.2780.2100.3050.2010.3150.1820.2860.2220.3340.2960.386
+336 0.1850.2770.2170.3190.1980.3000.2460.3370.1980.3120.2170.3000.2230.3190.2140.3290.2000.3040.2310.4430.3000.394
+720 0.2250.3100.2580.3520.2200.3200.2800.3630.2170.3300.2780.3560.2580.3500.2460.3550.2220.3210.2540.3610.3730.439
+Avg 0.1820.2720.2160.3180.1930.3040.2440.3340.1960.3090.2230.3020.2250.3190.2140.3270.1930.2960.2270.3380.3110.397
+cfifarT
+96 0.4620.2850.5260.3470.5930.3210.6440.4290.5770.3500.6470.3840.6500.3960.5870.3660.6120.3380.6130.3880.7190.391
+192 0.4730.2960.5220.3320.6170.3360.6650.4310.5890.3560.6000.3610.5980.3700.6040.3730.6130.3400.6160.3820.6960.379
+336 0.4980.2960.5170.3340.6290.3360.6740.4200.5940.3580.6100.3670.6050.3730.6210.3830.6180.3280.6220.3370.7770.420
+720 0.5060.3130.5520.3520.6400.3500.6830.4240.6130.3610.6910.4250.6450.3940.6260.3820.6530.3550.6600.4080.8640.472
+Avg 0.4840.2970.5290.3410.6200.3360.6670.4260.5930.3560.6370.3840.6250.3830.6100.3760.6240.3400.6280.3790.7640.416
+1hTTE
+96 0.3750.4000.4600.4470.3840.4020.4230.4480.4260.4460.4380.4330.3970.4120.3950.4240.5130.4910.4490.4590.8650.713
+192 0.4290.4210.5120.4770.4360.4290.4710.4740.4540.4640.4930.4660.4460.4410.4690.4700.5340.5040.5000.4821.0080.792
+336 0.4840.4580.5460.4960.6380.4690.5700.5460.4930.4870.5470.4950.4890.4670.5300.4990.5880.5350.5210.4961.1070.809
+720 0.4980.4820.5440.5170.5210.5000.6530.6210.5260.5260.5860.5380.5130.5100.5980.5440.6430.6160.5140.5121.1810.865
+Avg 0.4470.4400.5160.4840.4950.4500.5290.5220.4750.4800.5160.4830.4610.4570.4980.4840.5700.5370.4960.4871.0400.795
+2hTTE
+96 0.2890.3410.3080.3550.3400.3740.7450.5840.3720.4240.3220.3640.3400.3940.3580.3970.4760.4580.3460.3883.7551.525
+192 0.3720.3920.3930.4050.4020.4140.8770.6560.4920.4920.4040.4140.4820.4790.4290.4390.5120.4930.4560.4525.6021.931
+336 0.3860.4140.4270.4360.4520.4521.0430.7310.6070.5550.4350.4450.5910.5410.4960.4870.5520.5510.4820.4864.7211.835
+720 0.4120.4340.4360.4500.4620.4681.1040.7630.8240.6550.4470.4580.8390.6610.4630.4740.5620.5600.5150.5113.6471.625
+Avg 0.3640.3950.3910.4110.4140.4270.9420.6840.5740.5310.4020.4200.5630.5190.4370.4490.5260.5160.4500.4594.4311.729
+1mTTE
+96 0.3200.3570.3520.3740.3380.3750.4040.4260.3650.3870.3530.3700.3460.3740.3790.4190.3860.3980.5050.4750.6720.571
+192 0.3610.3810.3900.3930.3740.3870.4500.4510.4030.4080.3890.3870.3820.3910.4260.4410.4590.4440.5530.4960.7950.669
+336 0.3900.4040.4210.4140.4100.4110.5320.5150.4360.4310.4210.4080.4150.4150.4450.4590.4950.4640.6210.5371.2120.871
+720 0.4540.4410.4620.4490.4780.4500.6660.5890.4890.4620.4810.4410.4730.4510.5430.4900.5850.5160.6710.5611.1660.823
+Avg 0.3810.3950.4060.4070.4000.4060.5130.4950.4230.4220.4110.4020.4040.4080.4480.4520.4810.4560.5880.5170.9610.734
+2mTTE
+96 0.1750.2580.1830.2700.1870.2670.2870.3660.1970.2960.1830.2660.1930.2930.2030.2870.1920.2740.2550.3390.3650.453
+192 0.2370.2990.2550.3140.2490.3090.4140.4920.2840.3610.2480.3050.2840.3610.2690.3280.2800.3390.2810.3400.5330.563
+336 0.2980.3400.3090.3470.3210.3510.5970.5420.3810.4290.3090.3430.3820.4290.3250.3660.3340.3610.3390.3721.3630.887
+720 0.3910.3960.4120.4040.4080.4031.7301.0420.5490.5220.4100.4000.5580.5250.4210.4150.4170.4130.4330.4323.3791.338
+Avg 0.2750.3230.2900.3340.2910.3330.7570.6100.3530.4020.2870.3290.3540.4020.3050.3490.3060.3470.3270.3711.4100.810
+16
+PublishedasaconferencepaperatICLR2024
+Table14: Experimentresultsunderhyperparametersearchingforthelong-termforecastingtask. Avg
+isaveragedfromallfourpredictionlengths.
+TimeMixer PatchTST TimesNet Crossformer MICN FiLM DLinear FEDformer Stationary Autoformer Informer
+Models
+(Ours) 2023 2023a 2023 2023 2022a 2023 2022b 2022b 2021 2021
+Metric MSE MAE MSEMAEMSEMAEMSE MAE MSEMAEMSEMAEMSEMAEMSEMAEMSEMAEMSEMAEMSEMAE
+rehtaeW
+96 0.1470.197 0.1490.1980.1720.2200.2320.302 0.1610.2290.1990.2620.1760.2370.2170.2960.1730.2230.2660.3360.3000.384
+192 0.1890.239 0.1940.2410.2190.2610.3710.410 0.2200.2810.2280.2880.2200.2820.2760.3360.2450.2850.3070.3670.5980.544
+336 0.2410.280 0.3060.2820.2460.3370.4950.515 0.2780.3310.2670.3230.2650.3190.3390.3800.3210.3380.3590.3950.5780.523
+720 0.3100.330 0.3140.3340.3650.3590.5260.542 0.3110.3560.3190.3610.3230.3620.4030.4280.4140.4100.4190.4281.0590.741
+Avg 0.2220.262 0.2410.2640.2510.2940.4060.442 0.2420.2990.2530.3090.2460.3000.3090.3600.2880.3140.3380.3820.6340.548
+ygrenE-raloS 96 0.1670.220 0.2240.2780.2190.3140.1810.240 0.1880.2520.3200.3390.2890.3770.2010.3040.3210.3800.4560.4460.2000.247
+192 0.1870.249 0.2530.2980.2310.3220.1960.252 0.2150.2800.3600.3620.3190.3970.2370.3370.3460.3690.5880.5610.2200.251
+336 0.2000.258 0.2730.3060.2460.3370.2160.243 0.2220.2670.3980.3750.3520.4150.2540.3620.3570.3870.5950.5880.2600.287
+720 0.2150.250 0.2720.3080.2800.3630.2200.256 0.2260.2640.3990.3680.3560.4120.2800.3970.3350.3840.7330.6330.2440.301
+Avg 0.1920.244 0.2560.2980.2440.3340.2040.248 0.2130.2660.3690.3610.3290.4000.2430.3500.3400.3800.5930.5570.2310.272
+yticirtcelE
+96 0.1290.224 0.1290.2220.1680.2720.1500.251 0.1640.2690.1540.2670.1400.2370.1930.3080.1690.2730.2010.3170.2740.368
+192 0.1400.220 0.1470.2400.1840.3220.1610.260 0.1770.2850.1640.2580.1530.2490.2010.3150.1820.2860.2220.3340.2960.386
+336 0.1610.255 0.1630.2590.1980.3000.1820.281 0.1930.3040.1880.2830.1690.2670.2140.3290.2000.3040.2310.3380.3000.394
+720 0.1940.287 0.1970.2900.2200.3200.2510.339 0.2120.3210.2360.3320.2030.3010.2460.3550.2220.3210.2540.3610.3730.439
+Avg 0.1560.246 0.1590.2530.1920.2950.1860.283 0.1860.2950.1860.2850.1660.2640.2140.3210.2130.2960.2270.3380.3110.397
+cfifarT
+96 0.3600.249 0.3600.2490.5930.3210.5140.267 0.5190.3090.4160.2940.4100.2820.5870.3660.6120.3380.6130.3880.7190.391
+192 0.3750.250 0.3790.2560.6170.3360.5490.252 0.5370.3150.4080.2880.4230.2870.6040.3730.6130.3400.6160.3820.6960.379
+336 0.3850.270 0.3920.2640.6290.3360.5300.300 0.5340.3130.4250.2980.4360.2960.6210.3830.6180.3280.6220.3370.7770.420
+720 0.4300.281 0.4320.2860.6400.3500.5730.313 0.5770.3250.5200.3530.4660.3150.6260.3820.6530.3550.6600.4080.8640.472
+Avg 0.3870.262 0.3910.2640.6200.3360.5420.283 0.5410.3150.4420.3080.4340.2950.6090.3760.6240.3400.6280.3790.7640.415
+1hTTE
+96 0.3610.390 0.3700.4000.3840.4020.4180.438 0.4210.4310.4220.4320.3750.3990.3760.4190.5130.4910.4490.4590.8650.713
+192 0.4090.414 0.4130.4290.4360.4290.5390.517 0.4740.4870.4620.4580.4050.4160.4200.4480.5340.5040.5000.4821.0080.792
+336 0.4300.429 0.4220.4400.6380.4690.7090.638 0.5690.5510.5010.4830.4390.4430.4590.4650.5880.5350.5210.4961.1070.809
+720 0.4450.460 0.4470.4680.5210.5000.7330.636 0.7700.6720.5440.5260.4720.4900.5060.5070.6430.6160.5140.5121.1810.865
+Avg 0.4110.423 0.4130.4340.4580.4500.6000.557 0.5580.5350.4820.4750.4230.4370.4400.460 0.57 0.5360.4960.4871.0400.795
+2hTTE
+96 0.2710.330 0.2740.3370.3400.3740.4250.463 0.2990.3640.3230.3700.2890.3530.3460.3880.4760.4580.3580.3973.7551.525
+192 0.3170.402 0.3140.3820.2310.3220.4730.500 0.4410.4540.3910.4150.3830.4180.4290.4390.5120.4930.4560.4525.6021.931
+336 0.3320.396 0.3290.3840.4520.4520.5810.562 0.6540.5670.4150.4400.4480.4650.4960.4870.5520.5510.4820.4864.7211.835
+720 0.3420.408 0.3790.4220.4620.4680.7750.665 0.9560.7160.4410.4590.6050.5510.4630.4740.5620.5600.5150.5113.6471.625
+Avg 0.3160.384 0.3240.3810.3710.4040.5640.548 0.5880.5250.3930.4210.4310.4470.4330.4470.5260.5160.4530.4624.4311.729
+1mTTE
+96 0.2910.340 0.2930.3460.3380.3750.3610.403 0.3160.3620.3020.3450.2990.3430.3790.4190.3860.3980.5050.4750.6720.571
+192 0.3270.365 0.3330.3700.3740.3870.3870.422 0.3630.3900.3380.3680.3350.3650.4260.4410.4590.4440.5530.4960.7950.669
+336 0.3600.381 0.3690.3920.4100.4110.6050.572 0.4080.4260.3730.3880.3690.3860.4450.4590.4950.4640.6210.5371.2120.871
+720 0.4150.417 0.4160.4200.4780.4500.7030.645 0.4810.4760.4200.4200.4250.4210.5430.4900.5850.5160.6710.5611.1660.823
+Avg 0.3480.375 0.3530.3820.3530.3820.5140.510 0.3920.4130.358 0.38 0.3570.3790.4480.4520.4810.4560.5880.5170.9610.733
+2mTTE
+96 0.1640.254 0.1660.2560.1870.2670.2750.358 0.1790.2750.1650.2560.1670.2600.2030.2870.1920.2740.2550.3390.3650.453
+192 0.2230.295 0.2230.2960.2490.3090.3450.400 0.3070.3760.2220.2960.2240.3030.2690.3280.2800.3390.2810.3400.5330.563
+336 0.2790.330 0.2740.3290.3210.3510.6570.528 0.3250.3880.2770.3330.2810.3420.3250.3660.3340.3610.3390.3721.3630.887
+720 0.3590.383 0.3620.3850.4080.4031.2080.753 0.5020.4900.3710.3890.3970.4210.4210.4150.4170.4130.4220.4193.3791.388
+Avg 0.2560.315 0.2560.3170.2910.3330.6210.510 0.3280.3820.2590.3190.2670.3320.3040.3490.3060.3470.3240.3681.4100.823
+17
+PublishedasaconferencepaperatICLR2024
+F FULL ABLATIONS
+HereweprovidethecompleteresultsofablationsandalternativedesignsforTimeMixer.
+F.1 ABLATIONSOFEACHDESIGNINTIMEMIXER
+ToverifytheeffectivenessofourdesigninTimeMixer,weconductcomprehensiveablationsforall
+benchmarks. AlltheresultsareprovidedinTable15,16,17asasupplementtoTable5ofmaintext.
+Table15:AblationsonbothPast-Decompose-Mixing(Decompose,SeasonMixing,andTrendMixing)
+andFuture-Multipredictor-Mixingblocksinpredict-336settingforalllong-termbenchmarks. ↗
+indicatesthebottom-upmixingwhile↙indicatestop-down. Acheckmark✓andawrongmark×
+indicatewithandwithoutcertaincomponentsrespectively. ①istheofficialdesigninTimeMixer.
+Case Decompose Pastmixing Futuremixing ETTh1 ETTh2 ETTm1 ETTm2 Weather Solar Electricity Traffic
+Seasonal Trend Multipredictor MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE
+① ✓ ↗ ↙ ✓ 0.484 0.458 0.386 0.414 0.390 0.404 0.298 0.340 0.251 0.287 0.231 0.292 0.185 0.277 0.498 0.296
+② ✓ ↗ ↙ × 0.493 0.472 0.399 0.426 0.402 0.415 0.311 0.357 0.262 0.308 0.267 0.339 0.198 0.301 0.518 0.337
+③ ✓ × ↙ ✓ 0.507 0.490 0.408 0.437 0.411 0.427 0.322 0.366 0.273 0.321 0.274 0.355 0.207 0.304 0.532 0.348
+④ ✓ ↗ × ✓ 0.491 0.483 0.397 0.424 0.405 0.414 0.317 0.351 0.269 0.311 0.268 0.341 0.200 0.299 0.525 0.339
+⑤ ✓ ↙ ↙ ✓ 0.488 0.466 0.393 0.426 0.392 0.413 0.309 0.349 0.257 0.293 0.252 0.330 0.191 0.293 0.520 0.331
+⑥ ✓ ↗ ↗ ✓ 0.493 0.484 0.401 0.432 0.396 0.415 0.319 0.361 0.271 0.322 0.281 0.363 0.214 0.307 0.541 0.351
+⑦ ✓ ↙ ↗ ✓ 0.498 0.491 0.421 0.436 0.412 0.429 0.321 0.369 0.277 0.332 0.298 0.375 0.221 0.319 0.564 0.357
+⑧ × ↗ ✓ 0.494 0.488 0.396 0.421 0.395 0.408 0.313 0.360 0.259 0.308 0.260 0.321 0.199 0.303 0.522 0.340
+⑨ × ↙ ✓ 0.487 0.462 0.394 0.419 0.393 0.406 0.307 0.354 0.261 0.327 0.257 0.334 0.196 0.310 0.526 0.339
+⑩ × × ✓ 0.502 0.489 0.411 0.427 0.405 0.412 0.319 0.358 0.273 0.331 0.295 0.336 0.217 0.318 0.558 0.347
+Table16:AblationsonbothPast-Decompose-Mixing(Decompose,SeasonMixing,andTrendMixing)
+andFuture-Multipredictor-MixingblocksintheM4short-termforecastingbenchmark.Casenotations
+aresameasTable5and15. ①istheofficialdesigninTimeMixer.
+Pastmixing Futuremixing M4
+Case Decompose
+Seasonal Trend Multipredictor SMAPE MASE OWA
+① ✓ ↗ ↙ ✓ 11.723 1.559 0.840
+② ✓ ↗ ↙ × 12.503 1.634 0.925
+③ ✓ × ↙ ✓ 13.051 1.676 0.962
+④ ✓ ↗ × ✓ 12.911 1.655 0.941
+⑤ ✓ ↙ ↙ ✓ 12.008 1.628 0.871
+⑥ ✓ ↗ ↗ ✓ 11.978 1.626 0.859
+⑦ ✓ ↙ ↗ ✓ 13.012 1.657 0.954
+⑧ × ↗ ✓ 11.975 1.617 0.851
+⑨ × ↙ ✓ 11.973 1.622 0.850
+⑩ × × ✓ 12.468 1.671 0.916
+Table17:AblationsonbothPast-Decompose-Mixing(Decompose,SeasonMixing,andTrendMixing)
+andFuture-Multipredictor-MixingblocksinthePEMSshort-termforecastingbenchmarks. Case
+notationsaresameasTable5and15. ①istheofficialdesigninTimeMixer.
+Pastmixing Futuremixing PEMS03 PEMS04 PEMS07 PEMS08
+Case Decompose
+Seasonal Trend Multipredictor MAE MAPE RMSE MAE MAPE RMSE MAE MAPE RMSE MAE MAPE RMSE
+① ✓ ↗ ↙ ✓ 14.63 14.54 23.28 19.21 12.53 30.92 20.57 8.62 33.59 15.22 9.67 24.26
+② ✓ ↗ ↙ × 15.66 15.81 25.77 21.67 13.45 34.89 22.78 9.52 35.57 17.48 10.91 27.84
+③ ✓ × ↙ ✓ 18.90 17.33 30.75 24.49 16.28 38.79 25.27 10.74 40.06 19.02 11.71 30.05
+④ ✓ ↗ × ✓ 17.67 17.58 28.48 22.91 15.02 37.14 24.81 10.02 38.68 18.29 12.21 28.62
+⑤ ✓ ↙ ↙ ✓ 15.46 15.73 24.91 20.78 13.02 32.47 22.57 9.33 35.87 16.54 9.97 26.88
+⑥ ✓ ↗ ↗ ✓ 15.32 15.41 24.83 21.09 13.78 33.11 21.94 9.41 35.40 17.01 10.82 26.93
+⑦ ✓ ↙ ↗ ✓ 18.81 17.29 29.78 22.27 15.14 34.67 25.11 10.60 39.74 18.74 12.09 28.67
+⑧ × ↗ ✓ 15.57 15.62 24.98 21.51 13.47 34.81 22.94 9.81 35.49 18.17 11.02 28.14
+⑨ × ↙ ✓ 15.48 15.55 24.83 21.79 14.03 35.23 21.93 9.91 36.02 17.71 10.88 27.91
+⑩ × × ✓ 19.01 18.58 30.06 24.87 16.66 39.48 24.72 9.97 37.18 19.18 12.21 30.79
+18
+PublishedasaconferencepaperatICLR2024
+Implementations Weimplementthefollowing10typesofablations:
+• OfficaldesigninTimeMixer(case①).
+• AblationsonFutureMixing(case②): Inthiscase,weonlyadoptasinglepredictortothe
+finestscalefeatures,thatisxˆ =Predictor (xL).
+0 0
+• AblationsonPastMixing(case③-⑦):Firstly,weremovethemixingoperationofTimeMixer
+inseasonalandtrendpartsrespectively(case③-④),thatisremovingBottom-Up-Mixing
+or Top-Down-Mixing layer. Then, we reverse the mixing directions for seasonal and
+trend parts (case ⑤-⑦), which means adopting Bottom-Up-Mixing layer to trend and
+Top-Down-Mixinglayertoseasonalpart.
+• AblationsonDecomposition(case⑧-⑩): Inthesecases,wedonotadoptthedecomposition,
+whichmeansthatthereisonlyonesinglefeatureforeachscale. Thus,wecanonlytryone
+singlemixingdirectionforthesefeatures,thatisbottom-upmixingincase⑧,top-down
+mixingincase⑨. Besides, wealsotestthecasethatiswithoutmixingin⑩, wherethe
+interactionsamongmultiscalefeaturesareremoved.
+Analysis Inallablations,wecanfindthattheofficialdesigninTimeMixerperformsbest,which
+provides solid support to our insights in special mixing approaches. Notably, it is observed that
+completelyreversingmixingdirectionsforseasonalandtrendparts(case⑦)leadstoaseriouslyper-
+formancedrop. Thismaycomefromthattheessentialmicroscopicinformationinfiner-scaleseasons
+andmacroscopicinformationincoarser-scaletrendsareruinedbyunsuitablemixingapproaches.
+F.2 ALTERNATIVEDECOMPOSITIONMETHODS
+In this paper, we adopt the moving-average-based season-trend decomposition, which is widely
+usedinpreviouswork,suchasAutoformer(Wuetal.,2021),FEDformer(Zhouetal.,2022b)and
+DLinear(Zengetal.,2023). ItisnotablethatDiscreteFourierTransformer(DFT)havebeenwidely
+recognizedintimeseriesanalysis. Thus,wealsotrytheDFT-baseddecompositionasasubstitute.
+Herewepresenttwotypesofexperiments.
+ThefirstoneisDFT-basedhigh-andlow-frequencydecomposition. Wetreatthehigh-frequencypart
+liketheseasonalpartinTimeMixerandthelow-frequencypartlikethetrendpart. Theresultsare
+showninTable18. ItobservedthatDFT-baseddecompositionperformsworsethanourdesignin
+TimeMixer. Sinceweonlyexplorethepropermixingapproachfordecomposedseasonalandtrend
+partsinthepaper,thebottom-upandtop-downmixingstrategiesmaybenotsuitableforhigh-and
+low-frequencyparts. NewvisualizationslikeFigure3and4areexpectedtoprovideinsightstothe
+modeldesign. Thus,wewouldliketoleavetheexplorationofDFT-basedhigh-andlow-frequency
+decompositionmethodsasthefuturework.
+Thesecondoneistoenhanceseason-trenddecompositionwithDFT.HerewepresenttheDFT-based
+season-trenddecomposition. Firstly,wetransformtherawseriesintoafrequencydomainbyDFT
+andthenextractthemostsignificantfrequencies. Aftertransformingtheselectedfrequenciesby
+inverseDFT,weobtaintheseasonalpartofthetimeseries. Thenthetrendpartistherawseriesminus
+theseasonalpart. Wecanfindthatthissuperiordecompositionmethodsurpassesthemoving-average
+design. However,sincemovingaverageisquitesimpleandeasytoimplementwithPyTorch,we
+eventuallychosethemoving-average-basedseason-trenddecompositioninTimeMixer,whichcan
+alsoachieveafavorablebalancebetweenperformanceandefficiency.
+Table18: AlternativedecompositionmethodsinM4,PEMS04andpredict-336settingofETTm1.
+ETTm1 M4 PEMS04
+Decompositionmethods
+MSE MAE SMAPE MASE OWA MAE MAPE RMSE
+DFT-basedhigh-andlow-frequencydecomposition 0.392 0.404 12.054 1.632 0.862 19.83 12.74 31.48
+DFT-basedseason-trenddecomposition 0.383 0.399 11.673 1.536 0.824 18.91 12.27 29.47
+Moving-average-basedseason-trenddecomposition(TimeMixer) 0.390 0.404 11.723 1.559 0.840 19.21 12.53 30.92
+19
+PublishedasaconferencepaperatICLR2024
+F.3 ALTERNATIVEDOWNSAMPLINGMETHODS
+As we stated in Section 3.1, we adopt the average pooling to obtain the multiscale series. Here
+wereplacethisoperationwith1Dconvolutions. FromTable19,wecanfindthatthecomplicated
+1D-convolution-basedoutperformsaveragepoolingslightly. Butconsideringbothperformanceand
+efficiency,weeventuallyuseaveragepoolinginTimeMixer.
+Table19: AlternativedownsamplingmethodsinM4,PEMS04andpredict-336settingofETTm1.
+ETTm1 M4 PEMS04
+Downsamplingmethods
+MSE MAE SMAPE MASE OWA MAE MAPE RMSE
+Movingaverage 0.390 0.404 11.723 1.559 0.840 19.21 12.53 30.92
+1Dconvolutionswithstrideas2 0.387 0.401 11.682 1.542 0.831 19.04 12.17 29.88
+F.4 ALTERNATIVEENSEMBLESTRATEGIES
+Inthemaintext,wesumtheoutputsfrommultiplepredictorstowardsthefinalresult(Eq.6). Here
+wealsotrytheaveragestrategy. NotethatinTimeMixer,thelossiscalculatedbasedontheensemble
+results,notforeachpredictor,thatis∥x−xˆ∥=∥x−
+(cid:80)M
+xˆ ∥. Whenwechangetheensemble
+m=0 m
+strategyasaverage,thelosswillbe∥x−xˆ∥=∥x− 1 (cid:80)M xˆ ∥. Obviously,thedifference
+M+1 m=0 m
+betweenaverageandmeanstrategiesisonlyaconstantmultiple.
+Itiscommonsenseinthedeeplearningcommunitythatdeepmodelscaneasilyfitconstantmultiple.
+Forexample,ifwereplacethe“sum”with“average”,underthesamesupervision,thedeepmodel
+caneasilyfitthischangebylearningtheparametersofeachpredictorequaltothe 1 ofthe“sum”
+M+1
+case,whichmeansthesetwodesignsareequivalentinlearningthefinalpredictionunderthedeep
+modelaspect. Besides,wealsoprovidetheexperimentresultsinTable20,wherewecanfindthatthe
+performancesofthesetwostrategiesarealmostthesame.
+Table20: AlternativeensemblestrategiesinM4,PEMS04andpredict-336settingofETTm1.
+ETTm1 M4 PEMS04
+Ensemblestrategies
+MSE MAE SMAPE MASE OWA MAE MAPE RMSE
+Sumensemble 0.390 0.404 11.723 1.559 0.840 19.21 12.53 30.92
+Averageensemble 0.391 0.407 11.742 1.573 0.851 19.17 12.45 30.88
+F.5 ABLATIONSONLARGERSCALESANDLARGERINPUTLENGTHSETTINGS
+Intheprevioussection(Table15,16,17),wehaveconductedcomprehensiveablationsunderthe
+unifiedconfigurationpresentedinTable7,whichM issetto1forshort-termforecastingandinput
+lengthissetto96forshort-termforecasting. Tofurtherevaluatetheeffectivenessofourproposed
+module,wealsoprovideadditionalablationsonlargerscalesforshort-termforecastingandlarger
+inputlengthsettingsinTable21asasupplementtoTable5ofthemaintext. Besides,wealsoprovide
+adetailedanalysisofrelativepromotion(Table22),wherewecanfindthefollowingobservations:
+• AllthedesignsofTimeMixerareeffectiveinbothhyperparametersettings. Especially,the
+seasonalmixing(case③)andpropermixingdirections(case⑦)areessential.
+• AsshowninTable22,inlargeM andlongerinputlengthsituations,therelativepromotions
+broughtbyseasonalandtrendmixinginPDMandFMMaremoresignificantinmostcases,
+whichfurtherverifiestheeffectivenessofourdesign.
+• It is observed that the seasonal mixing direction contribution (case ⑤) is much more
+significantinthelonger-inputsettingontheETTm1dataset. Thismaycomefromthatinput-
+96onlycorrespondstoonedayin15-minutelysampledETTm1,whileinput-336maintains
+3.5daysofinformation(around3.5periods). Thus,thebottom-upmixingdirectionwill
+benefitfromsufficientmicroscopicseasonalinformationunderthelonger-inputsetting.
+20
+PublishedasaconferencepaperatICLR2024
+Table21: AsupplementtoTable5ofthemaintextwithablationsonbothPDM(Decompose,Season
+Mixing,TrendMixing)andFMMblocksinPEMS04withM =3andpredict-336settingofETTm1
+with input-336. Since the input length of M4 is fixed to a small value, larger M may result in a
+meaninglessconfiguration. WeonlyexperimentonPEMS04here.
+Pastmixing Futuremixing PEMS04withM =3 ETTm1withinput336
+Case Decompose
+Seasonal Trend Multipredictor MAE MAPE RMSE MSE MAE
+① ✓ ↗ ↙ ✓ 18.10 11.73 28.51 0.360 0.381
+② ✓ ↗ ↙ × 21.49 13.12 33.48 0.375 0.398
+③ ✓ × ↙ ✓ 23.68 16.01 37.42 0.390 0.415
+④ ✓ ↗ × ✓ 22.44 14.81 36.54 0.386 0.410
+⑤ ✓ ↙ ↙ ✓ 20.41 13.08 31.92 0.371 0.389
+⑥ ✓ ↗ ↗ ✓ 21.28 13.19 32.84 0.370 0.388
+⑦ ✓ ↙ ↗ ✓ 22.16 14.60 35.42 0.384 0.409
+⑧ × ↗ ✓ 20.98 13.12 33.94 0.372 0.396
+⑨ × ↙ ✓ 20.66 13.06 32.74 0.374 0.398
+⑩ × × ✓ 24.16 16.21 38.04 0.401 0.414
+Table22: Relativepromotionanalysisonablationsunderdifferenthyperparameterconfigurations.
+Forexample,therelativepromotioniscalculatedby(1−①/②)incase②.
+Pastmixing Futuremixing PEMS04withM =3 ETTm1withinput336
+Case Decompose
+Seasonal Trend Multipredictor MAE MAPE RMSE MSE MAE
+① ✓ ↗ ↙ ✓ - - - - -
+② ✓ ↗ ↙ × 15.8% 10.6% 14.9% 4.1% 4.2%
+③ ✓ × ↙ ✓ 23.6% 26.7% 23.8% 7.7% 8.2%
+④ ✓ ↗ × ✓ 19.2% 20.1% 22.0% 6.8% 7.1%
+⑤ ✓ ↙ ↙ ✓ 11.4% 10.4% 10.7% 3.0% 2.1%
+⑥ ✓ ↗ ↗ ✓ 15.0% 11.1% 13.2% 2.7% 1.8%
+⑦ ✓ ↙ ↗ ✓ 18.4% 19.7% 19.5% 6.2% 6.9%
+⑧ × ↗ ✓ 13.7% 10.6% 15.9% 3.2% 3.8%
+⑨ × ↙ ✓ 12.4% 10.2% 13.0% 3.7% 4.2%
+⑩ × × ✓ 25.1% 27.6% 25.0% 10.2% 8.0%
+Pastmixing Futuremixing PEMS04withM =1 ETTm1withinput96
+Case Decompose
+Seasonal Trend Multipredictor MAE MAPE RMSE MSE MAE
+① ✓ ↗ ↙ ✓ - - - - -
+② ✓ ↗ ↙ × 11.4% 6.8% 11.2% 2.9% 2.6%
+③ ✓ × ↙ ✓ 21.6% 23.1% 20.2% 5.1% 5.4%
+④ ✓ ↗ × ✓ 16.2% 16.6% 16.7% 3.7% 2.4%
+⑤ ✓ ↙ ↙ ✓ 7.6% 3.7% 4.7% 0.5% 2.1%
+⑥ ✓ ↗ ↗ ✓ 8.9% 9.0% 6.6% 1.5% 2.6%
+⑦ ✓ ↙ ↗ ✓ 13.7% 17.2% 10.8% 5.3% 5.8%
+⑧ × ↗ ✓ 10.6% 6.9% 11.7% 1.2% 1.0%
+⑨ × ↙ ✓ 11.8% 10.6% 12.2% 0.7% 0.5%
+⑩ × × ✓ 22.7% 24.7% 21.6% 3.9% 2.1%
+21
+PublishedasaconferencepaperatICLR2024
+G ADDITIONAL BASELINES
+Duetothelimitationofthemaintext,wealsoincludethreeadvancedbaselineshere:thegeneralmulti-
+scaleframeworkScaleformer(AminShabani&Sylvain.,2023),twoconcurrentMLP-basedmodel
+MTSMixer(Lietal.,2023)andTSMixer(Chenetal.,2023). Sincethelattertwobaselineswere
+notofficiallypublishedduringoursubmission,weadoptedtheirpubliccodeandreproducedthem
+withbothunifiedhyperparametersettingandthehyperparametersearchingsettings. Aspresentedin
+Table23,24,25,TimeMixerstillperformsbestincomparisonwiththesebaselines. Showcasesof
+theseadditionalbaselinesarealsoprovidedinAppendixIforanintuitivecomparison.
+H SPECTRAL ANALYSIS OF MODEL PREDICTIONS
+TodemonstratetheadvancementofTimeMixer,weplotthespectrumofgroundtruthandmodel
+predictions. ItisobservedthatTimeMixercapturesdifferentfrequencypartsprecisely.
+(a)GroundTruthspectrogram (b)TimeMixerspectrogram (c)PatchTSTspectrogram
+Figure8: PredictionspectrogramcasesfromETTh1bygroundtruthanddifferentmodelsunderthe
+input-96-predict-96settings.
+I SHOWCASES
+In order to evaluate the performance of different models, we conduct the qualitative compari-
+son by plotting the final dimension of forecasting results from the test set of each dataset (Fig-
+ures9,10,11,12,13,17,18). Amongthevariousmodels,TimeMixerexhibitssuperiorperformance.
+J LIMITATIONS AND FUTURE WORK
+TimeMixerhasshownfavorableefficiencyinGPUmemoryandrunningtimeaswepresentedinthe
+maintext. However,itshouldbenotedthatastheinputlengthincreases,thelinearmixinglayermay
+resultinalargernumberofmodelparameters,whichisinefficientformobileapplications. Toaddress
+thisissueandimproveTimeMixer’sparameterefficiency,weplantoinvestigatealternativemixing
+designs,suchasattention-basedorCNN-basedinfutureresearch. Inaddition,weonlyfocusonthe
+temporaldimensionmixinginthispaper,andalsoplantoincorporatethevariatedimensionmixing
+intomodeldesigninourfuturework. Furthermore,asanapplication-orientedmodel,wemadea
+greatefforttoverifytheeffectivenessofourdesignwithexperimentsandablations. Thetheoretical
+analysistoverifytheoptimalityandcompletenessofourdesignisalsoapromisingdirection.
+22
+PublishedasaconferencepaperatICLR2024
+Table 23: Unified and searched hyperparameter results for additional baselines in the long-term
+forecastingtask. Wecompareextensivecompetitivemodelsunderdifferentpredictionlengths. Avgis
+averagedfromallfourpredictionlengths,thatis96,192,336,720. Allthesebaselinesarereproduced
+bytheirofficialcode. Forthesearchedhyperparametersetting, wefollowthesearchingstrategy
+describedinAppendixE.EspeciallyforTSMixer,wereproduceditinPytorch(Paszkeetal.,2019).
+UnifiedHyperparameter SearchedHyperparameter
+Models
+TimeMixer Scaleformer MTSMixer TSMixer TimeMixer Scaleformer MTSMixer TSMixer
+(Ours) (2023) (2023) (2023) (Ours) (2023) (2023) (2023)
+Metric MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE MSE MAE
+rehtaeW
+96 0.163 0.209 0.220 0.289 0.173 0.224 0.175 0.247 0.147 0.197 0.192 0.241 0.167 0.221 0.149 0.198
+192 0.208 0.250 0.341 0.385 0.219 0.261 0.224 0.294 0.189 0.239 0.220 0.288 0.208 0.250 0.201 0.251
+336 0.251 0.287 0.463 0.455 0.274 0.300 0.262 0.326 0.241 0.280 0.288 0.324 0.298 0.302 0.287 0.291
+720 0.339 0.341 0.640 0.565 0.365 0.359 0.349 0.348 0.310 0.330 0.321 0.360 0.344 0.339 0.320 0.336
+Avg 0.240 0.271 0.416 0.423 0.258 0.286 0.253 0.304 0.222 0.262 0.248 0.304 0.254 0.278 0.240 0.269
+ygrenE-raloS 96 0.189 0.259 0.271 0.331 0.217 0.272 0.216 0.294 0.167 0.220 0.224 0.328 0.199 0.251 0.190 0.272
+192 0.222 0.283 0.288 0.332 0.258 0.299 0.294 0.359 0.187 0.249 0.247 0.312 0.221 0.275 0.207 0.278
+336 0.231 0.292 0.358 0.412 0.278 0.310 0.302 0.367 0.200 0.258 0.274 0.308 0.231 0.281 0.246 0.304
+720 0.223 0.285 0.377 0.437 0.293 0.321 0.311 0.372 0.215 0.250 0.335 0.384 0.270 0.301 0.274 0.308
+Avg 0.216 0.280 0.323 0.378 0.261 0.300 0.280 0.348 0.192 0.244 0.270 0.333 0.230 0.277 0.229 0.283
+yticirtcelE
+96 0.153 0.247 0.182 0.297 0.173 0.270 0.190 0.299 0.129 0.224 0.162 0.274 0.154 0.267 0.142 0.234
+192 0.166 0.256 0.188 0.300 0.186 0.280 0.216 0.323 0.140 0.220 0.171 0.284 0.168 0.272 0.154 0.248
+336 0.185 0.277 0.210 0.324 0.204 0.297 0.226 0.334 0.161 0.255 0.192 0.304 0.182 0.281 0.161 0.262
+720 0.225 0.310 0.232 0.339 0.241 0.326 0.250 0.353 0.194 0.287 0.238 0.332 0.212 0.321 0.209 0.304
+Avg 0.182 0.272 0.203 0.315 0.201 0.293 0.220 0.327 0.156 0.246 0.191 0.298 0.179 0.286 0.167 0.262
+cfifarT
+96 0.462 0.285 0.564 0.351 0.523 0.357 0.499 0.344 0.360 0.249 0.409 0.281 0.514 0.338 0.398 0.272
+192 0.473 0.296 0.570 0.349 0.535 0.367 0.540 0.370 0.375 0.250 0.418 0.294 0.519 0.351 0.402 0.281
+336 0.498 0.296 0.576 0.349 0.566 0.379 0.557 0.378 0.385 0.270 0.427 0.294 0.557 0.361 0.412 0.294
+720 0.506 0.313 0.602 0.360 0.608 0.397 0.586 0.397 0.430 0.281 0.518 0.356 0.569 0.362 0.448 0.311
+Avg 0.484 0.297 0.578 0.352 0.558 0.375 0.546 0.372 0.387 0.262 0.443 0.307 0.539 0.354 0.415 0.290
+1hTTE
+96 0.375 0.400 0.401 0.428 0.418 0.437 0.387 0.411 0.361 0.390 0.381 0.412 0.397 0.428 0.370 0.402
+192 0.429 0.421 0.471 0.478 0.463 0.460 0.441 0.437 0.409 0.414 0.445 0.441 0.452 0.466 0.406 0.414
+336 0.484 0.458 0.527 0.498 0.516 0.478 0.507 0.467 0.430 0.429 0.501 0.484 0.487 0.462 0.424 0.434
+720 0.498 0.482 0.578 0.547 0.532 0.549 0.527 0.548 0.445 0.460 0.544 0.528 0.510 0.506 0.471 0.479
+Avg 0.447 0.440 0.495 0.488 0.482 0.481 0.466 0.467 0.411 0.423 0.468 0.466 0.461 0.464 0.418 0.432
+2hTTE
+96 0.289 0.341 0.368 0.398 0.343 0.378 0.308 0.357 0.271 0.330 0.340 0.394 0.328 0.367 0.271 0.339
+192 0.372 0.392 0.431 0.446 0.422 0.425 0.395 0.404 0.317 0.402 0.401 0.414 0.404 0.426 0.344 0.397
+336 0.386 0.414 0.486 0.474 0.462 0.460 0.428 0.434 0.332 0.396 0.437 0.448 0.406 0.434 0.360 0.400
+720 0.412 0.434 0.517 0.522 0.476 0.475 0.443 0.451 0.342 0.408 0.469 0.471 0.448 0.463 0.428 0.461
+Avg 0.364 0.395 0.451 0.460 0.426 0.435 0.394 0.412 0.316 0.384 0.412 0.432 0.397 0.422 0.350 0.399
+1mTTE
+96 0.320 0.357 0.383 0.408 0.344 0.378 0.331 0.378 0.291 0.340 0.338 0.375 0.316 0.362 0.288 0.336
+192 0.361 0.381 0.417 0.421 0.397 0.408 0.386 0.399 0.327 0.365 0.392 0.406 0.374 0.391 0.332 0.374
+336 0.390 0.404 0.437 0.448 0.429 0.430 0.426 0.421 0.360 0.381 0.410 0.426 0.408 0.411 0.358 0.381
+720 0.454 0.441 0.512 0.481 0.489 0.460 0.489 0.465 0.415 0.417 0.481 0.476 0.472 0.454 0.420 0.417
+Avg 0.381 0.395 0.438 0.440 0.415 0.419 0.408 0.416 0.348 0.375 0.406 0.421 0.393 0.405 0.350 0.377
+2mTTE
+96 0.175 0.258 0.201 0.297 0.191 0.278 0.179 0.282 0.164 0.254 0.192 0.274 0.187 0.268 0.160 0.249
+192 0.237 0.299 0.261 0.324 0.258 0.320 0.244 0.305 0.223 0.295 0.248 0.322 0.237 0.301 0.228 0.299
+336 0.298 0.340 0.328 0.366 0.319 0.357 0.320 0.357 0.279 0.330 0.301 0.348 0.299 0.352 0.269 0.328
+720 0.391 0.396 0.424 0.417 0.417 0.412 0.419 0.432 0.359 0.383 0.411 0.398 0.413 0.419 0.421 0.426
+Avg 0.275 0.323 0.303 0.351 0.296 0.342 0.290 0.344 0.256 0.315 0.288 0.336 0.284 0.335 0.270 0.326
+23
+PublishedasaconferencepaperatICLR2024
+Table24:Short-termforecastingresultsinthePEMSdatasetswithmultiplevariates.Allinputlengths
+are96andpredictionlengthsare12. AlowerMAE,MAPEorRMSEindicatesabetterprediction.
+TimeMixer Scaleformer MTSMixer TSMixer
+Models
+(Ours) (2023) (2023) (2023)
+MAE 14.63 17.66 18.63 15.71
+PEMS03 MAPE 14.54 17.58 19.35 15.28
+RMSE 23.28 27.51 28.85 25.88
+MAE 19.21 22.68 25.57 20.86
+PEMS04 MAPE 12.53 14.81 17.79 12.97
+RMSE 30.92 35.61 39.92 32.68
+MAE 20.57 27.62 25.69 22.97
+PEMS07 MAPE 8.62 12.68 11.57 9.93
+RMSE 33.59 42.27 39.82 35.68
+MAE 15.22 20.74 24.22 18.79
+PEMS08 MAPE 9.67 12.81 14.98 10.69
+RMSE 24.26 32.77 37.21 26.74
+Table25: Short-termforecastingresultsintheM4datasetwithasinglevariate. Allpredictionlengths
+arein[6,48]. AlowerSMAPE,MASEorOWAindicatesabetterprediction.
+TimeMixer Scaleformer MTSMixer TSMixer
+Models
+(Ours) (2023) (2023) (2023)
+SMAPE 13.206 13.778 20.071 19.845
+Yearly MASE 2.916 3.176 4.537 4.439
+OWA 0.776 0.871 1.185 1.166
+SMAPE 9.996 10.727 16.371 16.322
+Quarterly MASE 1.166 1.291 2.216 2.21
+OWA 0.825 0.954 1.551 1.543
+SMAPE 12.605 13.378 18.947 19.248
+Monthly MASE 0.919 1.104 1.725 1.774
+OWA 0.869 0.972 1.468 1.501
+SMAPE 4.564 4.972 7.493 7.494
+Others MASE 3.115 3.311 5.457 5.463
+OWA 0.982 1.112 1.649 1.651
+Weighted SMAPE 11.723 12.978 18.041 18.095
+Average MASE 1.559 1.764 2.677 2.674
+OWA 0.840 0.921 1.364 1.336
+(a)TimeMixer (b)PatchTST (c)TimesNet (d)DLinear
+(e)Autoformer (f)Scaleformer (g)MTSMixer (h)TSMixer
+Figure9: PredictioncasesfromETTh1bydifferentmodelsundertheinput-96-predict-96settings.
+Bluelinesarethegroundtruthsandorangelinesarethemodelpredictions.
+24
+PublishedasaconferencepaperatICLR2024
+(a)TimeMixer (b)PatchTST (c)TimesNet (d)DLinear
+(e)Autoformer (f)Scaleformer (g)MTSMixer (h)TSMixer
+Figure10: PredictioncasesfromElectricitybydifferentmodelsunderinput-96-predict-96settings.
+(a)TimeMixer (b)PatchTST (c)TimesNet (d)DLinear
+(e)Autoformer (f)Scaleformer (g)MTSMixer (h)TSMixer
+Figure11: PredictioncasesfromTrafficbydifferentmodelsundertheinput-96-predict-96settings.
+(a)TimeMixer (b)PatchTST (c)TimesNet (d)DLinear
+(e)Autoformer (f)Scaleformer (g)MTSMixer (h)TSMixer
+Figure12: PredictioncasesfromWeatherbydifferentmodelsundertheinput-96-predict-96settings.
+25
+PublishedasaconferencepaperatICLR2024
+Figure13: ShowcasesfromSolar-Energybydifferentmodelsundertheinput-96-predict-96settings.
+(a)TimeMixer (b)SCINet (c)TimesNet (d)Crossformer
+(e)Autoformer (f)Scaleformer (g)MTSMixer (h)TSMixer
+Figure14: ShowcasesfromPEMS03bydifferentmodelsundertheinput-96-predict-12settings.
+(a)TimeMixer (b)SCINet (c)TimesNet (d)Crossformer
+(e)Autoformer (f)Scaleformer (g)MTSMixer (h)TSMixer
+Figure15: ShowcasesfromPEMS04bydifferentmodelsundertheinput-96-predict-12settings.
+26
+PublishedasaconferencepaperatICLR2024
+(a)TimeMixer (b)SCINet (c)TimesNet (d)Crossformer
+(e)Autoformer (f)Scaleformer (g)MTSMixer (h)TSMixer
+Figure16: ShowcasesfromPEMS07bydifferentmodelsundertheinput-96-predict-12settings.
+(a)TimeMixer (b)SCINet (c)TimesNet (d)Crossformer
+(e)Autoformer (f)Scaleformer (g)MTSMixer (h)TSMixer
+Figure17: ShowcasesfromPEMS08bydifferentmodelsundertheinput-96-predict-12settings.
+(a)TimeMixer (b)SCINet (c)TimesNet (d)PatchTST
+(e)Autoformer (f)Scaleformer (g)MTSMixer (h)TSMixer
+Figure18: ShowcasesfromtheM4datasetbydifferentmodelsundertheinput-36-predict-18settings.
+27

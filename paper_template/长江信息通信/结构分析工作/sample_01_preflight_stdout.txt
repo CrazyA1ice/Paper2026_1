@@ -1,0 +1,16 @@
+{
+  "schema": "pdf_read_preflight/1",
+  "verdict": "UNAVAILABLE",
+  "file": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长江信息通信\\基于人工智能的5G移动通信网络远程终端控制技术_张子樵.pdf",
+  "sha256": "5cb041f055e7c6765ad008195a4cff3421709358abeaf3a9a2b0be97efa0a01d",
+  "declared_page_count": 4,
+  "enumerated_page_count": 4,
+  "reader_page_count": 4,
+  "warnings": [
+    "trailing-data: 178 bytes after the final %%EOF include non-whitespace content (possible truncated incremental update)",
+    "pypdf: Multiple definitions in dictionary at byte 0x1511e3 for key /MediaBox"
+  ],
+  "generated_at": "2026-10-26T08:07:22.089240+00:00",
+  "tool": "pdf_read_preflight/1.0.0"
+}
+

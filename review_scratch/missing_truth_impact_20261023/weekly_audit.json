@@ -1,0 +1,341 @@
+{
+  "sources": [
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\data\\raw\\tszoo\\databases\\GEANT\\GEANT-matrix-backbone_network-1_hour.h5",
+      "sha256": "cba14524b82413bacb86bd4bf0480b38345e6eebf7e6a22ddb105cc940d1eeac"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\data\\processed\\geant_1hour.npz",
+      "sha256": "63e2bb6897902ac556efdda2f3cb98a7e224cd664757d8488086271b103741ec"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\per_seed_scores.csv",
+      "sha256": "7808402e6955a811ea86e960089affb754fdbaf3b8132e90ee8bb9121d8ca1c4"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed42\\predictions.npz",
+      "sha256": "a727b8368add986c1d26cb3f7b300cc8acab08f29eb44ff445e95d6dfcc97e6b"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed42\\metrics.json",
+      "sha256": "fc6d8e1485215a21756907e2eaf645509cf01115aed63dd5de6efb943a9303ef"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed43\\predictions.npz",
+      "sha256": "93bafd06b41959446065050f23d9508737bc0c6ed4d58ca067f580f731433d4b"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed43\\metrics.json",
+      "sha256": "8d1e78fd617f690648808364f38e2ec2b977f7ced73d16bc2262b8a2f13d39af"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed44\\predictions.npz",
+      "sha256": "f86bc92b837a64e8715347470ad1b6111d11ef600cc68c202f72ceb35542a50c"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed44\\metrics.json",
+      "sha256": "7641e5820e92f3215ab57580adeeb6d0050ad0dcde757172a7f60333828b15e4"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed45\\predictions.npz",
+      "sha256": "81b082cb57b66f41a4b2bc0fd55222f0dbed69a3384c8928b296f23ee0a876db"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed45\\metrics.json",
+      "sha256": "7d489d63249147715e77ef546dd1ba56fbb77c36de842a98242d43b48469d588"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed46\\predictions.npz",
+      "sha256": "26115e5109dc4e95fe16fd9e63da34b05f545be2dc799a327d4e93b01a40bfc6"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed46\\metrics.json",
+      "sha256": "4c08f87e99dd7f3588c5ac91076576b8d98907a45fce860216dbd53ea3af41ad"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed47\\predictions.npz",
+      "sha256": "dfc0a0aab855e4f24757e52d2dfda9637881e137f6586f869537c6bd7247ee19"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed47\\metrics.json",
+      "sha256": "bdd49a1da8da8c2ad60ea3e87ffda81e9076de639643489608cf03188c94e6b8"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed48\\predictions.npz",
+      "sha256": "34b49cab3beeeb7a49daa92fa4bc45f2422cfd664fad280480ee4ed4395e4948"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed48\\metrics.json",
+      "sha256": "12df4d707d03192396c0fb11b3081bc9b8185263bd6c8dd41157033410b1f8de"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed49\\predictions.npz",
+      "sha256": "35c51b831fc56618742019cf178297d8e4b8892155fcd3c7760c4bb5fd64179e"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_seed49\\metrics.json",
+      "sha256": "c859868c0c71f9feac09a5f3b86f80bbc44c192a708b427322dacd9b2420dfd7"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed42\\predictions.npz",
+      "sha256": "21a0c5228187dc64bff6068b06283538efd0b65286766eb47118d4a448cebe1a"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed42\\metrics.json",
+      "sha256": "0fe0a1f05d33a27d7bd50dec051876f5171cf7d7dec0a66fd9642e5f0341c25b"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed43\\predictions.npz",
+      "sha256": "538ea9d8cc9e355369b29bbd1156d8ad61e322cc4f7b7a41f90fe3b73d4538cc"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed43\\metrics.json",
+      "sha256": "dd397cf8a6eb962ac80213482be10d2a51c226c084e7cae809001dfcde0ce2ef"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed44\\predictions.npz",
+      "sha256": "3e04612480ec8a6bd8caec0d870490ddfbf6577be9085978a07776a535aedcd2"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed44\\metrics.json",
+      "sha256": "9334139c53f1f9b3784e8b4680f7cdc844ae86e507d5b7acafedac5c73d7e13e"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed45\\predictions.npz",
+      "sha256": "d6b0fd22c8df7c87c1b59df0827ad95d6b19a3ad61a1cfa7da7d3f1251622555"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed45\\metrics.json",
+      "sha256": "e9ebd7cb3ab45d953b9348cdf6e205bee94e0123c3a7cdd4658d49f25c6ac8a2"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed46\\predictions.npz",
+      "sha256": "716c9731b95d41990d56a403ca19caa3b85bd2ac3d8c2b871f48b6994e9ffb41"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed46\\metrics.json",
+      "sha256": "a6ef5be869e36a2e8ec439ced37db6bf26090dc3717b582bc4d3024baa00ca3e"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed47\\predictions.npz",
+      "sha256": "77c1e7bf6c92c8795d9cfef55a3992956daece5b5bba749be2fc5ac19dbb64d1"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed47\\metrics.json",
+      "sha256": "2f9729097deedb2af7535ebc4daa1ba6ce955082a928fa0fa654a2f3bb6ad86b"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed48\\predictions.npz",
+      "sha256": "8fd4dc9db6a309847b347c3674f9a286738779e1a634bc14867b97d56a45b78a"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed48\\metrics.json",
+      "sha256": "ab33f040eadbd6d5c077a47f0aaf9bcd8aaa6a13bfc92e530d98569f208ef693"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed49\\predictions.npz",
+      "sha256": "554699b6e2418912ddf9fb96e1c2c9f8f56b67b4faa640075271f1191806787f"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_static_seed49\\metrics.json",
+      "sha256": "083392dea323a21f7e1eb4671015fe259daa6a3e1dd8958d023d2ed2166ae512"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed42\\predictions.npz",
+      "sha256": "ddd2200eee22953fa4310a49c499d0008de661ed90028c8dd4728b6b194afc31"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed42\\metrics.json",
+      "sha256": "3a3177bbef3c6e1bde36da7e2571b110e81a8f5f8c934376530c375cc3f28c20"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed43\\predictions.npz",
+      "sha256": "3a53721e9b165e1dc1499c26031cafcdd2ca3523d8e420f76bb9b486748bfa3c"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed43\\metrics.json",
+      "sha256": "c734231b8a8a4d5960b2a703bfef8114ec0e1e3967cc1f3ef670719aaf10828f"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed44\\predictions.npz",
+      "sha256": "62a8948999d42500cfb7e75347bc6c0ffe78c0ef64e7afb876e54cc6a3485290"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed44\\metrics.json",
+      "sha256": "5840af2cef124eaa5d659898230b4500d79d9d47e35cddef9dac027c17df5e83"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed45\\predictions.npz",
+      "sha256": "13fd273a77eb74501e9c391e5be8a67c1bfb5d26af51592496d054f9e7b0d358"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed45\\metrics.json",
+      "sha256": "a660b082c10af9ba5dfdc72c79f0479d61d34c08982169c725648744521fe464"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed46\\predictions.npz",
+      "sha256": "c2c97ad0b5be67f32fc3a2d8d6bc2ece82412fa62eb003d873025023cf730a6e"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed46\\metrics.json",
+      "sha256": "5f01cffd6101c75389961d24180883698e04432a276cd73b29eeb7b08046657c"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed47\\predictions.npz",
+      "sha256": "65111037ce6681e5081d9ebf4af3f7440da710ebd00d63c5a697d03664f0031d"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed47\\metrics.json",
+      "sha256": "038ced837f509278f0af6c86e40ad59d61666c71343f8030a78f9c08ef120f17"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed48\\predictions.npz",
+      "sha256": "45322bc9ad222b76ba251af500b2d6b4a2c2a8df9bc2f74f59cf23aa2f63246d"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed48\\metrics.json",
+      "sha256": "1954c25a0e114cd3694ba82ae610da2b33b474f53a9f437c8f5bedd0b31bf82d"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed49\\predictions.npz",
+      "sha256": "ffa831066e4b2b29bd79991e691ffa951967f7c7be18f042281cbde161c532ec"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_global_seed49\\metrics.json",
+      "sha256": "84b56e92de3d566594b781db0805559f89d099fbe13c63e2f923d6b9dffe326f"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed42\\predictions.npz",
+      "sha256": "582774e36715861dae8643551b3d73d5e1d69959d6213ea48fbca7db72b86150"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed42\\metrics.json",
+      "sha256": "544e00bec848eccab2e271a0024ca9f6c69e8320dad87af91c0608d139042b16"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed43\\predictions.npz",
+      "sha256": "23a9240114ebbfbec7433ae600435594c4b376c803096582b4d17ac74dc18ce8"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed43\\metrics.json",
+      "sha256": "d3a4667564ae7e70fceee7d36fb35cde0eab5e7dc21f3421c59f7e1c792ec3fc"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed44\\predictions.npz",
+      "sha256": "f704cbdb799400a8cb7f755529171e79260cc506757a60f0c43869bc81811505"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed44\\metrics.json",
+      "sha256": "137af978758ec33fe955ee6f45ee3c42185c77e51f5adec03a0c19c614c45914"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed45\\predictions.npz",
+      "sha256": "e7cac33cfe39a92df5891c74377ae86c4a25c6c43eb58a8a6c91ed9214b518cc"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed45\\metrics.json",
+      "sha256": "ba5b958ed9470542272ca3e9f80a5e71baf41e859af55236b2b51a628f3bc123"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed46\\predictions.npz",
+      "sha256": "edec55e5ba3204dacf04b47a891fad9943a716127fa75f3a26f787dea49ab940"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed46\\metrics.json",
+      "sha256": "1d8b2f640fa02070cb8d932644efbaea8fe46ec9064e25fdc8e321be7f260475"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed47\\predictions.npz",
+      "sha256": "6ad6648b82e706dd6aa1955789c45ee94a45428a9912fc3b805a55630e31ad07"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed47\\metrics.json",
+      "sha256": "5b87e58de4c64e9bd632ddef607c98ae899056739e654708a8dd754b94e9dff9"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed48\\predictions.npz",
+      "sha256": "7b753ed4dea0597dca21ca9b88697106210c37c2ec008f428a529915f2310731"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed48\\metrics.json",
+      "sha256": "869a367d39de97114d600a2ac40ff95ba41039ba7a89c90ae687374dbb868b8f"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed49\\predictions.npz",
+      "sha256": "763802b48a56f48cef78e45bb9ea25b744dc6e27b51a27e6cac48b243b901da0"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_constant_router_seed49\\metrics.json",
+      "sha256": "add608180827cce99955c1a669b1e25adc644cbdb6c480df3f596e96350ceec2"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed42\\predictions.npz",
+      "sha256": "22f0e437c0764d171255e345e48f5bfa7a8f1b7bb8182ef6db216b36197fff65"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed42\\metrics.json",
+      "sha256": "a53b4fba8ec0de47ba3e5b512ee16207fd818b5bd2fa9c05e7a4903b1ade22c9"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed43\\predictions.npz",
+      "sha256": "a49529bb6011f8995178ac2b4820809de0351ed44399d98a361afe6f3aa74d78"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed43\\metrics.json",
+      "sha256": "97788115bb46438a363a70f898fd0e8cfa41fa4e3f473758d31ac756331dec56"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed44\\predictions.npz",
+      "sha256": "e6ed30e0938d3f956cd35c2c44278824b4bae375060ccbb879bc40f81c8fda1d"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed44\\metrics.json",
+      "sha256": "513c76cad9471fdaafb8d60408c15f441ea6a7b7962d39975fa8b0e9d99e7017"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed45\\predictions.npz",
+      "sha256": "107c76ef7f39bf6aa260ae4544cfb2ef0f428c7b05cc9f7c3b8d79fc3a0604b5"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed45\\metrics.json",
+      "sha256": "52995894ef5d0c252ef1587d1fcf649ced07c4ca6cb1c927fe3ea58febcaa0e5"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed46\\predictions.npz",
+      "sha256": "b27788842e095944376a4156d067e25774ca5fc297efd1e9097f9025ad32440c"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed46\\metrics.json",
+      "sha256": "f3c4a3eaa35bb6bf182bf8cfadf576f9c00dc3240ae74136a09bfde362ea925d"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed47\\predictions.npz",
+      "sha256": "dbf4dfc1d0324d27b48de070dd83a79fad95c776caa24b630f95db22b75a5ad7"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed47\\metrics.json",
+      "sha256": "bb7b8357f9d0d02f1cf4adad6b52000da6bd617579a74a590d83c656cb4a0e4d"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed48\\predictions.npz",
+      "sha256": "8441559fb57b27c2e328244932ef49710a4c9ac10e93ecec0f56a69d9e68abf8"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed48\\metrics.json",
+      "sha256": "aca24e5dec888e971240ea112990135ef70fcdad3654ff19fda3a84b5f1b18d1"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed49\\predictions.npz",
+      "sha256": "5cb2c122b03f11908285c5ee345471064d4c0f64e49df851ca2f5120d4362586"
+    },
+    {
+      "path": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\abilene_forecasting\\results\\long_horizon_20261021\\h168\\geant\\dlinear_scale_seed49\\metrics.json",
+      "sha256": "aeb416098ca4de0ab37fcdb7a1b134dc5ecd14473991b5b049fbaabc6d946b3f"
+    }
+  ],
+  "originals_unchanged": true,
+  "manuscript_unchanged": true,
+  "original_weekly_scores_reproduced": true,
+  "no_retraining": true,
+  "all_40_model_seed_runs_scored": true
+}
