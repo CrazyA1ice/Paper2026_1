@@ -90,3 +90,5 @@ jobs:
           git commit -m "Add visual layout QA pages for integrated Changjiang manuscript [skip ci]" || exit 0
           git pull --rebase origin main
           git push origin main
+
+# Audit re-run after in-place paragraph augmentation; source manuscript unchanged.
