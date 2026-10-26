@@ -22,7 +22,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq libreoffice-writer poppler-utils fonts-noto-cjk >/dev/null
-          python -m pip install --disable-pip-version-check pillow
+          python -m pip install --disable-pip-version-check pillow python-docx
       - name: Render whole manuscript
         run: |
           set -euo pipefail
@@ -32,6 +32,24 @@ jobs:
           libreoffice -env:UserInstallation=file:///tmp/lo_czxxtx_qa --headless --convert-to pdf --outdir /tmp/czxxtx_render "$f"
           pdf=$(find /tmp/czxxtx_render -maxdepth 1 -name '*.pdf' -print -quit)
           test -s "$pdf"
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          import importlib.util
+          src=Path("paper_template/长江信息通信/自适应多尺度加权的多变量网络流量预测_czxxtx20261026_结构精简稿.docx")
+          script=Path("paper_template/长江信息通信/integrate_20261026_figures_and_text.py")
+          spec=importlib.util.spec_from_file_location("integration",script)
+          mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+          mod.make_exact_crops()
+          d=Document(src);d.save("/tmp/czxxtx_render/roundtrip.docx")
+          d=Document(src);mod.insert_missing_facts(d);d.save("/tmp/czxxtx_render/text_only.docx")
+          d=Document(src);mod.replace_figures(d);d.save("/tmp/czxxtx_render/images_only.docx")
+          PY
+          for variant in roundtrip text_only images_only; do
+            libreoffice -env:UserInstallation=file:///tmp/lo_czxxtx_qa --headless --convert-to pdf --outdir /tmp/czxxtx_render "/tmp/czxxtx_render/$variant.docx"
+            pdfinfo "/tmp/czxxtx_render/$variant.pdf" | awk -v n="$variant" '/^Pages:/ {print "DIAGNOSTIC "n" pages="$2}'
+            pdftotext "/tmp/czxxtx_render/$variant.pdf" - | grep -c "参考文献" | xargs echo "DIAGNOSTIC $variant reference_hits=" || true
+          done
           source_doc="paper_template/长江信息通信/自适应多尺度加权的多变量网络流量预测_czxxtx20261026_结构精简稿.docx"
           libreoffice -env:UserInstallation=file:///tmp/lo_czxxtx_qa --headless --convert-to pdf --outdir /tmp/czxxtx_render "$source_doc"
           source_pdf="/tmp/czxxtx_render/自适应多尺度加权的多变量网络流量预测_czxxtx20261026_结构精简稿.pdf"
