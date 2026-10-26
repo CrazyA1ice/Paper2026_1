@@ -40,7 +40,7 @@ jobs:
           assert report["after"]["required_values_in_corresponding_sections"]
           assert report["after"]["tables_unchanged"]
           d=Document(docx)
-          assert len(d.inline_shapes)==4 and len(d.tables)==4
+          assert len(d.inline_shapes)==8 and len(d.tables)==4
           with zipfile.ZipFile(docx) as z:
               assert z.testzip() is None
               media=[x for x in z.namelist() if x.startswith("word/media/")]
