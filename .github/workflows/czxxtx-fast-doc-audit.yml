@@ -1,0 +1,28 @@
+name: Fast original DOC template audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'paper_template/长江信息通信/核对格式_无Office依赖_20261026.py'
+      - '.github/workflows/czxxtx-fast-doc-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install lightweight Python-only readers
+        run: python -m pip install --disable-pip-version-check olefile pillow python-docx
+      - name: Read original DOCX and original Word97 .doc template
+        run: python "paper_template/长江信息通信/核对格式_无Office依赖_20261026.py"
+      - name: Save machine-readable audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "paper_template/长江信息通信/结构精简稿_格式比对_20261026.json"
+          git commit -m "Add audit of original concise manuscript vs binary journal template [skip ci]" || exit 0
+          git pull --rebase origin main
+          git push origin main
