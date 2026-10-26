@@ -217,6 +217,9 @@ def main():
         start,end=ranges[section]
         txt="\n".join(p.text for p in check.paragraphs[start:end])
         assert all(v in txt for v in req),(section,[v for v in req if v not in txt])
+    audit["source_tail_paragraphs"]=[p.text[:240] for p in Document(SOURCE).paragraphs[-26:]]
+    audit["output_tail_paragraphs"]=[p.text[:240] for p in check.paragraphs[-26:]]
+    audit["last_paragraph_counts"]={"source":len(Document(SOURCE).paragraphs),"output":len(check.paragraphs)}
     audit["after"]={
         "source_and_output_distinct":str(SOURCE)!=str(OUTPUT),
         "tables_unchanged":True,
