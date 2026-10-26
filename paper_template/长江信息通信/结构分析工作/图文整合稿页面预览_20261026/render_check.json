@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "pages": 7,
+  "source": "20261026_图文整合稿.docx",
+  "render_engine": "LibreOffice headless",
+  "screenshots": [
+    {
+      "name": "page-1.jpg",
+      "size": [
+        869,
+        1228
+      ]
+    },
+    {
+      "name": "page-2.jpg",
+      "size": [
+        869,
+        1228
+      ]
+    },
+    {
+      "name": "page-3.jpg",
+      "size": [
+        869,
+        1228
+      ]
+    },
+    {
+      "name": "page-4.jpg",
+      "size": [
+        869,
+        1228
+      ]
+    },
+    {
+      "name": "page-5.jpg",
+      "size": [
+        869,
+        1228
+      ]
+    },
+    {
+      "name": "page-6.jpg",
+      "size": [
+        869,
+        1228
+      ]
+    },
+    {
+      "name": "page-7.jpg",
+      "size": [
+        869,
+        1228
+      ]
+    }
+  ],
+  "warning": "LO layout preview is not a native Microsoft Word pagination guarantee"
+}
