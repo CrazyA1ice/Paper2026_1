@@ -1,0 +1,130 @@
+{
+  "source_document": "自适应多尺度加权的多变量网络流量预测_czxxtx20261026_结构精简稿.docx",
+  "source_sha256": "571247abdd98414ac09615cba0a8536643d3ece7d811d2a23895e02b93e84284",
+  "cropping": [
+    {
+      "original": "fig2_G_compact_bars.png",
+      "new": "fig2_G_compact_bars_no_table.png",
+      "input_size": [
+        2568,
+        1188
+      ],
+      "cropped_size": [
+        2568,
+        900
+      ],
+      "source_sha256": "5e45b96c8b7960fb212c20c05bdc3179c8fbc77b9dee223c5a24d21119cb2f8b",
+      "cropped_sha256": "931b330c8768311206b4a14f6ec9bcd2e904e6618b5376bc488039872a1d07e5",
+      "crop_top_region_pixel_identical": true
+    },
+    {
+      "original": "fig3_H_grouped_bars.png",
+      "new": "fig3_H_grouped_bars_no_table.png",
+      "input_size": [
+        2817,
+        1150
+      ],
+      "cropped_size": [
+        2817,
+        877
+      ],
+      "source_sha256": "5ee52024f2a3d41fd732517194ec47cdbf38ec0ee9e26f0ec4574399e0964044",
+      "cropped_sha256": "140af6da2b0a3c91d23f07f83c53f6076e789cf3d4ab91f9d848433bdeff42c0",
+      "crop_top_region_pixel_identical": true
+    },
+    {
+      "original": "fig4_H_grouped_bars.png",
+      "new": "fig4_H_grouped_bars_no_table.png",
+      "input_size": [
+        2806,
+        1219
+      ],
+      "cropped_size": [
+        2806,
+        875
+      ],
+      "source_sha256": "e3bfbe1df2ca44a102518e472fe34b50c7ee51702edeae0bf77cc4f62cce35ee",
+      "cropped_sha256": "82ecd8496c0b79f925853da002ac6d714ca44a242e1a9767e904775359f60432",
+      "crop_top_region_pixel_identical": true
+    }
+  ],
+  "new_text": {
+    "2.5": {
+      "inserted": true,
+      "missing_before": [
+        "8/8"
+      ],
+      "text": "在GÉANT一周预测任务中，相对DLinear、固定等权、全局权重和恒定输入路由，本文方法的MSE配对平均降幅分别为23.16%、26.11%、26.02%和23.77%，MAE分别为11.16%、12.39%、12.34%和11.19%。八个共同随机种子下，针对上述四种对照的MSE和MAE配对改善次数均为8/8。",
+      "after_paragraph_index": 81
+    },
+    "2.4": {
+      "inserted": true,
+      "missing_before": [
+        "3.87%",
+        "6.65%"
+      ],
+      "text": "与固定等权融合相比，本文方法在Abilene高需求目标点上的MAE和平均低估误差（AUE）配对平均降幅分别为17.47%和20.84%；在GÉANT上分别为3.87%和6.65%。这组结果补充了图3相对DLinear的比较，反映窗口级自适应加权的作用。",
+      "after_paragraph_index": 74
+    },
+    "2.2": {
+      "inserted": true,
+      "missing_before": [
+        "4 656",
+        "130 162",
+        "384 382",
+        "8 339"
+      ],
+      "text": "在模型规模方面，DLinear在Abilene和GÉANT上的参数量均为4 656，LightTS分别为130 162和384 382，本文方法在两个数据集上均为8 339。相对LightTS，本文方法的参数量分别仅占6.41%和2.17%。",
+      "after_paragraph_index": 62
+    }
+  },
+  "figure_replacements": [
+    {
+      "figure": 2,
+      "old_partname": "/word/media/image2.png",
+      "new_png": "fig2_G_compact_bars_no_table.png",
+      "new_partname": "/word/media/image5.png",
+      "drawing_instances_replaced": 2,
+      "new_dimensions_emu": [
+        4968000,
+        1741121
+      ]
+    },
+    {
+      "figure": 3,
+      "old_partname": "/word/media/image3.png",
+      "new_png": "fig3_H_grouped_bars_no_table.png",
+      "new_partname": "/word/media/image6.png",
+      "drawing_instances_replaced": 2,
+      "new_dimensions_emu": [
+        4968000,
+        1546658
+      ]
+    },
+    {
+      "figure": 4,
+      "old_partname": "/word/media/image4.png",
+      "new_png": "fig4_H_grouped_bars_no_table.png",
+      "new_partname": "/word/media/image7.png",
+      "drawing_instances_replaced": 2,
+      "new_dimensions_emu": [
+        4968000,
+        1549180
+      ]
+    }
+  ],
+  "after": {
+    "source_and_output_distinct": true,
+    "tables_unchanged": true,
+    "inline_images": 8,
+    "numbered_formula_paragraphs_unchanged": true,
+    "required_values_in_corresponding_sections": true,
+    "output_sha256": "5f5bbefadd6639b7795302e98bbb9ce02118cc2011d10b0b3e177db7d687a808",
+    "new_document": "自适应多尺度加权的多变量网络流量预测_czxxtx20261026_图文整合稿.docx",
+    "source_counts": {
+      "tables": 4,
+      "inline_images": 8,
+      "nonempty_paragraphs": 95
+    }
+  }
+}
