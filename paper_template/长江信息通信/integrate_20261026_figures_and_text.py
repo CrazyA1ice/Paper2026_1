@@ -138,9 +138,23 @@ def insert_missing_facts(doc):
         anchor_idx=end-1
         while anchor_idx>start and not paras[anchor_idx].text.strip():
             anchor_idx-=1
-        add_after(paras[anchor_idx],INSERT_TEXT[key])
+        # Only restore table-only values; avoid restating positive results
+        # which are already present elsewhere in the same subsection.
+        if key=="2.2" and set(missing)=={"4 656","130 162","384 382","8 339"}:
+            new_text=("模型参数量方面，DLinear在两个数据集上均为4 656；"
+                      "LightTS在Abilene和GÉANT上分别为130 162和384 382；"
+                      "本文方法在两个数据集上均为8 339。")
+        elif key=="2.4" and set(missing)=={"3.87%","6.65%"}:
+            new_text=("在GÉANT高需求目标点上，本文方法相对固定等权融合的"
+                      "MAE和平均低估误差（AUE）配对平均降幅分别为3.87%和6.65%。")
+        elif key=="2.5" and missing==["8/8"]:
+            new_text=("上述一周预测比较在八个共同随机种子下的MSE和MAE配对降幅均为正，"
+                      "相对四种对照的正向次数均为8/8。")
+        else:
+            new_text=INSERT_TEXT[key]
+        add_after(paras[anchor_idx],new_text)
         outcome[key]={"inserted":True,"missing_before":missing,
-                      "text":INSERT_TEXT[key],"after_paragraph_index":anchor_idx}
+                      "text":new_text,"after_paragraph_index":anchor_idx}
     return outcome
 
 def replace_figures(doc):
