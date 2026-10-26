@@ -54,7 +54,7 @@
       "missing_before": [
         "8/8"
       ],
-      "text": "在GÉANT一周预测任务中，相对DLinear、固定等权、全局权重和恒定输入路由，本文方法的MSE配对平均降幅分别为23.16%、26.11%、26.02%和23.77%，MAE分别为11.16%、12.39%、12.34%和11.19%。八个共同随机种子下，针对上述四种对照的MSE和MAE配对改善次数均为8/8。",
+      "text": "上述一周预测比较在八个共同随机种子下的MSE和MAE配对降幅均为正，相对四种对照的正向次数均为8/8。",
       "after_paragraph_index": 81
     },
     "2.4": {
@@ -63,7 +63,7 @@
         "3.87%",
         "6.65%"
       ],
-      "text": "与固定等权融合相比，本文方法在Abilene高需求目标点上的MAE和平均低估误差（AUE）配对平均降幅分别为17.47%和20.84%；在GÉANT上分别为3.87%和6.65%。这组结果补充了图3相对DLinear的比较，反映窗口级自适应加权的作用。",
+      "text": "在GÉANT高需求目标点上，本文方法相对固定等权融合的MAE和平均低估误差（AUE）配对平均降幅分别为3.87%和6.65%。",
       "after_paragraph_index": 74
     },
     "2.2": {
@@ -74,7 +74,7 @@
         "384 382",
         "8 339"
       ],
-      "text": "在模型规模方面，DLinear在Abilene和GÉANT上的参数量均为4 656，LightTS分别为130 162和384 382，本文方法在两个数据集上均为8 339。相对LightTS，本文方法的参数量分别仅占6.41%和2.17%。",
+      "text": "模型参数量方面，DLinear在两个数据集上均为4 656；LightTS在Abilene和GÉANT上分别为130 162和384 382；本文方法在两个数据集上均为8 339。",
       "after_paragraph_index": 62
     }
   },
@@ -119,7 +119,7 @@
     "inline_images": 8,
     "numbered_formula_paragraphs_unchanged": true,
     "required_values_in_corresponding_sections": true,
-    "output_sha256": "5f5bbefadd6639b7795302e98bbb9ce02118cc2011d10b0b3e177db7d687a808",
+    "output_sha256": "aef6119b9249ceb8f3571981b43290275ce585d3738938eb3482c48ea74d0e37",
     "new_document": "自适应多尺度加权的多变量网络流量预测_czxxtx20261026_图文整合稿.docx",
     "source_counts": {
       "tables": 4,
