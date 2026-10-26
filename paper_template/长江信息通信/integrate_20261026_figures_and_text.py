@@ -144,39 +144,36 @@ def insert_missing_facts(doc):
     return outcome
 
 def replace_figures(doc):
-    # Four original figures: fig 1 remains unchanged; replace images 2–4 only.
+    # The source has four figures but eight w:inline drawings:
+    # each figure is duplicated in two alternate Word compatibility branches.
+    # A safe replacement MUST update both siblings for each figure.
     shapes=list(doc.inline_shapes)
-    if len(shapes) != 4:
-        print("FIGURE INVENTORY: shape count =", len(shapes), flush=True)
-        for i,s in enumerate(shapes):
-            bs=s._inline.xpath('.//a:blip')
-            ids=[b.get(qn("r:embed")) for b in bs]
-            parts=[str(doc.part.related_parts[x].partname) for x in ids if x in doc.part.related_parts]
-            print("SHAPE",i, "size",s.width,s.height, "rel",ids, "parts",parts,flush=True)
-        for i,p in enumerate(doc.paragraphs):
-            inline=p._p.xpath('.//wp:inline')
-            if inline:
-                print("INLINE PARA",i, "blips",len(p._p.xpath('.//a:blip')),
-                      "text",repr(p.text[:100]),"previous",repr(doc.paragraphs[i-1].text[:85] if i else ""),flush=True)
-        raise AssertionError(f"expected four inline figures, found {len(shapes)}")
+    assert len(shapes)==8, f"expected eight compatible inline objects (four images), found {len(shapes)}"
+    pairs=[shapes[i:i+2] for i in (0,2,4,6)]
+    for i,pair in enumerate(pairs,1):
+        ids=[]
+        for shape in pair:
+            b=shape._inline.xpath('.//a:blip')
+            assert len(b)==1,(i,len(b))
+            ids.append(b[0].get(qn('r:embed')))
+        assert ids[0]==ids[1], f"figure {i} compatibility drawings disagree"
+        assert ids[0] in doc.part.related_parts
     outcome=[]
-    for figure_index, (_, cropped, _, _) in enumerate(SPECS, start=2):
-        shape=shapes[figure_index-1]
-        blips=shape._inline.xpath('.//a:blip')
-        assert len(blips)==1,(figure_index,len(blips))
-        old_rel=blips[0].get(qn("r:embed"))
-        assert old_rel, f"image {figure_index} has no relationship"
+    for figure_index,(_,cropped,_,_) in enumerate(SPECS,start=2):
+        pair=pairs[figure_index-1]
+        old_rel=pair[0]._inline.xpath('.//a:blip')[0].get(qn("r:embed"))
         old_part=doc.part.related_parts[old_rel]
-        # Keep the original horizontal size; preserve cropped picture aspect ratio.
+        assert f"image{figure_index}." in str(old_part.partname),str(old_part.partname)
         new_path=FIGS/cropped
         relation_id,image=doc.part.get_or_add_image(str(new_path))
-        blips[0].set(qn("r:embed"),relation_id)
-        shape.height = Emu(round(shape.width*image.px_height/image.px_width))
+        for shape in pair:
+            shape._inline.xpath('.//a:blip')[0].set(qn('r:embed'),relation_id)
+            shape.height=Emu(round(shape.width*image.px_height/image.px_width))
         outcome.append({
-            "figure": figure_index, "old_partname":str(old_part.partname),
-            "new_png": cropped, "new_partname":str(doc.part.related_parts[relation_id].partname),
-            "new_dimensions_emu":[shape.width,shape.height],
-        })
+            "figure":figure_index,"old_partname":str(old_part.partname),
+            "new_png":cropped,"new_partname":str(doc.part.related_parts[relation_id].partname),
+            "drawing_instances_replaced":len(pair),
+            "new_dimensions_emu":[pair[0].width,pair[0].height]})
     return outcome
 
 def main():
