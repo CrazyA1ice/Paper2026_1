@@ -32,6 +32,14 @@ jobs:
           libreoffice -env:UserInstallation=file:///tmp/lo_czxxtx_qa --headless --convert-to pdf --outdir /tmp/czxxtx_render "$f"
           pdf=$(find /tmp/czxxtx_render -maxdepth 1 -name '*.pdf' -print -quit)
           test -s "$pdf"
+          source_doc="paper_template/长江信息通信/自适应多尺度加权的多变量网络流量预测_czxxtx20261026_结构精简稿.docx"
+          libreoffice -env:UserInstallation=file:///tmp/lo_czxxtx_qa --headless --convert-to pdf --outdir /tmp/czxxtx_render "$source_doc"
+          source_pdf="/tmp/czxxtx_render/自适应多尺度加权的多变量网络流量预测_czxxtx20261026_结构精简稿.pdf"
+          source_pages=$(pdfinfo "$source_pdf" | awk '/^Pages:/ {print $2}')
+          pdftotext "$source_pdf" /tmp/czxxtx_render/original.txt
+          pdftotext "$pdf" /tmp/czxxtx_render/integrated.txt
+          echo "SOURCE pages=$source_pages; SOURCE refs=$(grep -c '参考文献' /tmp/czxxtx_render/original.txt || true)"
+          echo "INTEGRATED refs=$(grep -c '参考文献' /tmp/czxxtx_render/integrated.txt || true)"
           pages=$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')
           echo "PDF pages=$pages"
           test "$pages" -ge 4
