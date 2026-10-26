@@ -195,6 +195,15 @@ def main():
     audit={"source_document":SOURCE.name,"source_sha256":digest(SOURCE)}
     audit["cropping"]=make_exact_crops()
     source_doc=Document(SOURCE)
+    from lxml.etree import QName
+    src_children=list(source_doc._element.body)
+    audit["source_body_structure"]={
+        "child_count":len(src_children),
+        "sectPr_indices":[i for i,c in enumerate(src_children) if QName(c).localname=="sectPr"],
+        "last_tag_names":[QName(c).localname for c in src_children[-12:]],
+    }
+    print("SOURCE BODY STRUCTURE",audit["source_body_structure"],flush=True)
+
     orig={
         "tables":len(source_doc.tables),
         "inline_images":len(source_doc.inline_shapes),
