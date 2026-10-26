@@ -152,9 +152,19 @@ def insert_missing_facts(doc):
                       "相对四种对照的正向次数均为8/8。")
         else:
             new_text=INSERT_TEXT[key]
-        add_after(paras[anchor_idx],new_text)
+        # Preserve original paragraph structure: append to the existing
+        # analysis paragraph, rather than inserting a new w:p before a section.
+        # The latter caused LibreOffice to omit the manuscript's ending pages.
+        anchor=paras[anchor_idx]
+        previous=next((r for r in reversed(anchor.runs) if r.text.strip()),None)
+        run=anchor.add_run(" "+new_text)
+        if previous is not None:
+            if previous.style is not None:run.style=previous.style
+            if previous.font.name:run.font.name=previous.font.name
+            if previous.font.size:run.font.size=previous.font.size
         outcome[key]={"inserted":True,"missing_before":missing,
-                      "text":new_text,"after_paragraph_index":anchor_idx}
+                      "text":new_text,"into_existing_paragraph":True,
+                      "paragraph_index":anchor_idx}
     return outcome
 
 def replace_figures(doc):
