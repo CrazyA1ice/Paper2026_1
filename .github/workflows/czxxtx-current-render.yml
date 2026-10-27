@@ -1,0 +1,68 @@
+name: Preview current Changjiang submission format
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/czxxtx-current-render.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install LibreOffice and Chinese font
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-writer poppler-utils fonts-noto-cjk >/dev/null
+          python -m pip install --disable-pip-version-check pillow python-docx
+      - name: Render current submission and summarize layout
+        run: |
+          set -euo pipefail
+          doc="paper_template/长江信息通信/自适应多尺度加权的多变量网络流量预测_czxxtx20261027.docx"
+          test -s "$doc"
+          mkdir -p /tmp/lay20261027
+          libreoffice -env:UserInstallation=file:///tmp/libo_curr20261027 --headless --convert-to pdf --outdir /tmp/lay20261027 "$doc"
+          pdf=$(find /tmp/lay20261027 -maxdepth 1 -type f -name '*.pdf' -print -quit)
+          test -s "$pdf"
+          pdfinfo "$pdf" | grep -E '^Pages:|^Page size:'
+          pdftotext -layout "$pdf" /tmp/lay20261027/text.txt
+          echo '----CRITICAL LABELS IN RENDERED PDF----'
+          grep -nE '参考文献|作者简介|^图[1-4]|^表[1-4]|DLinear|LightTS' /tmp/lay20261027/text.txt | tail -28 || true
+          mkdir -p "paper_template/长江信息通信/格式核对工作_20261027/最新投稿稿_页面预览"
+          pdftoppm -jpeg -r 105 -jpegopt quality=80 "$pdf" "paper_template/长江信息通信/格式核对工作_20261027/最新投稿稿_页面预览/page"
+          python - <<'PY'
+          from pathlib import Path
+          import json, subprocess
+          from PIL import Image, ImageOps, ImageDraw
+          import re
+          folder=Path('paper_template/长江信息通信/格式核对工作_20261027/最新投稿稿_页面预览')
+          pages=sorted(folder.glob('page-*.jpg'))
+          assert 4<=len(pages)<=16,len(pages)
+          tiles=[]
+          for p in pages:
+              im=Image.open(p).convert('RGB')
+              im.thumbnail((480,650))
+              tile=Image.new('RGB',(500,685),'white')
+              tile.paste(im,((500-im.width)//2,22))
+              ImageDraw.Draw(tile).text((15,5),p.name,fill='black')
+              tiles.append(tile)
+          ncol=2;nrow=(len(tiles)+1)//2
+          contact=Image.new('RGB',(1000,685*nrow),'white')
+          for i,t in enumerate(tiles):contact.paste(t,((i%2)*500,(i//2)*685))
+          contact.save(folder/'contact_sheet.jpg',quality=85)
+          data={'pages':len(pages),'screens':[p.name for p in pages],
+                'render_engine':'LibreOffice headless',
+                'warning':'Preview only; Microsoft Word pagination should be checked before submission.'}
+          (folder/'render_audit.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(data,ensure_ascii=False))
+          PY
+      - name: Save previews only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "paper_template/长江信息通信/格式核对工作_20261027/最新投稿稿_页面预览"
+          git commit -m "Save latest submission layout preview for read-only audit [skip ci]" || exit 0
+          git pull --rebase origin main
+          git push origin main
