@@ -9,7 +9,7 @@ from docx.oxml.ns import qn
 from lxml import etree
 from PIL import Image
 from io import BytesIO
-B=Path(__file__).resolve().parent
+B=Path(__file__).resolve().parent.parent
 F=B/"自适应多尺度加权的多变量网络流量预测_czxxtx20261027.docx"
 J=B/"格式核对工作_20261027/最新投稿稿_整体核查记录.json"
 D=Document(F)
