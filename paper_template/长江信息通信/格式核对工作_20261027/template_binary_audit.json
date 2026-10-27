@@ -1,0 +1,7352 @@
+{
+  "source": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长江信息通信\\论文格式模板 (1).doc",
+  "sha256": "d1a9cd8ca01aefe6328d810422bdf5bf36e391d5c30ec7fb3d053cae3902e902",
+  "fonts": [
+    "Times New Roman",
+    "宋体",
+    "Arial",
+    "黑体",
+    "Symbol",
+    "Wingdings",
+    "仿宋_GB2312"
+  ],
+  "styles": [
+    {
+      "index": 0,
+      "name": "正文",
+      "base": 4095,
+      "next": 0,
+      "upx": [
+        {
+          "raw": "0000612403032403312400",
+          "sprms": [
+            {
+              "op": "0x2461",
+              "v": "03",
+              "int": 3
+            },
+            {
+              "op": "0x2403",
+              "v": "03",
+              "int": 3
+            },
+            {
+              "op": "0x2431",
+              "v": "00",
+              "int": 0
+            }
+          ]
+        },
+        {
+          "raw": "434a1500614a18004b4802006d480904734809046e480408744804085f480104",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1500",
+              "int": 21
+            },
+            {
+              "op": "0x4a61",
+              "v": "1800",
+              "int": 24
+            },
+            {
+              "op": "0x484b",
+              "v": "0200",
+              "int": 2
+            },
+            {
+              "op": "0x486d",
+              "v": "0904",
+              "int": 1033
+            },
+            {
+              "op": "0x4873",
+              "v": "0904",
+              "int": 1033
+            },
+            {
+              "op": "0x486e",
+              "v": "0408",
+              "int": 2052
+            },
+            {
+              "op": "0x4874",
+              "v": "0408",
+              "int": 2052
+            },
+            {
+              "op": "0x485f",
+              "v": "0104",
+              "int": 1025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "name": "标题 2",
+      "base": 0,
+      "next": 0,
+      "upx": [
+        {
+          "raw": "02001264a001010013a4040114a40401062401052401402601",
+          "sprms": [
+            {
+              "op": "0x6412",
+              "v": "a0010100",
+              "int": 65952
+            },
+            {
+              "op": "0xa413",
+              "v": "0401",
+              "int": 260
+            },
+            {
+              "op": "0xa414",
+              "v": "0401",
+              "int": 260
+            },
+            {
+              "op": "0x2406",
+              "v": "01",
+              "int": 1
+            },
+            {
+              "op": "0x2405",
+              "v": "01",
+              "int": 1
+            },
+            {
+              "op": "0x2640",
+              "v": "01",
+              "int": 1
+            }
+          ]
+        },
+        {
+          "raw": "434a20004f4a0200504a0300514a0200614a20003508815c0881",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "2000",
+              "int": 32
+            },
+            {
+              "op": "0x4a4f",
+              "v": "0200",
+              "int": 2
+            },
+            {
+              "op": "0x4a50",
+              "v": "0300",
+              "int": 3
+            },
+            {
+              "op": "0x4a51",
+              "v": "0200",
+              "int": 2
+            },
+            {
+              "op": "0x4a61",
+              "v": "2000",
+              "int": 32
+            },
+            {
+              "op": "0x835",
+              "v": "81",
+              "int": 129
+            },
+            {
+              "op": "0x85c",
+              "v": "81",
+              "int": 129
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "name": "默认段落字体",
+      "base": 4095,
+      "next": 10,
+      "upx": [
+        {
+          "raw": "",
+          "sprms": []
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "name": "普通表格",
+      "base": 4095,
+      "next": 11,
+      "upx": [
+        {
+          "raw": "3a560b0034d60600010103000034d606000102036c0034d60600010403000034d606000108036c00",
+          "sprms": [
+            {
+              "op": "0x563a",
+              "v": "0b00",
+              "int": 11
+            },
+            {
+              "op": "0xd634",
+              "v": "000101030000",
+              "int": null
+            },
+            {
+              "op": "0xd634",
+              "v": "000102036c00",
+              "int": null
+            },
+            {
+              "op": "0xd634",
+              "v": "000104030000",
+              "int": null
+            },
+            {
+              "op": "0xd634",
+              "v": "000108036c00",
+              "int": null
+            }
+          ]
+        },
+        {
+          "raw": "0b00",
+          "sprms": [
+            {
+              "op": "0xb",
+              "v": "",
+              "int": 0
+            }
+          ]
+        },
+        {
+          "raw": "",
+          "sprms": []
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "name": "文档结构图",
+      "base": 0,
+      "next": 15,
+      "upx": [
+        {
+          "raw": "0f00",
+          "sprms": []
+        },
+        {
+          "raw": "434a12004f4a0100614a1200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x4a4f",
+              "v": "0100",
+              "int": 1
+            },
+            {
+              "op": "0x4a61",
+              "v": "1200",
+              "int": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "name": "文档结构图 Char",
+      "base": 4095,
+      "next": 16,
+      "upx": [
+        {
+          "raw": "434a12004f4a0100614a12004b480200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x4a4f",
+              "v": "0100",
+              "int": 1
+            },
+            {
+              "op": "0x4a61",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x484b",
+              "v": "0200",
+              "int": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "name": "批注文字",
+      "base": 0,
+      "next": 17,
+      "upx": [
+        {
+          "raw": "1100612400032400",
+          "sprms": [
+            {
+              "op": "0x2461",
+              "v": "00",
+              "int": 0
+            },
+            {
+              "op": "0x2403",
+              "v": "00",
+              "int": 0
+            }
+          ]
+        },
+        {
+          "raw": "",
+          "sprms": []
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "name": "批注文字 Char",
+      "base": 4095,
+      "next": 18,
+      "upx": [
+        {
+          "raw": "434a1500614a18004b480200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1500",
+              "int": 21
+            },
+            {
+              "op": "0x4a61",
+              "v": "1800",
+              "int": 24
+            },
+            {
+              "op": "0x484b",
+              "v": "0200",
+              "int": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "name": "尾注文本",
+      "base": 0,
+      "next": 19,
+      "upx": [
+        {
+          "raw": "1300612400032400472400",
+          "sprms": [
+            {
+              "op": "0x2461",
+              "v": "00",
+              "int": 0
+            },
+            {
+              "op": "0x2403",
+              "v": "00",
+              "int": 0
+            },
+            {
+              "op": "0x2447",
+              "v": "00",
+              "int": 0
+            }
+          ]
+        },
+        {
+          "raw": "",
+          "sprms": []
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "name": "尾注文本 Char",
+      "base": 4095,
+      "next": 20,
+      "upx": [
+        {
+          "raw": "434a1500614a18004b480200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1500",
+              "int": 21
+            },
+            {
+              "op": "0x4a61",
+              "v": "1800",
+              "int": 24
+            },
+            {
+              "op": "0x484b",
+              "v": "0200",
+              "int": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "name": "批注框文本",
+      "base": 0,
+      "next": 21,
+      "upx": [
+        {
+          "raw": "1500",
+          "sprms": []
+        },
+        {
+          "raw": "434a1200614a1200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x4a61",
+              "v": "1200",
+              "int": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "name": "批注框文本 Char",
+      "base": 4095,
+      "next": 22,
+      "upx": [
+        {
+          "raw": "434a1200614a12004b480200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x4a61",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x484b",
+              "v": "0200",
+              "int": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "name": "页脚",
+      "base": 0,
+      "next": 23,
+      "upx": [
+        {
+          "raw": "17006124000324004724000dc6080002391072200102",
+          "sprms": [
+            {
+              "op": "0x2461",
+              "v": "00",
+              "int": 0
+            },
+            {
+              "op": "0x2403",
+              "v": "00",
+              "int": 0
+            },
+            {
+              "op": "0x2447",
+              "v": "00",
+              "int": 0
+            },
+            {
+              "op": "0xc60d",
+              "v": "0002391072200102",
+              "int": null
+            }
+          ]
+        },
+        {
+          "raw": "434a1200614a1200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x4a61",
+              "v": "1200",
+              "int": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "name": "页脚 Char",
+      "base": 4095,
+      "next": 24,
+      "upx": [
+        {
+          "raw": "434a1200614a12004b480200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x4a61",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x484b",
+              "v": "0200",
+              "int": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "name": "页眉",
+      "base": 0,
+      "next": 25,
+      "upx": [
+        {
+          "raw": "19006124010324014724000dc608000239107220010226640601000150c608000000ff06010100",
+          "sprms": [
+            {
+              "op": "0x2461",
+              "v": "01",
+              "int": 1
+            },
+            {
+              "op": "0x2403",
+              "v": "01",
+              "int": 1
+            },
+            {
+              "op": "0x2447",
+              "v": "00",
+              "int": 0
+            },
+            {
+              "op": "0xc60d",
+              "v": "0002391072200102",
+              "int": null
+            },
+            {
+              "op": "0x6426",
+              "v": "06010001",
+              "int": 16777478
+            },
+            {
+              "op": "0xc650",
+              "v": "000000ff06010100",
+              "int": null
+            }
+          ]
+        },
+        {
+          "raw": "434a1200614a1200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x4a61",
+              "v": "1200",
+              "int": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "name": "页眉 Char",
+      "base": 4095,
+      "next": 26,
+      "upx": [
+        {
+          "raw": "434a1200614a12004b480200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x4a61",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x484b",
+              "v": "0200",
+              "int": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "name": "脚注文本",
+      "base": 0,
+      "next": 27,
+      "upx": [
+        {
+          "raw": "1b00612400032400472400",
+          "sprms": [
+            {
+              "op": "0x2461",
+              "v": "00",
+              "int": 0
+            },
+            {
+              "op": "0x2403",
+              "v": "00",
+              "int": 0
+            },
+            {
+              "op": "0x2447",
+              "v": "00",
+              "int": 0
+            }
+          ]
+        },
+        {
+          "raw": "434a1200614a1200",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1200",
+              "int": 18
+            },
+            {
+              "op": "0x4a61",
+              "v": "1200",
+              "int": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "name": "批注主题",
+      "base": 17,
+      "next": 17,
+      "upx": [
+        {
+          "raw": "1c00",
+          "sprms": []
+        },
+        {
+          "raw": "3508815c0881",
+          "sprms": [
+            {
+              "op": "0x835",
+              "v": "81",
+              "int": 129
+            },
+            {
+              "op": "0x85c",
+              "v": "81",
+              "int": 129
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "name": "批注主题 Char",
+      "base": 4095,
+      "next": 29,
+      "upx": [
+        {
+          "raw": "434a1500614a18003508014b4802005c0801",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1500",
+              "int": 21
+            },
+            {
+              "op": "0x4a61",
+              "v": "1800",
+              "int": 24
+            },
+            {
+              "op": "0x835",
+              "v": "01",
+              "int": 1
+            },
+            {
+              "op": "0x484b",
+              "v": "0200",
+              "int": 2
+            },
+            {
+              "op": "0x85c",
+              "v": "01",
+              "int": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "name": "尾注引用",
+      "base": 4095,
+      "next": 30,
+      "upx": [
+        {
+          "raw": "482a01",
+          "sprms": [
+            {
+              "op": "0x2a48",
+              "v": "01",
+              "int": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "name": "超链接",
+      "base": 4095,
+      "next": 31,
+      "upx": [
+        {
+          "raw": "422a0270680000ff003e2a01",
+          "sprms": [
+            {
+              "op": "0x2a42",
+              "v": "02",
+              "int": 2
+            },
+            {
+              "op": "0x6870",
+              "v": "0000ff00",
+              "int": 16711680
+            },
+            {
+              "op": "0x2a3e",
+              "v": "01",
+              "int": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "name": "批注引用",
+      "base": 4095,
+      "next": 32,
+      "upx": [
+        {
+          "raw": "434a1500614a1500",
+          "sprms": [
+            {
+              "op": "0x4a43",
+              "v": "1500",
+              "int": 21
+            },
+            {
+              "op": "0x4a61",
+              "v": "1500",
+              "int": 21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "name": "脚注引用",
+      "base": 4095,
+      "next": 33,
+      "upx": [
+        {
+          "raw": "482a01",
+          "sprms": [
+            {
+              "op": "0x2a48",
+              "v": "01",
+              "int": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "text": "自组织网络的监测和管理体系结构(\r 李　明\r（XXXXX，湖北 武汉 430000）\r摘  要：自组织网络因具有灵活、无中心、自组织、可扩展性强和负载均衡等优势，具有很广泛的应用前景，同时对其网络管理也提出了一定的要求。在研究自组织的通信机制和网络协议的基础上，提出了基于自组织的分布式网络监测、管理和控制的体系结构，能很好地适用于动态自组织网络的管理，并可作为目前复杂多变的网络环境的管理模型。\r关键词：自组织网络；网络管理；分布式网络代理\r中图分类号：TP393       文献标识码：A\r\rMonitoring, management and control of self-organized network\rLI Ming\r（School of Electronic Information of Wuhan University, Wuhan 430000,China）\rAbstract: Characterized as flexibility, decentralization, self-organization, scalability and load-balance, self-organized network is widely applied and studied. Meanwhile, the new adaptable management framework is required for the self-organized network. On the basis of analyzing communication mechanism and network protocol of self-organization, a novel distributed architecture for network monitoring, management and control was presented, which was applicable to manage the dynamic self-organized network and to the current complicated large-scale network as well.  \rKey words: self-organized network, network management, distributed network agent\r1  引言\r自组织网络系统内没有中央控制实体，节点之间可以直接共享资源和服务，具有完全的自主性和平等的地位，使得自组织网络具有灵活、无中心、自组织、可扩展性强、负载平衡和很好的抗毁性等特点，越来越得到学术界和工业界的关注。自组织的对等计算模式已给计算机和通信网络领域带来了重大的变革，在文件共享、内容分发、协同计算和即时通信等方面以及军事、传感器网络、紧急场合、动态临时场合和商业上都有广泛的应用。自组织网络是目前和未来网络的主要形式，起着重要的作用。\r随着自组织网络的不断发展和成功应用，人们提出了更高的服务要求，如从纯数据传输、纯语音传输以及有某种限制的视频传输，到语音、数据、图像的综合传输，这就要求网络具有一定的QoS（quality of service，服务质量）保证能力。对于无控制中心、完全分散式体系结构、动态的网络拓扑结构的自组织网络，尤其是拓扑经常发生变化，带宽很窄，能源和内存非常受限的移动自组织网络而言，网络管理、QoS保障、安全以及实时应用等方面的难度较大。传统的适合静态网络的网络管理体系结构存在很多局限性（如可扩展性、灵活性、可维护性和可靠性等方面），已不再适用，必须提出新型的适用于动态自组织网络的管理体系…\r目前在分布式网络管理方面的研究主要有：\r参考文献\u0013 ADDIN REFMGR.CITE <Refman><Cite><Author>Andreas Binzenh&#xA8;ofer</Author><Year>2005</Year><RecNum>105</RecNum><IDText>A P2P-based Framework for Distributed Network Management</IDText><MDL Ref_Type=\"Conference Proceeding\"><Ref_Type>Conference Proceeding</Ref_Type><Ref_ID>105</Ref_ID><Title_Primary>A P2P-based Framework for Distributed Network Management</Title_Primary><Authors_Primary>Andreas Binzenh&#xA8;ofer</Authors_Primary><Authors_Primary>urt Tutschku</Authors_Primary><Authors_Primary>Bj?rn auf dem Graben</Authors_Primary><Authors_Primary>Markus Fiedler and Patrik Arlos</Authors_Primary><Date_Primary>2005/3</Date_Primary><Reprint>Not in File</Reprint><Publisher>Peer-to-Peer-Systeme und -Anwendungen, GI/ITG-Workshop in Kooperation mit KiVS 2005, Kaiserslautern</Publisher><ZZ_WorkformID>12</ZZ_WorkformID></MDL></Cite></Refman>\u0014[1]\u0015提出了基于P2P（端到端）的分布式网络性能管理模型，它具有即插即用功能，并能在网络动态变化状况下保障其可靠性和稳定性；\r参考文献\u0013 ADDIN REFMGR.CITE <Refman><Cite><Author>Stefan Chevul</Author><Year>2006</Year><RecNum>131</RecNum><IDText>a self-organizing concept for distributed end-to-end quality monitoring</IDText><MDL Ref_Type=\"Report\"><Ref_Type>Report</Ref_Type><Ref_ID>131</Ref_ID><Title_Primary>a self-organizing concept for distributed end-to-end quality monitoring</Title_Primary><Authors_Primary>Stefan Chevul</Authors_Primary><Authors_Primary>Andreas Binzenh&#xA8;ofer</Authors_Primary><Authors_Primary>Matthias Schmid</Authors_Primary><Authors_Primary>rt Tutschku </Authors_Primary><Authors_Primary>Markus Fidler</Authors_Primary><Date_Primary>2006</Date_Primary><Reprint>Not in File</Reprint><Volume>No.378</Volume><Pub_Place>Wurzburg, Germany</Pub_Place><Publisher>University of Wurzburg Institute</Publisher><ZZ_WorkformID>24</ZZ_WorkformID></MDL></Cite></Refman>\u0014[2]\u0015基于每个终端用户的有效测量机制，提出了分布式端到端监测系统；\r参考文献[3]针对传统分布式管理模型的不足，对大规模、异构网络提出了基于P2P的分布式网管模型，其总体结构与本文提出的管理体系有一些相似的设计理念。\r2.1  基于自组织的分布式网络管理模型的建立\r基于自组织的分布式网络管理模型如图1所示，主要由3部分组成：网管服务器、分布式网络代理（DNA）和被管设备。DNA是基于自组织的网络监测、管理和控制系统的基本单元，具有网络性能监测与控制、安全接入与认证管理、业务分类与计费管理等功能，监测并管理各DNA中的网络管理元素。DNA之间以自组织的方式形成管理网络，按研究制定的通信机制进行通信，在数据库级别上共享网管信息。为了对整个网络的运行情况进行全局性管理，模型中设置一个网管服务器。网管服务器是可移动的，可从任意位置连接到DNA网络，然后从DNA装载MIB数据。系统中的DNA可定时向网管服务器发送所需的网络管理信息，或者当网管服务器向DNA发送请求时，该DNA传递相关的MIB的统计信息到网管服务器。如此大大减轻了网管服务器的处理负荷，同样大大减少了管理信息通信量，此外，即使网管服务器临时失效，也不影响DNA的管理，只是延缓了相互之间的通信。用户还可通过图形化用户接口（GUI）进行配置管理功能模块，提高用户可感知的QoS。\r\u0001\r图1　基于自组织的分布式网络管理模型\r（中间部分已省略）\r\r4  结语\r本文提出的新型的分布式动态自组织网络的管理体系，基于自组织的DNA网络实现分布式的自组织网络和复杂动态网络的管理，每个DNA由网络监测管理模块、通信模块、缓存模块、本地MIB以及接口等组成，各模块间功能清晰，相互独立，被赋予了良好的通信和管理功能并提供友好的接口，其中管理功能可实现传统网络管理系统所不能很好实现的业务分类、控制和整形以及合理计费，并且能够实现QoS保障，此外能够实现安全接入和在不同粒度的业务识别的基础上实现实时有效的入侵检测和预警。\r本系统模型的简单原型实现（DNA管理网络的建立以及基本管理功能的实现）证明了该体系结构的可实施性和可部署性，能够满足动态自组织网络的管理和监测。此外，本系统同样适用于下一代网络的管理和监控。\r参考文献：\rDONOHO D L. Compressed sensing[J]. IEEE Transactions on Information Theory, 2006, 52(4): 1289-1306.\rSTEFAN C, ANDREAS B, MATTHIAS S, et al. A self-organizing concept for distributed end-to-end quality monitoring[J]. \u0013 HYPERLINK \"http://xueshu.baidu.com/usercenter/data/journal?cmd=jump&wd=journaluri%3A%2819c3166af7afb148%29%20%E3%80%8AInformatik%20Uni%E3%80%8B&tn=SE_baiduxueshu_c1gjeupa&ie=utf-8&sc_f_para=sc_hilight%3Dpublish&sort=sc_cited\" \\o \"《Informatik Uni》\" \\t \"_blank\" \u0014Informatik Uni\u0015, 2006.\r李强, 王宏, 王乐春. 基于P2P的分布式网络管理模型研究[J]. 计算机工程, 2006, 32(13): 1-13.\r    LI Q, Wang H, Wang L C. Research of P2P based distributed network management[J]. Computer Engineering, 2006, 32(13): 1-13.\rKaragiannis T, Papagiannaki K, Faloutsos M. Blinc: multilevel traffic classificaion in the dark[J]. \u0013 HYPERLINK \"http://xueshu.baidu.com/usercenter/data/journal?cmd=jump&wd=journaluri%3A%281a7d2428589be882%29%20%E3%80%8AAcm%20Sigcomm%20Computer%20Communication%20Review%E3%80%8B&tn=SE_baiduxueshu_c1gjeupa&ie=utf-8&sc_f_para=sc_hilight%3Dpublish&sort=sc_cited\" \\o \"《Acm Sigcomm Computer Communication Review》\" \\t \"_blank\" \u0014ACM Sigcomm Computer Communication Review\u0015, 2005, 35(4): 229-240\r邵桂芳, 李祖枢, 成卫, 等. 基于视觉感知的融合图像质量评价[J]. 计算机应用, 2004, 24(5) : 69-71.\rShao G F, Li Z S, Cheng W, et al. Fusion image quality evaluation method based on human perception[J]. Computer Applications, 2004, 24(5): 69-71.\r\r\r\r收稿日期：2020-12-01\r\r基金项目：国家自然科学基金资助项目（No.xxxxxxx）；浙江省教育厅科学基金资助项目（No.xxxxxxxx）（分号隔开）\rFoundation Items：The National Natural Science Foundation of China（No.xxxxxxx），Education Department Foundation of Zhejiang Province（No.xxxxxxxx）\r\r作者简介：李明（1988-），男，湖北武汉人，研究生，硕士，主要研究方向：计算机和通信网络。\r\rTel: xxx-xxxxxxxx \u000bE-mail: xxxxxxxxxx（E-mail必填）\r\r\r\r\r\r\r\r\r",
+  "character_runs": [
+    {
+      "cp": 0,
+      "text": "自组织网络的监测和管理体系结构",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 15,
+      "text": "(",
+      "properties": [
+        {
+          "op": "0x4a30",
+          "v": "2100",
+          "int": 33
+        },
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x6a09",
+          "v": "040020f0",
+          "int": 4028628996
+        }
+      ]
+    },
+    {
+      "cp": 16,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 17,
+      "text": " 李　明",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 21,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 22,
+      "text": "（",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 23,
+      "text": "XXXXX",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x486d",
+          "v": "0904",
+          "int": 1033
+        },
+        {
+          "op": "0x4873",
+          "v": "0904",
+          "int": 1033
+        },
+        {
+          "op": "0x486e",
+          "v": "0408",
+          "int": 2052
+        },
+        {
+          "op": "0x4874",
+          "v": "0408",
+          "int": 2052
+        }
+      ]
+    },
+    {
+      "cp": 28,
+      "text": "，湖北 武汉 430000",
+      "properties": [
+        {
+          "op": "0x4a4f",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 41,
+      "text": "）",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 42,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x486d",
+          "v": "0408",
+          "int": 2052
+        },
+        {
+          "op": "0x4873",
+          "v": "0408",
+          "int": 2052
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 43,
+      "text": "摘",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 44,
+      "text": " ",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 45,
+      "text": " ",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 46,
+      "text": "要",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 47,
+      "text": "：",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x85c",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 48,
+      "text": "自组织网络因具有灵活、无中心、自组织、可扩展性强和负载均衡等优势，具有很广泛的应用前景，同时对其网络管理也提出了一定的要求。在研究自组织的通信机制和网络协议的基础上，提出了基于自组织的分布式网络监测、管理和控制的体系结构，能很好地适用于动态自组织网络的管理，并可作为目前复杂多变的网络环境的管理模型。",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x85c",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 198,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 199,
+      "text": "关键词",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 202,
+      "text": "：",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 203,
+      "text": "自组织网络；网络管理；分布式网络代理",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x868",
+          "v": "00",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 221,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x868",
+          "v": "00",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 222,
+      "text": "中图分类号：",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x868",
+          "v": "00",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 228,
+      "text": "TP393       ",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x868",
+          "v": "00",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 240,
+      "text": "文献标识码：",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x868",
+          "v": "00",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 246,
+      "text": "A",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x868",
+          "v": "00",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 247,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x868",
+          "v": "00",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 248,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x868",
+          "v": "00",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 249,
+      "text": "Monitoring, ",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 261,
+      "text": "m",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 262,
+      "text": "anagement and ",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 276,
+      "text": "c",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 277,
+      "text": "ontrol of ",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 287,
+      "text": "s",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 288,
+      "text": "elf-organized ",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 302,
+      "text": "n",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 303,
+      "text": "etwork",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 309,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 310,
+      "text": "LI Ming",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 317,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 318,
+      "text": "（",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 319,
+      "text": "School of Electronic Information of Wuhan University",
+      "properties": [
+        {
+          "op": "0x4a4f",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 371,
+      "text": ", Wuhan 430000,China",
+      "properties": [
+        {
+          "op": "0x4a4f",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 391,
+      "text": "）",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 392,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 393,
+      "text": "A",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 394,
+      "text": "bstract",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 401,
+      "text": ": ",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 403,
+      "text": "Characterized as flexibility, decentralization, self-organization, scalability and load-balance, self-organized network is widely applied and studied. Meanwhile, the new adaptable management framework is required for the self-organized network. On the basis of analyzing communication mechanism and network protocol of self-organization, a novel distributed architecture for network monitoring, management and control",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 820,
+      "text": " was presented",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 834,
+      "text": ", which ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 842,
+      "text": "wa",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 844,
+      "text": "s applicable to manage the dynamic self-organized network and to the current complicated large-scale network as well.  ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 963,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 964,
+      "text": "Key words",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 973,
+      "text": ": ",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 975,
+      "text": "self-organized network, network management, distributed network agent",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1044,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1045,
+      "text": "1 ",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 1047,
+      "text": " ",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 1048,
+      "text": "引言",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 1050,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 1051,
+      "text": "自组织网络系统内没有中央控制实体，节点之间可以直接共享资源和服务，具有完全的自主性和平等的地位，使得自组织网络具有灵活、无中心、自组织、可扩展性强、负载平衡和很好的抗毁性等特点，越来越得到学术界和工业界的关注。自组织的对等计算模式已给计算机和通信网络领域带来了重大的变革，在文件共享、内容分发、协同计算和即时通信等方面以及军事、传感器网络、紧急场合、动态临时场合和商业上都有广泛的应用。自组织网络是目前和未来网络的主要形式，起着重要的作用。",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1271,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1272,
+      "text": "随着自组织网络的不断发展和成功应用，人们提出了更高的服务要求，如从纯数据传输、纯语音传输以及有某种限制的视频传输，到语音、数据、图像的综合传输，这就要求网络具有一定的Q",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1356,
+      "text": "oS",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1358,
+      "text": "（quality of service，服务质量）保证能力。对于无控制中心、完全分散式体系结构、动态的网络拓扑结构的自组织网络，尤其是拓扑经常发生变化，带宽很窄，能源和内存非常受限的移动自组织网络而言，网络管理、Q",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1465,
+      "text": "oS",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1467,
+      "text": "保障、安全以及实时应用等方面的难度较大。传统的适合静态网络的网络管理体系结构存在很多局限性（如可扩展性、灵活性、可维护性和可靠性等方面），已不再适用，必须提出新型的适用于动态自组织网络的管理体系…",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1565,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1566,
+      "text": "目前在分布式网络管理方面的研究主要有：",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1585,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1586,
+      "text": "参考文献",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 1590,
+      "text": "\u0013",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 1591,
+      "text": " ADDIN REFMGR.CITE <Refman><Cite><Author>Andreas Binzenh&#xA8;ofer</Author><Year>2005</Year><RecNum>105</RecNum><IDText>A P2P-based Framework for Distributed Network Management</IDText><MDL Ref_Type=\"Conference Proceeding\"><Ref_Type>Conference Proceeding</Ref_Type><Ref_ID>105</Ref_ID><Title_Primary>A P2P-based Framework for Distributed Network Management</Title_Primary><Authors_Primary>Andreas Binzenh&#xA8;ofer</Authors_Primary><Authors_Primary>urt Tutschku</Authors_Primary><Authors_Primary>Bj?rn auf dem Graben</Authors_Primary><Authors_Primary>Markus Fiedler and Patrik Arlos</Authors_Primary><Date_Primary>2005/3</Date_Primary><Reprint>Not in File</Reprint><Publisher>Peer-to-Peer-Systeme und -Anwendungen, GI/ITG-Workshop in Kooperation mit KiVS 2005, Kaiserslautern</Publisher><ZZ_WorkformID>12</ZZ_WorkformID></MDL></Cite></Refman>",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 2433,
+      "text": "\u0014",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 2434,
+      "text": "[1]",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 2437,
+      "text": "\u0015",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 2438,
+      "text": "提出了基于P2P（端到端）的分布式网络性能管理模型，它具有即插即用功能，并能在网络动态变化状况下保障其可靠性和稳定性；",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 2497,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 2498,
+      "text": "参考文献",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 2502,
+      "text": "\u0013",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 2503,
+      "text": " ADDIN REFMGR.CITE <Refman><Cite><Author>Stefan Chevul</Author><Year>2006</Year><RecNum>131</RecNum><IDText>a self-organizing concept for distributed end-to-end quality monitoring</IDText><MDL Ref_Type=\"Report\"><Ref_Type>Report</Ref_Type><Ref_ID>131</Ref_ID><Title_Primary>a self-organizing concept for distributed end-to-end quality monitoring</Title_Primary><Authors_Primary>Stefan Chevul</Authors_Primary><Authors_Primary>Andreas Binzenh&#xA8;ofer</Authors_Primary><Authors_Primary>Matthias Schmid</Authors_Primary><Authors_Primary>rt Tutschku </Authors_Primary><Authors_Primary>Markus Fidler</Authors_Primary><Date_Primary>2006</Date_Primary><Reprint>Not in File</Reprint><Volume>No.378</Volume><Pub_Place>Wurzburg, Germany</Pub_Place><Publisher>University of Wurzburg Institute</Publisher><ZZ_WorkformID>24</ZZ_WorkformID></MDL></Cite></Refman>",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3352,
+      "text": "\u0014",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 3353,
+      "text": "[2]",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3356,
+      "text": "\u0015",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 3357,
+      "text": "基于每个终端用户的有效测量机制，提出了分布式端到端监测系统；",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3387,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3388,
+      "text": "参考文献",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3392,
+      "text": "[",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3393,
+      "text": "3",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3394,
+      "text": "]",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3395,
+      "text": "针对传统分布式管理模型的不足，对大规模、异构网络提出了基于P2P的分布式网管模型，其总体结构与本文提出的管理体系有一些相似的设计理念。",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3462,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3463,
+      "text": "2.1  基于自组织的分布式网络管理模型的建立",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x85c",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 3486,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x85c",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 3487,
+      "text": "基于自组织的分布式网络管理模型如图1所示，主要由3部分组成：网管服务器、分布式网络代理（DNA）和被管设备。DNA是基于自组织的网络监测、管理和控制系统的基本单元，具有网络性能监测与控制、安全接入与认证管理、业务分类与计费管理等功能，监测并管理各DNA中的网络管理元素。DNA之间以自组织的方式形成管理网络，按研究制定的通信机制进行通信，在数据库级别上共享网管信息。为了对整个网络的运行情况进行全局性管理，模型中设置一个网管服务器。网管服务器是可移动的，可从任意位置连接到DNA网络，然后从DNA装载MIB数据。系统中的DNA可定时向网管服务器发送所需的网络管理信息，或者当网管服务器向DNA发送请求时，该DNA传递相关的MIB的统计信息到网管服务器。如此大大减轻了网管服务器的处理负荷，同样大大减少了管理信息通信量，此外，即使网管服务器临时失效，也不影响DNA的管理，只是延缓了相互之间的通信。用户还可通过图形化用户接口（GUI）进行配置管理功能模块，提高用户可感知的QoS。",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3926,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3927,
+      "text": "\u0001",
+      "properties": [
+        {
+          "op": "0x6a03",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a43",
+          "v": "0c00",
+          "int": 12
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0600",
+          "int": 6
+        },
+        {
+          "op": "0x4a50",
+          "v": "0600",
+          "int": 6
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "0c00",
+          "int": 12
+        }
+      ]
+    },
+    {
+      "cp": 3928,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "0c00",
+          "int": 12
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "0c00",
+          "int": 12
+        }
+      ]
+    },
+    {
+      "cp": 3929,
+      "text": "图1　基于自组织的分布式网络管理模型",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3947,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 3948,
+      "text": "（中间部分已省略）",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "06",
+          "int": 6
+        },
+        {
+          "op": "0x6870",
+          "v": "ff000000",
+          "int": 255
+        },
+        {
+          "op": "0x4a43",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x85c",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 3957,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "06",
+          "int": 6
+        },
+        {
+          "op": "0x6870",
+          "v": "ff000000",
+          "int": 255
+        },
+        {
+          "op": "0x4a43",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x85c",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 3958,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 3959,
+      "text": "4  结语",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x85c",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 3964,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x85c",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 3965,
+      "text": "本文提出的新型的分布式动态自组织网络的管理体系，基于自组织的DNA网络实现分布式的自组织网络和复杂动态网络的管理，每个DNA由网络监测管理模块、通信模块、缓存模块、本地MIB以及接口等组成，各模块间功能清晰，相互独立，被赋予了良好的通信和管理功能并提供友好的接口，其中管理功能可实现传统网络管理系统所不能很好实现的业务分类、控制和整形以及合理计费，并且能够实现QoS保障，此外能够实现安全接入和在不同粒度的业务识别的基础上实现实时有效的入侵检测和预警。",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4191,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4192,
+      "text": "本系统模型的简单原型实现（DNA管理网络的建立以及基本管理功能的实现）证明了该体系结构的可实施性和可部署性，能够满足动态自组织网络的管理和监测。此外，本系统同样适用于下一代网络的管理和监控。",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4287,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4288,
+      "text": "参考文献：",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x85c",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 4293,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x6870",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0x4a43",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1c00",
+          "int": 28
+        },
+        {
+          "op": "0x484b",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0x85c",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 4294,
+      "text": "D",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4295,
+      "text": "ONOHO",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4300,
+      "text": " D L. Compressed sensing",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4324,
+      "text": "[J]",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4327,
+      "text": ". IEEE Transactions on Information Theory, 2006, 52(4): 1289",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4387,
+      "text": "-",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4388,
+      "text": "1306",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4392,
+      "text": ".",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4393,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4394,
+      "text": "STEFAN C, ANDREAS B, MATTHIAS S, ",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4427,
+      "text": "et al",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x85d",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 4432,
+      "text": ". A self-organizing concept for distributed end-to-end quality monitoring[J]. ",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4510,
+      "text": "\u0013",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 4511,
+      "text": " HYPERLINK \"http://xueshu.baidu.com/usercenter/data/journal?cmd=jump&wd=journaluri%3A%2819c3166af7afb148%29%20%E3%80%8AInformatik%20Uni%E3%80%8B&tn=SE_baiduxueshu_c1gjeupa&ie=utf-8&sc_f_para=sc_hilight%3Dpublish&sort=sc_cited\" \\o \"《Informatik Uni》\" \\t \"_blank\" ",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4772,
+      "text": "\u0014",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 4773,
+      "text": "Informatik Uni",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4787,
+      "text": "\u0015",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 4788,
+      "text": ", 2006.",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4795,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4796,
+      "text": "李强, 王宏, 王乐春. 基于P2P的分布式网络管理模型研究[J]. 计算机工程, 2006, 32(13): 1-13.",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4857,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4858,
+      "text": "    LI Q, W",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4869,
+      "text": "ang H, Wang",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x83b",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 4880,
+      "text": " L C. Research of P2P based distributed network management[J]. Computer Engineering, 2006, 32(13): 1-13.",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4984,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4985,
+      "text": "K",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 4986,
+      "text": "aragiannis T, Papagiannaki K, Faloutsos M",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x83b",
+          "v": "81",
+          "int": 129
+        }
+      ]
+    },
+    {
+      "cp": 5027,
+      "text": ". Blinc: multilevel traffic classificaion in the dark[J]. ",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5085,
+      "text": "\u0013",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5086,
+      "text": " HYPERLINK \"http://xueshu.baidu.com/usercenter/data/journal?cmd=jump&wd=journaluri%3A%281a7d2428589be882%29%20%E3%80%8AAcm%20Sigcomm%20Computer%20Communication%20Review%E3%80%8B&tn=SE_baiduxueshu_c1gjeupa&ie=utf-8&sc_f_para=sc_hilight%3Dpublish&sort=sc_cited\" \\o \"《Acm Sigcomm Computer Communication Review》\" \\t \"_blank\" ",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5407,
+      "text": "\u0014",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5408,
+      "text": "ACM Sigcomm Computer Communication Review",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5449,
+      "text": "\u0015",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        },
+        {
+          "op": "0x855",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5450,
+      "text": ", 2005, 35(4): 229-240",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5472,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5473,
+      "text": "邵桂芳",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5476,
+      "text": ", ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5478,
+      "text": "李祖枢",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5481,
+      "text": ", ",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5483,
+      "text": "成卫",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5485,
+      "text": ", ",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5487,
+      "text": "等",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5488,
+      "text": ".",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5489,
+      "text": " ",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5490,
+      "text": "基于视觉感知的融合图像质量评价",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5505,
+      "text": "[J]",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5508,
+      "text": ".",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5509,
+      "text": " ",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5510,
+      "text": "计算机应用",
+      "properties": [
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5515,
+      "text": ", 2004,",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5522,
+      "text": " ",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5523,
+      "text": "24(5) :",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5530,
+      "text": " ",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5531,
+      "text": "69",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5533,
+      "text": "-",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5534,
+      "text": "71",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5536,
+      "text": ".",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5537,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5538,
+      "text": "S",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5539,
+      "text": "hao",
+      "properties": [
+        {
+          "op": "0x83b",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5542,
+      "text": " G",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5544,
+      "text": " F",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5546,
+      "text": ", L",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5549,
+      "text": "i",
+      "properties": [
+        {
+          "op": "0x83b",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5550,
+      "text": " Z",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5552,
+      "text": " S",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5554,
+      "text": ", C",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5557,
+      "text": "heng",
+      "properties": [
+        {
+          "op": "0x83b",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5561,
+      "text": " W",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5563,
+      "text": ", et al",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5570,
+      "text": ". Fusion ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5579,
+      "text": "i",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5580,
+      "text": "mage ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5585,
+      "text": "q",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5586,
+      "text": "uality ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5593,
+      "text": "e",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5594,
+      "text": "valuation ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5604,
+      "text": "m",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5605,
+      "text": "ethod ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5611,
+      "text": "b",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5612,
+      "text": "ased on ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5620,
+      "text": "h",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5621,
+      "text": "uman ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5626,
+      "text": "p",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5627,
+      "text": "erception",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5636,
+      "text": "[J].",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5640,
+      "text": " Computer ",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5650,
+      "text": "A",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5651,
+      "text": "pplications, 2004, 24(5):",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5676,
+      "text": " ",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5677,
+      "text": "69",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5679,
+      "text": "-",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5680,
+      "text": "71",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5682,
+      "text": ".",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5683,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5684,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5685,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5686,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 5687,
+      "text": "收稿日期：",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5692,
+      "text": "20",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5694,
+      "text": "20",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x486d",
+          "v": "0904",
+          "int": 1033
+        },
+        {
+          "op": "0x4873",
+          "v": "0904",
+          "int": 1033
+        },
+        {
+          "op": "0x486e",
+          "v": "0408",
+          "int": 2052
+        },
+        {
+          "op": "0x4874",
+          "v": "0408",
+          "int": 2052
+        }
+      ]
+    },
+    {
+      "cp": 5696,
+      "text": "-12-01",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5702,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5703,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5704,
+      "text": "基金项目：",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5709,
+      "text": "国家自然科学基金资助项目（No.xxxxxxx）",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5733,
+      "text": "；",
+      "properties": [
+        {
+          "op": "0x2a0c",
+          "v": "07",
+          "int": 7
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5734,
+      "text": "浙江省教育厅科学基金资助项目（No.xxxxxxxx）",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5761,
+      "text": "（分号隔开）",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "0a",
+          "int": 10
+        },
+        {
+          "op": "0x6870",
+          "v": "1f497d00",
+          "int": 8210719
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5767,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5768,
+      "text": "Foundation Items：",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5785,
+      "text": "The National Natural Science Foundation of China（No.xxxxxxx），Education Department Foundation of Zhejiang Province（No.xxxxxxxx）",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5911,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5912,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5913,
+      "text": "作者简介：",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1200",
+          "int": 18
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1200",
+          "int": 18
+        },
+        {
+          "op": "0x835",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 5918,
+      "text": "李明（1988-），男，湖北武汉人，研究生，硕士，主要研究方向：计算机和通信网络。",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1200",
+          "int": 18
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1200",
+          "int": 18
+        }
+      ]
+    },
+    {
+      "cp": 5959,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1200",
+          "int": 18
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1200",
+          "int": 18
+        }
+      ]
+    },
+    {
+      "cp": 5960,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1200",
+          "int": 18
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1200",
+          "int": 18
+        }
+      ]
+    },
+    {
+      "cp": 5961,
+      "text": "Tel: xxx-xxxxxxxx ",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1800",
+          "int": 24
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1800",
+          "int": 24
+        }
+      ]
+    },
+    {
+      "cp": 5979,
+      "text": "\u000b",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1800",
+          "int": 24
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1800",
+          "int": 24
+        }
+      ]
+    },
+    {
+      "cp": 5980,
+      "text": "E-mail: xxxxxxxxxx（E-mail必填）",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1800",
+          "int": 24
+        },
+        {
+          "op": "0x4a4f",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a50",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a51",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a5e",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1800",
+          "int": 24
+        }
+      ]
+    },
+    {
+      "cp": 6008,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x4a43",
+          "v": "1200",
+          "int": 18
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1200",
+          "int": 18
+        }
+      ]
+    },
+    {
+      "cp": 6009,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    },
+    {
+      "cp": 6010,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 6011,
+      "text": "\r\r",
+      "properties": [
+        {
+          "op": "0x2a42",
+          "v": "0a",
+          "int": 10
+        },
+        {
+          "op": "0x6870",
+          "v": "1f497d00",
+          "int": 8210719
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 6013,
+      "text": "\r\r\r",
+      "properties": []
+    },
+    {
+      "cp": 6016,
+      "text": "\r",
+      "properties": [
+        {
+          "op": "0x835",
+          "v": "81",
+          "int": 129
+        },
+        {
+          "op": "0x286f",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4a61",
+          "v": "1500",
+          "int": 21
+        }
+      ]
+    }
+  ],
+  "paragraph_runs": [
+    {
+      "cp": 0,
+      "text": "自组织网络的监测和管理体系结构(\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2403",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 17,
+      "text": " 李　明\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "44010100",
+          "int": 65860
+        },
+        {
+          "op": "0x2461",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2403",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 22,
+      "text": "（XXXXX，湖北 武汉 430000）\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "44010100",
+          "int": 65860
+        },
+        {
+          "op": "0x2461",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2403",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 43,
+      "text": "摘  要：自组织网络因具有灵活、无中心、自组织、可扩展性强和负载均衡等优势，具有很广泛的应用前景，同时对其网络管理也提出了一定的要求。在研究自组织的通信机制和网络协议的基础上，提出了基于自组织的分布式网络监测、管理和控制的体系结构，能很好地适用于动态自组织网络的管理，并可作为目前复杂多变的网络环境的管理模型。\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2403",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 199,
+      "text": "关键词：自组织网络；网络管理；分布式网络代理\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2403",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 222,
+      "text": "中图分类号：TP393       文献标识码：A\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2403",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 248,
+      "text": "\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2403",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 249,
+      "text": "Monitoring, management and control of self-organized network\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2403",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4457",
+          "v": "9300",
+          "int": 147
+        },
+        {
+          "op": "0x8411",
+          "v": "9d01",
+          "int": 413
+        },
+        {
+          "op": "0x8460",
+          "v": "9d01",
+          "int": 413
+        }
+      ]
+    },
+    {
+      "cp": 310,
+      "text": "LI Ming\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2403",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4457",
+          "v": "9300",
+          "int": 147
+        },
+        {
+          "op": "0x8411",
+          "v": "3601",
+          "int": 310
+        },
+        {
+          "op": "0x8460",
+          "v": "3601",
+          "int": 310
+        }
+      ]
+    },
+    {
+      "cp": 318,
+      "text": "（School of Electronic Information of Wuhan University, Wuhan 430000,China）\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2403",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x4457",
+          "v": "9300",
+          "int": 147
+        },
+        {
+          "op": "0x8411",
+          "v": "3601",
+          "int": 310
+        },
+        {
+          "op": "0x8460",
+          "v": "3601",
+          "int": 310
+        }
+      ]
+    },
+    {
+      "cp": 393,
+      "text": "Abstract: Characterized as flexibility, decentralization, self-organization, scalability and load-balance, self-organized network is widely applied and studied. Meanwhile, the new adaptable management framework is required for the self-organized network. On the basis of analyzing communication mechanism and network protocol of self-organization, a novel distributed architecture for network monitoring, management and control was presented, which was applicable to manage the dynamic self-organized network and to the current complicated large-scale network as well.  \r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 964,
+      "text": "Key words: self-organized network, network management, distributed network agent\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        }
+      ]
+    },
+    {
+      "cp": 1045,
+      "text": "1  引言\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2403",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 1051,
+      "text": "自组织网络系统内没有中央控制实体，节点之间可以直接共享资源和服务，具有完全的自主性和平等的地位，使得自组织网络具有灵活、无中心、自组织、可扩展性强、负载平衡和很好的抗毁性等特点，越来越得到学术界和工业界的关注。自组织的对等计算模式已给计算机和通信网络领域带来了重大的变革，在文件共享、内容分发、协同计算和即时通信等方面以及军事、传感器网络、紧急场合、动态临时场合和商业上都有广泛的应用。自组织网络是目前和未来网络的主要形式，起着重要的作用。\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x4457",
+          "v": "c800",
+          "int": 200
+        },
+        {
+          "op": "0x8411",
+          "v": "a401",
+          "int": 420
+        },
+        {
+          "op": "0x8460",
+          "v": "a401",
+          "int": 420
+        }
+      ]
+    },
+    {
+      "cp": 1272,
+      "text": "随着自组织网络的不断发展和成功应用，人们提出了更高的服务要求，如从纯数据传输、纯语音传输以及有某种限制的视频传输，到语音、数据、图像的综合传输，这就要求网络具有一定的QoS（quality of service，服务质量）保证能力。对于无控制中心、完全分散式体系结构、动态的网络拓扑结构的自组织网络，尤其是拓扑经常发生变化，带宽很窄，能源和内存非常受限的移动自组织网络而言，网络管理、QoS保障、安全以及实时应用等方面的难度较大。传统的适合静态网络的网络管理体系结构存在很多局限性（如可扩展性、灵活性、可维护性和可靠性等方面），已不再适用，必须提出新型的适用于动态自组织网络的管理体系…\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x4457",
+          "v": "cd00",
+          "int": 205
+        },
+        {
+          "op": "0x8411",
+          "v": "ae01",
+          "int": 430
+        },
+        {
+          "op": "0x8460",
+          "v": "ae01",
+          "int": 430
+        }
+      ]
+    },
+    {
+      "cp": 1566,
+      "text": "目前在分布式网络管理方面的研究主要有：\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x4457",
+          "v": "cd00",
+          "int": 205
+        },
+        {
+          "op": "0x8411",
+          "v": "ae01",
+          "int": 430
+        },
+        {
+          "op": "0x8460",
+          "v": "ae01",
+          "int": 430
+        }
+      ]
+    },
+    {
+      "cp": 1586,
+      "text": "参考文献\u0013 ADDIN REFMGR.CITE <Refman><Cite><Author>Andreas Binzenh&#xA8;ofer</Author><Year>2005</Year><RecNum>105</RecNum><IDText>A P2P-based Framework for Distributed Network Management</IDText><MDL Ref_Type=\"Conference Proceeding\"><Ref_Type>Conference Proceeding</Ref_Type><Ref_ID>105</Ref_ID><Title_Primary>A P2P-based Framework for Distributed Network Management</Title_Primary><Authors_Primary>Andreas Binzenh&#xA8;ofer</Authors_Primary><Authors_Primary>urt Tutschku</Authors_Primary><Authors_Primary>Bj?rn auf dem Graben</Authors_Primary><Authors_Primary>Markus Fiedler and Patrik Arlos</Authors_Primary><Date_Primary>2005/3</Date_Primary><Reprint>Not in File</Reprint><Publisher>Peer-to-Peer-Systeme und -Anwendungen, GI/ITG-Workshop in Kooperation mit KiVS 2005, Kaiserslautern</Publisher><ZZ_WorkformID>12</ZZ_WorkformID></MDL></Cite></Refman>\u0014[1]\u0015提出了基于P2P（端到端）的分布式网络性能管理模型，它具有即插即用功能，并能在网络动态变化状况下保障其可靠性和稳定性；\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x260a",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x460b",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0xc60d",
+          "v": "01520300",
+          "int": 217601
+        },
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001520300",
+          "int": null
+        }
+      ]
+    },
+    {
+      "cp": 2498,
+      "text": "参考文献\u0013 ADDIN REFMGR.CITE <Refman><Cite><Author>Stefan Chevul</Author><Year>2006</Year><RecNum>131</RecNum><IDText>a self-organizing concept for distributed end-to-end quality monitoring</IDText><MDL Ref_Type=\"Report\"><Ref_Type>Report</Ref_Type><Ref_ID>131</Ref_ID><Title_Primary>a self-organizing concept for distributed end-to-end quality monitoring</Title_Primary><Authors_Primary>Stefan Chevul</Authors_Primary><Authors_Primary>Andreas Binzenh&#xA8;ofer</Authors_Primary><Authors_Primary>Matthias Schmid</Authors_Primary><Authors_Primary>rt Tutschku </Authors_Primary><Authors_Primary>Markus Fidler</Authors_Primary><Date_Primary>2006</Date_Primary><Reprint>Not in File</Reprint><Volume>No.378</Volume><Pub_Place>Wurzburg, Germany</Pub_Place><Publisher>University of Wurzburg Institute</Publisher><ZZ_WorkformID>24</ZZ_WorkformID></MDL></Cite></Refman>\u0014[2]\u0015基于每个终端用户的有效测量机制，提出了分布式端到端监测系统；\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x260a",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x460b",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0xc60d",
+          "v": "01520300",
+          "int": 217601
+        },
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001520300",
+          "int": null
+        }
+      ]
+    },
+    {
+      "cp": 3388,
+      "text": "参考文献[3]针对传统分布式管理模型的不足，对大规模、异构网络提出了基于P2P的分布式网管模型，其总体结构与本文提出的管理体系有一些相似的设计理念。\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x260a",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x460b",
+          "v": "0100",
+          "int": 1
+        },
+        {
+          "op": "0xc60d",
+          "v": "01520300",
+          "int": 217601
+        },
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001520300",
+          "int": null
+        }
+      ]
+    },
+    {
+      "cp": 3463,
+      "text": "2.1  基于自组织的分布式网络管理模型的建立\r",
+      "style": 2,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xa413",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0xa414",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 3487,
+      "text": "基于自组织的分布式网络管理模型如图1所示，主要由3部分组成：网管服务器、分布式网络代理（DNA）和被管设备。DNA是基于自组织的网络监测、管理和控制系统的基本单元，具有网络性能监测与控制、安全接入与认证管理、业务分类与计费管理等功能，监测并管理各DNA中的网络管理元素。DNA之间以自组织的方式形成管理网络，按研究制定的通信机制进行通信，在数据库级别上共享网管信息。为了对整个网络的运行情况进行全局性管理，模型中设置一个网管服务器。网管服务器是可移动的，可从任意位置连接到DNA网络，然后从DNA装载MIB数据。系统中的DNA可定时向网管服务器发送所需的网络管理信息，或者当网管服务器向DNA发送请求时，该DNA传递相关的MIB的统计信息到网管服务器。如此大大减轻了网管服务器的处理负荷，同样大大减少了管理信息通信量，此外，即使网管服务器临时失效，也不影响DNA的管理，只是延缓了相互之间的通信。用户还可通过图形化用户接口（GUI）进行配置管理功能模块，提高用户可感知的QoS。\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x4457",
+          "v": "cd00",
+          "int": 205
+        },
+        {
+          "op": "0x8411",
+          "v": "ae01",
+          "int": 430
+        },
+        {
+          "op": "0x8460",
+          "v": "ae01",
+          "int": 430
+        }
+      ]
+    },
+    {
+      "cp": 3927,
+      "text": "\u0001\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2403",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2438",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2437",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2448",
+          "v": "00",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 3929,
+      "text": "图1　基于自组织的分布式网络管理模型\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2403",
+          "v": "01",
+          "int": 1
+        },
+        {
+          "op": "0x2438",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2437",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2448",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x4457",
+          "v": "cd00",
+          "int": 205
+        },
+        {
+          "op": "0x8411",
+          "v": "ae01",
+          "int": 430
+        },
+        {
+          "op": "0x8460",
+          "v": "ae01",
+          "int": 430
+        }
+      ]
+    },
+    {
+      "cp": 3948,
+      "text": "（中间部分已省略）\r",
+      "style": 2,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xa413",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0xa414",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 3958,
+      "text": "\r",
+      "style": 0,
+      "properties": []
+    },
+    {
+      "cp": 3959,
+      "text": "4  结语\r",
+      "style": 2,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xa413",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0xa414",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 3965,
+      "text": "本文提出的新型的分布式动态自组织网络的管理体系，基于自组织的DNA网络实现分布式的自组织网络和复杂动态网络的管理，每个DNA由网络监测管理模块、通信模块、缓存模块、本地MIB以及接口等组成，各模块间功能清晰，相互独立，被赋予了良好的通信和管理功能并提供友好的接口，其中管理功能可实现传统网络管理系统所不能很好实现的业务分类、控制和整形以及合理计费，并且能够实现QoS保障，此外能够实现安全接入和在不同粒度的业务识别的基础上实现实时有效的入侵检测和预警。\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2403",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2438",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2437",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2448",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x4457",
+          "v": "cd00",
+          "int": 205
+        },
+        {
+          "op": "0x8411",
+          "v": "ae01",
+          "int": 430
+        },
+        {
+          "op": "0x8460",
+          "v": "ae01",
+          "int": 430
+        }
+      ]
+    },
+    {
+      "cp": 4192,
+      "text": "本系统模型的简单原型实现（DNA管理网络的建立以及基本管理功能的实现）证明了该体系结构的可实施性和可部署性，能够满足动态自组织网络的管理和监测。此外，本系统同样适用于下一代网络的管理和监控。\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x2461",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2403",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2438",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2437",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x2448",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x4457",
+          "v": "cd00",
+          "int": 205
+        },
+        {
+          "op": "0x8411",
+          "v": "ae01",
+          "int": 430
+        },
+        {
+          "op": "0x8460",
+          "v": "ae01",
+          "int": 430
+        }
+      ]
+    },
+    {
+      "cp": 4288,
+      "text": "参考文献：\r",
+      "style": 2,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xa413",
+          "v": "0000",
+          "int": 0
+        },
+        {
+          "op": "0xa414",
+          "v": "0000",
+          "int": 0
+        }
+      ]
+    },
+    {
+      "cp": 4294,
+      "text": "DONOHO D L. Compressed sensing[J]. IEEE Transactions on Information Theory, 2006, 52(4): 1289-1306.\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x260a",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x460b",
+          "v": "0200",
+          "int": 2
+        },
+        {
+          "op": "0xc60d",
+          "v": "01a40100",
+          "int": 107521
+        },
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001a40100",
+          "int": null
+        },
+        {
+          "op": "0x2431",
+          "v": "01",
+          "int": 1
+        }
+      ]
+    },
+    {
+      "cp": 4394,
+      "text": "STEFAN C, ANDREAS B, MATTHIAS S, et al. A self-organizing concept for distributed end-to-end quality monitoring[J]. \u0013 HYPERLINK \"http://xueshu.baidu.com/usercenter/data/journal?cmd=jump&wd=journaluri%3A%2819c3166af7afb148%29%20%E3%80%8AInformatik%20Uni%E3%80%8B&tn=SE_baiduxueshu_c1gjeupa&ie=utf-8&sc_f_para=sc_hilight%3Dpublish&sort=sc_cited\" \\o \"《Informatik Uni》\" \\t \"_blank\" \u0014Informatik Uni\u0015, 2006.\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x260a",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x460b",
+          "v": "0200",
+          "int": 2
+        },
+        {
+          "op": "0xc60d",
+          "v": "01a40100",
+          "int": 107521
+        },
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "00020000a4010000",
+          "int": null
+        }
+      ]
+    },
+    {
+      "cp": 4796,
+      "text": "李强, 王宏, 王乐春. 基于P2P的分布式网络管理模型研究[J]. 计算机工程, 2006, 32(13): 1-13.\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x260a",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x460b",
+          "v": "0200",
+          "int": 2
+        },
+        {
+          "op": "0xc60d",
+          "v": "01a40100",
+          "int": 107521
+        },
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "00020000a4010000",
+          "int": null
+        }
+      ]
+    },
+    {
+      "cp": 4858,
+      "text": "    LI Q, Wang H, Wang L C. Research of P2P based distributed network management[J]. Computer Engineering, 2006, 32(13): 1-13.\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001000000",
+          "int": null
+        },
+        {
+          "op": "0x840f",
+          "v": "a401",
+          "int": 420
+        },
+        {
+          "op": "0x845e",
+          "v": "a401",
+          "int": 420
+        },
+        {
+          "op": "0x4457",
+          "v": "38ff",
+          "int": 65336
+        },
+        {
+          "op": "0x8411",
+          "v": "5cfe",
+          "int": 65116
+        },
+        {
+          "op": "0x8460",
+          "v": "5cfe",
+          "int": 65116
+        }
+      ]
+    },
+    {
+      "cp": 4985,
+      "text": "Karagiannis T, Papagiannaki K, Faloutsos M. Blinc: multilevel traffic classificaion in the dark[J]. \u0013 HYPERLINK \"http://xueshu.baidu.com/usercenter/data/journal?cmd=jump&wd=journaluri%3A%281a7d2428589be882%29%20%E3%80%8AAcm%20Sigcomm%20Computer%20Communication%20Review%E3%80%8B&tn=SE_baiduxueshu_c1gjeupa&ie=utf-8&sc_f_para=sc_hilight%3Dpublish&sort=sc_cited\" \\o \"《Acm Sigcomm Computer Communication Review》\" \\t \"_blank\" \u0014ACM Sigcomm Computer Communication Review\u0015, 2005, 35(4): 229-240\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x260a",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x460b",
+          "v": "0200",
+          "int": 2
+        },
+        {
+          "op": "0xc60d",
+          "v": "01a40100",
+          "int": 107521
+        },
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "00020000a4010000",
+          "int": null
+        }
+      ]
+    },
+    {
+      "cp": 5473,
+      "text": "邵桂芳, 李祖枢, 成卫, 等. 基于视觉感知的融合图像质量评价[J]. 计算机应用, 2004, 24(5) : 69-71.\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x260a",
+          "v": "00",
+          "int": 0
+        },
+        {
+          "op": "0x460b",
+          "v": "0200",
+          "int": 2
+        },
+        {
+          "op": "0xc60d",
+          "v": "01a40100",
+          "int": 107521
+        },
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001a40100",
+          "int": null
+        }
+      ]
+    },
+    {
+      "cp": 5538,
+      "text": "Shao G F, Li Z S, Cheng W, et al. Fusion image quality evaluation method based on human perception[J]. Computer Applications, 2004, 24(5): 69-71.\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0x840f",
+          "v": "a401",
+          "int": 420
+        },
+        {
+          "op": "0x845e",
+          "v": "a401",
+          "int": 420
+        }
+      ]
+    },
+    {
+      "cp": 5684,
+      "text": "\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001000000",
+          "int": null
+        },
+        {
+          "op": "0x840f",
+          "v": "a401",
+          "int": 420
+        },
+        {
+          "op": "0x845e",
+          "v": "a401",
+          "int": 420
+        }
+      ]
+    },
+    {
+      "cp": 5685,
+      "text": "\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001000000",
+          "int": null
+        },
+        {
+          "op": "0x840f",
+          "v": "a401",
+          "int": 420
+        },
+        {
+          "op": "0x845e",
+          "v": "a401",
+          "int": 420
+        }
+      ]
+    },
+    {
+      "cp": 5686,
+      "text": "\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001000000",
+          "int": null
+        },
+        {
+          "op": "0x840f",
+          "v": "a401",
+          "int": 420
+        },
+        {
+          "op": "0x845e",
+          "v": "a401",
+          "int": 420
+        }
+      ]
+    },
+    {
+      "cp": 5687,
+      "text": "收稿日期：2020-12-01\r",
+      "style": 27,
+      "properties": []
+    },
+    {
+      "cp": 5703,
+      "text": "\r",
+      "style": 27,
+      "properties": []
+    },
+    {
+      "cp": 5704,
+      "text": "基金项目：国家自然科学基金资助项目（No.xxxxxxx）；浙江省教育厅科学基金资助项目（No.xxxxxxxx）（分号隔开）\r",
+      "style": 27,
+      "properties": []
+    },
+    {
+      "cp": 5768,
+      "text": "Foundation Items：The National Natural Science Foundation of China（No.xxxxxxx），Education Department Foundation of Zhejiang Province（No.xxxxxxxx）\r",
+      "style": 27,
+      "properties": []
+    },
+    {
+      "cp": 5912,
+      "text": "\r",
+      "style": 27,
+      "properties": []
+    },
+    {
+      "cp": 5913,
+      "text": "作者简介：李明（1988-），男，湖北武汉人，研究生，硕士，主要研究方向：计算机和通信网络。\r",
+      "style": 0,
+      "properties": []
+    },
+    {
+      "cp": 5960,
+      "text": "\r",
+      "style": 0,
+      "properties": []
+    },
+    {
+      "cp": 5961,
+      "text": "Tel: xxx-xxxxxxxx \u000bE-mail: xxxxxxxxxx（E-mail必填）\r",
+      "style": 0,
+      "properties": []
+    },
+    {
+      "cp": 6009,
+      "text": "\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001000000",
+          "int": null
+        },
+        {
+          "op": "0x840f",
+          "v": "a401",
+          "int": 420
+        },
+        {
+          "op": "0x845e",
+          "v": "a401",
+          "int": 420
+        }
+      ]
+    },
+    {
+      "cp": 6010,
+      "text": "\r",
+      "style": 27,
+      "properties": []
+    },
+    {
+      "cp": 6011,
+      "text": "\r",
+      "style": 27,
+      "properties": []
+    },
+    {
+      "cp": 6012,
+      "text": "\r",
+      "style": 0,
+      "properties": []
+    },
+    {
+      "cp": 6013,
+      "text": "\r",
+      "style": 25,
+      "properties": [
+        {
+          "op": "0xc60d",
+          "v": "023910722000",
+          "int": null
+        },
+        {
+          "op": "0xc60d",
+          "v": "0002391072200102",
+          "int": null
+        },
+        {
+          "op": "0x6426",
+          "v": "00000000",
+          "int": 0
+        },
+        {
+          "op": "0xc650",
+          "v": "000000ff00000000",
+          "int": null
+        }
+      ]
+    },
+    {
+      "cp": 6014,
+      "text": "\r",
+      "style": 0,
+      "properties": []
+    },
+    {
+      "cp": 6015,
+      "text": "\r",
+      "style": 0,
+      "properties": []
+    },
+    {
+      "cp": 6016,
+      "text": "\r",
+      "style": 0,
+      "properties": [
+        {
+          "op": "0x6412",
+          "v": "68010100",
+          "int": 65896
+        },
+        {
+          "op": "0xc60d",
+          "v": "0001000000",
+          "int": null
+        },
+        {
+          "op": "0x840f",
+          "v": "a401",
+          "int": 420
+        },
+        {
+          "op": "0x845e",
+          "v": "a401",
+          "int": 420
+        }
+      ]
+    }
+  ],
+  "section_properties": [
+    [
+      {
+        "op": "0xb01f",
+        "v": "822e",
+        "int": 11906
+      },
+      {
+        "op": "0xb020",
+        "v": "c641",
+        "int": 16838
+      },
+      {
+        "op": "0xb021",
+        "v": "6e04",
+        "int": 1134
+      },
+      {
+        "op": "0x9023",
+        "v": "5303",
+        "int": 851
+      },
+      {
+        "op": "0xb022",
+        "v": "6e04",
+        "int": 1134
+      },
+      {
+        "op": "0x9024",
+        "v": "5303",
+        "int": 851
+      },
+      {
+        "op": "0xb025",
+        "v": "0000",
+        "int": 0
+      },
+      {
+        "op": "0xb017",
+        "v": "5303",
+        "int": 851
+      },
+      {
+        "op": "0xb018",
+        "v": "e003",
+        "int": 992
+      },
+      {
+        "op": "0x5032",
+        "v": "0200",
+        "int": 2
+      },
+      {
+        "op": "0x9031",
+        "v": "3801",
+        "int": 312
+      },
+      {
+        "op": "0xd1ff",
+        "v": "0300",
+        "int": 3
+      }
+    ]
+  ],
+  "streams": {
+    "Root Entry": [
+      5,
+      3,
+      1216
+    ],
+    "\u0005SummaryInformation": [
+      2,
+      0,
+      556
+    ],
+    "\u0005DocumentSummaryInformation": [
+      2,
+      9,
+      552
+    ],
+    "WordDocument": [
+      2,
+      115,
+      21555
+    ],
+    "0Table": [
+      2,
+      156,
+      6006
+    ],
+    "Data": [
+      2,
+      7,
+      54814
+    ],
+    "WpsCustomData": [
+      2,
+      18,
+      28
+    ]
+  }
+}

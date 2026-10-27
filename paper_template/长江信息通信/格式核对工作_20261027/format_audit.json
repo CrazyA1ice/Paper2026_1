@@ -1,0 +1,320 @@
+{
+  "source_sha256": "530b753c6b83eabfd641717dcfb0631630f8a95a1dc22a081d321c4411f61e11",
+  "backup": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长江信息通信\\his\\自适应多尺度加权的多变量网络流量预测_czxxtx20261026_结构精简稿_格式修改前备份.docx",
+  "output": "C:\\Users\\Quant\\Desktop\\Paper2026_1\\paper_template\\长江信息通信\\自适应多尺度加权的多变量网络流量预测_czxxtx20261027_格式核对修订稿.docx",
+  "output_sha256": "0d859f335f013be023757e373b60899fe5763f209637cd08c41a689273098a60",
+  "title_chars": 18,
+  "abstract_nonspace_chars": 375,
+  "abstract_Chinese_chars": 144,
+  "english_abstract_words": 196,
+  "equation_groups": 12,
+  "equations_semantically_identical": true,
+  "tables": 4,
+  "all_table_data_identical": true,
+  "figures": 4,
+  "image_audit": [
+    {
+      "figure": 1,
+      "package_part": "word/media/image1.png",
+      "pixels": [
+        3259,
+        2078
+      ],
+      "display_width_cm": 13.796433333333333,
+      "effective_dpi": 600.0,
+      "mode": "L",
+      "tiff_dpi": 600,
+      "original_sha256": "acfc8476de47aa331ec5ef14c9c782ac140a9386c78d941f828d5c0b4bb59464",
+      "gray_sha256": "2ca332dfe896927e1932f8d4a699dc16a37f64a656bff35a0ed69ded1b5a4b76",
+      "native_word_shapes": false
+    },
+    {
+      "figure": 2,
+      "package_part": "word/media/image2.png",
+      "pixels": [
+        3259,
+        1290
+      ],
+      "display_width_cm": 13.796433333333333,
+      "effective_dpi": 600.0,
+      "mode": "L",
+      "tiff_dpi": 600,
+      "original_sha256": "d5a2d0bc65c10306d940e7854d42300a6a7322af266adb7b9741e12eea1bcae8",
+      "gray_sha256": "e74f69386826f3d975d196ee4adf6ae87e572dde5efcf46683a9116120621c42",
+      "native_word_shapes": false
+    },
+    {
+      "figure": 3,
+      "package_part": "word/media/image3.png",
+      "pixels": [
+        3259,
+        1590
+      ],
+      "display_width_cm": 13.796433333333333,
+      "effective_dpi": 600.0,
+      "mode": "L",
+      "tiff_dpi": 600,
+      "original_sha256": "f5bafb5b7d19d3a53f8aaab953efdc4f677982ba734398b22c41ffb2de8f6f05",
+      "gray_sha256": "2d9ae3cd2029e01891ad02fcee5e841e755cfd72c0ca6cbd4714532733458d7c",
+      "native_word_shapes": false
+    },
+    {
+      "figure": 4,
+      "package_part": "word/media/image4.png",
+      "pixels": [
+        3259,
+        1559
+      ],
+      "display_width_cm": 13.796433333333333,
+      "effective_dpi": 600.0,
+      "mode": "L",
+      "tiff_dpi": 600,
+      "original_sha256": "05f644efabdfd275639fca6b81aa6d8a8653730516248bed45b9885e02e61f6a",
+      "gray_sha256": "f871658d5faab3d99973843052364c3de61b3bebb1b19c210d264d3ab16b6ea2",
+      "native_word_shapes": false
+    }
+  ],
+  "reference_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "first_citation_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "preserved_package_parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "word/_rels/document.xml.rels",
+    "word/footnotes.xml",
+    "word/endnotes.xml",
+    "word/theme/theme1.xml",
+    "word/numbering.xml",
+    "word/webSettings.xml",
+    "word/fontTable.xml",
+    "docProps/core.xml",
+    "docProps/app.xml"
+  ],
+  "modified_package_parts": [
+    "word/document.xml",
+    "word/styles.xml",
+    "word/settings.xml",
+    "word/media/image1.png",
+    "word/media/image2.png",
+    "word/media/image3.png",
+    "word/media/image4.png"
+  ],
+  "changes": [
+    {
+      "before": "摘要：针对骨干网小时级源—目的（OD）流量的多尺度变化，提出自适应多尺度加权预测方法。通过1、2、4尺度的独立分解线性模型（DLinear）生成候选预测，利用四维窗口统计特征计算融合权重，并在OD变量间共享时间映射。Abilene和GÉANT的24 h预测MSE较LightTS平均降低25.77%和43.74%，参数量为其6.41%和2.17%；Abilene高需求MAE与平均低估误差较DLinear降低13.96%和16.07%；GÉANT一周预测MSE降低23.16%。该方法以低参数量实现多尺度流量预测。",
+      "after": "摘要：针对骨干网小时级源—目的（origin-destination，OD）流量的多尺度变化，提出自适应多尺度加权预测方法。采用1、2、4尺度的独立分解线性模型（decomposition-linear，DLinear）生成候选预测，利用四维窗口统计特征计算融合权重，并在OD变量间共享时间映射。Abilene和GÉANT的24 h预测均方误差（mean squared error，MSE）较LightTS平均降低25.77%和43.74%，参数量为其6.41%和2.17%；Abilene高需求平均绝对误差（mean absolute error，MAE）与平均低估误差（average underestimation error，AUE）较DLinear降低13.96%和16.07%；GÉANT一周预测MSE降低23.16%。该方法以低参数量实现多尺度流量预测。"
+    },
+    {
+      "before": "中图分类号：TP393    文献标志码：A",
+      "after": "中图分类号：TP393    文献标识码：A"
+    },
+    {
+      "before": "(School of Information Engineering, Anhui Finance & Trade Vocational College, Hefei Anhui 231200, China)",
+      "after": "(School of Information Engineering, Anhui Finance & Trade Vocational College, Hefei 231200, China)"
+    },
+    {
+      "before": "Abstract: An adaptive multiscale weighting method was developed for hourly origin-destination (OD) traffic forecasting in backbone networks. Three independent decomposition linear (DLinear) experts generated forecasts at scales of 1, 2, and 4. Four window statistics determined the fusion weights, while temporal mappings were shared across OD variables. On Abilene and GÉANT, the mean paired reductions in 24-hour mean squared error (MSE) relative to LightTS were 25.77% and 43.74%, with parameter counts equivalent to 6.41% and 2.17% of the respective LightTS configurations. On Abilene, high-demand mean absolute error (MAE) and average underestimation error decreased by 13.96% and 16.07% relative to DLinear. For one-week forecasting on GÉANT, MSE decreased by 23.16% relative to DLinear. The method combines multiscale forecasts with a small parameter budget.",
+      "after": "Abstract: An adaptive multiscale weighting method was developed to model multiscale variations in hourly origin-destination (OD) traffic in backbone networks. Three independent decomposition-linear (DLinear) experts generated candidate forecasts at scales of 1, 2, and 4. Four window statistics determined the fusion weights, while temporal mappings were shared across OD variables. The statistics consisted of the window mean, standard deviation, mean of the last time step, and mean absolute first-order difference. The three scales covered the same historical interval, and each expert produced forecasts at a common output horizon. For the 24-hour task, 96-hour inputs were used, and the adaptive model contained 8 339 parameters on both datasets. The method was evaluated on the Abilene and GÉANT datasets using eight common random seeds. Relative to LightTS, the mean paired reductions in 24-hour mean squared error (MSE) were 25.77% and 43.74%, with parameter counts equivalent to 6.41% and 2.17% of the respective LightTS configurations. On Abilene, high-demand mean absolute error (MAE) and average underestimation error (AUE) decreased by 13.96% and 16.07% relative to DLinear. For one-week forecasting on GÉANT, MSE decreased by 23.16% relative to DLinear. The method combines multiscale forecasts with a small parameter budget."
+    },
+    {
+      "before": "0　引言",
+      "after": "1　引言"
+    },
+    {
+      "before": "骨干网容量配置与资源管理需要提前估计源—目的节点对（origin-destination，OD）的流量需求。多变量OD预测以节点对为变量，在同一历史输入下预测多个节点对的未来变化。小时级流量兼有逐小时波动与较慢演化趋势，不同历史窗口的变化幅度和末端状态也各不相同。预测模型既需从同一历史范围提取不同时间分辨率的信息，也需根据当前窗口确定各尺度的贡献。对于数百维OD序列，如何在控制参数规模的同时完成上述预测与融合，是本文研究的主要问题。",
+      "after": "骨干网容量配置与资源管理需要提前估计源—目的（origin-destination，OD）节点对的流量需求。多变量OD预测以节点对为变量，在同一历史输入下预测多个节点对的未来变化。小时级流量兼有逐小时波动与较慢演化趋势，不同历史窗口的变化幅度和末端状态也各不相同。预测模型既需从同一历史范围提取不同时间分辨率的信息，也需根据当前窗口确定各尺度的贡献。对于数百维OD序列，如何在控制参数规模的同时完成上述预测与融合，是本文研究的主要问题。"
+    },
+    {
+      "before": "已有网络流量预测研究从时间依赖、变量关联和周期结构等方面展开。Lohrasbinasab等[1]梳理了统计方法与机器学习方法，Qin等[2]采用图神经网络建模时空关联，韦烜等[3]和唐文杰等[4]分别研究流量矩阵的变量关系与周期整合；Zhou等[5]利用深度回声状态网络开展多尺度预测。在轻量时序建模方面，分解线性模型（DLinear）[6]分别映射趋势项和余项，结构简洁；TimeMixer[7]和LightTS[8]则提供了多尺度混合与采样建模思路。对于小时级OD流量，单一时间分辨率难以同时利用细粒度波动与粗粒度趋势，固定等权或全局静态权重又难以随窗口状态调整尺度贡献，需要将多尺度信息提取与轻量自适应融合结合。",
+      "after": "已有网络流量预测研究从时间依赖、变量关联和周期结构等方面展开。Lohrasbinasab等[1]梳理了统计方法与机器学习方法，Qin等[2]采用图神经网络建模时空关联，韦烜等[3]和唐文杰等[4]分别研究流量矩阵的变量关系与周期整合；Zhou等[5]利用深度回声状态网络开展多尺度预测。在轻量时序建模方面，分解线性模型（decomposition-linear，DLinear）[6]分别映射趋势项和余项，结构简洁；TimeMixer[7]和LightTS[8]则提供了多尺度混合与采样建模思路。对于小时级OD流量，单一时间分辨率难以同时利用细粒度波动与粗粒度趋势，固定等权或全局静态权重又难以随窗口状态调整尺度贡献，需要将多尺度信息提取与轻量自适应融合结合。"
+    },
+    {
+      "before": "1　自适应多尺度网络流量预测方法",
+      "after": "2　自适应多尺度网络流量预测方法"
+    },
+    {
+      "before": "模型由多尺度预测分支与窗口路由分支组成，如图1所示。预测分支从同一历史窗口构造三种时间分辨率的序列，并独立输出未来H步候选预测；路由分支提取四项窗口统计量，经两层网络生成尺度权重。两分支联合训练，最终逐元素融合为H×C的OD流量预测，其中C为OD变量数。",
+      "after": "模型由多尺度预测分支与窗口路由分支组成，如图1所示。预测分支从同一历史窗口构造三种时间分辨率的序列，并独立输出未来H步候选预测；路由分支提取四项窗口统计量，经两层多层感知机（multilayer perceptron，MLP）生成尺度权重。两分支联合训练，最终逐元素融合为H×C的OD流量预测，其中C为OD变量数。 图1展示24 h基础任务，一周任务的输出长度为168步。"
+    },
+    {
+      "before": "图1 自适应多尺度加权网络流量预测模型（图示为24 h基础任务，一周任务的输出长度为168步）",
+      "after": "图1 自适应多尺度加权网络流量预测模型"
+    },
+    {
+      "before": "1.1　多尺度输入与线性专家",
+      "after": "2.1　多尺度输入与线性专家"
+    },
+    {
+      "before": "1.2　窗口特征与自适应加权",
+      "after": "2.2　窗口特征与自适应加权"
+    },
+    {
+      "before": "1.3　模型训练与参数规模",
+      "after": "2.3　模型训练与参数规模"
+    },
+    {
+      "before": "变量间共享时间映射使参数量不随OD维数增加。24 h配置共8339个参数，路由仅占1.57%；H=168时共57587个参数，路由仍为131个，占比降至0.23%。该结构以固定规模的窗口特征和路由网络完成不同OD维数及预测长度下的自适应融合。",
+      "after": "变量间共享时间映射使参数量不随OD维数增加。24 h配置共8 339个参数，路由仅占1.57%；H=168时共57 587个参数，路由仍为131个，占比降至0.23%。该结构以固定规模的窗口特征和路由网络完成不同OD维数及预测长度下的自适应融合。"
+    },
+    {
+      "before": "2　实验分析",
+      "after": "3　实验分析"
+    },
+    {
+      "before": "2.1　实验数据与参数设置",
+      "after": "3.1　实验数据与参数设置"
+    },
+    {
+      "before": "实验采用CESNET TS-Zoo[9]中的Abilene[10]和GÉANT[11]小时级流量矩阵，分别含4656、2849个时间点。使用CESNET TS-Zoo 2.2.0读取matrix子集的1_hour聚合文件，字段分别为小时级平均OD流量matrix_avg_realOD和平均带宽matrix_avg_bandwidth_kbps。按UTC时间戳，Abilene覆盖2004年3月1日0时至9月10日23时，GÉANT覆盖2004年12月31日23时30分至2005年4月29日15时30分。数据按时间顺序以6∶2∶2划分训练、验证和测试集，划分后在各子集中独立生成滑动窗口。",
+      "after": "实验采用CESNET TS-Zoo[9]中的Abilene[10]和GÉANT[11]小时级流量矩阵，分别含4 656、2 849个时间点。使用CESNET TS-Zoo 2.2.0读取matrix子集的1_hour聚合文件，字段分别为小时级平均OD流量matrix_avg_realOD和平均带宽matrix_avg_bandwidth_kbps。按UTC时间戳，Abilene覆盖2004年3月1日0时至9月10日23时，GÉANT覆盖2004年12月31日23时30分至2005年4月29日15时30分。数据按时间顺序以6∶2∶2划分训练、验证和测试集，划分后在各子集中独立生成滑动窗口。"
+    },
+    {
+      "before": "各模型采用相同的数据划分、预处理、输入与预测目标，批量大小为16。DLinear及多尺度模型的学习率为0.001，最多训练30轮，早停耐心值为6；LightTS采用Time-Series-Library公开实现[12]，分块长度24、模型维度512，学习率0.0001，最多训练50轮，早停耐心值为10。各模型均按验证集MSE选择检查点，使用42～49八个共同随机种子重复训练。软件环境为Python 3.11.9、PyTorch 2.5.1。",
+      "after": "各模型采用相同的数据划分、预处理、输入与预测目标，批量大小为16。DLinear及多尺度模型的学习率为0.001，最多训练30轮，早停耐心值为6；LightTS采用Time-Series-Library公开实现[12]，分块长度24、模型维度512，学习率0.000 1，最多训练50轮，早停耐心值为10。各模型均按验证集MSE选择检查点，使用42～49八个共同随机种子重复训练。软件环境为Python 3.11.9、PyTorch 2.5.1。"
+    },
+    {
+      "before": "2.2　预测精度与参数量比较",
+      "after": "3.2　预测精度与参数量比较"
+    },
+    {
+      "before": "以单尺度DLinear和轻量时序模型LightTS为基线，分别考察多尺度自适应融合的预测收益及参数代价，结果见表2。图2给出同一种子下的相对误差降幅与参数量比例。",
+      "after": "以单尺度DLinear和轻量时序模型LightTS为基线，分别考察多尺度自适应融合的预测收益及参数代价，结果见表2。图2给出同一种子下的相对误差降幅与参数量比例。 散点表示单次配对，菱形及误差线表示均值±样本标准差；（a）、（b）分别为Abilene和GÉANT。"
+    },
+    {
+      "before": "图2 24 h预测误差的逐种子配对降幅与参数量比例（散点为单次配对，菱形及误差线为均值±样本标准差）",
+      "after": "图2 24 h预测误差的配对降幅与参数量比例"
+    },
+    {
+      "before": "相对LightTS，Abilene和GÉANT的MSE平均降低25.77%和43.74%，MAE平均降低12.66%和29.09%。对应LightTS模型分别含130162、384382个参数，本文方法均为8339个，分别为其6.41%和2.17%，即减少93.59%和97.83%。通过变量间参数共享和四维路由，本文方法以较少参数获得了更低的平均预测误差，在不同OD规模下保持了精度与参数量优势。",
+      "after": "相对LightTS，Abilene和GÉANT的MSE平均降低25.77%和43.74%，MAE平均降低12.66%和29.09%。对应LightTS模型分别含130 162、384 382个参数，本文方法均为8 339个，分别为其6.41%和2.17%，即减少93.59%和97.83%。通过变量间参数共享和四维路由，本文方法以较少参数获得了更低的平均预测误差，在不同OD规模下保持了精度与参数量优势。"
+    },
+    {
+      "before": "2.3　自适应加权消融分析",
+      "after": "3.3　自适应加权消融分析"
+    },
+    {
+      "before": "2.4　高需求目标点预测分析",
+      "after": "3.4　高需求目标点预测分析"
+    },
+    {
+      "before": "式中，|Ω|为高需求目标点数；AUE对正向低估量取平均，数值越小表示低估幅度越小。两项指标均在标准化空间计算，结果见图3。",
+      "after": "式中，|Ω|为高需求目标点数；AUE对正向低估量取平均，数值越小表示低估幅度越小。两项指标均在标准化空间计算，结果见图3。 散点表示单次重复，圆形和方形分别表示MAE和AUE，误差线表示样本标准差；（a）、（b）分别为Abilene和GÉANT。"
+    },
+    {
+      "before": "图3 高需求目标点的MAE与平均低估误差（散点为单次重复，误差线为样本标准差）",
+      "after": "图3 高需求目标点的MAE与AUE"
+    },
+    {
+      "before": "2.5　一周预测结果分析",
+      "after": "3.5　一周预测结果分析"
+    },
+    {
+      "before": "将GÉANT预测长度扩展至168 h，历史输入仍为96 h，各模型按新输出长度独立训练，数据划分、预处理与评价口径保持一致。在307个共同测试窗口上比较DLinear、固定等权、全局权重、恒定路由和本文方法，绝对误差见表4，逐种子结果及配对降幅见图4。",
+      "after": "将GÉANT预测长度扩展至168 h，历史输入仍为96 h，各模型按新输出长度独立训练，数据划分、预处理与评价口径保持一致。在307个共同测试窗口上比较DLinear、固定等权、全局权重、恒定路由和本文方法，绝对误差见表4，逐种子结果及配对降幅见图4。 图4中（a）、（c）分别为MSE和MAE，（b）、（d）分别为对应指标的配对降幅；散点表示单次重复，菱形及误差线表示均值±样本标准差。"
+    },
+    {
+      "before": "图4 GÉANT一周预测误差与逐种子配对降幅（散点为单次重复，菱形及误差线为均值±样本标准差）",
+      "after": "图4 GÉANT一周预测误差与配对降幅"
+    },
+    {
+      "before": "预测长度由24 h扩展至168 h后，路由网络仍仅含131个参数，占总参数量57587的0.23%。较长预测区间上的误差改善与固定路由规模相结合，进一步体现了该结构在多步OD流量预测中的精度与轻量化优势。",
+      "after": "预测长度由24 h扩展至168 h后，路由网络仍仅含131个参数，占总参数量57 587的0.23%。较长预测区间上的误差改善与固定路由规模相结合，进一步体现了该结构在多步OD流量预测中的精度与轻量化优势。"
+    },
+    {
+      "before": "3　结语",
+      "after": "4　结语"
+    },
+    {
+      "before": "[2] QIN Liang, GU Huaxi, WEI Wenting, et al. Spatio-temporal communication network traffic prediction method based on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.2024.121003.",
+      "after": "[2] QIN L, GU H, WEI W, et al. Spatio-temporal communication network traffic prediction method based on graph neural network[J]. Information Sciences, 2024, 679: 121003. DOI: 10.1016/j.ins.2024.121003."
+    },
+    {
+      "before": "[5] ZHOU Jian, HAN Taotao, XIAO Fu, et al. Multiscale network traffic prediction method based on deep echo-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-21874. DOI: 10.1109/JIOT.2022.3181807.",
+      "after": "[5] ZHOU J, HAN T, XIAO F, et al. Multiscale network traffic prediction method based on deep echo-state network for Internet of Things[J]. IEEE Internet of Things Journal, 2022, 9(21): 21862-21874. DOI: 10.1109/JIOT.2022.3181807."
+    },
+    {
+      "before": "[6] ZENG Ailing, CHEN Muxi, ZHANG Lei, et al. Are transformers effective for time series forecasting?[J]. Proceedings of the AAAI Conference on Artificial Intelligence, 2023, 37(9): 11121-11128. DOI: 10.1609/aaai.v37i9.26317.",
+      "after": "[6] ZENG A, CHEN M, ZHANG L, et al. Are transformers effective for time series forecasting?[J]. Proceedings of the AAAI Conference on Artificial Intelligence, 2023, 37(9): 11121-11128. DOI: 10.1609/aaai.v37i9.26317."
+    },
+    {
+      "before": "[7] WANG Shiyu, WU Haixu, SHI Xiaoming, et al. TimeMixer: decomposable multiscale mixing for time series forecasting[C/OL]//The Twelfth International Conference on Learning Representations. 2024[2026-10-21]. https://openreview.net/forum?id=7oLshfEIC2.",
+      "after": "[7] WANG S, WU H, SHI X, et al. TimeMixer: decomposable multiscale mixing for time series forecasting[C/OL]//The Twelfth International Conference on Learning Representations, May 7-11, 2024, Vienna, Austria. 2024[2026-10-21]. https://openreview.net/forum?id=7oLshfEIC2."
+    },
+    {
+      "before": "[8] LIU Xinhe, WANG Wenmin. Deep time series forecasting models: a comprehensive survey[J]. Mathematics, 2024, 12(10): 1504. DOI: 10.3390/math12101504.",
+      "after": "[8] LIU X, WANG W. Deep time series forecasting models: a comprehensive survey[J]. Mathematics, 2024, 12(10): 1504. DOI: 10.3390/math12101504."
+    },
+    {
+      "before": "[9] KUREŠ M, KOUMAR J, HYNEK K. CESNET TS-Zoo: a library for reproducible analysis of network traffic time series[C]//2025 21st International Conference on Network and Service Management. New York: IEEE, 2025: 1-5. DOI: 10.23919/CNSM67658.2025.11297513.",
+      "after": "[9] KUREŠ M, KOUMAR J, HYNEK K. CESNET TS-Zoo: a library for reproducible analysis of network traffic time series[C]//2025 21st International Conference on Network and Service Management, October 27-31, 2025, Bologna, Italy. Piscataway: IEEE, 2025: 1-5. DOI: 10.23919/CNSM67658.2025.11297513."
+    },
+    {
+      "before": "[10] ZHANG Yin, ROUGHAN M, DUFFIELD N, et al. Fast accurate computation of large-scale IP traffic matrices from link loads[J]. ACM SIGMETRICS Performance Evaluation Review, 2003, 31(1): 206-217. DOI: 10.1145/885651.781053.",
+      "after": "[10] ZHANG Y, ROUGHAN M, DUFFIELD N, et al. Fast accurate computation of large-scale IP traffic matrices from link loads[J]. ACM SIGMETRICS Performance Evaluation Review, 2003, 31(1): 206-217. DOI: 10.1145/885651.781053."
+    },
+    {
+      "before": "[12] THUML. Time-Series-Library[CP/OL]. (2026-04-18)[2026-10-23]. https://github.com/thuml/Time-Series-Library/tree/4e938a1767106324dd753b2a44832bf870a0252e.",
+      "after": "[12] THUML. Time-Series-Library[EB/OL]. (2026-04-18)[2026-10-23]. https://github.com/thuml/Time-Series-Library/tree/4e938a1767106324dd753b2a44832bf870a0252e."
+    },
+    {
+      "before": "作者简介：柯亚文（1998—），男（汉族），安徽池州人，助教，硕士研究生学历，硕士学位，主要研究方向：计算机软件。联系电话：18983096676；电子邮箱：keyawen@afc.edu.cn。",
+      "after": "作者简介：柯亚文（1998—），男（汉族），安徽池州人，硕士研究生学历、硕士学位，安徽财贸职业学院信息工程学院，助教，主要研究方向：计算机软件。联系电话：18983096676；电子邮箱：keyawen@afc.edu.cn。"
+    },
+    {
+      "kind": "English reference counterpart",
+      "ref": 3,
+      "after": "WEI X, LIU Z, LI Q, et al. Research on analysis and prediction of traffic matrix for large-scale IP network[J]. Systems Engineering and Electronics, 2024, 46(6): 2164-2173. DOI: 10.12305/j.issn.1001-506X.2024.06.35."
+    },
+    {
+      "kind": "English reference counterpart",
+      "ref": 4,
+      "after": "TANG W J, XIAO Y L, KONG X Y, et al. CycleLLH: a new network traffic prediction model based on cycle integration[J]. Chinese Journal of Computers, 2024, 47(12): 2867-2888. DOI: 10.11897/SP.J.1016.2024.02867."
+    }
+  ],
+  "native_render_verified": false,
+  "native_render_blocker": "Bundled runtime has no LibreOffice; Microsoft Word COM activation fails with 0x80070520. HTML review is not native Word pagination.",
+  "requested_source_updated": true,
+  "secondary_preview": {
+    "pages": 8,
+    "reviewed_all_pages": true,
+    "native_Word_pagination": false,
+    "images": 4,
+    "math_groups": 12,
+    "horizontal_overflow": 0,
+    "page_hashes": {
+      "page-1.png": "d174c31c6063c168bd0a902613d94b38603fd30aaf55bd47125b0d4a0788578e",
+      "page-2.png": "9ef4af7b8b128fdbc8bbc4666f7035608d0ccecae6cdf747ffeeb5d13237ba04",
+      "page-3.png": "ce0c8d0a1c458490ff70081f8a717f3300e112abdd0d572cadb368bb7b932cfb",
+      "page-4.png": "904d1578d3e72e3ed36735362707df234692e3980a9c7111b3bdc8b9a5d6ff58",
+      "page-5.png": "61f4b357080578d8769a19037d677a02471336cfb1a9a7dad988946c9c115ccd",
+      "page-6.png": "07f0b96e63fc45c4bcf4731d51f506847cd1ab0a50644a1bc55b46dcd636e2d8",
+      "page-7.png": "edab15947ec25f70fafea626171c2cc1aad5ccb5ab9d9a6aaafd94dec58e38b6",
+      "page-8.png": "a6e214159209cfce8a6c5cabed633244dc4c4ac702794aa7e66c35c5fec46c04"
+    }
+  }
+}
