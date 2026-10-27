@@ -1,0 +1,17 @@
+{
+  "pages": 10,
+  "screens": [
+    "page-01.jpg",
+    "page-02.jpg",
+    "page-03.jpg",
+    "page-04.jpg",
+    "page-05.jpg",
+    "page-06.jpg",
+    "page-07.jpg",
+    "page-08.jpg",
+    "page-09.jpg",
+    "page-10.jpg"
+  ],
+  "render_engine": "LibreOffice headless",
+  "warning": "Preview only; Microsoft Word pagination should be checked before submission."
+}
