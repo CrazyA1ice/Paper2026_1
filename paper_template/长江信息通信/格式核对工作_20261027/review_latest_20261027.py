@@ -83,7 +83,7 @@ with zipfile.ZipFile(F) as z:
     drawings=len(body.xpath('//*[local-name()="drawing"]'))
     anchors=len(body.xpath('//*[local-name()="anchor"]'))
     cols=len(body.xpath('//*[local-name()="sectPr"]'))
-    embedded_title=[x.text for x in allparas if re.match(r'^\s*图\s*[1-9]',x['text'])]
+    embedded_title=[x['text'] for x in allparas if re.match(r'^\s*图\s*[1-9]',x['text'])]
     formats=[]
     for e in body.xpath('//w:rFonts',namespaces=W):
         formats.append({'eastAsia':e.get(qn('w:eastAsia')),'ascii':e.get(qn('w:ascii'))})
